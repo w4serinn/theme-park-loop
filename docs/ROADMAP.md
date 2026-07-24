@@ -108,16 +108,16 @@ evolveループはこの方針を毎サイクル遵守すること:
       カード hover でスチームパンク的な効果(真鍮色の輝き・歯車回転 CSS など)
 - [ ] (M) 新エリア: 時計塔(pages/exploration/clock-tower.html)
       ── 学院の象徴たる大時計塔。魔法時計・時間操作実験・展望台。
-      アクセント色は `--silver`(PALETTE.md 提案中)
+      アクセント色は `--silver`(承認済み)
 - [ ] (M) 新エリア: 大図書館(pages/exploration/grand-library.html)
       ── 天井まで続く魔法書の棚と浮遊する蝋燭。写本体験・書庫迷宮。
       エリア専用の深緑×真鍮パターン
 - [ ] (M) 新エリア: 決闘演武場(pages/exploration/dueling-ground.html)
       ── 学院生の魔法決闘を観戦・体験できる円形競技場。
-      アクセント色は `--crimson`(PALETTE.md 提案中)
+      アクセント色は `--crimson`(承認済み)
 - [ ] (M) 新エリア: 天文台(pages/exploration/observatory.html)
       ── 学院最上部の星界観測施設。魔法望遠鏡・天体儀。
-      アクセント色は `--azure`(PALETTE.md 提案中)
+      アクセント色は `--azure`(承認済み)
 - [ ] (S) 一覧ページのエリアカードにエリア固有アクセント色を適用(承認後)
 
 ### 3. 学院祭・行事 [status: 進行中]
