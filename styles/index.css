@@ -83,3 +83,41 @@
   opacity: 0.6;
   font-size: 0.9rem;
 }
+
+@media (width <= 768px) {
+  .hero {
+    padding: 3rem 1rem;
+  }
+
+  .hero__title {
+    font-size: 1.9rem;
+  }
+
+  .hero__tagline {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero__cta {
+    display: block;
+    max-width: 260px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .news-section {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (width <= 400px) {
+  .hero__title {
+    font-size: 1.55rem;
+  }
+
+  .hero__subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+}

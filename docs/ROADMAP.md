@@ -52,7 +52,7 @@
 - [x] (S) 更新履歴(ニュース)セクションの追加(`<!-- NEWS -->` プレースホルダーを設置。
       実データは書かない。evolve/SKILL.md参照)
 - [ ] (M) ヒーローエリアの簡易アニメーション(CSSのみ)
-- [ ] (S) ニュース一覧の最終アイテムの下線を非表示 (`li:last-child { border-bottom: none; }`) [todo]
+- [ ] (S) ニュース一覧アイテムの区切り線を `color-mix(in srgb, var(--brass) 20%, transparent)` で半透明化し、最終アイテムは非表示 [todo]
 
 ### 2. 学院内探索 [status: 未着手] (一覧→エリア の2階層)
 - [ ] (S) 一覧ページ(pages/exploration/index.html)のHTML骨格(エリアカード表示)
