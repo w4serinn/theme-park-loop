@@ -1,0 +1,169 @@
+/* 学院祭・行事ページ固有スタイル */
+
+.page-hero {
+  text-align: center;
+  padding: 3rem 1.5rem 2.5rem;
+  border-bottom: 1px solid var(--brass);
+}
+
+.page-hero__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 0.75rem;
+}
+
+.page-hero__desc {
+  font-size: 1rem;
+  color: var(--brass);
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* イベント一覧 */
+.event-calendar {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 3rem;
+}
+
+.event-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.event-card {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 1.25rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 25%, transparent);
+}
+
+.event-card:first-child {
+  border-top: 1px solid color-mix(in oklch, var(--brass) 25%, transparent);
+}
+
+/* 注目イベント */
+.event-card--featured {
+  background-color: color-mix(in oklch, var(--emerald) 8%, var(--ink));
+  margin: 0 -1.5rem;
+  padding: 1.5rem;
+}
+
+/* 日付 */
+.event-card__date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.event-card__month {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ember);
+  line-height: 1.2;
+}
+
+.event-card__day {
+  font-size: 0.7rem;
+  color: var(--brass);
+  opacity: 0.65;
+  text-align: center;
+  margin-top: 0.2rem;
+  line-height: 1.4;
+}
+
+/* イベント本文 */
+.event-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.event-card__name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.event-card__desc {
+  font-size: 0.875rem;
+  color: var(--brass);
+  opacity: 0.75;
+  margin: 0;
+  line-height: 1.65;
+}
+
+/* 季節タグ */
+.event-card__season {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+  width: fit-content;
+  letter-spacing: 0.05em;
+}
+
+.event-card__season--spring {
+  background-color: color-mix(in oklch, var(--emerald) 30%, var(--ink));
+  color: var(--brass);
+  border: 1px solid color-mix(in oklch, var(--emerald) 60%, transparent);
+}
+
+.event-card__season--summer {
+  background-color: color-mix(in oklch, var(--ember) 20%, var(--ink));
+  color: var(--brass);
+  border: 1px solid color-mix(in oklch, var(--ember) 50%, transparent);
+}
+
+.event-card__season--autumn {
+  background-color: color-mix(in oklch, var(--brass) 20%, var(--ink));
+  color: var(--brass);
+  border: 1px solid color-mix(in oklch, var(--brass) 50%, transparent);
+}
+
+.event-card__season--winter {
+  background-color: color-mix(in oklch, var(--ink) 60%, transparent);
+  color: var(--brass);
+  border: 1px solid color-mix(in oklch, var(--brass) 30%, transparent);
+}
+
+@media (width <= 600px) {
+  .page-hero {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .page-hero__title {
+    font-size: 1.6rem;
+  }
+
+  .event-calendar {
+    padding: 1.5rem 1rem 2rem;
+  }
+
+  .event-card {
+    grid-template-columns: 60px 1fr;
+    gap: 0.875rem;
+  }
+
+  .event-card--featured {
+    margin: 0 -1rem;
+    padding: 1.25rem 1rem;
+  }
+
+  .event-card__month {
+    font-size: 0.95rem;
+  }
+}
