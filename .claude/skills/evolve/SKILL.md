@@ -76,6 +76,17 @@
   `npm run build` が、そのページの深さに応じて `{{BASE}}` を正しい相対パスに変換する。
   絶対パスのまま書くと、GitHub Pagesのサブパス配下で公開した際にリンクが壊れる
   (`tests/no-absolute-paths.test.js` がこの違反を検出する)。
+- トップページに更新履歴(ニュース)欄を設ける場合、実際の履歴データは書かず、
+  `<!-- NEWS -->` というプレースホルダーだけを置くこと(HEADER/FOOTERと同じ扱い)。
+  `npm run build` が `data/news.json` の内容を読み、HTMLに変換して差し込む。
+  **`data/news.json` はGitHub Actions(`scripts/update-news.js`)が、ページ完了を検出した
+  際に自動で追記するファイルであり、evolveループはこのファイルを直接編集しては
+  ならない。** 手動で編集すると、CIによる自動更新と競合する。
+- あるページのstatusをこのサイクルで`完了`に変える場合、見出し直後に世界観に沿った
+  紹介文を1〜2文で追記する: `> 紹介文: <本文>`。これがそのまま更新履歴に載る文章になる。
+  書き忘れても`npm run build`やテストは失敗しないが、`local-review`が検出して
+  その場で追記させる(4節参照)。紹介文が最終的に無い状態でコミットされた場合のみ、
+  CIが機械的な一文(「<ページ名>を公開しました」)にフォールバックする。
 
 ### タスク実行中にスコープが大きすぎると判明した場合
 
@@ -165,6 +176,7 @@ npm run build
 - mainへの直接commit/push/merge(取り込みは人間がレビュー後に行う)
 - PRの作成・マージ(`gh pr create`、`gh pr merge`等)を自分で実行すること。
   取り込みの判断と実行は必ず人間が行う
+- `data/news.json` を直接編集すること(GitHub Actionsが自動更新するため)
 - 履歴改変(`rebase -i`、force push、`reset --hard`) — evolveブランチ上でも禁止
 - テストが通っていない状態でのcommit/push
 - ROADMAPにない大規模リファクタリング
