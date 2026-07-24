@@ -1,3 +1,9 @@
 # サイクル履歴
 
-(まだ記録がありません。evolveサイクルが実行されるたびに追記されます)
+## 2026-07-24 22:13
+- 実装: トップページ HTML骨格 (pages/index.html + styles/index.css)。ヒーローエリア・ニュースセクション(`<!-- NEWS -->` プレースホルダー含む)を追加
+- レビュー: 指摘2件対応 (A-1: ROADMAP todo追記 / A-2: 対応不要)
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: トップページ レスポンシブ対応 または 世界観に基づく配色・タイポグラフィの適用
+- blocked / partial: なし
+- asset-pending: なし
