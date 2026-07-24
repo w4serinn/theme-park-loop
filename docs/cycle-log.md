@@ -1,5 +1,14 @@
 # サイクル履歴
 
+## 2026-07-25 04:06
+- 実装: 学院内探索 一覧ページ HTML骨格 (pages/exploration/index.html + styles/exploration.css)。エリアカード3件(錬金術研究棟・飛行船ドック・魔法陣召喚広場)をグリッドレイアウトで配置
+- レビュー: 指摘1件対応 (A-1: card border-color を color-mix(in srgb) → (in oklch) に変更し視認性確保) / 指摘1件 ROADMAP todo追記 (A-3: ナビアクティブリンクハイライト)
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 学院内探索 エリアページの共通テンプレート作成 (pages/exploration/<area>.html)
+- blocked / partial: なし
+- asset-pending: なし
+
+
 ## 2026-07-25 03:01
 - 実装: トップページ ニュース区切り線を color-mix(in srgb, var(--brass) 20%, transparent) で半透明化し、最終アイテムの下線を非表示。トップページ 完了・roadmap-done.md に移動
 - レビュー: 指摘1件 (A-1: color-mix srgb の視覚的暗化) → ROADMAP 技術メモに追記。現状ニュース空のため実害なし
