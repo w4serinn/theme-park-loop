@@ -3,11 +3,28 @@
 // pages/ 以下の各HTML(<!-- HEADER --> / <!-- FOOTER --> のプレースホルダーを含む)に
 // partials/header.html と partials/footer.html を合体させ、
 // dist/ に完成品HTMLを出力するビルドスクリプト。
+// styles/ と assets/ も dist/ にコピーする(デプロイ先はdist/単体で配信されるため)。
+//
+// {{BASE}} プレースホルダーについて:
+// ページ内のスタイルシート・内部リンク・画像パスなどは、先頭が "/" の絶対パスではなく
+// "{{BASE}}" を前置した相対パスで書くこと(例: <link href="{{BASE}}styles/tokens.css">)。
+// このビルドスクリプトが、そのページの pages/ からの深さに応じて {{BASE}} を
+// 適切な相対パス("" または "../" など)に変換する。これにより、ローカルでdist/を直接
+// 開く場合と、GitHub Pagesのようにサブパス配下で公開される場合の両方で、
+// リンク・画像・スタイルシートが正しく解決される。
 //
 // 使い方: npm run build
 
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync } from "node:fs";
-import { join, dirname, relative } from "node:path";
+import {
+  readFileSync,
+  writeFileSync,
+  mkdirSync,
+  readdirSync,
+  statSync,
+  cpSync,
+  existsSync
+} from "node:fs";
+import { join, dirname, relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -15,9 +32,17 @@ const ROOT = join(__dirname, "..");
 const PAGES_DIR = join(ROOT, "pages");
 const PARTIALS_DIR = join(ROOT, "partials");
 const DIST_DIR = join(ROOT, "dist");
+const STYLES_DIR = join(ROOT, "styles");
+const ASSETS_DIR = join(ROOT, "assets");
 
 const header = readFileSync(join(PARTIALS_DIR, "header.html"), "utf-8");
 const footer = readFileSync(join(PARTIALS_DIR, "footer.html"), "utf-8");
+
+function depthFromPagesRoot(absPath) {
+  const rel = relative(PAGES_DIR, dirname(absPath));
+  if (rel === "") return 0;
+  return rel.split(sep).length;
+}
 
 function buildFile(absPath) {
   const relPath = relative(PAGES_DIR, absPath);
@@ -29,7 +54,14 @@ function buildFile(absPath) {
     );
   }
 
-  const merged = src.replace("<!-- HEADER -->", header).replace("<!-- FOOTER -->", footer);
+  let merged = src.replace("<!-- HEADER -->", header).replace("<!-- FOOTER -->", footer);
+
+  // {{BASE}} を、このページの深さに応じた相対パスの接頭辞に変換する。
+  // 深さ0(pages/index.html) -> ""
+  // 深さ1(pages/exploration/index.html) -> "../"
+  const depth = depthFromPagesRoot(absPath);
+  const basePrefix = "../".repeat(depth);
+  merged = merged.split("{{BASE}}").join(basePrefix);
 
   const outPath = join(DIST_DIR, relPath);
   mkdirSync(dirname(outPath), { recursive: true });
@@ -37,11 +69,11 @@ function buildFile(absPath) {
   console.log(`built: ${relPath}`);
 }
 
-function walk(currentDir) {
+function walkPages(currentDir) {
   for (const entry of readdirSync(currentDir)) {
     const fullPath = join(currentDir, entry);
     if (statSync(fullPath).isDirectory()) {
-      walk(fullPath);
+      walkPages(fullPath);
     } else if (entry.endsWith(".html")) {
       buildFile(fullPath);
     }
@@ -49,5 +81,18 @@ function walk(currentDir) {
 }
 
 mkdirSync(DIST_DIR, { recursive: true });
-walk(PAGES_DIR);
+walkPages(PAGES_DIR);
+
+// styles/ と assets/ を dist/ にコピーする(存在する場合のみ)。
+// dist/ は単体でデプロイされるため、参照される静的ファイルも一緒に含める必要がある。
+for (const [srcDir, name] of [
+  [STYLES_DIR, "styles"],
+  [ASSETS_DIR, "assets"]
+]) {
+  if (existsSync(srcDir)) {
+    cpSync(srcDir, join(DIST_DIR, name), { recursive: true });
+    console.log(`copied: ${name}/`);
+  }
+}
+
 console.log("ビルド完了 → dist/");

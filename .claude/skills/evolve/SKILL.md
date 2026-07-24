@@ -69,6 +69,13 @@
   3. 承認(人間が「承認済み」に移動)されるまで、その新色は実装に使わない
 - ヘッダー・フッターは各ページのHTMLに直接書かず、`<!-- HEADER -->` / `<!-- FOOTER -->`
   のプレースホルダーを使う(`npm run build` が `partials/` の内容を合体させる)。
+- ページ内の内部リンク・スタイルシート・画像などのパスは、`/`から始まる絶対パスを
+  **使わないこと**。必ず `{{BASE}}` を前置した相対パスで書く
+  (例: `<link rel="stylesheet" href="{{BASE}}styles/tokens.css" />`、
+  `<a href="{{BASE}}exploration/index.html">`)。
+  `npm run build` が、そのページの深さに応じて `{{BASE}}` を正しい相対パスに変換する。
+  絶対パスのまま書くと、GitHub Pagesのサブパス配下で公開した際にリンクが壊れる
+  (`tests/no-absolute-paths.test.js` がこの違反を検出する)。
 
 ### タスク実行中にスコープが大きすぎると判明した場合
 
