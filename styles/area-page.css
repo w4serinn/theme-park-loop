@@ -41,6 +41,26 @@
   );
 }
 
+/* エリア固有ビジュアル */
+.area-hero__visual--alchemy {
+  background-color: color-mix(in srgb, var(--ember) 18%, var(--ink));
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 14px,
+      color-mix(in oklch, var(--brass) 7%, transparent) 14px,
+      color-mix(in oklch, var(--brass) 7%, transparent) 15px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 24px,
+      color-mix(in oklch, var(--ember) 6%, transparent) 24px,
+      color-mix(in oklch, var(--ember) 6%, transparent) 25px
+    );
+}
+
 .area-hero__body {
   padding: 2rem 1.5rem 1.75rem;
   border-bottom: 1px solid var(--brass);
@@ -92,6 +112,10 @@
   opacity: 0.85;
   line-height: 1.75;
   margin: 0;
+}
+
+.area-section__body + .area-section__body {
+  margin-top: 0.75rem;
 }
 
 /* アトラクションリスト */
