@@ -37,6 +37,21 @@ jobs:
         id: check
         run: node scripts/check-roadmap-completion.js
 
+      - name: 更新履歴(news.json)を追記
+        if: steps.check.outputs.should_merge == 'true'
+        run: node scripts/update-news.js
+
+      - name: news.jsonの変更をコミット
+        if: steps.check.outputs.should_merge == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/news.json
+          if ! git diff --cached --quiet -- data/news.json; then
+            git commit -m "chore: update news for completed pages [skip ci]"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
+
       - name: PRを作成(既存PRがあれば再利用)
         if: steps.check.outputs.should_merge == 'true'
         id: pr
