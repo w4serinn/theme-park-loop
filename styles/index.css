@@ -17,6 +17,7 @@
   color: var(--ember);
   margin: 0 0 0.75rem;
   text-transform: uppercase;
+  animation: hero-fade-up 0.6s ease-out both;
 }
 
 .hero__title {
@@ -26,6 +27,7 @@
   color: var(--brass);
   margin: 0;
   line-height: 1.2;
+  animation: hero-fade-up 0.65s 0.15s ease-out both;
 }
 
 .hero__ornament {
@@ -35,6 +37,7 @@
   gap: 0.6rem;
   margin: 1rem auto 1.25rem;
   width: fit-content;
+  animation: hero-fade-up 0.5s 0.3s ease-out both;
 }
 
 .hero__ornament::before,
@@ -57,6 +60,7 @@
   color: var(--brass);
   opacity: 0.8;
   margin: 0 0 2.5rem;
+  animation: hero-fade-up 0.6s 0.45s ease-out both;
 }
 
 .hero__cta {
@@ -71,6 +75,7 @@
   font-size: 1rem;
   letter-spacing: 0.05em;
   transition: background-color 0.2s, color 0.2s;
+  animation: hero-fade-up 0.6s 0.6s ease-out both;
 }
 
 .hero__cta:hover {
@@ -113,6 +118,27 @@
 .news-empty {
   opacity: 0.6;
   font-size: 0.9rem;
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__subtitle,
+  .hero__title,
+  .hero__ornament,
+  .hero__tagline,
+  .hero__cta {
+    animation: none;
+  }
 }
 
 @media (width <= 768px) {

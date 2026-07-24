@@ -1,5 +1,13 @@
 # サイクル履歴
 
+## 2026-07-25 02:02
+- 実装: トップページ ヒーローエリア CSS アニメーション。hero-fade-up (fade + translateY) をサブタイトル・タイトル・装飾ライン・タグライン・CTAに時差適用。prefers-reduced-motion 対応済み
+- レビュー: 指摘1件対応 (A-1: to キーフレームから opacity:1 を除去し tagline の opacity:0.8 が正しく保持されるよう修正)
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: トップページ ニュース一覧区切り線の color-mix 半透明化・最終アイテム非表示 [todo]
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-25 01:02
 - 実装: トップページ 世界観に基づく配色・タイポグラフィの適用。ヒーロー背景に emerald の薄い光彩 (radial-gradient + color-mix)、title に font-weight/letter-spacing 追加、ブラス装飾ライン (hero__ornament) をタイトル下に挿入
 - レビュー: OK (指摘2件いずれも誤検知・対応不要)
