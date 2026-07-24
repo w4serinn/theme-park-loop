@@ -11,42 +11,42 @@
 - 用途: 学院内探索 一覧ページ — 錬金術研究棟カードのサムネイル
 - 配置先パス: assets/images/exploration/thumb-alchemy-tower.jpg
 - 想定ツール: Midjourney
-- 提案プロンプト: A steampunk alchemy laboratory interior, wide banner crop, brass distillation apparatus and magical glowing runes on stone walls, amber and emerald lighting, no characters, detailed painterly illustration, dark navy background --ar 16:6 --style raw
+- 提案プロンプト: A steampunk alchemy laboratory interior, wide banner crop, brass distillation apparatus and magical glowing runes on stone walls, amber and emerald lighting, no characters, detailed painterly illustration, dark navy background --ar 2:1 --style raw
 - 補足: カード幅 280px×高さ 160px に表示。ダーク系背景(--ink=#14161f)に合うよう暗めのトーンで。金(#b08d57)と深緑(#1f5c4a)が画面に乗ったとき馴染む配色が望ましい。
 
 ### REQ-002 [type: image]
 - 用途: 学院内探索 一覧ページ — 飛行船ドックカードのサムネイル
 - 配置先パス: assets/images/exploration/thumb-airship-dock.jpg
 - 想定ツール: Midjourney
-- 提案プロンプト: A steampunk airship hangar at the top of a magical academy tower, wide banner crop, massive airship moored with magical rigging, clouds and sky visible through open hangar doors, brass and emerald tones, no characters, detailed painterly illustration, dark navy background --ar 16:6 --style raw
+- 提案プロンプト: A steampunk airship hangar at the top of a magical academy tower, wide banner crop, massive airship moored with magical rigging, clouds and sky visible through open hangar doors, brass and emerald tones, no characters, detailed painterly illustration, dark navy background --ar 2:1 --style raw
 - 補足: REQ-001 と同じ表示サイズ・トーン条件。空と雲の要素で他エリアと差別化。
 
 ### REQ-003 [type: image]
 - 用途: 学院内探索 一覧ページ — 魔法陣召喚広場カードのサムネイル
 - 配置先パス: assets/images/exploration/thumb-summoning-plaza.jpg
 - 想定ツール: Midjourney
-- 提案プロンプト: A magical courtyard with a giant glowing summoning circle engraved in cobblestone, wide banner crop, golden and emerald magical runes softly illuminated at dusk, no characters, atmospheric painterly illustration, dark navy sky --ar 16:6 --style raw
+- 提案プロンプト: A magical courtyard with a giant glowing summoning circle engraved in cobblestone, wide banner crop, golden and emerald magical runes softly illuminated at dusk, no characters, atmospheric painterly illustration, dark navy sky --ar 2:1 --style raw
 - 補足: REQ-001 と同じ表示サイズ・トーン条件。魔法陣の発光が画面の主役になるよう。
 
 ### REQ-004 [type: image]
 - 用途: 錬金術研究棟ページ — エリアヒーローバナー
 - 配置先パス: assets/images/exploration/hero-alchemy-tower.jpg
 - 想定ツール: Midjourney
-- 提案プロンプト: A grand steampunk alchemy research tower interior, panoramic wide shot, brass pipes and distillation columns rising through three floors, magical amber flames and emerald glowing formulas, no characters, cinematic painterly illustration --ar 21:6 --style raw
+- 提案プロンプト: A grand steampunk alchemy research tower interior, panoramic wide shot, brass pipes and distillation columns rising through three floors, magical amber flames and emerald glowing formulas, no characters, cinematic painterly illustration --ar 5:1 --style raw
 - 補足: 全幅×240px のヒーロービジュアル。横長パノラマ。REQ-001 と同じ素材世界観だが縦横比がより広く、細部を見せる必要は薄い(雰囲気重視)。
 
 ### REQ-005 [type: image]
 - 用途: 飛行船ドックページ — エリアヒーローバナー
 - 配置先パス: assets/images/exploration/hero-airship-dock.jpg
 - 想定ツール: Midjourney
-- 提案プロンプト: A massive steampunk airship dock at the top of a magical academy, panoramic wide shot, three airships moored under a glass-floor hangar, dramatic sky and clouds, brass and deep teal tones, no characters, cinematic painterly illustration --ar 21:6 --style raw
+- 提案プロンプト: A massive steampunk airship dock at the top of a magical academy, panoramic wide shot, three airships moored under a glass-floor hangar, dramatic sky and clouds, brass and deep teal tones, no characters, cinematic painterly illustration --ar 5:1 --style raw
 - 補足: REQ-004 と同じ表示条件。空の開放感を強調。
 
 ### REQ-006 [type: image]
 - 用途: 魔法陣召喚広場ページ — エリアヒーローバナー
 - 配置先パス: assets/images/exploration/hero-summoning-plaza.jpg
 - 想定ツール: Midjourney
-- 提案プロンプト: A magical academy courtyard at dusk with a 30-meter glowing summoning circle carved into cobblestones, panoramic wide shot, soft golden and emerald light emanating from runes, twilight sky, no characters, cinematic painterly illustration --ar 21:6 --style raw
+- 提案プロンプト: A magical academy courtyard at dusk with a 30-meter glowing summoning circle carved into cobblestones, panoramic wide shot, soft golden and emerald light emanating from runes, twilight sky, no characters, cinematic painterly illustration --ar 5:1 --style raw
 - 補足: REQ-004 と同じ表示条件。夕暮れ時の発光が世界観を最もよく表す。
 
 ## 対応済み
