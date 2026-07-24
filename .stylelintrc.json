@@ -2,12 +2,17 @@
   "extends": "stylelint-config-standard",
   "rules": {
     "declaration-property-value-allowed-list": {
-      "/^(color|background-color|border-color|fill|stroke|border)$/": [
+      "/^(color|background|background-color|border-color|border-top-color|border-right-color|border-bottom-color|border-left-color|outline-color|fill|stroke)$/": [
         "/^var\\(--/",
+        "/^color-mix\\(.*var\\(--/",
         "/^none$/",
         "/^transparent$/",
         "/^inherit$/",
         "/^currentColor$/"
+      ],
+      "/^(border|border-top|border-right|border-bottom|border-left|outline)$/": [
+        "/^none$/",
+        "/^[0-9.]+(px|rem|em)?(\\s+(solid|dashed|dotted|double|groove|ridge|inset|outset|hidden))?(\\s+(var\\(--[\\w-]+\\)|color-mix\\(.*var\\(--[\\w-]+\\).*\\)))?$/"
       ]
     },
     "custom-property-empty-line-before": null,
