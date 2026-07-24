@@ -1,12 +1,22 @@
 name: Deploy to GitHub Pages
 
-# mainブランチへのpush(=evolveブランチからの取り込み)をトリガーに、
-# npm run build の出力(dist/)をGitHub Pagesへ自動デプロイする。
+# mainブランチへの直接push、または auto-merge.yml(ページ完了による自動マージ)の
+# 完了をトリガーに、npm run build の出力(dist/)をGitHub Pagesへ自動デプロイする。
 # dist/ はビルド生成物なのでリポジトリにはコミットしない(.gitignore対象のまま)。
+#
+# workflow_run を使っている理由:
+# auto-merge.yml は GITHUB_TOKEN で mainにマージするが、GITHUB_TOKEN による push は
+# 他のワークフローの on:push を発火させないというGitHubの仕様がある(無限ループ防止)。
+# そのため、push トリガーだけでは auto-merge によるマージ後にデプロイが走らない。
+# workflow_run(auto-merge.ymlの完了イベント)を別トリガーとして追加することで、
+# この制限を回避している。
 
 on:
   push:
     branches: [main]
+  workflow_run:
+    workflows: ["Auto-merge on page completion"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -21,8 +31,13 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # workflow_run経由の場合、auto-mergeが成功した時だけ実行する
+    # (auto-mergeが「マージ不要」で早期終了した場合や失敗した場合は動かさない)
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
 
       - uses: actions/setup-node@v4
         with:
