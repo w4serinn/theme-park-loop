@@ -61,6 +61,44 @@
     );
 }
 
+.area-hero__visual--airship {
+  background-color: color-mix(in srgb, var(--emerald) 40%, var(--ink));
+  background-image:
+    repeating-linear-gradient(
+      180deg,
+      transparent,
+      transparent 18px,
+      color-mix(in oklch, var(--brass) 6%, transparent) 18px,
+      color-mix(in oklch, var(--brass) 6%, transparent) 19px
+    ),
+    repeating-linear-gradient(
+      175deg,
+      transparent,
+      transparent 40px,
+      color-mix(in oklch, var(--emerald) 12%, transparent) 40px,
+      color-mix(in oklch, var(--emerald) 12%, transparent) 41px
+    );
+}
+
+.area-hero__visual--summoning {
+  background-color: color-mix(in srgb, var(--emerald) 20%, var(--ink));
+  background-image:
+    repeating-linear-gradient(
+      30deg,
+      transparent,
+      transparent 12px,
+      color-mix(in oklch, var(--brass) 9%, transparent) 12px,
+      color-mix(in oklch, var(--brass) 9%, transparent) 13px
+    ),
+    repeating-linear-gradient(
+      -30deg,
+      transparent,
+      transparent 12px,
+      color-mix(in oklch, var(--brass) 9%, transparent) 12px,
+      color-mix(in oklch, var(--brass) 9%, transparent) 13px
+    );
+}
+
 .area-hero__body {
   padding: 2rem 1.5rem 1.75rem;
   border-bottom: 1px solid var(--brass);
