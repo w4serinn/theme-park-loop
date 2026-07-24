@@ -1,5 +1,13 @@
 # サイクル履歴
 
+## 2026-07-25 03:01
+- 実装: トップページ ニュース区切り線を color-mix(in srgb, var(--brass) 20%, transparent) で半透明化し、最終アイテムの下線を非表示。トップページ 完了・roadmap-done.md に移動
+- レビュー: 指摘1件 (A-1: color-mix srgb の視覚的暗化) → ROADMAP 技術メモに追記。現状ニュース空のため実害なし
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 学院内探索 一覧ページ HTML骨格 (pages/exploration/index.html)
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-25 02:02
 - 実装: トップページ ヒーローエリア CSS アニメーション。hero-fade-up (fade + translateY) をサブタイトル・タイトル・装飾ライン・タグライン・CTAに時差適用。prefers-reduced-motion 対応済み
 - レビュー: 指摘1件対応 (A-1: to キーフレームから opacity:1 を除去し tagline の opacity:0.8 が正しく保持されるよう修正)

@@ -105,8 +105,12 @@
 
 .news-list li {
   padding: 0.5rem 0;
-  border-bottom: 1px solid var(--brass);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 20%, transparent);
   font-size: 0.95rem;
+}
+
+.news-list li:last-child {
+  border-bottom: none;
 }
 
 .news-date {
