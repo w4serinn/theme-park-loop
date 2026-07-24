@@ -164,7 +164,7 @@ GitHubに繋ぐ場合はいつも通り `git remote add origin <repo>` を設定
 
 | ルール | 追加できる機械的な強制方法(未設定) |
 |---|---|
-| mainへの直接push禁止 | GitHub側のブランチ保護ルール(Require pull request, Restrict force pushes等)を設定する |
+| mainへの直接push禁止 | GitHub側のブランチ保護(Free+Privateでは強制されないため、今は未設定。Claude Codeの環境に書き込み権限を渡さないことで代替している) |
 | テストが通っていない状態でのcommit禁止 | Huskyなどでpre-commitフックを設定し、`npm run check`を強制する |
 | 1サイクル=1コミット | 機械的な強制は難しいため、`git log --oneline main..HEAD`での目視確認に頼る |
 | 素材のプレースホルダー差し替え忘れ | プレースホルダーの画像/音声パスに特定の命名規則を設け、それを検出するテストを追加する余地あり |
@@ -181,23 +181,37 @@ GitHubに繋ぐ場合はいつも通り `git remote add origin <repo>` を設定
 ### mainブランチへの直接push・force pushを禁止する(GitHub側の設定)
 
 SKILL.mdの「禁止事項」に書くだけでは、AIが指示を無視したり見落としたりした場合に
-防げません。GitHub側でリポジトリごと禁止しておくのが確実です。
+防げません。GitHub側でリポジトリごと禁止しておくのが確実、というのが本来の狙いです。
 
-1. GitHubのリポジトリページで **Settings** → **Branches** を開く
-2. **Branch protection rules** の **Add rule**(または **Add branch ruleset**)をクリック
-3. **Branch name pattern** に `main` を指定する
-4. 以下を有効にする:
-   - **Require a pull request before merging**(直接pushを禁止し、PR経由の取り込みを強制する)
-   - **Do not allow force pushes**(force pushや履歴改変を禁止する)
-   - 可能であれば **Restrict deletions**(mainブランチの削除を禁止する)
-5. 保存する
+**注意: GitHub Free(無料プラン)の個人アカウントでPrivateリポジトリを使っている場合、
+ブランチ保護(Rulesets/Branch protection rules)は設定自体はできますが、
+実際には強制されません。** Privateリポジトリでブランチ保護を機能させるには、
+GitHub Pro(個人、有料)へのアップグレード、またはGitHub Team以上の組織アカウントへの
+移行が必要です。Publicリポジトリであれば無料プランでも問題なく機能します。
 
-**注意: 「Require approvals」(承認を必須にする設定)は有効にしないでください。**
-GitHubは基本的にPR作成者本人がそのPRを承認することを許可していません。
-一人で運用している個人リポジトリでこれを有効にすると、承認してくれる他の人がいないため
-**永久にマージできなくなります**。「Require a pull request before merging」だけを
-有効にすれば、直接pushの禁止という目的は果たせつつ、PRの差分を自分で読んで
-自分でマージボタンを押す、という個人開発に合った運用になります。
+このプロジェクトでは、Private + Freeプランのまま**ブランチ保護を設定しない**運用を
+選びました。その場合、以下の点を理解しておいてください。
+
+- GitHub側の機械的な壁は無く、SKILL.mdの禁止事項(「mainへの直接push禁止」等)は
+  **完全にプロンプト任せ**になります
+- 唯一の実質的な防波堤は、**Claude Codeを動かす環境にGitHubへの書き込み権限を
+  持つ認証を渡さないこと**です(下記参照)。ここだけは絶対に守ってください
+- `.github/workflows/auto-merge.yml` によるマージは、GitHub Actionsに自動発行される
+  `GITHUB_TOKEN`(Claude Codeとは別の認証)で行われるため、ブランチ保護の有無に
+  関係なく機能します
+
+将来的にリポジトリをPublicにする、またはGitHub Proにアップグレードする場合は、
+以下の手順でブランチ保護を有効にできます。
+
+1. GitHubのリポジトリページで **Settings** → **Rules** → **Rulesets** を開く
+2. **New branch ruleset** をクリックし、**Enforcement status** を **Active** にする
+3. **Target branches** で `main` を対象に指定する
+4. **Branch rules** で以下を有効にする:
+   - **Require a pull request before merging**
+   - **Block force pushes**
+   - 可能であれば **Restrict deletions**
+5. **Require approvals は有効にしないこと**(一人運用だと永久にマージできなくなるため)
+6. 保存する
 
 これでevolveブランチからmainへの取り込みは、`git switch main && git merge evolve/...`
 のような直接pushではなく、必ずPR経由になります。
@@ -281,6 +295,16 @@ GitHub Pagesにデプロイする**ワークフローです。`dist/`自体は�
 **ページが完成してmainに自動で取り込まれた瞬間だけ、公開サイトが更新される**
 という、ちょうど良い区切りができます。公開URLはリポジトリの
 **Settings** → **Pages** に表示されます。
+
+**注意: `auto-merge.yml`による自動マージ後にデプロイが走らない場合の対処。**
+GitHubには「`GITHUB_TOKEN`(ワークフロー自身に発行される認証)によるpushは、
+他のワークフローの`on: push`を発火させない」という無限ループ防止の仕組みがあります。
+`auto-merge.yml`はこの`GITHUB_TOKEN`でmainにマージするため、`deploy.yml`が
+`on: push`だけを見ていると、自動マージ後にデプロイが走りません
+(手動でPRをマージした場合は、あなた自身のpushとして扱われるため問題なく走ります)。
+これに対応するため、`deploy.yml`には`workflow_run`(`auto-merge.yml`の完了イベント)
+も追加してあります。もし自動マージ後にデプロイが走らない場合は、
+**Actions** → **Deploy to GitHub Pages** → **Run workflow** から手動実行できます。
 
 ### commit前に自動でテスト・lint・buildを走らせる(pre-commitフック)
 
