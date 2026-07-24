@@ -1,0 +1,44 @@
+/*
+ * 全ページ共通の基本スタイル。
+ * ページ固有のスタイルは各ページ用のCSSファイルに分けて追加していく想定。
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, "Hiragino Mincho ProN", serif;
+  background-color: var(--ink);
+  color: var(--brass);
+}
+
+a {
+  color: var(--ember);
+  text-decoration: none;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--brass);
+}
+
+.site-header__logo {
+  font-weight: bold;
+  color: var(--emerald);
+}
+
+.site-header__nav a {
+  margin-left: 1rem;
+}
+
+.site-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--brass);
+  text-align: center;
+  font-size: 0.85rem;
+}

@@ -1,0 +1,26 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "declaration-property-value-allowed-list": {
+      "/^(color|background-color|border-color|fill|stroke|border)$/": [
+        "/^var\\(--/",
+        "/^none$/",
+        "/^transparent$/",
+        "/^inherit$/",
+        "/^currentColor$/"
+      ]
+    },
+    "custom-property-empty-line-before": null,
+    "selector-class-pattern": null,
+    "property-disallowed-list": ["/^--/"]
+  },
+  "overrides": [
+    {
+      "comment": "新しいCSS変数(--で始まるカスタムプロパティ)を宣言できるのは styles/tokens.css だけに限定する。他のファイルではトップレベルの property-disallowed-list で禁止されているが、このファイルだけ例外的に解除する。docs/PALETTE.md で承認された色は、人間がこのファイルに追記してから使えるようになる。",
+      "files": ["styles/tokens.css"],
+      "rules": {
+        "property-disallowed-list": null
+      }
+    }
+  ]
+}

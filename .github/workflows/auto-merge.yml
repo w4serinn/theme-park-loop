@@ -1,0 +1,60 @@
+name: Auto-merge on page completion
+
+# evolveブランチへのpushをトリガーに、docs/ROADMAP.md を確認する。
+# origin/main と比較して新たに [status: 完了] になったページがあれば、
+# mainへのPRを自動作成し、そのまま自動マージする。
+#
+# 重要: マージを実行するのはこのワークフロー(GitHub Actionsの自動化されたスクリプト)
+# であり、Claude Code(対話的にコードを書くAIエージェント)自身にはマージ権限を
+# 一切渡さない。ここでのマージ判断は、ROADMAP.mdの記述という「データ」を機械的に
+# 比較した結果であり、AIの自己判断ではない。
+
+on:
+  push:
+    branches:
+      - "evolve/**"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  check-and-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: origin/mainの情報を取得
+        run: git fetch origin main
+
+      - name: ROADMAP.mdでページ完了を検出
+        id: check
+        run: node scripts/check-roadmap-completion.js
+
+      - name: PRを作成(既存PRがあれば再利用)
+        if: steps.check.outputs.should_merge == 'true'
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BRANCH="${{ github.ref_name }}"
+          PR_URL=$(gh pr create \
+            --base main \
+            --head "$BRANCH" \
+            --title "evolve: ページ完了によるマージ ($BRANCH)" \
+            --body "docs/ROADMAP.md でページの完了を検出したため、GitHub Actionsが自動作成したPRです。" \
+            2>/dev/null || gh pr view "$BRANCH" --json url -q .url)
+          echo "url=$PR_URL" >> "$GITHUB_OUTPUT"
+
+      - name: 自動マージ
+        if: steps.check.outputs.should_merge == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr merge "${{ steps.pr.outputs.url }}" --merge --delete-branch
