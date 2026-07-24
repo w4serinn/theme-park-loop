@@ -1,0 +1,99 @@
+/* 学院内探索ページ固有スタイル */
+
+.page-hero {
+  text-align: center;
+  padding: 3rem 1.5rem 2.5rem;
+  border-bottom: 1px solid var(--brass);
+}
+
+.page-hero__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 0.75rem;
+}
+
+.page-hero__desc {
+  font-size: 1rem;
+  color: var(--brass);
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.area-list {
+  padding: 2.5rem 1.5rem;
+  max-width: 1020px;
+  margin: 0 auto;
+}
+
+.area-cards {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.area-card__link {
+  display: block;
+  color: var(--brass);
+  border-width: 1px;
+  border-style: solid;
+  border-color: color-mix(in oklch, var(--brass) 35%, transparent);
+  transition: border-color 0.2s;
+}
+
+.area-card__link:hover {
+  border-color: var(--brass);
+}
+
+.area-card__thumbnail {
+  height: 160px;
+  background-color: color-mix(in srgb, var(--emerald) 25%, var(--ink));
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 8px,
+    color-mix(in srgb, var(--brass) 8%, transparent) 8px,
+    color-mix(in srgb, var(--brass) 8%, transparent) 9px
+  );
+}
+
+.area-card__body {
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.area-card__name {
+  font-size: 1.1rem;
+  color: var(--brass);
+  margin: 0 0 0.5rem;
+}
+
+.area-card__desc {
+  font-size: 0.9rem;
+  color: var(--brass);
+  opacity: 0.75;
+  margin: 0;
+  line-height: 1.6;
+}
+
+@media (width <= 600px) {
+  .page-hero {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .page-hero__title {
+    font-size: 1.6rem;
+  }
+
+  .area-list {
+    padding: 1.5rem 1rem;
+  }
+
+  .area-cards {
+    grid-template-columns: 1fr;
+  }
+}

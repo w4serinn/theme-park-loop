@@ -1,5 +1,38 @@
 # サイクル履歴
 
+## 2026-07-25 06:01
+- 実装: 学院内探索 飛行船ドック・魔法陣召喚広場 エリアページ追加(各4アトラクション・エリア固有ビジュアル)。学院内探索 全サブタスク完了 → 完了
+- レビュー: 指摘1件対応 (A-1: 学院内探索の紹介文を ROADMAP に追記)
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 学院祭・行事 イベントカレンダー HTML骨格 (pages/events/index.html)
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-25 05:10
+- 実装: 学院内探索 錬金術研究棟エリア詳細コンテンツ充実。alchemy ビジュアル差別化(ember 色調グリッドテクスチャ)・アトラクション4件(元素変容デモ/鋳造体験/大蒸留器見学/魔導書閲覧室)・段落間隔 CSS 追加
+- レビュー: OK (指摘3件いずれも誤検知)
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 学院内探索 2つ目以降のエリア追加 (飛行船ドック・魔法陣召喚広場)
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-25 05:01
+- 実装: 学院内探索 エリアページ共通テンプレート (pages/exploration/alchemy-tower.html + styles/area-page.css)。パンくず・ヒーロービジュアル・アトラクションリスト・ご案内ボックス(dl グリッド)・レスポンシブ対応
+- レビュー: OK (指摘1件 ROADMAP技術メモ追記: エリアサムネイルの視覚ID差別化)
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 学院内探索 最初のエリア追加 — 錬金術研究棟 詳細コンテンツ充実 (M)
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-25 04:06
+- 実装: 学院内探索 一覧ページ HTML骨格 (pages/exploration/index.html + styles/exploration.css)。エリアカード3件(錬金術研究棟・飛行船ドック・魔法陣召喚広場)をグリッドレイアウトで配置
+- レビュー: 指摘1件対応 (A-1: card border-color を color-mix(in srgb) → (in oklch) に変更し視認性確保) / 指摘1件 ROADMAP todo追記 (A-3: ナビアクティブリンクハイライト)
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 学院内探索 エリアページの共通テンプレート作成 (pages/exploration/<area>.html)
+- blocked / partial: なし
+- asset-pending: なし
+
+
 ## 2026-07-25 03:01
 - 実装: トップページ ニュース区切り線を color-mix(in srgb, var(--brass) 20%, transparent) で半透明化し、最終アイテムの下線を非表示。トップページ 完了・roadmap-done.md に移動
 - レビュー: 指摘1件 (A-1: color-mix srgb の視覚的暗化) → ROADMAP 技術メモに追記。現状ニュース空のため実害なし
