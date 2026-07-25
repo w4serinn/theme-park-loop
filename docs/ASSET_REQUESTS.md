@@ -7,6 +7,125 @@
 
 ## 依頼中(未対応)
 
+### REQ-018 [type: image]
+- 用途: 購買部 みやげ・食品ページ — カテゴリヒーローバナー
+- 配置先パス: assets/images/shop/hero-souvenirs.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Magical academy souvenir shop interior, wide shot, wooden shelves lined with enchanted trinkets, bottled herbal teas with glowing labels, brass alloy accessories in glass cases, warm amber lantern light, no characters, cozy painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。真鍮(#b08d57)とアンバー(#c46a2b)基調の温かみある小物店。学院限定品の豊富さを棚の陳列で表現。
+
+### REQ-019 [type: image]
+- 用途: 購買部 書籍・資料ページ — カテゴリヒーローバナー
+- 配置先パス: assets/images/shop/hero-books.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Magical academy bookshop interior, wide shot, floor-to-ceiling dark wooden shelves with leather-bound tomes and glowing manuscripts, warm amber light from brass reading lamps, dust motes drifting through the air, no characters, atmospheric painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。深緑(#1f5c4a)と真鍮の書架が主役。写本の光と埃舞う書庫の雰囲気で大図書館との世界観を繋げる。
+
+### REQ-020 [type: image]
+- 用途: 購買部 食料品・薬草ページ — カテゴリヒーローバナー
+- 配置先パス: assets/images/shop/hero-groceries.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Magical herbalist shop interior, wide shot, wicker baskets of dried herbs and floral bundles, rows of amber glass jars filled with glowing ingredients, hanging dried plants from wooden beams, warm earthy tones, no characters, painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。アンバー基調の薬草商。乾燥ハーブ・光る瓶が並ぶ農園直送の雰囲気。
+
+### REQ-021 [type: image]
+- 用途: エリア別ショップ 錬金術研究棟 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-alchemy-shop.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Alchemical ingredient shop interior, wide shot, shelves stacked with glowing vials and labeled herb pouches, brass scales and measuring instruments on wooden counters, blue-green alchemical light mixing with amber lanterns, no characters, cinematic painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。アンバー(#c46a2b)×天空青(#4e8ea0)の混色で錬金術感を。薬草・素材の豊富さを棚の密度で表現。
+
+### REQ-022 [type: image]
+- 用途: エリア別ショップ 飛行船ドック — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-airship-shop.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Airship souvenir and gear shop interior, wide shot, canvas bags and navigation charts on the walls, brass compasses and goggle racks, hanging ropes and lanterns, view of airship docking bay through large windows, no characters, adventure-themed painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。真鍮×深紺の冒険的な色調。航路グッズと帆布製品が並ぶ船乗りの店。
+
+### REQ-023 [type: image]
+- 用途: エリア別ショップ 時計塔 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-clock-tower-shop.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Magical clockwork shop interior, wide shot, display cases of enchanted brass pocket watches and silver miniature gears, wall-mounted ticking mechanisms of every size, silver and brass gleaming under warm light, no characters, steampunk painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。シルバー(#8fa8b2)×真鍮の精密な工芸品の店。歯車と時計の密度ある陳列。
+
+### REQ-024 [type: image]
+- 用途: エリア別ショップ 大図書館 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-library-shop.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Antique manuscript and ink shop inside a library annex, wide shot, illuminated manuscripts in glass cases, rows of ink bottles in deep emerald and gold, quill sets and vellum rolls on oak counters, emerald candlelight, no characters, painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。深緑(#1f5c4a)×真鍮の書物商。写本・インク・羊皮紙が並ぶ学術的な雰囲気。
+
+### REQ-025 [type: image]
+- 用途: エリア別ショップ 決闘演武場 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-dueling-shop.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Magical dueling merchandise shop, wide shot, display of spectator scarves in crimson and brass colors, enchanted spell sigil pins in glass cases, souvenir wands and duel memorabilia on shelves, dramatic crimson lighting accents, no characters, painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。深紅(#a03c3c)×真鍮の観戦グッズ店。応援グッズとコレクターアイテムが並ぶ高揚感ある陳列。
+
+### REQ-026 [type: image]
+- 用途: エリア別ショップ 魔法陣召喚広場 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-summoning-shop.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Magical summoning supplies shop interior, wide shot, shelves of chalk and powder in labeled vials, rolled parchment spell-circles, glowing runic seals in wooden frames, arcane purple light over a dark ink background, no characters, mystical painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。アルカナ紫(#6b4fa0)×真鍮の神秘的な素材店。魔法陣材料・召喚道具の専門感。
+
+### REQ-027 [type: image]
+- 用途: エリア別ショップ 天文台 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-observatory-shop.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Astronomy gift shop inside an observatory, wide shot, star charts and constellation maps rolled in tubes, brass miniature orreries and celestial globes on shelves, blue-tinted moonlight mixing with warm lamp glow, no characters, painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。天空青(#4e8ea0)×真鍮の静謐な夜空グッズ店。星図・天体儀の精密な美しさを強調。
+
+### REQ-028 [type: image]
+- 用途: エリア別飲食店 錬金術研究棟 — 店内ヒーローバナー
+- 配置先パス: assets/images/dining/hero-alchemy-dining.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Potion-themed drink stall interior, wide shot, glowing colored drinks in glass flasks and beakers behind a counter, blue-green alchemical mist, brass pipes and tubing decor, warm amber lighting, no characters, magical painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。試験管・フラスコで提供されるポーション型ドリンクスタンドの世界観。
+
+### REQ-029 [type: image]
+- 用途: エリア別飲食店 飛行船ドック — 店内ヒーローバナー
+- 配置先パス: assets/images/dining/hero-airship-dining.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Sky pirates cafe interior, wide shot, rough-hewn wooden tables with brass fixtures, porthole windows showing clouds and airship silhouettes outside, hanging lanterns and navigation maps as decor, no characters, adventurous warm-toned painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。舷窓・羅針盤・帆布装飾の船員食堂。冒険的な温かみある空間。
+
+### REQ-030 [type: image]
+- 用途: エリア別飲食店 時計塔 — 店内ヒーローバナー
+- 配置先パス: assets/images/dining/hero-clock-tower-dining.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Steampunk clockwork cafe interior, wide shot, walls lined with ticking clock mechanisms and brass gauges, small copper tables with tea sets, warm amber steam rising from cups, gear-shaped pastries behind glass, no characters, cozy painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。歯車・蒸気・真鍮で統一された喫茶室の精密な世界観。
+
+### REQ-031 [type: image]
+- 用途: エリア別飲食店 大図書館 — 店内ヒーローバナー
+- 配置先パス: assets/images/dining/hero-library-dining.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Quiet library tea room interior, wide shot, emerald velvet chairs beside low tables with steaming teacups, bookshelves lining the walls, floating candles above reading nooks, calm green and gold tones, no characters, serene painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。深緑×アンバーの静かな読書喫茶。蝋燭と茶の柔らかな光。
+
+### REQ-032 [type: image]
+- 用途: エリア別飲食店 決闘演武場 — 店内ヒーローバナー
+- 配置先パス: assets/images/dining/hero-dueling-dining.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Arena recovery stand interior, wide shot, energy drink bottles in crimson and brass colors behind a counter, quick-service setup with stools, arena visible through open archway, dramatic ember lighting, no characters, energetic painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。深紅×アンバーの緊迫感ある回復スタンド。アリーナ観客向けの活気ある軽食店。
+
+### REQ-033 [type: image]
+- 用途: エリア別飲食店 魔法陣召喚広場 — 店内ヒーローバナー
+- 配置先パス: assets/images/dining/hero-summoning-dining.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Arcane eve cafe interior, wide shot, tables set within glowing sigil-carved stone alcoves, purple-lit drinks and candle-adorned pastries, arcane purple and deep ink atmosphere, soft ambient light from runic wall carvings, no characters, mystical painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。アルカナ紫×深紺の召喚儀式前夜祭カフェ。魔法陣の発光が照明代わり。
+
+### REQ-034 [type: image]
+- 用途: エリア別飲食店 天文台 — 店内ヒーローバナー
+- 配置先パス: assets/images/dining/hero-observatory-dining.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Rooftop observatory dining room, wide shot, tables beside panoramic windows showing a starlit sky, azure magical constellation lines visible in the heavens, soft blue-white candlelight on white tablecloths, brass telescope in the corner, no characters, serene night scene painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。天空青×深紺の星見ダイナー。夜空が主役の落ち着いた高級感ある食事処。
+
 ### REQ-016 [type: image]
 - 用途: 購買部 制服・ローブページ — カテゴリヒーローバナー
 - 配置先パス: assets/images/shop/hero-uniforms.jpg

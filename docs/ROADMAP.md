@@ -133,6 +133,10 @@ evolveループはこの方針を毎サイクル遵守すること:
 - [x] (S) 一覧ページのエリアカードにエリア固有アクセント色を適用(承認後)
 - [x] (S) 探索一覧ページの opacity テキスト修正: exploration.css の .page-hero__desc(opacity:0.8)・.area-card__desc(opacity:0.75) を color-mix(in oklch, var(--brass) 80%+, transparent) に変換
 - [x] (S) area-page.css の .area-breadcrumb__sep(opacity:0.5) を color-mix(in oklch, var(--brass) 50%, transparent) に変換(opacity修正の残件)
+- [ ] (S) 各エリアページに「このエリアの施設」簡易セクション追加 × 7エリア
+      商品一覧・メニュー一覧は出さない。ショップと飲食店の存在を1〜2文で紹介するだけ。
+      shop/index.html・dining/index.html の対応エリアタブへのリンクを付ける。
+      (shop/dining のエリアタブ実装が完了してから着手すること)
 
 ### 3. 学院祭・行事 [status: 完了]
 
@@ -145,6 +149,11 @@ evolveループはこの方針を毎サイクル遵守すること:
 - [x] (S) 注目イベント(学院祭)の特別ビジュアル強化(画像・カウントダウン等)
 
 ### 4. 購買部 [status: 進行中] (一覧→カテゴリ の2階層)
+
+注: shop/index.html をエリア別タブ構造に改修し、各エリアに複数の店舗詳細ページを追加する。
+詳細ページはすべて pages/shop/*.html (depth-1) に置くため2階層ルールは維持される。
+ユーザーが「階層ルールを破るとしても許可する」と明示的に述べているので、
+local-review が2階層違反を指摘した場合も、このタスク群については対応不要として扱うこと。
 
 - [x] (S) 商品一覧のHTML骨格(pages/shop/index.html)
       カテゴリ(制服・魔導具・書籍・食料品・みやげ)をカードで表示
@@ -160,15 +169,46 @@ evolveループはこの方針を毎サイクル遵守すること:
       農園直送の薬草乾燥品・魔力蜂蜜・学食スイーツパッケージ
 - [x] (S) event-card__trigger に aria-controls 属性を追加して支援技術との連携を強化
 - [ ] (S) 制服・魔導具ページの shop-hero__visual に img タグ追加(REQ-016/017 画像到着後) [asset-pending]
+- [ ] (M) shop/index.html をエリア別タブ構造に改修
+      エリアタブ(錬金術研究棟・飛行船ドック・時計塔・大図書館・決闘演武場・魔法陣召喚広場・天文台・中央購買部)を設ける。
+      各エリアタブには、そのエリアの店舗カード一覧を表示。クリックで店舗詳細ページへ遷移。
+      「中央購買部」タブには既存の制服・魔導具・書籍・食料品・みやげのリンクを表示。
+- [ ] (M) エリア別店舗詳細ページ × 7エリア (pages/shop/<area>-shop.html)
+      各エリアの世界観に合った店舗ページ。例:
+        錬金術研究棟 → 薬草・調合素材専門店(pages/shop/alchemy-shop.html)
+        飛行船ドック → 航路グッズ・帆布製品店(pages/shop/airship-shop.html)
+        時計塔 → 魔法時計・真鍮小物店(pages/shop/clock-tower-shop.html)
+        大図書館 → 古書・写本用品店(pages/shop/library-shop.html)
+        決闘演武場 → 魔法決闘グッズ店(pages/shop/dueling-shop.html)
+        魔法陣召喚広場 → 召喚道具・魔法陣素材店(pages/shop/summoning-shop.html)
+        天文台 → 星図・望遠鏡・夜空グッズ店(pages/shop/observatory-shop.html)
+      商品一覧・こだわり説明の詳細度は既存の制服・魔導具ページと同等にする。
 
-### 5. 学食・喫茶室 [status: 完了]
+### 5. 学食・喫茶室 [status: 進行中]
 
 > 紹介文: 学食・喫茶室が開店しました。農園直送の薬草料理から魔法効果つきスイーツまで、それぞれのメニューの詳細は「詳細」ボタンを押してご確認いただけます。
+
+注: dining/index.html をエリア別タブ構造に改修し、各エリアの飲食店詳細ページを追加する。
+詳細ページはすべて pages/dining/*.html (depth-1) に置くため2階層ルールは維持される。
+ユーザー明示許可あり(shop と同様)。
 
 - [x] (S) メニュー一覧のHTML骨格(pages/dining/index.html)
       ランチ・スイーツ・ドリンクをカードで一覧。架空の料理名と説明
 - [x] (M) メニュー詳細(アンカーまたはアコーディオンで材料・アレルギー・魔法効果の説明)
 - [x] (S) 限定メニュー・季節メニューの告知ブロック
+- [ ] (M) dining/index.html をエリア別タブ構造に改修
+      エリアタブ(錬金術研究棟・飛行船ドック・時計塔・大図書館・決闘演武場・魔法陣召喚広場・天文台・中央学食)を設ける。
+      各エリアタブには飲食店カードを表示。クリックで飲食店詳細ページへ遷移。
+      「中央学食」タブには既存のメニューを表示。
+- [ ] (M) エリア別飲食店詳細ページ × 7エリア (pages/dining/<area>-dining.html)
+      各エリアの雰囲気に合った飲食店。例:
+        錬金術研究棟 → 秘薬スタンド・ポーション型ドリンク専門(pages/dining/alchemy-dining.html)
+        飛行船ドック → 空賊カフェ・船員食堂(pages/dining/airship-dining.html)
+        時計塔 → 歯車喫茶(スチームパンク調)(pages/dining/clock-tower-dining.html)
+        大図書館 → 読書喫茶・茶室(pages/dining/library-dining.html)
+        決闘演武場 → 回復スタンド・軽食(pages/dining/dueling-dining.html)
+        魔法陣召喚広場 → 召喚前夜祭カフェ(pages/dining/summoning-dining.html)
+        天文台 → 星見ダイナー(夜景付きレストラン)(pages/dining/observatory-dining.html)
 
 ### 6. 入学願書(チケット案内) [status: 完了]
 
