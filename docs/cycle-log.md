@@ -1,5 +1,13 @@
 # サイクル履歴
 
+## 2026-07-25 22:03
+- 実装: 時計塔 hero/thumb 画像差し込み完了(REQ-008/009対応済みに移動) + 新エリア「大図書館」追加(5アトラクション・静謐幻想的トーン・深緑×真鍮グリッドパターン)
+- レビュー: 指摘1件対応 (A-1: ASSET_REQUESTS の REQ-008/009 番号入れ替わり修正)
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 学院内探索 (M) 新エリア: 決闘演武場 (--crimson)
+- blocked / partial: なし
+- asset-pending: REQ-010(hero-grand-library.jpg) / REQ-011(thumb-grand-library.jpg)
+
 ## 2026-07-25 21:05
 - 実装: 学院内探索 新エリア「時計塔」追加(4アトラクション・重厚精密トーン・--silver グリッドパターン hero ビジュアル・accordion 対応)。探索一覧にカード追加
 - レビュー: 指摘1件 ROADMAP todo追記(A-1: exploration.css の opacity テキスト、既存の別問題)

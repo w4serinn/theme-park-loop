@@ -107,6 +107,25 @@
     );
 }
 
+.area-hero__visual--grand-library {
+  background-color: color-mix(in srgb, var(--emerald) 35%, var(--ink));
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 6px,
+      color-mix(in oklch, var(--brass) 6%, transparent) 6px,
+      color-mix(in oklch, var(--brass) 6%, transparent) 7px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 28px,
+      color-mix(in oklch, var(--emerald) 20%, transparent) 28px,
+      color-mix(in oklch, var(--emerald) 20%, transparent) 29px
+    );
+}
+
 .area-hero__visual--clock-tower {
   background-color: color-mix(in srgb, var(--silver) 14%, var(--ink));
   background-image:

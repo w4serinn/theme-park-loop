@@ -7,21 +7,29 @@
 
 ## 依頼中(未対応)
 
+### REQ-010 [type: image]
+- 用途: 大図書館ページ — エリアヒーローバナー
+- 配置先パス: assets/images/exploration/hero-grand-library.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Interior of a vast magical library, panoramic wide shot, seven-story atrium lined with emerald and brass bookshelves, floating candles ascending through the heights, ancient tomes and mystical light, no characters, cinematic painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×240pxのヒーロービジュアル。深緑(#1f5c4a)と真鍮(#b08d57)が主役。蝋燭の光が吹き抜けを満たす垂直方向の奥行きを強調してほしい。
+
+### REQ-011 [type: image]
+- 用途: 学院内探索 一覧ページ — 大図書館カードのサムネイル
+- 配置先パス: assets/images/exploration/thumb-grand-library.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Magical library interior, wide banner crop, towering emerald bookshelves with floating candles and golden magical light, ancient books and mystical atmosphere, no characters, detailed painterly illustration, dark navy background --ar 2:1 --style raw
+- 補足: カード幅280px×高さ160pxに表示。深緑×真鍮の組み合わせで他エリアと差別化。
+
+## 対応済み
+
 ### REQ-008 [type: image]
 - 用途: 時計塔ページ — エリアヒーローバナー
 - 配置先パス: assets/images/exploration/hero-clock-tower.jpg
-- 想定ツール: Midjourney
-- 提案プロンプト: Interior of a massive steampunk magical clock tower, panoramic wide shot, enormous brass gear mechanisms rising through multiple floors visible through glass walkways, silver and gold tones with cool blue-grey light, no characters, cinematic painterly illustration --ar 5:1 --style raw
-- 補足: 全幅×240px のヒーロービジュアル。--silver(#9ba8b4)のクール金属トーンが映える、ガラスと歯車を基調にした構図。
 
 ### REQ-009 [type: image]
 - 用途: 学院内探索 一覧ページ — 時計塔カードのサムネイル
 - 配置先パス: assets/images/exploration/thumb-clock-tower.jpg
-- 想定ツール: Midjourney
-- 提案プロンプト: Steampunk magical clock tower exterior at dusk, wide banner crop, tall stone tower with enormous brass clock face glowing with silver magical light, dark navy sky, no characters, detailed painterly illustration --ar 2:1 --style raw
-- 補足: カード幅280px×高さ160pxに表示。REQ-001と同じトーン条件。銀(#9ba8b4)と真鍮(#b08d57)のコントラストが際立つ構図が望ましい。
-
-## 対応済み
 
 ### REQ-007 [type: image]
 - 用途: トップページ — ヒーローエリア背景画像

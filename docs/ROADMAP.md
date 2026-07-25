@@ -117,7 +117,7 @@ evolveループはこの方針を毎サイクル遵守すること:
 - [x] (M) 新エリア: 時計塔(pages/exploration/clock-tower.html)
       ── 学院の象徴たる大時計塔。魔法時計・時間操作実験・展望台。
       アクセント色は `--silver`(承認済み)
-- [ ] (M) 新エリア: 大図書館(pages/exploration/grand-library.html)
+- [x] (M) 新エリア: 大図書館(pages/exploration/grand-library.html)
       ── 天井まで続く魔法書の棚と浮遊する蝋燭。写本体験・書庫迷宮。
       エリア専用の深緑×真鍮パターン
 - [ ] (M) 新エリア: 決闘演武場(pages/exploration/dueling-ground.html)
