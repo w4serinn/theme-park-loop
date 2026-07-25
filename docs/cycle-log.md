@@ -1,5 +1,16 @@
 # サイクル履歴
 
+## 2026-07-26 07:04
+- 実装: 学院案内(サービス情報) 服装規定(S) + Q&A(S) + 学院ルール(S) → 完了
+  pages/guide/index.html: 3区分服装パネル / 6問Q&Aアコーディオン / 5規則リスト
+  styles/guide.css: dress-panels 3種(--ok/--caution/--ng) / qa-accordion / rule-list
+  src/guide-qa.js: 服装Q&A IIFE アコーディオン
+- レビュー: 指摘1件(ROADMAP未更新)対応済み
+- lint: ✓ / lint:css: ✓ / test: ✓(85件) / build: ✓
+- 次回予定: ROADMAPタスク完了のため「今後のタスク候補」に3〜5件追加して着手
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-26 06:08
 - 実装: 学院への道のり アクセス情報(S) + SVGキャンパスマップ(M) → 完了
   pages/access/index.html: info-bar(住所・時間・定休日) + transport-list DL×4 + SVGマップ8エリア

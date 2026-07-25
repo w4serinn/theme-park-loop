@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>学院案内 — 王立魔法学院アルノルド</title>
+  <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/base.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/guide.css" />
+</head>
+<body>
+<!-- HEADER -->
+<main>
+  <div class="guide-hero">
+    <h1 class="guide-hero__title">学院案内</h1>
+    <p class="guide-hero__desc">来訪前に知っておきたい服装・持ち物のルールから、よくいただくご質問、学院内でのお約束まで。安全で快適な探訪のために、ご一読ください。</p>
+  </div>
+
+  <div class="guide-content">
+
+    <section class="guide-section" id="dress">
+      <h2 class="guide-section__heading">服装規定・持ち物案内</h2>
+      <div class="dress-panels">
+
+        <div class="dress-panel dress-panel--ok">
+          <h3 class="dress-panel__heading">推奨の服装・持ち物</h3>
+          <ul class="dress-panel__list">
+            <li>動きやすい服装（石畳・階段が多いため）</li>
+            <li>運動靴またはスニーカー</li>
+            <li>帽子・日傘など日差し対策</li>
+            <li>小型リュックまたはトートバッグ</li>
+            <li>飲み物（学食・購買部でも購入可）</li>
+          </ul>
+        </div>
+
+        <div class="dress-panel dress-panel--caution">
+          <h3 class="dress-panel__heading">入口検査が必要なもの</h3>
+          <ul class="dress-panel__list">
+            <li>杖・法杖（使用エリア制限あり）</li>
+            <li>魔導具全般（強度確認のため）</li>
+            <li>三脚・一脚（撮影許可エリアのみ可）</li>
+            <li>特定の薬草・精油類</li>
+          </ul>
+        </div>
+
+        <div class="dress-panel dress-panel--ng">
+          <h3 class="dress-panel__heading">持込禁止・注意事項</h3>
+          <ul class="dress-panel__list">
+            <li>危険な魔法薬・禁忌薬草類</li>
+            <li>ヒール高15cm超の靴</li>
+            <li>大型ペット・動物（預かりサービスあり）</li>
+            <li>刃物・危険物全般</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="guide-section" id="qa">
+      <h2 class="guide-section__heading">よくある質問</h2>
+      <div class="qa-list" role="list">
+
+        <div class="qa-item" role="listitem">
+          <button class="qa-trigger" type="button" aria-expanded="false" aria-controls="qa-1">
+            雨天でも来場できますか？
+            <span class="qa-icon" aria-hidden="true">▶</span>
+          </button>
+          <div class="qa-panel" id="qa-1" hidden>
+            <p>はい。錬金術研究棟・大図書館・学食・購買部など屋内施設が充実しています。一部の屋外エリア（飛行船ドック・魔法陣召喚広場）は悪天候時に閉鎖する場合があります。当日の天候情報は正門の掲示板にてご確認ください。</p>
+          </div>
+        </div>
+
+        <div class="qa-item" role="listitem">
+          <button class="qa-trigger" type="button" aria-expanded="false" aria-controls="qa-2">
+            杖は持ち込めますか？
+            <span class="qa-icon" aria-hidden="true">▶</span>
+          </button>
+          <div class="qa-panel" id="qa-2" hidden>
+            <p>入口セキュリティ検査を通過すれば持込可能です。ただし、魔法の使用は「魔法使用許可エリア」（主に決闘演武場・魔法陣召喚広場）のみに限定されています。屋内施設や来場者の多いエリアでの不用意な使用はご遠慮ください。</p>
+          </div>
+        </div>
+
+        <div class="qa-item" role="listitem">
+          <button class="qa-trigger" type="button" aria-expanded="false" aria-controls="qa-3">
+            乳幼児連れでも安心ですか？
+            <span class="qa-icon" aria-hidden="true">▶</span>
+          </button>
+          <div class="qa-panel" id="qa-3" hidden>
+            <p>はい。授乳室・おむつ台は正門ロビーと購買部エリアに設置しています。ベビーカー貸出サービス（要予約・有料）もご用意しています。一部の体験施設には年齢・身長制限がありますので、入口の案内板をご確認ください。</p>
+          </div>
+        </div>
+
+        <div class="qa-item" role="listitem">
+          <button class="qa-trigger" type="button" aria-expanded="false" aria-controls="qa-4">
+            バリアフリー対応はありますか？
+            <span class="qa-icon" aria-hidden="true">▶</span>
+          </button>
+          <div class="qa-panel" id="qa-4" hidden>
+            <p>主要エリアにスロープ・エレベーターを設置しています。ただし天文台の最上部観測フロアや時計塔の展望台は階段のみとなります。バリアフリーマップは正門案内所でお受け取りいただけます。詳細は事前にお問い合わせください。</p>
+          </div>
+        </div>
+
+        <div class="qa-item" role="listitem">
+          <button class="qa-trigger" type="button" aria-expanded="false" aria-controls="qa-5">
+            写真・動画の撮影はできますか？
+            <span class="qa-icon" aria-hidden="true">▶</span>
+          </button>
+          <div class="qa-panel" id="qa-5" hidden>
+            <p>一般エリアでの個人利用目的の撮影は可能です。ただしフラッシュ撮影は全エリアで禁止、パフォーマンス中・実験中の動画撮影もご遠慮いただいています。商用目的での撮影は事前の許可申請が必要です。詳細は学院ルールの撮影ポリシーをご確認ください。</p>
+          </div>
+        </div>
+
+        <div class="qa-item" role="listitem">
+          <button class="qa-trigger" type="button" aria-expanded="false" aria-controls="qa-6">
+            コインロッカーはありますか？
+            <span class="qa-icon" aria-hidden="true">▶</span>
+          </button>
+          <div class="qa-panel" id="qa-6" hidden>
+            <p>正門ロビーにコイン式ロッカーを設置しています（1回100円。返却時に返金）。大型荷物の預かりサービスは正門案内所にてご相談ください。学院内への大型荷物の持込はご遠慮いただく場合があります。</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="guide-section" id="rules">
+      <h2 class="guide-section__heading">学院ルール・注意事項</h2>
+      <div class="rule-list">
+
+        <div class="rule-item">
+          <h3 class="rule-item__heading">写真・動画撮影ポリシー</h3>
+          <p class="rule-item__body">個人利用目的の写真・動画撮影は一般エリアで許可されています。フラッシュ撮影は全エリア禁止。パフォーマンスや実験中の撮影は都度係員の指示に従ってください。商用利用・学院施設の動画をSNSへ投稿する場合は事前に許可申請が必要です（正門案内所にて受付）。</p>
+        </div>
+
+        <div class="rule-item">
+          <h3 class="rule-item__heading">魔法使用ルール</h3>
+          <p class="rule-item__body">来場者による魔法の使用は、決闘演武場・魔法陣召喚広場など「魔法使用許可エリア」内に限定されます。許可エリア外での魔法行使は固く禁じており、施設の安全性確保と他の来場者への配慮のためご協力をお願いします。使用できる魔法の種類にも制限がありますので、入場時の案内をよくお読みください。</p>
+        </div>
+
+        <div class="rule-item">
+          <h3 class="rule-item__heading">飲食・飲み物のルール</h3>
+          <p class="rule-item__body">食事は学食・購買部の飲食スペースをご利用ください。エリア外での飲食は封をしたドリンクのみ可能です。学院内で販売している飲み物のみ施設内でご使用いただけます。アレルギーをお持ちの方は学食カウンターにてお申し付けください。</p>
+        </div>
+
+        <div class="rule-item">
+          <h3 class="rule-item__heading">動植物の持込・ペット</h3>
+          <p class="rule-item__body">原則としてペットや動物の持込は禁止しています。魔力除去済みの使い魔については事前申請（受付で認定証の提示が必要）で同伴可能です。当日は正門カウンターにて一時預かりサービス（有料）もご利用いただけます。</p>
+        </div>
+
+        <div class="rule-item">
+          <h3 class="rule-item__heading">緊急時・体調不良の際</h3>
+          <p class="rule-item__body">体調不良や緊急事態の際は、最寄りの係員へすぐにお声がけください。学院医療室は正門警備棟に設置しており、応急処置に対応しています。迷子・はぐれた場合は正門ロビーの案内所が対応窓口となります。</p>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+</main>
+<!-- FOOTER -->
+<script src="{{BASE}}src/guide-qa.js" defer></script>
+</body>
+</html>
