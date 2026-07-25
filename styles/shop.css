@@ -1,0 +1,216 @@
+/* 購買部ページ固有スタイル */
+
+.page-hero {
+  text-align: center;
+  padding: 3rem 1.5rem 2.5rem;
+  border-bottom: 1px solid var(--brass);
+}
+
+.page-hero__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 0.75rem;
+}
+
+.page-hero__desc {
+  font-size: 1rem;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.shop-categories {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 3rem;
+}
+
+.category-cards {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.category-card__link {
+  display: block;
+  color: var(--brass);
+  border-width: 1px;
+  border-style: solid;
+  border-color: color-mix(in oklch, var(--brass) 35%, transparent);
+  transition: border-color 0.2s;
+}
+
+.category-card__link:hover {
+  border-color: var(--brass);
+}
+
+.category-card__visual {
+  height: 140px;
+  overflow: hidden;
+  background-color: color-mix(in srgb, var(--emerald) 25%, var(--ink));
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 8px,
+    color-mix(in srgb, var(--brass) 8%, transparent) 8px,
+    color-mix(in srgb, var(--brass) 8%, transparent) 9px
+  );
+}
+
+.category-card__body {
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.category-card__name {
+  font-size: 1.1rem;
+  color: var(--brass);
+  margin: 0 0 0.5rem;
+}
+
+.category-card__desc {
+  font-size: 0.9rem;
+  color: color-mix(in oklch, var(--brass) 80%, transparent);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* カテゴリ固有アクセント: border-top (baseを全て先に、hoverを後にまとめる) */
+.category-card--uniforms .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--ember);
+}
+
+.category-card--tools .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--azure);
+}
+
+.category-card--books .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--silver);
+}
+
+.category-card--groceries .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--emerald);
+}
+
+.category-card--souvenirs .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--arcane);
+}
+
+.category-card--uniforms .category-card__link:hover {
+  border-color: var(--ember);
+}
+
+.category-card--tools .category-card__link:hover {
+  border-color: var(--azure);
+}
+
+.category-card--books .category-card__link:hover {
+  border-color: var(--silver);
+}
+
+.category-card--groceries .category-card__link:hover {
+  border-color: var(--emerald);
+}
+
+.category-card--souvenirs .category-card__link:hover {
+  border-color: var(--arcane);
+}
+
+/* カテゴリ固有ビジュアル */
+.category-card--uniforms .category-card__visual {
+  background-color: color-mix(in srgb, var(--ember) 20%, var(--ink));
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 8px,
+    color-mix(in oklch, var(--ember) 8%, transparent) 8px,
+    color-mix(in oklch, var(--ember) 8%, transparent) 9px
+  );
+}
+
+.category-card--tools .category-card__visual {
+  background-color: color-mix(in srgb, var(--azure) 18%, var(--ink));
+  background-image: repeating-radial-gradient(
+    circle at 50% 50%,
+    transparent,
+    transparent 20px,
+    color-mix(in oklch, var(--azure) 8%, transparent) 20px,
+    color-mix(in oklch, var(--azure) 8%, transparent) 21px
+  );
+}
+
+.category-card--books .category-card__visual {
+  background-color: color-mix(in srgb, var(--emerald) 28%, var(--ink));
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 28px,
+    color-mix(in oklch, var(--silver) 8%, transparent) 28px,
+    color-mix(in oklch, var(--silver) 8%, transparent) 29px
+  );
+}
+
+.category-card--groceries .category-card__visual {
+  background-color: color-mix(in srgb, var(--emerald) 35%, var(--ink));
+  background-image:
+    repeating-linear-gradient(
+      30deg,
+      transparent,
+      transparent 12px,
+      color-mix(in oklch, var(--emerald) 12%, transparent) 12px,
+      color-mix(in oklch, var(--emerald) 12%, transparent) 13px
+    ),
+    repeating-linear-gradient(
+      -30deg,
+      transparent,
+      transparent 12px,
+      color-mix(in oklch, var(--emerald) 12%, transparent) 12px,
+      color-mix(in oklch, var(--emerald) 12%, transparent) 13px
+    );
+}
+
+.category-card--souvenirs .category-card__visual {
+  background-color: color-mix(in srgb, var(--arcane) 16%, var(--ink));
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 14px,
+      color-mix(in oklch, var(--arcane) 10%, transparent) 14px,
+      color-mix(in oklch, var(--arcane) 10%, transparent) 15px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 14px,
+      color-mix(in oklch, var(--arcane) 10%, transparent) 14px,
+      color-mix(in oklch, var(--arcane) 10%, transparent) 15px
+    );
+}
+
+@media (width <= 600px) {
+  .page-hero {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .page-hero__title {
+    font-size: 1.6rem;
+  }
+
+  .shop-categories {
+    padding: 1.5rem 1rem 2rem;
+  }
+
+  .category-cards {
+    grid-template-columns: 1fr;
+  }
+}

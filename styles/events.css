@@ -79,8 +79,38 @@
 /* 注目イベント */
 .event-card--featured {
   background-color: color-mix(in oklch, var(--emerald) 8%, var(--ink));
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 20px,
+    color-mix(in oklch, var(--brass) 3%, transparent) 20px,
+    color-mix(in oklch, var(--brass) 3%, transparent) 21px
+  );
+  border-left: 3px solid var(--brass);
   margin: 0 -1.5rem;
   padding: 1.5rem;
+}
+
+/* 注目ラベル */
+.event-card__featured-label {
+  grid-column: 1 / -1;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: color-mix(in oklch, var(--brass) 88%, transparent);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.35rem;
+}
+
+/* 一般公開注記 */
+.event-card__public-note {
+  font-size: 0.8rem;
+  color: color-mix(in oklch, var(--brass) 78%, transparent);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.event-card__public-note strong {
+  color: var(--brass);
 }
 
 /* 日付 */
@@ -164,6 +194,61 @@
   border: 1px solid color-mix(in oklch, var(--brass) 30%, transparent);
 }
 
+/* 詳細展開トリガー */
+.event-card__trigger {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--ember);
+  font-family: inherit;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.event-card__trigger:hover {
+  color: var(--brass);
+}
+
+.event-card__trigger-icon {
+  font-size: 0.55rem;
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.event-card.is-open .event-card__trigger-icon {
+  transform: rotate(90deg);
+}
+
+/* 詳細パネル */
+.event-card__panel {
+  grid-column: 1 / -1;
+  padding: 1rem 0 0.5rem;
+  border-top: 1px solid color-mix(in oklch, var(--brass) 18%, transparent);
+}
+
+/* 詳細情報 dl */
+.event-detail {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.4rem 1.25rem;
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.event-detail dt {
+  color: var(--ember);
+  white-space: nowrap;
+}
+
+.event-detail dd {
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  margin: 0;
+  line-height: 1.6;
+}
+
 @media (width <= 600px) {
   .page-hero {
     padding: 2rem 1rem 1.5rem;
@@ -189,5 +274,18 @@
 
   .event-card__month {
     font-size: 0.95rem;
+  }
+
+  .event-detail {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .event-detail dt {
+    margin-top: 0.5rem;
+  }
+
+  .event-detail dt:first-child {
+    margin-top: 0;
   }
 }
