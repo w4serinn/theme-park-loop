@@ -518,6 +518,115 @@
   transform: translateX(4px);
 }
 
+.ticket-info-section {
+  padding: 4rem 1.5rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 22%, transparent);
+  background-color: color-mix(in oklch, var(--emerald) 4%, var(--ink));
+}
+
+.ticket-info-section__inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.ticket-info-section__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.ticket-info-section__eyebrow {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  color: var(--emerald);
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+}
+
+.ticket-info-section__title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--brass);
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.ticket-info-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.ticket-info-block {
+  padding: 1.5rem;
+  border: 1px solid color-mix(in oklch, var(--brass) 18%, transparent);
+  border-top: 2px solid var(--emerald);
+  border-radius: 2px;
+}
+
+.ticket-info-block__heading {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--emerald);
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+}
+
+.ticket-info-block__list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0;
+}
+
+.ticket-info-block__list dt {
+  font-size: 0.78rem;
+  color: color-mix(in oklch, var(--brass) 58%, transparent);
+}
+
+.ticket-info-block__list dd {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--brass);
+  margin: 0;
+}
+
+.ticket-info-block__value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 0.35rem;
+  letter-spacing: 0.02em;
+}
+
+.ticket-info-block__note {
+  font-size: 0.75rem;
+  color: color-mix(in oklch, var(--brass) 55%, transparent);
+  margin: 0;
+}
+
+.ticket-info-section__cta-wrap {
+  text-align: center;
+}
+
+.ticket-info-section__cta {
+  display: inline-block;
+  padding: 0.75rem 2.25rem;
+  border: 2px solid var(--emerald);
+  background-color: transparent;
+  color: var(--emerald);
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.ticket-info-section__cta:hover {
+  background-color: var(--emerald);
+  color: var(--ink);
+}
+
 .seasonal-events-section {
   padding: 4rem 1.5rem;
   border-bottom: 1px solid color-mix(in oklch, var(--brass) 22%, transparent);
@@ -783,6 +892,18 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+  }
+
+  .ticket-info-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .ticket-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket-info-block__value {
+    font-size: 1.1rem;
   }
 
   .seasonal-events-section {
