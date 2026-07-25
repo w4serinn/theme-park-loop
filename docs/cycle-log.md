@@ -1,5 +1,13 @@
 # サイクル履歴
 
+## 2026-07-25 09:42
+- 実装: active-nav.js の file:// 対応。type="module"(CORS制限でfile://不可)をdeferに変更、IIFEでスコープ隔離
+- レビュー: OK
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 共通パーツ (M) ヘッダー: モバイル用ハンバーガーメニュー
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-25 09:35
 - 実装: 共通パーツ ヘッダー現在ページハイライト。src/active-nav.js 新規作成(pathname比較→.is-current付与)、base.css に .is-current スタイル追加(ember色・底辺ライン)、header.html に type="module" script 追加。build.js を更新して src/ を dist/ にコピー対象に追加。eslint.config.js に URL グローバルを追加
 - レビュー: OK (A-2 軽微メモのみ)
