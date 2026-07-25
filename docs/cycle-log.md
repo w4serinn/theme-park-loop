@@ -1,5 +1,17 @@
 # サイクル履歴
 
+## 2026-07-26 08:28
+- 実装: 購買部 エリアタブ化(M) + 3エリア×2店舗 詳細ページ新設(M・partial)
+  shop/index.html: 8エリアタブ構造に改修。中央購買部タブに既存5カテゴリ存続。
+  錬金術研究棟(蒸留工房店・実験器具販売所) / 飛行船ドック(羅針堂・風袋商会) / 時計塔(時刻堂・歯車細工所)
+  src/shop-tabs.js: IIFE タブ切り替え + キーボードナビゲーション
+  styles: shop.css タブ+エリアカード修飾子 / shop-page.css エリアショップビジュアル
+- レビュー: 指摘1件(A-1: アセット依頼漏れ REQ-035〜037 追記)対応済み
+- lint: ✓ / lint:css: ✓ / test: ✓(103件) / build: ✓
+- 次回予定: エリア詳細ページ残り4エリア(大図書館・決闘演武場・召喚広場・天文台) または dining/index.html エリアタブ化
+- blocked / partial: エリア別店舗ページ partial — 残り4エリア未実装
+- asset-pending: REQ-035(alchemy-tools) / REQ-036(airship-gear) / REQ-037(clock-accessories)
+
 ## 2026-07-26 07:04
 - 実装: 学院案内(サービス情報) 服装規定(S) + Q&A(S) + 学院ルール(S) → 完了
   pages/guide/index.html: 3区分服装パネル / 6問Q&Aアコーディオン / 5規則リスト
