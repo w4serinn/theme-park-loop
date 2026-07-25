@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>入学願書・チケット案内 — 王立魔法学院アルノルド</title>
+  <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/base.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/tickets.css" />
+</head>
+<body>
+<!-- HEADER -->
+<main>
+  <div class="tickets-hero">
+    <h1 class="tickets-hero__title">入学願書・チケット案内</h1>
+    <p class="tickets-hero__desc">王立魔法学院アルノルドへ足を踏み入れるための案内書。来場区分と人数を確認し、最適な料金でお越しください。</p>
+  </div>
+
+  <div class="tickets-content">
+
+    <section class="tickets-section" id="prices">
+      <h2 class="tickets-section__heading">入場料金</h2>
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th scope="col">区分</th>
+            <th scope="col">対象</th>
+            <th scope="col">料金（税込）</th>
+            <th scope="col">備考</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="price-table__name">大人</td>
+            <td class="price-table__note">18歳以上</td>
+            <td class="price-table__price">¥2,800</td>
+            <td class="price-table__note">—</td>
+          </tr>
+          <tr>
+            <td class="price-table__name">学生</td>
+            <td class="price-table__note">12〜17歳（中高生）</td>
+            <td class="price-table__price">¥1,800</td>
+            <td class="price-table__note">生徒証または学生証提示</td>
+          </tr>
+          <tr>
+            <td class="price-table__name">小人</td>
+            <td class="price-table__note">4〜11歳</td>
+            <td class="price-table__price">¥900</td>
+            <td class="price-table__note">—</td>
+          </tr>
+          <tr>
+            <td class="price-table__name">幼児</td>
+            <td class="price-table__note">3歳以下</td>
+            <td class="price-table__price">無料</td>
+            <td class="price-table__note">保護者同伴が必要</td>
+          </tr>
+          <tr class="price-table__highlight">
+            <td class="price-table__name">家族券</td>
+            <td class="price-table__note">大人2名 + 小人2名のセット</td>
+            <td class="price-table__price">¥7,200</td>
+            <td class="price-table__note">通常¥8,600 → ¥1,400お得</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="tickets-section" id="simulator">
+      <h2 class="tickets-section__heading">料金シミュレーター</h2>
+      <form class="ticket-sim" id="ticket-sim" aria-label="入場料金シミュレーター">
+        <div class="sim-grid">
+          <div class="sim-field">
+            <label for="sim-adults">大人 <span class="sim-field__sub">18歳以上</span></label>
+            <input type="number" id="sim-adults" name="adults" value="0" min="0" max="99" />
+          </div>
+          <div class="sim-field">
+            <label for="sim-students">学生 <span class="sim-field__sub">12〜17歳</span></label>
+            <input type="number" id="sim-students" name="students" value="0" min="0" max="99" />
+          </div>
+          <div class="sim-field">
+            <label for="sim-children">小人 <span class="sim-field__sub">4〜11歳</span></label>
+            <input type="number" id="sim-children" name="children" value="0" min="0" max="99" />
+          </div>
+          <div class="sim-field">
+            <label for="sim-infants">幼児 <span class="sim-field__sub">3歳以下・無料</span></label>
+            <input type="number" id="sim-infants" name="infants" value="0" min="0" max="99" />
+          </div>
+        </div>
+        <div class="sim-result" id="sim-result" hidden aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section class="tickets-section" id="info">
+      <h2 class="tickets-section__heading">来場者向けお役立ち情報</h2>
+      <div class="info-grid">
+
+        <div class="info-card">
+          <h3 class="info-card__heading">おすすめ滞在時間</h3>
+          <p class="info-card__body">3〜5時間が目安です。学院内の主要エリアを一通り巡るには4時間ほどご用意ください。学食でのお食事込みであれば5時間以上をおすすめします。</p>
+        </div>
+
+        <div class="info-card">
+          <h3 class="info-card__heading">混雑情報</h3>
+          <ul class="info-list">
+            <li>学院祭・連休期間は11:00〜15:00が特に混雑します</li>
+            <li>平日午前（10:00〜12:00）は比較的空いています</li>
+            <li>体験型施設（錬金術研究棟・天文台）は当日整理券あり</li>
+            <li>学院祭日程は公式ページでご確認ください</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h3 class="info-card__heading">持ち物・服装のご案内</h3>
+          <ul class="info-list">
+            <li>杖の持ち込みは可（使用エリアに制限あり）</li>
+            <li>魔導具は入口セキュリティ検査があります</li>
+            <li>歩きやすい靴を推奨（石畳・階段が多いため）</li>
+            <li>制服の貸出あり（購買部にてご案内）</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h3 class="info-card__heading">アクセス</h3>
+          <p class="info-card__body">最寄り駅から徒歩15分、または学院専用バスが運行中です。お車でのご来場は学院東駐車場をご利用ください（有料）。</p>
+          <a class="info-cta" href="{{BASE}}access/index.html">アクセス詳細を見る</a>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+</main>
+<!-- FOOTER -->
+<script src="{{BASE}}src/ticket-sim.js" defer></script>
+</body>
+</html>
