@@ -518,6 +518,147 @@
   transform: translateX(4px);
 }
 
+.seasonal-events-section {
+  padding: 4rem 1.5rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 22%, transparent);
+  background-color: color-mix(in oklch, var(--ember) 3%, var(--ink));
+}
+
+.seasonal-events-section__inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.seasonal-events-section__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.seasonal-events-section__eyebrow {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  color: var(--ember);
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+}
+
+.seasonal-events-section__title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--brass);
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.seasonal-events-section__all {
+  font-size: 0.8rem;
+  color: var(--ember);
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+  padding-bottom: 0.25rem;
+  transition: color 0.2s, letter-spacing 0.2s;
+}
+
+.seasonal-events-section__all:hover {
+  color: var(--brass);
+  letter-spacing: 0.1em;
+}
+
+.event-mini-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.event-mini-card {
+  padding: 1.25rem;
+  border: 1px solid color-mix(in oklch, var(--brass) 18%, transparent);
+  border-left: 3px solid var(--ember);
+  border-radius: 2px;
+  background-color: color-mix(in oklch, var(--brass) 2%, transparent);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: background-color 0.2s, transform 0.22s;
+}
+
+/* Variant accent (before hover state) */
+.event-mini-card--autumn {
+  border-left-color: var(--brass);
+}
+
+.event-mini-card:hover {
+  background-color: color-mix(in oklch, var(--brass) 5%, transparent);
+  transform: translateY(-2px);
+}
+
+.event-mini-card__season {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  border-radius: 2px;
+  width: fit-content;
+  letter-spacing: 0.05em;
+}
+
+.event-mini-card__season--summer {
+  background-color: color-mix(in oklch, var(--ember) 20%, var(--ink));
+  color: var(--brass);
+  border: 1px solid color-mix(in oklch, var(--ember) 50%, transparent);
+}
+
+.event-mini-card__season--autumn {
+  background-color: color-mix(in oklch, var(--brass) 20%, var(--ink));
+  color: var(--brass);
+  border: 1px solid color-mix(in oklch, var(--brass) 50%, transparent);
+}
+
+.event-mini-card__meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.event-mini-card__month {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ember);
+  line-height: 1.2;
+}
+
+.event-mini-card--autumn .event-mini-card__month {
+  color: var(--brass);
+}
+
+.event-mini-card__when {
+  font-size: 0.7rem;
+  color: color-mix(in oklch, var(--brass) 55%, transparent);
+}
+
+.event-mini-card__name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.event-mini-card__desc {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.72;
+  color: color-mix(in oklch, var(--brass) 60%, var(--ink));
+  flex: 1;
+}
+
 .news-section {
   padding: 2.5rem 1.5rem;
   max-width: 860px;
@@ -642,6 +783,19 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+  }
+
+  .seasonal-events-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .seasonal-events-section__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .event-mini-list {
+    grid-template-columns: 1fr;
   }
 
   .news-section {
