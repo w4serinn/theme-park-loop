@@ -7,14 +7,13 @@
 
 ## 依頼中(未対応)
 
+(現在なし)
+
+## 対応済み
+
 ### REQ-007 [type: image]
 - 用途: トップページ — ヒーローエリア背景画像
 - 配置先パス: assets/images/hero-top.jpg
-- 想定ツール: Midjourney
-- 提案プロンプト: A vast steampunk magical academy campus at dusk, wide panoramic establishing shot, grand stone towers with brass clockwork mechanisms and glowing emerald magical windows, cobblestone courtyards, no characters, cinematic painterly illustration, dark navy sky with warm amber lights --ar 16:5 --style raw
-- 補足: 全幅×450px前後のヒーロービジュアル。現状は `background-image: linear-gradient(...)` で代替中。画像を配置したらページ側の CSS を差し替えること(background-image に url() を追加、グラデーション重ねがけ可)。コアカラー(--ink/#14161f・--emerald/#1f5c4a・--brass/#b08d57)に溶け込むダーク寄りのトーンで。
-
-## 対応済み
 
 ### REQ-001 [type: image]
 - 用途: 学院内探索 一覧ページ — 錬金術研究棟カードのサムネイル

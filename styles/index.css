@@ -4,11 +4,19 @@
   text-align: center;
   padding: 5rem 1.5rem;
   border-bottom: 1px solid var(--brass);
-  background-image: radial-gradient(
-    ellipse 80% 55% at 50% 0%,
-    color-mix(in srgb, var(--emerald) 22%, transparent),
-    transparent
-  );
+  background-image:
+    radial-gradient(
+      ellipse 80% 55% at 50% 0%,
+      color-mix(in srgb, var(--emerald) 22%, transparent),
+      transparent
+    ),
+    linear-gradient(
+      color-mix(in oklch, var(--ink) 55%, transparent),
+      color-mix(in oklch, var(--ink) 55%, transparent)
+    ),
+    url('../assets/images/hero-top.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .hero__subtitle {
