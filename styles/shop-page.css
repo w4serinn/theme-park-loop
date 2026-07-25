@@ -64,6 +64,55 @@
   );
 }
 
+.shop-hero__visual--souvenirs {
+  background-color: color-mix(in srgb, var(--arcane) 16%, var(--ink));
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 14px,
+      color-mix(in oklch, var(--arcane) 8%, transparent) 14px,
+      color-mix(in oklch, var(--arcane) 8%, transparent) 15px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 14px,
+      color-mix(in oklch, var(--arcane) 8%, transparent) 14px,
+      color-mix(in oklch, var(--arcane) 8%, transparent) 15px
+    );
+}
+
+.shop-hero__visual--books {
+  background-color: color-mix(in srgb, var(--emerald) 28%, var(--ink));
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 28px,
+    color-mix(in oklch, var(--silver) 8%, transparent) 28px,
+    color-mix(in oklch, var(--silver) 8%, transparent) 29px
+  );
+}
+
+.shop-hero__visual--groceries {
+  background-color: color-mix(in srgb, var(--emerald) 35%, var(--ink));
+  background-image:
+    repeating-linear-gradient(
+      30deg,
+      transparent,
+      transparent 12px,
+      color-mix(in oklch, var(--emerald) 12%, transparent) 12px,
+      color-mix(in oklch, var(--emerald) 12%, transparent) 13px
+    ),
+    repeating-linear-gradient(
+      -30deg,
+      transparent,
+      transparent 12px,
+      color-mix(in oklch, var(--emerald) 12%, transparent) 12px,
+      color-mix(in oklch, var(--emerald) 12%, transparent) 13px
+    );
+}
+
 .shop-hero__body {
   padding: 1.75rem 1.5rem 1.5rem;
   border-bottom: 1px solid var(--brass);
@@ -235,6 +284,47 @@
     transparent 14px,
     color-mix(in oklch, var(--azure) 9%, transparent) 14px,
     color-mix(in oklch, var(--azure) 9%, transparent) 15px
+  );
+}
+
+.product-entry__visual--souvenir {
+  background-color: color-mix(in srgb, var(--arcane) 16%, var(--ink));
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      color-mix(in oklch, var(--arcane) 10%, transparent) 10px,
+      color-mix(in oklch, var(--arcane) 10%, transparent) 11px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 10px,
+      color-mix(in oklch, var(--arcane) 10%, transparent) 10px,
+      color-mix(in oklch, var(--arcane) 10%, transparent) 11px
+    );
+}
+
+.product-entry__visual--book {
+  background-color: color-mix(in srgb, var(--emerald) 28%, var(--ink));
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 16px,
+    color-mix(in oklch, var(--silver) 10%, transparent) 16px,
+    color-mix(in oklch, var(--silver) 10%, transparent) 17px
+  );
+}
+
+.product-entry__visual--grocery {
+  background-color: color-mix(in srgb, var(--emerald) 32%, var(--ink));
+  background-image: repeating-linear-gradient(
+    60deg,
+    transparent,
+    transparent 10px,
+    color-mix(in oklch, var(--emerald) 12%, transparent) 10px,
+    color-mix(in oklch, var(--emerald) 12%, transparent) 11px
   );
 }
 
