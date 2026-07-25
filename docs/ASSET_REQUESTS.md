@@ -7,6 +7,27 @@
 
 ## 依頼中(未対応)
 
+### REQ-035 [type: image]
+- 用途: エリア別ショップ 錬金術研究棟 実験器具販売所 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-alchemy-tools.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Alchemical instrument workshop interior, wide shot, rows of brass distillation sets and measuring beakers on shelves, precision scales and engraving chisels on wooden countertops, azure magical glow from testing equipment, dark ink background, no characters, cinematic painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。天空青(#4e8ea0)×真鍮の精密機器工房。職人実演コーナーのある実用的な雰囲気。
+
+### REQ-036 [type: image]
+- 用途: エリア別ショップ 飛行船ドック 風袋商会 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-airship-gear.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Airship gear shop interior, wide shot, sturdy canvas bags and coats hanging on wooden racks, brass goggle displays and rope coils, dark navy background with amber lantern light glinting off metal fixtures, no characters, rugged adventurous painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。天空青×アンバーの実用的な飛行装備店。帆布の質感と金具の光沢を強調。
+
+### REQ-037 [type: image]
+- 用途: エリア別ショップ 時計塔 歯車細工所 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-clock-accessories.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Clockwork accessory shop interior, wide shot, glass display cases with tiny brass gear pins and silver miniature music boxes, wall-mounted gear decorations of various sizes, silver and brass gleaming under warm workshop light, no characters, detailed steampunk painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。シルバー(#8fa8b2)×真鍮の精密細工品ショップ。ショーケースに並ぶ小物の繊細さを表現。
+
 ### REQ-018 [type: image]
 - 用途: 購買部 みやげ・食品ページ — カテゴリヒーローバナー
 - 配置先パス: assets/images/shop/hero-souvenirs.jpg
