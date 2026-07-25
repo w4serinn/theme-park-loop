@@ -1,5 +1,13 @@
 # サイクル履歴
 
+## 2026-07-25 09:35
+- 実装: 共通パーツ ヘッダー現在ページハイライト。src/active-nav.js 新規作成(pathname比較→.is-current付与)、base.css に .is-current スタイル追加(ember色・底辺ライン)、header.html に type="module" script 追加。build.js を更新して src/ を dist/ にコピー対象に追加。eslint.config.js に URL グローバルを追加
+- レビュー: OK (A-2 軽微メモのみ)
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 共通パーツ (M) ヘッダー: モバイル用ハンバーガーメニュー
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-25 09:24
 - 実装: 共通パーツ ヘッダーデザイン改善 (styles/base.css)。ロゴに⚙アイコン(hover で180°回転)・brass色・letter-spacing。navリンクに縦区切り線・全高hover背景・色変化トランジション追加
 - レビュー: 指摘1件対応 (⚙の絵文字化防止に\FE0Eテキストバリアントセレクタ追記)
