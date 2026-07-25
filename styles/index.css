@@ -220,6 +220,178 @@
   color: color-mix(in oklch, var(--brass) 65%, var(--ink));
 }
 
+.highlights-section {
+  padding: 4rem 1.5rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 22%, transparent);
+}
+
+.highlights-section__inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.highlights-section__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.highlights-section__eyebrow {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  color: var(--ember);
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+}
+
+.highlights-section__title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--brass);
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.highlight-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.highlight-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid color-mix(in oklch, var(--brass) 18%, transparent);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.highlight-card:hover {
+  border-color: color-mix(in oklch, var(--brass) 45%, transparent);
+  transform: translateY(-4px);
+}
+
+.highlight-card__visual {
+  height: 9rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight-card__visual::after {
+  position: absolute;
+  font-size: 5.5rem;
+  opacity: 0.12;
+  right: -0.5rem;
+  bottom: -0.75rem;
+  color: var(--brass);
+  line-height: 1;
+  transition: transform 0.6s ease, opacity 0.3s ease;
+}
+
+/* Variant backgrounds and icons */
+.highlight-card--alchemy .highlight-card__visual {
+  background-image: radial-gradient(
+    ellipse 70% 80% at 50% 75%,
+    color-mix(in oklch, var(--ember) 35%, var(--ink)),
+    var(--ink)
+  );
+}
+
+.highlight-card--alchemy .highlight-card__visual::after {
+  content: '⚗\FE0E';
+  transform: rotate(-15deg);
+}
+
+.highlight-card--airship .highlight-card__visual {
+  background-image: radial-gradient(
+    ellipse 70% 80% at 50% 75%,
+    color-mix(in oklch, var(--azure) 40%, var(--ink)),
+    var(--ink)
+  );
+}
+
+.highlight-card--airship .highlight-card__visual::after {
+  content: '✈\FE0E';
+  transform: rotate(-20deg);
+}
+
+.highlight-card--summoning .highlight-card__visual {
+  background-image: radial-gradient(
+    ellipse 70% 80% at 50% 75%,
+    color-mix(in oklch, var(--arcane) 45%, var(--ink)),
+    var(--ink)
+  );
+}
+
+.highlight-card--summoning .highlight-card__visual::after {
+  content: '✦';
+}
+
+/* Hover states */
+.highlight-card:hover .highlight-card__visual::after {
+  opacity: 0.22;
+}
+
+.highlight-card--alchemy:hover .highlight-card__visual::after {
+  transform: rotate(0deg);
+}
+
+.highlight-card--airship:hover .highlight-card__visual::after {
+  transform: rotate(-10deg);
+}
+
+.highlight-card--summoning:hover .highlight-card__visual::after {
+  transform: rotate(22.5deg);
+}
+
+.highlight-card__body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.highlight-card__num {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--ember);
+  margin-bottom: 0.4rem;
+}
+
+.highlight-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 0.75rem;
+  line-height: 1.4;
+}
+
+.highlight-card__desc {
+  margin: 0 0 1.25rem;
+  font-size: 0.82rem;
+  line-height: 1.75;
+  color: color-mix(in oklch, var(--brass) 65%, var(--ink));
+  flex: 1;
+}
+
+.highlight-card__link {
+  align-self: flex-start;
+  font-size: 0.78rem;
+  color: var(--ember);
+  letter-spacing: 0.06em;
+  transition: color 0.2s, letter-spacing 0.2s;
+}
+
+.highlight-card__link:hover {
+  color: var(--brass);
+  letter-spacing: 0.1em;
+}
+
 .news-section {
   padding: 2.5rem 1.5rem;
   max-width: 860px;
@@ -297,6 +469,24 @@
 
   .dept-list__item--featured {
     grid-column: auto;
+  }
+
+  .highlights-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .highlight-list {
+    grid-template-columns: 1fr;
+  }
+
+  .highlight-card {
+    flex-direction: row;
+  }
+
+  .highlight-card__visual {
+    width: 6rem;
+    height: auto;
+    flex-shrink: 0;
   }
 
   .hero {
