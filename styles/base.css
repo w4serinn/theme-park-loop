@@ -81,6 +81,12 @@ a {
   background-color: color-mix(in oklch, var(--brass) 8%, transparent);
 }
 
+.site-header__nav a.is-current {
+  color: var(--ember);
+  background-color: color-mix(in oklch, var(--ember) 12%, transparent);
+  box-shadow: inset 0 -2px 0 var(--ember);
+}
+
 .site-footer {
   padding: 1rem 1.5rem;
   border-top: 1px solid var(--brass);

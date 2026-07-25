@@ -35,6 +35,7 @@ const PARTIALS_DIR = join(ROOT, "partials");
 const DIST_DIR = join(ROOT, "dist");
 const STYLES_DIR = join(ROOT, "styles");
 const ASSETS_DIR = join(ROOT, "assets");
+const SRC_DIR = join(ROOT, "src");
 const NEWS_PATH = join(ROOT, "data", "news.json");
 
 const header = readFileSync(join(PARTIALS_DIR, "header.html"), "utf-8");
@@ -129,7 +130,8 @@ walkPages(PAGES_DIR);
 // dist/ は単体でデプロイされるため、参照される静的ファイルも一緒に含める必要がある。
 for (const [srcDir, name] of [
   [STYLES_DIR, "styles"],
-  [ASSETS_DIR, "assets"]
+  [ASSETS_DIR, "assets"],
+  [SRC_DIR, "src"]
 ]) {
   if (existsSync(srcDir)) {
     cpSync(srcDir, join(DIST_DIR, name), { recursive: true });
