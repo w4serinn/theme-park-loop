@@ -15,11 +15,40 @@
 
 .page-hero__desc {
   font-size: 1rem;
-  color: var(--brass);
-  opacity: 0.8;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.7;
+}
+
+/* 季節フィルター */
+.event-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.event-filter__btn {
+  background: none;
+  border: 1px solid color-mix(in oklch, var(--brass) 40%, transparent);
+  color: color-mix(in oklch, var(--brass) 80%, transparent);
+  font-family: inherit;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.18s, color 0.18s, background-color 0.18s;
+}
+
+.event-filter__btn:hover {
+  border-color: var(--brass);
+  color: var(--brass);
+}
+
+.event-filter__btn.is-active {
+  background-color: var(--brass);
+  border-color: var(--brass);
+  color: var(--ink);
 }
 
 /* イベント一覧 */
@@ -36,6 +65,7 @@
   display: flex;
   flex-direction: column;
   gap: 0;
+  border-top: 1px solid color-mix(in oklch, var(--brass) 25%, transparent);
 }
 
 .event-card {
@@ -44,10 +74,6 @@
   gap: 1.25rem;
   padding: 1.5rem 0;
   border-bottom: 1px solid color-mix(in oklch, var(--brass) 25%, transparent);
-}
-
-.event-card:first-child {
-  border-top: 1px solid color-mix(in oklch, var(--brass) 25%, transparent);
 }
 
 /* 注目イベント */
@@ -75,8 +101,7 @@
 
 .event-card__day {
   font-size: 0.7rem;
-  color: var(--brass);
-  opacity: 0.65;
+  color: color-mix(in oklch, var(--brass) 77%, transparent);
   text-align: center;
   margin-top: 0.2rem;
   line-height: 1.4;
@@ -99,8 +124,7 @@
 
 .event-card__desc {
   font-size: 0.875rem;
-  color: var(--brass);
-  opacity: 0.75;
+  color: color-mix(in oklch, var(--brass) 80%, transparent);
   margin: 0;
   line-height: 1.65;
 }

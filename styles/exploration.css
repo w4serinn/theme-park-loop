@@ -86,6 +86,54 @@
   line-height: 1.6;
 }
 
+/* エリア固有アクセント: border-top (baseを全て先に、hoverを後にまとめる) */
+.area-card--alchemy .area-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--ember);
+}
+
+.area-card--airship .area-card__link,
+.area-card--observatory .area-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--azure);
+}
+
+.area-card--summoning .area-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--arcane);
+}
+
+.area-card--clock-tower .area-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--silver);
+}
+
+.area-card--dueling-ground .area-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--crimson);
+}
+
+.area-card--alchemy .area-card__link:hover {
+  border-color: var(--ember);
+}
+
+.area-card--airship .area-card__link:hover,
+.area-card--observatory .area-card__link:hover {
+  border-color: var(--azure);
+}
+
+.area-card--summoning .area-card__link:hover {
+  border-color: var(--arcane);
+}
+
+.area-card--clock-tower .area-card__link:hover {
+  border-color: var(--silver);
+}
+
+.area-card--dueling-ground .area-card__link:hover {
+  border-color: var(--crimson);
+}
+
 @media (width <= 600px) {
   .page-hero {
     padding: 2rem 1rem 1.5rem;

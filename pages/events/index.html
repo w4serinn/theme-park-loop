@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
   <link rel="stylesheet" href="{{BASE}}styles/base.css" />
   <link rel="stylesheet" href="{{BASE}}styles/events.css" />
+  <script src="{{BASE}}src/season-filter.js" defer></script>
 </head>
 <body>
 <!-- HEADER -->
@@ -17,9 +18,17 @@
   </section>
 
   <section class="event-calendar">
+    <div class="event-filter" role="group" aria-label="季節で絞り込む">
+      <button type="button" class="event-filter__btn is-active" data-filter="all" aria-pressed="true">全て</button>
+      <button type="button" class="event-filter__btn" data-filter="spring" aria-pressed="false">春</button>
+      <button type="button" class="event-filter__btn" data-filter="summer" aria-pressed="false">夏</button>
+      <button type="button" class="event-filter__btn" data-filter="autumn" aria-pressed="false">秋</button>
+      <button type="button" class="event-filter__btn" data-filter="winter" aria-pressed="false">冬</button>
+    </div>
+
     <ul class="event-list">
 
-      <li class="event-card">
+      <li class="event-card" data-season="spring">
         <div class="event-card__date">
           <span class="event-card__month">4月</span>
           <span class="event-card__day">第1土曜</span>
@@ -31,7 +40,7 @@
         </div>
       </li>
 
-      <li class="event-card">
+      <li class="event-card" data-season="spring">
         <div class="event-card__date">
           <span class="event-card__month">5月</span>
           <span class="event-card__day">中旬3日間</span>
@@ -43,7 +52,7 @@
         </div>
       </li>
 
-      <li class="event-card">
+      <li class="event-card" data-season="summer">
         <div class="event-card__date">
           <span class="event-card__month">7月</span>
           <span class="event-card__day">最終週末</span>
@@ -55,7 +64,7 @@
         </div>
       </li>
 
-      <li class="event-card">
+      <li class="event-card" data-season="summer">
         <div class="event-card__date">
           <span class="event-card__month">8月</span>
           <span class="event-card__day">新月の夜</span>
@@ -67,7 +76,7 @@
         </div>
       </li>
 
-      <li class="event-card event-card--featured">
+      <li class="event-card event-card--featured" data-season="autumn">
         <div class="event-card__date">
           <span class="event-card__month">10月</span>
           <span class="event-card__day">第3週4日間</span>
@@ -79,7 +88,7 @@
         </div>
       </li>
 
-      <li class="event-card">
+      <li class="event-card" data-season="autumn">
         <div class="event-card__date">
           <span class="event-card__month">11月</span>
           <span class="event-card__day">下旬2日間</span>
@@ -91,7 +100,7 @@
         </div>
       </li>
 
-      <li class="event-card">
+      <li class="event-card" data-season="winter">
         <div class="event-card__date">
           <span class="event-card__month">12月</span>
           <span class="event-card__day">冬至の夜</span>
@@ -103,7 +112,7 @@
         </div>
       </li>
 
-      <li class="event-card">
+      <li class="event-card" data-season="winter">
         <div class="event-card__date">
           <span class="event-card__month">1月</span>
           <span class="event-card__day">元旦〜3日</span>
