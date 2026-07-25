@@ -15,8 +15,7 @@
 
 .page-hero__desc {
   font-size: 1rem;
-  color: var(--brass);
-  opacity: 0.8;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.7;
@@ -52,6 +51,7 @@
 
 .area-card__thumbnail {
   height: 160px;
+  overflow: hidden;
   background-color: color-mix(in srgb, var(--emerald) 25%, var(--ink));
   background-image: repeating-linear-gradient(
     45deg,
@@ -60,6 +60,13 @@
     color-mix(in srgb, var(--brass) 8%, transparent) 8px,
     color-mix(in srgb, var(--brass) 8%, transparent) 9px
   );
+}
+
+.area-card__thumbnail-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .area-card__body {
@@ -74,8 +81,7 @@
 
 .area-card__desc {
   font-size: 0.9rem;
-  color: var(--brass);
-  opacity: 0.75;
+  color: color-mix(in oklch, var(--brass) 80%, transparent);
   margin: 0;
   line-height: 1.6;
 }

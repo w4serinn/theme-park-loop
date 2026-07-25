@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
   <link rel="stylesheet" href="{{BASE}}styles/base.css" />
   <link rel="stylesheet" href="{{BASE}}styles/area-page.css" />
+  <script src="{{BASE}}src/accordion.js" defer></script>
 </head>
 <body>
 <!-- HEADER -->
@@ -18,10 +19,12 @@
   </nav>
 
   <section class="area-hero">
-    <div class="area-hero__visual area-hero__visual--summoning" aria-hidden="true"></div>
+    <div class="area-hero__visual area-hero__visual--summoning">
+      <img class="area-hero__visual-img" src="{{BASE}}assets/images/exploration/hero-summoning-plaza.jpg" alt="" />
+    </div>
     <div class="area-hero__body">
       <h1 class="area-hero__title">魔法陣召喚広場</h1>
-      <p class="area-hero__desc">中庭に刻まれた巨大魔法陣。精霊召喚の特別授業や魔法陣彫刻体験を実施しています。</p>
+      <p class="area-hero__desc">400年間、石畳に刻まれ続ける巨大魔法陣。いにしえの詠唱が、今日も精霊を呼び覚ます場所。</p>
     </div>
   </section>
 
@@ -29,35 +32,81 @@
     <section class="area-section">
       <h2 class="area-section__heading">エリアについて</h2>
       <p class="area-section__body">
-        学院の中央中庭に位置する召喚広場は、創立以来400年にわたって使われ続ける
-        直径30メートルの巨大魔法陣が石畳に刻まれています。毎週決まった曜日に
-        行われる精霊召喚の特別授業は学院名物で、見学者も多く訪れます。
+        学院中央中庭に位置する召喚広場には、創立以来400年にわたって使われ続ける
+        直径30メートルの巨大魔法陣が石畳に刻まれています。歴代の召喚術師たちが
+        陣紋を少しずつ補修・拡張してきた痕跡が、石の色の微妙な違いに残っています。
       </p>
       <p class="area-section__body">
-        夕暮れ時には魔法陣が淡く発光する現象が見られ、「魔法陣の夕映え」として
-        来訪者から特に人気のある時間帯となっています。
+        夕暮れ時、日没の40分前から陣紋が自然に発光し始める「夕映え」の時間は、
+        人工的に再現できない、広場だけの現象です。静かに立ち、ただ光を見ていると、
+        時間の感覚が少しずれるような気がすると来訪者は言います。
       </p>
     </section>
 
     <section class="area-section">
       <h2 class="area-section__heading">体験・見どころ</h2>
       <ul class="attraction-list">
+
         <li class="attraction-item">
-          <h3 class="attraction-item__name">精霊召喚デモンストレーション</h3>
-          <p class="attraction-item__desc">学院の上級生による精霊召喚の実演。風・水・光の精霊が広場に現れる迫力ある体験です。毎日11:00・14:00の2回開催。</p>
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">精霊召喚デモンストレーション</span>
+            <span class="attraction-item__teaser">上級生の詠唱と共に風・水・光の精霊が魔法陣から顕現する、毎日2回の静謐な儀式。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">四元素石に魔力が集まるにつれ、石畳の陣紋が青白い光を帯びはじめます。精霊が顕現する瞬間の、広場全体が息を止めたような沈黙——そして来る変化。召喚された精霊は5〜10分間、広場に留まります。その場の空気の質まで変わる時間です。</p>
+            <p class="attraction-item__notes">毎日11:00・14:00の2回開催。雨天時は屋根付き回廊からの観覧となります。精霊に触れることはできません。</p>
+          </div>
         </li>
+
         <li class="attraction-item">
-          <h3 class="attraction-item__name">魔法陣彫刻体験</h3>
-          <p class="attraction-item__desc">専用の石板に魔法陣の一部を彫刻するワークショップ。完成した石板はお土産として持ち帰れます。所要時間約45分。</p>
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">魔法陣彫刻体験</span>
+            <span class="attraction-item__teaser">400年前と同じ技法で石板に陣紋を刻む彫刻ワークショップ。仕上げに魔法インクで24時間発光させる。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">使用する鑿と木槌は現役の魔法陣彫刻師が用いるものと同型です。練習用石板で「渦紋」「星刻み」の基本打ちを習得したのち、持ち帰り用石板に挑みます。彫刻が終わったら魔法インク(発光持続24時間)を溝に充填します。光が陣紋を縁取るその瞬間、石板が初めて「陣」になります。</p>
+            <p class="attraction-item__notes">所要時間約45分。12歳以下は保護者同伴を推奨します。彫刻用具は鋭利なため、指示に従って扱ってください。</p>
+          </div>
         </li>
+
         <li class="attraction-item">
-          <h3 class="attraction-item__name">精霊との対話コーナー</h3>
-          <p class="attraction-item__desc">学院が契約した水の精霊「シルフィ」と手話魔法でコミュニケーションを体験できるコーナー。小さなお子様にも好評です。</p>
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">精霊との対話コーナー</span>
+            <span class="attraction-item__teaser">学院の契約精霊「シルフィ」と手話魔法で会話できる、広場北隅の静謐なコーナー。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">担当学生が基本の手話魔法(手の形と魔力の組み合わせ)を教えてくれるため事前知識は不要です。シルフィが「答えを知っている」と感じた問いには、水面に文字を描いて返答する場合があります。何を問いかけるかは来場者しだいで、正解のない対話です。</p>
+            <p class="attraction-item__notes">混雑時は一組5分程度。精霊の状態により予告なく休止することがあります。大きな声や急な動作はお控えください。</p>
+          </div>
         </li>
+
         <li class="attraction-item">
-          <h3 class="attraction-item__name">夕映え鑑賞タイム</h3>
-          <p class="attraction-item__desc">日没30分前に魔法陣が発光し始める「夕映え」は必見。特定の場所に立つと発光パターンが変化する仕掛けも隠されています。</p>
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">夕映え鑑賞タイム</span>
+            <span class="attraction-item__teaser">日没前に魔法陣が自然発光する「夕映え」。陣紋が橙から青白へ変化し、石畳に3つの「共鳴点」が現れる。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">発光は日没の約40分前から始まり、日没後30分にピークを迎えます。陣の中心から特定の角度に立つと発光パターンが変化する「共鳴点」が3箇所あり、その場所を探すことも楽しみのひとつです。この発光は魔法陣自体の蓄積魔力によるもので、人工的に再現できない現象です。</p>
+            <p class="attraction-item__notes">日没時刻は受付に掲示しています。発光ピーク前後30分は混雑します。カメラのフラッシュは発光パターンを乱すため禁止です。</p>
+          </div>
         </li>
+
+        <li class="attraction-item">
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">魔力測定コーナー</span>
+            <span class="attraction-item__teaser">古代式「水晶共鳴器」で自分の魔力紋を可視化。色と強度で8種の紋のうちひとつが判定される。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">広場の東側にある「水晶共鳴器」は、学院設立当初から使われてきた測定装置の復元品です。両手を当てると体内の魔素量と流動パターンに応じて水晶が光り、8種の「魔力紋」のいずれかが判定されます。結果カードを受け取れるほか、8種の紋を全て集めると広場の特別ノートに記名できます。</p>
+            <p class="attraction-item__notes">測定は無料・何度でも参加可。同じ人でも時刻や体調で結果が変わることがあります。待ち時間は0〜15分程度です。</p>
+          </div>
+        </li>
+
       </ul>
     </section>
 

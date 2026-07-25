@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>天文台 — 学院内探索 — 王立魔法学院アルノルド</title>
+  <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/base.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/area-page.css" />
+  <script src="{{BASE}}src/accordion.js" defer></script>
+</head>
+<body>
+<!-- HEADER -->
+<main>
+  <nav class="area-breadcrumb" aria-label="パンくずリスト">
+    <a class="area-breadcrumb__link" href="{{BASE}}exploration/index.html">学院内探索</a>
+    <span class="area-breadcrumb__sep" aria-hidden="true">›</span>
+    <span class="area-breadcrumb__current">天文台</span>
+  </nav>
+
+  <section class="area-hero">
+    <div class="area-hero__visual area-hero__visual--observatory">
+      <img class="area-hero__visual-img" src="{{BASE}}assets/images/exploration/hero-observatory.jpg" alt="" />
+    </div>
+    <div class="area-hero__body">
+      <h1 class="area-hero__title">天文台</h1>
+      <p class="area-hero__desc">高さ73mの穹頂に位置する星界観測施設。魔力線と可視光を同時に解析する大望遠鏡「アルノルドの眼」が、来訪者に宙の語り口を教えてくれます。</p>
+    </div>
+  </section>
+
+  <div class="area-content">
+    <section class="area-section">
+      <h2 class="area-section__heading">エリアについて</h2>
+      <p class="area-section__body">
+        天文台は学院設立から50年後、第2代学長フローラ・シルヴァーンが「星の配置が魔法陣の基礎になる」
+        という学説を実証するために建設した研究施設です。以来370年、魔導星座学科の研究の場として機能し続けており、
+        現在も年間200日以上の観測記録が学院の魔導年報に掲載されています。
+      </p>
+      <p class="area-section__body">
+        創設当時は星を肉眼で観察するための単純な展望台でしたが、第5代学長の時代に
+        複合魔法望遠鏡「アルノルドの眼」が設置され、可視光だけでなく魔力線の動きを
+        星の位置と重ね合わせて観測できるようになりました。「魔力線観測」という独自の
+        観測分野はここで生まれ、現在では世界中の魔法機関が採用している技術です。
+      </p>
+    </section>
+
+    <section class="area-section">
+      <h2 class="area-section__heading">主要観測設備</h2>
+      <dl class="area-timetable">
+        <dt>アルノルドの眼</dt>
+        <dd>口径1.2mの複合魔法望遠鏡。可視光・魔力線・時空歪曲の3層同時解析が可能。学院名を冠する最重要施設
+          <span class="area-timetable__sub">設置: 第5代学長期（約280年前）</span>
+        </dd>
+        <dt>立体天球儀</dt>
+        <dd>直径3mの水晶球に映る360度の星図。魔導星座学に基づく88星座と、季節ごとの魔力線の流れを収録
+          <span class="area-timetable__sub">常設展示 — 自由観覧可</span>
+        </dd>
+        <dt>流星記録石板</dt>
+        <dd>学院設立以来の流星記録を刻み続ける石板索引。過去400年のデータを閲覧でき、稀少な「魔力流星」の記録も含む
+          <span class="area-timetable__sub">閲覧室 — 係員立会いのもと自由閲覧</span>
+        </dd>
+        <dt>星座紋解析台</dt>
+        <dd>誕生日と出生地を入力すると、出生時の星配置と魔導星座判定結果を紙に印字する自動解析装置
+          <span class="area-timetable__sub">印字1枚 無料（1人1回）</span>
+        </dd>
+      </dl>
+    </section>
+
+    <section class="area-section">
+      <h2 class="area-section__heading">体験プログラム</h2>
+      <ul class="attraction-list">
+
+        <li class="attraction-item">
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">「アルノルドの眼」覗き込み体験</span>
+            <span class="attraction-item__teaser">280年の歴史を持つ大望遠鏡を実際に覗き込む。学院上空を流れる魔力線の光と、その奥に並ぶ星座の重なりを直接体験できる唯一の機会。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">通常は研究者以外立ち入り禁止の観測室が、見学時間中に限り解放されます。望遠鏡の接眼部には安全フィルターが装着されており、魔力線を適切な強度に落として肉眼で見られる状態にしてあります。見える光景は時間帯・天候・魔力流の状態によって毎回異なります。係員が「今日の見どころ」を解説してから覗き込むため、初めての方でも何を見ているのかわかりやすい構成になっています。</p>
+            <p class="attraction-item__notes">1回の観測時間は約2分。混雑時は待機列ができます。雲量が多い日は魔力線観測のみとなる場合があります。眼鏡・コンタクトレンズを使用中の方は接眼部の形状に合わせて調整が必要なため、係員にお申し出ください。</p>
+          </div>
+        </li>
+
+        <li class="attraction-item">
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">立体天球儀 自由観覧</span>
+            <span class="attraction-item__teaser">直径3mの水晶球に88の魔導星座が浮かび上がる。球の周囲を歩くと視点が変わり、星々の奥行きと魔力線の流れが立体的に見え始める。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">天球儀室は常時暗室状態になっており、球から放たれる微光のみで照らされています。球の中に収録されているのは魔導星座学に基づく「魔導88星座」で、一般的な星座とは配置が異なります。魔力線は季節に応じて3ヶ月ごとに更新されており、「春の魔力潮」と呼ばれる東方向への流れが最も大きく見える春分前後はとくに人気があります。</p>
+            <p class="attraction-item__notes">入室は5名まで（定員制）。暗室内では足元が見えにくいためゆっくり移動ください。子ども連れは保護者同伴でお願いします。</p>
+          </div>
+        </li>
+
+        <li class="attraction-item">
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">星読みワークショップ「誕生星座の解読」</span>
+            <span class="attraction-item__teaser">自分の誕生日に対応する魔導星座を古代星図から読み解くワークショップ。星座紋解析台の印字と照らし合わせながら、魔法適性の読み方を学ぶ60分。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">学院の魔導星座学科の学生が講師を務める参加型ワークショップです。まず星座紋解析台で自分の印字を受け取り、それを元に古代星図（複製）を広げながら「誕生時の星座紋の意味」を一つひとつ読み解いていきます。「魔法適性」として知られる星座ごとの特性は、現代の学院入試でも参考資料として使われており、自分の結果に意外な発見をする参加者が多いプログラムです。</p>
+            <p class="attraction-item__notes">所要時間60分。定員8名（要整理券。当日10:00から受付で配布）。小学生以上から参加可。印字シートはワークショップ終了後も持ち帰れます。</p>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+    <aside class="area-info">
+      <h2 class="area-info__heading">ご案内</h2>
+      <dl class="area-info__list">
+        <dt>開放時間</dt>
+        <dd>10:00 〜 22:00（夜間観測対応。最終入場 21:30）</dd>
+        <dt>対象年齢</dt>
+        <dd>全年齢（ワークショップは小学生以上）</dd>
+        <dt>所要時間</dt>
+        <dd>自由見学 約40分 / ワークショップ込み 約110分</dd>
+        <dt>場所</dt>
+        <dd>学院中央棟 最上部（昇降機で73m）</dd>
+        <dt>注意事項</dt>
+        <dd>天球儀室は暗室です。入室前に係員の説明をお聞きください</dd>
+      </dl>
+    </aside>
+  </div>
+</main>
+<!-- FOOTER -->
+</body>
+</html>

@@ -4,11 +4,19 @@
   text-align: center;
   padding: 5rem 1.5rem;
   border-bottom: 1px solid var(--brass);
-  background-image: radial-gradient(
-    ellipse 80% 55% at 50% 0%,
-    color-mix(in srgb, var(--emerald) 22%, transparent),
-    transparent
-  );
+  background-image:
+    radial-gradient(
+      ellipse 80% 55% at 50% 0%,
+      color-mix(in srgb, var(--emerald) 22%, transparent),
+      transparent
+    ),
+    linear-gradient(
+      color-mix(in oklch, var(--ink) 55%, transparent),
+      color-mix(in oklch, var(--ink) 55%, transparent)
+    ),
+    url('../assets/images/hero-top.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .hero__subtitle {
@@ -83,6 +91,765 @@
   color: var(--ink);
 }
 
+.about-section {
+  padding: 4rem 1.5rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 22%, transparent);
+  background-color: color-mix(in oklch, var(--emerald) 3%, var(--ink));
+}
+
+.about-section__inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.about-section__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.about-section__eyebrow {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  color: var(--ember);
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+}
+
+.about-section__title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--brass);
+  letter-spacing: 0.06em;
+  margin: 0 0 1rem;
+}
+
+.about-section__ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.about-section__ornament::before,
+.about-section__ornament::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+}
+
+.about-section__ornament::before {
+  background-image: linear-gradient(to right, transparent, var(--brass));
+}
+
+.about-section__ornament::after {
+  background-image: linear-gradient(to left, transparent, var(--brass));
+}
+
+.about-section__body {
+  line-height: 1.95;
+  margin-bottom: 3rem;
+}
+
+.about-section__body p {
+  margin: 0 0 1.2rem;
+  color: color-mix(in oklch, var(--brass) 88%, transparent);
+}
+
+.about-section__body p:last-child {
+  margin-bottom: 0;
+}
+
+.about-section__dept-heading {
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  color: var(--ember);
+  border-bottom: 1px solid color-mix(in oklch, var(--ember) 30%, transparent);
+  padding-bottom: 0.5rem;
+  margin: 0 0 1.5rem;
+}
+
+.dept-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.dept-list__item {
+  display: flex;
+  gap: 0.875rem;
+  padding: 1rem;
+  border: 1px solid color-mix(in oklch, var(--brass) 18%, transparent);
+  border-radius: 2px;
+  background-color: color-mix(in oklch, var(--brass) 3%, transparent);
+}
+
+.dept-list__item--featured {
+  grid-column: 1 / -1;
+  border-color: color-mix(in oklch, var(--ember) 25%, transparent);
+}
+
+.dept-list__icon {
+  flex-shrink: 0;
+  width: 1.75rem;
+  font-size: 1.2rem;
+  color: var(--ember);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.dept-list__name {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin-bottom: 0.3rem;
+}
+
+.dept-list__desc {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.75;
+  color: color-mix(in oklch, var(--brass) 80%, transparent);
+}
+
+.highlights-section {
+  padding: 4rem 1.5rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 22%, transparent);
+}
+
+.highlights-section__inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.highlights-section__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.highlights-section__eyebrow {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  color: var(--ember);
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+}
+
+.highlights-section__title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--brass);
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.highlight-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.highlight-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid color-mix(in oklch, var(--brass) 18%, transparent);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.highlight-card__inner {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+}
+
+.highlight-card:hover {
+  border-color: color-mix(in oklch, var(--brass) 45%, transparent);
+  transform: translateY(-4px);
+}
+
+.highlight-card__visual {
+  height: 9rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight-card__visual::after {
+  position: absolute;
+  font-size: 5.5rem;
+  opacity: 0.12;
+  right: -0.5rem;
+  bottom: -0.75rem;
+  color: var(--brass);
+  line-height: 1;
+  transition: transform 0.6s ease, opacity 0.3s ease;
+}
+
+/* Variant backgrounds and icons */
+.highlight-card--alchemy .highlight-card__visual {
+  background-image: radial-gradient(
+    ellipse 70% 80% at 50% 75%,
+    color-mix(in oklch, var(--ember) 35%, var(--ink)),
+    var(--ink)
+  );
+}
+
+.highlight-card--alchemy .highlight-card__visual::after {
+  content: '⚗\FE0E';
+  transform: rotate(-15deg);
+}
+
+.highlight-card--airship .highlight-card__visual {
+  background-image: radial-gradient(
+    ellipse 70% 80% at 50% 75%,
+    color-mix(in oklch, var(--azure) 40%, var(--ink)),
+    var(--ink)
+  );
+}
+
+.highlight-card--airship .highlight-card__visual::after {
+  content: '✈\FE0E';
+  transform: rotate(-20deg);
+}
+
+.highlight-card--summoning .highlight-card__visual {
+  background-image: radial-gradient(
+    ellipse 70% 80% at 50% 75%,
+    color-mix(in oklch, var(--arcane) 45%, var(--ink)),
+    var(--ink)
+  );
+}
+
+.highlight-card--summoning .highlight-card__visual::after {
+  content: '✦';
+}
+
+/* Hover states */
+.highlight-card:hover .highlight-card__visual::after {
+  opacity: 0.22;
+}
+
+.highlight-card--alchemy:hover .highlight-card__visual::after {
+  transform: rotate(0deg);
+}
+
+.highlight-card--airship:hover .highlight-card__visual::after {
+  transform: rotate(-10deg);
+}
+
+.highlight-card--summoning:hover .highlight-card__visual::after {
+  transform: rotate(22.5deg);
+}
+
+.highlight-card__body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.highlight-card__num {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--ember);
+  margin-bottom: 0.4rem;
+}
+
+.highlight-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 0.75rem;
+  line-height: 1.4;
+}
+
+.highlight-card__desc {
+  margin: 0 0 1.25rem;
+  font-size: 0.82rem;
+  line-height: 1.75;
+  color: color-mix(in oklch, var(--brass) 80%, transparent);
+  flex: 1;
+}
+
+.highlight-card__link {
+  align-self: flex-start;
+  font-size: 0.78rem;
+  color: var(--ember);
+  letter-spacing: 0.06em;
+  transition: color 0.2s, letter-spacing 0.2s;
+}
+
+.highlight-card__link:hover {
+  color: var(--brass);
+  letter-spacing: 0.1em;
+}
+
+.nav-cards-section {
+  padding: 4rem 1.5rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 22%, transparent);
+  background-color: color-mix(in oklch, var(--emerald) 2%, var(--ink));
+}
+
+.nav-cards-section__inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.nav-cards-section__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.nav-cards-section__eyebrow {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  color: var(--ember);
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+}
+
+.nav-cards-section__title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--brass);
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.nav-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.nav-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  border: 1px solid color-mix(in oklch, var(--brass) 18%, transparent);
+  border-radius: 2px;
+  background-color: color-mix(in oklch, var(--brass) 2%, transparent);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s, background-color 0.2s, transform 0.22s;
+}
+
+.nav-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--ember);
+  transition: height 0.2s;
+}
+
+/* Variant accent colors */
+.nav-card--events::before { background-color: var(--arcane); }
+.nav-card--dining::before { background-color: var(--emerald); }
+.nav-card--access::before { background-color: var(--azure); }
+.nav-card--guide::before { background-color: var(--silver); }
+
+/* Hover states */
+.nav-card:hover {
+  border-color: color-mix(in oklch, var(--brass) 42%, transparent);
+  background-color: color-mix(in oklch, var(--brass) 5%, transparent);
+  transform: translateY(-3px);
+}
+
+.nav-card:hover::before {
+  height: 3px;
+}
+
+.nav-card__icon {
+  display: block;
+  font-size: 1.4rem;
+  color: var(--ember);
+  margin-bottom: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.nav-card--events .nav-card__icon { color: var(--arcane); }
+.nav-card--dining .nav-card__icon { color: var(--brass); }
+.nav-card--access .nav-card__icon { color: var(--azure); }
+.nav-card--guide .nav-card__icon { color: var(--silver); }
+
+.nav-card:hover .nav-card__icon {
+  transform: scale(1.15);
+}
+
+.nav-card__title {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin-bottom: 0.5rem;
+}
+
+.nav-card__desc {
+  margin: 0 0 1rem;
+  font-size: 0.78rem;
+  line-height: 1.65;
+  color: color-mix(in oklch, var(--brass) 78%, transparent);
+  flex: 1;
+}
+
+.nav-card__arrow {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--ember);
+  transition: transform 0.2s;
+}
+
+.nav-card:hover .nav-card__arrow {
+  transform: translateX(4px);
+}
+
+.access-summary-section {
+  padding: 3rem 1.5rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 22%, transparent);
+}
+
+.access-summary-section__inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.access-summary-section__header {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.access-summary-section__eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--ember);
+  text-transform: uppercase;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.access-summary-section__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--brass);
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.access-route-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: flex;
+  gap: 2.5rem;
+}
+
+.access-route-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.access-route-item__icon {
+  font-size: 1.1rem;
+  color: var(--ember);
+  flex-shrink: 0;
+  line-height: 1.5;
+}
+
+.access-route-item__label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin-bottom: 0.2rem;
+}
+
+.access-route-item__route {
+  margin: 0;
+  font-size: 0.78rem;
+  color: color-mix(in oklch, var(--brass) 78%, transparent);
+  line-height: 1.6;
+}
+
+.access-summary-section__link {
+  font-size: 0.78rem;
+  color: var(--ember);
+  letter-spacing: 0.06em;
+  transition: color 0.2s, letter-spacing 0.2s;
+}
+
+.access-summary-section__link:hover {
+  color: var(--brass);
+  letter-spacing: 0.1em;
+}
+
+.ticket-info-section {
+  padding: 4rem 1.5rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 22%, transparent);
+  background-color: color-mix(in oklch, var(--emerald) 4%, var(--ink));
+}
+
+.ticket-info-section__inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.ticket-info-section__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.ticket-info-section__eyebrow {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  color: var(--ember);
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+}
+
+.ticket-info-section__title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--brass);
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.ticket-info-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.ticket-info-block {
+  padding: 1.5rem;
+  border: 1px solid color-mix(in oklch, var(--brass) 18%, transparent);
+  border-top: 2px solid var(--emerald);
+  border-radius: 2px;
+}
+
+.ticket-info-block__heading {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--brass);
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+}
+
+.ticket-info-block__list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0;
+}
+
+.ticket-info-block__list dt {
+  font-size: 0.78rem;
+  color: color-mix(in oklch, var(--brass) 75%, transparent);
+}
+
+.ticket-info-block__list dd {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--brass);
+  margin: 0;
+}
+
+.ticket-info-block__value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 0.35rem;
+  letter-spacing: 0.02em;
+}
+
+.ticket-info-block__note {
+  font-size: 0.75rem;
+  color: color-mix(in oklch, var(--brass) 72%, transparent);
+  margin: 0;
+}
+
+.ticket-info-section__cta-wrap {
+  text-align: center;
+}
+
+.ticket-info-section__cta {
+  display: inline-block;
+  padding: 0.75rem 2.25rem;
+  border: 2px solid var(--brass);
+  background-color: transparent;
+  color: var(--brass);
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.ticket-info-section__cta:hover {
+  background-color: var(--brass);
+  color: var(--ink);
+}
+
+.seasonal-events-section {
+  padding: 4rem 1.5rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 22%, transparent);
+  background-color: color-mix(in oklch, var(--ember) 3%, var(--ink));
+}
+
+.seasonal-events-section__inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.seasonal-events-section__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.seasonal-events-section__eyebrow {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  color: var(--ember);
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+}
+
+.seasonal-events-section__title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--brass);
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.seasonal-events-section__all {
+  font-size: 0.8rem;
+  color: var(--ember);
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+  padding-bottom: 0.25rem;
+  transition: color 0.2s, letter-spacing 0.2s;
+}
+
+.seasonal-events-section__all:hover {
+  color: var(--brass);
+  letter-spacing: 0.1em;
+}
+
+.event-mini-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.event-mini-card {
+  padding: 1.25rem;
+  border: 1px solid color-mix(in oklch, var(--brass) 18%, transparent);
+  border-left: 3px solid var(--ember);
+  border-radius: 2px;
+  background-color: color-mix(in oklch, var(--brass) 2%, transparent);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Variant accent */
+.event-mini-card--autumn {
+  border-left-color: var(--brass);
+}
+
+.event-mini-card__season {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  border-radius: 2px;
+  width: fit-content;
+  letter-spacing: 0.05em;
+}
+
+.event-mini-card__season--summer {
+  background-color: color-mix(in oklch, var(--ember) 20%, var(--ink));
+  color: var(--brass);
+  border: 1px solid color-mix(in oklch, var(--ember) 50%, transparent);
+}
+
+.event-mini-card__season--autumn {
+  background-color: color-mix(in oklch, var(--brass) 20%, var(--ink));
+  color: var(--brass);
+  border: 1px solid color-mix(in oklch, var(--brass) 50%, transparent);
+}
+
+.event-mini-card__meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.event-mini-card__month {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ember);
+  line-height: 1.2;
+}
+
+.event-mini-card--autumn .event-mini-card__month {
+  color: var(--brass);
+}
+
+.event-mini-card__when {
+  font-size: 0.7rem;
+  color: color-mix(in oklch, var(--brass) 72%, transparent);
+}
+
+.event-mini-card__name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.event-mini-card__desc {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.72;
+  color: color-mix(in oklch, var(--brass) 78%, transparent);
+  flex: 1;
+}
+
 .news-section {
   padding: 2.5rem 1.5rem;
   max-width: 860px;
@@ -91,8 +858,8 @@
 
 .news-section__heading {
   font-size: 1.2rem;
-  color: var(--emerald);
-  border-bottom: 1px solid var(--emerald);
+  color: var(--brass);
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 35%, transparent);
   padding-bottom: 0.5rem;
   margin: 0 0 1.25rem;
 }
@@ -146,6 +913,52 @@
 }
 
 @media (width <= 768px) {
+  .about-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .about-section__title {
+    font-size: 1.4rem;
+  }
+
+  .dept-list {
+    grid-template-columns: 1fr;
+  }
+
+  .dept-list__item--featured {
+    grid-column: auto;
+  }
+
+  .highlights-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .highlight-list {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-cards-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .nav-card-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .highlight-card {
+    flex-direction: row;
+  }
+
+  .highlight-card__inner {
+    flex-direction: row;
+  }
+
+  .highlight-card__visual {
+    width: 6rem;
+    height: auto;
+    flex-shrink: 0;
+  }
+
   .hero {
     padding: 3rem 1rem;
   }
@@ -165,6 +978,40 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+  }
+
+  .access-summary-section {
+    padding: 2rem 1rem;
+  }
+
+  .access-route-list {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .ticket-info-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .ticket-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket-info-block__value {
+    font-size: 1.1rem;
+  }
+
+  .seasonal-events-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .seasonal-events-section__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .event-mini-list {
+    grid-template-columns: 1fr;
   }
 
   .news-section {

@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
   <link rel="stylesheet" href="{{BASE}}styles/base.css" />
   <link rel="stylesheet" href="{{BASE}}styles/area-page.css" />
+  <script src="{{BASE}}src/accordion.js" defer></script>
 </head>
 <body>
 <!-- HEADER -->
@@ -18,10 +19,12 @@
   </nav>
 
   <section class="area-hero">
-    <div class="area-hero__visual area-hero__visual--alchemy" aria-hidden="true"></div>
+    <div class="area-hero__visual area-hero__visual--alchemy">
+      <img class="area-hero__visual-img" src="{{BASE}}assets/images/exploration/hero-alchemy-tower.jpg" alt="" />
+    </div>
     <div class="area-hero__body">
       <h1 class="area-hero__title">錬金術研究棟</h1>
-      <p class="area-hero__desc">蒸留器と歯車が並ぶ実験の聖域。元素の変容と魔法合金の謎に迫ります。</p>
+      <p class="area-hero__desc">蒸留器と歯車が並ぶ実験の聖域。元素変容の機序を学び、魔法合金の謎に迫る研究の場です。</p>
     </div>
   </section>
 
@@ -35,31 +38,88 @@
         独特の空気は、ここでしか体験できない研究棟の顔です。
       </p>
       <p class="area-section__body">
-        見学は自由回廊を歩きながら実験の様子を観察するスタイルで、定時に行われる
-        「元素変容デモ」では教員錬金術師が目の前で鉄を魔法合金へ変える実演を披露します。
-        体験プログラムへの参加は当日受付にてご予約ください。
+        見学は自由回廊を歩きながら実験の様子を観察するスタイルです。飛行術科や召喚術科と
+        異なり、錬金術研究棟では「なぜそうなるのか」を言語化することを重視しているため、
+        解説の密度が高いのが特徴です。各体験プログラムへの参加は当日受付またはWebにてご予約ください。
       </p>
     </section>
 
     <section class="area-section">
       <h2 class="area-section__heading">体験・見どころ</h2>
       <ul class="attraction-list">
+
         <li class="attraction-item">
-          <h3 class="attraction-item__name">元素変容デモンストレーション</h3>
-          <p class="attraction-item__desc">学院教員による錬金術実演。鉄が黄金色の魔法合金へと変わる瞬間をご覧いただけます。</p>
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">元素変容デモンストレーション</span>
+            <span class="attraction-item__teaser">学院教員が鉄から魔法合金への変容機序を板書しながら解説する、30分の公開講義形式プログラム。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">変容工程は「分解—再構築—安定化」の三相に分かれており、各相で投入する触媒の種類と魔法方程式の係数の関係を教員が板書しながら解説します。専門用語には逐次補足説明が入るため、予備知識がなくとも論理的な面白さを充分に楽しめます。</p>
+            <p class="attraction-item__notes">毎日10:30・14:30の2回開催(各回定員30名)。前日17:00までのWebまたは当日受付にて参加予約を。</p>
+          </div>
         </li>
+
         <li class="attraction-item">
-          <h3 class="attraction-item__name">魔法合金の鋳造体験</h3>
-          <p class="attraction-item__desc">簡易鋳型を使った魔法合金メダルの制作体験。文様は8種から選択可。所要時間約30分。</p>
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">薬草調合実習</span>
+            <span class="attraction-item__teaser">30種の薬草から素材を選び、基礎的な魔法薬を調合するワークショップ。完成した薬液は小瓶に封入して持ち帰れる。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">学院薬草学助手の指導のもと、採取した薬草の魔力価を測定器で計測し、効能別に分類してから調合に進みます。魔力価と効能の相関グラフを参照しながら配合比を決めるプロセスは、実験科学としての薬草調合の本質を体験できる内容です。調合中に記録したレシピと測定値も記録用紙として持ち帰れます。</p>
+            <p class="attraction-item__notes">所要時間約50分。定員6名(事前予約推奨)。アレルギーをお持ちの方はスタッフへ事前にご相談ください。</p>
+          </div>
         </li>
+
         <li class="attraction-item">
-          <h3 class="attraction-item__name">大蒸留器の見学回廊</h3>
-          <p class="attraction-item__desc">建物中央を貫く高さ12メートルの大蒸留器を3階分の回廊から間近に観察できます。琥珀色に輝く魔法燃料の流れと、リズミカルに動く歯車の音が来館者を魅了します。</p>
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">魔法合金の鋳造体験</span>
+            <span class="attraction-item__teaser">簡易鋳型で魔法合金メダルを制作。古代紋様8種から文様を選び、バリ取り・研磨まで自分で仕上げる。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">溶融した魔法合金を鋳型に注ぐ工程はスタッフが担当し、冷却後のバリ取りと表面研磨を体験者自身が行います。研磨中に現れる魔素結晶の微細な輝きは、合金内部の結晶構造が可視化される瞬間です。その仕組みも解説しながら進めます。完成品は専用木箱に収めてお持ち帰りいただけます。</p>
+            <p class="attraction-item__notes">所要時間約30分。8歳以上推奨。高温材料を使用するため、スタッフの指示に必ず従ってください。</p>
+          </div>
         </li>
+
         <li class="attraction-item">
-          <h3 class="attraction-item__name">魔導書閲覧室</h3>
-          <p class="attraction-item__desc">歴代錬金術師の研究ノートや魔法陣設計図(複製)を自由に閲覧できる静読スペース。書き写し用の羊皮紙とインクの貸し出しあり(無料)。</p>
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">大蒸留器の見学回廊</span>
+            <span class="attraction-item__teaser">建物中央を貫く高さ12mの大蒸留器を3層の回廊から観察。琥珀色の魔法燃料と精密な歯車機構を間近で見る。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">アルノルド卿設計のこの蒸留器は、単一構造体として大陸最大とされています。1・2層では各蒸留室のガラス管を通して魔法燃料の流れを観察でき、3層では炉の調整を担う歯車機構の全景が一望できます。各部位の機能を示す解説板を参照しながら、構造全体の理解を深めてください。</p>
+            <p class="attraction-item__notes">3層へのアクセスは階段のみです。足元にご注意ください。幼児はスタッフ同伴でのみ入場可。定期点検期間(年2回)は閉鎖します。</p>
+          </div>
         </li>
+
+        <li class="attraction-item">
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">魔法陣設計ワークショップ</span>
+            <span class="attraction-item__teaser">幾何学と魔法方程式を組み合わせた陣形設計の入門体験。魔法陣設計科の学生が指導する学科体験プログラム。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">基本陣形3種(渦型・放射型・格子型)からひとつを選び、専用グリッド紙に寸法比を計算しながら正確に写し取ります。完成した陣形に「魔素コード」(魔法方程式の略記)を書き加えると、インクが微かに発光する実験要素があります。学科体験として設計された内容ですが、年齢不問で参加できます。</p>
+            <p class="attraction-item__notes">所要時間約45分。10歳以上推奨。基礎的な比例計算ができると楽しめます。</p>
+          </div>
+        </li>
+
+        <li class="attraction-item">
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">魔導書閲覧室</span>
+            <span class="attraction-item__teaser">歴代錬金術師の研究ノートや魔法陣設計図(複製)76点を自由に閲覧できる静読スペース。書き写し用具の貸し出しあり。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">開架資料には、アルノルド卿直筆の実験記録(複製)や14世紀の元素変容論文、近代の魔導機械設計図など全76点が含まれます。閲覧用拡大鏡・羊皮紙レプリカ・インクの貸し出しあり(無料)。書き写しを希望する場合は入室時にスタッフへお申し出ください。</p>
+            <p class="attraction-item__notes">飲食・撮影禁止。資料への書き込み・折り曲げはご遠慮ください。</p>
+          </div>
+        </li>
+
       </ul>
     </section>
 
@@ -69,9 +129,9 @@
         <dt>開放時間</dt>
         <dd>9:00 〜 17:00(最終入場 16:30)</dd>
         <dt>対象年齢</dt>
-        <dd>全年齢(鋳造体験は8歳以上)</dd>
+        <dd>全年齢(鋳造体験は8歳以上推奨)</dd>
         <dt>所要時間</dt>
-        <dd>見学のみ 約20分 / 体験込み 約60分</dd>
+        <dd>見学のみ 約20分 / 体験込み 約60分〜</dd>
         <dt>場所</dt>
         <dd>学院北翼 B棟 1〜3階</dd>
       </dl>

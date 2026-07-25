@@ -1,5 +1,133 @@
 # サイクル履歴
 
+## 2026-07-25 22:03
+- 実装: 時計塔 hero/thumb 画像差し込み完了(REQ-008/009対応済みに移動) + 新エリア「大図書館」追加(5アトラクション・静謐幻想的トーン・深緑×真鍮グリッドパターン)
+- レビュー: 指摘1件対応 (A-1: ASSET_REQUESTS の REQ-008/009 番号入れ替わり修正)
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 学院内探索 (M) 新エリア: 決闘演武場 (--crimson)
+- blocked / partial: なし
+- asset-pending: REQ-010(hero-grand-library.jpg) / REQ-011(thumb-grand-library.jpg)
+
+## 2026-07-25 21:05
+- 実装: 学院内探索 新エリア「時計塔」追加(4アトラクション・重厚精密トーン・--silver グリッドパターン hero ビジュアル・accordion 対応)。探索一覧にカード追加
+- レビュー: 指摘1件 ROADMAP todo追記(A-1: exploration.css の opacity テキスト、既存の別問題)
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 学院内探索 (M) 新エリア: 大図書館
+- blocked / partial: なし
+- asset-pending: REQ-008(hero-clock-tower.jpg) / REQ-009(thumb-clock-tower.jpg)
+
+## 2026-07-25 20:15
+- 実装: 学院内探索 既存3エリアのコンテンツ見直し(錬金術研究棟6件・飛行船ドック3件・召喚広場5件、各トーン個性化) + accordion インタラクション追加(src/accordion.js・styles/area-page.css) + hero 画像 <img> 差し込み
+- レビュー: 指摘1件対応 (A-1: teaser/notes テキストコントラスト 72%/65% → 76% に修正)
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 学院内探索 (M) 新エリア: 時計塔(--silver)
+- blocked / partial: なし
+- asset-pending: hero-alchemy-tower.jpg / hero-airship-dock.jpg / hero-summoning-plaza.jpg
+
+## 2026-07-25 19:06
+- 実装: トップページ 品質方針適合。ハイライトカードを<a>ラップしてリンク化・translateY hover を正当化。学科リスト(非リンク)・イベントミニカード(非リンク)の hover 削除。
+- レビュー: 指摘2件いずれも低重要度(軽微/誤検知) — 対応不要
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 学院内探索 (S) 既存3エリアのコンテンツ見直し
+- blocked / partial: なし
+- asset-pending: ヒーロー背景画像(ROADMAP記載済み)
+
+## 2026-07-25 18:03
+- 実装: トップページ アクセスサマリー。魔導鉄道・転移魔法陣の2ルートをコンパクトな横並びリストで表示。詳細アクセスページへのリンク付き
+- レビュー: 指摘なし
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 学院内探索 (S) 既存3エリアのコンテンツ見直し
+- blocked / partial: なし
+- asset-pending: ヒーロー背景画像(ROADMAP記載済み)
+
+## 2026-07-25 17:02
+- 実装: トップページ 来場のご案内セクション。料金(一般/学院生/12歳以下/家族券)・開校時間・休校日の3列グリッド + 入学願書CTAボタン。エメラルド系アクセント・モバイル1列積み
+- レビュー: 指摘なし
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: トップページ (S) アクセスサマリー
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-25 16:04
+- 実装: トップページ 季節イベント速報「今月の学院」。3件ミニカードグリッド(飛行船競技大会・夜の精霊観測会・学院祭)。夏/秋タグ+左border accent+hover lift。学院祭ページへの「すべての行事を見る」リンク付き
+- レビュー: 指摘なし
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: トップページ (S) チケット/営業情報サマリー
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-25 15:03
+- 実装: トップページ セクションナビカード。7セクションへの4列カードグリッド。アイコン・アクセントライン(セクション固有色)・hover lift+アイコン拡大+矢印スライド。探索画像6枚を assets/images/exploration/ へ移動
+- レビュー: 指摘なし
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: トップページ (S) 季節イベント速報
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-25 14:03
+- 実装: トップページ 見どころハイライト。「学院の3大体験」3列カードグリッド(錬金術/飛行船/召喚広場)。エリア固有グラデーション背景・アイコンhover回転アニメーション・エリアリンク付き。モバイルは縦積み横視覚
+- レビュー: 指摘なし
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: トップページ (S) セクションナビカード
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-25 13:03
+- 実装: トップページ 学院紹介セクション。創設者アルノルド卿の歴史・現在5拠点・来訪者案内の3段落 + 5学科カード(2列グリッド、魔導機械科は全幅フィーチャー)。ornament ライン・アイコン・hover トランジション・レスポンシブ対応(768px 以下1列)
+- レビュー: 指摘なし
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: トップページ (S) 見どころハイライト
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-25 12:00
+- 実装: 共通パーツ フッター学院情報充実。dl グリッドで所在地・開校時間・休校日・お問い合わせを追加。背景色・学院名・著作権行の3段構成。共通パーツ section 0 完了 → roadmap-done.md へ移動
+- レビュー: 指摘1件対応(A-1: 共通パーツ完了につき status 更新・紹介文追記)
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: トップページ (M) 学院紹介セクション
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-25 11:04
+- 実装: 共通パーツ ヘッダー モバイルメニュー開閉トランジション。display:none ↔ flex の瞬間切り替えを max-height: 0 → 30rem + overflow:hidden + transition:0.35s ease に変更。border-top をオープン時のみ表示
+- レビュー: 指摘なし
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 共通パーツ (S) フッター: 学院情報を充実させる
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-25 10:02
+- 実装: 共通パーツ モバイル用ハンバーガーメニュー。768px以下でナビ折り畳み、3本線→X字アニメーション付きボタン、ナビリンククリックで自動クローズ、.is-currentをborder-leftに切り替え
+- レビュー: 指摘1件 → ROADMAPにトランジション追加タスクを追記(今回スコープ外)
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 共通パーツ (S) フッター: 学院情報を充実させる
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-25 09:42
+- 実装: active-nav.js の file:// 対応。type="module"(CORS制限でfile://不可)をdeferに変更、IIFEでスコープ隔離
+- レビュー: OK
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 共通パーツ (M) ヘッダー: モバイル用ハンバーガーメニュー
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-25 09:35
+- 実装: 共通パーツ ヘッダー現在ページハイライト。src/active-nav.js 新規作成(pathname比較→.is-current付与)、base.css に .is-current スタイル追加(ember色・底辺ライン)、header.html に type="module" script 追加。build.js を更新して src/ を dist/ にコピー対象に追加。eslint.config.js に URL グローバルを追加
+- レビュー: OK (A-2 軽微メモのみ)
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 共通パーツ (M) ヘッダー: モバイル用ハンバーガーメニュー
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-25 09:24
+- 実装: 共通パーツ ヘッダーデザイン改善 (styles/base.css)。ロゴに⚙アイコン(hover で180°回転)・brass色・letter-spacing。navリンクに縦区切り線・全高hover背景・色変化トランジション追加
+- レビュー: 指摘1件対応 (⚙の絵文字化防止に\FE0Eテキストバリアントセレクタ追記)
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 共通パーツ (S) ヘッダー: 現在ページのナビリンクをハイライト表示
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-25 07:01
 - 実装: 学院祭・行事 イベントカレンダー HTML骨格 (pages/events/index.html + styles/events.css)。8行事(春2・夏2・秋2・冬2)を季節タグ付きカードで一覧表示。学院祭(10月)は featured カードで強調
 - レビュー: OK (指摘1件 誤検知: 冬タグの透明背景は意図的デザイン)

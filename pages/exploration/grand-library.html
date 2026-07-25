@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>大図書館 — 学院内探索 — 王立魔法学院アルノルド</title>
+  <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/base.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/area-page.css" />
+  <script src="{{BASE}}src/accordion.js" defer></script>
+</head>
+<body>
+<!-- HEADER -->
+<main>
+  <nav class="area-breadcrumb" aria-label="パンくずリスト">
+    <a class="area-breadcrumb__link" href="{{BASE}}exploration/index.html">学院内探索</a>
+    <span class="area-breadcrumb__sep" aria-hidden="true">›</span>
+    <span class="area-breadcrumb__current">大図書館</span>
+  </nav>
+
+  <section class="area-hero">
+    <div class="area-hero__visual area-hero__visual--grand-library">
+      <img class="area-hero__visual-img" src="{{BASE}}assets/images/exploration/hero-grand-library.jpg" alt="" />
+    </div>
+    <div class="area-hero__body">
+      <h1 class="area-hero__title">大図書館</h1>
+      <p class="area-hero__desc">7層吹き抜けの書架に120万冊。蝋燭が自ら浮かび、本が問いに応えて動き出す。静寂が深いほど、この場所は雄弁です。</p>
+    </div>
+  </section>
+
+  <div class="area-content">
+    <section class="area-section">
+      <h2 class="area-section__heading">エリアについて</h2>
+      <p class="area-section__body">
+        大図書館の蔵書数は現在120万冊を超え、そのうち約3万冊は魔法によって「記憶を持つ」状態に
+        なっています。記憶を持つ本は問いかけに応じてページが開き、関連する章を自ら示します。
+        ただし本が「答えたくない」と判断した問いには応答しないことがあり、それが何を意味するのかは
+        司書にもわかりません。
+      </p>
+      <p class="area-section__body">
+        7層の書架は吹き抜けで、各層から中央ホールを見下ろせます。夕刻になると蝋燭が順に
+        点灯し始め、上層から下層へと光の波が降りてきます。その時間を目当てに訪れる来場者が
+        後を絶たない、大図書館だけの光景です。
+      </p>
+    </section>
+
+    <section class="area-section">
+      <h2 class="area-section__heading">体験・見どころ</h2>
+      <ul class="attraction-list">
+
+        <li class="attraction-item">
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">書庫迷宮 探索ツアー</span>
+            <span class="attraction-item__teaser">「地図が役に立たない」と言われる7層の書庫。司書見習いの案内で、迷宮の法則を読み解きながら最深部の特別閲覧室を目指す。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">大図書館の書架配置は「蔵書の親和性」によって自律的に変化するため、前日と同じ経路で同じ本に辿り着けるとは限りません。司書見習いのガイドは「正解の道」ではなく「迷宮の読み方」を教えます。本棚の色・香り・温度の変化が移動の手がかりになります。最深部の特別閲覧室には、通常非公開の初版本コレクションがあります。</p>
+            <p class="attraction-item__notes">毎日3回（10:00 / 13:30 / 16:00）。定員8名。所要時間約60分。歩きやすい靴をお勧めします。</p>
+          </div>
+        </li>
+
+        <li class="attraction-item">
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">魔法写本ワークショップ</span>
+            <span class="attraction-item__teaser">羽根ペンと魔法インクで古典魔法書の一節を書き写す45分の体験。完成した写本は持ち帰れ、翌日まで文字が幽かに発光する。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">使用するインクは「月光草」の樹液から作られた魔法インクで、乾燥後12〜24時間ほど淡い緑の光を放ちます。写本に選べる原典は5種類（初級魔法論・薬草学序説・召喚術概論など）。書き写しの過程で文字の意味を解説する「読解の時間」が途中に挿まれ、ただ模写するだけでなく内容への理解も深まります。</p>
+            <p class="attraction-item__notes">所要時間約45分。定員6名（事前予約推奨）。インクが衣服につくと落ちにくいため、エプロンを着用してください。</p>
+          </div>
+        </li>
+
+        <li class="attraction-item">
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">禁書閲覧室 見学</span>
+            <span class="attraction-item__teaser">強化ガラス越しに「禁書」指定の魔法書コレクションを見学。司書が1冊ずつ解説し、なぜ禁書に指定されたかの歴史的経緯を語る。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">禁書指定の理由は「危険な術式を含む」だけではありません。「記述が正確すぎて悪用される」「読む者の精神に影響を与える」「存在を知られると困る人物がいる」など、理由は様々です。現在展示されているのは87冊。うち12冊は表紙すら公開されていません。司書の解説は15分程度で、質問時間が設けられています。</p>
+            <p class="attraction-item__notes">毎日14:00・16:30の2回（各回20分）。予約不要・先着順。閲覧室内への立ち入りはできません。</p>
+          </div>
+        </li>
+
+        <li class="attraction-item">
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">浮遊書架 観覧コーナー</span>
+            <span class="attraction-item__teaser">重力魔法で浮かせた100冊の希少書が、閲覧者の視線を感じて近づいてくる特別展示区画。手を伸ばすと表紙が開く。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">浮遊書架の本は閲覧者の「興味の強度」を魔法的に感知し、よく見られた本ほど近くに漂ってきます。手を差し伸べると表紙が自ら開きますが、この時点でも本を掴むことは禁止されています。ページをめくるには視線の移動だけで十分です。展示される100冊は2週間ごとに入れ替わります。</p>
+            <p class="attraction-item__notes">常時公開（混雑時は入場制限あり）。本への接触・持ち出しは禁止。強い衝撃を与えると本が逃げることがあります。</p>
+          </div>
+        </li>
+
+        <li class="attraction-item">
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">書の記憶 朗読会</span>
+            <span class="attraction-item__teaser">司書が魔法書を朗読すると、文字の情景が中央ホールに投影される日没前の30分間。毎回異なる1冊が選ばれる。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">朗読に使われる本は「記憶を持つ」魔法書の中でも特に情景投影力が強い作品に限られます。司書が声に出して読み始めると、文字が光り出し、描写された場所や人物の輪郭が空中に浮かび上がります。投影は明確な映像ではなく光の輪郭で、見る者の想像が補います。毎回1冊しか選ばれず、翌年同じ本が朗読されることはありません。</p>
+            <p class="attraction-item__notes">毎日日没20分前から（時刻は受付に掲示）。予約不要。所要約30分。途中退席は最小限にしてください。</p>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+    <aside class="area-info">
+      <h2 class="area-info__heading">ご案内</h2>
+      <dl class="area-info__list">
+        <dt>開放時間</dt>
+        <dd>8:30 〜 日没後（最終入場 日没30分前）</dd>
+        <dt>対象年齢</dt>
+        <dd>全年齢</dd>
+        <dt>所要時間</dt>
+        <dd>自由見学 約20分 / 写本体験込み 約70分</dd>
+        <dt>場所</dt>
+        <dd>学院東棟 2〜8階（エレベーター利用可）</dd>
+        <dt>注意事項</dt>
+        <dd>館内での飲食・大声は禁止。蔵書への接触はスタッフの指示に従ってください</dd>
+      </dl>
+    </aside>
+  </div>
+</main>
+<!-- FOOTER -->
+</body>
+</html>

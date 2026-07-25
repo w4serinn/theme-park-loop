@@ -9,6 +9,7 @@ export default [
       globals: {
         window: "readonly",
         document: "readonly",
+        URL: "readonly",
         console: "readonly",
         process: "readonly",
         test: "readonly",
