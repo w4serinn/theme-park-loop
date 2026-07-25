@@ -1,5 +1,29 @@
 # サイクル履歴
 
+## 2026-07-26 05:09
+- 実装: 入学願書(チケット案内) 料金表(S) + シミュレーター(M) + お役立ち情報(S) → 完了
+  src/logic.js: TICKET_PRICES + calcTicketTotal + calcOptimalPrice(家族券最適化)
+  tests/logic.test.js: 19テスト(価格定数・合計計算・最適料金)
+  src/ticket-sim.js: IIFE DOMシミュレーター (家族券自動適用表示)
+  styles/tickets.css: hero/price-table/ticket-sim/sim-result/info-grid
+  pages/tickets/index.html: 料金表テーブル + シミュレーターフォーム + 4件お役立ちカード
+- レビュー: 指摘1件(ROADMAP status未更新)対応済み
+- lint: ✓ / lint:css: ✓ / test: ✓(79件) / build: ✓
+- 次回予定: 学院への道のり (S)アクセス情報 + (M)SVGキャンパスマップ
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-26 04:15
+- 実装: 学食・喫茶室 メニュー一覧骨格(S) + アコーディオン詳細(M) + 限定メニュー告知(S) → 完了
+  dining/index.html: ランチ3+スイーツ3+ドリンク3 / 各9品に材料・アレルギー・魔法効果パネル
+  dining.css: hero/nav/seasonal-banner/menu-item flex行/accordion/menu-detail DL(--arcane 魔法効果)
+  dining-menu.js: アコーディオン IIFE
+- レビュー: 指摘0件
+- lint: ✓ / lint:css: ✓ / test: ✓(58件) / build: ✓
+- 次回予定: 入学願書(チケット案内) (S) 料金表 + (M) 簡易シミュレーター + (S) お役立ち情報
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-26 03:15
 - 実装: 購買部カテゴリページ みやげ・食品(M) + 書籍・資料(M) + 食料品・薬草(M)
   shop-page.css: hero/product visual modifier ×6追加(--souvenirs/--books/--groceries 各ヒーロー+商品)
