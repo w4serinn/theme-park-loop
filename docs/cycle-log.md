@@ -1,5 +1,21 @@
 # サイクル履歴
 
+## 2026-07-25 20:15
+- 実装: 学院内探索 既存3エリアのコンテンツ見直し(錬金術研究棟6件・飛行船ドック3件・召喚広場5件、各トーン個性化) + accordion インタラクション追加(src/accordion.js・styles/area-page.css) + hero 画像 <img> 差し込み
+- レビュー: 指摘1件対応 (A-1: teaser/notes テキストコントラスト 72%/65% → 76% に修正)
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 学院内探索 (M) 新エリア: 時計塔(--silver)
+- blocked / partial: なし
+- asset-pending: hero-alchemy-tower.jpg / hero-airship-dock.jpg / hero-summoning-plaza.jpg
+
+## 2026-07-25 19:06
+- 実装: トップページ 品質方針適合。ハイライトカードを<a>ラップしてリンク化・translateY hover を正当化。学科リスト(非リンク)・イベントミニカード(非リンク)の hover 削除。
+- レビュー: 指摘2件いずれも低重要度(軽微/誤検知) — 対応不要
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 学院内探索 (S) 既存3エリアのコンテンツ見直し
+- blocked / partial: なし
+- asset-pending: ヒーロー背景画像(ROADMAP記載済み)
+
 ## 2026-07-25 18:03
 - 実装: トップページ アクセスサマリー。魔導鉄道・転移魔法陣の2ルートをコンパクトな横並びリストで表示。詳細アクセスページへのリンク付き
 - レビュー: 指摘なし

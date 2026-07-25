@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
   <link rel="stylesheet" href="{{BASE}}styles/base.css" />
   <link rel="stylesheet" href="{{BASE}}styles/area-page.css" />
+  <script src="{{BASE}}src/accordion.js" defer></script>
 </head>
 <body>
 <!-- HEADER -->
@@ -18,10 +19,12 @@
   </nav>
 
   <section class="area-hero">
-    <div class="area-hero__visual area-hero__visual--airship" aria-hidden="true"></div>
+    <div class="area-hero__visual area-hero__visual--airship">
+      <img class="area-hero__visual-img" src="{{BASE}}assets/images/exploration/hero-airship-dock.jpg" alt="" />
+    </div>
     <div class="area-hero__body">
       <h1 class="area-hero__title">飛行船ドック</h1>
-      <p class="area-hero__desc">魔力で浮かぶ巨大飛行船が停泊する学院最上部の格納庫。風と雲を見下ろす絶景も必見です。</p>
+      <p class="area-hero__desc">魔力で浮かぶ巨大飛行船が待つ学院最上部の格納庫。雲の上へ踏み出す冒険が、ここから始まります。</p>
     </div>
   </section>
 
@@ -30,35 +33,57 @@
       <h2 class="area-section__heading">エリアについて</h2>
       <p class="area-section__body">
         飛行船ドックは学院の最上部、第7塔の屋上に広がる格納庫施設です。
-        三隻の魔力飛行船が係留されており、そのうち一隻「アルノルド号」は
-        授業や行事での実地航行に現役で使われています。
+        三隻の魔力飛行船が係留されており、そのうち旗艦「アルノルド号」は
+        授業や行事の実地航行で現役稼働中。出港を待つ機体から漂う機械油と魔素の混じった匂いが、
+        ここが「生きた格納庫」であることを教えてくれます。
       </p>
       <p class="area-section__body">
-        格納庫の床は強化魔法ガラス張りとなっており、眼下に学院の全景を
-        見渡せる「空中回廊」として人気のスポットです。晴れた日には
-        遠く王都の時計塔まで望めることがあります。
+        強化魔法ガラスの床「空中回廊」から学院の全景を眺めれば、自分がいかに高い場所に
+        いるかを実感できます。乗船体験を終えた来場者が「もう一度乗りたい」と言うのは、
+        空の高さと静けさを体で知ってしまうからです。
       </p>
     </section>
 
     <section class="area-section">
       <h2 class="area-section__heading">体験・見どころ</h2>
       <ul class="attraction-list">
+
         <li class="attraction-item">
-          <h3 class="attraction-item__name">アルノルド号 乗船体験</h3>
-          <p class="attraction-item__desc">格納庫内を低空で一周する約15分の遊覧飛行。身長120cm以上・保護者同伴で参加可。定員8名、1日4便。</p>
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">アルノルド号 乗船体験</span>
+            <span class="attraction-item__teaser">学院旗艦「アルノルド号」で高度50mを遊覧する15分間の空の冒険。眼下に広がる学院の全景は来訪者人気No.1。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">格納庫から滑り出す瞬間の加速感、雲が目線を横切る上昇、学院の全景が眼下に広がる巡航高度——どの場面も非日常の体験です。客席は8名で、補助魔力ベルトを着用して搭乗します。晴れた日には王都の時計塔まで望める絶景フライト。悪天候時は地上航行に切り替わります。</p>
+            <p class="attraction-item__notes">定員8名・1日4便(10:00 / 11:30 / 13:30 / 15:00)。身長120cm以上・保護者同伴必須。強風・雷雨時は運休。</p>
+          </div>
         </li>
+
         <li class="attraction-item">
-          <h3 class="attraction-item__name">格納庫見学ツアー</h3>
-          <p class="attraction-item__desc">学院スタッフによるガイドツアー。飛行船のエンジン(魔力変換炉)や魔法帆の仕組みを解説します。所要時間約30分。</p>
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">操縦シミュレーター「嵐の回廊」</span>
+            <span class="attraction-item__teaser">本物の操縦桿と計器で仮想の嵐に挑む訓練シミュレーター。3段階のミッションで腕試しができる。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">実際の「アルノルド号」と同一設計の操縦席を再現。ミッションは「穏やか→嵐の回廊→魔素の渦」の3段階から選択できます。挑戦後にスコアシートが印刷され、飛行術科の学生から短い講評も受けられます。腕に覚えのある方は最上級ミッション「魔素の渦」に挑んでみてください。</p>
+            <p class="attraction-item__notes">1回約10分・連続2回まで挑戦可。待ち時間は混雑状況により変動します。酔いやすい方はご注意ください。</p>
+          </div>
         </li>
+
         <li class="attraction-item">
-          <h3 class="attraction-item__name">操縦シミュレーター</h3>
-          <p class="attraction-item__desc">実際の操縦桿と計器を再現した訓練用シミュレーター。仮想の嵐を乗り越えるミッションに挑戦できます。</p>
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">格納庫・空中回廊 探検ツアー</span>
+            <span class="attraction-item__teaser">現役飛行船3隻のエンジンルームから魔法ガラスの床「空中回廊」まで探検できる40分の特別ツアー。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">係留中の飛行船3隻を間近に見学しながら、魔力変換炉の仕組み・魔法帆の素材(竜鱗布)・操舵系統をスタッフが解説します。ツアー後半の「空中回廊」では、強化魔法ガラスの床から学院の全景を一望。晴天時には王都の時計塔が遠望できます。</p>
+            <p class="attraction-item__notes">毎日3回(10:30 / 12:30 / 14:30)。所要時間約40分。定員12名。</p>
+          </div>
         </li>
-        <li class="attraction-item">
-          <h3 class="attraction-item__name">空中回廊の展望スポット</h3>
-          <p class="attraction-item__desc">強化魔法ガラスの床から眼下の学院を一望。記念撮影用の羅針盤モニュメントも設置されています。</p>
-        </li>
+
       </ul>
     </section>
 
