@@ -174,8 +174,52 @@ a {
 }
 
 .site-footer {
-  padding: 1rem 1.5rem;
-  border-top: 1px solid var(--brass);
+  padding: 2rem 1.5rem 1.5rem;
+  border-top: 1px solid color-mix(in oklch, var(--brass) 45%, transparent);
   text-align: center;
   font-size: 0.85rem;
+  background-color: color-mix(in oklch, var(--emerald) 4%, var(--ink));
+}
+
+.site-footer__inner {
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.site-footer__name {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--brass);
+}
+
+.site-footer__details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.3rem 1.5rem;
+  max-width: 26rem;
+  margin: 0 auto 1.25rem;
+  text-align: left;
+}
+
+.site-footer__details dt {
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: color-mix(in oklch, var(--brass) 50%, transparent);
+  padding-top: 0.1em;
+}
+
+.site-footer__details dd {
+  margin: 0;
+  font-size: 0.8rem;
+  color: color-mix(in oklch, var(--brass) 75%, var(--ink));
+}
+
+.site-footer__copy {
+  margin: 0;
+  font-size: 0.72rem;
+  color: color-mix(in oklch, var(--brass) 40%, transparent);
+  border-top: 1px solid color-mix(in oklch, var(--brass) 15%, transparent);
+  padding-top: 1rem;
 }

@@ -1,5 +1,13 @@
 # サイクル履歴
 
+## 2026-07-25 11:04
+- 実装: 共通パーツ ヘッダー モバイルメニュー開閉トランジション。display:none ↔ flex の瞬間切り替えを max-height: 0 → 30rem + overflow:hidden + transition:0.35s ease に変更。border-top をオープン時のみ表示
+- レビュー: 指摘なし
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 共通パーツ (S) フッター: 学院情報を充実させる
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-25 10:02
 - 実装: 共通パーツ モバイル用ハンバーガーメニュー。768px以下でナビ折り畳み、3本線→X字アニメーション付きボタン、ナビリンククリックで自動クローズ、.is-currentをborder-leftに切り替え
 - レビュー: 指摘1件 → ROADMAPにトランジション追加タスクを追記(今回スコープ外)
