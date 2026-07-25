@@ -1,5 +1,13 @@
 # サイクル履歴
 
+## 2026-07-25 12:00
+- 実装: 共通パーツ フッター学院情報充実。dl グリッドで所在地・開校時間・休校日・お問い合わせを追加。背景色・学院名・著作権行の3段構成。共通パーツ section 0 完了 → roadmap-done.md へ移動
+- レビュー: 指摘1件対応(A-1: 共通パーツ完了につき status 更新・紹介文追記)
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: トップページ (M) 学院紹介セクション
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-25 11:04
 - 実装: 共通パーツ ヘッダー モバイルメニュー開閉トランジション。display:none ↔ flex の瞬間切り替えを max-height: 0 → 30rem + overflow:hidden + transition:0.35s ease に変更。border-top をオープン時のみ表示
 - レビュー: 指摘なし
