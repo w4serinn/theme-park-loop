@@ -1,0 +1,272 @@
+/* 学院への道のり(アクセス+キャンパスマップ) */
+
+/* ヒーロー */
+.access-hero {
+  text-align: center;
+  padding: 3rem 1.5rem 2.5rem;
+  border-bottom: 1px solid var(--brass);
+}
+
+.access-hero__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 0.75rem;
+}
+
+.access-hero__desc {
+  font-size: 1rem;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* コンテンツ */
+.access-content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+
+.access-section {
+  padding-top: 2.5rem;
+}
+
+.access-section + .access-section {
+  border-top: 1px solid color-mix(in oklch, var(--brass) 25%, transparent);
+  margin-top: 2.5rem;
+}
+
+.access-section__heading {
+  font-size: 1.1rem;
+  color: var(--brass);
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 35%, transparent);
+  padding-bottom: 0.4rem;
+  margin: 0 0 1.5rem;
+}
+
+/* 住所・営業情報バナー */
+.access-info-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  padding: 1rem 1.25rem;
+  background-color: color-mix(in oklch, var(--brass) 6%, var(--ink));
+  border-left: 3px solid var(--brass);
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.access-info-bar__item {
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+}
+
+.access-info-bar__label {
+  font-weight: 700;
+  color: var(--brass);
+  margin-right: 0.4rem;
+}
+
+/* 交通手段 DL */
+.transport-list {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+}
+
+.transport-list dt {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--brass);
+  padding: 0.9rem 1.25rem 0.9rem 0;
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 18%, transparent);
+  white-space: nowrap;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+.transport-list dd {
+  padding: 0.9rem 0 0.9rem 1.25rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 18%, transparent);
+  border-left: 1px solid color-mix(in oklch, var(--brass) 18%, transparent);
+  color: color-mix(in oklch, var(--brass) 85%, transparent);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.transport-note {
+  font-size: 0.8rem;
+  color: color-mix(in oklch, var(--brass) 65%, transparent);
+  display: block;
+  margin-top: 0.2rem;
+}
+
+/* 最後のDT/DDは境界線なし */
+.transport-list dt:last-of-type {
+  border-bottom: none;
+}
+
+.transport-list dd:last-of-type {
+  border-bottom: none;
+}
+
+/* キャンパスマップ: SVG + 説明パネル */
+.campus-map {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.campus-map__svg-wrap {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.campus-map__hint {
+  font-size: 0.8rem;
+  color: color-mix(in oklch, var(--brass) 60%, transparent);
+  margin: 0.5rem 0 0;
+  text-align: center;
+}
+
+.campus-map__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.campus-map__panel {
+  flex: 0 0 220px;
+  padding: 1.25rem;
+  border: 1px solid color-mix(in oklch, var(--brass) 28%, transparent);
+  border-top: 3px solid var(--brass);
+}
+
+.campus-map__panel-heading {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 0.6rem;
+}
+
+.campus-map__panel-desc {
+  font-size: 0.875rem;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  line-height: 1.65;
+  margin: 0 0 1rem;
+}
+
+.campus-map__panel-link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ember);
+}
+
+.campus-map__panel-link:hover {
+  color: var(--brass);
+}
+
+/* SVG: キャンパス外枠 */
+.campus-boundary {
+  fill: color-mix(in srgb, var(--ink) 82%, var(--brass));
+  stroke: color-mix(in oklch, var(--brass) 30%, transparent);
+  stroke-width: 1.5;
+}
+
+/* SVG: 通路(破線) */
+.campus-path {
+  stroke: color-mix(in oklch, var(--brass) 22%, transparent);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 3;
+  fill: none;
+}
+
+/* SVG: エリア — 低特定性ベースから高特定性モディファイアの順 */
+.map-area rect {
+  fill: color-mix(in srgb, var(--ink) 62%, var(--brass));
+  stroke: color-mix(in oklch, var(--brass) 38%, transparent);
+  stroke-width: 1.5;
+  cursor: pointer;
+  transition: fill 0.18s, stroke 0.18s;
+}
+
+.map-area text {
+  fill: color-mix(in oklch, var(--brass) 88%, transparent);
+  font-size: 11px;
+  font-family: inherit;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+}
+
+/* --center (時計塔) ベース */
+.map-area--center rect {
+  fill: color-mix(in srgb, var(--silver) 22%, var(--ink));
+  stroke: color-mix(in oklch, var(--silver) 45%, transparent);
+}
+
+/* サブテキスト (--center ベースより後、かつより高い特定性) */
+.map-area .map-area__sub {
+  font-size: 9px;
+  fill: color-mix(in oklch, var(--brass) 62%, transparent);
+}
+
+/* フォーカス時はブラウザ標準リングを非表示 (stroke 変化で代替) */
+.map-area:focus {
+  outline: none;
+}
+
+/* ホバー・フォーカス */
+.map-area:hover rect,
+.map-area:focus rect {
+  fill: color-mix(in srgb, var(--ink) 42%, var(--brass));
+  stroke: var(--brass);
+  outline: none;
+}
+
+/* 選択状態 */
+.map-area.is-selected rect {
+  fill: color-mix(in srgb, var(--ink) 28%, var(--brass));
+  stroke: var(--brass);
+  stroke-width: 2.5;
+}
+
+/* --center ホバー・フォーカス */
+.map-area--center:hover rect,
+.map-area--center:focus rect {
+  fill: color-mix(in srgb, var(--silver) 38%, var(--ink));
+  stroke: var(--silver);
+}
+
+/* --center 選択状態 */
+.map-area--center.is-selected rect {
+  fill: color-mix(in srgb, var(--silver) 48%, var(--ink));
+  stroke: var(--silver);
+  stroke-width: 2.5;
+}
+
+@media (width <= 680px) {
+  .access-hero {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .access-hero__title {
+    font-size: 1.6rem;
+  }
+
+  .access-content {
+    padding: 0 1rem 2rem;
+  }
+
+  .campus-map {
+    flex-direction: column;
+  }
+
+  .campus-map__panel {
+    flex: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

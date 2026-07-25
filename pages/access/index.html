@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>学院への道のり — 王立魔法学院アルノルド</title>
+  <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/base.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/access.css" />
+</head>
+<body>
+<!-- HEADER -->
+<main>
+  <div class="access-hero">
+    <h1 class="access-hero__title">学院への道のり</h1>
+    <p class="access-hero__desc">アルノルド魔法街道駅を降り、石畳の道を歩けば、やがて時計塔が見えてきます。交通案内と学院マップでご来訪前の準備を整えてください。</p>
+  </div>
+
+  <div class="access-content">
+
+    <section class="access-section" id="access">
+      <h2 class="access-section__heading">アクセス情報</h2>
+
+      <div class="access-info-bar">
+        <span class="access-info-bar__item">
+          <span class="access-info-bar__label">住所</span>〒000-0001 アルノルド魔法街道1-1-1
+        </span>
+        <span class="access-info-bar__item">
+          <span class="access-info-bar__label">開館時間</span>9:00〜18:00（最終入場 17:00）
+        </span>
+        <span class="access-info-bar__item">
+          <span class="access-info-bar__label">定休日</span>毎週火曜日（学院祭期間中は無休）
+        </span>
+      </div>
+
+      <dl class="transport-list">
+        <dt>電車</dt>
+        <dd>
+          魔法街道線「アルノルド魔法街道駅」下車、東口より徒歩約15分。
+          <span class="transport-note">ICカード・切符ともに利用可。駅構内に学院への案内標識あり。</span>
+        </dd>
+        <dt>学院専用バス</dt>
+        <dd>
+          アルノルド魔法街道駅東口より「魔法学院行き」乗車 → 終点「魔法学院前」下車（所要約5分）。30分間隔で運行。
+          <span class="transport-note">学院祭・連休期間は増便あり。時刻表は駅構内の案内板でご確認ください。</span>
+        </dd>
+        <dt>お車</dt>
+        <dd>
+          正門前の「学院東駐車場」をご利用ください（収容200台・有料 ¥500/日）。カーナビは「アルノルド学院東門」で検索。
+          <span class="transport-note">混雑時期は満車になる場合があります。公共交通機関のご利用をおすすめします。</span>
+        </dd>
+        <dt>自転車・バイク</dt>
+        <dd>
+          正門前に無料の駐輪場があります（バイク専用区画あり）。施設内への乗り入れはお断りしています。
+          <span class="transport-note">二輪車は正門前駐輪エリアへ。魔導自転車の充電スタンドも完備。</span>
+        </dd>
+      </dl>
+    </section>
+
+    <section class="access-section" id="map">
+      <h2 class="access-section__heading">キャンパスマップ</h2>
+      <div class="campus-map">
+        <div class="campus-map__svg-wrap">
+          <svg viewBox="0 0 600 410" class="campus-map__svg" aria-label="学院キャンパスマップ。エリアをクリックして詳細を表示">
+
+            <!-- 外周 -->
+            <rect class="campus-boundary" x="10" y="10" width="580" height="390" rx="14" aria-hidden="true" />
+
+            <!-- 通路(時計塔中心: 300, 200 → 各エリア) -->
+            <line class="campus-path" x1="300" y1="200" x2="95"  y2="68"  aria-hidden="true" />
+            <line class="campus-path" x1="300" y1="200" x2="505" y2="68"  aria-hidden="true" />
+            <line class="campus-path" x1="300" y1="200" x2="95"  y2="205" aria-hidden="true" />
+            <line class="campus-path" x1="300" y1="200" x2="505" y2="205" aria-hidden="true" />
+            <line class="campus-path" x1="300" y1="200" x2="95"  y2="340" aria-hidden="true" />
+            <line class="campus-path" x1="300" y1="200" x2="505" y2="340" aria-hidden="true" />
+            <line class="campus-path" x1="300" y1="200" x2="300" y2="305" aria-hidden="true" />
+
+            <!-- 天文台(左上) -->
+            <g class="map-area" role="button" tabindex="0"
+               aria-label="天文台" aria-pressed="false"
+               data-area="observatory"
+               data-href="{{BASE}}exploration/observatory.html"
+               data-title="天文台"
+               data-desc="学院最上部の星界観測施設。魔法望遠鏡で星を観測し、天体儀の仕組みを体験できます。">
+              <rect x="30" y="30" width="130" height="72" rx="6" />
+              <text x="95" y="60">天文台</text>
+              <text x="95" y="77" class="map-area__sub">星界観測・天体儀</text>
+            </g>
+
+            <!-- 飛行船ドック(右上) -->
+            <g class="map-area" role="button" tabindex="0"
+               aria-label="飛行船ドック" aria-pressed="false"
+               data-area="airship-dock"
+               data-href="{{BASE}}exploration/airship-dock.html"
+               data-title="飛行船ドック"
+               data-desc="学院所属の飛行船が係留される格納庫。整備作業の見学と短距離遊覧飛行体験が人気です。">
+              <rect x="440" y="30" width="130" height="72" rx="6" />
+              <text x="505" y="60">飛行船ドック</text>
+              <text x="505" y="77" class="map-area__sub">遊覧飛行・整備見学</text>
+            </g>
+
+            <!-- 錬金術研究棟(左) -->
+            <g class="map-area" role="button" tabindex="0"
+               aria-label="錬金術研究棟" aria-pressed="false"
+               data-area="alchemy-tower"
+               data-href="{{BASE}}exploration/alchemy-tower.html"
+               data-title="錬金術研究棟"
+               data-desc="薬草調合・魔法石精製・秘薬生成など、6種類の実験体験が楽しめる研究棟。">
+              <rect x="30" y="168" width="130" height="72" rx="6" />
+              <text x="95" y="197">錬金術研究棟</text>
+              <text x="95" y="214" class="map-area__sub">調合・実験体験</text>
+            </g>
+
+            <!-- 時計塔(中央) -->
+            <g class="map-area map-area--center" role="button" tabindex="0"
+               aria-label="時計塔" aria-pressed="false"
+               data-area="clock-tower"
+               data-href="{{BASE}}exploration/clock-tower.html"
+               data-title="時計塔"
+               data-desc="学院のシンボルたる大時計塔。魔法仕掛けの時計機構と展望台からの全景が見どころ。">
+              <rect x="228" y="148" width="144" height="104" rx="8" />
+              <text x="300" y="191">時計塔</text>
+              <text x="300" y="209" class="map-area__sub">学院の象徴・展望台</text>
+            </g>
+
+            <!-- 大図書館(右) -->
+            <g class="map-area" role="button" tabindex="0"
+               aria-label="大図書館" aria-pressed="false"
+               data-area="grand-library"
+               data-href="{{BASE}}exploration/grand-library.html"
+               data-title="大図書館"
+               data-desc="天井まで続く魔法書の棚と浮遊する蝋燭が灯る書庫。写本体験や書庫迷宮も楽しめます。">
+              <rect x="440" y="168" width="130" height="72" rx="6" />
+              <text x="505" y="197">大図書館</text>
+              <text x="505" y="214" class="map-area__sub">写本・書庫迷宮</text>
+            </g>
+
+            <!-- 決闘演武場(左下) -->
+            <g class="map-area" role="button" tabindex="0"
+               aria-label="決闘演武場" aria-pressed="false"
+               data-area="dueling-ground"
+               data-href="{{BASE}}exploration/dueling-ground.html"
+               data-title="決闘演武場"
+               data-desc="学院生の魔法決闘が行われる円形競技場。観戦のほか、初心者向け魔法体験も実施中。">
+              <rect x="30" y="305" width="130" height="72" rx="6" />
+              <text x="95" y="334">決闘演武場</text>
+              <text x="95" y="351" class="map-area__sub">観戦・魔法体験</text>
+            </g>
+
+            <!-- 魔法陣召喚広場(右下) -->
+            <g class="map-area" role="button" tabindex="0"
+               aria-label="魔法陣召喚広場" aria-pressed="false"
+               data-area="summoning-plaza"
+               data-href="{{BASE}}exploration/summoning-plaza.html"
+               data-title="魔法陣召喚広場"
+               data-desc="学院の魔法陣を使った召喚儀式の体験場。魔力測定コーナーも常設されています。">
+              <rect x="440" y="305" width="130" height="72" rx="6" />
+              <text x="505" y="334">魔法陣召喚広場</text>
+              <text x="505" y="351" class="map-area__sub">召喚体験・魔力測定</text>
+            </g>
+
+            <!-- 学食・購買部(下中央) -->
+            <g class="map-area" role="button" tabindex="0"
+               aria-label="学食・購買部" aria-pressed="false"
+               data-area="dining-shop"
+               data-href="{{BASE}}dining/index.html"
+               data-title="学食・購買部"
+               data-desc="薬草料理と学院限定みやげが揃うエリア。魔法効果つきスイーツも提供中です。">
+              <rect x="210" y="305" width="180" height="72" rx="6" />
+              <text x="300" y="334">学食・購買部</text>
+              <text x="300" y="351" class="map-area__sub">食事・おみやげ</text>
+            </g>
+
+          </svg>
+          <p class="campus-map__hint">エリアをクリックまたはキーボードで選択すると詳細が表示されます</p>
+        </div>
+
+        <aside class="campus-map__panel" id="map-panel" hidden aria-live="polite">
+          <h3 class="campus-map__panel-heading" id="map-panel-heading"></h3>
+          <p class="campus-map__panel-desc" id="map-panel-desc"></p>
+          <a class="campus-map__panel-link" id="map-panel-link" href="#">エリアを探索する →</a>
+        </aside>
+      </div>
+    </section>
+
+  </div>
+</main>
+<!-- FOOTER -->
+<script src="{{BASE}}src/campus-map.js" defer></script>
+</body>
+</html>

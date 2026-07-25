@@ -1,5 +1,16 @@
 # サイクル履歴
 
+## 2026-07-26 06:08
+- 実装: 学院への道のり アクセス情報(S) + SVGキャンパスマップ(M) → 完了
+  pages/access/index.html: info-bar(住所・時間・定休日) + transport-list DL×4 + SVGマップ8エリア
+  styles/access.css: hero/access-section/transport-list/campus-map/SVGエリアスタイル
+  src/campus-map.js: エリアクリック/キーボード選択 IIFE(data-href/title/desc をパネルに表示)
+- レビュー: 指摘2件(ROADMAP未更新・focus outline欠落)対応済み
+- lint: ✓ / lint:css: ✓ / test: ✓(82件) / build: ✓
+- 次回予定: 学院案内(サービス情報) (S)服装規定 + (S)Q&A + (S)学院ルール → 完了まで
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-26 05:09
 - 実装: 入学願書(チケット案内) 料金表(S) + シミュレーター(M) + お役立ち情報(S) → 完了
   src/logic.js: TICKET_PRICES + calcTicketTotal + calcOptimalPrice(家族券最適化)
