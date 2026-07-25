@@ -1,5 +1,13 @@
 # サイクル履歴
 
+## 2026-07-25 10:02
+- 実装: 共通パーツ モバイル用ハンバーガーメニュー。768px以下でナビ折り畳み、3本線→X字アニメーション付きボタン、ナビリンククリックで自動クローズ、.is-currentをborder-leftに切り替え
+- レビュー: 指摘1件 → ROADMAPにトランジション追加タスクを追記(今回スコープ外)
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 共通パーツ (S) フッター: 学院情報を充実させる
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-25 09:42
 - 実装: active-nav.js の file:// 対応。type="module"(CORS制限でfile://不可)をdeferに変更、IIFEでスコープ隔離
 - レビュー: OK
