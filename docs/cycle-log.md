@@ -1,5 +1,55 @@
 # サイクル履歴
 
+## 2026-07-26 03:15
+- 実装: 購買部カテゴリページ みやげ・食品(M) + 書籍・資料(M) + 食料品・薬草(M)
+  shop-page.css: hero/product visual modifier ×6追加(--souvenirs/--books/--groceries 各ヒーロー+商品)
+  souvenirs.html: 2セクション(みやげ4点+食品2点)・ラッピング案内
+  books.html: 2セクション(入門書3点+写本・希少資料3点)・取り寄せ案内
+  groceries.html: 2セクション(薬草2点+食品3点)・取り扱い案内
+- レビュー: 指摘0件(A-1は誤検知 = books背景色は shop.css category-card と意図的に合わせた設計)
+- lint: ✓ / lint:css: ✓ / test: ✓(55件) / build: ✓
+- 次回予定: 学食・喫茶室 (S) メニュー一覧骨格 + (M) メニュー詳細アコーディオン
+- blocked / partial: なし
+- asset-pending: なし（REQ-016/017 は制服・魔導具ヒーロー画像待ち、前サイクル登録済み）
+
+## 2026-07-26 02:15
+- 実装: 購買部カテゴリページ 制服(M) + 魔導具(M) + aria-controls(S)
+  styles/shop-page.css 新規(パンくず・ヒーロー・商品リスト・サイズ表・タグ・案内ボックス)
+  uniforms.html: 商品5点(標準制服/ローブ/エプロン/外套/夜会マント)+サイズ表+オーダー案内
+  magical-tools.html: 商品5点(入門杖/刻印具/魔力石/蒸留セット/ガリグネメーター)+注意事項
+  events/index.html: aria-controls="detail-panel-01〜08" をトリガーに追加
+- レビュー: 指摘1件(A-1: img tag pending) = ROADMAP追記で対処 / 他は誤検知
+- lint: ✓ / lint:css: ✓ / test: ✓(46件) / build: ✓
+- 次回予定: 購買部カテゴリページ(みやげM + 書籍M または 食料品M)
+- blocked / partial: なし
+- asset-pending: REQ-016(制服ヒーロー) / REQ-017(魔導具ヒーロー)
+
+## 2026-07-26 01:15
+- 実装: イベント詳細展開(S) + 学院祭特別ビジュアル(S) + 購買部骨格(S)
+  全8イベントにアコーディオンパネル(event-details.js)、学院祭にラベル・背景パターン・公開日注記、
+  pages/shop/index.html + styles/shop.css 新規(5カテゴリ、各CSS-onlyビジュアル)
+- レビュー: 指摘2件 / B-1(カテゴリページ未作成)= 予定済みスコープ外 / B-2(aria-controls)= ROADMAP追加
+- lint: ✓ / lint:css: ✓ / test: ✓(40件) / build: ✓
+- 次回予定: 購買部カテゴリページ(制服M + 魔導具M)
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-26 00:07
+- 実装: 探索カードアクセント色 (S) + breadcrumb sep opacity修正 (S) → 学院内探索 完了。学院祭シーズンフィルター (M): season-filter.js + events.css フィルタースタイル + events.css opacity修正
+- レビュー: 指摘3件。A-1対応(first-child→event-list border-top移動) / A-2対応(type=button追加) / A-3は機能影響なし。CSS重複セレクター1件も修正。
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 学院祭 (S) 各イベント詳細展開 + (S) 学院祭ビジュアル強化
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-25 23:12
+- 実装: 新エリア「決闘演武場」(--crimson, 4アトラクション + スケジュールdl) + 新エリア「天文台」(--azure, 設備dl + 3プログラム) + exploration.css opacity→color-mix変換(S)
+- レビュー: 指摘2件対応 (A-1: area-timetable__sub 色65%→76%修正 / A-2: モバイル media query 追加)。A-3(breadcrumb sep opacity) はROADMAP残件追加のみ。
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 学院内探索 (S) 一覧カードにエリア固有アクセント色を適用 + 学院祭・行事 (M) シーズンイベント切り替え
+- blocked / partial: なし
+- asset-pending: REQ-012〜015 (hero/thumb × 決闘演武場・天文台)
+
 ## 2026-07-25 22:03
 - 実装: 時計塔 hero/thumb 画像差し込み完了(REQ-008/009対応済みに移動) + 新エリア「大図書館」追加(5アトラクション・静謐幻想的トーン・深緑×真鍮グリッドパターン)
 - レビュー: 指摘1件対応 (A-1: ASSET_REQUESTS の REQ-008/009 番号入れ替わり修正)

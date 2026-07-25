@@ -148,24 +148,27 @@ evolveループはこの方針を毎サイクル遵守すること:
 
 - [x] (S) 商品一覧のHTML骨格(pages/shop/index.html)
       カテゴリ(制服・魔導具・書籍・食料品・みやげ)をカードで表示
-- [ ] (M) カテゴリページ: 制服(pages/shop/uniforms.html)
+- [x] (M) カテゴリページ: 制服(pages/shop/uniforms.html)
       魔法学院の制服・ローブ・ハットの詳細。サイズ表・素材説明を含む
-- [ ] (M) カテゴリページ: 魔導具(pages/shop/magical-tools.html)
+- [x] (M) カテゴリページ: 魔導具(pages/shop/magical-tools.html)
       杖・魔法陣刻印具・魔力石などの品揃え。こだわりの商品説明
-- [ ] (M) カテゴリページ: みやげ・食品(pages/shop/souvenirs.html)
+- [x] (M) カテゴリページ: みやげ・食品(pages/shop/souvenirs.html)
       学院限定品・薬草茶・魔法合金アクセサリーなど
-- [ ] (M) カテゴリページ: 書籍・資料(pages/shop/books.html)
+- [x] (M) カテゴリページ: 書籍・資料(pages/shop/books.html)
       学院監修の入門書・写本・論文集。希少度・分野タグ付き
-- [ ] (M) カテゴリページ: 食料品・薬草(pages/shop/groceries.html)
+- [x] (M) カテゴリページ: 食料品・薬草(pages/shop/groceries.html)
       農園直送の薬草乾燥品・魔力蜂蜜・学食スイーツパッケージ
-- [ ] (S) event-card__trigger に aria-controls 属性を追加して支援技術との連携を強化
+- [x] (S) event-card__trigger に aria-controls 属性を追加して支援技術との連携を強化
+- [ ] (S) 制服・魔導具ページの shop-hero__visual に img タグ追加(REQ-016/017 画像到着後) [asset-pending]
 
-### 5. 学食・喫茶室 [status: 未着手]
+### 5. 学食・喫茶室 [status: 完了]
 
-- [ ] (S) メニュー一覧のHTML骨格(pages/dining/index.html)
+> 紹介文: 学食・喫茶室が開店しました。農園直送の薬草料理から魔法効果つきスイーツまで、それぞれのメニューの詳細は「詳細」ボタンを押してご確認いただけます。
+
+- [x] (S) メニュー一覧のHTML骨格(pages/dining/index.html)
       ランチ・スイーツ・ドリンクをカードで一覧。架空の料理名と説明
-- [ ] (M) メニュー詳細(アンカーまたはアコーディオンで材料・アレルギー・魔法効果の説明)
-- [ ] (S) 限定メニュー・季節メニューの告知ブロック
+- [x] (M) メニュー詳細(アンカーまたはアコーディオンで材料・アレルギー・魔法効果の説明)
+- [x] (S) 限定メニュー・季節メニューの告知ブロック
 
 ### 6. 入学願書(チケット案内) [status: 未着手]
 
