@@ -138,8 +138,8 @@
 
 .area-section__heading {
   font-size: 1.15rem;
-  color: var(--emerald);
-  border-bottom: 1px solid var(--emerald);
+  color: var(--brass);
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 35%, transparent);
   padding-bottom: 0.4rem;
   margin: 0 0 1.25rem;
 }

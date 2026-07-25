@@ -147,7 +147,7 @@
 
 .about-section__body p {
   margin: 0 0 1.2rem;
-  color: color-mix(in oklch, var(--brass) 80%, var(--ink));
+  color: color-mix(in oklch, var(--brass) 88%, transparent);
 }
 
 .about-section__body p:last-child {
@@ -217,7 +217,7 @@
   margin: 0;
   font-size: 0.8rem;
   line-height: 1.75;
-  color: color-mix(in oklch, var(--brass) 65%, var(--ink));
+  color: color-mix(in oklch, var(--brass) 80%, transparent);
 }
 
 .highlights-section {
@@ -375,7 +375,7 @@
   margin: 0 0 1.25rem;
   font-size: 0.82rem;
   line-height: 1.75;
-  color: color-mix(in oklch, var(--brass) 65%, var(--ink));
+  color: color-mix(in oklch, var(--brass) 80%, transparent);
   flex: 1;
 }
 
@@ -483,7 +483,7 @@
 }
 
 .nav-card--events .nav-card__icon { color: var(--arcane); }
-.nav-card--dining .nav-card__icon { color: var(--emerald); }
+.nav-card--dining .nav-card__icon { color: var(--brass); }
 .nav-card--access .nav-card__icon { color: var(--azure); }
 .nav-card--guide .nav-card__icon { color: var(--silver); }
 
@@ -503,7 +503,7 @@
   margin: 0 0 1rem;
   font-size: 0.78rem;
   line-height: 1.65;
-  color: color-mix(in oklch, var(--brass) 60%, var(--ink));
+  color: color-mix(in oklch, var(--brass) 78%, transparent);
   flex: 1;
 }
 
@@ -538,7 +538,7 @@
   display: block;
   font-size: 0.78rem;
   letter-spacing: 0.2em;
-  color: var(--emerald);
+  color: var(--ember);
   text-transform: uppercase;
   margin: 0 0 0.6rem;
 }
@@ -569,7 +569,7 @@
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: var(--emerald);
+  color: var(--brass);
   margin: 0 0 1rem;
   text-transform: uppercase;
 }
@@ -583,7 +583,7 @@
 
 .ticket-info-block__list dt {
   font-size: 0.78rem;
-  color: color-mix(in oklch, var(--brass) 58%, transparent);
+  color: color-mix(in oklch, var(--brass) 75%, transparent);
 }
 
 .ticket-info-block__list dd {
@@ -603,7 +603,7 @@
 
 .ticket-info-block__note {
   font-size: 0.75rem;
-  color: color-mix(in oklch, var(--brass) 55%, transparent);
+  color: color-mix(in oklch, var(--brass) 72%, transparent);
   margin: 0;
 }
 
@@ -614,16 +614,16 @@
 .ticket-info-section__cta {
   display: inline-block;
   padding: 0.75rem 2.25rem;
-  border: 2px solid var(--emerald);
+  border: 2px solid var(--brass);
   background-color: transparent;
-  color: var(--emerald);
+  color: var(--brass);
   font-size: 0.95rem;
   letter-spacing: 0.05em;
   transition: background-color 0.2s, color 0.2s;
 }
 
 .ticket-info-section__cta:hover {
-  background-color: var(--emerald);
+  background-color: var(--brass);
   color: var(--ink);
 }
 
@@ -749,7 +749,7 @@
 
 .event-mini-card__when {
   font-size: 0.7rem;
-  color: color-mix(in oklch, var(--brass) 55%, transparent);
+  color: color-mix(in oklch, var(--brass) 72%, transparent);
 }
 
 .event-mini-card__name {
@@ -764,7 +764,7 @@
   margin: 0;
   font-size: 0.78rem;
   line-height: 1.72;
-  color: color-mix(in oklch, var(--brass) 60%, var(--ink));
+  color: color-mix(in oklch, var(--brass) 78%, transparent);
   flex: 1;
 }
 
@@ -776,8 +776,8 @@
 
 .news-section__heading {
   font-size: 1.2rem;
-  color: var(--emerald);
-  border-bottom: 1px solid var(--emerald);
+  color: var(--brass);
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 35%, transparent);
   padding-bottom: 0.5rem;
   margin: 0 0 1.25rem;
 }
