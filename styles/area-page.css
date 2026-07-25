@@ -16,8 +16,7 @@
 
 .area-breadcrumb__sep {
   margin: 0 0.4rem;
-  color: var(--brass);
-  opacity: 0.5;
+  color: color-mix(in oklch, var(--brass) 50%, transparent);
 }
 
 .area-breadcrumb__current {
