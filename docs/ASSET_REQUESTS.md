@@ -7,6 +7,20 @@
 
 ## 依頼中(未対応)
 
+### REQ-016 [type: image]
+- 用途: 購買部 制服・ローブページ — カテゴリヒーローバナー
+- 配置先パス: assets/images/shop/hero-uniforms.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Interior of a magical academy uniform shop, wide shot, rows of dark green robes and brass-accented jackets on wooden hangers, warm amber lighting from wall lanterns, polished oak floors and glass display cases with magical accessories, no characters, painterly detailed illustration --ar 5:1 --style raw
+- 補足: 全幅×200pxのヒーロービジュアル。アンバー(#c46a2b)と深緑(#1f5c4a)の対比。制服が並ぶ温かみのある内装をメインに。
+
+### REQ-017 [type: image]
+- 用途: 購買部 魔導具・実験器具ページ — カテゴリヒーローバナー
+- 配置先パス: assets/images/shop/hero-tools.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Magical instrument shop interior, wide panoramic shot, shelves filled with brass distillation sets, crystal wands, engraving tools and glowing mana stones in glass cases, azure magical energy softly illuminating the shop, dark ink-blue background, no characters, cinematic painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200pxのヒーロービジュアル。天空青(#4e8ea0)と真鍮(#b08d57)の組み合わせ。精密器具が光る工房風の陳列棚を強調。
+
 ### REQ-010 [type: image]
 - 用途: 大図書館ページ — エリアヒーローバナー
 - 配置先パス: assets/images/exploration/hero-grand-library.jpg

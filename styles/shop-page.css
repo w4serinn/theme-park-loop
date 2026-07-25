@@ -1,0 +1,321 @@
+/* 購買部カテゴリページ共通スタイル */
+
+/* パンくずリスト */
+.shop-breadcrumb {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.85rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 30%, transparent);
+}
+
+.shop-breadcrumb__link {
+  color: var(--ember);
+}
+
+.shop-breadcrumb__link:hover {
+  color: var(--brass);
+}
+
+.shop-breadcrumb__sep {
+  margin: 0 0.4rem;
+  color: color-mix(in oklch, var(--brass) 50%, transparent);
+}
+
+.shop-breadcrumb__current {
+  color: var(--brass);
+}
+
+/* ヒーロー */
+.shop-hero {
+  display: grid;
+  grid-template-rows: 200px auto;
+}
+
+.shop-hero__visual {
+  background-color: color-mix(in srgb, var(--emerald) 30%, var(--ink));
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    color-mix(in oklch, var(--brass) 7%, transparent) 10px,
+    color-mix(in oklch, var(--brass) 7%, transparent) 11px
+  );
+  overflow: hidden;
+}
+
+.shop-hero__visual--uniforms {
+  background-color: color-mix(in srgb, var(--ember) 20%, var(--ink));
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 8px,
+    color-mix(in oklch, var(--ember) 8%, transparent) 8px,
+    color-mix(in oklch, var(--ember) 8%, transparent) 9px
+  );
+}
+
+.shop-hero__visual--tools {
+  background-color: color-mix(in srgb, var(--azure) 18%, var(--ink));
+  background-image: repeating-radial-gradient(
+    circle at 50% 50%,
+    transparent,
+    transparent 20px,
+    color-mix(in oklch, var(--azure) 8%, transparent) 20px,
+    color-mix(in oklch, var(--azure) 8%, transparent) 21px
+  );
+}
+
+.shop-hero__body {
+  padding: 1.75rem 1.5rem 1.5rem;
+  border-bottom: 1px solid var(--brass);
+}
+
+.shop-hero__title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 0.6rem;
+}
+
+.shop-hero__desc {
+  font-size: 0.95rem;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  margin: 0;
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+/* コンテンツエリア */
+.shop-content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+
+.shop-section {
+  padding-top: 2.5rem;
+}
+
+.shop-section + .shop-section {
+  border-top: 1px solid color-mix(in oklch, var(--brass) 25%, transparent);
+  margin-top: 2.5rem;
+}
+
+.shop-section__heading {
+  font-size: 1.1rem;
+  color: var(--brass);
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 35%, transparent);
+  padding-bottom: 0.4rem;
+  margin: 0 0 1.5rem;
+}
+
+/* 商品リスト */
+.product-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid color-mix(in oklch, var(--brass) 25%, transparent);
+}
+
+.product-entry {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 1.25rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 20%, transparent);
+}
+
+.product-entry__visual {
+  height: 96px;
+  background-color: color-mix(in srgb, var(--emerald) 20%, var(--ink));
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 8px,
+    color-mix(in srgb, var(--brass) 8%, transparent) 8px,
+    color-mix(in srgb, var(--brass) 8%, transparent) 9px
+  );
+  flex-shrink: 0;
+}
+
+.product-entry__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.product-entry__name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.product-entry__price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ember);
+  margin: 0;
+}
+
+.product-entry__desc {
+  font-size: 0.875rem;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  margin: 0;
+  line-height: 1.7;
+}
+
+.product-entry__meta {
+  font-size: 0.8rem;
+  color: color-mix(in oklch, var(--brass) 77%, transparent);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* 商品タグ */
+.product-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.product-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  border: 1px solid;
+  letter-spacing: 0.04em;
+}
+
+.product-tag--popular {
+  border-color: var(--ember);
+  color: var(--ember);
+}
+
+.product-tag--new {
+  border-color: var(--azure);
+  color: var(--azure);
+}
+
+.product-tag--limited {
+  border-color: var(--crimson);
+  color: var(--crimson);
+}
+
+.product-tag--season {
+  border-color: var(--arcane);
+  color: var(--arcane);
+}
+
+.product-tag--craft {
+  border-color: var(--silver);
+  color: var(--silver);
+}
+
+/* カテゴリ固有 商品ビジュアル */
+.product-entry__visual--uniform {
+  background-color: color-mix(in srgb, var(--ember) 20%, var(--ink));
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 8px,
+    color-mix(in oklch, var(--ember) 8%, transparent) 8px,
+    color-mix(in oklch, var(--ember) 8%, transparent) 9px
+  );
+}
+
+.product-entry__visual--tool {
+  background-color: color-mix(in srgb, var(--azure) 18%, var(--ink));
+  background-image: repeating-radial-gradient(
+    circle at 50% 50%,
+    transparent,
+    transparent 14px,
+    color-mix(in oklch, var(--azure) 9%, transparent) 14px,
+    color-mix(in oklch, var(--azure) 9%, transparent) 15px
+  );
+}
+
+/* サイズ表(dl グリッド) */
+.size-chart {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.4rem 1.25rem;
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.size-chart dt {
+  color: var(--ember);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.size-chart dd {
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* 案内ボックス */
+.shop-notice {
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid color-mix(in oklch, var(--brass) 35%, transparent);
+  border-top: 3px solid var(--brass);
+}
+
+.shop-notice__heading {
+  font-size: 1rem;
+  color: var(--brass);
+  margin: 0 0 0.75rem;
+}
+
+.shop-notice__text {
+  font-size: 0.875rem;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  margin: 0;
+  line-height: 1.7;
+}
+
+@media (width <= 600px) {
+  .shop-hero {
+    grid-template-rows: 160px auto;
+  }
+
+  .shop-hero__body {
+    padding: 1.25rem 1rem;
+  }
+
+  .shop-hero__title {
+    font-size: 1.5rem;
+  }
+
+  .shop-content {
+    padding: 0 1rem 2rem;
+  }
+
+  .product-entry {
+    grid-template-columns: 72px 1fr;
+    gap: 0.875rem;
+  }
+
+  .product-entry__visual {
+    height: 72px;
+  }
+
+  .size-chart {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  .size-chart dt {
+    margin-top: 0.5rem;
+  }
+
+  .size-chart dt:first-child {
+    margin-top: 0;
+  }
+}
