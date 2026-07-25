@@ -179,21 +179,11 @@
   border: 1px solid color-mix(in oklch, var(--brass) 18%, transparent);
   border-radius: 2px;
   background-color: color-mix(in oklch, var(--brass) 3%, transparent);
-  transition: border-color 0.2s, background-color 0.2s;
-}
-
-.dept-list__item:hover {
-  border-color: color-mix(in oklch, var(--brass) 40%, transparent);
-  background-color: color-mix(in oklch, var(--brass) 6%, transparent);
 }
 
 .dept-list__item--featured {
   grid-column: 1 / -1;
   border-color: color-mix(in oklch, var(--ember) 25%, transparent);
-}
-
-.dept-list__item--featured:hover {
-  border-color: color-mix(in oklch, var(--ember) 50%, transparent);
 }
 
 .dept-list__icon {
@@ -268,6 +258,14 @@
   border-radius: 2px;
   overflow: hidden;
   transition: border-color 0.25s, transform 0.25s;
+}
+
+.highlight-card__inner {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
 }
 
 .highlight-card:hover {
@@ -777,17 +775,11 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  transition: background-color 0.2s, transform 0.22s;
 }
 
-/* Variant accent (before hover state) */
+/* Variant accent */
 .event-mini-card--autumn {
   border-left-color: var(--brass);
-}
-
-.event-mini-card:hover {
-  background-color: color-mix(in oklch, var(--brass) 5%, transparent);
-  transform: translateY(-2px);
 }
 
 .event-mini-card__season {
@@ -946,6 +938,10 @@
   }
 
   .highlight-card {
+    flex-direction: row;
+  }
+
+  .highlight-card__inner {
     flex-direction: row;
   }
 
