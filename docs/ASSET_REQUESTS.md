@@ -7,7 +7,19 @@
 
 ## 依頼中(未対応)
 
-(現在なし)
+### REQ-008 [type: image]
+- 用途: 時計塔ページ — エリアヒーローバナー
+- 配置先パス: assets/images/exploration/hero-clock-tower.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Interior of a massive steampunk magical clock tower, panoramic wide shot, enormous brass gear mechanisms rising through multiple floors visible through glass walkways, silver and gold tones with cool blue-grey light, no characters, cinematic painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×240px のヒーロービジュアル。--silver(#9ba8b4)のクール金属トーンが映える、ガラスと歯車を基調にした構図。
+
+### REQ-009 [type: image]
+- 用途: 学院内探索 一覧ページ — 時計塔カードのサムネイル
+- 配置先パス: assets/images/exploration/thumb-clock-tower.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Steampunk magical clock tower exterior at dusk, wide banner crop, tall stone tower with enormous brass clock face glowing with silver magical light, dark navy sky, no characters, detailed painterly illustration --ar 2:1 --style raw
+- 補足: カード幅280px×高さ160pxに表示。REQ-001と同じトーン条件。銀(#9ba8b4)と真鍮(#b08d57)のコントラストが際立つ構図が望ましい。
 
 ## 対応済み
 

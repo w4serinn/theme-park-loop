@@ -1,5 +1,13 @@
 # サイクル履歴
 
+## 2026-07-25 21:05
+- 実装: 学院内探索 新エリア「時計塔」追加(4アトラクション・重厚精密トーン・--silver グリッドパターン hero ビジュアル・accordion 対応)。探索一覧にカード追加
+- レビュー: 指摘1件 ROADMAP todo追記(A-1: exploration.css の opacity テキスト、既存の別問題)
+- lint: ✓ / lint:css: ✓ / test: ✓ / build: ✓
+- 次回予定: 学院内探索 (M) 新エリア: 大図書館
+- blocked / partial: なし
+- asset-pending: REQ-008(hero-clock-tower.jpg) / REQ-009(thumb-clock-tower.jpg)
+
 ## 2026-07-25 20:15
 - 実装: 学院内探索 既存3エリアのコンテンツ見直し(錬金術研究棟6件・飛行船ドック3件・召喚広場5件、各トーン個性化) + accordion インタラクション追加(src/accordion.js・styles/area-page.css) + hero 画像 <img> 差し込み
 - レビュー: 指摘1件対応 (A-1: teaser/notes テキストコントラスト 72%/65% → 76% に修正)

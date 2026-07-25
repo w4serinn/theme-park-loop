@@ -114,7 +114,7 @@ evolveループはこの方針を毎サイクル遵守すること:
 - [x] (S) 各エリアページにインタラクティブ要素追加:
       アトラクションカードを JS accordion でクリック展開(詳細説明・注意事項を格納)、
       カード hover でスチームパンク的な効果(真鍮色の輝き・歯車回転 CSS など)
-- [ ] (M) 新エリア: 時計塔(pages/exploration/clock-tower.html)
+- [x] (M) 新エリア: 時計塔(pages/exploration/clock-tower.html)
       ── 学院の象徴たる大時計塔。魔法時計・時間操作実験・展望台。
       アクセント色は `--silver`(承認済み)
 - [ ] (M) 新エリア: 大図書館(pages/exploration/grand-library.html)
@@ -127,6 +127,7 @@ evolveループはこの方針を毎サイクル遵守すること:
       ── 学院最上部の星界観測施設。魔法望遠鏡・天体儀。
       アクセント色は `--azure`(承認済み)
 - [ ] (S) 一覧ページのエリアカードにエリア固有アクセント色を適用(承認後)
+- [ ] (S) 探索一覧ページの opacity テキスト修正: exploration.css の .page-hero__desc(opacity:0.8)・.area-card__desc(opacity:0.75) を color-mix(in oklch, var(--brass) 80%+, transparent) に変換
 
 ### 3. 学院祭・行事 [status: 進行中]
 

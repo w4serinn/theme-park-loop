@@ -107,6 +107,25 @@
     );
 }
 
+.area-hero__visual--clock-tower {
+  background-color: color-mix(in srgb, var(--silver) 14%, var(--ink));
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 20px,
+      color-mix(in oklch, var(--silver) 7%, transparent) 20px,
+      color-mix(in oklch, var(--silver) 7%, transparent) 21px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 20px,
+      color-mix(in oklch, var(--silver) 7%, transparent) 20px,
+      color-mix(in oklch, var(--silver) 7%, transparent) 21px
+    );
+}
+
 .area-hero__body {
   padding: 2rem 1.5rem 1.75rem;
   border-bottom: 1px solid var(--brass);
