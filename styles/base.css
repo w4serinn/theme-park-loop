@@ -23,17 +23,62 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.5rem;
-  border-bottom: 1px solid var(--brass);
+  padding: 0 2rem;
+  min-height: 3.5rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 35%, transparent);
+  background-color: color-mix(in oklch, var(--emerald) 6%, var(--ink));
 }
 
 .site-header__logo {
-  font-weight: bold;
-  color: var(--emerald);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--brass);
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.site-header__logo::before {
+  content: '⚙\FE0E';
+  color: var(--ember);
+  font-size: 0.85em;
+  transition: transform 0.8s ease;
+}
+
+.site-header__logo:hover {
+  color: var(--ember);
+}
+
+.site-header__logo:hover::before {
+  transform: rotate(180deg);
+}
+
+.site-header__nav {
+  display: flex;
+  align-self: stretch;
+  align-items: stretch;
 }
 
 .site-header__nav a {
-  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 0 0.875rem;
+  font-size: 0.8rem;
+  color: color-mix(in oklch, var(--brass) 75%, var(--ink));
+  border-left: 1px solid color-mix(in oklch, var(--brass) 20%, transparent);
+  transition: color 0.2s, background-color 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.site-header__nav a:last-child {
+  border-right: 1px solid color-mix(in oklch, var(--brass) 20%, transparent);
+}
+
+.site-header__nav a:hover {
+  color: var(--brass);
+  background-color: color-mix(in oklch, var(--brass) 8%, transparent);
 }
 
 .site-footer {
