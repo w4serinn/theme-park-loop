@@ -518,6 +518,88 @@
   transform: translateX(4px);
 }
 
+.access-summary-section {
+  padding: 3rem 1.5rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 22%, transparent);
+}
+
+.access-summary-section__inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.access-summary-section__header {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.access-summary-section__eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--ember);
+  text-transform: uppercase;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.access-summary-section__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--brass);
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.access-route-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: flex;
+  gap: 2.5rem;
+}
+
+.access-route-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.access-route-item__icon {
+  font-size: 1.1rem;
+  color: var(--ember);
+  flex-shrink: 0;
+  line-height: 1.5;
+}
+
+.access-route-item__label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin-bottom: 0.2rem;
+}
+
+.access-route-item__route {
+  margin: 0;
+  font-size: 0.78rem;
+  color: color-mix(in oklch, var(--brass) 78%, transparent);
+  line-height: 1.6;
+}
+
+.access-summary-section__link {
+  font-size: 0.78rem;
+  color: var(--ember);
+  letter-spacing: 0.06em;
+  transition: color 0.2s, letter-spacing 0.2s;
+}
+
+.access-summary-section__link:hover {
+  color: var(--brass);
+  letter-spacing: 0.1em;
+}
+
 .ticket-info-section {
   padding: 4rem 1.5rem;
   border-bottom: 1px solid color-mix(in oklch, var(--brass) 22%, transparent);
@@ -892,6 +974,15 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+  }
+
+  .access-summary-section {
+    padding: 2rem 1rem;
+  }
+
+  .access-route-list {
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .ticket-info-section {
