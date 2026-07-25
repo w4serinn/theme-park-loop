@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>決闘演武場 — 学院内探索 — 王立魔法学院アルノルド</title>
+  <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/base.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/area-page.css" />
+  <script src="{{BASE}}src/accordion.js" defer></script>
+</head>
+<body>
+<!-- HEADER -->
+<main>
+  <nav class="area-breadcrumb" aria-label="パンくずリスト">
+    <a class="area-breadcrumb__link" href="{{BASE}}exploration/index.html">学院内探索</a>
+    <span class="area-breadcrumb__sep" aria-hidden="true">›</span>
+    <span class="area-breadcrumb__current">決闘演武場</span>
+  </nav>
+
+  <section class="area-hero">
+    <div class="area-hero__visual area-hero__visual--dueling-ground">
+      <img class="area-hero__visual-img" src="{{BASE}}assets/images/exploration/hero-dueling-ground.jpg" alt="" />
+    </div>
+    <div class="area-hero__body">
+      <h1 class="area-hero__title">決闘演武場</h1>
+      <p class="area-hero__desc">学院設立当初から続く魔法決闘の伝統が、今日も演武場の石畳に刻まれています。術式の激突を観戦し、自ら「初陣」に臨む体験が待っています。</p>
+    </div>
+  </section>
+
+  <div class="area-content">
+    <section class="area-section">
+      <h2 class="area-section__heading">エリアについて</h2>
+      <p class="area-section__body">
+        決闘演武場は創立者アルノルド卿の言葉「魔法とは力の管理である」を体現するため、
+        初代学長が設計した円形の術式競技場です。直径32mの演武場を4層の観客席が取り囲み、
+        計640席から試合を観戦できます。床面に刻まれた無数の術式紋は魔法発動の衝撃を吸収する
+        構造になっており、術式の光が紋を伝う様子は視覚的にも圧巻です。
+      </p>
+      <p class="area-section__body">
+        現在は演武科の正式な試験会場として週3日使用されるほか、見学スポットとして開放されています。
+        学院では「一度も演武場に立たなかった学生はいない」という言い伝えが残るほど、
+        ここは学院生活の核心に位置します。歴代の試合記録は魔封石に永久保存され、
+        ギャラリーで誰でも閲覧できます。
+      </p>
+    </section>
+
+    <section class="area-section">
+      <h2 class="area-section__heading">体験・見どころ</h2>
+      <ul class="attraction-list">
+
+        <li class="attraction-item">
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">観戦席「円環の間」</span>
+            <span class="attraction-item__teaser">4層の観客席から直径32mの演武場を見渡す。実技試験・公開決闘戦の観戦は入場無料。術式の光が床紋を伝う瞬間は息をのむ。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">演武場の床は古代術式石「カルネ岩」を敷き詰めており、魔法発動時に衝撃を吸収しながら紋が青白く発光します。観客席は高さが順に上がる設計で、最上層からは演武場全体の術式紋の配置が一望できます。特に1層目の前列席は術式の熱と光を肌で感じられる特等席です。年3回開催される「月例公開選手権」では、1〜4年生が学科を超えてチームを組み、非常に白熱した試合が繰り広げられます。</p>
+            <p class="attraction-item__notes">観戦中の席移動はご遠慮ください。発動術式による光・音・振動が伴います。光刺激が苦手な方は最上層をお勧めします。</p>
+          </div>
+        </li>
+
+        <li class="attraction-item">
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">初陣体験プログラム</span>
+            <span class="attraction-item__teaser">演武教官と1対1でペアを組み、魔法防御術と短距離移動術の基礎を30分で体験。術式を扱う感覚を体に覚えさせる入門プログラム。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">現役の演武教官（3段以上取得者）が1対1でついて、魔力放出の基礎姿勢から始めます。前半15分は「防護結界の張り方」を、後半15分は「術式を受け流すステップ移動」を練習します。安全のため使用できる術式は低出力に制限されており、接触なしで進めます。体験後は教官から総評を受け取ることができ、「演武適性カード」が記念品として手渡されます。</p>
+            <p class="attraction-item__notes">小学生以下は保護者同伴が必要です。動きやすい服装で参加ください。体験は1日4枠（各5名定員）。当日受付のみで予約は不可。</p>
+          </div>
+        </li>
+
+        <li class="attraction-item">
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">魔封石ギャラリー</span>
+            <span class="attraction-item__teaser">過去100年間の決闘記録が魔封石に保存・再生可能。伝説的な一戦「第三閃光戦」を含む20試合の全局面を、石に手を触れるだけで追体験できる。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">魔封石とは試合中の術式発動経路を「残留魔力」として石の結晶構造に閉じ込める記録媒体です。触れると術式の流れが視覚像として脳裏に再現されます（感覚は人によって異なります）。ギャラリーには歴代の名勝負20試合が展示されており、中でも56年前の「第三閃光戦」は3秒間に14の術式が連続発動したとされる伝説の試合です。解説板には試合当日の背景や術式の解説も添えられています。</p>
+            <p class="attraction-item__notes">1石あたり再生時間は約3〜5分。再生中は周囲の人と話さないようお願いしています（集中が途切れると再生が中断します）。妊娠中の方は係員にご相談ください。</p>
+          </div>
+        </li>
+
+        <li class="attraction-item">
+          <button class="attraction-item__trigger" aria-expanded="false">
+            <span class="attraction-item__name">演武教官 公開演示</span>
+            <span class="attraction-item__teaser">現役教官が本気の演武を毎日2回披露。月水金は攻性術式、火木土は防護魔法と反撃術をテーマに、現役学院生でも見る機会がないレベルの技を間近で。</span>
+            <span class="attraction-item__indicator" aria-hidden="true"></span>
+          </button>
+          <div class="attraction-item__panel" hidden>
+            <p class="attraction-item__desc">学院演武科の教官が1人で術式を展開し、解説を加えながら演武を行います。ただ魔法を見せるだけでなく「なぜその術式順序を選ぶか」「防護と攻撃の切り替えのタイミング」などを言語化して解説するため、見識者にも非常に評判の高いプログラムです。月・水・金は攻性術式（連続発動・収束爆破など）、火・木・土は防護魔法と反撃術（力場の転用・カウンター術式など）をそれぞれテーマにしています。</p>
+            <p class="attraction-item__notes">演示中の光・爆音・衝撃波が伴います。最前列の観客席にいる場合は防護ガラス越しとなりますが、音量は相当大きいです。耳栓は受付で貸し出しています。</p>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+    <section class="area-section">
+      <h2 class="area-section__heading">公開演武 定期スケジュール</h2>
+      <dl class="area-timetable">
+        <dt>月・水・金</dt>
+        <dd>攻性術式 演示
+          <span class="area-timetable__sub">14:00 / 16:00（各約30分）</span>
+        </dd>
+        <dt>火・木・土</dt>
+        <dd>防護魔法と反撃術 演示
+          <span class="area-timetable__sub">14:00 / 16:00（各約30分）</span>
+        </dd>
+        <dt>日・祝祭日</dt>
+        <dd>学院生 実技試験（外部観戦可）
+          <span class="area-timetable__sub">10:00 〜 12:00（試験進行状況による）</span>
+        </dd>
+        <dt>月例選手権</dt>
+        <dd>公開決闘トーナメント（毎月第2土曜）
+          <span class="area-timetable__sub">13:00 開会 / 終了は試合数による</span>
+        </dd>
+      </dl>
+    </section>
+
+    <aside class="area-info">
+      <h2 class="area-info__heading">ご案内</h2>
+      <dl class="area-info__list">
+        <dt>開放時間</dt>
+        <dd>10:00 〜 18:00（最終入場 17:30）</dd>
+        <dt>対象年齢</dt>
+        <dd>全年齢（初陣体験は8歳以上推奨）</dd>
+        <dt>所要時間</dt>
+        <dd>観戦のみ 約20分 / 初陣体験込み 約60分</dd>
+        <dt>場所</dt>
+        <dd>学院西棟 — 演武科棟の北側隣接施設</dd>
+        <dt>注意事項</dt>
+        <dd>演示中の術式光・音・振動が伴います。光刺激に敏感な方はご注意ください</dd>
+      </dl>
+    </aside>
+  </div>
+</main>
+<!-- FOOTER -->
+</body>
+</html>

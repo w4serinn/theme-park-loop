@@ -21,6 +21,34 @@
 - 提案プロンプト: Magical library interior, wide banner crop, towering emerald bookshelves with floating candles and golden magical light, ancient books and mystical atmosphere, no characters, detailed painterly illustration, dark navy background --ar 2:1 --style raw
 - 補足: カード幅280px×高さ160pxに表示。深緑×真鍮の組み合わせで他エリアと差別化。
 
+### REQ-012 [type: image]
+- 用途: 決闘演武場ページ — エリアヒーローバナー
+- 配置先パス: assets/images/exploration/hero-dueling-ground.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Circular magical dueling arena, wide panoramic shot, stone floor carved with glowing crimson runic circles, tiered spectator seats surrounding the arena, dramatic crimson and ember light from activated spell impacts, no characters, cinematic painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×240pxのヒーロービジュアル。深紅(#a03c3c)とアンバー(#c46a2b)が主役。床面の術式紋が光る様子を強調したい。
+
+### REQ-013 [type: image]
+- 用途: 学院内探索 一覧ページ — 決闘演武場カードのサムネイル
+- 配置先パス: assets/images/exploration/thumb-dueling-ground.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Magical dueling arena interior, wide banner crop, circular stone floor with glowing crimson runic patterns, dramatic spell light filling the arena, dark ink-blue background, no characters, detailed painterly illustration --ar 2:1 --style raw
+- 補足: カード幅280px×高さ160pxに表示。深紅×真鍮の組み合わせで緊迫感を。
+
+### REQ-014 [type: image]
+- 用途: 天文台ページ — エリアヒーローバナー
+- 配置先パス: assets/images/exploration/hero-observatory.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Interior of a magical observatory dome, panoramic wide shot, massive brass and crystal telescope pointing at a star-filled sky, azure magical lines flowing among constellations, antique astronomical instruments in the foreground, no characters, cinematic painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×240pxのヒーロービジュアル。天空青(#4e8ea0)と真鍮(#b08d57)が主役。望遠鏡越しに見える星界の奥行きを強調してほしい。
+
+### REQ-015 [type: image]
+- 用途: 学院内探索 一覧ページ — 天文台カードのサムネイル
+- 配置先パス: assets/images/exploration/thumb-observatory.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Magical observatory interior, wide banner crop, large brass telescope aimed at azure star-filled night sky, magical constellation lines glowing blue, dark ink background, no characters, detailed painterly illustration --ar 2:1 --style raw
+- 補足: カード幅280px×高さ160pxに表示。天空青×真鍮の静謐な宇宙感を。
+
 ## 対応済み
 
 ### REQ-008 [type: image]

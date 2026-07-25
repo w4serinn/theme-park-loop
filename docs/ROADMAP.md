@@ -120,14 +120,15 @@ evolveループはこの方針を毎サイクル遵守すること:
 - [x] (M) 新エリア: 大図書館(pages/exploration/grand-library.html)
       ── 天井まで続く魔法書の棚と浮遊する蝋燭。写本体験・書庫迷宮。
       エリア専用の深緑×真鍮パターン
-- [ ] (M) 新エリア: 決闘演武場(pages/exploration/dueling-ground.html)
+- [x] (M) 新エリア: 決闘演武場(pages/exploration/dueling-ground.html)
       ── 学院生の魔法決闘を観戦・体験できる円形競技場。
       アクセント色は `--crimson`(承認済み)
-- [ ] (M) 新エリア: 天文台(pages/exploration/observatory.html)
+- [x] (M) 新エリア: 天文台(pages/exploration/observatory.html)
       ── 学院最上部の星界観測施設。魔法望遠鏡・天体儀。
       アクセント色は `--azure`(承認済み)
 - [ ] (S) 一覧ページのエリアカードにエリア固有アクセント色を適用(承認後)
-- [ ] (S) 探索一覧ページの opacity テキスト修正: exploration.css の .page-hero__desc(opacity:0.8)・.area-card__desc(opacity:0.75) を color-mix(in oklch, var(--brass) 80%+, transparent) に変換
+- [x] (S) 探索一覧ページの opacity テキスト修正: exploration.css の .page-hero__desc(opacity:0.8)・.area-card__desc(opacity:0.75) を color-mix(in oklch, var(--brass) 80%+, transparent) に変換
+- [ ] (S) area-page.css の .area-breadcrumb__sep(opacity:0.5) を color-mix(in oklch, var(--brass) 50%, transparent) に変換(opacity修正の残件)
 
 ### 3. 学院祭・行事 [status: 進行中]
 

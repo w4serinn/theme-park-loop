@@ -15,8 +15,7 @@
 
 .page-hero__desc {
   font-size: 1rem;
-  color: var(--brass);
-  opacity: 0.8;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.7;
@@ -82,8 +81,7 @@
 
 .area-card__desc {
   font-size: 0.9rem;
-  color: var(--brass);
-  opacity: 0.75;
+  color: color-mix(in oklch, var(--brass) 80%, transparent);
   margin: 0;
   line-height: 1.6;
 }

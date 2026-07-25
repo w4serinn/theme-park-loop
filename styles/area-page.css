@@ -145,6 +145,37 @@
     );
 }
 
+.area-hero__visual--dueling-ground {
+  background-color: color-mix(in srgb, var(--crimson) 28%, var(--ink));
+  background-image:
+    repeating-linear-gradient(
+      50deg,
+      transparent,
+      transparent 18px,
+      color-mix(in oklch, var(--crimson) 14%, transparent) 18px,
+      color-mix(in oklch, var(--crimson) 14%, transparent) 19px
+    ),
+    repeating-linear-gradient(
+      -50deg,
+      transparent,
+      transparent 18px,
+      color-mix(in oklch, var(--ember) 8%, transparent) 18px,
+      color-mix(in oklch, var(--ember) 8%, transparent) 19px
+    );
+}
+
+.area-hero__visual--observatory {
+  background-color: color-mix(in srgb, var(--azure) 14%, var(--ink));
+  background-image:
+    repeating-radial-gradient(
+      circle at 50% 50%,
+      transparent,
+      transparent 30px,
+      color-mix(in oklch, var(--azure) 10%, transparent) 30px,
+      color-mix(in oklch, var(--azure) 10%, transparent) 31px
+    );
+}
+
 .area-hero__body {
   padding: 2rem 1.5rem 1.75rem;
   border-bottom: 1px solid var(--brass);
@@ -294,6 +325,33 @@
   line-height: 1.65;
 }
 
+/* スケジュール・設備一覧(dl グリッド) */
+.area-timetable {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.5rem 1.5rem;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.area-timetable dt {
+  color: var(--ember);
+  white-space: nowrap;
+  padding-top: 0.125rem;
+}
+
+.area-timetable dd {
+  color: color-mix(in oklch, var(--brass) 85%, transparent);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.area-timetable__sub {
+  display: block;
+  font-size: 0.8rem;
+  color: color-mix(in oklch, var(--brass) 76%, transparent);
+}
+
 /* ご案内ボックス */
 .area-info {
   margin-top: 2.5rem;
@@ -339,13 +397,26 @@
     padding: 0 1rem 2rem;
   }
 
+  .area-timetable {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
   .area-info__list {
     grid-template-columns: 1fr;
     gap: 0.25rem;
   }
 
+  .area-timetable dt {
+    margin-top: 0.75rem;
+  }
+
   .area-info__list dt {
     margin-top: 0.75rem;
+  }
+
+  .area-timetable dt:first-child {
+    margin-top: 0;
   }
 
   .area-info__list dt:first-child {
