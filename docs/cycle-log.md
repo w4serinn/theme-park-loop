@@ -1,5 +1,20 @@
 # サイクル履歴
 
+## 2026-07-26 14:20
+- 実装: エリア別飲食店7ページ(秘薬スタンド・空賊カフェ・歯車喫茶・読書喫茶・
+  回復スタンド・召喚前夜祭カフェ・星見ダイナー)の dining-page-hero__visual に
+  img タグを追加し、到着済みREQ-042〜048画像を反映(M)。dining.cssに
+  .dining-page-hero__visual-img を追加、ベース要素に overflow:hidden を追加。
+  ASSET_REQUESTS.md の依頼中を空に。
+- レビュー: OK(指摘なし)
+- lint: ✓ / lint:css: ✓ / test: 148 passed ✓ / build: ✓
+- 次回予定: ROADMAPの全ページが完了状態になったため、TODO整理
+  (dining/index.html の dining-venue-feature__visual への画像反映、
+  shop/index.html の noscript フォールバック)または「今後のタスク候補」の
+  新規追加を検討する。
+- blocked / partial: なし
+- asset-pending: なし(素材依頼は依頼中0件・全て対応済み)
+
 ## 2026-07-26 13:20
 - 実装: 購買部エリア別店舗詳細ページ14ページ(蒸留工房店・実験器具販売所・
   羅針堂・風袋商会・時刻堂・歯車細工所・写本堂・魔法インク工房・決闘記念品店・
