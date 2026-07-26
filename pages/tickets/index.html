@@ -64,6 +64,48 @@
       </table>
     </section>
 
+    <section class="tickets-section" id="annual-pass">
+      <h2 class="tickets-section__heading">四季来訪証（年間パス）</h2>
+      <p class="tickets-section__lead">一年を通じて学院に通いたい方には、四季来訪証をご用意しています。購入日から1年間、回数の制限なくご来場いただけます。</p>
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th scope="col">種別</th>
+            <th scope="col">対象</th>
+            <th scope="col">年会費（税込）</th>
+            <th scope="col">特典</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="price-table__name">大人</td>
+            <td class="price-table__note">18歳以上</td>
+            <td class="price-table__price">¥9,800</td>
+            <td class="price-table__note">購買部・学食10%割引、季節行事の優先案内</td>
+          </tr>
+          <tr>
+            <td class="price-table__name">学生</td>
+            <td class="price-table__note">12〜17歳</td>
+            <td class="price-table__price">¥6,800</td>
+            <td class="price-table__note">購買部・学食10%割引、季節行事の優先案内</td>
+          </tr>
+          <tr>
+            <td class="price-table__name">小人</td>
+            <td class="price-table__note">4〜11歳</td>
+            <td class="price-table__price">¥3,600</td>
+            <td class="price-table__note">購買部・学食10%割引、季節行事の優先案内</td>
+          </tr>
+          <tr class="price-table__highlight">
+            <td class="price-table__name">家族</td>
+            <td class="price-table__note">大人2名 + 小人2名のセット</td>
+            <td class="price-table__price">¥24,000</td>
+            <td class="price-table__note">個別購入より¥6,000お得。家族限定観測会にご招待</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="tickets-section__note">ご購入・お問い合わせは正門案内所にて承ります。</p>
+    </section>
+
     <section class="tickets-section" id="simulator">
       <h2 class="tickets-section__heading">料金シミュレーター</h2>
       <form class="ticket-sim" id="ticket-sim" aria-label="入場料金シミュレーター">
@@ -87,6 +129,75 @@
         </div>
         <div class="sim-result" id="sim-result" hidden aria-live="polite"></div>
       </form>
+    </section>
+
+    <section class="tickets-section" id="group">
+      <h2 class="tickets-section__heading">団体・修学旅行プラン</h2>
+      <div class="group-plan">
+        <div class="group-plan__intro">
+          <p>20名様以上のご来場には、団体特別プランをご用意しています。修学旅行や課外活動での利用はもちろん、地域のご町内会・企業研修など幅広い団体様にご利用いただけます。</p>
+          <p>ご利用の際は来場日の14日前までに正門案内所へお申し込みください。引率の教職員・付添の方には無料入場枠があり、学院の見習い案内人による構内ガイドツアーも団体様限定でご案内しております。</p>
+        </div>
+        <dl class="group-plan__facts">
+          <dt>対象人数</dt>
+          <dd>20名様以上</dd>
+          <dt>団体料金</dt>
+          <dd>通常料金より20%引き</dd>
+          <dt>申込期限</dt>
+          <dd>来場日の14日前まで</dd>
+          <dt>引率者特典</dt>
+          <dd>生徒20名につき引率者1名無料</dd>
+          <dt>オプション</dt>
+          <dd>見習い案内人による構内ガイドツアー（要事前予約）</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section class="tickets-section" id="faq">
+      <h2 class="tickets-section__heading">チケットに関するよくある質問</h2>
+      <div class="qa-list" role="list">
+
+        <div class="qa-item" role="listitem">
+          <button class="qa-trigger" type="button" aria-expanded="false" aria-controls="ticket-qa-1">
+            ご購入後のキャンセル・払い戻しはできますか？
+            <span class="qa-icon" aria-hidden="true">▶</span>
+          </button>
+          <div class="qa-panel" id="ticket-qa-1" hidden>
+            <p>天候による臨時休校日を除き、ご購入後のキャンセル・払い戻しは承っておりません。日付の変更については購入から7日以内に限り、正門案内所にてご相談を承ります。</p>
+          </div>
+        </div>
+
+        <div class="qa-item" role="listitem">
+          <button class="qa-trigger" type="button" aria-expanded="false" aria-controls="ticket-qa-2">
+            当日券は購入できますか？
+            <span class="qa-icon" aria-hidden="true">▶</span>
+          </button>
+          <div class="qa-panel" id="ticket-qa-2" hidden>
+            <p>はい、正門受付にて当日券をご用意しております。ただし学院祭期間中など混雑が予想される日は、当日券の販売を早めに締め切る場合があります。事前購入をおすすめします。</p>
+          </div>
+        </div>
+
+        <div class="qa-item" role="listitem">
+          <button class="qa-trigger" type="button" aria-expanded="false" aria-controls="ticket-qa-3">
+            チケットに有効期限はありますか？
+            <span class="qa-icon" aria-hidden="true">▶</span>
+          </button>
+          <div class="qa-panel" id="ticket-qa-3" hidden>
+            <p>通常入場券はご利用当日限りです。四季来訪証（年間パス）は購入日から1年間有効で、期間内は回数の制限なくご来場いただけます。</p>
+          </div>
+        </div>
+
+        <div class="qa-item" role="listitem">
+          <button class="qa-trigger" type="button" aria-expanded="false" aria-controls="ticket-qa-4">
+            紛失した場合の再発行はできますか？
+            <span class="qa-icon" aria-hidden="true">▶</span>
+          </button>
+          <div class="qa-panel" id="ticket-qa-4" hidden>
+            <p>紙のチケットの再発行はできません。四季来訪証は記名式のため、正門案内所にて本人確認の上、再発行手数料¥500にて対応いたします。</p>
+          </div>
+        </div>
+
+      </div>
     </section>
 
     <section class="tickets-section" id="info">
@@ -131,5 +242,6 @@
 </main>
 <!-- FOOTER -->
 <script src="{{BASE}}src/ticket-sim.js" defer></script>
+<script src="{{BASE}}src/guide-qa.js" defer></script>
 </body>
 </html>

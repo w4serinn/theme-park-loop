@@ -94,6 +94,120 @@
   color: color-mix(in oklch, var(--brass) 72%, transparent);
 }
 
+.tickets-section__lead {
+  font-size: 0.9rem;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  line-height: 1.7;
+  margin: 0 0 1.25rem;
+}
+
+.tickets-section__note {
+  font-size: 0.8rem;
+  color: color-mix(in oklch, var(--brass) 76%, transparent);
+  margin: 1rem 0 0;
+}
+
+/* チケットFAQ(アコーディオン) */
+.qa-list {
+  border: 1px solid color-mix(in oklch, var(--brass) 25%, transparent);
+}
+
+.qa-item {
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 20%, transparent);
+}
+
+.qa-item:last-child {
+  border-bottom: none;
+}
+
+.qa-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: inherit;
+  font-weight: 700;
+  color: var(--brass);
+  text-align: left;
+  gap: 0.75rem;
+}
+
+.qa-trigger:hover {
+  background-color: color-mix(in oklch, var(--brass) 6%, var(--ink));
+}
+
+.qa-icon {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  color: var(--ember);
+  transition: transform 0.2s;
+}
+
+.qa-panel {
+  padding: 0 1.25rem 1rem;
+  border-left: 2px solid color-mix(in oklch, var(--brass) 30%, transparent);
+  margin: 0 1.25rem 1rem;
+  font-size: 0.875rem;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  line-height: 1.7;
+}
+
+.qa-panel p {
+  margin: 0;
+}
+
+.qa-item.is-open .qa-icon {
+  transform: rotate(90deg);
+}
+
+/* 団体・修学旅行プラン */
+.group-plan {
+  display: flex;
+  gap: 2rem;
+}
+
+.group-plan__intro {
+  flex: 3;
+  font-size: 0.9rem;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  line-height: 1.7;
+}
+
+.group-plan__intro p + p {
+  margin-top: 1rem;
+}
+
+.group-plan__facts {
+  flex: 2;
+  margin: 0;
+  padding: 1.25rem;
+  border: 1px solid color-mix(in oklch, var(--brass) 28%, transparent);
+  border-top: 3px solid var(--ember);
+  align-self: flex-start;
+}
+
+.group-plan__facts dt {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0.85rem 0 0.15rem;
+}
+
+.group-plan__facts dt:first-child {
+  margin-top: 0;
+}
+
+.group-plan__facts dd {
+  font-size: 0.85rem;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  margin: 0;
+}
+
 /* お役立ち情報 */
 .info-grid {
   display: grid;
@@ -282,5 +396,9 @@
 
   .info-grid {
     grid-template-columns: 1fr;
+  }
+
+  .group-plan {
+    flex-direction: column;
   }
 }
