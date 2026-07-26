@@ -43,32 +43,19 @@ evolveループはこの方針を毎サイクル遵守すること:
 
 ## バグ修正(最優先 — 通常機能より先に上から順に着手する)
 
-- [x] (S) 学食・喫茶室: 中央学食タブ内の「詳細」ボタンを押しても展開されない。
-      原因: `pages/dining/index.html` に `.menu-item__trigger` を処理する
-      `src/dining-menu.js` が読み込まれていなかった(`src/shop-tabs.js` のみ読み込み)。
-      `<script src="{{BASE}}src/dining-menu.js" defer></script>` を追加して解消した。
-- [x] (S) 学院祭・行事: 春夏秋冬の季節フィルターボタンを押しても表示が絞り込まれない。
-      原因: `styles/events.css` の `.event-card { display: grid; }` が、ネイティブの
-      `[hidden] { display: none; }` (UAスタイルシート)と同じ詳細度(0,1,0)のため
-      後勝ちで上書きし、JSが `card.hidden = true` を設定しても実際には非表示に
-      ならなかった。`.event-card[hidden] { display: none; }` を追加して解消した。
-- [x] (M) 全ページ共通: ヒーロービジュアル(`area-hero__visual` / `shop-hero__visual` /
-      `dining-page-hero__visual`)がウィンドウ幅を広げると画像下部が見切れ、上部しか
-      見えなくなる。原因: `.shop-hero`/`.area-hero`(grid-template-rows固定px)・
-      `.dining-page-hero__visual`(height固定220px)のコンテナが、ページ幅に
-      max-widthの制約が無いため画面幅いっぱいまで広がる一方、高さだけ固定されており、
-      `object-fit: cover` が縦方向を強くクロップしていた。画像はMidjourneyで
-      `--ar 5:1` 生成のため、コンテナ側を `aspect-ratio: 5 / 1`(+ 超ワイド対策の
-      `max-height: 320px`)に変更し、幅が変わってもクロップがほぼ発生しないように
-      修正した(モバイル用の固定height上書きはそのまま残置)。
-- [x] (S) 購買部: 一部のサムネイル画像(`category-card__visual` 等)の上下に黒い帯が
-      表示され、画像サイズがずれて見える。調査の結果、`category-card__visual` は
-      現在 `background-size: cover; background-position: center;` が19種すべてに
-      正しく設定されており、この指定でCSS側の黒帯(レターボックス)は原理上発生しない。
-      指摘時点(2026-07-26昼レビュー)ではこの箇所はまだ実画像反映前のグラデーション
-      プレースホルダーのみで、暗い配色が「黒帯」に見えていた可能性が高い
-      (実画像反映は本ブランチの後続コミットで対応済み)。現状のコードでは再現しない
-      と判断してクローズするが、mainマージ後に見た目が変わっていないか再確認を推奨。
+- [x] (S) 購買部: サムネイル・ヒーロー画像の上下に黒い帯が出る。
+      真因: CSSではなく画像ファイル自体に黒帯が焼き込まれていた
+      (Midjourney生成時か書き出し時の不具合と推測)。ユーザー提供の
+      スクリーンショット(`shop/groceries.html`)を確認し、ピクセルを
+      直接調査して確定した。過去2回「CSS的に発生し得ない」
+      「プレースホルダーの誤認」と判断してクローズしたのはどちらも誤りだった。
+      全画像を走査し、以下5点に全幅の黒帯(15〜32px相当)を検出・除去した:
+      `assets/images/shop/hero-airship-shop.jpg`(上下20px)・
+      `hero-alchemy-shop.jpg`(上32px/下31px)・
+      `hero-clock-accessories.jpg`(上32px/下18px、2段階で検出)・
+      `hero-groceries.jpg`(上20px/下19px)・
+      `assets/images/exploration/thumb-airship-dock.jpg`(上下25px)。
+      他の画像は同じ手法で走査し黒帯なしを確認済み。
 
 ## 新規ページ提案(承認待ち — 承認されたら下の「ページ一覧」に移動する)
 
@@ -191,3 +178,7 @@ local-review が2階層違反を指摘した場合も、このタスク群につ
 - **ニュース区切り線の color-mix**: `color-mix(in srgb, var(--brass) 20%, transparent)` は sRGB でブラックと混合するため、インク背景上では実質不可視になる。ニュース項目が実装される際は `oklch` 色空間か 35〜40% に調整すること。
 - **エリアページのサムネイル**: 学院内探索の7エリア、購買部の一覧カード(category-card__visual、中央5種+エリア別14種)、学食・喫茶室のエリアタブカード(dining-venue-feature__visual)は全て実画像を反映済み(既存のhero画像を`background-image`で再利用)。CSSグラデーションはフォールバック背景として残置。
 - **インタラクティブ要素の方針**: JS は src/ 以下に純粋な関数として実装し、HTML から script タグで読み込む。DOM 操作のみのスクリプトは pages/ に置かない。
+- **画像ファイルの黒帯不具合**: 一部の生成画像に、CSSではなくファイル自体に
+  焼き込まれた黒帯(letterbox)が混入していたことがある(2026-07-26発覚)。
+  新しい画像アセットが届いた際、見た目に違和感があれば「CSS側の問題」と
+  即断せず、画像そのもの(上下端が完全な黒でないか)も疑うこと。
