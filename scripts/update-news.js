@@ -6,11 +6,13 @@
 //
 // 重要: data/news.json はこのスクリプト(CI)が自動更新するファイルであり、
 // evolveループが直接編集してはならない(evolve/SKILL.md参照)。
-// 冪等性のため、既に記録済みのページ番号・バグ解消内容は重複して追記しない
-// (ワークフローが同じ内容で再実行されても安全)。
+// 冪等性のため、既に記録済みの内容(ページ番号+紹介文、またはバグ解消内容)は
+// 重複して追記しない(ワークフローが同じ内容で再実行されても安全)。
+// ただしページ番号が同じでも紹介文が変わっていれば「再完了」による新しい
+// お知らせとして追記する(ページが再オープンされ、別の内容で再完了した場合)。
 
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
-import { getNewlyCompletedPages, getBugfixResolutionNews, sameItemSet } from "./roadmap-utils.js";
+import { getNewlyCompletedPages, getBugfixResolutionNews, isPageAlreadyRecorded, sameItemSet } from "./roadmap-utils.js";
 
 const NEWS_PATH = "data/news.json";
 
@@ -30,8 +32,7 @@ function todayISO() {
 
 const newlyCompleted = getNewlyCompletedPages();
 const news = loadNews();
-const existingNumbers = new Set(news.map((entry) => String(entry.number)));
-const toAdd = newlyCompleted.filter((page) => !existingNumbers.has(String(page.number)));
+const toAdd = newlyCompleted.filter((page) => !isPageAlreadyRecorded(news, page));
 
 const date = todayISO();
 for (const { number, title, introText } of toAdd) {

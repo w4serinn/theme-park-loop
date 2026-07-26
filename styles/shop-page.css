@@ -27,10 +27,16 @@
 /* ヒーロー */
 .shop-hero {
   display: grid;
-  grid-template-rows: 200px auto;
+  grid-template-rows: auto auto;
 }
 
 .shop-hero__visual {
+  /* 画像はMidjourneyで --ar 5:1 生成のため、コンテナのアスペクト比を合わせて
+     object-fit: cover によるクロップを最小限にする(幅が広いページでも
+     画像の上下が過度に見切れないようにするため)。max-heightは
+     超ワイド画面での縦伸びを防ぐ上限。 */
+  aspect-ratio: 5 / 1;
+  max-height: 320px;
   background-color: color-mix(in srgb, var(--emerald) 30%, var(--ink));
   background-image: repeating-linear-gradient(
     -45deg,
