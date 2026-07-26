@@ -43,6 +43,47 @@ export function extractPages(markdown) {
   return pages;
 }
 
+/**
+ * 番号付きページ(`### N. ページ名 [status: ...]`)ごとに、セクション内の
+ * 完了済み(`- [x]`)・未完了(`- [ ]`)サブタスク行数を数える。
+ * `docs/ROADMAP.md` が「完了サブタスクは都度 docs/roadmap-done.md へ退避し、
+ * statusは未完了タスクの有無と一致させる」運用を守れているかを機械的に
+ * 検証するために使う(tests/roadmap-consistency.test.js 参照)。
+ * @returns {Map<string, { title: string, status: string, checkedCount: number, uncheckedCount: number }>}
+ */
+export function extractPageSubtaskCounts(markdown) {
+  const lines = markdown.split(/\r?\n/);
+  const result = new Map();
+
+  const headingIndexes = [];
+  for (let i = 0; i < lines.length; i++) {
+    const m = HEADING_PATTERN.exec(lines[i]);
+    if (m) headingIndexes.push({ index: i, number: m[1], title: m[2].trim(), status: m[3].trim() });
+  }
+
+  for (let h = 0; h < headingIndexes.length; h++) {
+    const { index, number, title, status } = headingIndexes[h];
+    let end = lines.length;
+    for (let j = index + 1; j < lines.length; j++) {
+      if (SECTION_HEADING.test(lines[j]) || HEADING_PATTERN.test(lines[j])) {
+        end = j;
+        break;
+      }
+    }
+
+    let checkedCount = 0;
+    let uncheckedCount = 0;
+    for (let i = index + 1; i < end; i++) {
+      if (CHECKED_ITEM_PATTERN.test(lines[i])) checkedCount++;
+      else if (UNCHECKED_ITEM_PATTERN.test(lines[i])) uncheckedCount++;
+    }
+
+    result.set(number, { title, status, checkedCount, uncheckedCount });
+  }
+
+  return result;
+}
+
 export function getBranchRoadmap() {
   return readFileSync("docs/ROADMAP.md", "utf-8");
 }
