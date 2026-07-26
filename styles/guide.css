@@ -158,14 +158,23 @@
 
 .mascot--owl .mascot__avatar {
   background-color: color-mix(in srgb, var(--emerald) 22%, var(--ink));
+  background-image: url('../assets/images/guide/mascot-owl.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .mascot--mouse .mascot__avatar {
   background-color: color-mix(in srgb, var(--silver) 22%, var(--ink));
+  background-image: url('../assets/images/guide/mascot-mouse.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .mascot--rabbit .mascot__avatar {
   background-color: color-mix(in srgb, var(--azure) 22%, var(--ink));
+  background-image: url('../assets/images/guide/mascot-rabbit.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .mascot__name {

@@ -252,14 +252,23 @@
 
 .lodging-card--inn .lodging-card__visual {
   background-color: color-mix(in srgb, var(--ember) 18%, var(--ink));
+  background-image: url('../assets/images/access/lodging-inn.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .lodging-card--hotel .lodging-card__visual {
   background-color: color-mix(in srgb, var(--brass) 20%, var(--ink));
+  background-image: url('../assets/images/access/lodging-hotel.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .lodging-card--cottage .lodging-card__visual {
   background-color: color-mix(in srgb, var(--emerald) 22%, var(--ink));
+  background-image: url('../assets/images/access/lodging-cottage.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .lodging-card__name {
