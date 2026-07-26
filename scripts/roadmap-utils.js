@@ -9,6 +9,7 @@ import { readFileSync } from "node:fs";
 
 const HEADING_PATTERN = /^###\s*(\d+)\.\s*(.+?)\s*\[status:\s*([^\]]+)\]/;
 const INTRO_PATTERN = /^>\s*紹介文[:：]\s*(.+)$/;
+const BUGFIX_NOTE_PATTERN = /^>\s*お知らせ[:：]\s*(.+)$/;
 const BUGFIX_SECTION_HEADING = /^##\s*バグ修正/;
 const SECTION_HEADING = /^##\s/;
 const CHECKED_ITEM_PATTERN = /^-\s*\[x\]\s*\([SML]\)\s*(.+)$/i;
@@ -115,10 +116,13 @@ export function getNewlyCompletedPages() {
 }
 
 /**
- * `## バグ修正` セクションを解析し、解消済み(`- [x]`)項目の一覧と
- * 未解消(`- [ ]`)項目の件数を返す。項目は複数行に渡ってよいが、
- * 識別には各項目の1行目(チェックボックス直後の説明文)だけを使う。
- * @returns {{ resolved: string[], unresolvedCount: number }}
+ * `## バグ修正` セクションを解析し、解消済み(`- [x]`)項目の一覧・
+ * 未解消(`- [ ]`)項目の件数・お知らせ文(あれば)を返す。項目は複数行に
+ * 渡ってよいが、識別には各項目の1行目(チェックボックス直後の説明文)だけを使う。
+ * お知らせ文は見出し直後(空行を挟んでもよい)に `> お知らせ: ...` という行が
+ * あればその本文で、evolveループがバグを解消しきったサイクルで世界観に沿って
+ * 書く(docs/ROADMAP.mdのページ紹介文と同じ仕組み)。無ければ null になる。
+ * @returns {{ resolved: string[], unresolvedCount: number, note: string|null }}
  */
 export function extractBugfixSection(markdown) {
   const lines = markdown.split(/\r?\n/);
@@ -130,7 +134,7 @@ export function extractBugfixSection(markdown) {
       break;
     }
   }
-  if (start === -1) return { resolved: [], unresolvedCount: 0 };
+  if (start === -1) return { resolved: [], unresolvedCount: 0, note: null };
 
   let end = lines.length;
   for (let i = start; i < lines.length; i++) {
@@ -138,6 +142,15 @@ export function extractBugfixSection(markdown) {
       end = i;
       break;
     }
+  }
+
+  let note = null;
+  for (let j = start; j < end; j++) {
+    const trimmed = lines[j].trim();
+    if (trimmed === "") continue;
+    const noteMatch = BUGFIX_NOTE_PATTERN.exec(trimmed);
+    if (noteMatch) note = noteMatch[1].trim();
+    break; // 空行以外の最初の行だけを見る(サブタスク行ならお知らせ文は無い)
   }
 
   const resolved = [];
@@ -152,13 +165,16 @@ export function extractBugfixSection(markdown) {
       unresolvedCount++;
     }
   }
-  return { resolved, unresolvedCount };
+  return { resolved, unresolvedCount, note };
 }
 
 /**
  * バグ修正セクションについて、ブランチ側で未解消項目が0件になっており、かつ
  * origin/mainにはまだ記録されていない解消済み項目がある場合、お知らせ用の
  * 情報を返す。該当しなければ null。
+ * note は `docs/ROADMAP.md` の `> お知らせ: ...` 行から取る(evolveループが
+ * その都度、世界観に沿って書く)。書き忘れられていた場合のみ機械的な
+ * 一文にフォールバックする(ページ紹介文の仕組みと同様)。
  * @returns {{ title: string, note: string, resolvedItems: string[] } | null}
  */
 export function getBugfixResolutionNews() {
@@ -172,8 +188,8 @@ export function getBugfixResolutionNews() {
 
   return {
     title: "不具合修正",
-    note: "学院内の一部設備に不具合が見つかり、修繕いたしました。",
-    resolvedItems: branch.resolved
+    note: branch.note || "学院内の一部設備に不具合が見つかり、修繕いたしました。",
+    resolvedItems: newlyResolved
   };
 }
 
@@ -191,14 +207,3 @@ export function isPageAlreadyRecorded(news, page) {
   return news.some((entry) => String(entry.number) === String(page.number) && entry.note === note);
 }
 
-/**
- * 2つの文字列配列を「集合として」比較する(要素の並び順に依存しない)。
- * バグ解消項目リストのように、抽出順序が保証されないデータどうしの
- * 重複判定(同じ内容が二重に記録されるのを防ぐ)に使う。
- */
-export function sameItemSet(a, b) {
-  if (a.length !== b.length) return false;
-  const sortedA = [...a].sort();
-  const sortedB = [...b].sort();
-  return sortedA.every((item, i) => item === sortedB[i]);
-}
