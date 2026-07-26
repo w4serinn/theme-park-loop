@@ -1,5 +1,19 @@
 # サイクル履歴
 
+## 2026-07-26 10:20
+- 実装: エリア別飲食店詳細ページ × 7エリア (M) + 探索エリアページ施設セクション × 7 (S)
+  秘薬スタンド(錬金術)・空賊カフェ(飛行船)・歯車喫茶(時計塔)・読書喫茶(大図書館)
+  回復スタンド(決闘演武場)・召喚前夜祭カフェ(召喚広場)・星見ダイナー(天文台)
+  dining/index.html: 7エリアタブの--soon解除、dining-venue-feature カードに差し替え
+  shop-tabs.js: URL ハッシュで対応タブを自動アクティブ化
+  area-page.css: area-facilities リンクスタイル追加
+  dining.css: dining-page-hero・dining-venue-feature + 7エリアビジュアルパターン追加
+- レビュー: 指摘2件対応(REQ-042〜048 7件追加・ROADMAP タスク完了マーク)
+- lint: ✓ / lint:css: ✓ / test: 148 passed ✓ / build: ✓
+- 次回予定: 購買部セクション4の残件(制服・魔導具 img タグ対応 asset-pending) またはROADMAP次タスク
+- blocked / partial: なし
+- asset-pending: REQ-042〜048 (ダイニングヒーロー画像7件)
+
 ## 2026-07-26 09:15
 - 実装: 購買部エリア詳細ページ残り4エリア×2店舗(M) + 学食エリアタブ化(M)
   大図書館(写本堂・魔法インク工房)・決闘演武場(決闘記念品店・魔法武具展示室)
