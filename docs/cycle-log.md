@@ -1,5 +1,21 @@
 # サイクル履歴
 
+## 2026-07-26 15:20
+- ブランチ: evolve/cycle-9 は PR #14 でmainにマージ・削除済みを検知したため、
+  main から新規に evolve/cycle-10 を作成して着手。
+- 実装: 残っていたTODO2件をまとめて対応(S+S、両方とも既存のhero画像を再利用する
+  だけで新規アセット依頼は不要なため軽量にまとめた)
+  1. dining/index.html の dining-venue-feature__visual(7エリア)に実画像反映
+  2. shop/index.html の category-card__visual(19種)に実画像反映
+  3. shop/index.html: JS無効時の noscript フォールバック(全14店舗への直接リンク)
+- レビュー: OK(指摘なし)
+- lint: ✓ / lint:css: ✓ / test: 148 passed ✓ / build: ✓
+- 次回予定: ROADMAPの`[ ]`未完了項目・TODOが0件になったため、次サイクルは
+  既存実装を見直して「今後のタスク候補」に新規タスク案を3〜5個追加し、
+  その中から1つ着手する。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-26 14:20
 - 実装: エリア別飲食店7ページ(秘薬スタンド・空賊カフェ・歯車喫茶・読書喫茶・
   回復スタンド・召喚前夜祭カフェ・星見ダイナー)の dining-page-hero__visual に
