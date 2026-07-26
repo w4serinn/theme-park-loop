@@ -43,19 +43,7 @@ evolveループはこの方針を毎サイクル遵守すること:
 
 ## バグ修正(最優先 — 通常機能より先に上から順に着手する)
 
-- [x] (S) 購買部: サムネイル・ヒーロー画像の上下に黒い帯が出る。
-      真因: CSSではなく画像ファイル自体に黒帯が焼き込まれていた
-      (Midjourney生成時か書き出し時の不具合と推測)。ユーザー提供の
-      スクリーンショット(`shop/groceries.html`)を確認し、ピクセルを
-      直接調査して確定した。過去2回「CSS的に発生し得ない」
-      「プレースホルダーの誤認」と判断してクローズしたのはどちらも誤りだった。
-      全画像を走査し、以下5点に全幅の黒帯(15〜32px相当)を検出・除去した:
-      `assets/images/shop/hero-airship-shop.jpg`(上下20px)・
-      `hero-alchemy-shop.jpg`(上32px/下31px)・
-      `hero-clock-accessories.jpg`(上32px/下18px、2段階で検出)・
-      `hero-groceries.jpg`(上20px/下19px)・
-      `assets/images/exploration/thumb-airship-dock.jpg`(上下25px)。
-      他の画像は同じ手法で走査し黒帯なしを確認済み。
+(現在なし)
 
 ## 新規ページ提案(承認待ち — 承認されたら下の「ページ一覧」に移動する)
 
