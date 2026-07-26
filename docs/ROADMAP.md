@@ -189,6 +189,9 @@ local-review が2階層違反を指摘した場合も、このタスク群につ
       画像はREQ-021〜027(エリアショップhero)・REQ-035〜041(店舗個別hero)が
       すべて assets/images/shop/ に到着済み。uniforms.html等で採用した
       shop-hero__visual-img パターンを14ページ分に適用した。
+- [x] (S) shop/index.html の category-card__visual(中央5種+エリア別14種、
+      計19種)に実画像を反映。各ページのhero画像と同一ファイルを
+      background-image で再利用した。
 
 ### 5. 学食・喫茶室 [status: 完了]
 
@@ -217,10 +220,9 @@ local-review が2階層違反を指摘した場合も、このタスク群につ
 - [x] (M) エリア別飲食店7ページの dining-page-hero__visual に実画像を反映
       REQ-042〜048(ダイニングヒーローバナー)を shop-hero__visual-img と同様の
       img タグパターンで反映した。
-- (todo) dining/index.html のエリアタブ内 dining-venue-feature__visual(各エリアの
-      店舗紹介カード)は同じCSS修飾子を共有しているが、まだCSSグラデーションの
-      プレースホルダーのまま。今回反映したhero画像と共有できるため、次回以降に
-      img タグ追加で対応する。
+- [x] (S) dining/index.html のエリアタブ内 dining-venue-feature__visual(各エリアの
+      店舗紹介カード)に実画像を反映。aria-hidden の装飾要素のため img タグではなく
+      background-image(REQ-042〜048と同じ画像)で対応した。
 
 ### 6. 入学願書(チケット案内) [status: 完了]
 
@@ -254,10 +256,10 @@ local-review が2階層違反を指摘した場合も、このタスク群につ
 
 ## TODO
 
-- (todo) shop/index.html: JS 無効時に `<noscript>` で全エリアへの直接リンク一覧を表示するフォールバックを追加する
+(現在なし。shop/index.html の noscript フォールバックは対応済み)
 
 ## 技術メモ
 
 - **ニュース区切り線の color-mix**: `color-mix(in srgb, var(--brass) 20%, transparent)` は sRGB でブラックと混合するため、インク背景上では実質不可視になる。ニュース項目が実装される際は `oklch` 色空間か 35〜40% に調整すること。
-- **エリアページのサムネイル**: 学院内探索の7エリアは全て実画像に差し替え済み(CSSグラデーションはフォールバック背景として残置)。購買部・学食・喫茶室は画像到着済みだが未反映のエリアが残っている(ROADMAP該当セクション参照)。
+- **エリアページのサムネイル**: 学院内探索の7エリア、購買部の一覧カード(category-card__visual、中央5種+エリア別14種)、学食・喫茶室のエリアタブカード(dining-venue-feature__visual)は全て実画像を反映済み(既存のhero画像を`background-image`で再利用)。CSSグラデーションはフォールバック背景として残置。
 - **インタラクティブ要素の方針**: JS は src/ 以下に純粋な関数として実装し、HTML から script タグで読み込む。DOM 操作のみのスクリプトは pages/ に置かない。

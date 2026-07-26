@@ -198,73 +198,37 @@
 /* カテゴリ固有ビジュアル */
 .category-card--uniforms .category-card__visual {
   background-color: color-mix(in srgb, var(--ember) 20%, var(--ink));
-  background-image: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 8px,
-    color-mix(in oklch, var(--ember) 8%, transparent) 8px,
-    color-mix(in oklch, var(--ember) 8%, transparent) 9px
-  );
+  background-image: url('../assets/images/shop/hero-uniforms.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .category-card--tools .category-card__visual {
   background-color: color-mix(in srgb, var(--azure) 18%, var(--ink));
-  background-image: repeating-radial-gradient(
-    circle at 50% 50%,
-    transparent,
-    transparent 20px,
-    color-mix(in oklch, var(--azure) 8%, transparent) 20px,
-    color-mix(in oklch, var(--azure) 8%, transparent) 21px
-  );
+  background-image: url('../assets/images/shop/hero-tools.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .category-card--books .category-card__visual {
   background-color: color-mix(in srgb, var(--emerald) 28%, var(--ink));
-  background-image: repeating-linear-gradient(
-    90deg,
-    transparent,
-    transparent 28px,
-    color-mix(in oklch, var(--silver) 8%, transparent) 28px,
-    color-mix(in oklch, var(--silver) 8%, transparent) 29px
-  );
+  background-image: url('../assets/images/shop/hero-books.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .category-card--groceries .category-card__visual {
   background-color: color-mix(in srgb, var(--emerald) 35%, var(--ink));
-  background-image:
-    repeating-linear-gradient(
-      30deg,
-      transparent,
-      transparent 12px,
-      color-mix(in oklch, var(--emerald) 12%, transparent) 12px,
-      color-mix(in oklch, var(--emerald) 12%, transparent) 13px
-    ),
-    repeating-linear-gradient(
-      -30deg,
-      transparent,
-      transparent 12px,
-      color-mix(in oklch, var(--emerald) 12%, transparent) 12px,
-      color-mix(in oklch, var(--emerald) 12%, transparent) 13px
-    );
+  background-image: url('../assets/images/shop/hero-groceries.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .category-card--souvenirs .category-card__visual {
   background-color: color-mix(in srgb, var(--arcane) 16%, var(--ink));
-  background-image:
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 14px,
-      color-mix(in oklch, var(--arcane) 10%, transparent) 14px,
-      color-mix(in oklch, var(--arcane) 10%, transparent) 15px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 14px,
-      color-mix(in oklch, var(--arcane) 10%, transparent) 14px,
-      color-mix(in oklch, var(--arcane) 10%, transparent) 15px
-    );
+  background-image: url('../assets/images/shop/hero-souvenirs.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 /* エリアタブ */
@@ -284,6 +248,40 @@
 
 .tab-nav::-webkit-scrollbar {
   display: none;
+}
+
+/* JS無効時のエリア別店舗フォールバック */
+.shop-noscript {
+  border: 1px solid color-mix(in oklch, var(--brass) 30%, transparent);
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.shop-noscript__notice {
+  margin: 0 0 0.75rem;
+  font-size: 0.875rem;
+  color: color-mix(in oklch, var(--brass) 80%, transparent);
+}
+
+.shop-noscript__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.shop-noscript__area {
+  display: inline-block;
+  min-width: 9em;
+  font-weight: 700;
+  color: var(--brass);
+}
+
+.shop-noscript__list a {
+  color: color-mix(in oklch, var(--brass) 85%, transparent);
 }
 
 /* タブボタン — base → --soon base → :hover → .is-active → --soon:hover → --soon.is-active */
@@ -393,180 +391,100 @@
 /* エリア別ショップカード: visual */
 .category-card--alchemy-shop .category-card__visual {
   background-color: color-mix(in srgb, var(--ember) 22%, var(--ink));
-  background-image: repeating-linear-gradient(
-    30deg,
-    transparent,
-    transparent 10px,
-    color-mix(in oklch, var(--ember) 8%, transparent) 10px,
-    color-mix(in oklch, var(--ember) 8%, transparent) 11px
-  );
+  background-image: url('../assets/images/shop/hero-alchemy-shop.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .category-card--alchemy-tools .category-card__visual {
   background-color: color-mix(in srgb, var(--azure) 20%, var(--ink));
-  background-image: repeating-radial-gradient(
-    circle at 50% 50%,
-    transparent,
-    transparent 18px,
-    color-mix(in oklch, var(--azure) 8%, transparent) 18px,
-    color-mix(in oklch, var(--azure) 8%, transparent) 19px
-  );
+  background-image: url('../assets/images/shop/hero-alchemy-tools.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .category-card--airship-shop .category-card__visual {
   background-color: color-mix(in srgb, var(--azure) 24%, var(--ink));
-  background-image: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 12px,
-    color-mix(in oklch, var(--azure) 9%, transparent) 12px,
-    color-mix(in oklch, var(--azure) 9%, transparent) 13px
-  );
+  background-image: url('../assets/images/shop/hero-airship-shop.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .category-card--airship-gear .category-card__visual {
   background-color: color-mix(in srgb, var(--azure) 18%, var(--ink));
-  background-image:
-    repeating-linear-gradient(
-      60deg,
-      transparent,
-      transparent 14px,
-      color-mix(in oklch, var(--ember) 7%, transparent) 14px,
-      color-mix(in oklch, var(--ember) 7%, transparent) 15px
-    ),
-    repeating-linear-gradient(
-      -60deg,
-      transparent,
-      transparent 14px,
-      color-mix(in oklch, var(--azure) 7%, transparent) 14px,
-      color-mix(in oklch, var(--azure) 7%, transparent) 15px
-    );
+  background-image: url('../assets/images/shop/hero-airship-gear.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .category-card--clock-shop .category-card__visual {
   background-color: color-mix(in srgb, var(--silver) 20%, var(--ink));
-  background-image: repeating-radial-gradient(
-    circle at 60% 40%,
-    transparent,
-    transparent 22px,
-    color-mix(in oklch, var(--silver) 9%, transparent) 22px,
-    color-mix(in oklch, var(--silver) 9%, transparent) 23px
-  );
+  background-image: url('../assets/images/shop/hero-clock-tower-shop.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .category-card--clock-accessories .category-card__visual {
   background-color: color-mix(in srgb, var(--silver) 16%, var(--ink));
-  background-image: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 14px,
-    color-mix(in oklch, var(--silver) 8%, transparent) 14px,
-    color-mix(in oklch, var(--silver) 8%, transparent) 15px
-  );
+  background-image: url('../assets/images/shop/hero-clock-accessories.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .category-card--library-shop .category-card__visual {
   background-color: color-mix(in srgb, var(--emerald) 32%, var(--ink));
-  background-image: repeating-linear-gradient(
-    90deg,
-    transparent,
-    transparent 28px,
-    color-mix(in oklch, var(--brass) 8%, transparent) 28px,
-    color-mix(in oklch, var(--brass) 8%, transparent) 29px
-  );
+  background-image: url('../assets/images/shop/hero-library-shop.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .category-card--library-tools .category-card__visual {
   background-color: color-mix(in srgb, var(--emerald) 24%, var(--ink));
-  background-image: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 12px,
-    color-mix(in oklch, var(--emerald) 9%, transparent) 12px,
-    color-mix(in oklch, var(--emerald) 9%, transparent) 13px
-  );
+  background-image: url('../assets/images/shop/hero-library-tools.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .category-card--dueling-shop .category-card__visual {
   background-color: color-mix(in srgb, var(--crimson) 20%, var(--ink));
-  background-image: repeating-radial-gradient(
-    circle at 50% 50%,
-    transparent,
-    transparent 18px,
-    color-mix(in oklch, var(--crimson) 8%, transparent) 18px,
-    color-mix(in oklch, var(--crimson) 8%, transparent) 19px
-  );
+  background-image: url('../assets/images/shop/hero-dueling-shop.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .category-card--dueling-gear .category-card__visual {
   background-color: color-mix(in srgb, var(--crimson) 16%, var(--ink));
-  background-image:
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 14px,
-      color-mix(in oklch, var(--crimson) 7%, transparent) 14px,
-      color-mix(in oklch, var(--crimson) 7%, transparent) 15px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 14px,
-      color-mix(in oklch, var(--ember) 7%, transparent) 14px,
-      color-mix(in oklch, var(--ember) 7%, transparent) 15px
-    );
+  background-image: url('../assets/images/shop/hero-dueling-gear.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .category-card--summoning-shop .category-card__visual {
   background-color: color-mix(in srgb, var(--arcane) 18%, var(--ink));
-  background-image: repeating-radial-gradient(
-    circle at 40% 60%,
-    transparent,
-    transparent 16px,
-    color-mix(in oklch, var(--arcane) 9%, transparent) 16px,
-    color-mix(in oklch, var(--arcane) 9%, transparent) 17px
-  );
+  background-image: url('../assets/images/shop/hero-summoning-shop.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .category-card--summoning-circle .category-card__visual {
   background-color: color-mix(in srgb, var(--arcane) 14%, var(--ink));
-  background-image:
-    repeating-linear-gradient(
-      30deg,
-      transparent,
-      transparent 16px,
-      color-mix(in oklch, var(--arcane) 8%, transparent) 16px,
-      color-mix(in oklch, var(--arcane) 8%, transparent) 17px
-    ),
-    repeating-linear-gradient(
-      -30deg,
-      transparent,
-      transparent 16px,
-      color-mix(in oklch, var(--arcane) 8%, transparent) 16px,
-      color-mix(in oklch, var(--arcane) 8%, transparent) 17px
-    );
+  background-image: url('../assets/images/shop/hero-summoning-circle.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .category-card--observatory-shop .category-card__visual {
   background-color: color-mix(in srgb, var(--azure) 20%, var(--ink));
-  background-image: repeating-radial-gradient(
-    circle at 50% 50%,
-    transparent,
-    transparent 24px,
-    color-mix(in oklch, var(--azure) 8%, transparent) 24px,
-    color-mix(in oklch, var(--azure) 8%, transparent) 25px
-  );
+  background-image: url('../assets/images/shop/hero-observatory-shop.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .category-card--observatory-goods .category-card__visual {
   background-color: color-mix(in srgb, var(--azure) 16%, var(--ink));
-  background-image: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 16px,
-    color-mix(in oklch, var(--silver) 8%, transparent) 16px,
-    color-mix(in oklch, var(--silver) 8%, transparent) 17px
-  );
+  background-image: url('../assets/images/shop/hero-observatory-goods.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 @media (width <= 600px) {
