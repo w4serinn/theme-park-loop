@@ -1,5 +1,23 @@
 # サイクル履歴
 
+## 2026-07-26 16:20
+- 実装: バグ修正セクション上位2件を対応(S+S)
+  1. 学食・喫茶室: 中央学食タブの「詳細」ボタン無反応 → `pages/dining/index.html`に
+     `src/dining-menu.js` の読み込みが漏れていたことが原因。script タグ追加で解消。
+  2. 学院祭・行事: 季節フィルターボタン無反応 → `styles/events.css`の
+     `.event-card { display: grid; }`がネイティブの`[hidden]`規則と同一詳細度で
+     後勝ちしていたことが原因。`.event-card[hidden] { display: none; }`を追加して解消。
+- レビュー: OK(指摘なし)
+- lint: ✓ / lint:css: ✓ / test: 148 passed ✓ / build: ✓
+- 次回予定: バグ修正の残り2件
+  1. ヒーロービジュアルの広ウィンドウ時の見切れ(M、object-fit/object-position調整。
+     視覚確認が必要なため慎重に着手)
+  2. 購買部サムネイルの黒帯表示(S、レビュー当時はcategory-card__visualがまだ
+     プレースホルダーグラデーションのみだった可能性が高く、本ブランチのcycle-10で
+     既に実画像反映済み。mainマージ後に人間側で再確認してもらうのが早い)
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-26 15:20
 - ブランチ: evolve/cycle-9 は PR #14 でmainにマージ・削除済みを検知したため、
   main から新規に evolve/cycle-10 を作成して着手。
