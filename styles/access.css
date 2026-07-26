@@ -112,6 +112,183 @@
   border-bottom: none;
 }
 
+.access-section__lead {
+  font-size: 0.9rem;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  line-height: 1.7;
+  margin: 0 0 1.25rem;
+}
+
+/* モデルルート(タイムライン) */
+.model-route + .model-route {
+  margin-top: 2rem;
+}
+
+.model-route__heading {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.model-route__tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--ember);
+  border: 1px solid color-mix(in oklch, var(--ember) 50%, transparent);
+  padding: 0.15rem 0.5rem;
+}
+
+.route-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-left: 2px solid color-mix(in oklch, var(--brass) 30%, transparent);
+}
+
+.route-step {
+  position: relative;
+  padding: 0 0 1.25rem 1.5rem;
+}
+
+.route-step:last-child {
+  padding-bottom: 0;
+}
+
+.route-step::before {
+  content: '';
+  position: absolute;
+  left: -0.4rem;
+  top: 0.25rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background-color: var(--ink);
+  border: 2px solid var(--brass);
+}
+
+.route-step__time {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin-bottom: 0.2rem;
+}
+
+.route-step__body {
+  display: block;
+  font-size: 0.875rem;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  line-height: 1.6;
+}
+
+/* 駐車場テーブル */
+.parking-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.parking-table thead th {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: color-mix(in oklch, var(--brass) 70%, transparent);
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 2px solid color-mix(in oklch, var(--brass) 35%, transparent);
+}
+
+.parking-table tbody td {
+  padding: 0.875rem 0.75rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 20%, transparent);
+  color: color-mix(in oklch, var(--brass) 85%, transparent);
+  vertical-align: top;
+}
+
+.parking-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.parking-table__name {
+  font-weight: 700;
+  color: var(--brass);
+  white-space: nowrap;
+}
+
+.parking-table__note {
+  font-size: 0.8rem;
+  color: color-mix(in oklch, var(--brass) 76%, transparent);
+}
+
+/* 提携宿泊施設 */
+.lodging-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.lodging-card {
+  padding: 1.25rem;
+  border: 1px solid color-mix(in oklch, var(--brass) 28%, transparent);
+  border-top: 3px solid var(--brass);
+}
+
+.lodging-card__visual {
+  height: 110px;
+  margin: -1.25rem -1.25rem 1rem;
+  overflow: hidden;
+  background-color: color-mix(in srgb, var(--brass) 15%, var(--ink));
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 8px,
+    color-mix(in srgb, var(--brass) 8%, transparent) 8px,
+    color-mix(in srgb, var(--brass) 8%, transparent) 16px
+  );
+}
+
+.lodging-card--inn .lodging-card__visual {
+  background-color: color-mix(in srgb, var(--ember) 18%, var(--ink));
+}
+
+.lodging-card--hotel .lodging-card__visual {
+  background-color: color-mix(in srgb, var(--brass) 20%, var(--ink));
+}
+
+.lodging-card--cottage .lodging-card__visual {
+  background-color: color-mix(in srgb, var(--emerald) 22%, var(--ink));
+}
+
+.lodging-card__name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 0.4rem;
+}
+
+.lodging-card__distance {
+  font-size: 0.75rem;
+  color: color-mix(in oklch, var(--brass) 76%, transparent);
+  margin: 0 0 0.75rem;
+}
+
+.lodging-card__body {
+  font-size: 0.85rem;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  line-height: 1.6;
+  margin: 0 0 0.75rem;
+}
+
+.lodging-card__perk {
+  font-size: 0.8rem;
+  color: var(--ember);
+  font-weight: 700;
+  margin: 0;
+}
+
 /* キャンパスマップ: SVG + 説明パネル */
 .campus-map {
   display: flex;
@@ -268,5 +445,18 @@
     flex: none;
     width: 100%;
     box-sizing: border-box;
+  }
+
+  .parking-table {
+    font-size: 0.78rem;
+  }
+
+  .parking-table thead th,
+  .parking-table tbody td {
+    padding: 0.6rem 0.4rem;
+  }
+
+  .lodging-grid {
+    grid-template-columns: 1fr;
   }
 }
