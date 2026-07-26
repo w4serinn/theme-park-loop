@@ -7,63 +7,137 @@
 
 ## 依頼中(未対応)
 
-### REQ-016 [type: image]
-- 用途: 購買部 制服・ローブページ — カテゴリヒーローバナー
-- 配置先パス: assets/images/shop/hero-uniforms.jpg
-- 想定ツール: Midjourney
-- 提案プロンプト: Interior of a magical academy uniform shop, wide shot, rows of dark green robes and brass-accented jackets on wooden hangers, warm amber lighting from wall lanterns, polished oak floors and glass display cases with magical accessories, no characters, painterly detailed illustration --ar 5:1 --style raw
-- 補足: 全幅×200pxのヒーロービジュアル。アンバー(#c46a2b)と深緑(#1f5c4a)の対比。制服が並ぶ温かみのある内装をメインに。
+(現在なし)
 
-### REQ-017 [type: image]
-- 用途: 購買部 魔導具・実験器具ページ — カテゴリヒーローバナー
-- 配置先パス: assets/images/shop/hero-tools.jpg
-- 想定ツール: Midjourney
-- 提案プロンプト: Magical instrument shop interior, wide panoramic shot, shelves filled with brass distillation sets, crystal wands, engraving tools and glowing mana stones in glass cases, azure magical energy softly illuminating the shop, dark ink-blue background, no characters, cinematic painterly illustration --ar 5:1 --style raw
-- 補足: 全幅×200pxのヒーロービジュアル。天空青(#4e8ea0)と真鍮(#b08d57)の組み合わせ。精密器具が光る工房風の陳列棚を強調。
+## 対応済み
+
+### REQ-042 [type: image]
+- 用途: エリア別飲食店 錬金術研究棟 秘薬スタンド — ダイニングヒーローバナー
+- 配置先パス: assets/images/dining/hero-alchemy-dining.jpg
+
+### REQ-043 [type: image]
+- 用途: エリア別飲食店 飛行船ドック 空賊カフェ「嵐の羅針盤」 — ダイニングヒーローバナー
+- 配置先パス: assets/images/dining/hero-airship-dining.jpg
+
+### REQ-044 [type: image]
+- 用途: エリア別飲食店 時計塔 歯車喫茶「鐘と砂」 — ダイニングヒーローバナー
+- 配置先パス: assets/images/dining/hero-clock-tower-dining.jpg
+
+### REQ-045 [type: image]
+- 用途: エリア別飲食店 大図書館 読書喫茶「書の香り」 — ダイニングヒーローバナー
+- 配置先パス: assets/images/dining/hero-library-dining.jpg
+
+### REQ-046 [type: image]
+- 用途: エリア別飲食店 決闘演武場 回復スタンド「鉄と炎」 — ダイニングヒーローバナー
+- 配置先パス: assets/images/dining/hero-dueling-dining.jpg
+
+### REQ-047 [type: image]
+- 用途: エリア別飲食店 魔法陣召喚広場 召喚前夜祭カフェ「扉の前で」 — ダイニングヒーローバナー
+- 配置先パス: assets/images/dining/hero-summoning-dining.jpg
+
+### REQ-048 [type: image]
+- 用途: エリア別飲食店 天文台 星見ダイナー「ふたご座の食卓」 — ダイニングヒーローバナー
+- 配置先パス: assets/images/dining/hero-observatory-dining.jpg
+
+### REQ-021 [type: image]
+- 用途: エリア別ショップ 錬金術研究棟 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-alchemy-shop.jpg
+
+### REQ-022 [type: image]
+- 用途: エリア別ショップ 飛行船ドック — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-airship-shop.jpg
+
+### REQ-023 [type: image]
+- 用途: エリア別ショップ 時計塔 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-clock-tower-shop.jpg
+
+### REQ-024 [type: image]
+- 用途: エリア別ショップ 大図書館 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-library-shop.jpg
+
+### REQ-025 [type: image]
+- 用途: エリア別ショップ 決闘演武場 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-dueling-shop.jpg
+
+### REQ-026 [type: image]
+- 用途: エリア別ショップ 魔法陣召喚広場 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-summoning-shop.jpg
+
+### REQ-027 [type: image]
+- 用途: エリア別ショップ 天文台 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-observatory-shop.jpg
+
+### REQ-035 [type: image]
+- 用途: エリア別ショップ 錬金術研究棟 実験器具販売所 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-alchemy-tools.jpg
+
+### REQ-036 [type: image]
+- 用途: エリア別ショップ 飛行船ドック 風袋商会 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-airship-gear.jpg
+
+### REQ-037 [type: image]
+- 用途: エリア別ショップ 時計塔 歯車細工所 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-clock-accessories.jpg
+
+### REQ-038 [type: image]
+- 用途: エリア別ショップ 大図書館 魔法インク工房 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-library-tools.jpg
+
+### REQ-039 [type: image]
+- 用途: エリア別ショップ 決闘演武場 魔法武具展示室 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-dueling-gear.jpg
+
+### REQ-040 [type: image]
+- 用途: エリア別ショップ 魔法陣召喚広場 魔法陣工房 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-summoning-circle.jpg
+
+### REQ-041 [type: image]
+- 用途: エリア別ショップ 天文台 夜空雑貨店 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-observatory-goods.jpg
 
 ### REQ-010 [type: image]
 - 用途: 大図書館ページ — エリアヒーローバナー
 - 配置先パス: assets/images/exploration/hero-grand-library.jpg
-- 想定ツール: Midjourney
-- 提案プロンプト: Interior of a vast magical library, panoramic wide shot, seven-story atrium lined with emerald and brass bookshelves, floating candles ascending through the heights, ancient tomes and mystical light, no characters, cinematic painterly illustration --ar 5:1 --style raw
-- 補足: 全幅×240pxのヒーロービジュアル。深緑(#1f5c4a)と真鍮(#b08d57)が主役。蝋燭の光が吹き抜けを満たす垂直方向の奥行きを強調してほしい。
 
 ### REQ-011 [type: image]
 - 用途: 学院内探索 一覧ページ — 大図書館カードのサムネイル
 - 配置先パス: assets/images/exploration/thumb-grand-library.jpg
-- 想定ツール: Midjourney
-- 提案プロンプト: Magical library interior, wide banner crop, towering emerald bookshelves with floating candles and golden magical light, ancient books and mystical atmosphere, no characters, detailed painterly illustration, dark navy background --ar 2:1 --style raw
-- 補足: カード幅280px×高さ160pxに表示。深緑×真鍮の組み合わせで他エリアと差別化。
 
 ### REQ-012 [type: image]
 - 用途: 決闘演武場ページ — エリアヒーローバナー
 - 配置先パス: assets/images/exploration/hero-dueling-ground.jpg
-- 想定ツール: Midjourney
-- 提案プロンプト: Circular magical dueling arena, wide panoramic shot, stone floor carved with glowing crimson runic circles, tiered spectator seats surrounding the arena, dramatic crimson and ember light from activated spell impacts, no characters, cinematic painterly illustration --ar 5:1 --style raw
-- 補足: 全幅×240pxのヒーロービジュアル。深紅(#a03c3c)とアンバー(#c46a2b)が主役。床面の術式紋が光る様子を強調したい。
 
 ### REQ-013 [type: image]
 - 用途: 学院内探索 一覧ページ — 決闘演武場カードのサムネイル
 - 配置先パス: assets/images/exploration/thumb-dueling-ground.jpg
-- 想定ツール: Midjourney
-- 提案プロンプト: Magical dueling arena interior, wide banner crop, circular stone floor with glowing crimson runic patterns, dramatic spell light filling the arena, dark ink-blue background, no characters, detailed painterly illustration --ar 2:1 --style raw
-- 補足: カード幅280px×高さ160pxに表示。深紅×真鍮の組み合わせで緊迫感を。
 
 ### REQ-014 [type: image]
 - 用途: 天文台ページ — エリアヒーローバナー
 - 配置先パス: assets/images/exploration/hero-observatory.jpg
-- 想定ツール: Midjourney
-- 提案プロンプト: Interior of a magical observatory dome, panoramic wide shot, massive brass and crystal telescope pointing at a star-filled sky, azure magical lines flowing among constellations, antique astronomical instruments in the foreground, no characters, cinematic painterly illustration --ar 5:1 --style raw
-- 補足: 全幅×240pxのヒーロービジュアル。天空青(#4e8ea0)と真鍮(#b08d57)が主役。望遠鏡越しに見える星界の奥行きを強調してほしい。
 
 ### REQ-015 [type: image]
 - 用途: 学院内探索 一覧ページ — 天文台カードのサムネイル
 - 配置先パス: assets/images/exploration/thumb-observatory.jpg
-- 想定ツール: Midjourney
-- 提案プロンプト: Magical observatory interior, wide banner crop, large brass telescope aimed at azure star-filled night sky, magical constellation lines glowing blue, dark ink background, no characters, detailed painterly illustration --ar 2:1 --style raw
-- 補足: カード幅280px×高さ160pxに表示。天空青×真鍮の静謐な宇宙感を。
 
-## 対応済み
+### REQ-016 [type: image]
+- 用途: 購買部 制服・ローブページ — カテゴリヒーローバナー
+- 配置先パス: assets/images/shop/hero-uniforms.jpg
+
+### REQ-017 [type: image]
+- 用途: 購買部 魔導具・実験器具ページ — カテゴリヒーローバナー
+- 配置先パス: assets/images/shop/hero-tools.jpg
+
+### REQ-018 [type: image]
+- 用途: 購買部 みやげ・食品ページ — カテゴリヒーローバナー
+- 配置先パス: assets/images/shop/hero-souvenirs.jpg
+
+### REQ-019 [type: image]
+- 用途: 購買部 書籍・資料ページ — カテゴリヒーローバナー
+- 配置先パス: assets/images/shop/hero-books.jpg
+
+### REQ-020 [type: image]
+- 用途: 購買部 食料品・薬草ページ — カテゴリヒーローバナー
+- 配置先パス: assets/images/shop/hero-groceries.jpg
 
 ### REQ-008 [type: image]
 - 用途: 時計塔ページ — エリアヒーローバナー

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>回復スタンド「鉄と炎」 — 学食・喫茶室 — 王立魔法学院アルノルド</title>
+  <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/base.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/dining.css" />
+  <script src="{{BASE}}src/dining-menu.js" defer></script>
+</head>
+<body>
+<!-- HEADER -->
+<main>
+  <nav class="dining-breadcrumb" aria-label="パンくずリスト">
+    <a class="dining-breadcrumb__link" href="{{BASE}}dining/index.html">学食・喫茶室</a>
+    <span class="dining-breadcrumb__sep" aria-hidden="true">›</span>
+    <span class="dining-breadcrumb__current">回復スタンド「鉄と炎」（決闘演武場）</span>
+  </nav>
+
+  <section class="dining-page-hero">
+    <div class="dining-page-hero__visual dining-page-hero__visual--dueling">
+      <img class="dining-page-hero__visual-img" src="{{BASE}}assets/images/dining/hero-dueling-dining.jpg" alt="" />
+    </div>
+    <div class="dining-page-hero__body">
+      <p class="dining-page-hero__area">決闘演武場</p>
+      <h1 class="dining-page-hero__title">回復スタンド「鉄と炎」</h1>
+      <p class="dining-page-hero__desc">決闘を観戦しながら食べられる、スタンド形式の軽食店。試合前の選手が好んで飲む「魔力晶液」も一般販売。エネルギー補給に特化したメニューが揃い、観戦の合間に立ち寄る学生で常に賑わっています。</p>
+    </div>
+  </section>
+
+  <nav class="menu-nav" aria-label="メニューカテゴリ">
+    <a class="menu-nav__link" href="#drinks">ドリンク</a>
+    <a class="menu-nav__link" href="#food">フード</a>
+  </nav>
+
+  <div class="menu-content">
+
+    <section class="menu-section" id="drinks">
+      <h2 class="menu-section__heading">ドリンク</h2>
+      <ul class="menu-list">
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">魔力晶液「決闘前夜版」</h3>
+              <p class="menu-item__desc">試合前の選手が実際に飲む魔力補給ドリンクの一般販売版。やや甘みを抑えた晶質液で、エネルギー急補給に特化しています。観戦中に飲む来場者も多い。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥600（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="dueling-d01">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="dueling-d01" hidden>
+            <dl class="menu-detail">
+              <dt>材料</dt>
+              <dd>魔力晶エキス / 果実液 / 電解質（学院処方）</dd>
+              <dt>アレルギー</dt>
+              <dd>なし。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">魔力回復+25%（30分）。アクティブな状態にある時のみ有効です。</dd>
+            </dl>
+          </div>
+        </li>
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">観戦者の勝利ジュース</h3>
+              <p class="menu-item__desc">夏の試合シーズンに合わせた冷製フルーツジュース。赤い果実と橙が決闘場の炎を連想させる配色で、観客席で飲む姿が絵になります。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥350（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="dueling-d02">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="dueling-d02" hidden>
+            <dl class="menu-detail">
+              <dt>材料</dt>
+              <dd>赤果実（季節） / 柑橘 / 蜂蜜</dd>
+              <dt>アレルギー</dt>
+              <dd>なし。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">なし。試合の熱気とともにどうぞ。</dd>
+              <dt>提供期間</dt>
+              <dd>7〜9月の試合シーズン限定。</dd>
+            </dl>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+    <section class="menu-section" id="food">
+      <h2 class="menu-section__heading">フード</h2>
+      <ul class="menu-list">
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">観戦ベンチボックス「勝者の弁当」</h3>
+              <p class="menu-item__desc">手に持ったまま食べられる小ぶりのボックスランチ。サンドロール2個・干し果実・魔力キャラメル1粒。片手でベンチに座ったまま完結する設計で、目を離さずに観戦できます。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥780（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="dueling-f01">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="dueling-f01" hidden>
+            <dl class="menu-detail">
+              <dt>材料</dt>
+              <dd>サンドロール（小麦） / 野菜 / 干し果実 / 魔力キャラメル×1</dd>
+              <dt>アレルギー</dt>
+              <dd>小麦・乳製品含む。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">魔力キャラメル成分: 集中力微向上（15分）。決闘観戦中の観察眼が少し鋭くなります。</dd>
+            </dl>
+          </div>
+        </li>
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">鉄補給スープ「練武の一杯」</h3>
+              <p class="menu-item__desc">決闘演武場スタッフが毎朝仕込む鉄分豊富なビーツスープ。試合後に飲む選手も多く、疲弊した体に沁みる深い赤色が印象的です。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥520（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="dueling-f02">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="dueling-f02" hidden>
+            <dl class="menu-detail">
+              <dt>材料</dt>
+              <dd>ビーツ / 豆類 / 海塩 / 薬草2種</dd>
+              <dt>アレルギー</dt>
+              <dd>なし。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">体力回復促進（1時間）。激しい戦いの後の一杯として研究棟医師も推奨しています。</dd>
+            </dl>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+  </div>
+</main>
+<!-- FOOTER -->
+</body>
+</html>

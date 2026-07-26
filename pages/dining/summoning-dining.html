@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>召喚前夜祭カフェ「扉の前で」 — 学食・喫茶室 — 王立魔法学院アルノルド</title>
+  <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/base.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/dining.css" />
+  <script src="{{BASE}}src/dining-menu.js" defer></script>
+</head>
+<body>
+<!-- HEADER -->
+<main>
+  <nav class="dining-breadcrumb" aria-label="パンくずリスト">
+    <a class="dining-breadcrumb__link" href="{{BASE}}dining/index.html">学食・喫茶室</a>
+    <span class="dining-breadcrumb__sep" aria-hidden="true">›</span>
+    <span class="dining-breadcrumb__current">召喚前夜祭カフェ「扉の前で」（魔法陣召喚広場）</span>
+  </nav>
+
+  <section class="dining-page-hero">
+    <div class="dining-page-hero__visual dining-page-hero__visual--summoning">
+      <img class="dining-page-hero__visual-img" src="{{BASE}}assets/images/dining/hero-summoning-dining.jpg" alt="" />
+    </div>
+    <div class="dining-page-hero__body">
+      <p class="dining-page-hero__area">魔法陣召喚広場</p>
+      <h1 class="dining-page-hero__title">召喚前夜祭カフェ「扉の前で」</h1>
+      <p class="dining-page-hero__desc">召喚儀礼の夜を前に仲間と過ごす一時をコンセプトにした薄暗いカフェ。魔法陣を模した装飾と、神秘的な色合いのドリンクが来訪者を異世界の入口へ誘います。儀礼前の腹ごしらえに訪れる学生でいつも賑わっています。</p>
+    </div>
+  </section>
+
+  <nav class="menu-nav" aria-label="メニューカテゴリ">
+    <a class="menu-nav__link" href="#drinks">ドリンク</a>
+    <a class="menu-nav__link" href="#food">フード</a>
+  </nav>
+
+  <div class="menu-content">
+
+    <section class="menu-section" id="drinks">
+      <h2 class="menu-section__heading">ドリンク</h2>
+      <ul class="menu-list">
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">宵闇カクテルソーダ「召喚の前夜」</h3>
+              <p class="menu-item__desc">紫と漆黒が混ざり合うノンアルコールカクテル。2種の液を混ぜると色が変化する仕掛けが施されており、儀礼前の祈りを連想させる神秘的な一杯。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥520（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="summoning-d01">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="summoning-d01" hidden>
+            <dl class="menu-detail">
+              <dt>材料</dt>
+              <dd>ブルーベリー液 / 活性炭エキス / ライム / 炭酸</dd>
+              <dt>アレルギー</dt>
+              <dd>なし。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">直感力が一時的に高まることがあります（保証外・個人差あり）。</dd>
+              <dt>提供方法</dt>
+              <dd>2種の液を別々のグラスで提供。混ぜるタイミングはお客様の自由です。</dd>
+            </dl>
+          </div>
+        </li>
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">月詠みスープ</h3>
+              <p class="menu-item__desc">召喚儀礼前の腹ごしらえとして長年提供されている白い冷製スープ。冷えた月草の精水と豆乳が清めの効果を持つとされ、儀礼参加者の7割が事前に飲むという。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥680（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="summoning-d02">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="summoning-d02" hidden>
+            <dl class="menu-detail">
+              <dt>材料</dt>
+              <dd>月草精水 / 豆乳 / 白大根</dd>
+              <dt>アレルギー</dt>
+              <dd>大豆含む。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">精神集中。召喚儀礼前30分以内の服用が最も効果的とされています。</dd>
+            </dl>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+    <section class="menu-section" id="food">
+      <h2 class="menu-section__heading">フード</h2>
+      <ul class="menu-list">
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">召喚前の腹ごしらえプレート</h3>
+              <p class="menu-item__desc">儀礼を終えた後でも疲れにくいよう低魔力消費食材を選んだプレート。粒小麦のリゾット・薬草スティック・岩塩チップスの3点盛り。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥850（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="summoning-f01">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="summoning-f01" hidden>
+            <dl class="menu-detail">
+              <dt>材料</dt>
+              <dd>粒小麦 / 薬草3種 / 豆類 / 岩塩</dd>
+              <dt>アレルギー</dt>
+              <dd>小麦含む。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">魔力消費を抑制（2時間）。複数の召喚儀礼に参加する研究生に特に推奨されています。</dd>
+            </dl>
+          </div>
+        </li>
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">護符型クッキーセット</h3>
+              <p class="menu-item__desc">召喚研究室監修の陣形デザイン型で抜いたバタークッキー4枚セット。各クッキーに異なる術式紋様が刻まれており、「儀礼の前に食べると成功率が上がる」という根拠のない噂がある。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥450（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="summoning-f02">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="summoning-f02" hidden>
+            <dl class="menu-detail">
+              <dt>材料</dt>
+              <dd>小麦粉 / バター / 砂糖 / 卵</dd>
+              <dt>アレルギー</dt>
+              <dd>小麦・乳製品・卵含む。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">なし。おいしさのみです。</dd>
+            </dl>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+  </div>
+</main>
+<!-- FOOTER -->
+</body>
+</html>

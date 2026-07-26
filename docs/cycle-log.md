@@ -1,5 +1,88 @@
 # サイクル履歴
 
+## 2026-07-26 14:20
+- 実装: エリア別飲食店7ページ(秘薬スタンド・空賊カフェ・歯車喫茶・読書喫茶・
+  回復スタンド・召喚前夜祭カフェ・星見ダイナー)の dining-page-hero__visual に
+  img タグを追加し、到着済みREQ-042〜048画像を反映(M)。dining.cssに
+  .dining-page-hero__visual-img を追加、ベース要素に overflow:hidden を追加。
+  ASSET_REQUESTS.md の依頼中を空に。
+- レビュー: OK(指摘なし)
+- lint: ✓ / lint:css: ✓ / test: 148 passed ✓ / build: ✓
+- 次回予定: ROADMAPの全ページが完了状態になったため、TODO整理
+  (dining/index.html の dining-venue-feature__visual への画像反映、
+  shop/index.html の noscript フォールバック)または「今後のタスク候補」の
+  新規追加を検討する。
+- blocked / partial: なし
+- asset-pending: なし(素材依頼は依頼中0件・全て対応済み)
+
+## 2026-07-26 13:20
+- 実装: 購買部エリア別店舗詳細ページ14ページ(蒸留工房店・実験器具販売所・
+  羅針堂・風袋商会・時刻堂・歯車細工所・写本堂・魔法インク工房・決闘記念品店・
+  魔法武具展示室・召喚素材専門店・魔法陣工房・星図堂・夜空雑貨店)の
+  shop-hero__visual に img タグを追加し、到着済みREQ-021〜027・REQ-035〜041
+  画像を反映(M)。これで購買部の全サブタスクが完了したため status を完了に変更。
+- レビュー: OK(指摘なし)
+- lint: ✓ / lint:css: ✓ / test: 148 passed ✓ / build: ✓
+- 次回予定: 学食・喫茶室のエリア別飲食店7ページ(dining-page-hero__visual)に
+  実画像を反映(REQ-042〜048、画像到着済み)
+- blocked / partial: なし
+- asset-pending: なし(REQ-042〜048は画像到着済み・コード反映待ちのみ)
+
+## 2026-07-26 12:20
+- 実装: 購買部カテゴリページ5点(制服・魔導具・みやげ・書籍・食料品)の
+  shop-hero__visual に img タグ追加、到着済みREQ-016〜020画像を反映(S)
+  + 探索3エリア(大図書館・決闘演武場・天文台)の誤配置画像パス修正確認(S)
+  ※画像配置ミス(dinigタイプミス・rootディレクトリ重複)はユーザー依頼により
+  evolveサイクル外で先に修正済み。本サイクルはそれを前提に通常進行。
+  ASSET_REQUESTS.md: REQ-010〜020を対応済みへ移動、dining重複依頼
+  REQ-028〜034を整理(REQ-042〜048と同一パスのため削除)。
+  ROADMAP.md: 購買部残り14ページ・学食7ページの画像反映をTODO明記。
+- レビュー: OK(指摘なし)
+- lint: ✓ / lint:css: ✓ / test: 148 passed ✓ / build: ✓
+- 次回予定: 購買部エリア別店舗詳細14ページ、または学食エリア別7ページの
+  実画像反映(いずれも画像到着済み・img タグ追加のみで対応可能)
+- blocked / partial: なし
+- asset-pending: なし(REQ-021〜048は画像到着済み・コード反映待ちのみ)
+
+## 2026-07-26 10:20
+- 実装: エリア別飲食店詳細ページ × 7エリア (M) + 探索エリアページ施設セクション × 7 (S)
+  秘薬スタンド(錬金術)・空賊カフェ(飛行船)・歯車喫茶(時計塔)・読書喫茶(大図書館)
+  回復スタンド(決闘演武場)・召喚前夜祭カフェ(召喚広場)・星見ダイナー(天文台)
+  dining/index.html: 7エリアタブの--soon解除、dining-venue-feature カードに差し替え
+  shop-tabs.js: URL ハッシュで対応タブを自動アクティブ化
+  area-page.css: area-facilities リンクスタイル追加
+  dining.css: dining-page-hero・dining-venue-feature + 7エリアビジュアルパターン追加
+- レビュー: 指摘2件対応(REQ-042〜048 7件追加・ROADMAP タスク完了マーク)
+- lint: ✓ / lint:css: ✓ / test: 148 passed ✓ / build: ✓
+- 次回予定: 購買部セクション4の残件(制服・魔導具 img タグ対応 asset-pending) またはROADMAP次タスク
+- blocked / partial: なし
+- asset-pending: REQ-042〜048 (ダイニングヒーロー画像7件)
+
+## 2026-07-26 09:15
+- 実装: 購買部エリア詳細ページ残り4エリア×2店舗(M) + 学食エリアタブ化(M)
+  大図書館(写本堂・魔法インク工房)・決闘演武場(決闘記念品店・魔法武具展示室)
+  魔法陣召喚広場(召喚素材専門店・魔法陣工房)・天文台(星図堂・夜空雑貨店) 計8ページ
+  shop/index.html: 4タブの--soon解除・実カードリスト追加
+  dining/index.html: 8エリアタブ構造に改修(中央学食+7エリア近日公開)、shop-tabs.js流用
+  dining.css: タブスタイル追加、二重パディングを.dining-tabs .menu-contentで防止
+- レビュー: 指摘2件対応(dining二重padding修正・REQ-038〜041 4件追加)
+- lint: ✓ / lint:css: ✓ / test: 127 passed ✓ / build: 32 shopページ含む全ページ ✓
+- 次回予定: エリア別飲食店詳細ページ × 7エリア (dining/<area>-dining.html)
+- blocked / partial: なし
+- asset-pending: REQ-038〜041
+
+## 2026-07-26 08:28
+- 実装: 購買部 エリアタブ化(M) + 3エリア×2店舗 詳細ページ新設(M・partial)
+  shop/index.html: 8エリアタブ構造に改修。中央購買部タブに既存5カテゴリ存続。
+  錬金術研究棟(蒸留工房店・実験器具販売所) / 飛行船ドック(羅針堂・風袋商会) / 時計塔(時刻堂・歯車細工所)
+  src/shop-tabs.js: IIFE タブ切り替え + キーボードナビゲーション
+  styles: shop.css タブ+エリアカード修飾子 / shop-page.css エリアショップビジュアル
+- レビュー: 指摘1件(A-1: アセット依頼漏れ REQ-035〜037 追記)対応済み
+- lint: ✓ / lint:css: ✓ / test: ✓(103件) / build: ✓
+- 次回予定: エリア詳細ページ残り4エリア(大図書館・決闘演武場・召喚広場・天文台) または dining/index.html エリアタブ化
+- blocked / partial: エリア別店舗ページ partial — 残り4エリア未実装
+- asset-pending: REQ-035(alchemy-tools) / REQ-036(airship-gear) / REQ-037(clock-accessories)
+
 ## 2026-07-26 07:04
 - 実装: 学院案内(サービス情報) 服装規定(S) + Q&A(S) + 学院ルール(S) → 完了
   pages/guide/index.html: 3区分服装パネル / 6問Q&Aアコーディオン / 5規則リスト

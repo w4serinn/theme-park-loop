@@ -42,6 +42,13 @@
   overflow: hidden;
 }
 
+.shop-hero__visual-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .shop-hero__visual--uniforms {
   background-color: color-mix(in srgb, var(--ember) 20%, var(--ink));
   background-image: repeating-linear-gradient(
@@ -131,6 +138,274 @@
   margin: 0;
   line-height: 1.7;
   max-width: 600px;
+}
+
+/* エリアショップ ヒーロービジュアル */
+.shop-hero__visual--alchemy-shop {
+  background-color: color-mix(in srgb, var(--ember) 22%, var(--ink));
+  background-image: repeating-linear-gradient(
+    30deg,
+    transparent,
+    transparent 10px,
+    color-mix(in oklch, var(--ember) 8%, transparent) 10px,
+    color-mix(in oklch, var(--ember) 8%, transparent) 11px
+  );
+}
+
+.shop-hero__visual--alchemy-tools {
+  background-color: color-mix(in srgb, var(--azure) 20%, var(--ink));
+  background-image: repeating-radial-gradient(
+    circle at 50% 50%,
+    transparent,
+    transparent 18px,
+    color-mix(in oklch, var(--azure) 8%, transparent) 18px,
+    color-mix(in oklch, var(--azure) 8%, transparent) 19px
+  );
+}
+
+.shop-hero__visual--airship-shop {
+  background-color: color-mix(in srgb, var(--azure) 24%, var(--ink));
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 12px,
+    color-mix(in oklch, var(--azure) 9%, transparent) 12px,
+    color-mix(in oklch, var(--azure) 9%, transparent) 13px
+  );
+}
+
+.shop-hero__visual--airship-gear {
+  background-color: color-mix(in srgb, var(--azure) 18%, var(--ink));
+  background-image:
+    repeating-linear-gradient(
+      60deg,
+      transparent,
+      transparent 14px,
+      color-mix(in oklch, var(--ember) 7%, transparent) 14px,
+      color-mix(in oklch, var(--ember) 7%, transparent) 15px
+    ),
+    repeating-linear-gradient(
+      -60deg,
+      transparent,
+      transparent 14px,
+      color-mix(in oklch, var(--azure) 7%, transparent) 14px,
+      color-mix(in oklch, var(--azure) 7%, transparent) 15px
+    );
+}
+
+.shop-hero__visual--clock-shop {
+  background-color: color-mix(in srgb, var(--silver) 20%, var(--ink));
+  background-image: repeating-radial-gradient(
+    circle at 60% 40%,
+    transparent,
+    transparent 22px,
+    color-mix(in oklch, var(--silver) 9%, transparent) 22px,
+    color-mix(in oklch, var(--silver) 9%, transparent) 23px
+  );
+}
+
+.shop-hero__visual--clock-accessories {
+  background-color: color-mix(in srgb, var(--silver) 16%, var(--ink));
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 14px,
+    color-mix(in oklch, var(--silver) 8%, transparent) 14px,
+    color-mix(in oklch, var(--silver) 8%, transparent) 15px
+  );
+}
+
+.shop-hero__visual--library-shop {
+  background-color: color-mix(in srgb, var(--emerald) 32%, var(--ink));
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 28px,
+    color-mix(in oklch, var(--brass) 8%, transparent) 28px,
+    color-mix(in oklch, var(--brass) 8%, transparent) 29px
+  );
+}
+
+.shop-hero__visual--library-tools {
+  background-color: color-mix(in srgb, var(--emerald) 24%, var(--ink));
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 12px,
+    color-mix(in oklch, var(--emerald) 9%, transparent) 12px,
+    color-mix(in oklch, var(--emerald) 9%, transparent) 13px
+  );
+}
+
+.shop-hero__visual--dueling-shop {
+  background-color: color-mix(in srgb, var(--crimson) 20%, var(--ink));
+  background-image: repeating-radial-gradient(
+    circle at 50% 50%,
+    transparent,
+    transparent 18px,
+    color-mix(in oklch, var(--crimson) 8%, transparent) 18px,
+    color-mix(in oklch, var(--crimson) 8%, transparent) 19px
+  );
+}
+
+.shop-hero__visual--dueling-gear {
+  background-color: color-mix(in srgb, var(--crimson) 16%, var(--ink));
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 14px,
+      color-mix(in oklch, var(--crimson) 7%, transparent) 14px,
+      color-mix(in oklch, var(--crimson) 7%, transparent) 15px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 14px,
+      color-mix(in oklch, var(--ember) 7%, transparent) 14px,
+      color-mix(in oklch, var(--ember) 7%, transparent) 15px
+    );
+}
+
+.shop-hero__visual--summoning-shop {
+  background-color: color-mix(in srgb, var(--arcane) 18%, var(--ink));
+  background-image: repeating-radial-gradient(
+    circle at 40% 60%,
+    transparent,
+    transparent 16px,
+    color-mix(in oklch, var(--arcane) 9%, transparent) 16px,
+    color-mix(in oklch, var(--arcane) 9%, transparent) 17px
+  );
+}
+
+.shop-hero__visual--summoning-circle {
+  background-color: color-mix(in srgb, var(--arcane) 14%, var(--ink));
+  background-image:
+    repeating-linear-gradient(
+      30deg,
+      transparent,
+      transparent 16px,
+      color-mix(in oklch, var(--arcane) 8%, transparent) 16px,
+      color-mix(in oklch, var(--arcane) 8%, transparent) 17px
+    ),
+    repeating-linear-gradient(
+      -30deg,
+      transparent,
+      transparent 16px,
+      color-mix(in oklch, var(--arcane) 8%, transparent) 16px,
+      color-mix(in oklch, var(--arcane) 8%, transparent) 17px
+    );
+}
+
+.shop-hero__visual--observatory-shop {
+  background-color: color-mix(in srgb, var(--azure) 20%, var(--ink));
+  background-image: repeating-radial-gradient(
+    circle at 50% 50%,
+    transparent,
+    transparent 24px,
+    color-mix(in oklch, var(--azure) 8%, transparent) 24px,
+    color-mix(in oklch, var(--azure) 8%, transparent) 25px
+  );
+}
+
+.shop-hero__visual--observatory-goods {
+  background-color: color-mix(in srgb, var(--azure) 16%, var(--ink));
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 16px,
+    color-mix(in oklch, var(--silver) 8%, transparent) 16px,
+    color-mix(in oklch, var(--silver) 8%, transparent) 17px
+  );
+}
+
+/* エリアショップ 商品ビジュアル */
+.product-entry__visual--alchemy-item {
+  background-color: color-mix(in srgb, var(--ember) 20%, var(--ink));
+  background-image: repeating-linear-gradient(
+    30deg,
+    transparent,
+    transparent 8px,
+    color-mix(in oklch, var(--ember) 8%, transparent) 8px,
+    color-mix(in oklch, var(--ember) 8%, transparent) 9px
+  );
+}
+
+.product-entry__visual--alchemy-tool-item {
+  background-color: color-mix(in srgb, var(--azure) 18%, var(--ink));
+  background-image: repeating-radial-gradient(
+    circle at 50% 50%,
+    transparent,
+    transparent 12px,
+    color-mix(in oklch, var(--azure) 9%, transparent) 12px,
+    color-mix(in oklch, var(--azure) 9%, transparent) 13px
+  );
+}
+
+.product-entry__visual--airship-item {
+  background-color: color-mix(in srgb, var(--azure) 22%, var(--ink));
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 8px,
+    color-mix(in oklch, var(--azure) 8%, transparent) 8px,
+    color-mix(in oklch, var(--azure) 8%, transparent) 9px
+  );
+}
+
+.product-entry__visual--clock-item {
+  background-color: color-mix(in srgb, var(--silver) 18%, var(--ink));
+  background-image: repeating-radial-gradient(
+    circle at 50% 50%,
+    transparent,
+    transparent 14px,
+    color-mix(in oklch, var(--silver) 9%, transparent) 14px,
+    color-mix(in oklch, var(--silver) 9%, transparent) 15px
+  );
+}
+
+.product-entry__visual--library-item {
+  background-color: color-mix(in srgb, var(--emerald) 28%, var(--ink));
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 16px,
+    color-mix(in oklch, var(--brass) 9%, transparent) 16px,
+    color-mix(in oklch, var(--brass) 9%, transparent) 17px
+  );
+}
+
+.product-entry__visual--dueling-item {
+  background-color: color-mix(in srgb, var(--crimson) 18%, var(--ink));
+  background-image: repeating-radial-gradient(
+    circle at 50% 50%,
+    transparent,
+    transparent 12px,
+    color-mix(in oklch, var(--crimson) 9%, transparent) 12px,
+    color-mix(in oklch, var(--crimson) 9%, transparent) 13px
+  );
+}
+
+.product-entry__visual--summoning-item {
+  background-color: color-mix(in srgb, var(--arcane) 16%, var(--ink));
+  background-image: repeating-radial-gradient(
+    circle at 40% 60%,
+    transparent,
+    transparent 12px,
+    color-mix(in oklch, var(--arcane) 9%, transparent) 12px,
+    color-mix(in oklch, var(--arcane) 9%, transparent) 13px
+  );
+}
+
+.product-entry__visual--observatory-item {
+  background-color: color-mix(in srgb, var(--azure) 18%, var(--ink));
+  background-image: repeating-radial-gradient(
+    circle at 50% 50%,
+    transparent,
+    transparent 16px,
+    color-mix(in oklch, var(--azure) 9%, transparent) 16px,
+    color-mix(in oklch, var(--azure) 9%, transparent) 17px
+  );
 }
 
 /* コンテンツエリア */

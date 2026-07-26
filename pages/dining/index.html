@@ -16,268 +16,376 @@
     <p class="dining-hero__desc">農園直送の薬草と学院牛舎産の食材で作るアルノルドの食卓。魔力を消費した後の一皿は、どんな回復薬よりも身に沁みます。</p>
   </div>
 
-  <nav class="menu-nav" aria-label="メニューカテゴリ">
-    <a class="menu-nav__link" href="#lunch">ランチ</a>
-    <a class="menu-nav__link" href="#sweets">スイーツ</a>
-    <a class="menu-nav__link" href="#drinks">ドリンク</a>
-  </nav>
+  <div class="dining-tabs">
+    <div class="tab-nav" role="tablist" aria-label="エリア選択">
+      <button class="tab-btn is-active" role="tab" id="tabBtn-central" aria-selected="true" aria-controls="tab-central" tabindex="0">中央学食</button>
+      <button class="tab-btn" role="tab" id="tabBtn-alchemy" aria-selected="false" aria-controls="tab-alchemy" tabindex="-1">錬金術研究棟</button>
+      <button class="tab-btn" role="tab" id="tabBtn-airship" aria-selected="false" aria-controls="tab-airship" tabindex="-1">飛行船ドック</button>
+      <button class="tab-btn" role="tab" id="tabBtn-clock" aria-selected="false" aria-controls="tab-clock" tabindex="-1">時計塔</button>
+      <button class="tab-btn" role="tab" id="tabBtn-library" aria-selected="false" aria-controls="tab-library" tabindex="-1">大図書館</button>
+      <button class="tab-btn" role="tab" id="tabBtn-dueling" aria-selected="false" aria-controls="tab-dueling" tabindex="-1">決闘演武場</button>
+      <button class="tab-btn" role="tab" id="tabBtn-summoning" aria-selected="false" aria-controls="tab-summoning" tabindex="-1">魔法陣召喚広場</button>
+      <button class="tab-btn" role="tab" id="tabBtn-observatory" aria-selected="false" aria-controls="tab-observatory" tabindex="-1">天文台</button>
+    </div>
 
-  <div class="seasonal-banner" role="note" aria-label="限定・季節メニュー">
-    <p class="seasonal-banner__heading">★ 限定・季節メニュー</p>
-    <ul class="seasonal-banner__list">
+    <!-- 中央学食 -->
+    <div class="tab-panel" id="tab-central" role="tabpanel" aria-labelledby="tabBtn-central">
 
-      <li>
-        <div class="seasonal-item">
-          <p class="seasonal-item__name">学院祭限定「錬金師の火鍋」</p>
-          <p class="seasonal-item__price">¥1,200（税込）</p>
+      <div class="seasonal-banner" role="note" aria-label="限定・季節メニュー">
+        <p class="seasonal-banner__heading">★ 限定・季節メニュー</p>
+        <ul class="seasonal-banner__list">
+
+          <li>
+            <div class="seasonal-item">
+              <p class="seasonal-item__name">学院祭限定「錬金師の火鍋」</p>
+              <p class="seasonal-item__price">¥1,200（税込）</p>
+            </div>
+            <p class="seasonal-item__note">魔法陣で加熱する本格鍋。学院祭3日目・4日目（11:00〜14:00）のみ提供。2名以上推奨。</p>
+          </li>
+
+          <li>
+            <div class="seasonal-item">
+              <p class="seasonal-item__name">秋冬限定「薬草スパイスドリンク」</p>
+              <p class="seasonal-item__price">¥480（税込）</p>
+            </div>
+            <p class="seasonal-item__note">月草・シナモン・カルダモンをブレンドしたノンアルコールホットドリンク。10〜2月提供。</p>
+          </li>
+
+        </ul>
+      </div>
+
+      <nav class="menu-nav" aria-label="メニューカテゴリ">
+        <a class="menu-nav__link" href="#lunch">ランチ</a>
+        <a class="menu-nav__link" href="#sweets">スイーツ</a>
+        <a class="menu-nav__link" href="#drinks">ドリンク</a>
+      </nav>
+
+      <div class="menu-content">
+
+        <section class="menu-section" id="lunch">
+          <h2 class="menu-section__heading">ランチ</h2>
+          <ul class="menu-list">
+
+            <li class="menu-item">
+              <div class="menu-item__header">
+                <div class="menu-item__meta">
+                  <h3 class="menu-item__name">錬金師のシチュー（日替わり）</h3>
+                  <p class="menu-item__desc">学院農園の旬野菜と手作りブイヨンで仕立てた、今日のシチュー。具材と風味は毎日変わります。本日分は完売次第終了。</p>
+                </div>
+                <div class="menu-item__aside">
+                  <p class="menu-item__price">¥680（税込）</p>
+                  <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="menu-detail-01">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+                </div>
+              </div>
+              <div class="menu-item__panel" id="menu-detail-01" hidden>
+                <dl class="menu-detail">
+                  <dt>材料</dt>
+                  <dd>旬野菜（日替わり） / 鶏または牛のブイヨン / 薬草1種 / 小麦粉（とろみ）</dd>
+                  <dt>アレルギー</dt>
+                  <dd>小麦含む。一部日程で卵を使用する場合があります。カウンターにてご確認ください。</dd>
+                  <dt class="menu-detail__magic-dt">魔法効果</dt>
+                  <dd class="menu-detail__magic">集中力 +15%（約30分間有効）。授業前のご利用をおすすめします。</dd>
+                </dl>
+              </div>
+            </li>
+
+            <li class="menu-item">
+              <div class="menu-item__header">
+                <div class="menu-item__meta">
+                  <h3 class="menu-item__name">学院定番 魔道師ハヤシ</h3>
+                  <p class="menu-item__desc">深夜実習の後でも胃に優しいよう、ベシャメルと安息薬草を隠し味にした定番丼。長年在学生に愛され続ける一品。</p>
+                </div>
+                <div class="menu-item__aside">
+                  <p class="menu-item__price">¥750（税込）</p>
+                  <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="menu-detail-02">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+                </div>
+              </div>
+              <div class="menu-item__panel" id="menu-detail-02" hidden>
+                <dl class="menu-detail">
+                  <dt>材料</dt>
+                  <dd>牛肉薄切り / 赤玉ねぎ / トマト / ベシャメルソース / 安息薬草（微量）</dd>
+                  <dt>アレルギー</dt>
+                  <dd>小麦・乳製品含む。</dd>
+                  <dt class="menu-detail__magic-dt">魔法効果</dt>
+                  <dd class="menu-detail__magic">魔力消費量 −5%（2時間）。詠唱速度には影響しません。</dd>
+                </dl>
+              </div>
+            </li>
+
+            <li class="menu-item">
+              <div class="menu-item__header">
+                <div class="menu-item__meta">
+                  <h3 class="menu-item__name">薬草キノコのグラタン</h3>
+                  <p class="menu-item__desc">薬草園と山林区画直送のキノコ類を惜しみなく使ったグラタン。チーズはアルノルド地方産エルダーチーズ。</p>
+                </div>
+                <div class="menu-item__aside">
+                  <p class="menu-item__price">¥820（税込）</p>
+                  <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="menu-detail-03">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+                </div>
+              </div>
+              <div class="menu-item__panel" id="menu-detail-03" hidden>
+                <dl class="menu-detail">
+                  <dt>材料</dt>
+                  <dd>薬草3種 / 季節のキノコ / エルダーチーズ / 生クリーム / 小麦粉</dd>
+                  <dt>アレルギー</dt>
+                  <dd>小麦・乳製品含む。</dd>
+                  <dt class="menu-detail__magic-dt">魔法効果</dt>
+                  <dd class="menu-detail__magic">なし（食材の自然な力のみ。それで十分です）。</dd>
+                </dl>
+              </div>
+            </li>
+
+          </ul>
+        </section>
+
+        <section class="menu-section" id="sweets">
+          <h2 class="menu-section__heading">スイーツ</h2>
+          <ul class="menu-list">
+
+            <li class="menu-item">
+              <div class="menu-item__header">
+                <div class="menu-item__meta">
+                  <h3 class="menu-item__name">月光クレームブリュレ</h3>
+                  <p class="menu-item__desc">満月の夜に収穫した月草エキスを1滴加えて焼き上げた特製ブリュレ。カラメルを砕く瞬間、仄かな光が漏れます。</p>
+                </div>
+                <div class="menu-item__aside">
+                  <p class="menu-item__price">¥480（税込）</p>
+                  <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="menu-detail-04">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+                </div>
+              </div>
+              <div class="menu-item__panel" id="menu-detail-04" hidden>
+                <dl class="menu-detail">
+                  <dt>材料</dt>
+                  <dd>牛乳 / 生クリーム / 卵黄 / グラニュー糖 / 月草エキス（1滴）</dd>
+                  <dt>アレルギー</dt>
+                  <dd>乳製品・卵含む。</dd>
+                  <dt class="menu-detail__magic-dt">魔法効果</dt>
+                  <dd class="menu-detail__magic">就寝時に鮮明な夢を見やすくなることがあります（個人差あり・保証外）。</dd>
+                </dl>
+              </div>
+            </li>
+
+            <li class="menu-item">
+              <div class="menu-item__header">
+                <div class="menu-item__meta">
+                  <h3 class="menu-item__name">鉄皮林檎のアップルパイ</h3>
+                  <p class="menu-item__desc">錬金術研究棟の林檎園で採れた一般品の3倍甘い「鉄皮林檎」を使用。サクサクのパイ生地は毎朝7時に仕込んでいます。</p>
+                </div>
+                <div class="menu-item__aside">
+                  <p class="menu-item__price">¥420（税込）</p>
+                  <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="menu-detail-05">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+                </div>
+              </div>
+              <div class="menu-item__panel" id="menu-detail-05" hidden>
+                <dl class="menu-detail">
+                  <dt>材料</dt>
+                  <dd>鉄皮林檎 / バター / 小麦粉 / シナモン / 卵</dd>
+                  <dt>アレルギー</dt>
+                  <dd>小麦・乳製品・卵含む。</dd>
+                  <dt class="menu-detail__magic-dt">魔法効果</dt>
+                  <dd class="menu-detail__magic">なし。おいしさが全てです。</dd>
+                </dl>
+              </div>
+            </li>
+
+            <li class="menu-item">
+              <div class="menu-item__header">
+                <div class="menu-item__meta">
+                  <h3 class="menu-item__name">魔力チャージ マフィン</h3>
+                  <p class="menu-item__desc">授業前に愛される魔力ナッツ入りブルーベリーマフィン。効能は魔法学科4年生が研究したレシピに基づいています。</p>
+                </div>
+                <div class="menu-item__aside">
+                  <p class="menu-item__price">¥380（税込）</p>
+                  <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="menu-detail-06">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+                </div>
+              </div>
+              <div class="menu-item__panel" id="menu-detail-06" hidden>
+                <dl class="menu-detail">
+                  <dt>材料</dt>
+                  <dd>小麦粉 / ブルーベリー / 魔力ナッツ（砕き） / 砂糖 / 卵</dd>
+                  <dt>アレルギー</dt>
+                  <dd>小麦・卵・ナッツ類含む。</dd>
+                  <dt class="menu-detail__magic-dt">魔法効果</dt>
+                  <dd class="menu-detail__magic">魔力上限が微量増加します（約1時間）。実習前後どちらのタイミングでも有効。</dd>
+                </dl>
+              </div>
+            </li>
+
+          </ul>
+        </section>
+
+        <section class="menu-section" id="drinks">
+          <h2 class="menu-section__heading">ドリンク</h2>
+          <ul class="menu-list">
+
+            <li class="menu-item">
+              <div class="menu-item__header">
+                <div class="menu-item__meta">
+                  <h3 class="menu-item__name">星詠みハーブティー</h3>
+                  <p class="menu-item__desc">天文台の研究員が調合した星詠み用ブレンド茶。澄んだ視界と集中を助けるとされ、夜間観測前に飲む学生も多い。ホット/アイス可。</p>
+                </div>
+                <div class="menu-item__aside">
+                  <p class="menu-item__price">¥350（税込）</p>
+                  <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="menu-detail-07">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+                </div>
+              </div>
+              <div class="menu-item__panel" id="menu-detail-07" hidden>
+                <dl class="menu-detail">
+                  <dt>材料</dt>
+                  <dd>月草 / カモミール / エルダーフラワー / ラベンダー</dd>
+                  <dt>アレルギー</dt>
+                  <dd>なし。</dd>
+                  <dt class="menu-detail__magic-dt">魔法効果</dt>
+                  <dd class="menu-detail__magic">視覚の解像度がわずかに向上します。星の輝きがより細かく見えるようになる方も。</dd>
+                </dl>
+              </div>
+            </li>
+
+            <li class="menu-item">
+              <div class="menu-item__header">
+                <div class="menu-item__meta">
+                  <h3 class="menu-item__name">エルダーフラワーソーダ</h3>
+                  <p class="menu-item__desc">薬草園のエルダーフラワーを手摘みしてシロップに仕立てた無糖ソーダ。学院公式飲料として在校生・教員を問わず愛飲されています。</p>
+                </div>
+                <div class="menu-item__aside">
+                  <p class="menu-item__price">¥400（税込）</p>
+                  <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="menu-detail-08">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+                </div>
+              </div>
+              <div class="menu-item__panel" id="menu-detail-08" hidden>
+                <dl class="menu-detail">
+                  <dt>材料</dt>
+                  <dd>エルダーフラワーシロップ（手作り） / 炭酸水（学院天然水脈産）</dd>
+                  <dt>アレルギー</dt>
+                  <dd>なし。</dd>
+                  <dt class="menu-detail__magic-dt">魔法効果</dt>
+                  <dd class="menu-detail__magic">なし。穏やかな午後のお供にどうぞ。</dd>
+                </dl>
+              </div>
+            </li>
+
+            <li class="menu-item">
+              <div class="menu-item__header">
+                <div class="menu-item__meta">
+                  <h3 class="menu-item__name">魔力補給ミルク</h3>
+                  <p class="menu-item__desc">魔法陣管理の学院牛舎から採れた生乳を低温殺菌したもの。特別な加工はないが、学院の土壌で育った牛が産む素直な美味しさ。</p>
+                </div>
+                <div class="menu-item__aside">
+                  <p class="menu-item__price">¥320（税込）</p>
+                  <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="menu-detail-09">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+                </div>
+              </div>
+              <div class="menu-item__panel" id="menu-detail-09" hidden>
+                <dl class="menu-detail">
+                  <dt>材料</dt>
+                  <dd>学院牛舎産生乳（低温殺菌・無添加）</dd>
+                  <dt>アレルギー</dt>
+                  <dd>乳製品含む。</dd>
+                  <dt class="menu-detail__magic-dt">魔法効果</dt>
+                  <dd class="menu-detail__magic">なし。それ以上でも以下でもありません。</dd>
+                </dl>
+              </div>
+            </li>
+
+          </ul>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- 錬金術研究棟 -->
+    <div class="tab-panel" id="tab-alchemy" role="tabpanel" aria-labelledby="tabBtn-alchemy" hidden>
+      <div class="dining-venue-feature">
+        <div class="dining-venue-feature__visual dining-venue-feature__visual--alchemy" aria-hidden="true"></div>
+        <div class="dining-venue-feature__body">
+          <p class="dining-venue-feature__area">錬金術研究棟</p>
+          <h2 class="dining-venue-feature__name">秘薬スタンド</h2>
+          <p class="dining-venue-feature__desc">研究棟で試作されたポーションをテーマにした立ち飲みスタンド。試薬フラスコを模したドリンクや焼き立て薬草パイで、本物の錬金術師気分を味わえます。研究棟の学生が開発に携わった限定レシピが定期的に入れ替わります。</p>
+          <a class="dining-venue-feature__link" href="{{BASE}}dining/alchemy-dining.html">メニューを見る ▶</a>
         </div>
-        <p class="seasonal-item__note">魔法陣で加熱する本格鍋。学院祭3日目・4日目（11:00〜14:00）のみ提供。2名以上推奨。</p>
-      </li>
+      </div>
+    </div>
 
-      <li>
-        <div class="seasonal-item">
-          <p class="seasonal-item__name">秋冬限定「薬草スパイスドリンク」</p>
-          <p class="seasonal-item__price">¥480（税込）</p>
+    <!-- 飛行船ドック -->
+    <div class="tab-panel" id="tab-airship" role="tabpanel" aria-labelledby="tabBtn-airship" hidden>
+      <div class="dining-venue-feature">
+        <div class="dining-venue-feature__visual dining-venue-feature__visual--airship" aria-hidden="true"></div>
+        <div class="dining-venue-feature__body">
+          <p class="dining-venue-feature__area">飛行船ドック</p>
+          <h2 class="dining-venue-feature__name">空賊カフェ「嵐の羅針盤」</h2>
+          <p class="dining-venue-feature__desc">飛行船ドックに停泊中の改造貨物船を模した外観が目を引くカフェ。船上厨房で仕立てる本格的な食事と甲板コーヒーが名物で、「高度5,000mの航路を想定した備蓄食」コンセプトのフードが揃います。</p>
+          <a class="dining-venue-feature__link" href="{{BASE}}dining/airship-dining.html">メニューを見る ▶</a>
         </div>
-        <p class="seasonal-item__note">月草・シナモン・カルダモンをブレンドしたノンアルコールホットドリンク。10〜2月提供。</p>
-      </li>
+      </div>
+    </div>
 
-    </ul>
-  </div>
+    <!-- 時計塔 -->
+    <div class="tab-panel" id="tab-clock" role="tabpanel" aria-labelledby="tabBtn-clock" hidden>
+      <div class="dining-venue-feature">
+        <div class="dining-venue-feature__visual dining-venue-feature__visual--clock" aria-hidden="true"></div>
+        <div class="dining-venue-feature__body">
+          <p class="dining-venue-feature__area">時計塔</p>
+          <h2 class="dining-venue-feature__name">歯車喫茶「鐘と砂」</h2>
+          <p class="dining-venue-feature__desc">時計塔の最下層に設けられた喫茶室。透過ガラス越しに見える歯車の動きを眺めながら、手間ひまかけたスチームミルクと焼き菓子が楽しめます。毎正時に鐘の音が響く、時間の流れを感じる空間です。</p>
+          <a class="dining-venue-feature__link" href="{{BASE}}dining/clock-tower-dining.html">メニューを見る ▶</a>
+        </div>
+      </div>
+    </div>
 
-  <div class="menu-content">
+    <!-- 大図書館 -->
+    <div class="tab-panel" id="tab-library" role="tabpanel" aria-labelledby="tabBtn-library" hidden>
+      <div class="dining-venue-feature">
+        <div class="dining-venue-feature__visual dining-venue-feature__visual--library" aria-hidden="true"></div>
+        <div class="dining-venue-feature__body">
+          <p class="dining-venue-feature__area">大図書館</p>
+          <h2 class="dining-venue-feature__name">読書喫茶「書の香り」</h2>
+          <p class="dining-venue-feature__desc">大図書館の別館棟1階に位置する静かな喫茶室。本棚に囲まれたアンティーク調の内装と、司書が選んだ茶葉のブレンドが人気。館内の複製本を手に取りながら、午後の一杯をどうぞ。</p>
+          <a class="dining-venue-feature__link" href="{{BASE}}dining/library-dining.html">メニューを見る ▶</a>
+        </div>
+      </div>
+    </div>
 
-    <section class="menu-section" id="lunch">
-      <h2 class="menu-section__heading">ランチ</h2>
-      <ul class="menu-list">
+    <!-- 決闘演武場 -->
+    <div class="tab-panel" id="tab-dueling" role="tabpanel" aria-labelledby="tabBtn-dueling" hidden>
+      <div class="dining-venue-feature">
+        <div class="dining-venue-feature__visual dining-venue-feature__visual--dueling" aria-hidden="true"></div>
+        <div class="dining-venue-feature__body">
+          <p class="dining-venue-feature__area">決闘演武場</p>
+          <h2 class="dining-venue-feature__name">回復スタンド「鉄と炎」</h2>
+          <p class="dining-venue-feature__desc">決闘を観戦しながら食べられる、スタンド形式の軽食店。試合前の選手が好んで飲む魔力晶液も一般販売。エネルギー補給に特化したメニューが揃い、観戦の合間に立ち寄る学生で常に賑わっています。</p>
+          <a class="dining-venue-feature__link" href="{{BASE}}dining/dueling-dining.html">メニューを見る ▶</a>
+        </div>
+      </div>
+    </div>
 
-        <li class="menu-item">
-          <div class="menu-item__header">
-            <div class="menu-item__meta">
-              <h3 class="menu-item__name">錬金師のシチュー（日替わり）</h3>
-              <p class="menu-item__desc">学院農園の旬野菜と手作りブイヨンで仕立てた、今日のシチュー。具材と風味は毎日変わります。本日分は完売次第終了。</p>
-            </div>
-            <div class="menu-item__aside">
-              <p class="menu-item__price">¥680（税込）</p>
-              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="menu-detail-01">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
-            </div>
-          </div>
-          <div class="menu-item__panel" id="menu-detail-01" hidden>
-            <dl class="menu-detail">
-              <dt>材料</dt>
-              <dd>旬野菜（日替わり） / 鶏または牛のブイヨン / 薬草1種 / 小麦粉（とろみ）</dd>
-              <dt>アレルギー</dt>
-              <dd>小麦含む。一部日程で卵を使用する場合があります。カウンターにてご確認ください。</dd>
-              <dt class="menu-detail__magic-dt">魔法効果</dt>
-              <dd class="menu-detail__magic">集中力 +15%（約30分間有効）。授業前のご利用をおすすめします。</dd>
-            </dl>
-          </div>
-        </li>
+    <!-- 魔法陣召喚広場 -->
+    <div class="tab-panel" id="tab-summoning" role="tabpanel" aria-labelledby="tabBtn-summoning" hidden>
+      <div class="dining-venue-feature">
+        <div class="dining-venue-feature__visual dining-venue-feature__visual--summoning" aria-hidden="true"></div>
+        <div class="dining-venue-feature__body">
+          <p class="dining-venue-feature__area">魔法陣召喚広場</p>
+          <h2 class="dining-venue-feature__name">召喚前夜祭カフェ「扉の前で」</h2>
+          <p class="dining-venue-feature__desc">召喚儀礼の夜を前に仲間と過ごす一時をコンセプトにした薄暗いカフェ。魔法陣を模した装飾と神秘的な色合いのドリンクが来訪者を異世界の入口へ誘います。儀礼前の腹ごしらえに訪れる学生でいつも賑わっています。</p>
+          <a class="dining-venue-feature__link" href="{{BASE}}dining/summoning-dining.html">メニューを見る ▶</a>
+        </div>
+      </div>
+    </div>
 
-        <li class="menu-item">
-          <div class="menu-item__header">
-            <div class="menu-item__meta">
-              <h3 class="menu-item__name">学院定番 魔道師ハヤシ</h3>
-              <p class="menu-item__desc">深夜実習の後でも胃に優しいよう、ベシャメルと安息薬草を隠し味にした定番丼。長年在学生に愛され続ける一品。</p>
-            </div>
-            <div class="menu-item__aside">
-              <p class="menu-item__price">¥750（税込）</p>
-              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="menu-detail-02">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
-            </div>
-          </div>
-          <div class="menu-item__panel" id="menu-detail-02" hidden>
-            <dl class="menu-detail">
-              <dt>材料</dt>
-              <dd>牛肉薄切り / 赤玉ねぎ / トマト / ベシャメルソース / 安息薬草（微量）</dd>
-              <dt>アレルギー</dt>
-              <dd>小麦・乳製品含む。</dd>
-              <dt class="menu-detail__magic-dt">魔法効果</dt>
-              <dd class="menu-detail__magic">魔力消費量 −5%（2時間）。詠唱速度には影響しません。</dd>
-            </dl>
-          </div>
-        </li>
-
-        <li class="menu-item">
-          <div class="menu-item__header">
-            <div class="menu-item__meta">
-              <h3 class="menu-item__name">薬草キノコのグラタン</h3>
-              <p class="menu-item__desc">薬草園と山林区画直送のキノコ類を惜しみなく使ったグラタン。チーズはアルノルド地方産エルダーチーズ。</p>
-            </div>
-            <div class="menu-item__aside">
-              <p class="menu-item__price">¥820（税込）</p>
-              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="menu-detail-03">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
-            </div>
-          </div>
-          <div class="menu-item__panel" id="menu-detail-03" hidden>
-            <dl class="menu-detail">
-              <dt>材料</dt>
-              <dd>薬草3種 / 季節のキノコ / エルダーチーズ / 生クリーム / 小麦粉</dd>
-              <dt>アレルギー</dt>
-              <dd>小麦・乳製品含む。</dd>
-              <dt class="menu-detail__magic-dt">魔法効果</dt>
-              <dd class="menu-detail__magic">なし（食材の自然な力のみ。それで十分です）。</dd>
-            </dl>
-          </div>
-        </li>
-
-      </ul>
-    </section>
-
-    <section class="menu-section" id="sweets">
-      <h2 class="menu-section__heading">スイーツ</h2>
-      <ul class="menu-list">
-
-        <li class="menu-item">
-          <div class="menu-item__header">
-            <div class="menu-item__meta">
-              <h3 class="menu-item__name">月光クレームブリュレ</h3>
-              <p class="menu-item__desc">満月の夜に収穫した月草エキスを1滴加えて焼き上げた特製ブリュレ。カラメルを砕く瞬間、仄かな光が漏れます。</p>
-            </div>
-            <div class="menu-item__aside">
-              <p class="menu-item__price">¥480（税込）</p>
-              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="menu-detail-04">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
-            </div>
-          </div>
-          <div class="menu-item__panel" id="menu-detail-04" hidden>
-            <dl class="menu-detail">
-              <dt>材料</dt>
-              <dd>牛乳 / 生クリーム / 卵黄 / グラニュー糖 / 月草エキス（1滴）</dd>
-              <dt>アレルギー</dt>
-              <dd>乳製品・卵含む。</dd>
-              <dt class="menu-detail__magic-dt">魔法効果</dt>
-              <dd class="menu-detail__magic">就寝時に鮮明な夢を見やすくなることがあります（個人差あり・保証外）。</dd>
-            </dl>
-          </div>
-        </li>
-
-        <li class="menu-item">
-          <div class="menu-item__header">
-            <div class="menu-item__meta">
-              <h3 class="menu-item__name">鉄皮林檎のアップルパイ</h3>
-              <p class="menu-item__desc">錬金術研究棟の林檎園で採れた一般品の3倍甘い「鉄皮林檎」を使用。サクサクのパイ生地は毎朝7時に仕込んでいます。</p>
-            </div>
-            <div class="menu-item__aside">
-              <p class="menu-item__price">¥420（税込）</p>
-              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="menu-detail-05">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
-            </div>
-          </div>
-          <div class="menu-item__panel" id="menu-detail-05" hidden>
-            <dl class="menu-detail">
-              <dt>材料</dt>
-              <dd>鉄皮林檎 / バター / 小麦粉 / シナモン / 卵</dd>
-              <dt>アレルギー</dt>
-              <dd>小麦・乳製品・卵含む。</dd>
-              <dt class="menu-detail__magic-dt">魔法効果</dt>
-              <dd class="menu-detail__magic">なし。おいしさが全てです。</dd>
-            </dl>
-          </div>
-        </li>
-
-        <li class="menu-item">
-          <div class="menu-item__header">
-            <div class="menu-item__meta">
-              <h3 class="menu-item__name">魔力チャージ マフィン</h3>
-              <p class="menu-item__desc">授業前に愛される魔力ナッツ入りブルーベリーマフィン。効能は魔法学科4年生が研究したレシピに基づいています。</p>
-            </div>
-            <div class="menu-item__aside">
-              <p class="menu-item__price">¥380（税込）</p>
-              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="menu-detail-06">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
-            </div>
-          </div>
-          <div class="menu-item__panel" id="menu-detail-06" hidden>
-            <dl class="menu-detail">
-              <dt>材料</dt>
-              <dd>小麦粉 / ブルーベリー / 魔力ナッツ（砕き） / 砂糖 / 卵</dd>
-              <dt>アレルギー</dt>
-              <dd>小麦・卵・ナッツ類含む。</dd>
-              <dt class="menu-detail__magic-dt">魔法効果</dt>
-              <dd class="menu-detail__magic">魔力上限が微量増加します（約1時間）。実習前後どちらのタイミングでも有効。</dd>
-            </dl>
-          </div>
-        </li>
-
-      </ul>
-    </section>
-
-    <section class="menu-section" id="drinks">
-      <h2 class="menu-section__heading">ドリンク</h2>
-      <ul class="menu-list">
-
-        <li class="menu-item">
-          <div class="menu-item__header">
-            <div class="menu-item__meta">
-              <h3 class="menu-item__name">星詠みハーブティー</h3>
-              <p class="menu-item__desc">天文台の研究員が調合した星詠み用ブレンド茶。澄んだ視界と集中を助けるとされ、夜間観測前に飲む学生も多い。ホット/アイス可。</p>
-            </div>
-            <div class="menu-item__aside">
-              <p class="menu-item__price">¥350（税込）</p>
-              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="menu-detail-07">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
-            </div>
-          </div>
-          <div class="menu-item__panel" id="menu-detail-07" hidden>
-            <dl class="menu-detail">
-              <dt>材料</dt>
-              <dd>月草 / カモミール / エルダーフラワー / ラベンダー</dd>
-              <dt>アレルギー</dt>
-              <dd>なし。</dd>
-              <dt class="menu-detail__magic-dt">魔法効果</dt>
-              <dd class="menu-detail__magic">視覚の解像度がわずかに向上します。星の輝きがより細かく見えるようになる方も。</dd>
-            </dl>
-          </div>
-        </li>
-
-        <li class="menu-item">
-          <div class="menu-item__header">
-            <div class="menu-item__meta">
-              <h3 class="menu-item__name">エルダーフラワーソーダ</h3>
-              <p class="menu-item__desc">薬草園のエルダーフラワーを手摘みしてシロップに仕立てた無糖ソーダ。学院公式飲料として在校生・教員を問わず愛飲されています。</p>
-            </div>
-            <div class="menu-item__aside">
-              <p class="menu-item__price">¥400（税込）</p>
-              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="menu-detail-08">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
-            </div>
-          </div>
-          <div class="menu-item__panel" id="menu-detail-08" hidden>
-            <dl class="menu-detail">
-              <dt>材料</dt>
-              <dd>エルダーフラワーシロップ（手作り） / 炭酸水（学院天然水脈産）</dd>
-              <dt>アレルギー</dt>
-              <dd>なし。</dd>
-              <dt class="menu-detail__magic-dt">魔法効果</dt>
-              <dd class="menu-detail__magic">なし。穏やかな午後のお供にどうぞ。</dd>
-            </dl>
-          </div>
-        </li>
-
-        <li class="menu-item">
-          <div class="menu-item__header">
-            <div class="menu-item__meta">
-              <h3 class="menu-item__name">魔力補給ミルク</h3>
-              <p class="menu-item__desc">魔法陣管理の学院牛舎から採れた生乳を低温殺菌したもの。特別な加工はないが、学院の土壌で育った牛が産む素直な美味しさ。</p>
-            </div>
-            <div class="menu-item__aside">
-              <p class="menu-item__price">¥320（税込）</p>
-              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="menu-detail-09">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
-            </div>
-          </div>
-          <div class="menu-item__panel" id="menu-detail-09" hidden>
-            <dl class="menu-detail">
-              <dt>材料</dt>
-              <dd>学院牛舎産生乳（低温殺菌・無添加）</dd>
-              <dt>アレルギー</dt>
-              <dd>乳製品含む。</dd>
-              <dt class="menu-detail__magic-dt">魔法効果</dt>
-              <dd class="menu-detail__magic">なし。それ以上でも以下でもありません。</dd>
-            </dl>
-          </div>
-        </li>
-
-      </ul>
-    </section>
-
+    <!-- 天文台 -->
+    <div class="tab-panel" id="tab-observatory" role="tabpanel" aria-labelledby="tabBtn-observatory" hidden>
+      <div class="dining-venue-feature">
+        <div class="dining-venue-feature__visual dining-venue-feature__visual--observatory" aria-hidden="true"></div>
+        <div class="dining-venue-feature__body">
+          <p class="dining-venue-feature__area">天文台</p>
+          <h2 class="dining-venue-feature__name">星見ダイナー「ふたご座の食卓」</h2>
+          <p class="dining-venue-feature__desc">天文台の展望テラス下に位置する夜景付きのダイナー。星座表をテーブルに埋め込んだインテリアが人気で、夜間観測の前後に訪れる学生が絶えません。天体観測士が推薦するメニューが揃います。</p>
+          <a class="dining-venue-feature__link" href="{{BASE}}dining/observatory-dining.html">メニューを見る ▶</a>
+        </div>
+      </div>
+    </div>
   </div>
 </main>
 <!-- FOOTER -->
-<script src="{{BASE}}src/dining-menu.js" defer></script>
+<script src="{{BASE}}src/shop-tabs.js" defer></script>
 </body>
 </html>

@@ -105,6 +105,76 @@
   border-top-color: var(--arcane);
 }
 
+.category-card--alchemy-shop .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--ember);
+}
+
+.category-card--alchemy-tools .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--azure);
+}
+
+.category-card--airship-shop .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--azure);
+}
+
+.category-card--airship-gear .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--ember);
+}
+
+.category-card--clock-shop .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--silver);
+}
+
+.category-card--clock-accessories .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--silver);
+}
+
+.category-card--library-shop .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--emerald);
+}
+
+.category-card--library-tools .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--emerald);
+}
+
+.category-card--dueling-shop .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--crimson);
+}
+
+.category-card--dueling-gear .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--crimson);
+}
+
+.category-card--summoning-shop .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--arcane);
+}
+
+.category-card--summoning-circle .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--arcane);
+}
+
+.category-card--observatory-shop .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--azure);
+}
+
+.category-card--observatory-goods .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--azure);
+}
+
 .category-card--uniforms .category-card__link:hover {
   border-color: var(--ember);
 }
@@ -197,6 +267,308 @@
     );
 }
 
+/* エリアタブ */
+.shop-tabs {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+
+.tab-nav {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 2px solid color-mix(in oklch, var(--brass) 28%, transparent);
+  margin-bottom: 2rem;
+  scrollbar-width: none;
+}
+
+.tab-nav::-webkit-scrollbar {
+  display: none;
+}
+
+/* タブボタン — base → --soon base → :hover → .is-active → --soon:hover → --soon.is-active */
+.tab-btn {
+  flex-shrink: 0;
+  padding: 0.75rem 1.25rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid;
+  border-bottom-color: transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-family: inherit;
+  font-weight: 700;
+  color: color-mix(in oklch, var(--brass) 68%, transparent);
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.tab-btn--soon {
+  color: color-mix(in oklch, var(--brass) 42%, transparent);
+}
+
+.tab-btn:hover {
+  color: var(--brass);
+}
+
+.tab-btn.is-active {
+  color: var(--brass);
+  border-bottom-color: var(--brass);
+}
+
+.tab-btn--soon:hover {
+  color: color-mix(in oklch, var(--brass) 58%, transparent);
+}
+
+.tab-btn--soon.is-active {
+  color: color-mix(in oklch, var(--brass) 58%, transparent);
+  border-bottom-color: color-mix(in oklch, var(--brass) 40%, transparent);
+}
+
+.tab-panel__soon {
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  color: color-mix(in oklch, var(--brass) 55%, transparent);
+  font-style: italic;
+}
+
+/* エリア別ショップカード: hover */
+.category-card--alchemy-shop .category-card__link:hover {
+  border-color: var(--ember);
+}
+
+.category-card--alchemy-tools .category-card__link:hover {
+  border-color: var(--azure);
+}
+
+.category-card--airship-shop .category-card__link:hover {
+  border-color: var(--azure);
+}
+
+.category-card--airship-gear .category-card__link:hover {
+  border-color: var(--ember);
+}
+
+.category-card--clock-shop .category-card__link:hover {
+  border-color: var(--silver);
+}
+
+.category-card--clock-accessories .category-card__link:hover {
+  border-color: var(--silver);
+}
+
+.category-card--library-shop .category-card__link:hover {
+  border-color: var(--emerald);
+}
+
+.category-card--library-tools .category-card__link:hover {
+  border-color: var(--emerald);
+}
+
+.category-card--dueling-shop .category-card__link:hover {
+  border-color: var(--crimson);
+}
+
+.category-card--dueling-gear .category-card__link:hover {
+  border-color: var(--crimson);
+}
+
+.category-card--summoning-shop .category-card__link:hover {
+  border-color: var(--arcane);
+}
+
+.category-card--summoning-circle .category-card__link:hover {
+  border-color: var(--arcane);
+}
+
+.category-card--observatory-shop .category-card__link:hover {
+  border-color: var(--azure);
+}
+
+.category-card--observatory-goods .category-card__link:hover {
+  border-color: var(--azure);
+}
+
+/* エリア別ショップカード: visual */
+.category-card--alchemy-shop .category-card__visual {
+  background-color: color-mix(in srgb, var(--ember) 22%, var(--ink));
+  background-image: repeating-linear-gradient(
+    30deg,
+    transparent,
+    transparent 10px,
+    color-mix(in oklch, var(--ember) 8%, transparent) 10px,
+    color-mix(in oklch, var(--ember) 8%, transparent) 11px
+  );
+}
+
+.category-card--alchemy-tools .category-card__visual {
+  background-color: color-mix(in srgb, var(--azure) 20%, var(--ink));
+  background-image: repeating-radial-gradient(
+    circle at 50% 50%,
+    transparent,
+    transparent 18px,
+    color-mix(in oklch, var(--azure) 8%, transparent) 18px,
+    color-mix(in oklch, var(--azure) 8%, transparent) 19px
+  );
+}
+
+.category-card--airship-shop .category-card__visual {
+  background-color: color-mix(in srgb, var(--azure) 24%, var(--ink));
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 12px,
+    color-mix(in oklch, var(--azure) 9%, transparent) 12px,
+    color-mix(in oklch, var(--azure) 9%, transparent) 13px
+  );
+}
+
+.category-card--airship-gear .category-card__visual {
+  background-color: color-mix(in srgb, var(--azure) 18%, var(--ink));
+  background-image:
+    repeating-linear-gradient(
+      60deg,
+      transparent,
+      transparent 14px,
+      color-mix(in oklch, var(--ember) 7%, transparent) 14px,
+      color-mix(in oklch, var(--ember) 7%, transparent) 15px
+    ),
+    repeating-linear-gradient(
+      -60deg,
+      transparent,
+      transparent 14px,
+      color-mix(in oklch, var(--azure) 7%, transparent) 14px,
+      color-mix(in oklch, var(--azure) 7%, transparent) 15px
+    );
+}
+
+.category-card--clock-shop .category-card__visual {
+  background-color: color-mix(in srgb, var(--silver) 20%, var(--ink));
+  background-image: repeating-radial-gradient(
+    circle at 60% 40%,
+    transparent,
+    transparent 22px,
+    color-mix(in oklch, var(--silver) 9%, transparent) 22px,
+    color-mix(in oklch, var(--silver) 9%, transparent) 23px
+  );
+}
+
+.category-card--clock-accessories .category-card__visual {
+  background-color: color-mix(in srgb, var(--silver) 16%, var(--ink));
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 14px,
+    color-mix(in oklch, var(--silver) 8%, transparent) 14px,
+    color-mix(in oklch, var(--silver) 8%, transparent) 15px
+  );
+}
+
+.category-card--library-shop .category-card__visual {
+  background-color: color-mix(in srgb, var(--emerald) 32%, var(--ink));
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 28px,
+    color-mix(in oklch, var(--brass) 8%, transparent) 28px,
+    color-mix(in oklch, var(--brass) 8%, transparent) 29px
+  );
+}
+
+.category-card--library-tools .category-card__visual {
+  background-color: color-mix(in srgb, var(--emerald) 24%, var(--ink));
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 12px,
+    color-mix(in oklch, var(--emerald) 9%, transparent) 12px,
+    color-mix(in oklch, var(--emerald) 9%, transparent) 13px
+  );
+}
+
+.category-card--dueling-shop .category-card__visual {
+  background-color: color-mix(in srgb, var(--crimson) 20%, var(--ink));
+  background-image: repeating-radial-gradient(
+    circle at 50% 50%,
+    transparent,
+    transparent 18px,
+    color-mix(in oklch, var(--crimson) 8%, transparent) 18px,
+    color-mix(in oklch, var(--crimson) 8%, transparent) 19px
+  );
+}
+
+.category-card--dueling-gear .category-card__visual {
+  background-color: color-mix(in srgb, var(--crimson) 16%, var(--ink));
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 14px,
+      color-mix(in oklch, var(--crimson) 7%, transparent) 14px,
+      color-mix(in oklch, var(--crimson) 7%, transparent) 15px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 14px,
+      color-mix(in oklch, var(--ember) 7%, transparent) 14px,
+      color-mix(in oklch, var(--ember) 7%, transparent) 15px
+    );
+}
+
+.category-card--summoning-shop .category-card__visual {
+  background-color: color-mix(in srgb, var(--arcane) 18%, var(--ink));
+  background-image: repeating-radial-gradient(
+    circle at 40% 60%,
+    transparent,
+    transparent 16px,
+    color-mix(in oklch, var(--arcane) 9%, transparent) 16px,
+    color-mix(in oklch, var(--arcane) 9%, transparent) 17px
+  );
+}
+
+.category-card--summoning-circle .category-card__visual {
+  background-color: color-mix(in srgb, var(--arcane) 14%, var(--ink));
+  background-image:
+    repeating-linear-gradient(
+      30deg,
+      transparent,
+      transparent 16px,
+      color-mix(in oklch, var(--arcane) 8%, transparent) 16px,
+      color-mix(in oklch, var(--arcane) 8%, transparent) 17px
+    ),
+    repeating-linear-gradient(
+      -30deg,
+      transparent,
+      transparent 16px,
+      color-mix(in oklch, var(--arcane) 8%, transparent) 16px,
+      color-mix(in oklch, var(--arcane) 8%, transparent) 17px
+    );
+}
+
+.category-card--observatory-shop .category-card__visual {
+  background-color: color-mix(in srgb, var(--azure) 20%, var(--ink));
+  background-image: repeating-radial-gradient(
+    circle at 50% 50%,
+    transparent,
+    transparent 24px,
+    color-mix(in oklch, var(--azure) 8%, transparent) 24px,
+    color-mix(in oklch, var(--azure) 8%, transparent) 25px
+  );
+}
+
+.category-card--observatory-goods .category-card__visual {
+  background-color: color-mix(in srgb, var(--azure) 16%, var(--ink));
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 16px,
+    color-mix(in oklch, var(--silver) 8%, transparent) 16px,
+    color-mix(in oklch, var(--silver) 8%, transparent) 17px
+  );
+}
+
 @media (width <= 600px) {
   .page-hero {
     padding: 2rem 1rem 1.5rem;
@@ -208,6 +580,10 @@
 
   .shop-categories {
     padding: 1.5rem 1rem 2rem;
+  }
+
+  .shop-tabs {
+    padding: 0 1rem 2rem;
   }
 
   .category-cards {
