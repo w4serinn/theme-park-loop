@@ -76,6 +76,10 @@
   border-bottom: 1px solid color-mix(in oklch, var(--brass) 25%, transparent);
 }
 
+.event-card[hidden] {
+  display: none;
+}
+
 /* 注目イベント */
 .event-card--featured {
   background-color: color-mix(in oklch, var(--emerald) 8%, var(--ink));

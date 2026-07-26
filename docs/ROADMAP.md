@@ -43,14 +43,15 @@ evolveループはこの方針を毎サイクル遵守すること:
 
 ## バグ修正(最優先 — 通常機能より先に上から順に着手する)
 
-- [ ] (S) 学食・喫茶室: 中央学食タブ内の「詳細」ボタンを押しても展開されない。
-      原因特定済み: `pages/dining/index.html` に `.menu-item__trigger` を処理する
-      `src/dining-menu.js` が読み込まれていない(`src/shop-tabs.js` のみ読み込み)。
-      `<script src="{{BASE}}src/dining-menu.js" defer></script>` を追加すれば解消見込み。
-- [ ] (S) 学院祭・行事: 春夏秋冬の季節フィルターボタンを押しても表示が絞り込まれない。
-      `src/season-filter.js` と `pages/events/index.html` の `data-filter`/`data-season`
-      属性は一致しておりコード上は正常に見えるため、実機で再現条件を確認した上で
-      原因を特定して修正する(スクリプトエラー・キャッシュ等の可能性も含めて調査)。
+- [x] (S) 学食・喫茶室: 中央学食タブ内の「詳細」ボタンを押しても展開されない。
+      原因: `pages/dining/index.html` に `.menu-item__trigger` を処理する
+      `src/dining-menu.js` が読み込まれていなかった(`src/shop-tabs.js` のみ読み込み)。
+      `<script src="{{BASE}}src/dining-menu.js" defer></script>` を追加して解消した。
+- [x] (S) 学院祭・行事: 春夏秋冬の季節フィルターボタンを押しても表示が絞り込まれない。
+      原因: `styles/events.css` の `.event-card { display: grid; }` が、ネイティブの
+      `[hidden] { display: none; }` (UAスタイルシート)と同じ詳細度(0,1,0)のため
+      後勝ちで上書きし、JSが `card.hidden = true` を設定しても実際には非表示に
+      ならなかった。`.event-card[hidden] { display: none; }` を追加して解消した。
 - [ ] (M) 全ページ共通: ヒーロービジュアル(`area-hero__visual` / `shop-hero__visual` /
       `dining-page-hero__visual`)がウィンドウ幅を広げると画像下部が見切れ、上部しか
       見えなくなる。現状は `object-fit: cover` のみで `object-position` は未指定
