@@ -46,6 +46,153 @@
   margin: 0 0 1.5rem;
 }
 
+.guide-section__lead {
+  font-size: 0.9rem;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  line-height: 1.7;
+  margin: 0 0 1.25rem;
+}
+
+/* 園内サービス施設 DL */
+.facility-list {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+}
+
+.facility-list dt {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--brass);
+  padding: 0.9rem 1.25rem 0.9rem 0;
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 18%, transparent);
+  white-space: nowrap;
+}
+
+.facility-list dd {
+  padding: 0.9rem 0 0.9rem 1.25rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 18%, transparent);
+  border-left: 1px solid color-mix(in oklch, var(--brass) 18%, transparent);
+  color: color-mix(in oklch, var(--brass) 85%, transparent);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.facility-list dt:last-of-type,
+.facility-list dd:last-of-type {
+  border-bottom: none;
+}
+
+.facility-note {
+  font-size: 0.8rem;
+  color: color-mix(in oklch, var(--brass) 76%, transparent);
+  display: block;
+  margin-top: 0.2rem;
+}
+
+/* バリアフリー・多言語対応(枠なし2カラム) */
+.accessibility-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.accessibility-col__heading {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 0.75rem;
+}
+
+.accessibility-col__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.875rem;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+}
+
+.accessibility-col__list li {
+  padding: 0.25rem 0 0.25rem 1rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.accessibility-col__list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  font-size: 0.7rem;
+  top: 0.38rem;
+  color: var(--ember);
+}
+
+/* 案内役の魔法生物(media object) */
+.mascot-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mascot {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.mascot__avatar {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: color-mix(in srgb, var(--brass) 18%, var(--ink));
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 6px,
+    color-mix(in srgb, var(--brass) 8%, transparent) 6px,
+    color-mix(in srgb, var(--brass) 8%, transparent) 12px
+  );
+  border: 2px solid color-mix(in oklch, var(--brass) 35%, transparent);
+}
+
+.mascot--owl .mascot__avatar {
+  background-color: color-mix(in srgb, var(--emerald) 22%, var(--ink));
+}
+
+.mascot--mouse .mascot__avatar {
+  background-color: color-mix(in srgb, var(--silver) 22%, var(--ink));
+}
+
+.mascot--rabbit .mascot__avatar {
+  background-color: color-mix(in srgb, var(--azure) 22%, var(--ink));
+}
+
+.mascot__name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 0.4rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.mascot__role {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--ember);
+  border: 1px solid color-mix(in oklch, var(--ember) 50%, transparent);
+  padding: 0.1rem 0.45rem;
+}
+
+.mascot__desc {
+  font-size: 0.85rem;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  line-height: 1.7;
+  margin: 0;
+}
+
 /* 服装・持ち物: 3パネル */
 .dress-panels {
   display: flex;
@@ -216,5 +363,16 @@
 
   .dress-panels {
     flex-direction: column;
+  }
+
+  .accessibility-columns {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .mascot {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 }
