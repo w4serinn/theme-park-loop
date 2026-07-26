@@ -177,6 +177,15 @@ npm run build
   この運用により `docs/ROADMAP.md` 側は常に「見出し・紹介文・注記・未完了
   サブタスクのみ」の軽量な状態を保ち、evolveループ自身が毎サイクル読む
   コンテキスト量を抑えられる。
+  **例外: `## バグ修正` セクションの項目は、解消してもすぐには退避しない。**
+  `scripts/roadmap-utils.js` の `getBugfixResolutionNews()` が
+  `docs/ROADMAP.md` 側の `[x]` 行を直接読んで「新たに解消されたバグ」を
+  検出し、自動マージ・news.json追記のトリガーにしているため、解消直後に
+  退避すると検出されなくなる。`git fetch` して `origin/main` の
+  `docs/ROADMAP.md` を確認し、解消した項目が既に取り込まれている
+  (`chore: update news for completed pages` のコミットが入っている、
+  またはPRがマージ済み)ことを確認できたサイクルで、まとめて
+  `docs/roadmap-done.md` の「## バグ修正(解消済み)」欄へ退避する。
 - ページのサブタスクが全て完了した場合(`docs/ROADMAP.md` 側にそのページの
   `- [ ]` 行が1つも残っていない状態)、該当ページの status を `完了` にする
   (紹介文は既に書かれていればそのままでよい)
