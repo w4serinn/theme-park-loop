@@ -636,6 +636,50 @@
     );
 }
 
+/* dining-venue-feature__visual — 一覧ページのエリアタブカードには
+   heroと同じ実画像を背景として反映(aria-hiddenの装飾要素のためimgタグは使わない) */
+.dining-venue-feature__visual--alchemy {
+  background-image: url('../assets/images/dining/hero-alchemy-dining.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.dining-venue-feature__visual--airship {
+  background-image: url('../assets/images/dining/hero-airship-dining.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.dining-venue-feature__visual--clock {
+  background-image: url('../assets/images/dining/hero-clock-tower-dining.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.dining-venue-feature__visual--library {
+  background-image: url('../assets/images/dining/hero-library-dining.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.dining-venue-feature__visual--dueling {
+  background-image: url('../assets/images/dining/hero-dueling-dining.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.dining-venue-feature__visual--summoning {
+  background-image: url('../assets/images/dining/hero-summoning-dining.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.dining-venue-feature__visual--observatory {
+  background-image: url('../assets/images/dining/hero-observatory-dining.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
 @media (width <= 600px) {
   .dining-page-hero__visual {
     height: 160px;
