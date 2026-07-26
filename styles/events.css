@@ -21,11 +21,15 @@
   line-height: 1.7;
 }
 
-/* 季節フィルター */
+/* 季節・エリアフィルター */
 .event-filter {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.event-filter--area {
   margin-bottom: 2rem;
 }
 
@@ -196,6 +200,19 @@
   background-color: color-mix(in oklch, var(--ink) 60%, transparent);
   color: var(--brass);
   border: 1px solid color-mix(in oklch, var(--brass) 30%, transparent);
+}
+
+/* エリアタグ */
+.event-card__area {
+  display: inline-block;
+  font-size: 0.7rem;
+  color: color-mix(in oklch, var(--brass) 76%, transparent);
+  letter-spacing: 0.02em;
+}
+
+.event-card__area::before {
+  content: '⊕ ';
+  color: var(--ember);
 }
 
 /* 詳細展開トリガー */
