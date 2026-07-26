@@ -7,7 +7,26 @@
 
 ## 依頼中(未対応)
 
-(現在なし)
+### REQ-049 [type: image]
+- 用途: 学院への道のり 提携宿泊施設「銀時計亭」 — 宿泊施設カードサムネイル
+- 配置先パス: assets/images/access/lodging-inn.jpg
+- 想定ツール: Midjourney(実写風・雰囲気重視)
+- 提案プロンプト: cozy traditional Japanese-style ryokan inn exterior at dusk, brass clock tower visible in background, warm amber lantern light, steampunk fantasy academy town, painterly illustration, muted brass and deep ink color palette --ar 3:2
+- 補足: `--brass`/`--ember`系の暖色でまとめ、時計塔との近さが伝わる構図が望ましい。
+
+### REQ-050 [type: image]
+- 用途: 学院への道のり 提携宿泊施設「魔法街道ステーションホテル」 — 宿泊施設カードサムネイル
+- 配置先パス: assets/images/access/lodging-hotel.jpg
+- 想定ツール: Midjourney(実写風・雰囲気重視)
+- 提案プロンプト: elegant western-style station hotel facade next to a magical steam train platform, brass fixtures, evening glow from windows, steampunk fantasy academy town, painterly illustration, brass and deep ink color palette --ar 3:2
+- 補足: 駅前という立地が伝わるよう、背景に線路や駅舎の一部を入れる。
+
+### REQ-051 [type: image]
+- 用途: 学院への道のり 提携宿泊施設「星降る丘コテージ」 — 宿泊施設カードサムネイル
+- 配置先パス: assets/images/access/lodging-cottage.jpg
+- 想定ツール: Midjourney(実写風・雰囲気重視)
+- 提案プロンプト: small hillside cottage under a starry night sky, telescope on the balcony, deep emerald forest surroundings, warm window light, steampunk fantasy academy world, painterly illustration, emerald and deep ink color palette --ar 3:2
+- 補足: 天文台の「星空観測」との世界観連携を意識し、望遠鏡や星空を必ず含める。
 
 ## 対応済み
 
