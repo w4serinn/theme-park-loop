@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>読書喫茶「書の香り」 — 学食・喫茶室 — 王立魔法学院アルノルド</title>
+  <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/base.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/dining.css" />
+  <script src="{{BASE}}src/dining-menu.js" defer></script>
+</head>
+<body>
+<!-- HEADER -->
+<main>
+  <nav class="dining-breadcrumb" aria-label="パンくずリスト">
+    <a class="dining-breadcrumb__link" href="{{BASE}}dining/index.html">学食・喫茶室</a>
+    <span class="dining-breadcrumb__sep" aria-hidden="true">›</span>
+    <span class="dining-breadcrumb__current">読書喫茶「書の香り」（大図書館）</span>
+  </nav>
+
+  <section class="dining-page-hero">
+    <div class="dining-page-hero__visual dining-page-hero__visual--library"></div>
+    <div class="dining-page-hero__body">
+      <p class="dining-page-hero__area">大図書館</p>
+      <h1 class="dining-page-hero__title">読書喫茶「書の香り」</h1>
+      <p class="dining-page-hero__desc">大図書館の別館棟1階に位置する静かな喫茶室。本棚に囲まれたアンティーク調の内装と、司書が選んだ茶葉のブレンドが人気です。館内の複製本を手に取りながら、午後の一杯をどうぞ。</p>
+    </div>
+  </section>
+
+  <nav class="menu-nav" aria-label="メニューカテゴリ">
+    <a class="menu-nav__link" href="#light">軽食</a>
+    <a class="menu-nav__link" href="#drinks">ドリンク・茶</a>
+  </nav>
+
+  <div class="menu-content">
+
+    <section class="menu-section" id="light">
+      <h2 class="menu-section__heading">軽食</h2>
+      <ul class="menu-list">
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">写本師の午後セット（スコーン+茶）</h3>
+              <p class="menu-item__desc">本革装丁の茶缶に入った特選茶葉を使ったポットサービスに、バター香るスコーン2個付き。読書のお供として長年愛される定番セット。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥820（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="library-l01">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="library-l01" hidden>
+            <dl class="menu-detail">
+              <dt>材料</dt>
+              <dd>特選茶葉（3種ブレンド） / スコーン（小麦・バター・卵使用）</dd>
+              <dt>アレルギー</dt>
+              <dd>小麦・乳製品・卵含む。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">集中力持続+20分。3時間を超える読書セッションに特に効果的です。</dd>
+            </dl>
+          </div>
+        </li>
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">黒インクゼリー</h3>
+              <p class="menu-item__desc">ぶどうと墨烏賊の深い黒が特徴的なゼリー。「写本師が仮眠前に食べる」という逸話から生まれた一品。見た目より穏やかな風味で、食べた後に手が黒くなることはありません。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥420（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="library-l02">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="library-l02" hidden>
+            <dl class="menu-detail">
+              <dt>材料</dt>
+              <dd>ぶどうジュース / コラーゲン / 墨烏賊エキス（微量）</dd>
+              <dt>アレルギー</dt>
+              <dd>なし。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">文字の視認性がわずかに向上します（読書セッション中のみ）。</dd>
+            </dl>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+    <section class="menu-section" id="drinks">
+      <h2 class="menu-section__heading">ドリンク・茶</h2>
+      <ul class="menu-list">
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">薬草緑茶「沈静の一服」</h3>
+              <p class="menu-item__desc">司書室に伝わる月草と緑茶のブレンドレシピ。香りが穏やかで集中を妨げず、長時間の読書に最適と学生から絶賛を受けています。ホット/アイス可。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥380（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="library-d01">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="library-d01" hidden>
+            <dl class="menu-detail">
+              <dt>材料</dt>
+              <dd>緑茶 / 月草 / エルダーフラワー</dd>
+              <dt>アレルギー</dt>
+              <dd>なし。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">雑念を抑えます（実感には個人差があります）。</dd>
+            </dl>
+          </div>
+        </li>
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">羽ペン型クリームソーダ</h3>
+              <p class="menu-item__desc">羽ペンを模したガーニッシュが乗ったクリームソーダ。クリームが溶けてソーダと混ざる様子が「インクが広がる」ようだと来場者に好評。見た目の可愛さから写本堂のスタッフも昼休みに注文するほど。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥480（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="library-d02">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="library-d02" hidden>
+            <dl class="menu-detail">
+              <dt>材料</dt>
+              <dd>メロンソーダ / バニラアイス / 食用花（季節）</dd>
+              <dt>アレルギー</dt>
+              <dd>乳製品含む。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">なし。インスタ映えが全てです（店員の言葉そのまま）。</dd>
+            </dl>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+  </div>
+</main>
+<!-- FOOTER -->
+</body>
+</html>

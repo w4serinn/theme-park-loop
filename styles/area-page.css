@@ -351,6 +351,28 @@
   color: color-mix(in oklch, var(--brass) 76%, transparent);
 }
 
+/* エリア施設リンク */
+.area-facilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-top: 1rem;
+}
+
+.area-facilities__link {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: color-mix(in oklch, var(--brass) 75%, transparent);
+  border: 1px solid color-mix(in oklch, var(--brass) 30%, transparent);
+  padding: 0.3rem 0.875rem;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.area-facilities__link:hover {
+  color: var(--brass);
+  border-color: color-mix(in oklch, var(--brass) 55%, transparent);
+}
+
 /* ご案内ボックス */
 .area-info {
   margin-top: 2.5rem;

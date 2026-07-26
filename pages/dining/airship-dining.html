@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>空賊カフェ「嵐の羅針盤」 — 学食・喫茶室 — 王立魔法学院アルノルド</title>
+  <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/base.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/dining.css" />
+  <script src="{{BASE}}src/dining-menu.js" defer></script>
+</head>
+<body>
+<!-- HEADER -->
+<main>
+  <nav class="dining-breadcrumb" aria-label="パンくずリスト">
+    <a class="dining-breadcrumb__link" href="{{BASE}}dining/index.html">学食・喫茶室</a>
+    <span class="dining-breadcrumb__sep" aria-hidden="true">›</span>
+    <span class="dining-breadcrumb__current">空賊カフェ「嵐の羅針盤」（飛行船ドック）</span>
+  </nav>
+
+  <section class="dining-page-hero">
+    <div class="dining-page-hero__visual dining-page-hero__visual--airship"></div>
+    <div class="dining-page-hero__body">
+      <p class="dining-page-hero__area">飛行船ドック</p>
+      <h1 class="dining-page-hero__title">空賊カフェ「嵐の羅針盤」</h1>
+      <p class="dining-page-hero__desc">飛行船ドックに停泊中の改造貨物船を模した外観が目を引くカフェ。船上厨房で仕立てる本格的な食事と甲板コーヒーが名物で、「高度5,000mの航路を想定した備蓄食」コンセプトのフードが揃います。</p>
+    </div>
+  </section>
+
+  <nav class="menu-nav" aria-label="メニューカテゴリ">
+    <a class="menu-nav__link" href="#food">フード</a>
+    <a class="menu-nav__link" href="#drinks">ドリンク</a>
+  </nav>
+
+  <div class="menu-content">
+
+    <section class="menu-section" id="food">
+      <h2 class="menu-section__heading">フード</h2>
+      <ul class="menu-list">
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">高高度ステーキ「鉄脚船長の一皿」</h3>
+              <p class="menu-item__desc">高空では食欲が落ちると言われる船乗りのために開発された、塩と魔法スパイスのみで勝負する豪快な一枚。付け合わせの「船員草サラダ」には食欲増進草が入っています。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥980（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="airship-f01">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="airship-f01" hidden>
+            <dl class="menu-detail">
+              <dt>材料</dt>
+              <dd>牛肉 / 海塩 / 魔法スパイス3種 / 船員草サラダ</dd>
+              <dt>アレルギー</dt>
+              <dd>なし。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">消化促進（60分）。高空での体力消耗を抑える航路食として設計されています。</dd>
+            </dl>
+          </div>
+        </li>
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">甲板サンドウィッチ「補給品BOX」</h3>
+              <p class="menu-item__desc">荒波でも食べられるよう設計された食べ応えあるサンド。重量感のあるパンに入荷直後の食材を挟む本日分の一品。毎日具材が変わります。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥550（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="airship-f02">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="airship-f02" hidden>
+            <dl class="menu-detail">
+              <dt>材料</dt>
+              <dd>厚切りパン / 野菜（日替わり） / ツナまたはエッグ</dd>
+              <dt>アレルギー</dt>
+              <dd>小麦含む。一部日程で卵を使用する場合があります。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">なし。歯ごたえが全てです。</dd>
+            </dl>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+    <section class="menu-section" id="drinks">
+      <h2 class="menu-section__heading">ドリンク</h2>
+      <ul class="menu-list">
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">空気圧コーヒー「気圧焙煎」</h3>
+              <p class="menu-item__desc">飛行艇エンジンの排気熱と気圧を利用して焙煎する「空気圧焙煎」豆を使ったブラックコーヒー。苦みと香りのバランスが通常焙煎とは異なり、一度飲むと虜になる。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥480（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="airship-d01">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="airship-d01" hidden>
+            <dl class="menu-detail">
+              <dt>材料</dt>
+              <dd>気圧焙煎コーヒー豆 / 天然水（学院水脈産）</dd>
+              <dt>アレルギー</dt>
+              <dd>なし。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">覚醒状態維持（2時間）。長距離航路の操縦士が愛飲するレシピに基づいています。</dd>
+            </dl>
+          </div>
+        </li>
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">航路ラム・ノンアル「海の霧」</h3>
+              <p class="menu-item__desc">ラム酒の製法を参考にしたノンアルコールドリンク。渦巻く霧をイメージした白い泡立てが特徴で、デッキ上の冷たい空気を連想させます。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥520（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="airship-d02">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="airship-d02" hidden>
+            <dl class="menu-detail">
+              <dt>材料</dt>
+              <dd>サトウキビエキス / レモングラスシロップ / 炭酸</dd>
+              <dt>アレルギー</dt>
+              <dd>なし。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">嗅覚の感度が一時的に上がり、天気の変化を嗅ぎ取りやすくなることがあります（個人差あり）。</dd>
+            </dl>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+  </div>
+</main>
+<!-- FOOTER -->
+</body>
+</html>

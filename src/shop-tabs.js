@@ -19,6 +19,14 @@
     btn.addEventListener('click', function () { activate(btn); });
   });
 
+  var hash = window.location.hash.replace('#', '');
+  if (hash) {
+    var hashTarget = document.getElementById(hash);
+    if (hashTarget && hashTarget.matches && hashTarget.matches('.tab-btn')) {
+      activate(hashTarget);
+    }
+  }
+
   var nav = document.querySelector('.tab-nav');
   if (nav) {
     nav.addEventListener('keydown', function (e) {

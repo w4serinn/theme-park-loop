@@ -133,7 +133,7 @@ evolveループはこの方針を毎サイクル遵守すること:
 - [x] (S) 一覧ページのエリアカードにエリア固有アクセント色を適用(承認後)
 - [x] (S) 探索一覧ページの opacity テキスト修正: exploration.css の .page-hero__desc(opacity:0.8)・.area-card__desc(opacity:0.75) を color-mix(in oklch, var(--brass) 80%+, transparent) に変換
 - [x] (S) area-page.css の .area-breadcrumb__sep(opacity:0.5) を color-mix(in oklch, var(--brass) 50%, transparent) に変換(opacity修正の残件)
-- [ ] (S) 各エリアページに「このエリアの施設」簡易セクション追加 × 7エリア
+- [x] (S) 各エリアページに「このエリアの施設」簡易セクション追加 × 7エリア
       商品一覧・メニュー一覧は出さない。ショップと飲食店の存在を1〜2文で紹介するだけ。
       shop/index.html・dining/index.html の対応エリアタブへのリンクを付ける。
       (shop/dining のエリアタブ実装が完了してから着手すること)
@@ -183,9 +183,9 @@ local-review が2階層違反を指摘した場合も、このタスク群につ
         魔法陣召喚広場 → 召喚素材専門店・魔法陣工房
         天文台 → 星図堂・夜空雑貨店
 
-### 5. 学食・喫茶室 [status: 進行中]
+### 5. 学食・喫茶室 [status: 完了]
 
-> 紹介文: 学食・喫茶室が開店しました。農園直送の薬草料理から魔法効果つきスイーツまで、それぞれのメニューの詳細は「詳細」ボタンを押してご確認いただけます。
+> 紹介文: 学食・喫茶室が全エリアで開店しました。中央学食の定番メニューから各エリア固有の飲食店まで、魔法効果つき料理と個性豊かなドリンクが揃います。秘薬スタンドのフラスコドリンク、歯車喫茶のスチームミルクティー、星見ダイナーの夜景ディナーなど、エリアタブでお気に入りの一軒を見つけてください。
 
 注: dining/index.html をエリア別タブ構造に改修し、各エリアの飲食店詳細ページを追加する。
 詳細ページはすべて pages/dining/*.html (depth-1) に置くため2階層ルールは維持される。
@@ -198,7 +198,7 @@ local-review が2階層違反を指摘した場合も、このタスク群につ
 - [x] (M) dining/index.html をエリア別タブ構造に改修
       8タブ（中央学食 + 7エリア）。中央学食タブに既存メニュー、7エリアは近日公開状態。
       shop-tabs.js を流用。dining.css にタブスタイル追加。
-- [ ] (M) エリア別飲食店詳細ページ × 7エリア (pages/dining/<area>-dining.html)
+- [x] (M) エリア別飲食店詳細ページ × 7エリア (pages/dining/<area>-dining.html)
       各エリアの雰囲気に合った飲食店。例:
         錬金術研究棟 → 秘薬スタンド・ポーション型ドリンク専門(pages/dining/alchemy-dining.html)
         飛行船ドック → 空賊カフェ・船員食堂(pages/dining/airship-dining.html)

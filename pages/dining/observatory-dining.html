@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>星見ダイナー「ふたご座の食卓」 — 学食・喫茶室 — 王立魔法学院アルノルド</title>
+  <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/base.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/dining.css" />
+  <script src="{{BASE}}src/dining-menu.js" defer></script>
+</head>
+<body>
+<!-- HEADER -->
+<main>
+  <nav class="dining-breadcrumb" aria-label="パンくずリスト">
+    <a class="dining-breadcrumb__link" href="{{BASE}}dining/index.html">学食・喫茶室</a>
+    <span class="dining-breadcrumb__sep" aria-hidden="true">›</span>
+    <span class="dining-breadcrumb__current">星見ダイナー「ふたご座の食卓」（天文台）</span>
+  </nav>
+
+  <section class="dining-page-hero">
+    <div class="dining-page-hero__visual dining-page-hero__visual--observatory"></div>
+    <div class="dining-page-hero__body">
+      <p class="dining-page-hero__area">天文台</p>
+      <h1 class="dining-page-hero__title">星見ダイナー「ふたご座の食卓」</h1>
+      <p class="dining-page-hero__desc">天文台の展望テラス下に位置する夜景付きのダイナー。星座表をテーブルに埋め込んだインテリアが人気で、夜間観測の前後に訪れる学生が絶えません。天体観測士が「観測中に食べたいもの」として挙げたメニューが揃います。</p>
+    </div>
+  </section>
+
+  <nav class="menu-nav" aria-label="メニューカテゴリ">
+    <a class="menu-nav__link" href="#dinner">ディナー</a>
+    <a class="menu-nav__link" href="#dessert">デザート</a>
+    <a class="menu-nav__link" href="#drinks">ドリンク</a>
+  </nav>
+
+  <div class="menu-content">
+
+    <section class="menu-section" id="dinner">
+      <h2 class="menu-section__heading">ディナー</h2>
+      <ul class="menu-list">
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">観測士のコースランチ</h3>
+              <p class="menu-item__desc">天文台研究員が「夜間観測の前に食べたい」と語った料理を元にシェフが組み立てたコース。スープ・メイン・パン・デザートの4品構成で、ゆっくりと星を待つ夜に相応しい一食です。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥1,200（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="obs-f01">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="obs-f01" hidden>
+            <dl class="menu-detail">
+              <dt>内容</dt>
+              <dd>スープ / メイン（ローストポーク or 白身魚 選択） / パン / デザート</dd>
+              <dt>アレルギー</dt>
+              <dd>小麦・乳製品（デザートに含む）。メインの選択時にスタッフへご相談ください。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">夜間視力がわずかに向上します（4時間）。観測精度が上がるという報告もあります。</dd>
+              <dt>提供時間</dt>
+              <dd>17:00〜（星が見え始める時刻に合わせた夕食コース）</dd>
+            </dl>
+          </div>
+        </li>
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">天体望遠鏡ランチBOX</h3>
+              <p class="menu-item__desc">筒形の容器に入った「詰め込み系」ランチ。上から順に食べ進めると異なる素材が現れる構造が、望遠鏡の接眼レンズを覗くような楽しさを持ちます。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥920（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="obs-f02">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="obs-f02" hidden>
+            <dl class="menu-detail">
+              <dt>内容</dt>
+              <dd>ご飯 / 旬野菜 / 鶏肉または豆腐（選択）/ タレ</dd>
+              <dt>アレルギー</dt>
+              <dd>小麦（タレ）含む。豆腐選択時は大豆含む。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">なし。食べ進める楽しさが全てです。</dd>
+            </dl>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+    <section class="menu-section" id="dessert">
+      <h2 class="menu-section__heading">デザート</h2>
+      <ul class="menu-list">
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">夜空ゼリーデザート「双子星」</h3>
+              <p class="menu-item__desc">2色（蒼・銀）のゼリーを重ねたグラスデザート。上層に星屑を模した銀糖が散らされ、夜空の情景を食卓に再現。食べ始める前にしばらく眺める来場者が後を絶たない。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥580（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="obs-s01">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="obs-s01" hidden>
+            <dl class="menu-detail">
+              <dt>材料</dt>
+              <dd>果汁（青果） / 生クリーム / ゼラチン / 銀糖（食用）</dd>
+              <dt>アレルギー</dt>
+              <dd>乳製品含む。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">消化促進（微）。就寝の質がわずかに向上します。観測後の夜食として最適です。</dd>
+            </dl>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+    <section class="menu-section" id="drinks">
+      <h2 class="menu-section__heading">ドリンク</h2>
+      <ul class="menu-list">
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">星屑ソーダ「流星の軌跡」</h3>
+              <p class="menu-item__desc">キラキラと光る銀糖を泡立つソーダに溶かしながら飲む。溶ける速さで「今夜の星見の運」を占うという学生風習があり、夜間観測前後に必ず注文する学生も多い。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥480（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="obs-d01">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="obs-d01" hidden>
+            <dl class="menu-detail">
+              <dt>材料</dt>
+              <dd>炭酸水 / 柑橘シロップ / 銀糖（食用）</dd>
+              <dt>アレルギー</dt>
+              <dd>なし。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">直感力微向上（1時間）。星との対話に臨む方にぜひ。</dd>
+            </dl>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+  </div>
+</main>
+<!-- FOOTER -->
+</body>
+</html>

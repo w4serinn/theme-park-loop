@@ -19,13 +19,13 @@
   <div class="dining-tabs">
     <div class="tab-nav" role="tablist" aria-label="エリア選択">
       <button class="tab-btn is-active" role="tab" id="tabBtn-central" aria-selected="true" aria-controls="tab-central" tabindex="0">中央学食</button>
-      <button class="tab-btn tab-btn--soon" role="tab" id="tabBtn-alchemy" aria-selected="false" aria-controls="tab-alchemy" tabindex="-1">錬金術研究棟</button>
-      <button class="tab-btn tab-btn--soon" role="tab" id="tabBtn-airship" aria-selected="false" aria-controls="tab-airship" tabindex="-1">飛行船ドック</button>
-      <button class="tab-btn tab-btn--soon" role="tab" id="tabBtn-clock" aria-selected="false" aria-controls="tab-clock" tabindex="-1">時計塔</button>
-      <button class="tab-btn tab-btn--soon" role="tab" id="tabBtn-library" aria-selected="false" aria-controls="tab-library" tabindex="-1">大図書館</button>
-      <button class="tab-btn tab-btn--soon" role="tab" id="tabBtn-dueling" aria-selected="false" aria-controls="tab-dueling" tabindex="-1">決闘演武場</button>
-      <button class="tab-btn tab-btn--soon" role="tab" id="tabBtn-summoning" aria-selected="false" aria-controls="tab-summoning" tabindex="-1">魔法陣召喚広場</button>
-      <button class="tab-btn tab-btn--soon" role="tab" id="tabBtn-observatory" aria-selected="false" aria-controls="tab-observatory" tabindex="-1">天文台</button>
+      <button class="tab-btn" role="tab" id="tabBtn-alchemy" aria-selected="false" aria-controls="tab-alchemy" tabindex="-1">錬金術研究棟</button>
+      <button class="tab-btn" role="tab" id="tabBtn-airship" aria-selected="false" aria-controls="tab-airship" tabindex="-1">飛行船ドック</button>
+      <button class="tab-btn" role="tab" id="tabBtn-clock" aria-selected="false" aria-controls="tab-clock" tabindex="-1">時計塔</button>
+      <button class="tab-btn" role="tab" id="tabBtn-library" aria-selected="false" aria-controls="tab-library" tabindex="-1">大図書館</button>
+      <button class="tab-btn" role="tab" id="tabBtn-dueling" aria-selected="false" aria-controls="tab-dueling" tabindex="-1">決闘演武場</button>
+      <button class="tab-btn" role="tab" id="tabBtn-summoning" aria-selected="false" aria-controls="tab-summoning" tabindex="-1">魔法陣召喚広場</button>
+      <button class="tab-btn" role="tab" id="tabBtn-observatory" aria-selected="false" aria-controls="tab-observatory" tabindex="-1">天文台</button>
     </div>
 
     <!-- 中央学食 -->
@@ -293,39 +293,95 @@
       </div>
     </div>
 
-    <!-- 錬金術研究棟 (近日公開) -->
+    <!-- 錬金術研究棟 -->
     <div class="tab-panel" id="tab-alchemy" role="tabpanel" aria-labelledby="tabBtn-alchemy" hidden>
-      <p class="tab-panel__soon">錬金術研究棟エリアの飲食店は近日公開予定です。ポーション型ドリンクや試薬フラスコ盛りのメニューが準備中です。</p>
+      <div class="dining-venue-feature">
+        <div class="dining-venue-feature__visual dining-venue-feature__visual--alchemy" aria-hidden="true"></div>
+        <div class="dining-venue-feature__body">
+          <p class="dining-venue-feature__area">錬金術研究棟</p>
+          <h2 class="dining-venue-feature__name">秘薬スタンド</h2>
+          <p class="dining-venue-feature__desc">研究棟で試作されたポーションをテーマにした立ち飲みスタンド。試薬フラスコを模したドリンクや焼き立て薬草パイで、本物の錬金術師気分を味わえます。研究棟の学生が開発に携わった限定レシピが定期的に入れ替わります。</p>
+          <a class="dining-venue-feature__link" href="{{BASE}}dining/alchemy-dining.html">メニューを見る ▶</a>
+        </div>
+      </div>
     </div>
 
-    <!-- 飛行船ドック (近日公開) -->
+    <!-- 飛行船ドック -->
     <div class="tab-panel" id="tab-airship" role="tabpanel" aria-labelledby="tabBtn-airship" hidden>
-      <p class="tab-panel__soon">飛行船ドックエリアの飲食店は近日公開予定です。空賊カフェと船員食堂が準備中です。</p>
+      <div class="dining-venue-feature">
+        <div class="dining-venue-feature__visual dining-venue-feature__visual--airship" aria-hidden="true"></div>
+        <div class="dining-venue-feature__body">
+          <p class="dining-venue-feature__area">飛行船ドック</p>
+          <h2 class="dining-venue-feature__name">空賊カフェ「嵐の羅針盤」</h2>
+          <p class="dining-venue-feature__desc">飛行船ドックに停泊中の改造貨物船を模した外観が目を引くカフェ。船上厨房で仕立てる本格的な食事と甲板コーヒーが名物で、「高度5,000mの航路を想定した備蓄食」コンセプトのフードが揃います。</p>
+          <a class="dining-venue-feature__link" href="{{BASE}}dining/airship-dining.html">メニューを見る ▶</a>
+        </div>
+      </div>
     </div>
 
-    <!-- 時計塔 (近日公開) -->
+    <!-- 時計塔 -->
     <div class="tab-panel" id="tab-clock" role="tabpanel" aria-labelledby="tabBtn-clock" hidden>
-      <p class="tab-panel__soon">時計塔エリアの飲食店は近日公開予定です。歯車と蒸気で彩られたスチームパンク喫茶が準備中です。</p>
+      <div class="dining-venue-feature">
+        <div class="dining-venue-feature__visual dining-venue-feature__visual--clock" aria-hidden="true"></div>
+        <div class="dining-venue-feature__body">
+          <p class="dining-venue-feature__area">時計塔</p>
+          <h2 class="dining-venue-feature__name">歯車喫茶「鐘と砂」</h2>
+          <p class="dining-venue-feature__desc">時計塔の最下層に設けられた喫茶室。透過ガラス越しに見える歯車の動きを眺めながら、手間ひまかけたスチームミルクと焼き菓子が楽しめます。毎正時に鐘の音が響く、時間の流れを感じる空間です。</p>
+          <a class="dining-venue-feature__link" href="{{BASE}}dining/clock-tower-dining.html">メニューを見る ▶</a>
+        </div>
+      </div>
     </div>
 
-    <!-- 大図書館 (近日公開) -->
+    <!-- 大図書館 -->
     <div class="tab-panel" id="tab-library" role="tabpanel" aria-labelledby="tabBtn-library" hidden>
-      <p class="tab-panel__soon">大図書館エリアの飲食店は近日公開予定です。静かな読書喫茶と茶室が準備中です。</p>
+      <div class="dining-venue-feature">
+        <div class="dining-venue-feature__visual dining-venue-feature__visual--library" aria-hidden="true"></div>
+        <div class="dining-venue-feature__body">
+          <p class="dining-venue-feature__area">大図書館</p>
+          <h2 class="dining-venue-feature__name">読書喫茶「書の香り」</h2>
+          <p class="dining-venue-feature__desc">大図書館の別館棟1階に位置する静かな喫茶室。本棚に囲まれたアンティーク調の内装と、司書が選んだ茶葉のブレンドが人気。館内の複製本を手に取りながら、午後の一杯をどうぞ。</p>
+          <a class="dining-venue-feature__link" href="{{BASE}}dining/library-dining.html">メニューを見る ▶</a>
+        </div>
+      </div>
     </div>
 
-    <!-- 決闘演武場 (近日公開) -->
+    <!-- 決闘演武場 -->
     <div class="tab-panel" id="tab-dueling" role="tabpanel" aria-labelledby="tabBtn-dueling" hidden>
-      <p class="tab-panel__soon">決闘演武場エリアの飲食店は近日公開予定です。試合前後の回復スタンドと軽食コーナーが準備中です。</p>
+      <div class="dining-venue-feature">
+        <div class="dining-venue-feature__visual dining-venue-feature__visual--dueling" aria-hidden="true"></div>
+        <div class="dining-venue-feature__body">
+          <p class="dining-venue-feature__area">決闘演武場</p>
+          <h2 class="dining-venue-feature__name">回復スタンド「鉄と炎」</h2>
+          <p class="dining-venue-feature__desc">決闘を観戦しながら食べられる、スタンド形式の軽食店。試合前の選手が好んで飲む魔力晶液も一般販売。エネルギー補給に特化したメニューが揃い、観戦の合間に立ち寄る学生で常に賑わっています。</p>
+          <a class="dining-venue-feature__link" href="{{BASE}}dining/dueling-dining.html">メニューを見る ▶</a>
+        </div>
+      </div>
     </div>
 
-    <!-- 魔法陣召喚広場 (近日公開) -->
+    <!-- 魔法陣召喚広場 -->
     <div class="tab-panel" id="tab-summoning" role="tabpanel" aria-labelledby="tabBtn-summoning" hidden>
-      <p class="tab-panel__soon">魔法陣召喚広場エリアの飲食店は近日公開予定です。召喚前夜祭カフェが準備中です。</p>
+      <div class="dining-venue-feature">
+        <div class="dining-venue-feature__visual dining-venue-feature__visual--summoning" aria-hidden="true"></div>
+        <div class="dining-venue-feature__body">
+          <p class="dining-venue-feature__area">魔法陣召喚広場</p>
+          <h2 class="dining-venue-feature__name">召喚前夜祭カフェ「扉の前で」</h2>
+          <p class="dining-venue-feature__desc">召喚儀礼の夜を前に仲間と過ごす一時をコンセプトにした薄暗いカフェ。魔法陣を模した装飾と神秘的な色合いのドリンクが来訪者を異世界の入口へ誘います。儀礼前の腹ごしらえに訪れる学生でいつも賑わっています。</p>
+          <a class="dining-venue-feature__link" href="{{BASE}}dining/summoning-dining.html">メニューを見る ▶</a>
+        </div>
+      </div>
     </div>
 
-    <!-- 天文台 (近日公開) -->
+    <!-- 天文台 -->
     <div class="tab-panel" id="tab-observatory" role="tabpanel" aria-labelledby="tabBtn-observatory" hidden>
-      <p class="tab-panel__soon">天文台エリアの飲食店は近日公開予定です。夜景付きの星見ダイナーが準備中です。</p>
+      <div class="dining-venue-feature">
+        <div class="dining-venue-feature__visual dining-venue-feature__visual--observatory" aria-hidden="true"></div>
+        <div class="dining-venue-feature__body">
+          <p class="dining-venue-feature__area">天文台</p>
+          <h2 class="dining-venue-feature__name">星見ダイナー「ふたご座の食卓」</h2>
+          <p class="dining-venue-feature__desc">天文台の展望テラス下に位置する夜景付きのダイナー。星座表をテーブルに埋め込んだインテリアが人気で、夜間観測の前後に訪れる学生が絶えません。天体観測士が推薦するメニューが揃います。</p>
+          <a class="dining-venue-feature__link" href="{{BASE}}dining/observatory-dining.html">メニューを見る ▶</a>
+        </div>
+      </div>
     </div>
   </div>
 </main>

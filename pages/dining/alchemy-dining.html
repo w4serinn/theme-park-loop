@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>秘薬スタンド — 学食・喫茶室 — 王立魔法学院アルノルド</title>
+  <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/base.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/dining.css" />
+  <script src="{{BASE}}src/dining-menu.js" defer></script>
+</head>
+<body>
+<!-- HEADER -->
+<main>
+  <nav class="dining-breadcrumb" aria-label="パンくずリスト">
+    <a class="dining-breadcrumb__link" href="{{BASE}}dining/index.html">学食・喫茶室</a>
+    <span class="dining-breadcrumb__sep" aria-hidden="true">›</span>
+    <span class="dining-breadcrumb__current">秘薬スタンド（錬金術研究棟）</span>
+  </nav>
+
+  <section class="dining-page-hero">
+    <div class="dining-page-hero__visual dining-page-hero__visual--alchemy"></div>
+    <div class="dining-page-hero__body">
+      <p class="dining-page-hero__area">錬金術研究棟</p>
+      <h1 class="dining-page-hero__title">秘薬スタンド</h1>
+      <p class="dining-page-hero__desc">研究棟で試作されたポーションをテーマにした立ち飲みスタンド。試薬フラスコを模したドリンクや焼き立て薬草パイで、本物の錬金術師気分を味わえます。研究棟の学生が開発に携わった限定レシピが定期的に入れ替わります。</p>
+    </div>
+  </section>
+
+  <nav class="menu-nav" aria-label="メニューカテゴリ">
+    <a class="menu-nav__link" href="#drinks">ドリンク</a>
+    <a class="menu-nav__link" href="#food">フード</a>
+  </nav>
+
+  <div class="menu-content">
+
+    <section class="menu-section" id="drinks">
+      <h2 class="menu-section__heading">ドリンク</h2>
+      <ul class="menu-list">
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">ポーション型ドリンク「紅蓮の精力剤」</h3>
+              <p class="menu-item__desc">赤みがかった果実液に微発泡の薬草エキスを加えた特製ドリンク。フラスコ型グラスで提供し、飲み終わったグラスはお持ち帰りいただけます。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥680（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="alchemy-d01">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="alchemy-d01" hidden>
+            <dl class="menu-detail">
+              <dt>材料</dt>
+              <dd>赤果実ジュース / 炭酸 / 月草エキス / ローズヒップ</dd>
+              <dt>アレルギー</dt>
+              <dd>なし。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">視覚鮮明度 +18%（15分間）。夜間実習前のご利用をおすすめします。</dd>
+              <dt>グラス</dt>
+              <dd>フラスコ型グラス持ち帰り可（洗浄済みでお渡し）</dd>
+            </dl>
+          </div>
+        </li>
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">碧龍の試薬ソーダ「第7番」</h3>
+              <p class="menu-item__desc">藍草と山薄荷を蒸留した清涼系ソーダ。深みのある青色の発色が美しく、「7番試薬」の外観を忠実に再現しています。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥580（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="alchemy-d02">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="alchemy-d02" hidden>
+            <dl class="menu-detail">
+              <dt>材料</dt>
+              <dd>藍草エキス / 山薄荷シロップ / 炭酸水（学院天然水脈産）</dd>
+              <dt>アレルギー</dt>
+              <dd>なし。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">集中力が微量向上します。試験前後に飲む学生が多い一杯。</dd>
+            </dl>
+          </div>
+        </li>
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">温薬草ポション「安息のいちばん」</h3>
+              <p class="menu-item__desc">月草と安息草のブレンドを温かく仕立てた一杯。夜間実習で疲れた身体をほぐすために研究棟の学生たちが長年愛飲してきたレシピです。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥420（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="alchemy-d03">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="alchemy-d03" hidden>
+            <dl class="menu-detail">
+              <dt>材料</dt>
+              <dd>月草 / 安息草 / 学院牛舎産蜂蜜</dd>
+              <dt>アレルギー</dt>
+              <dd>なし。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">疲労回復（小）。就寝前の服用で翌朝の魔力回復率が上がるという報告があります。</dd>
+            </dl>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+    <section class="menu-section" id="food">
+      <h2 class="menu-section__heading">フード</h2>
+      <ul class="menu-list">
+
+        <li class="menu-item">
+          <div class="menu-item__header">
+            <div class="menu-item__meta">
+              <h3 class="menu-item__name">焼き薬草パイ（本日仕込み）</h3>
+              <p class="menu-item__desc">薬草三種と熟成チーズを詰めたサクサクのパイ。研究棟の炉で直接焼き上げ、午前分は11時、午後分は14時に出来立てが並びます。日によって使用薬草の種類が変わります。</p>
+            </div>
+            <div class="menu-item__aside">
+              <p class="menu-item__price">¥450（税込）</p>
+              <button class="menu-item__trigger" type="button" aria-expanded="false" aria-controls="alchemy-f01">詳細 <span class="menu-item__trigger-icon" aria-hidden="true">▶</span></button>
+            </div>
+          </div>
+          <div class="menu-item__panel" id="alchemy-f01" hidden>
+            <dl class="menu-detail">
+              <dt>材料</dt>
+              <dd>薬草3種（日替わり） / エルダーチーズ / バター / 小麦粉</dd>
+              <dt>アレルギー</dt>
+              <dd>小麦・乳製品含む。</dd>
+              <dt class="menu-detail__magic-dt">魔法効果</dt>
+              <dd class="menu-detail__magic">なし。焼き立ての力のみ。それで十分です。</dd>
+              <dt>提供時間</dt>
+              <dd>午前分 11:00〜 / 午後分 14:00〜（各回なくなり次第終了）</dd>
+            </dl>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+  </div>
+</main>
+<!-- FOOTER -->
+</body>
+</html>

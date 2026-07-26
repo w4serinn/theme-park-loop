@@ -7,6 +7,55 @@
 
 ## 依頼中(未対応)
 
+### REQ-048 [type: image]
+- 用途: エリア別飲食店 天文台 星見ダイナー「ふたご座の食卓」 — ダイニングヒーローバナー
+- 配置先パス: assets/images/dining/hero-observatory-dining.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Night observatory dining room, wide view, deep blue star-map table inlays glowing softly, azure and silver color scheme, tall windows overlooking a night sky full of stars, intimate candlelit atmosphere, no characters, painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×220px。天空青×銀の夜景付きダイナー。星座テーブルの発光と夜空の窓が映えるよう。
+
+### REQ-047 [type: image]
+- 用途: エリア別飲食店 魔法陣召喚広場 召喚前夜祭カフェ「扉の前で」 — ダイニングヒーローバナー
+- 配置先パス: assets/images/dining/hero-summoning-dining.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Dark mystical cafe interior, arcane purple and indigo tones, glowing summoning circle designs etched into the floor and walls, candles in geometric holders, misty atmosphere, low lighting, no characters, painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×220px。魔法紫(#7460a0)×深紺の薄暗いカフェ。儀礼前夜の緊張感と神秘感を表現。
+
+### REQ-046 [type: image]
+- 用途: エリア別飲食店 決闘演武場 回復スタンド「鉄と炎」 — ダイニングヒーローバナー
+- 配置先パス: assets/images/dining/hero-dueling-dining.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Open-air food stand beside a dueling arena, crimson and ember tones, steam rising from a soup cauldron, rows of energy drinks in crystal flasks, spectator benches visible in the background, no characters, painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×220px。深紅(#a03c3c)×琥珀のスタンド形式軽食店。演武場の熱気と回復イメージ。
+
+### REQ-045 [type: image]
+- 用途: エリア別飲食店 大図書館 読書喫茶「書の香り」 — ダイニングヒーローバナー
+- 配置先パス: assets/images/dining/hero-library-dining.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Quiet reading cafe inside a great library, shelves of ancient books lining the walls, warm emerald and brass tones, antique wooden tables with teapots and scones, dust motes floating in amber lamp light, no characters, painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×220px。深緑×真鍮の静かな喫茶室。書物の香りと午後の光を表現。
+
+### REQ-044 [type: image]
+- 用途: エリア別飲食店 時計塔 歯車喫茶「鐘と砂」 — ダイニングヒーローバナー
+- 配置先パス: assets/images/dining/hero-clock-tower-dining.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Steampunk cafe at the base of a clocktower, silver and brass mechanical gears visible through glass walls, waffle iron shaped like a clockwork gear, steam milk machine pumping warmly, cozy booth seating, no characters, painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×220px。銀(#9ba8b4)×真鍮のスチームパンク喫茶。歯車と蒸気が見えるガラス越しの構図。
+
+### REQ-043 [type: image]
+- 用途: エリア別飲食店 飛行船ドック 空賊カフェ「嵐の羅針盤」 — ダイニングヒーローバナー
+- 配置先パス: assets/images/dining/hero-airship-dining.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Pirate airship cafe on a floating dock, azure sky and ember accents, weathered wooden deck with rope and compass motifs, hanging lanterns, ship's wheel repurposed as a menu board, no characters, wide painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×220px。天空青×琥珀の空賊テーマカフェ。飛行船ドックの開放感と海賊風の装飾。
+
+### REQ-042 [type: image]
+- 用途: エリア別飲食店 錬金術研究棟 秘薬スタンド — ダイニングヒーローバナー
+- 配置先パス: assets/images/dining/hero-alchemy-dining.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Alchemist drink stand inside a research tower, rows of glowing potion-bottle drinks in amber and azure flask glasses, herbs hanging overhead, brass burner equipment, warm ember orange tones with azure accents, no characters, painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×220px。琥珀×天空青のポーションテーマスタンド。フラスコ型グラスの発光が映えるよう。
+
 ### REQ-041 [type: image]
 - 用途: エリア別ショップ 天文台 夜空雑貨店 — ショップヒーローバナー
 - 配置先パス: assets/images/shop/hero-observatory-goods.jpg
