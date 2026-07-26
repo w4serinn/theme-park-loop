@@ -470,8 +470,13 @@
 }
 
 .dining-page-hero__visual {
+  /* 画像はMidjourneyで --ar 5:1 生成のため、コンテナのアスペクト比を合わせて
+     object-fit: cover によるクロップを最小限にする(幅が広いページでも
+     画像の上下が過度に見切れないようにするため)。max-heightは
+     超ワイド画面での縦伸びを防ぐ上限。 */
   width: 100%;
-  height: 220px;
+  aspect-ratio: 5 / 1;
+  max-height: 320px;
   background-color: var(--ink);
   overflow: hidden;
 }

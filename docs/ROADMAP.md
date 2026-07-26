@@ -52,15 +52,23 @@ evolveループはこの方針を毎サイクル遵守すること:
       `[hidden] { display: none; }` (UAスタイルシート)と同じ詳細度(0,1,0)のため
       後勝ちで上書きし、JSが `card.hidden = true` を設定しても実際には非表示に
       ならなかった。`.event-card[hidden] { display: none; }` を追加して解消した。
-- [ ] (M) 全ページ共通: ヒーロービジュアル(`area-hero__visual` / `shop-hero__visual` /
+- [x] (M) 全ページ共通: ヒーロービジュアル(`area-hero__visual` / `shop-hero__visual` /
       `dining-page-hero__visual`)がウィンドウ幅を広げると画像下部が見切れ、上部しか
-      見えなくなる。現状は `object-fit: cover` のみで `object-position` は未指定
-      (既定でcenter)、コンテナは固定高さ×可変幅。アスペクト比が極端に変わる
-      ウルトラワイド等でも破綻しないよう、コンテナ設計または `object-position` /
-      `aspect-ratio` の調整で対応する。
-- [ ] (S) 購買部: 一部のサムネイル画像(`category-card__visual` 等)の上下に黒い帯が
-      表示され、画像サイズがずれて見える。画像ファイル自体の縦横比に起因するのか、
-      CSS側のサイズ指定漏れかを切り分けて修正する。
+      見えなくなる。原因: `.shop-hero`/`.area-hero`(grid-template-rows固定px)・
+      `.dining-page-hero__visual`(height固定220px)のコンテナが、ページ幅に
+      max-widthの制約が無いため画面幅いっぱいまで広がる一方、高さだけ固定されており、
+      `object-fit: cover` が縦方向を強くクロップしていた。画像はMidjourneyで
+      `--ar 5:1` 生成のため、コンテナ側を `aspect-ratio: 5 / 1`(+ 超ワイド対策の
+      `max-height: 320px`)に変更し、幅が変わってもクロップがほぼ発生しないように
+      修正した(モバイル用の固定height上書きはそのまま残置)。
+- [x] (S) 購買部: 一部のサムネイル画像(`category-card__visual` 等)の上下に黒い帯が
+      表示され、画像サイズがずれて見える。調査の結果、`category-card__visual` は
+      現在 `background-size: cover; background-position: center;` が19種すべてに
+      正しく設定されており、この指定でCSS側の黒帯(レターボックス)は原理上発生しない。
+      指摘時点(2026-07-26昼レビュー)ではこの箇所はまだ実画像反映前のグラデーション
+      プレースホルダーのみで、暗い配色が「黒帯」に見えていた可能性が高い
+      (実画像反映は本ブランチの後続コミットで対応済み)。現状のコードでは再現しない
+      と判断してクローズするが、mainマージ後に見た目が変わっていないか再確認を推奨。
 
 ## 新規ページ提案(承認待ち — 承認されたら下の「ページ一覧」に移動する)
 
