@@ -10,7 +10,7 @@
 // (ワークフローが同じ内容で再実行されても安全)。
 
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
-import { getNewlyCompletedPages, getBugfixResolutionNews } from "./roadmap-utils.js";
+import { getNewlyCompletedPages, getBugfixResolutionNews, sameItemSet } from "./roadmap-utils.js";
 
 const NEWS_PATH = "data/news.json";
 
@@ -42,7 +42,7 @@ const bugfixNews = getBugfixResolutionNews();
 let bugfixAdded = false;
 if (bugfixNews) {
   const alreadyRecorded = news.some(
-    (entry) => entry.type === "bugfix" && JSON.stringify(entry.items) === JSON.stringify(bugfixNews.resolvedItems)
+    (entry) => entry.type === "bugfix" && Array.isArray(entry.items) && sameItemSet(entry.items, bugfixNews.resolvedItems)
   );
   if (!alreadyRecorded) {
     news.push({
