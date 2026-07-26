@@ -137,6 +137,20 @@ export function getBugfixResolutionNews() {
 }
 
 /**
+ * 指定したページ完了イベントが、既に news (data/news.json の内容) に
+ * 記録済みかどうかを判定する。ページ番号だけでなく紹介文(note)も一致する
+ * 場合のみ「記録済み」とみなす。これにより、一度完了したページが再オープン
+ * されて別の紹介文で再完了した場合には、新しいお知らせとして追記できる
+ * (同じ番号でも紹介文が変われば別イベント扱い)。
+ * @param {any[]} news
+ * @param {{number: string, introText: string|null}} page
+ */
+export function isPageAlreadyRecorded(news, page) {
+  const note = page.introText || null;
+  return news.some((entry) => String(entry.number) === String(page.number) && entry.note === note);
+}
+
+/**
  * 2つの文字列配列を「集合として」比較する(要素の並び順に依存しない)。
  * バグ解消項目リストのように、抽出順序が保証されないデータどうしの
  * 重複判定(同じ内容が二重に記録されるのを防ぐ)に使う。

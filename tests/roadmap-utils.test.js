@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { extractPages, extractBugfixSection, sameItemSet } from "../scripts/roadmap-utils.js";
+import { extractPages, extractBugfixSection, sameItemSet, isPageAlreadyRecorded } from "../scripts/roadmap-utils.js";
 
 describe("extractPages の紹介文(introText)検出", () => {
   it("見出し直後に紹介文があれば取得する", () => {
@@ -87,5 +87,31 @@ describe("sameItemSet", () => {
 
   it("空配列どうしは等しいと判定する", () => {
     expect(sameItemSet([], [])).toBe(true);
+  });
+});
+
+describe("isPageAlreadyRecorded", () => {
+  it("番号と紹介文が両方一致すれば記録済みと判定する", () => {
+    const news = [{ number: "4", title: "購買部", note: "購買部が全面開店しました。" }];
+    const page = { number: "4", title: "購買部", introText: "購買部が全面開店しました。" };
+    expect(isPageAlreadyRecorded(news, page)).toBe(true);
+  });
+
+  it("番号が同じでも紹介文が変われば未記録と判定する(再完了)", () => {
+    const news = [{ number: "4", title: "購買部", note: "購買部が全面開店しました。" }];
+    const page = { number: "4", title: "購買部", introText: "購買部が刷新されました。" };
+    expect(isPageAlreadyRecorded(news, page)).toBe(false);
+  });
+
+  it("番号が違えば未記録と判定する", () => {
+    const news = [{ number: "4", title: "購買部", note: "購買部が全面開店しました。" }];
+    const page = { number: "5", title: "学食・喫茶室", introText: "購買部が全面開店しました。" };
+    expect(isPageAlreadyRecorded(news, page)).toBe(false);
+  });
+
+  it("紹介文が無い(null)場合も一致すれば記録済みと判定する", () => {
+    const news = [{ number: "1", title: "トップページ", note: null }];
+    const page = { number: "1", title: "トップページ", introText: null };
+    expect(isPageAlreadyRecorded(news, page)).toBe(true);
   });
 });
