@@ -214,10 +214,13 @@ local-review が2階層違反を指摘した場合も、このタスク群につ
         決闘演武場 → 回復スタンド・軽食(pages/dining/dueling-dining.html)
         魔法陣召喚広場 → 召喚前夜祭カフェ(pages/dining/summoning-dining.html)
         天文台 → 星見ダイナー(夜景付きレストラン)(pages/dining/observatory-dining.html)
-- [ ] (M) エリア別飲食店7ページの dining-page-hero__visual に実画像を反映
-      REQ-042〜048(ダイニングヒーローバナー)が assets/images/dining/ に到着済み。
-      現状はCSSグラデーションのみのプレースホルダーのため、shop-hero__visual-img
-      と同様に img タグを追加する形で反映する。
+- [x] (M) エリア別飲食店7ページの dining-page-hero__visual に実画像を反映
+      REQ-042〜048(ダイニングヒーローバナー)を shop-hero__visual-img と同様の
+      img タグパターンで反映した。
+- (todo) dining/index.html のエリアタブ内 dining-venue-feature__visual(各エリアの
+      店舗紹介カード)は同じCSS修飾子を共有しているが、まだCSSグラデーションの
+      プレースホルダーのまま。今回反映したhero画像と共有できるため、次回以降に
+      img タグ追加で対応する。
 
 ### 6. 入学願書(チケット案内) [status: 完了]
 
