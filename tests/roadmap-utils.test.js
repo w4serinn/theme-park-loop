@@ -41,7 +41,7 @@ describe("extractPages の紹介文(introText)検出", () => {
 describe("extractBugfixSection", () => {
   it("見出しが無ければ空を返す", () => {
     const md = ["### 1. トップページ [status: 完了]", "- [x] (S) HTML骨格"].join("\n");
-    expect(extractBugfixSection(md)).toEqual({ resolved: [], unresolvedCount: 0 });
+    expect(extractBugfixSection(md)).toEqual({ resolved: [], unresolvedCount: 0, note: null });
   });
 
   it("(現在なし)のプレースホルダーのみなら空を返す", () => {
@@ -52,7 +52,7 @@ describe("extractBugfixSection", () => {
       "",
       "## 新規ページ提案(承認待ち)"
     ].join("\n");
-    expect(extractBugfixSection(md)).toEqual({ resolved: [], unresolvedCount: 0 });
+    expect(extractBugfixSection(md)).toEqual({ resolved: [], unresolvedCount: 0, note: null });
   });
 
   it("解消済み・未解消の件数と解消済み項目名を正しく取得する", () => {
@@ -74,6 +74,29 @@ describe("extractBugfixSection", () => {
       "学食: 詳細ボタンが反応しない",
       "学院祭: 季節フィルターが効かない"
     ]);
+  });
+
+  it("見出し直後の`> お知らせ:`行を取得する", () => {
+    const md = [
+      "## バグ修正(最優先 — 通常機能より先に上から順に着手する)",
+      "",
+      "> お知らせ: 館内点検により見つかった不具合を、無事に修繕いたしました。",
+      "- [x] (S) 学食: 詳細ボタンが反応しない"
+    ].join("\n");
+
+    const result = extractBugfixSection(md);
+    expect(result.note).toBe("館内点検により見つかった不具合を、無事に修繕いたしました。");
+  });
+
+  it("`> お知らせ:`行が無ければ note は null になる", () => {
+    const md = [
+      "## バグ修正(最優先 — 通常機能より先に上から順に着手する)",
+      "",
+      "- [x] (S) 学食: 詳細ボタンが反応しない"
+    ].join("\n");
+
+    const result = extractBugfixSection(md);
+    expect(result.note).toBeNull();
   });
 });
 
