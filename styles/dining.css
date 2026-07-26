@@ -421,6 +421,28 @@
   margin: 0 0 1.25rem;
 }
 
+.dining-venue-feature__highlight {
+  margin: 0 0 1.25rem;
+  border: 1px solid color-mix(in oklch, var(--brass) 25%, transparent);
+}
+
+.dining-venue-feature__highlight-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--ember);
+  margin: 0;
+  padding: 0.6rem 1rem 0;
+}
+
+.dining-venue-feature__highlight .menu-list {
+  padding: 0 1rem;
+}
+
+.dining-venue-feature__highlight .menu-item {
+  padding: 0.75rem 0;
+}
+
 .dining-venue-feature__link {
   display: inline-flex;
   align-items: center;
