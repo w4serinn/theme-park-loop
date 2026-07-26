@@ -1,5 +1,5 @@
 import { test, expect, describe } from 'vitest';
-import { TICKET_PRICES, calcTicketTotal, calcOptimalPrice } from '../src/logic.js';
+import { TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex } from '../src/logic.js';
 
 describe('TICKET_PRICES', () => {
   test('adult is 2800', () => { expect(TICKET_PRICES.adult).toBe(2800); });
@@ -71,5 +71,31 @@ describe('calcOptimalPrice', () => {
   });
   test('throws on negative', () => {
     expect(() => calcOptimalPrice(-1, 0, 0, 0)).toThrow();
+  });
+});
+
+describe('carouselNextIndex', () => {
+  test('advances by one within range', () => {
+    expect(carouselNextIndex(0, 3)).toBe(1);
+    expect(carouselNextIndex(1, 3)).toBe(2);
+  });
+  test('wraps from last to first', () => {
+    expect(carouselNextIndex(2, 3)).toBe(0);
+  });
+  test('total of 0 returns 0', () => {
+    expect(carouselNextIndex(0, 0)).toBe(0);
+  });
+});
+
+describe('carouselPrevIndex', () => {
+  test('goes back by one within range', () => {
+    expect(carouselPrevIndex(2, 3)).toBe(1);
+    expect(carouselPrevIndex(1, 3)).toBe(0);
+  });
+  test('wraps from first to last', () => {
+    expect(carouselPrevIndex(0, 3)).toBe(2);
+  });
+  test('total of 0 returns 0', () => {
+    expect(carouselPrevIndex(0, 0)).toBe(0);
   });
 });
