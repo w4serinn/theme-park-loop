@@ -42,6 +42,13 @@
   overflow: hidden;
 }
 
+.shop-hero__visual-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .shop-hero__visual--uniforms {
   background-color: color-mix(in srgb, var(--ember) 20%, var(--ink));
   background-image: repeating-linear-gradient(

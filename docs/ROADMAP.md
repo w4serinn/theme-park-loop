@@ -168,7 +168,8 @@ local-review が2階層違反を指摘した場合も、このタスク群につ
 - [x] (M) カテゴリページ: 食料品・薬草(pages/shop/groceries.html)
       農園直送の薬草乾燥品・魔力蜂蜜・学食スイーツパッケージ
 - [x] (S) event-card__trigger に aria-controls 属性を追加して支援技術との連携を強化
-- [ ] (S) 制服・魔導具ページの shop-hero__visual に img タグ追加(REQ-016/017 画像到着後) [asset-pending]
+- [x] (S) 制服・魔導具ページの shop-hero__visual に img タグ追加(REQ-016/017 画像到着)
+- [x] (S) みやげ・書籍・食料品ページの shop-hero__visual にも同様の img タグ追加(REQ-018/019/020 画像到着)
 - [x] (M) shop/index.html をエリア別タブ構造に改修
       エリアタブ(錬金術研究棟・飛行船ドック・時計塔・大図書館・決闘演武場・魔法陣召喚広場・天文台・中央購買部)を設ける。
       各エリアタブには、そのエリアの店舗カード一覧を表示。クリックで店舗詳細ページへ遷移。
@@ -182,6 +183,10 @@ local-review が2階層違反を指摘した場合も、このタスク群につ
         決闘演武場 → 決闘記念品店・魔法武具展示室
         魔法陣召喚広場 → 召喚素材専門店・魔法陣工房
         天文台 → 星図堂・夜空雑貨店
+- [ ] (M) エリア別店舗詳細ページ14ページの shop-hero__visual に img タグ追加
+      画像はREQ-021〜027(エリアショップhero)・REQ-035〜041(店舗個別hero)が
+      すべて assets/images/shop/ に到着済み。uniforms.html等で採用した
+      shop-hero__visual-img パターンを14ページ分に適用する。
 
 ### 5. 学食・喫茶室 [status: 完了]
 
@@ -207,6 +212,10 @@ local-review が2階層違反を指摘した場合も、このタスク群につ
         決闘演武場 → 回復スタンド・軽食(pages/dining/dueling-dining.html)
         魔法陣召喚広場 → 召喚前夜祭カフェ(pages/dining/summoning-dining.html)
         天文台 → 星見ダイナー(夜景付きレストラン)(pages/dining/observatory-dining.html)
+- [ ] (M) エリア別飲食店7ページの dining-page-hero__visual に実画像を反映
+      REQ-042〜048(ダイニングヒーローバナー)が assets/images/dining/ に到着済み。
+      現状はCSSグラデーションのみのプレースホルダーのため、shop-hero__visual-img
+      と同様に img タグを追加する形で反映する。
 
 ### 6. 入学願書(チケット案内) [status: 完了]
 
@@ -245,5 +254,5 @@ local-review が2階層違反を指摘した場合も、このタスク群につ
 ## 技術メモ
 
 - **ニュース区切り線の color-mix**: `color-mix(in srgb, var(--brass) 20%, transparent)` は sRGB でブラックと混合するため、インク背景上では実質不可視になる。ニュース項目が実装される際は `oklch` 色空間か 35〜40% に調整すること。
-- **エリアページのサムネイル**: 現在は全エリア共通の斜線グラデーションプレースホルダー。アセット依頼(ASSET_REQUESTS.md)が通ったらエリア固有画像に差し替える。
+- **エリアページのサムネイル**: 学院内探索の7エリアは全て実画像に差し替え済み(CSSグラデーションはフォールバック背景として残置)。購買部・学食・喫茶室は画像到着済みだが未反映のエリアが残っている(ROADMAP該当セクション参照)。
 - **インタラクティブ要素の方針**: JS は src/ 以下に純粋な関数として実装し、HTML から script タグで読み込む。DOM 操作のみのスクリプトは pages/ に置かない。
