@@ -7,7 +7,103 @@
 
 ## 依頼中(未対応)
 
-(現在なし)
+### REQ-055 [type: image]
+- 用途: 購買部 制服・ローブページ — 商品アイコン(product-entry__visual--uniform、5商品共通)
+- 配置先パス: assets/images/shop/product-uniform.png
+- 想定ツール: ChatGPT(シンプルなアイコン)
+- 提案プロンプト: simple flat icon of a folded academy uniform robe with brass buttons, steampunk fantasy academy style, circular or square badge composition, brass and deep ink color palette, transparent background
+- 補足: 96px正方形枠での表示を想定。商品単位ではなくカテゴリ単位の共通アイコンとして使う。
+
+### REQ-056 [type: image]
+- 用途: 購買部 魔導具ページ — 商品アイコン(product-entry__visual--tool、5商品共通)
+- 配置先パス: assets/images/shop/product-tool.png
+- 想定ツール: ChatGPT(シンプルなアイコン)
+- 提案プロンプト: simple flat icon of a magic wand crossed with a small brass gear, steampunk fantasy academy style, badge composition, azure and deep ink color palette, transparent background
+- 補足: 96px正方形枠での表示を想定。
+
+### REQ-057 [type: image]
+- 用途: 購買部 みやげ・食品ページ — 商品アイコン(product-entry__visual--souvenir、商品共通)
+- 配置先パス: assets/images/shop/product-souvenir.png
+- 想定ツール: ChatGPT(シンプルなアイコン)
+- 提案プロンプト: simple flat icon of a wrapped gift box with a wax seal stamped with a magic circle, steampunk fantasy academy style, badge composition, arcane purple and deep ink color palette, transparent background
+- 補足: 96px正方形枠での表示を想定。
+
+### REQ-058 [type: image]
+- 用途: 購買部 書籍・資料ページ — 商品アイコン(product-entry__visual--book、商品共通)
+- 配置先パス: assets/images/shop/product-book.png
+- 想定ツール: ChatGPT(シンプルなアイコン)
+- 提案プロンプト: simple flat icon of a stack of old leather-bound spellbooks with a brass bookmark ribbon, steampunk fantasy academy style, badge composition, emerald and silver color palette, transparent background
+- 補足: 96px正方形枠での表示を想定。
+
+### REQ-059 [type: image]
+- 用途: 購買部 食料品・薬草ページ — 商品アイコン(product-entry__visual--grocery、商品共通)
+- 配置先パス: assets/images/shop/product-grocery.png
+- 想定ツール: ChatGPT(シンプルなアイコン)
+- 提案プロンプト: simple flat icon of a bundle of dried magical herbs tied with twine, steampunk fantasy academy style, badge composition, deep emerald color palette, transparent background
+- 補足: 96px正方形枠での表示を想定。
+
+### REQ-060 [type: image]
+- 用途: 購買部 錬金術研究棟エリア2店舗(蒸留工房店・エリアショップ) — 商品アイコン
+  (product-entry__visual--alchemy-item、店舗共通)
+- 配置先パス: assets/images/shop/product-alchemy-item.png
+- 想定ツール: ChatGPT(シンプルなアイコン)
+- 提案プロンプト: simple flat icon of a small alchemy flask with bubbling amber liquid, steampunk fantasy academy style, badge composition, ember and deep ink color palette, transparent background
+- 補足: 96px正方形枠での表示を想定。
+
+### REQ-061 [type: image]
+- 用途: 購買部 実験器具販売所 — 商品アイコン(product-entry__visual--alchemy-tool-item)
+- 配置先パス: assets/images/shop/product-alchemy-tool-item.png
+- 想定ツール: ChatGPT(シンプルなアイコン)
+- 提案プロンプト: simple flat icon of brass alchemy measuring scales and a distillation tube, steampunk fantasy academy style, badge composition, azure and deep ink color palette, transparent background
+- 補足: 96px正方形枠での表示を想定。
+
+### REQ-062 [type: image]
+- 用途: 購買部 飛行船ドックエリア2店舗(羅針堂・風袋商会) — 商品アイコン
+  (product-entry__visual--airship-item、店舗共通)
+- 配置先パス: assets/images/shop/product-airship-item.png
+- 想定ツール: ChatGPT(シンプルなアイコン)
+- 提案プロンプト: simple flat icon of a brass compass with small airship wings, steampunk fantasy academy style, badge composition, azure and deep ink color palette, transparent background
+- 補足: 96px正方形枠での表示を想定。
+
+### REQ-063 [type: image]
+- 用途: 購買部 時計塔エリア2店舗(時刻堂・歯車細工所) — 商品アイコン
+  (product-entry__visual--clock-item、店舗共通)
+- 配置先パス: assets/images/shop/product-clock-item.png
+- 想定ツール: ChatGPT(シンプルなアイコン)
+- 提案プロンプト: simple flat icon of an ornate brass pocket watch with visible gears, steampunk fantasy academy style, badge composition, silver and deep ink color palette, transparent background
+- 補足: 96px正方形枠での表示を想定。
+
+### REQ-064 [type: image]
+- 用途: 購買部 大図書館エリア2店舗(写本堂・魔法インク工房) — 商品アイコン
+  (product-entry__visual--library-item、店舗共通)
+- 配置先パス: assets/images/shop/product-library-item.png
+- 想定ツール: ChatGPT(シンプルなアイコン)
+- 提案プロンプト: simple flat icon of a quill pen and a small bottle of glowing magic ink, steampunk fantasy academy style, badge composition, emerald and brass color palette, transparent background
+- 補足: 96px正方形枠での表示を想定。
+
+### REQ-065 [type: image]
+- 用途: 購買部 決闘演武場エリア2店舗(決闘記念品店・魔法武具展示室) — 商品アイコン
+  (product-entry__visual--dueling-item、店舗共通)
+- 配置先パス: assets/images/shop/product-dueling-item.png
+- 想定ツール: ChatGPT(シンプルなアイコン)
+- 提案プロンプト: simple flat icon of a crossed ceremonial dueling wand and a small shield emblem, steampunk fantasy academy style, badge composition, crimson and deep ink color palette, transparent background
+- 補足: 96px正方形枠での表示を想定。
+
+### REQ-066 [type: image]
+- 用途: 購買部 魔法陣召喚広場エリア2店舗(召喚素材専門店・魔法陣工房) — 商品アイコン
+  (product-entry__visual--summoning-item、店舗共通)
+- 配置先パス: assets/images/shop/product-summoning-item.png
+- 想定ツール: ChatGPT(シンプルなアイコン)
+- 提案プロンプト: simple flat icon of a glowing summoning circle rune carved into stone, steampunk fantasy academy style, badge composition, arcane purple and deep ink color palette, transparent background
+- 補足: 96px正方形枠での表示を想定。
+
+### REQ-067 [type: image]
+- 用途: 購買部 天文台エリア2店舗(星図堂・夜空雑貨店) — 商品アイコン
+  (product-entry__visual--observatory-item、店舗共通)
+- 配置先パス: assets/images/shop/product-observatory-item.png
+- 想定ツール: ChatGPT(シンプルなアイコン)
+- 提案プロンプト: simple flat icon of a small brass telescope pointed at a star, steampunk fantasy academy style, badge composition, azure and deep ink color palette, transparent background
+- 補足: 96px正方形枠での表示を想定。
 
 ## 対応済み
 
