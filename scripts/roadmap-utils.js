@@ -173,7 +173,7 @@ export function getBugfixResolutionNews() {
   return {
     title: "不具合修正",
     note: "学院内の一部設備に不具合が見つかり、修繕いたしました。",
-    resolvedItems: branch.resolved
+    resolvedItems: newlyResolved
   };
 }
 
@@ -191,14 +191,3 @@ export function isPageAlreadyRecorded(news, page) {
   return news.some((entry) => String(entry.number) === String(page.number) && entry.note === note);
 }
 
-/**
- * 2つの文字列配列を「集合として」比較する(要素の並び順に依存しない)。
- * バグ解消項目リストのように、抽出順序が保証されないデータどうしの
- * 重複判定(同じ内容が二重に記録されるのを防ぐ)に使う。
- */
-export function sameItemSet(a, b) {
-  if (a.length !== b.length) return false;
-  const sortedA = [...a].sort();
-  const sortedB = [...b].sort();
-  return sortedA.every((item, i) => item === sortedB[i]);
-}

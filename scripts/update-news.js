@@ -10,9 +10,11 @@
 // 重複して追記しない(ワークフローが同じ内容で再実行されても安全)。
 // ただしページ番号が同じでも紹介文が変わっていれば「再完了」による新しい
 // お知らせとして追記する(ページが再オープンされ、別の内容で再完了した場合)。
+// バグ解消は同じ日付に複数回検出されても、1日1エントリに統合する
+// (同じ文言のお知らせが日付違いの番号で何件も並ぶのを防ぐため)。
 
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
-import { getNewlyCompletedPages, getBugfixResolutionNews, isPageAlreadyRecorded, sameItemSet } from "./roadmap-utils.js";
+import { getNewlyCompletedPages, getBugfixResolutionNews, isPageAlreadyRecorded } from "./roadmap-utils.js";
 
 const NEWS_PATH = "data/news.json";
 
@@ -40,12 +42,17 @@ for (const { number, title, introText } of toAdd) {
 }
 
 const bugfixNews = getBugfixResolutionNews();
-let bugfixAdded = false;
+let bugfixChanged = false;
 if (bugfixNews) {
-  const alreadyRecorded = news.some(
-    (entry) => entry.type === "bugfix" && Array.isArray(entry.items) && sameItemSet(entry.items, bugfixNews.resolvedItems)
-  );
-  if (!alreadyRecorded) {
+  const todayBugfixEntry = news.find((entry) => entry.type === "bugfix" && entry.number === `bugfix-${date}`);
+  if (todayBugfixEntry) {
+    const existingItems = new Set(todayBugfixEntry.items || []);
+    const newItems = bugfixNews.resolvedItems.filter((item) => !existingItems.has(item));
+    if (newItems.length > 0) {
+      todayBugfixEntry.items = [...(todayBugfixEntry.items || []), ...newItems];
+      bugfixChanged = true;
+    }
+  } else {
     news.push({
       date,
       number: `bugfix-${date}`,
@@ -54,15 +61,15 @@ if (bugfixNews) {
       type: "bugfix",
       items: bugfixNews.resolvedItems
     });
-    bugfixAdded = true;
+    bugfixChanged = true;
   }
 }
 
-if (toAdd.length === 0 && !bugfixAdded) {
+if (toAdd.length === 0 && !bugfixChanged) {
   console.log("追記対象はありません(対象なし、または既に記録済み)");
   process.exit(0);
 }
 
 writeFileSync(NEWS_PATH, JSON.stringify(news, null, 2) + "\n", "utf-8");
-const addedLabels = [...toAdd.map((p) => p.title), ...(bugfixAdded ? [bugfixNews.title] : [])];
+const addedLabels = [...toAdd.map((p) => p.title), ...(bugfixChanged ? [bugfixNews.title] : [])];
 console.log(`data/news.json に${addedLabels.length}件追記しました: ${addedLabels.join(", ")}`);

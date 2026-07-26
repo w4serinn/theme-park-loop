@@ -3,7 +3,6 @@ import {
   extractPages,
   extractBugfixSection,
   extractPageSubtaskCounts,
-  sameItemSet,
   isPageAlreadyRecorded
 } from "../scripts/roadmap-utils.js";
 
@@ -75,24 +74,6 @@ describe("extractBugfixSection", () => {
       "学食: 詳細ボタンが反応しない",
       "学院祭: 季節フィルターが効かない"
     ]);
-  });
-});
-
-describe("sameItemSet", () => {
-  it("同じ要素でも並び順が違えば等しいと判定する", () => {
-    expect(sameItemSet(["A", "B"], ["B", "A"])).toBe(true);
-  });
-
-  it("要素数が違えば等しくないと判定する", () => {
-    expect(sameItemSet(["A", "B"], ["A"])).toBe(false);
-  });
-
-  it("要素の内容が違えば等しくないと判定する", () => {
-    expect(sameItemSet(["A", "B"], ["A", "C"])).toBe(false);
-  });
-
-  it("空配列どうしは等しいと判定する", () => {
-    expect(sameItemSet([], [])).toBe(true);
   });
 });
 
