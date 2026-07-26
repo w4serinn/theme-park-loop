@@ -135,6 +135,46 @@
   border-top-color: var(--silver);
 }
 
+.category-card--library-shop .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--emerald);
+}
+
+.category-card--library-tools .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--emerald);
+}
+
+.category-card--dueling-shop .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--crimson);
+}
+
+.category-card--dueling-gear .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--crimson);
+}
+
+.category-card--summoning-shop .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--arcane);
+}
+
+.category-card--summoning-circle .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--arcane);
+}
+
+.category-card--observatory-shop .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--azure);
+}
+
+.category-card--observatory-goods .category-card__link {
+  border-top-width: 3px;
+  border-top-color: var(--azure);
+}
+
 .category-card--uniforms .category-card__link:hover {
   border-color: var(--ember);
 }
@@ -318,6 +358,38 @@
   border-color: var(--silver);
 }
 
+.category-card--library-shop .category-card__link:hover {
+  border-color: var(--emerald);
+}
+
+.category-card--library-tools .category-card__link:hover {
+  border-color: var(--emerald);
+}
+
+.category-card--dueling-shop .category-card__link:hover {
+  border-color: var(--crimson);
+}
+
+.category-card--dueling-gear .category-card__link:hover {
+  border-color: var(--crimson);
+}
+
+.category-card--summoning-shop .category-card__link:hover {
+  border-color: var(--arcane);
+}
+
+.category-card--summoning-circle .category-card__link:hover {
+  border-color: var(--arcane);
+}
+
+.category-card--observatory-shop .category-card__link:hover {
+  border-color: var(--azure);
+}
+
+.category-card--observatory-goods .category-card__link:hover {
+  border-color: var(--azure);
+}
+
 /* エリア別ショップカード: visual */
 .category-card--alchemy-shop .category-card__visual {
   background-color: color-mix(in srgb, var(--ember) 22%, var(--ink));
@@ -390,6 +462,110 @@
     transparent 14px,
     color-mix(in oklch, var(--silver) 8%, transparent) 14px,
     color-mix(in oklch, var(--silver) 8%, transparent) 15px
+  );
+}
+
+.category-card--library-shop .category-card__visual {
+  background-color: color-mix(in srgb, var(--emerald) 32%, var(--ink));
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 28px,
+    color-mix(in oklch, var(--brass) 8%, transparent) 28px,
+    color-mix(in oklch, var(--brass) 8%, transparent) 29px
+  );
+}
+
+.category-card--library-tools .category-card__visual {
+  background-color: color-mix(in srgb, var(--emerald) 24%, var(--ink));
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 12px,
+    color-mix(in oklch, var(--emerald) 9%, transparent) 12px,
+    color-mix(in oklch, var(--emerald) 9%, transparent) 13px
+  );
+}
+
+.category-card--dueling-shop .category-card__visual {
+  background-color: color-mix(in srgb, var(--crimson) 20%, var(--ink));
+  background-image: repeating-radial-gradient(
+    circle at 50% 50%,
+    transparent,
+    transparent 18px,
+    color-mix(in oklch, var(--crimson) 8%, transparent) 18px,
+    color-mix(in oklch, var(--crimson) 8%, transparent) 19px
+  );
+}
+
+.category-card--dueling-gear .category-card__visual {
+  background-color: color-mix(in srgb, var(--crimson) 16%, var(--ink));
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 14px,
+      color-mix(in oklch, var(--crimson) 7%, transparent) 14px,
+      color-mix(in oklch, var(--crimson) 7%, transparent) 15px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 14px,
+      color-mix(in oklch, var(--ember) 7%, transparent) 14px,
+      color-mix(in oklch, var(--ember) 7%, transparent) 15px
+    );
+}
+
+.category-card--summoning-shop .category-card__visual {
+  background-color: color-mix(in srgb, var(--arcane) 18%, var(--ink));
+  background-image: repeating-radial-gradient(
+    circle at 40% 60%,
+    transparent,
+    transparent 16px,
+    color-mix(in oklch, var(--arcane) 9%, transparent) 16px,
+    color-mix(in oklch, var(--arcane) 9%, transparent) 17px
+  );
+}
+
+.category-card--summoning-circle .category-card__visual {
+  background-color: color-mix(in srgb, var(--arcane) 14%, var(--ink));
+  background-image:
+    repeating-linear-gradient(
+      30deg,
+      transparent,
+      transparent 16px,
+      color-mix(in oklch, var(--arcane) 8%, transparent) 16px,
+      color-mix(in oklch, var(--arcane) 8%, transparent) 17px
+    ),
+    repeating-linear-gradient(
+      -30deg,
+      transparent,
+      transparent 16px,
+      color-mix(in oklch, var(--arcane) 8%, transparent) 16px,
+      color-mix(in oklch, var(--arcane) 8%, transparent) 17px
+    );
+}
+
+.category-card--observatory-shop .category-card__visual {
+  background-color: color-mix(in srgb, var(--azure) 20%, var(--ink));
+  background-image: repeating-radial-gradient(
+    circle at 50% 50%,
+    transparent,
+    transparent 24px,
+    color-mix(in oklch, var(--azure) 8%, transparent) 24px,
+    color-mix(in oklch, var(--azure) 8%, transparent) 25px
+  );
+}
+
+.category-card--observatory-goods .category-card__visual {
+  background-color: color-mix(in srgb, var(--azure) 16%, var(--ink));
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 16px,
+    color-mix(in oklch, var(--silver) 8%, transparent) 16px,
+    color-mix(in oklch, var(--silver) 8%, transparent) 17px
   );
 }
 

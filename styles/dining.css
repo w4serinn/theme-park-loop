@@ -22,6 +22,72 @@
   line-height: 1.7;
 }
 
+/* エリアタブ */
+.dining-tabs {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+
+.dining-tabs .tab-nav {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 2px solid color-mix(in oklch, var(--brass) 28%, transparent);
+  margin-bottom: 2rem;
+  scrollbar-width: none;
+}
+
+.dining-tabs .tab-nav::-webkit-scrollbar {
+  display: none;
+}
+
+/* タブボタン — base → --soon base → :hover → .is-active → --soon:hover → --soon.is-active */
+.dining-tabs .tab-btn {
+  flex-shrink: 0;
+  padding: 0.75rem 1.25rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid;
+  border-bottom-color: transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-family: inherit;
+  font-weight: 700;
+  color: color-mix(in oklch, var(--brass) 68%, transparent);
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.dining-tabs .tab-btn--soon {
+  color: color-mix(in oklch, var(--brass) 42%, transparent);
+}
+
+.dining-tabs .tab-btn:hover {
+  color: var(--brass);
+}
+
+.dining-tabs .tab-btn.is-active {
+  color: var(--brass);
+  border-bottom-color: var(--brass);
+}
+
+.dining-tabs .tab-btn--soon:hover {
+  color: color-mix(in oklch, var(--brass) 58%, transparent);
+}
+
+.dining-tabs .tab-btn--soon.is-active {
+  color: color-mix(in oklch, var(--brass) 58%, transparent);
+  border-bottom-color: color-mix(in oklch, var(--brass) 40%, transparent);
+}
+
+.dining-tabs .tab-panel__soon {
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  color: color-mix(in oklch, var(--brass) 55%, transparent);
+  font-style: italic;
+}
+
 /* セクションナビ */
 .menu-nav {
   display: flex;
@@ -110,6 +176,12 @@
   max-width: 820px;
   margin: 0 auto;
   padding: 0 1.5rem 3rem;
+}
+
+/* dining-tabs 内では menu-content 自身のパディングで完結させる（二重パディング防止） */
+.dining-tabs .menu-content {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .menu-section {
@@ -266,6 +338,16 @@
 
   .menu-content {
     padding: 0 1rem 2rem;
+  }
+
+  .dining-tabs .menu-content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .dining-tabs {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .menu-item__header {

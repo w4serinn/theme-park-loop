@@ -7,6 +7,34 @@
 
 ## 依頼中(未対応)
 
+### REQ-041 [type: image]
+- 用途: エリア別ショップ 天文台 夜空雑貨店 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-observatory-goods.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Night sky souvenir shop interior, wide shot, star-projecting candles glowing on wooden shelves, glowing azure pendant stones in glass cases, deep indigo notebooks with constellation foil covers, seasonal star-reading cards fanned out on a velvet display, soft azure and silver tones, no characters, serene painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。天空青(#4e8ea0)×シルバーの静謐な夜空雑貨店。星光を放つ小物の幻想的な光沢感を強調。
+
+### REQ-040 [type: image]
+- 用途: エリア別ショップ 魔法陣召喚広場 魔法陣工房 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-summoning-circle.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Magical circle workshop interior, wide shot, craftsman desk with freshly inked runic parchment, rows of carved rubber rune stamps on oak shelves, inkwells in deep arcane purple and brass, rolled parchment scrolls in background, soft arcane purple glow from glowing seal frames on the wall, no characters, mystical craftwork painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。アルカナ紫(#6b4fa0)×真鍮の手仕事工房。刻印作業の繊細さとオーダーメイドの一点物感を表現。
+
+### REQ-039 [type: image]
+- 用途: エリア別ショップ 決闘演武場 魔法武具展示室 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-dueling-gear.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Dueling equipment replica shop interior, wide shot, sleek sword-wand replicas mounted on crimson-velvet display boards, brass-plated accessory gauntlets in glass cases, miniature arena flag sets in a wooden stand, dramatic crimson accent lighting on brass fixtures, no characters, high-detail collector's shop painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。深紅(#a03c3c)×真鍮のコレクターズショップ。レプリカの精密感と陳列の迫力を強調。
+
+### REQ-038 [type: image]
+- 用途: エリア別ショップ 大図書館 魔法インク工房 — ショップヒーローバナー
+- 配置先パス: assets/images/shop/hero-library-tools.jpg
+- 想定ツール: Midjourney
+- 提案プロンプト: Magical ink and quill workshop interior, wide shot, rows of brass-capped ink bottles in deep emerald and gold on oak shelves, white swan and eagle feather quills in glass jars, sealing wax sets in crimson and green beside brass stamps, warm candlelight glowing on polished counters, no characters, scholarly workshop painterly illustration --ar 5:1 --style raw
+- 補足: 全幅×200px。深緑(#1f5c4a)×真鍮の書記室併設工房。インク瓶の色彩と羽ペンの優雅さを前景に。
+
 ### REQ-035 [type: image]
 - 用途: エリア別ショップ 錬金術研究棟 実験器具販売所 — ショップヒーローバナー
 - 配置先パス: assets/images/shop/hero-alchemy-tools.jpg

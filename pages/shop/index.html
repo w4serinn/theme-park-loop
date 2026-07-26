@@ -22,10 +22,10 @@
       <button class="tab-btn" role="tab" id="tabBtn-alchemy" aria-selected="false" aria-controls="tab-alchemy" tabindex="-1">錬金術研究棟</button>
       <button class="tab-btn" role="tab" id="tabBtn-airship" aria-selected="false" aria-controls="tab-airship" tabindex="-1">飛行船ドック</button>
       <button class="tab-btn" role="tab" id="tabBtn-clock" aria-selected="false" aria-controls="tab-clock" tabindex="-1">時計塔</button>
-      <button class="tab-btn tab-btn--soon" role="tab" id="tabBtn-library" aria-selected="false" aria-controls="tab-library" tabindex="-1">大図書館</button>
-      <button class="tab-btn tab-btn--soon" role="tab" id="tabBtn-dueling" aria-selected="false" aria-controls="tab-dueling" tabindex="-1">決闘演武場</button>
-      <button class="tab-btn tab-btn--soon" role="tab" id="tabBtn-summoning" aria-selected="false" aria-controls="tab-summoning" tabindex="-1">魔法陣召喚広場</button>
-      <button class="tab-btn tab-btn--soon" role="tab" id="tabBtn-observatory" aria-selected="false" aria-controls="tab-observatory" tabindex="-1">天文台</button>
+      <button class="tab-btn" role="tab" id="tabBtn-library" aria-selected="false" aria-controls="tab-library" tabindex="-1">大図書館</button>
+      <button class="tab-btn" role="tab" id="tabBtn-dueling" aria-selected="false" aria-controls="tab-dueling" tabindex="-1">決闘演武場</button>
+      <button class="tab-btn" role="tab" id="tabBtn-summoning" aria-selected="false" aria-controls="tab-summoning" tabindex="-1">魔法陣召喚広場</button>
+      <button class="tab-btn" role="tab" id="tabBtn-observatory" aria-selected="false" aria-controls="tab-observatory" tabindex="-1">天文台</button>
     </div>
 
     <!-- 中央購買部 -->
@@ -151,24 +151,100 @@
       </ul>
     </div>
 
-    <!-- 大図書館 (近日公開) -->
+    <!-- 大図書館 -->
     <div class="tab-panel" id="tab-library" role="tabpanel" aria-labelledby="tabBtn-library" hidden>
-      <p class="tab-panel__soon">大図書館エリアのショップは近日公開予定です。古書・写本用品・インクの専門店が準備中です。</p>
+      <ul class="category-cards">
+        <li class="category-card category-card--library-shop">
+          <a class="category-card__link" href="{{BASE}}shop/library-shop.html">
+            <div class="category-card__visual"></div>
+            <div class="category-card__body">
+              <h2 class="category-card__name">写本堂</h2>
+              <p class="category-card__desc">七代続く写本師一族の古書専門店。絶版の魔法書の複製写本から学院監修の入門書セット、本革装丁ノートまで。「持つだけで賢くなれる」と常連客に語られる一軒。</p>
+            </div>
+          </a>
+        </li>
+        <li class="category-card category-card--library-tools">
+          <a class="category-card__link" href="{{BASE}}shop/library-tools.html">
+            <div class="category-card__visual"></div>
+            <div class="category-card__body">
+              <h2 class="category-card__name">魔法インク工房</h2>
+              <p class="category-card__desc">七色魔法インク・写本用羽ペン・浮かぶ文字インクなど筆記用具の専門店。書記室に隣接し、特注インクの調合依頼も随時受け付けています。</p>
+            </div>
+          </a>
+        </li>
+      </ul>
     </div>
 
-    <!-- 決闘演武場 (近日公開) -->
+    <!-- 決闘演武場 -->
     <div class="tab-panel" id="tab-dueling" role="tabpanel" aria-labelledby="tabBtn-dueling" hidden>
-      <p class="tab-panel__soon">決闘演武場エリアのショップは近日公開予定です。観戦グッズ・魔法決闘コレクターアイテムが準備中です。</p>
+      <ul class="category-cards">
+        <li class="category-card category-card--dueling-shop">
+          <a class="category-card__link" href="{{BASE}}shop/dueling-shop.html">
+            <div class="category-card__visual"></div>
+            <div class="category-card__body">
+              <h2 class="category-card__name">決闘記念品店</h2>
+              <p class="category-card__desc">観戦歴50年の老店主が選ぶ、決闘の興奮を持ち帰るための品々。歴代決闘王の記念帖・魔力スコープ・応援スカーフ・限定シグルバッジが揃います。</p>
+            </div>
+          </a>
+        </li>
+        <li class="category-card category-card--dueling-gear">
+          <a class="category-card__link" href="{{BASE}}shop/dueling-gear.html">
+            <div class="category-card__visual"></div>
+            <div class="category-card__body">
+              <h2 class="category-card__name">魔法武具展示室</h2>
+              <p class="category-card__desc">実際の決闘武具を安全素材で精密再現したレプリカと決闘史アーカイブグッズの専門店。レプリカ杖・増幅腕輪・各エリア旗ミニチュアなど。</p>
+            </div>
+          </a>
+        </li>
+      </ul>
     </div>
 
-    <!-- 魔法陣召喚広場 (近日公開) -->
+    <!-- 魔法陣召喚広場 -->
     <div class="tab-panel" id="tab-summoning" role="tabpanel" aria-labelledby="tabBtn-summoning" hidden>
-      <p class="tab-panel__soon">魔法陣召喚広場エリアのショップは近日公開予定です。召喚道具・魔法陣材料の専門店が準備中です。</p>
+      <ul class="category-cards">
+        <li class="category-card category-card--summoning-shop">
+          <a class="category-card__link" href="{{BASE}}shop/summoning-shop.html">
+            <div class="category-card__visual"></div>
+            <div class="category-card__body">
+              <h2 class="category-card__name">召喚素材専門店</h2>
+              <p class="category-card__desc">召喚研究室認定の清浄白銀砂・魔法陣テンプレート・儀礼蝋燭・降霊護符を扱う素材店。「家でも召喚術を試したい」という来場者が足繁く通う一軒。</p>
+            </div>
+          </a>
+        </li>
+        <li class="category-card category-card--summoning-circle">
+          <a class="category-card__link" href="{{BASE}}shop/summoning-circle.html">
+            <div class="category-card__visual"></div>
+            <div class="category-card__body">
+              <h2 class="category-card__name">魔法陣工房</h2>
+              <p class="category-card__desc">希望の術式を職人が設計・手描きするオーダーメイド陣形紋章の専門工房。ルーンスタンプセット・刻印大理石コースター・公式召喚陣ポスターも取り揃えています。</p>
+            </div>
+          </a>
+        </li>
+      </ul>
     </div>
 
-    <!-- 天文台 (近日公開) -->
+    <!-- 天文台 -->
     <div class="tab-panel" id="tab-observatory" role="tabpanel" aria-labelledby="tabBtn-observatory" hidden>
-      <p class="tab-panel__soon">天文台エリアのショップは近日公開予定です。星図・望遠鏡・夜空グッズの専門店が準備中です。</p>
+      <ul class="category-cards">
+        <li class="category-card category-card--observatory-shop">
+          <a class="category-card__link" href="{{BASE}}shop/observatory-shop.html">
+            <div class="category-card__visual"></div>
+            <div class="category-card__body">
+              <h2 class="category-card__name">星図堂</h2>
+              <p class="category-card__desc">天文台研究員が設計に参加した精密魔法天球儀・折り畳み星図・魔法望遠鏡・星座刻印コンパスの専門店。「夜空を手元に置きたい」人のための品が揃います。</p>
+            </div>
+          </a>
+        </li>
+        <li class="category-card category-card--observatory-goods">
+          <a class="category-card__link" href="{{BASE}}shop/observatory-goods.html">
+            <div class="category-card__visual"></div>
+            <div class="category-card__body">
+              <h2 class="category-card__name">夜空雑貨店</h2>
+              <p class="category-card__desc">星夜キャンドル・魔法光石ペンダント・夜空手帳・クリアファイルセットなど、星と夜空をテーマにした生活雑貨の専門店。展望テラス隣で観測帰りの寄り道に最適。</p>
+            </div>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </main>
