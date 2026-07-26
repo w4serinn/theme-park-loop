@@ -43,24 +43,6 @@ evolveループはこの方針を毎サイクル遵守すること:
 
 ## バグ修正(最優先 — 通常機能より先に上から順に着手する)
 
-- [x] (S) 学食・喫茶室: 中央学食タブ内の「詳細」ボタンを押しても展開されない。
-      原因: `pages/dining/index.html` に `.menu-item__trigger` を処理する
-      `src/dining-menu.js` が読み込まれていなかった(`src/shop-tabs.js` のみ読み込み)。
-      `<script src="{{BASE}}src/dining-menu.js" defer></script>` を追加して解消した。
-- [x] (S) 学院祭・行事: 春夏秋冬の季節フィルターボタンを押しても表示が絞り込まれない。
-      原因: `styles/events.css` の `.event-card { display: grid; }` が、ネイティブの
-      `[hidden] { display: none; }` (UAスタイルシート)と同じ詳細度(0,1,0)のため
-      後勝ちで上書きし、JSが `card.hidden = true` を設定しても実際には非表示に
-      ならなかった。`.event-card[hidden] { display: none; }` を追加して解消した。
-- [x] (M) 全ページ共通: ヒーロービジュアル(`area-hero__visual` / `shop-hero__visual` /
-      `dining-page-hero__visual`)がウィンドウ幅を広げると画像下部が見切れ、上部しか
-      見えなくなる。原因: `.shop-hero`/`.area-hero`(grid-template-rows固定px)・
-      `.dining-page-hero__visual`(height固定220px)のコンテナが、ページ幅に
-      max-widthの制約が無いため画面幅いっぱいまで広がる一方、高さだけ固定されており、
-      `object-fit: cover` が縦方向を強くクロップしていた。画像はMidjourneyで
-      `--ar 5:1` 生成のため、コンテナ側を `aspect-ratio: 5 / 1`(+ 超ワイド対策の
-      `max-height: 320px`)に変更し、幅が変わってもクロップがほぼ発生しないように
-      修正した(モバイル用の固定height上書きはそのまま残置)。
 - [ ] (S) 購買部: `category-card__visual`(19種)のサムネイルに上下の黒い帯が出る。
       経緯: 一度「background-size: coverは19種とも正しく設定済みでCSS的には
       発生し得ない、指摘時点はまだ実画像反映前のプレースホルダーだったための
