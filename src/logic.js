@@ -41,3 +41,14 @@ export function calcOptimalPrice(adults, students, children, infants) {
   }
   return { total: regularTotal, familySets: 0, savings: 0 };
 }
+
+// カルーセルの次/前インデックスを計算する(0始まり、範囲外は循環)
+export function carouselNextIndex(current, total) {
+  if (total <= 0) { return 0; }
+  return (current + 1 + total) % total;
+}
+
+export function carouselPrevIndex(current, total) {
+  if (total <= 0) { return 0; }
+  return (current - 1 + total) % total;
+}

@@ -250,6 +250,10 @@
   margin: 0;
 }
 
+.highlight-carousel {
+  position: relative;
+}
+
 .highlight-list {
   list-style: none;
   padding: 0;
@@ -257,6 +261,10 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+}
+
+.highlight-list.is-carousel {
+  grid-template-columns: 1fr;
 }
 
 .highlight-card {
@@ -279,6 +287,62 @@
 .highlight-card:hover {
   border-color: color-mix(in oklch, var(--brass) 45%, transparent);
   transform: translateY(-4px);
+}
+
+.highlight-list.is-carousel .highlight-card {
+  animation: highlight-fade 0.4s ease-out;
+}
+
+.highlight-card[hidden] {
+  display: none;
+}
+
+.highlight-carousel__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.highlight-carousel__arrow {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 1px solid color-mix(in oklch, var(--brass) 35%, transparent);
+  background: none;
+  color: var(--brass);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.highlight-carousel__arrow:hover {
+  border-color: var(--brass);
+  background-color: color-mix(in oklch, var(--brass) 10%, transparent);
+}
+
+.highlight-carousel__dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.highlight-carousel__dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid color-mix(in oklch, var(--brass) 45%, transparent);
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.highlight-carousel__dot.is-active {
+  background-color: var(--ember);
+  border-color: var(--ember);
+  transform: scale(1.2);
 }
 
 .highlight-card__visual {
@@ -902,12 +966,21 @@
   }
 }
 
+@keyframes highlight-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero__subtitle,
   .hero__title,
   .hero__ornament,
   .hero__tagline,
   .hero__cta {
+    animation: none;
+  }
+
+  .highlight-list.is-carousel .highlight-card {
     animation: none;
   }
 }
