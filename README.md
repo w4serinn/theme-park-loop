@@ -28,40 +28,59 @@ theme-park-loop/
 ├── .claude/
 │   ├── settings.json
 │   └── skills/
-│       ├── evolve/SKILL.md        # 1サイクルの手順定義
-│       └── local-review/SKILL.md  # コミット前の客観レビュー
+│       ├── evolve/SKILL.md           # 1サイクルの手順定義
+│       ├── local-review/SKILL.md     # コミット前の客観レビュー
+│       └── worldview-check/SKILL.MD  # 世界観・演出の量産型チェック(手動実行、evolveサイクルには含まれない)
+├── .github/
+│   └── workflows/
+│       ├── auto-merge.yml  # ページ完了を検知してmainへ自動PR・自動マージ
+│       └── deploy.yml      # main反映後、GitHub Pagesへ自動デプロイ
 ├── docs/
-│   ├── ROADMAP.md         # AIのバックログ(人間が随時追記)
-│   ├── roadmap-done.md    # 完了済みページ
-│   ├── cycle-log.md       # サイクル履歴(自動生成)
-│   ├── PALETTE.md         # カラーパレット台帳(承認制)
-│   └── ASSET_REQUESTS.md  # イラスト・音声の依頼リスト
+│   ├── ROADMAP.md          # AIのバックログ(人間が随時追記・承認)
+│   ├── roadmap-done.md     # 完了済みサブタスクの蓄積(ROADMAP.mdから一方通行で退避)
+│   ├── cycle-log.md        # サイクル履歴(自動生成)
+│   ├── PALETTE.md          # カラーパレット台帳(承認制)
+│   ├── ASSET_REQUESTS.md   # イラスト・音声の依頼リスト
+│   └── WORLDVIEW.md        # worldview-check の実行結果台帳(提案中/反映済み)
 ├── partials/
-│   ├── header.html        # 共通ヘッダー
-│   └── footer.html        # 共通フッター
-├── pages/                 # 各ページのソース(HEADER/FOOTERはプレースホルダー)
-│   ├── index.html
-│   ├── exploration/index.html
-│   ├── events/index.html
-│   ├── shop/index.html
-│   ├── dining/index.html
-│   ├── tickets/index.html
-│   ├── access/index.html
-│   └── guide/index.html
+│   ├── header.html         # 共通ヘッダー
+│   └── footer.html         # 共通フッター
+├── pages/                  # 各ページのソース(HEADER/FOOTER/NEWSはプレースホルダー)
+│   ├── index.html          # トップページ
+│   ├── search.html         # サイト内検索
+│   ├── sitemap.html / 404.html
+│   ├── exploration/        # 学院内探索(一覧 + 7エリア詳細ページ)
+│   ├── events/index.html   # 学院祭・行事
+│   ├── shop/                # 購買部(一覧 + 中央5種・エリア別14店舗の詳細ページ)
+│   ├── dining/               # 学食・喫茶室(一覧 + 7エリアの飲食店詳細ページ)
+│   ├── tickets/index.html  # 入学願書(チケット案内)
+│   ├── access/index.html   # 学院への道のり(アクセス+マップ)
+│   └── guide/index.html    # 学院案内
 ├── styles/
-│   ├── tokens.css         # コアカラー(CSS変数)
-│   └── base.css
+│   ├── tokens.css          # コアカラー(CSS変数)。新しい色変数を宣言できるのはここだけ
+│   ├── base.css             # 全ページ共通の基礎スタイル
+│   └── (ページ別CSS: index.css / area-page.css / shop-page.css / dining.css など)
 ├── src/
-│   └── logic.js           # 純粋関数(テスト対象。例: チケット計算)
+│   ├── logic.js              # 純粋関数(テスト対象。例: チケット計算・検索フィルタ)
+│   └── (DOM操作スクリプト: accordion.js / shop-tabs.js / scroll-reveal.js / mascot-speech.js など)
 ├── tests/
 │   ├── logic.test.js
-│   └── footer-consistency.test.js
+│   ├── roadmap-consistency.test.js  # ROADMAP.mdの完了サブタスク退避漏れ・status不整合を検出
+│   ├── hierarchy-depth.test.js      # 一覧系ページの3階層目の新設を検出
+│   ├── no-absolute-paths.test.js    # `/`始まりの絶対パスを検出
+│   └── footer-consistency.test.js / news-render.test.js / roadmap-utils.test.js
 ├── scripts/
-│   └── build.js            # ヘッダー/フッター合体ビルドスクリプト
+│   ├── build.js                     # ヘッダー/フッター/ニュース合体ビルドスクリプト
+│   ├── news-render.js               # 更新履歴HTML生成の純粋関数
+│   ├── update-news.js               # CI用: ページ完了検知時に data/news.json へ自動追記
+│   ├── check-roadmap-completion.js  # CI用: ROADMAP.mdの完了ページ検知(auto-merge.ymlから利用)
+│   └── roadmap-utils.js
+├── data/
+│   └── news.json           # 更新履歴データ。CIが自動更新するため evolveループは直接編集しない
 ├── assets/
-│   ├── images/             # Midjourney/ChatGPTで作成した画像を配置
-│   └── audio/              # Irodori-TTSで作成した音声を配置
-├── dist/                   # npm run build の出力先(gitignore対象)
+│   ├── images/              # Midjourney/ChatGPTで作成した画像を配置(エリア別に整理)
+│   └── audio/                # Irodori-TTSで作成した音声の配置想定(2026-07-27時点で未作成)
+├── dist/                    # npm run build の出力先(gitignore対象)
 ├── eslint.config.js
 ├── vitest.config.js
 ├── .stylelintrc.json
