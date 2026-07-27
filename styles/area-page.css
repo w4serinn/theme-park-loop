@@ -33,7 +33,12 @@
   /* 画像はMidjourneyで --ar 5:1 生成のため、コンテナのアスペクト比を合わせて
      object-fit: cover によるクロップを最小限にする(幅が広いページでも
      画像の上下が過度に見切れないようにするため)。max-heightは
-     超ワイド画面での縦伸びを防ぐ上限。 */
+     超ワイド画面での縦伸びを防ぐ上限。
+     width:100%は必須: aspect-ratio + max-height の組み合わせで width が
+     auto のままだと、ブラウザが max-height 側から幅を逆算し
+     (max-height × aspect-ratio)、コンテナ幅より狭くなってしまうバグがあった
+     (2026-07-27発覚。右側に黒い余白ができ「バナーが切れる」ように見えた)。 */
+  width: 100%;
   aspect-ratio: 5 / 1;
   max-height: 320px;
   background-color: color-mix(in srgb, var(--emerald) 30%, var(--ink));
