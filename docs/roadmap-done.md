@@ -439,3 +439,15 @@
       (`assets/images/shop/shopkeeper-mascot.png`)をASSET_REQUESTS.mdに依頼済み
       (素材到着後、タブナビ付近に配置する別サブタスクとして扱う)。
       prefers-reduced-motion時は両アニメーションを停止。
+
+- [x] (M) 学食・喫茶室(一覧+7店舗): タブ切替と人気メニュープレビューの開閉に演出を
+      追加(HTML変更なし、CSSのみ)。人気メニューのクリック開閉自体(`.menu-item__
+      trigger` + `src/dining-menu.js`)は既存実装済みだったため、そこに欠けていた
+      「動き」を追加する形で対応。
+      1. `.dining-tabs .tab-btn.is-active`/`.dining-tabs .tab-panel`に、購買部と
+         同じ動きの言語(`dining-tab-lock-in`の発光フラッシュ、
+         `dining-tab-panel-engage`の噛み合い→正位置)を追加
+      2. `.menu-item__panel`(中央学食タブ・各エリアの「人気メニュー」プレビュー
+         両方で共有)に`menu-item-panel-engage`を追加し、詳細を開いた瞬間に
+         同じ質感の動きが伝わるようにした
+      いずれもscaleは使わず、prefers-reduced-motion時は3つとも停止。

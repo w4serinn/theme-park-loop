@@ -1,5 +1,26 @@
 # サイクル履歴
 
+## 2026-07-27 22:22
+- ブランチ: evolve/cycle-24 は未マージのため継続。
+- 実装: 「### 12. 全ページ演出・体験強化」の学食・喫茶室サブタスクに着手・完了
+  (HTML変更なし、CSSのみ)。
+  1. 人気メニューのクリック開閉自体(`.menu-item__trigger` + `src/dining-menu.js`)
+     は既に実装済みだったことを確認。欠けていたのは「動き」だったため、そこに
+     焦点を絞って対応
+  2. `.dining-tabs .tab-btn.is-active`/`.dining-tabs .tab-panel`に、前サイクルの
+     購買部と同じ動きの言語(発光フラッシュ+噛み合い→正位置)を追加
+  3. `.menu-item__panel`(中央学食タブ・各エリアの「人気メニュー」プレビュー両方で
+     共有)に詳細展開時の`menu-item-panel-engage`を追加
+  4. dining.cssはdining/index.html専用ファイルのため他ページへの影響なし
+- レビュー: local-review実施。指摘0件。
+- lint: ✓ / lint:css: ✓ / test: ✓(211件) / build: ✓
+- Playwrightで実ブラウザ確認: タブ切替(aria-selected同期)、人気メニュー詳細展開
+  (is-open/hidden同期)ともに正常動作。console error無し。
+- 次回予定: 「### 12」の残り3項目(学院祭・行事/入学願書/学院への道のり)、
+  または「### 0」のヘッダーCTA検討、「### 13」の隠しページ候補棚卸し。
+- blocked / partial: なし
+- asset-pending: なし(前サイクルのREQ-069は引き続き依頼中)
+
 ## 2026-07-27 21:23
 - ブランチ: evolve/cycle-24 は未マージのため継続。
 - 実装: 「### 12. 全ページ演出・体験強化」の購買部サブタスクに着手・完了
