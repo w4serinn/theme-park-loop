@@ -26,7 +26,7 @@ import {
 } from "node:fs";
 import { join, dirname, relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";
-import { newsEntryLabel } from "./news-render.js";
+import { renderNewsListHtml } from "./news-render.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -41,14 +41,6 @@ const NEWS_PATH = join(ROOT, "data", "news.json");
 const header = readFileSync(join(PARTIALS_DIR, "header.html"), "utf-8");
 const footer = readFileSync(join(PARTIALS_DIR, "footer.html"), "utf-8");
 
-function escapeHtml(str) {
-  return String(str)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;");
-}
-
 function loadNews() {
   if (!existsSync(NEWS_PATH)) return [];
   try {
@@ -60,19 +52,7 @@ function loadNews() {
 }
 
 function renderNewsHtml() {
-  const news = loadNews();
-  if (news.length === 0) {
-    return '<p class="news-empty">まだ更新履歴はありません。</p>';
-  }
-  const sorted = [...news].sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
-  const items = sorted
-    .slice(0, 10)
-    .map((entry) => {
-      const label = escapeHtml(newsEntryLabel(entry));
-      return `  <li><span class="news-date">${escapeHtml(entry.date)}</span> ${label}</li>`;
-    })
-    .join("\n");
-  return `<ul class="news-list">\n${items}\n</ul>`;
+  return renderNewsListHtml(loadNews());
 }
 
 function depthFromPagesRoot(absPath) {
