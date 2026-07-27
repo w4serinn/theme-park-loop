@@ -257,4 +257,13 @@ a {
     background: none;
     color: var(--ink);
   }
+
+  .news-list-scroll {
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .news-list-scroll::after {
+    display: none;
+  }
 }
