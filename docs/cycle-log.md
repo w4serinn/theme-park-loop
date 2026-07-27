@@ -1,5 +1,25 @@
 # サイクル履歴
 
+## 2026-07-28 07:17
+- ブランチ: evolve/cycle-25 は未マージのため継続。
+- タスク選定: ### 4(購買部)・### 12(ナレーション)・### 13(隠しページ候補2〜4)は
+  素材到着・承認とも未到着で進行不可を再確認(REQ-058〜067・REQ-069・
+  REQ-070〜072いずれも未着荷)。既存の完了ページを調査し、前サイクルの
+  `.attraction-item__panel`と全く同じ「アコーディオン開閉が無演出」の穴を
+  入学願書・学院案内の`.qa-panel`にも発見(tickets.css/guide.css、
+  `src/guide-qa.js`共有)。
+- 実装: `.qa-item.is-open .qa-panel`に`qa-panel-engage`(回転+ズレの
+  噛み合いから正位置に収まる動き)をtickets.css・guide.css両方に追加。
+  scaleは使わず、prefers-reduced-motion時は停止。新規アセット依頼は不要。
+- レビュー: local-review実施。指摘0件。
+- lint: ✓ / lint:css: ✓ / test: ✓(216件) / build: ✓
+- 次回予定: ### 4/### 12(ナレーション)/### 13(候補2〜4)は引き続き素材・承認
+  待ち。他の完了ページにも同種の「無演出アコーディオン/トグル」が残っていないか
+  引き続き確認する(shop-page.cssは商品リストが静的でトグル要素自体が無いため、
+  演出を足すには新規UI追加が必要になり今回は見送り)。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-28 06:23
 - ブランチ: evolve/cycle-24 は origin/main に自動マージ済みを確認、
   main を最新化して evolve/cycle-25 を新規作成。
