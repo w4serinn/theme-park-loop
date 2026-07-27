@@ -1,0 +1,161 @@
+/* 魔法生物図鑑ページ固有スタイル(隠しページ) */
+
+.glossary-hero {
+  text-align: center;
+  padding: 3rem 1.5rem 2.5rem;
+  border-bottom: 1px solid var(--brass);
+}
+
+.glossary-hero__eyebrow {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  color: var(--ember);
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+}
+
+.glossary-hero__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 0.75rem;
+}
+
+.glossary-hero__desc {
+  font-size: 0.95rem;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.creature-list {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.creature-entry {
+  display: flex;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 22%, transparent);
+}
+
+.creature-entry:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.creature-entry__avatar {
+  flex-shrink: 0;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background-color: color-mix(in srgb, var(--brass) 18%, var(--ink));
+  background-size: cover;
+  background-position: center;
+  border: 2px solid color-mix(in oklch, var(--brass) 35%, transparent);
+  animation: creature-bob 3.2s ease-in-out infinite;
+}
+
+.creature-entry--owl .creature-entry__avatar {
+  background-image: url('../assets/images/guide/mascot-owl.png');
+  border-color: color-mix(in oklch, var(--emerald) 45%, transparent);
+  animation-delay: 0s;
+}
+
+.creature-entry--mouse .creature-entry__avatar {
+  background-image: url('../assets/images/guide/mascot-mouse.png');
+  border-color: color-mix(in oklch, var(--silver) 45%, transparent);
+  animation-delay: 0.6s;
+}
+
+.creature-entry--rabbit .creature-entry__avatar {
+  background-image: url('../assets/images/guide/mascot-rabbit.png');
+  border-color: color-mix(in oklch, var(--azure) 45%, transparent);
+  animation-delay: 1.2s;
+}
+
+.creature-entry__name {
+  font-size: 1.15rem;
+  color: var(--brass);
+  margin: 0 0 0.75rem;
+}
+
+.creature-entry__profile {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.35rem 1rem;
+  font-size: 0.82rem;
+  margin: 0 0 1rem;
+}
+
+.creature-entry__profile dt {
+  color: var(--ember);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.creature-entry__profile dd {
+  margin: 0;
+  color: color-mix(in oklch, var(--brass) 85%, transparent);
+}
+
+.creature-entry__lore {
+  font-size: 0.9rem;
+  line-height: 1.85;
+  color: color-mix(in oklch, var(--brass) 88%, transparent);
+  margin: 0;
+}
+
+.glossary-footnote {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+  text-align: center;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: color-mix(in oklch, var(--brass) 55%, transparent);
+}
+
+@keyframes creature-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .creature-entry__avatar {
+    animation: none;
+  }
+}
+
+@media (width <= 600px) {
+  .glossary-hero {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .glossary-hero__title {
+    font-size: 1.6rem;
+  }
+
+  .creature-list {
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
+  }
+
+  .creature-entry {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
