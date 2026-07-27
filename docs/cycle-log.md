@@ -1,5 +1,25 @@
 # サイクル履歴
 
+## 2026-07-27 23:21
+- ブランチ: evolve/cycle-24 は未マージのため継続。
+- 実装: 「### 12. 全ページ演出・体験強化」の学院祭・行事サブタスクに着手・完了
+  (HTML変更なし、CSSのみ)。
+  1. `.event-filter__btn.is-active`に`event-filter-activate`(小さな魔法陣が
+     展開して消えるリング状のbox-shadow)を追加。既存の「浮き上がり」表現の
+     静的box-shadowとは異なる展開/収束する発光として設計
+  2. `.event-card:not([hidden])`に、既存のtab-panel-engage/area-peek-openと
+     同じ「噛み合って正位置に収まる」動きの言語(`event-card-engage`)を追加。
+     hidden属性が外れた瞬間のみ再生されるため、フィルタで新たに表示された
+     カードだけが動く
+- レビュー: local-review実施。指摘0件。
+- lint: ✓ / lint:css: ✓ / test: ✓(211件) / build: ✓
+- Playwrightで実ブラウザ確認: 季節フィルタ(夏)クリックで8件→2件に絞り込み、
+  aria-pressed同期を確認。console error無し。
+- 次回予定: 「### 12」の残り2項目(入学願書/学院への道のり)。または「### 0」の
+  ヘッダーCTA検討、「### 13」の隠しページ候補棚卸し。
+- blocked / partial: なし
+- asset-pending: なし(REQ-069は引き続き依頼中)
+
 ## 2026-07-27 22:22
 - ブランチ: evolve/cycle-24 は未マージのため継続。
 - 実装: 「### 12. 全ページ演出・体験強化」の学食・喫茶室サブタスクに着手・完了

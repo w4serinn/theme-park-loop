@@ -53,6 +53,20 @@
   background-color: var(--brass);
   border-color: var(--brass);
   color: var(--ink);
+
+  /* 絞り込みを発動した実感を、小さな魔法陣が展開して消えるリング状の発光で
+     伝える(box-shadowの「浮き上がり」表現ではなく、展開/収束する発光)。 */
+  animation: event-filter-activate 0.4s ease-out;
+}
+
+@keyframes event-filter-activate {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in oklch, var(--brass) 60%, transparent);
+  }
+
+  100% {
+    box-shadow: 0 0 0 8px color-mix(in oklch, var(--brass) 0%, transparent);
+  }
 }
 
 /* イベント一覧 */
@@ -82,6 +96,30 @@
 
 .event-card[hidden] {
   display: none;
+}
+
+.event-card:not([hidden]) {
+  /* 絞り込みで新たに表示されたカードが、噛み合って正位置に収まる動きで現れる
+     (shop.css/dining.cssのtab-panel-engageと同じ動きの言語。scaleは使わない)。
+     hidden属性が外れた瞬間だけ再生されるため、既に表示中のカードには影響しない。 */
+  animation: event-card-engage 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes event-card-engage {
+  0% {
+    opacity: 0;
+    transform: rotate(-1deg) translateY(-8px);
+  }
+
+  70% {
+    opacity: 1;
+    transform: rotate(0.3deg) translateY(2px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(0deg) translateY(0);
+  }
 }
 
 /* 注目イベント */
@@ -268,6 +306,13 @@
   color: color-mix(in oklch, var(--brass) 82%, transparent);
   margin: 0;
   line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .event-filter__btn.is-active,
+  .event-card:not([hidden]) {
+    animation: none;
+  }
 }
 
 @media (width <= 600px) {

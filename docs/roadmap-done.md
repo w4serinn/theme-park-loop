@@ -451,3 +451,15 @@
          両方で共有)に`menu-item-panel-engage`を追加し、詳細を開いた瞬間に
          同じ質感の動きが伝わるようにした
       いずれもscaleは使わず、prefers-reduced-motion時は3つとも停止。
+
+- [x] (S) 学院祭・行事: 季節×エリアの複合フィルタに「絞り込みを発動した」実感を
+      伝える演出を追加(HTML変更なし、CSSのみ)。
+      1. `.event-filter__btn.is-active`に`event-filter-activate`(小さな魔法陣が
+         展開して消えるリング状のbox-shadow、0→8px spreadでopacity 60%→0%)を追加。
+         「浮き上がり」表現の静的box-shadowとは異なり、展開/収束する発光として
+         意図的に設計
+      2. `.event-card:not([hidden])`に`event-card-engage`(既存のtab-panel-engage
+         /area-peek-openと同じ「噛み合って正位置に収まる」動き)を追加し、
+         フィルタで新たに表示されたカードだけが動く(hidden属性が外れた瞬間のみ
+         再生されるため、既に表示中のカードは動かない)
+      いずれもscaleは使わず、prefers-reduced-motion時は両方停止。
