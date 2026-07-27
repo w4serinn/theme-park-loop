@@ -396,3 +396,20 @@
       (既存の`src/guide-qa.js`と同じ設計)。prefers-reduced-motion時は
       bob/pop-inアニメーションを停止(hidden切替による表示自体は維持)。
       新規イラスト素材は使わず、既存のREQ-052〜054画像とCSS/JSのみで実装。
+
+- [x] (M) トップページ: `worldview-check`(2026-07-27実施)で指摘された量産型
+      パターン4件を、scale拡大・box-shadowの拡大(浮き上がり)・fadeのみの遷移を
+      使わずに修正。
+      1. `.reveal`のイージングを汎用的な`ease-out`から、opacityはexpo-out
+         (`cubic-bezier(0.16, 1, 0.3, 1)`)、transformはわずかにオーバーシュートして
+         収まる`cubic-bezier(0.34, 1.56, 0.64, 1)`に差し替え。
+      2. カルーセルのスライド切り替えを`highlight-fade`(opacityのみ)から、
+         回転+ズレの噛み合いから正位置に収まる`highlight-card-engage`
+         (rotate+translateX)に変更。
+      3. カルーセルのアクティブドットの`scale(1.2)`を、点灯する魔法陣の光点を
+         想起させるbox-shadowの明滅(`dot-glow-pulse`、1.8s周期)に置き換え。
+      4. nav-cardホバー時のアイコン`scale(1.15)`を、`text-shadow: 0 0 8px
+         currentcolor`による発光(バリアント毎の色にcurrentColorで自動追従)に
+         置き換え。
+      いずれもprefers-reduced-motion時はアニメーションを停止(ドットは静的な
+      glowにフォールバック)。

@@ -1,5 +1,29 @@
 # サイクル履歴
 
+## 2026-07-27 19:25
+- ブランチ: evolve/cycle-24 は未マージのため継続。
+- 実装: 「### 12. 全ページ演出・体験強化」のトップページサブタスク
+  (worldview-check指摘4件)に着手・完了。
+  1. `.reveal`のイージングをease-outからexpo-out(opacity)+わずかに
+     オーバーシュートして収まるspring風(transform)のcubic-bezierに変更
+  2. カルーセルのスライド切り替えを`highlight-fade`(opacityのみ)から
+     `highlight-card-engage`(rotate+translateXで噛み合い→正位置に収まる)に変更
+  3. カルーセルのアクティブドットの`scale(1.2)`を`dot-glow-pulse`
+     (box-shadowの明滅、魔法陣の光点イメージ)に置き換え
+  4. nav-cardホバー時のアイコン`scale(1.15)`を`text-shadow: 0 0 8px
+     currentcolor`の発光に置き換え(バリアント色に自動追従)
+  4項目とも「使わないもの」指定(scale拡大・box-shadowの浮き上がり・fadeのみ)を
+  遵守。prefers-reduced-motion時は全て停止/静的フォールバック。
+- レビュー: local-review実施。指摘0件。
+- lint: ✓ / lint:css: ✓ / test: ✓(211件) / build: ✓
+- Playwrightで実ブラウザ確認: nav-cardホバー時のtext-shadow付与、アクティブドットの
+  box-shadow、カルーセル「次へ」クリック後の遷移を確認。console error無し。
+- 次回予定: 「### 12」の残り5項目(学院内探索/購買部/学食・喫茶室/学院祭・行事/
+  入学願書/学院への道のり、いずれもインタラクション+イラスト方針)。または
+  「### 0」のヘッダーCTA検討、「### 13」の隠しページ候補棚卸し。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-27 18:25
 - ブランチ: evolve/cycle-24 は未マージのため継続。サイクル開始時点で、前回の対話中
   フィードバック対応(歯車の視認性修正+### 12の方向転換)がテスト済みで未コミット
