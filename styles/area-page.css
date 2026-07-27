@@ -319,6 +319,28 @@
   padding: 0 1.25rem 1.25rem;
 }
 
+.attraction-item.is-open .attraction-item__panel {
+  animation: attraction-panel-engage 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes attraction-panel-engage {
+  0% {
+    transform: rotate(-1deg) translateY(-8px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .attraction-item.is-open .attraction-item__panel {
+    animation: none;
+  }
+}
+
 .attraction-item__desc {
   font-size: 0.875rem;
   color: color-mix(in oklch, var(--brass) 82%, transparent);

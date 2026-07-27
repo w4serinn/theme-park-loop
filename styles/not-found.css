@@ -7,6 +7,58 @@
   text-align: center;
 }
 
+.not-found__circle {
+  display: block;
+  margin: 0 auto 1.5rem;
+  overflow: visible;
+}
+
+.not-found__circle-shape {
+  fill: none;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: not-found-trace 1.2s ease-out forwards;
+}
+
+.not-found__circle-shape--outer {
+  stroke: var(--brass);
+  stroke-width: 1.6;
+}
+
+.not-found__circle-shape--inner {
+  stroke: var(--ember);
+  stroke-width: 1.3;
+  animation-delay: 0.15s;
+}
+
+.not-found__circle-shape--glyph-a,
+.not-found__circle-shape--glyph-b {
+  stroke: var(--ember);
+  stroke-width: 1;
+  opacity: 0.8;
+}
+
+.not-found__circle-shape--glyph-a {
+  animation-delay: 0.35s;
+}
+
+.not-found__circle-shape--glyph-b {
+  animation-delay: 0.5s;
+}
+
+@keyframes not-found-trace {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .not-found__circle-shape {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+
 .not-found__eyebrow {
   font-size: 0.8rem;
   letter-spacing: 0.2em;
