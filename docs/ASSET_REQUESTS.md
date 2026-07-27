@@ -7,36 +7,6 @@
 
 ## 依頼中(未対応)
 
-### REQ-068 [type: image]
-- 用途: サイト全体共通のOGPアイキャッチ画像(og:image。SNS等でURLが共有された際に
-  表示されるプレビュー画像)
-- 配置先パス: assets/images/og-image.jpg
-- 想定ツール: Midjourney(実写風・雰囲気重視)
-- 提案プロンプト: grand steampunk fantasy magic academy exterior at golden hour, ornate clock tower and brass domes, small airships floating in the sky, wide establishing shot, painterly illustration, brass emerald deep-ink color palette, cinematic composition --ar 1200:630
-- 補足: OGP標準サイズ(1200×630、比率約1.91:1)。学院を象徴する時計塔・飛行船を
-  含む外観の一枚絵で、サイト全体の顔として使う。
-
-### REQ-055 [type: image]
-- 用途: 購買部 制服・ローブページ — 商品アイコン(product-entry__visual--uniform、5商品共通)
-- 配置先パス: assets/images/shop/product-uniform.png
-- 想定ツール: ChatGPT(シンプルなアイコン)
-- 提案プロンプト: simple flat icon of a folded academy uniform robe with brass buttons, steampunk fantasy academy style, circular or square badge composition, brass and deep ink color palette, transparent background
-- 補足: 96px正方形枠での表示を想定。商品単位ではなくカテゴリ単位の共通アイコンとして使う。
-
-### REQ-056 [type: image]
-- 用途: 購買部 魔導具ページ — 商品アイコン(product-entry__visual--tool、5商品共通)
-- 配置先パス: assets/images/shop/product-tool.png
-- 想定ツール: ChatGPT(シンプルなアイコン)
-- 提案プロンプト: simple flat icon of a magic wand crossed with a small brass gear, steampunk fantasy academy style, badge composition, azure and deep ink color palette, transparent background
-- 補足: 96px正方形枠での表示を想定。
-
-### REQ-057 [type: image]
-- 用途: 購買部 みやげ・食品ページ — 商品アイコン(product-entry__visual--souvenir、商品共通)
-- 配置先パス: assets/images/shop/product-souvenir.png
-- 想定ツール: ChatGPT(シンプルなアイコン)
-- 提案プロンプト: simple flat icon of a wrapped gift box with a wax seal stamped with a magic circle, steampunk fantasy academy style, badge composition, arcane purple and deep ink color palette, transparent background
-- 補足: 96px正方形枠での表示を想定。
-
 ### REQ-058 [type: image]
 - 用途: 購買部 書籍・資料ページ — 商品アイコン(product-entry__visual--book、商品共通)
 - 配置先パス: assets/images/shop/product-book.png
@@ -115,6 +85,22 @@
 - 補足: 96px正方形枠での表示を想定。
 
 ## 対応済み
+
+### REQ-068 [type: image]
+- 用途: サイト全体共通のOGPアイキャッチ画像(og:image)
+- 配置先パス: assets/images/og-image.jpg
+
+### REQ-055 [type: image]
+- 用途: 購買部 制服・ローブページ — 商品アイコン(product-entry__visual--uniform、5商品共通)
+- 配置先パス: assets/images/shop/product-uniform.png
+
+### REQ-056 [type: image]
+- 用途: 購買部 魔導具ページ — 商品アイコン(product-entry__visual--tool、5商品共通)
+- 配置先パス: assets/images/shop/product-tool.png
+
+### REQ-057 [type: image]
+- 用途: 購買部 みやげ・食品ページ — 商品アイコン(product-entry__visual--souvenir、商品共通)
+- 配置先パス: assets/images/shop/product-souvenir.png
 
 ### REQ-049 [type: image]
 - 用途: 学院への道のり 提携宿泊施設「銀時計亭」 — 宿泊施設カードサムネイル

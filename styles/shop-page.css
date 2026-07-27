@@ -553,43 +553,23 @@
 /* カテゴリ固有 商品ビジュアル */
 .product-entry__visual--uniform {
   background-color: color-mix(in srgb, var(--ember) 20%, var(--ink));
-  background-image: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 8px,
-    color-mix(in oklch, var(--ember) 8%, transparent) 8px,
-    color-mix(in oklch, var(--ember) 8%, transparent) 9px
-  );
+  background-image: url('../assets/images/shop/product-uniform.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .product-entry__visual--tool {
   background-color: color-mix(in srgb, var(--azure) 18%, var(--ink));
-  background-image: repeating-radial-gradient(
-    circle at 50% 50%,
-    transparent,
-    transparent 14px,
-    color-mix(in oklch, var(--azure) 9%, transparent) 14px,
-    color-mix(in oklch, var(--azure) 9%, transparent) 15px
-  );
+  background-image: url('../assets/images/shop/product-tool.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .product-entry__visual--souvenir {
   background-color: color-mix(in srgb, var(--arcane) 16%, var(--ink));
-  background-image:
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 10px,
-      color-mix(in oklch, var(--arcane) 10%, transparent) 10px,
-      color-mix(in oklch, var(--arcane) 10%, transparent) 11px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 10px,
-      color-mix(in oklch, var(--arcane) 10%, transparent) 10px,
-      color-mix(in oklch, var(--arcane) 10%, transparent) 11px
-    );
+  background-image: url('../assets/images/shop/product-souvenir.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .product-entry__visual--book {
