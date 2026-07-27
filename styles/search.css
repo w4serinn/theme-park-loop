@@ -1,0 +1,133 @@
+/* サイト内検索ページ固有スタイル */
+
+.page-hero {
+  text-align: center;
+  padding: 3rem 1.5rem 2.5rem;
+  border-bottom: 1px solid var(--brass);
+}
+
+.page-hero__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 0.75rem;
+}
+
+.page-hero__desc {
+  font-size: 1rem;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.search-content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 3rem;
+}
+
+.search-form {
+  margin-bottom: 1.25rem;
+}
+
+.search-form__label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin-bottom: 0.5rem;
+}
+
+.search-form__input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--ink);
+  border: 1px solid color-mix(in oklch, var(--brass) 40%, transparent);
+  color: var(--brass);
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.search-form__input:focus {
+  outline: none;
+  border-color: var(--brass);
+}
+
+.search-form__input::placeholder {
+  color: color-mix(in oklch, var(--brass) 45%, transparent);
+}
+
+.search-status {
+  font-size: 0.85rem;
+  color: color-mix(in oklch, var(--brass) 68%, transparent);
+  margin: 0 0 1.25rem;
+  min-height: 1.2em;
+}
+
+.search-results {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.search-result {
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 20%, transparent);
+}
+
+.search-result:first-child {
+  border-top: 1px solid color-mix(in oklch, var(--brass) 20%, transparent);
+}
+
+.search-result__link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.search-result__link:hover {
+  background-color: color-mix(in oklch, var(--brass) 6%, transparent);
+}
+
+.search-result__category {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: color-mix(in oklch, var(--brass) 65%, transparent);
+  border: 1px solid color-mix(in oklch, var(--brass) 35%, transparent);
+  padding: 0.15rem 0.5rem;
+  white-space: nowrap;
+}
+
+.search-result__title {
+  font-size: 0.95rem;
+  color: var(--brass);
+  transition: color 0.2s;
+}
+
+.search-result__link:hover .search-result__title {
+  color: var(--ember);
+}
+
+@media (width <= 600px) {
+  .page-hero {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .page-hero__title {
+    font-size: 1.6rem;
+  }
+
+  .search-content {
+    padding: 1.5rem 1rem 2rem;
+  }
+
+  .search-result__link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+}
