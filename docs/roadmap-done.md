@@ -382,3 +382,17 @@
       表示(body.js-revealが付かない)、prefers-reduced-motion時はtransition/
       animationを停止、印刷時も全セクション常時表示になるようbase.cssの
       `@media print`にも対応を追加。
+      (2026-07-27追記: 実装後にユーザーから「歯車が小さすぎて見えない」
+      「fade-inとhoverしかしていない」と指摘され、歯車を1.8rem/9s周期+光彩に
+      強化し、以降のサブタスクはインタラクション性・キャラクターの動きを優先する
+      方針に修正した)
+
+- [x] (S) 学院案内: 既存の魔法生物マスコット3体(文鎮フクロウ「ホーホー」・歯車ネズミ
+      「カチカチ」・星兎「ルミナ」)の`mascot__avatar`を`<button>`化し、クリックで
+      一言セリフ(`mascot__speech`)がpop-inで開閉するインタラクションを追加。
+      各avatarには常時ゆるやかな上下バウンド(`mascot-bob`、3体で位相をずらして
+      同期させない)のidleアニメーションも追加。`src/mascot-speech.js`で
+      aria-expanded/aria-controls/hiddenの標準的な開閉トグルを実装
+      (既存の`src/guide-qa.js`と同じ設計)。prefers-reduced-motion時は
+      bob/pop-inアニメーションを停止(hidden切替による表示自体は維持)。
+      新規イラスト素材は使わず、既存のREQ-052〜054画像とCSS/JSのみで実装。

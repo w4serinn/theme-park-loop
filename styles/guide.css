@@ -144,6 +144,7 @@
   flex-shrink: 0;
   width: 72px;
   height: 72px;
+  padding: 0;
   border-radius: 50%;
   background-color: color-mix(in srgb, var(--brass) 18%, var(--ink));
   background-image: repeating-linear-gradient(
@@ -154,9 +155,19 @@
     color-mix(in srgb, var(--brass) 8%, transparent) 12px
   );
   border: 2px solid color-mix(in oklch, var(--brass) 35%, transparent);
+  cursor: pointer;
+  animation: mascot-bob 3.2s ease-in-out infinite;
+}
+
+.mascot__avatar:hover,
+.mascot__avatar:focus-visible {
+  border-color: var(--brass);
+  outline: 1px solid var(--brass);
+  outline-offset: 2px;
 }
 
 .mascot--owl .mascot__avatar {
+  animation-delay: 0s;
   background-color: color-mix(in srgb, var(--emerald) 22%, var(--ink));
   background-image: url('../assets/images/guide/mascot-owl.png');
   background-size: cover;
@@ -164,6 +175,7 @@
 }
 
 .mascot--mouse .mascot__avatar {
+  animation-delay: 0.6s;
   background-color: color-mix(in srgb, var(--silver) 22%, var(--ink));
   background-image: url('../assets/images/guide/mascot-mouse.png');
   background-size: cover;
@@ -171,6 +183,7 @@
 }
 
 .mascot--rabbit .mascot__avatar {
+  animation-delay: 1.2s;
   background-color: color-mix(in srgb, var(--azure) 22%, var(--ink));
   background-image: url('../assets/images/guide/mascot-rabbit.png');
   background-size: cover;
@@ -200,6 +213,50 @@
   color: color-mix(in oklch, var(--brass) 82%, transparent);
   line-height: 1.7;
   margin: 0;
+}
+
+.mascot__speech {
+  margin: 0.7rem 0 0;
+  padding: 0.55rem 0.8rem;
+  border-left: 2px solid var(--ember);
+  background-color: color-mix(in oklch, var(--ember) 8%, transparent);
+  color: var(--ember);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  animation: speech-pop 0.25s ease-out;
+}
+
+@keyframes mascot-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes speech-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mascot__avatar {
+    animation: none;
+  }
+
+  .mascot__speech {
+    animation: none;
+  }
 }
 
 /* 服装・持ち物: 3パネル */

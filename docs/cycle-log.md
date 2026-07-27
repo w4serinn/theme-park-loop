@@ -1,5 +1,36 @@
 # サイクル履歴
 
+## 2026-07-27 18:25
+- ブランチ: evolve/cycle-24 は未マージのため継続。サイクル開始時点で、前回の対話中
+  フィードバック対応(歯車の視認性修正+### 12の方向転換)がテスト済みで未コミット
+  だったため、まずそれをこのサイクルの一部としてコミット(fd1d8f6)してから
+  新規タスクに着手。
+- 実装: 「### 12. 全ページ演出・体験強化」で優先繰り上げされた学院案内(魔法生物
+  マスコット)に着手。
+  1. pages/guide/index.html: `mascot__avatar`を`<div aria-hidden>`から
+     `<button aria-expanded aria-controls aria-label>`に変更し、クリックで
+     一言セリフ(`mascot__speech`)が開閉するインタラクションを追加(3体分)
+  2. src/mascot-speech.js を新設。aria-expanded/hiddenの標準トグル
+     (既存のsrc/guide-qa.jsと同じ設計)
+  3. styles/guide.css: avatarに常時ゆるやかなbob(上下バウンド)のidle
+     アニメーションを追加(3体で位相をずらし同期させない)。speech要素は
+     pop-in(fade+scale)で出現。prefers-reduced-motionで両方停止
+  4. 商用素材は使わず、既存のマスコット画像(REQ-052〜054)とCSS/JSのみで実装
+- レビュー: local-review実施。指摘0件。
+- lint: ✓ / lint:css: ✓ / test: ✓(210件) / build: ✓
+- Playwrightで実ブラウザ確認: クリックでセリフが開閉、再クリックで閉じる、
+  aria-expandedの同期、console error無しを確認(bobアニメーションが常時動くため
+  Playwrightのactionability判定にはforce:trueが必要だったが、実利用上は
+  問題ない微小な動きであることを確認)。
+- 気づいた点(対応不要・報告のみ): `.claude/skills/worldview-check/SKILL.MD`
+  という空(0バイト)の未追跡ファイルが作業ツリーに存在していた。今回のコミットには
+  含めていない。ユーザーが作業中のものと思われる。
+- 次回予定: 「### 12」の残り6項目(学院内探索/購買部/学食・喫茶室/学院祭・行事/
+  入学願書/学院への道のり)のいずれか。すべてインタラクション性・イラスト要素を
+  含める方針。または「### 13」の隠しページ候補の棚卸し。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-27 17:25
 - ブランチ: evolve/cycle-24 は未マージのため継続。前サイクル終了後、ユーザーから
   隠し用語集ページ(pages/glossary/mythical-creatures.html)の承認と、隠しページを
