@@ -288,6 +288,22 @@
   border-top: 1px solid color-mix(in oklch, var(--brass) 18%, transparent);
 }
 
+.event-card.is-open .event-card__panel {
+  animation: event-panel-engage 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes event-panel-engage {
+  0% {
+    transform: rotate(-1deg) translateY(-8px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(0) translateY(0);
+    opacity: 1;
+  }
+}
+
 /* 詳細情報 dl */
 .event-detail {
   display: grid;
@@ -310,7 +326,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .event-filter__btn.is-active,
-  .event-card:not([hidden]) {
+  .event-card:not([hidden]),
+  .event-card.is-open .event-card__panel {
     animation: none;
   }
 }
