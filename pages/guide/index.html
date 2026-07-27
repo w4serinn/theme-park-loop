@@ -193,26 +193,29 @@
       <div class="mascot-list">
 
         <div class="mascot mascot--owl">
-          <div class="mascot__avatar" aria-hidden="true"></div>
+          <button type="button" class="mascot__avatar" aria-expanded="false" aria-controls="mascot-speech-owl" aria-label="ホーホーのひとことを聞く"></button>
           <div class="mascot__body">
             <h3 class="mascot__name">文鎮フクロウ「ホーホー」<span class="mascot__role">大図書館</span></h3>
             <p class="mascot__desc">大図書館お抱えの知恵の使い魔。迷った来訪者にそっと近づき、羽で行き先を指し示してくれます。難しい質問を投げかけると、たまに首をかしげて考え込むしぐさも人気です。</p>
+            <p class="mascot__speech" id="mascot-speech-owl" hidden>「お探しの書物は、きっと西棟の奥にありますよ。ホー」</p>
           </div>
         </div>
 
         <div class="mascot mascot--mouse">
-          <div class="mascot__avatar" aria-hidden="true"></div>
+          <button type="button" class="mascot__avatar" aria-expanded="false" aria-controls="mascot-speech-mouse" aria-label="カチカチのひとことを聞く"></button>
           <div class="mascot__body">
             <h3 class="mascot__name">歯車ネズミ「カチカチ」<span class="mascot__role">時計塔</span></h3>
             <p class="mascot__desc">時計塔の小さな時報係。正午になると大時計の前で愛らしいネジ巻きダンスを披露し、記念撮影に応じてくれることもあります。</p>
+            <p class="mascot__speech" id="mascot-speech-mouse" hidden>「カチカチ、次の時報まであと少し！一緒に待ちませんか」</p>
           </div>
         </div>
 
         <div class="mascot mascot--rabbit">
-          <div class="mascot__avatar" aria-hidden="true"></div>
+          <button type="button" class="mascot__avatar" aria-expanded="false" aria-controls="mascot-speech-rabbit" aria-label="ルミナのひとことを聞く"></button>
           <div class="mascot__body">
             <h3 class="mascot__name">星兎「ルミナ」<span class="mascot__role">天文台</span></h3>
             <p class="mascot__desc">天文台の夜間案内役。夜間観測イベントの際、望遠鏡の使い方をやさしく教えてくれる、耳の先がほのかに光る不思議な兎です。</p>
+            <p class="mascot__speech" id="mascot-speech-rabbit" hidden>「今夜は星がよく見えそう……望遠鏡、一緒に覗いてみますか」</p>
           </div>
         </div>
 
@@ -255,5 +258,6 @@
 </main>
 <!-- FOOTER -->
 <script src="{{BASE}}src/guide-qa.js" defer></script>
+<script src="{{BASE}}src/mascot-speech.js" defer></script>
 </body>
 </html>

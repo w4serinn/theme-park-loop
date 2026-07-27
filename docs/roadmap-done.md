@@ -80,6 +80,18 @@
 - [x] (S) 主要8ページに OGP メタタグ(og:type/og:title/og:description)を追加。
       SNS等でシェアされた際のタイトル・説明表示に対応(og:imageは今後のタスク候補へ)
 
+- [x] (M) ヘッダーの「入学願書」ナビリンクに常時アクセス可能な強調CTAスタイルを
+      追加(2026-07-28、`worldview-check`指摘対応)。`.site-header__cta`クラスを
+      追加し、ember色の枠線+背景色で他のナビ項目と視覚的に区別。ホバー時は塗り
+      反転、入学願書ページ自体を閲覧中は塗りつぶし状態(`is-current`)になる。
+      モバイルのハンバーガーメニューでも同様のボタン外観を維持。Playwrightで
+      トップ・学院内探索(depth-1)・購買部(depth-1)・入学願書自身・隠しページ
+      (glossary)・モバイル展開時の計6パターンでレイアウト崩れが無いことを確認。
+      (補足: `npx serve`のリダイレクト仕様により、ローカルテストサーバー経由では
+      `is-current`判定が効かないケースを発見したが、file://での直接検証で
+      本番相当の挙動は正しく動作することを確認済み。既存の`src/active-nav.js`
+      自体の不具合ではない)
+
 ### 1. トップページ
 
 - [x] (S) HTML骨格(ヒーローエリア、ニュースセクション)
@@ -370,3 +382,161 @@
 
 - [x] (S) 共通アイキャッチ画像(assets/images/og-image.jpg)をREQ-068として依頼・反映。
       時計塔と飛行船が浮かぶ夕景の一枚絵
+
+### 12. 全ページ演出・体験強化
+
+- [x] (M) トップページ: about-section・highlights-section・nav-cards-section・
+      seasonal-events-section・ticket-info-section・access-summary-section・
+      news-sectionの計7セクションに、IntersectionObserverベースのスクロール連動
+      fade-in(`.reveal`クラス、`src/scroll-reveal.js`)を追加。about-section と
+      ticket-info-section のセクション区切り(ornament)に、緩やかに回転する歯車
+      グリフ(`.ornament-gear`、Unicode ⚙️、16s周期)を追加した。JS無効時は常に
+      表示(body.js-revealが付かない)、prefers-reduced-motion時はtransition/
+      animationを停止、印刷時も全セクション常時表示になるようbase.cssの
+      `@media print`にも対応を追加。
+      (2026-07-27追記: 実装後にユーザーから「歯車が小さすぎて見えない」
+      「fade-inとhoverしかしていない」と指摘され、歯車を1.8rem/9s周期+光彩に
+      強化し、以降のサブタスクはインタラクション性・キャラクターの動きを優先する
+      方針に修正した)
+
+- [x] (S) 学院案内: 既存の魔法生物マスコット3体(文鎮フクロウ「ホーホー」・歯車ネズミ
+      「カチカチ」・星兎「ルミナ」)の`mascot__avatar`を`<button>`化し、クリックで
+      一言セリフ(`mascot__speech`)がpop-inで開閉するインタラクションを追加。
+      各avatarには常時ゆるやかな上下バウンド(`mascot-bob`、3体で位相をずらして
+      同期させない)のidleアニメーションも追加。`src/mascot-speech.js`で
+      aria-expanded/aria-controls/hiddenの標準的な開閉トグルを実装
+      (既存の`src/guide-qa.js`と同じ設計)。prefers-reduced-motion時は
+      bob/pop-inアニメーションを停止(hidden切替による表示自体は維持)。
+      新規イラスト素材は使わず、既存のREQ-052〜054画像とCSS/JSのみで実装。
+
+- [x] (M) トップページ: `worldview-check`(2026-07-27実施)で指摘された量産型
+      パターン4件を、scale拡大・box-shadowの拡大(浮き上がり)・fadeのみの遷移を
+      使わずに修正。
+      1. `.reveal`のイージングを汎用的な`ease-out`から、opacityはexpo-out
+         (`cubic-bezier(0.16, 1, 0.3, 1)`)、transformはわずかにオーバーシュートして
+         収まる`cubic-bezier(0.34, 1.56, 0.64, 1)`に差し替え。
+      2. カルーセルのスライド切り替えを`highlight-fade`(opacityのみ)から、
+         回転+ズレの噛み合いから正位置に収まる`highlight-card-engage`
+         (rotate+translateX)に変更。
+      3. カルーセルのアクティブドットの`scale(1.2)`を、点灯する魔法陣の光点を
+         想起させるbox-shadowの明滅(`dot-glow-pulse`、1.8s周期)に置き換え。
+      4. nav-cardホバー時のアイコン`scale(1.15)`を、`text-shadow: 0 0 8px
+         currentcolor`による発光(バリアント毎の色にcurrentColorで自動追従)に
+         置き換え。
+      いずれもprefers-reduced-motion時はアニメーションを停止(ドットは静的な
+      glowにフォールバック)。
+
+- [x] (M) 学院内探索(一覧+7エリア): 一覧の各エリアカードに「見どころをのぞく」
+      トリガーボタンを追加し、クリックで2件の見どころ(各エリア詳細ページの
+      attraction-listから既存コピーを再利用、新規テキスト無し)が展開する
+      インタラクションを実装(`src/area-peek.js`、aria-expanded/aria-controls/
+      hiddenの標準トグル)。カード本体のナビゲーションリンク(`.area-card__link`)
+      とは別要素にすることで、クリック展開とページ遷移が競合しないようにした。
+      展開時のアニメーション(`area-peek-open`)はトップページのカルーセル修正と
+      同じ「回転+ズレの噛み合いから正位置に収まる」動きを再利用し、サイト全体で
+      一貫した機械的な質感を持たせた(scaleは使わない)。カードのボーダー装飾を
+      `.area-card__link`から`.area-card`自体に移し、キーボード操作時も
+      `:focus-within`でハイライトされるようにした。
+
+- [x] (M) 購買部(一覧+14店舗): エリアタブ切替に「切り替わった」実感を伝える演出を
+      追加(HTML変更なし、CSSのみ)。
+      1. `.tab-btn.is-active`に`tab-lock-in`(text-shadowの一瞬の発光フラッシュ)
+         を追加。新しくis-activeが付いたタブだけで再生される
+      2. `.tab-panel`に`tab-panel-engage`(学院内探索の`area-peek-open`・
+         トップページの`highlight-card-engage`と同じ「回転+ズレの噛み合いから
+         正位置に収まる」動き)を追加し、サイト全体で一貫した機械的な質感を継続
+      3. dining.cssの`.dining-tabs .tab-btn`は独立した名前空間のため影響なし
+         (学食・喫茶室は別サブタスクとして今後対応)
+      店番キャラクター的な挿絵は、REQ-069として購買部共通の1体
+      (`assets/images/shop/shopkeeper-mascot.png`)をASSET_REQUESTS.mdに依頼済み
+      (素材到着後、タブナビ付近に配置する別サブタスクとして扱う)。
+      prefers-reduced-motion時は両アニメーションを停止。
+
+- [x] (M) 学食・喫茶室(一覧+7店舗): タブ切替と人気メニュープレビューの開閉に演出を
+      追加(HTML変更なし、CSSのみ)。人気メニューのクリック開閉自体(`.menu-item__
+      trigger` + `src/dining-menu.js`)は既存実装済みだったため、そこに欠けていた
+      「動き」を追加する形で対応。
+      1. `.dining-tabs .tab-btn.is-active`/`.dining-tabs .tab-panel`に、購買部と
+         同じ動きの言語(`dining-tab-lock-in`の発光フラッシュ、
+         `dining-tab-panel-engage`の噛み合い→正位置)を追加
+      2. `.menu-item__panel`(中央学食タブ・各エリアの「人気メニュー」プレビュー
+         両方で共有)に`menu-item-panel-engage`を追加し、詳細を開いた瞬間に
+         同じ質感の動きが伝わるようにした
+      いずれもscaleは使わず、prefers-reduced-motion時は3つとも停止。
+
+- [x] (S) 学院祭・行事: 季節×エリアの複合フィルタに「絞り込みを発動した」実感を
+      伝える演出を追加(HTML変更なし、CSSのみ)。
+      1. `.event-filter__btn.is-active`に`event-filter-activate`(小さな魔法陣が
+         展開して消えるリング状のbox-shadow、0→8px spreadでopacity 60%→0%)を追加。
+         「浮き上がり」表現の静的box-shadowとは異なり、展開/収束する発光として
+         意図的に設計
+      2. `.event-card:not([hidden])`に`event-card-engage`(既存のtab-panel-engage
+         /area-peek-openと同じ「噛み合って正位置に収まる」動き)を追加し、
+         フィルタで新たに表示されたカードだけが動く(hidden属性が外れた瞬間のみ
+         再生されるため、既に表示中のカードは動かない)
+      いずれもscaleは使わず、prefers-reduced-motion時は両方停止。
+
+- [x] (S) 入学願書(チケット案内): 料金シミュレーターの合計金額表示に、rAFベースの
+      カウントアップ(0.4s、ease-out cubic)を追加。着地した瞬間にember色の発光
+      フラッシュ(`sim-total-settle`)も加えた。
+      - `src/ticket-sim.js`: `animateTotal()`を追加。`prefers-reduced-motion`時は
+        即座に最終値を表示
+      - **アクセシビリティ修正(local-reviewで検出・その場で対応)**: `#sim-result`は
+        `aria-live="polite"`のため、そのままではカウントアップ中の中間値
+        (1キー入力あたり最大24回程度)がすべて読み上げられてしまう不具合を発見。
+        アニメーション中だけ`aria-live`を`off`にし、最終値が確定した瞬間に
+        `polite`へ戻すことで、スクリーンリーダーには最終合計のみが1回読み上げ
+        られるようにした(Playwrightでaria-live値の推移を確認済み)
+      - scaleは使用していない(数値のカウントアップ自体が固有の演出のため)
+
+- [x] (S) 学院への道のり: キャンパスマップのエリア選択に「ハイライト」と「案内役
+      キャラクター」の両方を追加(HTML変更は最小限、新規イラストは使わず既存の
+      guide/index.htmlのマスコット3体を再利用)。
+      1. `.map-area.is-selected rect`(通常/`--center`とも)に、選択境界線が
+         魔法陣のように描画されて現れる`map-area-trace`(stroke-dasharray/
+         stroke-dashoffsetアニメーション、scaleは使わない)を追加
+      2. `src/campus-map.js`に`data-area`から学院案内ページのマスコットを引く
+         `MASCOTS`テーブルを追加。大図書館=ホーホー、時計塔=カチカチ、
+         天文台=ルミナの3エリアを選択した時だけ、パネル上部に対応するアバター
+         画像(`assets/images/guide/mascot-*.png`を再利用)と道案内の一言が
+         `map-guide-engage`アニメーション付きで現れる。他5エリアでは非表示
+      - **local-reviewで検出・その場で修正**: マスコット名が自己完結的に
+        「」で囲まれている(例: 文鎮フクロウ「ホーホー」)のに、セリフ側にも
+        JSで「」を追加していたため二重の括弧が並んで読みにくくなっていた。
+        「：」区切りに変更して解消
+      - `#map-panel`は元々`aria-live="polite"`だが、更新は1クリックにつき1回の
+        同期的なDOM更新のみ(rAFによる連続更新は無い)なので、入学願書サブタスクで
+        発生したような読み上げ過多の問題は生じない
+
+- [x] (M) ナレーション・環境音の土台づくり: 主要3ページ(トップページ・学院内探索・
+      入学願書)のナレーション候補をASSET_REQUESTS.mdへ依頼した(REQ-070〜072、
+      Irodori-TTS、台詞は絵文字感情タグ表の範囲内のみ使用)。効果音は現行の3ツール
+      (Midjourney/ChatGPT/Irodori-TTS)では生成に適さないため今回は見送り、
+      別途ツールが決まった段階で再検討する。実装(再生ボタンの設置)は音源到着後の
+      別タスクとして切り出した。
+
+### 13. 隠し用語集ページ群
+
+- [x] (M) 隠しページ候補の棚卸しを実施(2026-07-28)。全ページ本文中の「」括り
+      固有名詞50件をgrepで抽出し、既に文中で十分説明されている物(メニュー名・
+      商品名など)を除外して4件の候補を選定、`docs/ROADMAP.md`の「### 13」に
+      一覧として記録した(魔法生物[承認済み・優先度最高]、永久運動術式、
+      魔導88星座、歴代決闘王[以上3件は承認待ち])。候補一覧は今後の個別ページ
+      実装で参照するため`docs/ROADMAP.md`側に残置(このファイルへは棚卸し
+      タスク自体の完了記録のみ退避)。
+
+- [x] (S) 棚卸し結果の1件目として `pages/glossary/mythical-creatures.html`
+      (魔法生物図鑑)を新設(2026-07-28、ユーザー承認済みページ)。
+      「準魔素生命体」という世界観設定を新たに定義し、文鎮フクロウ・歯車ネズミ・
+      星兎の3体それぞれに分類・生息域・初報告(field guide形式のdl)と、由来・
+      生態を掘り下げたlore文を書き下ろした。歯車ネズミの由来は`### 13`候補2の
+      「永久運動術式」に触れる形で伏線的にクロスリファレンスした。アバター画像は
+      `guide/index.html`と同じ既存3枚(REQ-052〜054)を再利用し新規素材は不要。
+      idleのbobアニメーション(guide.cssのmascot-bobと同じ動きの言語)付き。
+
+- [x] (S) `src/search-data.js` の検索インデックスに隠しページを追加
+      (`category: '図鑑'`)。通常のヘッダーナビ・`pages/sitemap.html`には
+      意図的に非掲載のままとし、両ファイルに「意図的な除外である」旨のコメントを
+      追記して将来のサイクルが掲載漏れと誤解しないようにした。Playwrightで
+      ヘッダーナビに含まれないこと・検索「魔法生物」で正しくヒットすることの
+      両方を確認済み。

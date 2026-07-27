@@ -33,6 +33,13 @@
             <p class="area-card__desc">蒸留器と歯車が並ぶ実験の聖域。元素の変容と魔法合金の謎に迫ります。</p>
           </div>
         </a>
+        <button type="button" class="area-card__peek-trigger" aria-expanded="false" aria-controls="area-peek-alchemy">
+          見どころをのぞく <span class="area-card__peek-icon" aria-hidden="true">&#9662;</span>
+        </button>
+        <ul class="area-card__peek" id="area-peek-alchemy" hidden>
+          <li>元素変容デモンストレーション</li>
+          <li>薬草調合実習</li>
+        </ul>
       </li>
       <li class="area-card area-card--airship">
         <a class="area-card__link" href="{{BASE}}exploration/airship-dock.html">
@@ -44,6 +51,13 @@
             <p class="area-card__desc">魔力で浮かぶ巨大飛行船が停泊する学院最上部の格納庫。風と雲を見下ろす絶景も必見です。</p>
           </div>
         </a>
+        <button type="button" class="area-card__peek-trigger" aria-expanded="false" aria-controls="area-peek-airship">
+          見どころをのぞく <span class="area-card__peek-icon" aria-hidden="true">&#9662;</span>
+        </button>
+        <ul class="area-card__peek" id="area-peek-airship" hidden>
+          <li>アルノルド号 乗船体験</li>
+          <li>操縦シミュレーター「嵐の回廊」</li>
+        </ul>
       </li>
       <li class="area-card area-card--summoning">
         <a class="area-card__link" href="{{BASE}}exploration/summoning-plaza.html">
@@ -55,6 +69,13 @@
             <p class="area-card__desc">中庭に刻まれた巨大魔法陣。精霊召喚の特別授業や魔法陣彫刻体験を実施しています。</p>
           </div>
         </a>
+        <button type="button" class="area-card__peek-trigger" aria-expanded="false" aria-controls="area-peek-summoning">
+          見どころをのぞく <span class="area-card__peek-icon" aria-hidden="true">&#9662;</span>
+        </button>
+        <ul class="area-card__peek" id="area-peek-summoning" hidden>
+          <li>精霊召喚デモンストレーション</li>
+          <li>魔法陣彫刻体験</li>
+        </ul>
       </li>
       <li class="area-card area-card--clock-tower">
         <a class="area-card__link" href="{{BASE}}exploration/clock-tower.html">
@@ -66,6 +87,13 @@
             <p class="area-card__desc">400年間1秒も遅れていない魔法時計の心臓部へ。巨大歯車機構の見学、時間歪曲実験室、塔頂展望回廊が待ちます。</p>
           </div>
         </a>
+        <button type="button" class="area-card__peek-trigger" aria-expanded="false" aria-controls="area-peek-clock-tower">
+          見どころをのぞく <span class="area-card__peek-icon" aria-hidden="true">&#9662;</span>
+        </button>
+        <ul class="area-card__peek" id="area-peek-clock-tower" hidden>
+          <li>大時計機構 公開見学回廊</li>
+          <li>時間経路実験室</li>
+        </ul>
       </li>
       <li class="area-card">
         <a class="area-card__link" href="{{BASE}}exploration/grand-library.html">
@@ -77,6 +105,13 @@
             <p class="area-card__desc">120万冊を擁する7層吹き抜けの書架。記憶を持つ本・書庫迷宮・日没前の浮遊蝋燭が来訪者を待っています。</p>
           </div>
         </a>
+        <button type="button" class="area-card__peek-trigger" aria-expanded="false" aria-controls="area-peek-library">
+          見どころをのぞく <span class="area-card__peek-icon" aria-hidden="true">&#9662;</span>
+        </button>
+        <ul class="area-card__peek" id="area-peek-library" hidden>
+          <li>書庫迷宮 探索ツアー</li>
+          <li>魔法写本ワークショップ</li>
+        </ul>
       </li>
       <li class="area-card area-card--dueling-ground">
         <a class="area-card__link" href="{{BASE}}exploration/dueling-ground.html">
@@ -88,6 +123,13 @@
             <p class="area-card__desc">術式の激突が石畳に光を刻む円形競技場。学院生の魔法決闘観戦と、教官による公開演示が毎日開催されます。</p>
           </div>
         </a>
+        <button type="button" class="area-card__peek-trigger" aria-expanded="false" aria-controls="area-peek-dueling">
+          見どころをのぞく <span class="area-card__peek-icon" aria-hidden="true">&#9662;</span>
+        </button>
+        <ul class="area-card__peek" id="area-peek-dueling" hidden>
+          <li>観戦席「円環の間」</li>
+          <li>初陣体験プログラム</li>
+        </ul>
       </li>
       <li class="area-card area-card--observatory">
         <a class="area-card__link" href="{{BASE}}exploration/observatory.html">
@@ -99,10 +141,18 @@
             <p class="area-card__desc">高さ73mの穹頂に鎮座する「アルノルドの眼」。魔力線と星座の重なりを肉眼で追い、自分の誕生星座を解読できます。</p>
           </div>
         </a>
+        <button type="button" class="area-card__peek-trigger" aria-expanded="false" aria-controls="area-peek-observatory">
+          見どころをのぞく <span class="area-card__peek-icon" aria-hidden="true">&#9662;</span>
+        </button>
+        <ul class="area-card__peek" id="area-peek-observatory" hidden>
+          <li>「アルノルドの眼」覗き込み体験</li>
+          <li>立体天球儀 自由観覧</li>
+        </ul>
       </li>
     </ul>
   </section>
 </main>
 <!-- FOOTER -->
+<script src="{{BASE}}src/area-peek.js" defer></script>
 </body>
 </html>

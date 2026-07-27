@@ -70,6 +70,10 @@
 .dining-tabs .tab-btn.is-active {
   color: var(--brass);
   border-bottom-color: var(--brass);
+
+  /* タブが「切り替わった」ことを伝えるロックイン演出(scaleは使わない、
+     shop.cssのtab-lock-inと同じ動きの言語)。 */
+  animation: dining-tab-lock-in 0.35s ease-out;
 }
 
 .dining-tabs .tab-btn--soon:hover {
@@ -86,6 +90,43 @@
   font-size: 0.9rem;
   color: color-mix(in oklch, var(--brass) 55%, transparent);
   font-style: italic;
+}
+
+.dining-tabs .tab-panel {
+  /* パネル切替を、噛み合って正位置に収まる動きで伝える(scaleは使わない、
+     shop.cssのtab-panel-engage・学院内探索のarea-peek-openと同じ動きの言語)。 */
+  animation: dining-tab-panel-engage 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes dining-tab-lock-in {
+  0% {
+    text-shadow: none;
+  }
+
+  50% {
+    text-shadow: 0 0 6px color-mix(in oklch, var(--brass) 70%, transparent);
+  }
+
+  100% {
+    text-shadow: none;
+  }
+}
+
+@keyframes dining-tab-panel-engage {
+  0% {
+    opacity: 0;
+    transform: rotate(-1deg) translateY(-8px);
+  }
+
+  70% {
+    opacity: 1;
+    transform: rotate(0.3deg) translateY(2px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(0deg) translateY(0);
+  }
 }
 
 /* セクションナビ */
@@ -313,6 +354,34 @@
   margin-top: 1rem;
   padding: 0.875rem 1rem;
   border-left: 2px solid color-mix(in oklch, var(--brass) 28%, transparent);
+
+  /* 詳細を開いた時、噛み合って正位置に収まる動きで伝える(scaleは使わない)。 */
+  animation: menu-item-panel-engage 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes menu-item-panel-engage {
+  0% {
+    opacity: 0;
+    transform: rotate(-1deg) translateY(-4px);
+  }
+
+  70% {
+    opacity: 1;
+    transform: rotate(0.3deg) translateY(1px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(0deg) translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dining-tabs .tab-btn.is-active,
+  .dining-tabs .tab-panel,
+  .menu-item__panel {
+    animation: none;
+  }
 }
 
 /* 詳細 DL */

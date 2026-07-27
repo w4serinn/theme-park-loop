@@ -412,11 +412,15 @@
   outline: none;
 }
 
-/* 選択状態 */
+/* 選択状態: 選択の瞬間、境界線が魔法陣のように描画されて現れる(scaleは使わない)。
+   stroke-dasharrayは実際の周長(通常130x72=404、--centerの144x104=496)より
+   十分大きい520を指定し、オフセットが0→520で「未描画→全描画」になる。 */
 .map-area.is-selected rect {
   fill: color-mix(in srgb, var(--ink) 28%, var(--brass));
   stroke: var(--brass);
   stroke-width: 2.5;
+  stroke-dasharray: 520;
+  animation: map-area-trace 0.5s ease-out;
 }
 
 /* --center ホバー・フォーカス */
@@ -431,6 +435,91 @@
   fill: color-mix(in srgb, var(--silver) 48%, var(--ink));
   stroke: var(--silver);
   stroke-width: 2.5;
+  stroke-dasharray: 520;
+  animation: map-area-trace 0.5s ease-out;
+}
+
+@keyframes map-area-trace {
+  from {
+    stroke-dashoffset: 520;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* 道案内マスコット(学院案内ページの3体のうち、マップ上のエリアに対応するものだけ表示) */
+.campus-map__panel-guide {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 25%, transparent);
+  animation: map-guide-engage 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.campus-map__panel-guide-avatar {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: color-mix(in srgb, var(--brass) 18%, var(--ink));
+  background-size: cover;
+  background-position: center;
+  border: 2px solid color-mix(in oklch, var(--brass) 35%, transparent);
+}
+
+.campus-map__panel-guide-avatar--owl {
+  background-image: url('../assets/images/guide/mascot-owl.png');
+  border-color: color-mix(in oklch, var(--emerald) 45%, transparent);
+}
+
+.campus-map__panel-guide-avatar--mouse {
+  background-image: url('../assets/images/guide/mascot-mouse.png');
+  border-color: color-mix(in oklch, var(--silver) 45%, transparent);
+}
+
+.campus-map__panel-guide-avatar--rabbit {
+  background-image: url('../assets/images/guide/mascot-rabbit.png');
+  border-color: color-mix(in oklch, var(--azure) 45%, transparent);
+}
+
+.campus-map__panel-guide-text {
+  margin: 0;
+  font-size: 0.85rem;
+  color: color-mix(in oklch, var(--brass) 88%, transparent);
+  font-style: italic;
+}
+
+@keyframes map-guide-engage {
+  0% {
+    opacity: 0;
+    transform: rotate(-1deg) translateY(-6px);
+  }
+
+  70% {
+    opacity: 1;
+    transform: rotate(0.3deg) translateY(1px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(0deg) translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-area.is-selected rect,
+  .map-area--center.is-selected rect {
+    animation: none;
+    stroke-dasharray: none;
+  }
+
+  .campus-map__panel-guide {
+    animation: none;
+  }
 }
 
 @media (width <= 680px) {

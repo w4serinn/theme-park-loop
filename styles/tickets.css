@@ -372,6 +372,27 @@
   color: var(--ember);
 }
 
+.sim-total strong.is-updated {
+  /* カウントアップが着地した瞬間の発光フラッシュ(scaleは使わない)。 */
+  animation: sim-total-settle 0.5s ease-out;
+}
+
+@keyframes sim-total-settle {
+  0% {
+    text-shadow: 0 0 10px color-mix(in oklch, var(--ember) 80%, transparent);
+  }
+
+  100% {
+    text-shadow: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sim-total strong.is-updated {
+    animation: none;
+  }
+}
+
 @media (width <= 600px) {
   .tickets-hero {
     padding: 2rem 1rem 1.5rem;

@@ -1,5 +1,328 @@
 # サイクル履歴
 
+## 2026-07-28 05:24
+- ブランチ: evolve/cycle-24 は未マージのため継続。
+- タスク選定: ### 4(購買部)・### 12(ナレーション実装)・### 13(隠しページ候補)は
+  いずれも素材到着待ち・承認待ちで進行不可のため、選定順4番目の
+  「### 0. 共通パーツ(ヘッダー/フッター)」に着手(worldview-check指摘対応)。
+- 実装: `partials/header.html`の「入学願書」ナビリンクに`.site-header__cta`
+  クラスを追加し、常時アクセス可能な強調CTAボタンにした。ember色の枠線+背景で
+  他のナビ項目と視覚的に区別。ホバー時は塗り反転、入学願書ページ閲覧中は
+  塗りつぶし(is-current)。モバイルのハンバーガーメニューにも対応。
+  `docs/ROADMAP.md`の「### 0」をstatus完了に更新(紹介文を新規追記)。
+- レビュー: local-review実施。指摘0件。
+- lint: ✓ / lint:css: ✓ / test: ✓(216件) / build: ✓
+- Playwrightで実ブラウザ確認: トップ・学院内探索(depth-1)・購買部(depth-1)・
+  入学願書自身・隠しページ(glossary)・モバイル展開時の計6パターンでレイアウト
+  崩れ無し。console error無し。
+  補足: `npx serve`のリダイレクト仕様によりローカルテストサーバー経由では
+  is-current判定が効かないケースを発見したが、file://での直接検証で本番相当の
+  挙動が正しく動作することを確認(既存active-nav.jsの不具合ではない、対応不要)。
+- 次回予定: 購買部REQ-058〜067・ナレーション音声REQ-070〜072の素材到着確認、
+  または隠しページ候補2〜4のいずれかの承認確認。ROADMAPが尽きた場合は
+  「今後のタスク候補」への新規追加を検討。
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-28 04:21
+- ブランチ: evolve/cycle-24 は未マージのため継続。
+- 実装: 「### 13. 隠し用語集ページ群」の残りサブタスク2件(ユーザー承認済みの
+  `pages/glossary/mythical-creatures.html`の新設、検索インデックスへの登録)に
+  着手・完了。
+  1. `pages/glossary/mythical-creatures.html`(魔法生物図鑑)を新設。「準魔素
+     生命体」という新しい世界観設定を定義し、文鎮フクロウ・歯車ネズミ・星兎の
+     3体に分類・生息域・初報告(field guide形式のdl)とlore文を書き下ろした。
+     歯車ネズミの由来は隠しページ候補2「永久運動術式」に触れる伏線的な
+     クロスリファレンスにした
+  2. アバター画像はguide/index.htmlと同じ既存3枚(REQ-052〜054)を再利用し
+     新規素材は不要。idle bobアニメーションも既存の動きの言語を踏襲
+  3. `src/search-data.js`に`category: '図鑑'`で追加。`partials/header.html`の
+     ナビ・`pages/sitemap.html`には掲載せず、両ファイルに「意図的な除外」で
+     ある旨のコメントを追記
+- レビュー: local-review実施。指摘0件。ただし自己チェックでroadmap-consistency
+  テストが1件失敗(状態更新用の`- [ ]`行にサイズ記号`(S/M/L)`が無く、パーサーが
+  未完了サブタスクとして認識できていなかった)。`(S)`を追加して同じコミットで解消。
+- lint: ✓ / lint:css: ✓ / test: ✓(215件) / build: ✓
+- Playwrightで実ブラウザ確認: ヘッダーナビにリンクが含まれないこと、
+  検索「魔法生物」で正しくヒットすることを確認。console error無し。
+- 次回予定: 「### 0」のヘッダーCTA検討、購買部REQ-058〜067の素材到着確認、
+  または隠しページ候補2〜4のいずれかの承認確認。
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-28 03:20
+- ブランチ: evolve/cycle-24 は未マージのため継続。
+- 実装: 「### 13. 隠し用語集ページ群」の最初のサブタスク(隠しページ候補の
+  棚卸し)に着手・完了。コード変更なし、ドキュメントのみ。
+  - 全ページ本文中の「」括り固有名詞50件をgrepで抽出し、既に文中で十分説明されて
+    いる商品名・メニュー名などを除外して4件の候補を選定
+  - 候補: 1.魔法生物(承認済み・第一弾)、2.永久運動術式(exploration/
+    clock-tower.html)、3.魔導88星座(exploration/observatory.html)、
+    4.歴代決闘王(shop/dueling-shop.html等)。候補2〜4は承認待ちとして扱い、
+    実装はしていない
+  - `docs/ROADMAP.md`の「### 13」statusを未着手→進行中に更新
+- レビュー: local-review実施。指摘0件(ドキュメントのみのため該当なし)。
+- lint: ✓ / lint:css: ✓ / test: ✓(212件) / build: ✓
+- 次回予定: 魔法生物図鑑(pages/glossary/mythical-creatures.html)の実装、
+  または「### 0」のヘッダーCTA検討、購買部REQ-058〜067の素材到着確認。
+- blocked / partial: なし
+- asset-pending: なし(前サイクルのREQ-069〜072は引き続き依頼中)
+
+## 2026-07-28 02:23
+- ブランチ: evolve/cycle-24 は未マージのため継続。
+- 実装: 「### 12. 全ページ演出・体験強化」の最後のサブタスク(ナレーション・
+  環境音の土台づくり)に着手・完了。コード変更なし、ドキュメントのみ。
+  - トップページ・学院内探索・入学願書の3ページを対象に、Irodori-TTS向けの
+    ナレーション台詞を`docs/ASSET_REQUESTS.md`にREQ-070〜072として依頼
+    (絵文字感情タグは承認済みリストの範囲内のみ使用)
+  - 効果音は現行の3ツール(Midjourney/ChatGPT/Irodori-TTS)では生成に適さない
+    ため今回は見送り、ASSET_REQUESTS.mdにその旨を明記
+  - 音声実装(再生ボタン設置)は音源到着後の別タスクとして`docs/ROADMAP.md`の
+    「### 12」に切り出し、進行中のまま残した(骨格だけで完了にしない方針)
+- レビュー: local-review実施。指摘0件(ドキュメントのみのため該当なし)。
+- lint: ✓ / lint:css: ✓ / test: ✓(211件) / build: ✓
+- 次回予定: 「### 0」のヘッダーCTA検討、「### 13」の隠しページ候補棚卸し、
+  または購買部REQ-058〜067の素材到着確認。
+- blocked / partial: なし
+- asset-pending: REQ-070〜072(ナレーション音声3件)、REQ-069(店番マスコット)
+
+## 2026-07-28 01:24
+- ブランチ: evolve/cycle-24 は未マージのため継続。
+- 実装: 「### 12. 全ページ演出・体験強化」の学院への道のりサブタスクに着手・完了。
+  1. `.map-area.is-selected rect`(通常/--centerとも)に、境界線が魔法陣のように
+     描画されて現れる`map-area-trace`(stroke-dasharray/stroke-dashoffset、
+     scaleは使わない)を追加
+  2. `src/campus-map.js`に学院案内ページのマスコット3体(大図書館=ホーホー、
+     時計塔=カチカチ、天文台=ルミナ)と対応するエリアのマッピングを追加。
+     該当エリア選択時のみパネル上部にアバターと道案内の一言が表示される
+     (新規イラストなし、既存画像を再利用)
+- レビュー: local-review実施。**指摘1件、その場で修正**。マスコット名が
+  自己完結的に「」で囲まれているのに、セリフ側にもJSで「」を追加しており
+  二重の括弧が並んで読みにくかった。「：」区切りに変更して解消。
+- lint: ✓ / lint:css: ✓ / test: ✓(211件) / build: ✓
+- Playwrightで実ブラウザ確認: 大図書館選択時にホーホーのアバター+セリフが表示、
+  学食・購買部(マスコット対応なし)選択時は非表示になることを確認。console error無し。
+- 次回予定: 「### 12」の最後の1項目(ナレーション・環境音の土台づくり、
+  ASSET_REQUESTS.mdへの依頼のみ)。または「### 0」のヘッダーCTA検討、
+  「### 13」の隠しページ候補棚卸し。
+- blocked / partial: なし
+- asset-pending: なし(REQ-069は引き続き依頼中)
+
+## 2026-07-28 00:21
+- ブランチ: evolve/cycle-24 は未マージのため継続。
+- 実装: 「### 12. 全ページ演出・体験強化」の入学願書サブタスクに着手・完了。
+  1. `src/ticket-sim.js`に`animateTotal()`を追加。合計金額をrAFベースで
+     0.4秒かけてカウントアップ表示(ease-out cubic)。着地時にember色の発光
+     フラッシュ(`sim-total-settle`)も追加
+  2. prefers-reduced-motion時は即座に最終値を表示(アニメーションなし)
+- レビュー: local-review実施。**指摘1件、その場で修正**。
+  `#sim-result`が`aria-live="polite"`のため、カウントアップの中間値
+  (1キー入力あたり最大24回程度の書き換え)がすべて読み上げられてしまう
+  アクセシビリティ上の不具合を検出。アニメーション中だけ`aria-live`を`off`にし、
+  最終値確定時に`polite`へ戻す修正を同じコミットに含めた。
+- lint: ✓ / lint:css: ✓ / test: ✓(211件) / build: ✓
+- Playwrightで実ブラウザ確認: カウントアップの中間値推移(¥0→¥2,360→…→¥5,600)、
+  家族券セット適用時の計算、aria-live値がアニメーション中"off"→着地時"polite"に
+  戻る挙動を確認。console error無し。
+- 次回予定: 「### 12」の残り1項目(学院への道のり)。または「### 0」のヘッダーCTA
+  検討、「### 13」の隠しページ候補棚卸し。
+- blocked / partial: なし
+- asset-pending: なし(REQ-069は引き続き依頼中)
+
+## 2026-07-27 23:21
+- ブランチ: evolve/cycle-24 は未マージのため継続。
+- 実装: 「### 12. 全ページ演出・体験強化」の学院祭・行事サブタスクに着手・完了
+  (HTML変更なし、CSSのみ)。
+  1. `.event-filter__btn.is-active`に`event-filter-activate`(小さな魔法陣が
+     展開して消えるリング状のbox-shadow)を追加。既存の「浮き上がり」表現の
+     静的box-shadowとは異なる展開/収束する発光として設計
+  2. `.event-card:not([hidden])`に、既存のtab-panel-engage/area-peek-openと
+     同じ「噛み合って正位置に収まる」動きの言語(`event-card-engage`)を追加。
+     hidden属性が外れた瞬間のみ再生されるため、フィルタで新たに表示された
+     カードだけが動く
+- レビュー: local-review実施。指摘0件。
+- lint: ✓ / lint:css: ✓ / test: ✓(211件) / build: ✓
+- Playwrightで実ブラウザ確認: 季節フィルタ(夏)クリックで8件→2件に絞り込み、
+  aria-pressed同期を確認。console error無し。
+- 次回予定: 「### 12」の残り2項目(入学願書/学院への道のり)。または「### 0」の
+  ヘッダーCTA検討、「### 13」の隠しページ候補棚卸し。
+- blocked / partial: なし
+- asset-pending: なし(REQ-069は引き続き依頼中)
+
+## 2026-07-27 22:22
+- ブランチ: evolve/cycle-24 は未マージのため継続。
+- 実装: 「### 12. 全ページ演出・体験強化」の学食・喫茶室サブタスクに着手・完了
+  (HTML変更なし、CSSのみ)。
+  1. 人気メニューのクリック開閉自体(`.menu-item__trigger` + `src/dining-menu.js`)
+     は既に実装済みだったことを確認。欠けていたのは「動き」だったため、そこに
+     焦点を絞って対応
+  2. `.dining-tabs .tab-btn.is-active`/`.dining-tabs .tab-panel`に、前サイクルの
+     購買部と同じ動きの言語(発光フラッシュ+噛み合い→正位置)を追加
+  3. `.menu-item__panel`(中央学食タブ・各エリアの「人気メニュー」プレビュー両方で
+     共有)に詳細展開時の`menu-item-panel-engage`を追加
+  4. dining.cssはdining/index.html専用ファイルのため他ページへの影響なし
+- レビュー: local-review実施。指摘0件。
+- lint: ✓ / lint:css: ✓ / test: ✓(211件) / build: ✓
+- Playwrightで実ブラウザ確認: タブ切替(aria-selected同期)、人気メニュー詳細展開
+  (is-open/hidden同期)ともに正常動作。console error無し。
+- 次回予定: 「### 12」の残り3項目(学院祭・行事/入学願書/学院への道のり)、
+  または「### 0」のヘッダーCTA検討、「### 13」の隠しページ候補棚卸し。
+- blocked / partial: なし
+- asset-pending: なし(前サイクルのREQ-069は引き続き依頼中)
+
+## 2026-07-27 21:23
+- ブランチ: evolve/cycle-24 は未マージのため継続。
+- 実装: 「### 12. 全ページ演出・体験強化」の購買部サブタスクに着手・完了
+  (HTML変更なし、CSSのみ)。
+  1. `.tab-btn.is-active`に`tab-lock-in`(text-shadowの一瞬の発光フラッシュ、
+     「切り替わった」ことを伝える)を追加
+  2. `.tab-panel`に`tab-panel-engage`(既存のarea-peek-open/highlight-card-engage
+     と同じ「回転+ズレの噛み合いから正位置に収まる」動き)を追加し、サイト全体で
+     一貫した機械的な質感を継続
+  3. scope確認: dining.cssは`.dining-tabs .tab-btn`の独立名前空間のため、この
+     変更の影響を受けないことを確認(学食・喫茶室は別サブタスクのまま)
+  4. 店番キャラクター的な挿絵を検討し、REQ-069として購買部共通の1体を
+     ASSET_REQUESTS.mdに依頼(素材到着後に別途配置)
+- レビュー: local-review実施。指摘0件。
+- lint: ✓ / lint:css: ✓ / test: ✓(211件) / build: ✓
+- Playwrightで実ブラウザ確認: タブ切替でaria-selected/hiddenが正しく同期、
+  パネル表示が正常。console error無し。
+- 次回予定: 「### 12」の残り5項目(学食・喫茶室/学院祭・行事/入学願書/
+  学院への道のり/ナレーション・環境音の土台)。または「### 0」のヘッダーCTA検討、
+  「### 13」の隠しページ候補棚卸し。
+- blocked / partial: なし
+- asset-pending: REQ-069(購買部の店番キャラクター、S)
+
+## 2026-07-27 20:22
+- ブランチ: evolve/cycle-24 は未マージのため継続。
+- 実装: 「### 12. 全ページ演出・体験強化」の学院内探索サブタスクに着手・完了。
+  1. pages/exploration/index.html の7エリアカードに「見どころをのぞく」トリガー
+     ボタンを追加。クリックで2件の見どころ(各エリア詳細ページのattraction-list
+     から既存コピーを再利用)が展開する
+  2. src/area-peek.js を新設(aria-expanded/aria-controls/hiddenの標準トグル、
+     既存のguide-qa.js/mascot-speech.jsと同じ設計)
+  3. カードのボーダー装飾を`.area-card__link`から`.area-card`自体に移し、
+     `:focus-within`でキーボード操作時もハイライトされるようにした
+  4. 展開アニメーション(`area-peek-open`)は、前サイクルのカルーセル修正
+     (`highlight-card-engage`)と同じ「回転+ズレの噛み合いから正位置に収まる」
+     動きを再利用(scaleは使わない、サイト全体で一貫した質感に)
+  5. ボタンは`<a>`の外に独立配置し、クリック展開とページ遷移(既存の主要導線)が
+     競合しないようにした
+- レビュー: local-review実施。指摘0件。
+- lint: ✓ / lint:css: ✓ / test: ✓(211件) / build: ✓
+- Playwrightで実ブラウザ確認: 展開トグル(aria-expanded同期)、主要リンクの遷移が
+  引き続き正常に機能することを確認。console error無し。
+- 次回予定: 「### 12」の残り4項目(購買部/学食・喫茶室/学院祭・行事/入学願書/
+  学院への道のり)。または「### 0」のヘッダーCTA検討、「### 13」の隠しページ
+  候補棚卸し。
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-27 19:25
+- ブランチ: evolve/cycle-24 は未マージのため継続。
+- 実装: 「### 12. 全ページ演出・体験強化」のトップページサブタスク
+  (worldview-check指摘4件)に着手・完了。
+  1. `.reveal`のイージングをease-outからexpo-out(opacity)+わずかに
+     オーバーシュートして収まるspring風(transform)のcubic-bezierに変更
+  2. カルーセルのスライド切り替えを`highlight-fade`(opacityのみ)から
+     `highlight-card-engage`(rotate+translateXで噛み合い→正位置に収まる)に変更
+  3. カルーセルのアクティブドットの`scale(1.2)`を`dot-glow-pulse`
+     (box-shadowの明滅、魔法陣の光点イメージ)に置き換え
+  4. nav-cardホバー時のアイコン`scale(1.15)`を`text-shadow: 0 0 8px
+     currentcolor`の発光に置き換え(バリアント色に自動追従)
+  4項目とも「使わないもの」指定(scale拡大・box-shadowの浮き上がり・fadeのみ)を
+  遵守。prefers-reduced-motion時は全て停止/静的フォールバック。
+- レビュー: local-review実施。指摘0件。
+- lint: ✓ / lint:css: ✓ / test: ✓(211件) / build: ✓
+- Playwrightで実ブラウザ確認: nav-cardホバー時のtext-shadow付与、アクティブドットの
+  box-shadow、カルーセル「次へ」クリック後の遷移を確認。console error無し。
+- 次回予定: 「### 12」の残り5項目(学院内探索/購買部/学食・喫茶室/学院祭・行事/
+  入学願書/学院への道のり、いずれもインタラクション+イラスト方針)。または
+  「### 0」のヘッダーCTA検討、「### 13」の隠しページ候補棚卸し。
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-27 18:25
+- ブランチ: evolve/cycle-24 は未マージのため継続。サイクル開始時点で、前回の対話中
+  フィードバック対応(歯車の視認性修正+### 12の方向転換)がテスト済みで未コミット
+  だったため、まずそれをこのサイクルの一部としてコミット(fd1d8f6)してから
+  新規タスクに着手。
+- 実装: 「### 12. 全ページ演出・体験強化」で優先繰り上げされた学院案内(魔法生物
+  マスコット)に着手。
+  1. pages/guide/index.html: `mascot__avatar`を`<div aria-hidden>`から
+     `<button aria-expanded aria-controls aria-label>`に変更し、クリックで
+     一言セリフ(`mascot__speech`)が開閉するインタラクションを追加(3体分)
+  2. src/mascot-speech.js を新設。aria-expanded/hiddenの標準トグル
+     (既存のsrc/guide-qa.jsと同じ設計)
+  3. styles/guide.css: avatarに常時ゆるやかなbob(上下バウンド)のidle
+     アニメーションを追加(3体で位相をずらし同期させない)。speech要素は
+     pop-in(fade+scale)で出現。prefers-reduced-motionで両方停止
+  4. 商用素材は使わず、既存のマスコット画像(REQ-052〜054)とCSS/JSのみで実装
+- レビュー: local-review実施。指摘0件。
+- lint: ✓ / lint:css: ✓ / test: ✓(210件) / build: ✓
+- Playwrightで実ブラウザ確認: クリックでセリフが開閉、再クリックで閉じる、
+  aria-expandedの同期、console error無しを確認(bobアニメーションが常時動くため
+  Playwrightのactionability判定にはforce:trueが必要だったが、実利用上は
+  問題ない微小な動きであることを確認)。
+- 気づいた点(対応不要・報告のみ): `.claude/skills/worldview-check/SKILL.MD`
+  という空(0バイト)の未追跡ファイルが作業ツリーに存在していた。今回のコミットには
+  含めていない。ユーザーが作業中のものと思われる。
+- 次回予定: 「### 12」の残り6項目(学院内探索/購買部/学食・喫茶室/学院祭・行事/
+  入学願書/学院への道のり)のいずれか。すべてインタラクション性・イラスト要素を
+  含める方針。または「### 13」の隠しページ候補の棚卸し。
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-27 17:25
+- ブランチ: evolve/cycle-24 は未マージのため継続。前サイクル終了後、ユーザーから
+  隠し用語集ページ(pages/glossary/mythical-creatures.html)の承認と、隠しページを
+  複数対象に広げる追加指示があり、docs/ROADMAP.mdの### 13を先行して更新済み
+  (このサイクルではコード変更なし、対話内でcommit・push済み)。
+- 実装: 「### 12. 全ページ演出・体験強化」の最初のサブタスク(トップページ)に着手。
+  1. src/scroll-reveal.js を新設。IntersectionObserverで`.reveal`要素を検知し
+     `.is-visible`を付与するスクロール連動fade-in。JS無効時・IntersectionObserver
+     非対応時・prefers-reduced-motion時は即座に表示。
+  2. pages/index.html の7セクション(about/highlights/nav-cards/seasonal-events/
+     ticket-info/access-summary/news)に`.reveal`クラスを付与。
+  3. about-section・ticket-info-section の区切り(ornament)に、緩やかに回転する
+     歯車グリフ(`.ornament-gear`、Unicode ⚙️、16s周期)を追加(蒸気機械モチーフの
+     装飾演出)。ticket-info-sectionには同様のornament要素が無かったため新設。
+  4. styles/base.cssの`@media print`に、印刷時は`.reveal`要素を常時表示・歯車の
+     回転を停止する上書きを追加(印刷時にスクロール前提の演出で本文が消えるのを防止)。
+  5. eslint.config.js に `IntersectionObserver` グローバルを追加。
+- レビュー: local-review実施。指摘0件(印刷時の`.reveal`クリッピングは、レビュー前の
+  自己チェックで気づいて先に修正済み)。
+- lint: ✓ / lint:css: ✓ / test: ✓(210件) / build: ✓
+- Playwrightで実ブラウザ確認: 初期表示でabout-sectionが視界内のため即fade-in、
+  news-sectionは未スクロール時opacity:0→スクロール到達で1に変化することを確認。
+  歯車グリフの回転アニメーション(gear-spin, 16s)も確認。
+- ドキュメント: docs/ROADMAP.mdの### 12からトップページのサブタスクを`[x]`化して
+  docs/roadmap-done.mdの新規見出し「### 12. 全ページ演出・体験強化」へ退避。
+- 次回予定: 「### 12」の残り8項目(学院内探索/購買部/学食・喫茶室/学院祭・行事/
+  入学願書/学院への道のり/学院案内/ナレーション・環境音の土台)から1項目に着手。
+  または「### 13」の隠しページ候補の棚卸し。
+- blocked / partial: なし
+- asset-pending: なし(歯車はUnicodeグリフのため画像不要)
+
+## 2026-07-27 16:20
+- ブランチ: evolve/cycle-23 は main にマージ・削除済みを検知したため(PR #28)、
+  main から新規に evolve/cycle-24 を作成して着手。
+- 実装: 購買部の残り商品アイコン(REQ-058〜067)は未着荷のため今回もスキップ。
+  「今後のタスク候補」の「全ページ演出・体験強化」(サイズL)に着手し、
+  「### 12. 全ページ演出・体験強化」としてページ一覧に新規セクションを追加、
+  ページ単位・要素単位のS/Mサブタスク9件に分割した(トップページ/学院内探索/
+  購買部/学食・喫茶室/学院祭・行事/入学願書/学院への道のり/学院案内/
+  ナレーション・環境音の土台)。実装は次回以降のサイクルで1項目ずつ着手する。
+  コード調査で `@keyframes` が index.css にしか存在しないことを確認し、根拠として
+  ROADMAPに明記した。
+- レビュー: local-review実施。指摘0件(ドキュメントのみの変更のため該当なし)。
+- lint: ✓ / lint:css: ✓ / test: ✓(209件) / build: ✓
+- 次回予定: 「### 12」の中から1項目(トップページの追加演出、または学院内探索の
+  fade-in等)に着手。あるいは購買部アイコン素材の到着確認、隠し用語集ページ提案の
+  承認待ち確認。
+- blocked / partial: なし
+- asset-pending: なし(今回はドキュメントのみ)
+
 ## 2026-07-27 15:30
 - ブランチ: evolve/cycle-22 は main にマージ・削除済みを検知したため、main から
   新規に evolve/cycle-23 を作成して着手(pull後、mainに残っていたユーザー追記の

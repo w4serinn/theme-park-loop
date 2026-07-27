@@ -87,6 +87,30 @@ a {
   box-shadow: inset 0 -2px 0 var(--ember);
 }
 
+/* 入学願書への常時アクセス可能な強調CTA(worldview-check指摘、2026-07-28対応)。
+   通常のナビ項目と区別するため、独自の枠線を持つボタン状にする。 */
+.site-header__nav a.site-header__cta {
+  margin: 0.5rem 0.5rem 0.5rem 0.25rem;
+  padding: 0 1rem;
+  border: 1px solid var(--ember);
+  border-left: 1px solid var(--ember);
+  border-radius: 2px;
+  color: var(--ember);
+  background-color: color-mix(in oklch, var(--ember) 10%, transparent);
+  font-weight: 700;
+}
+
+.site-header__nav a.site-header__cta:hover {
+  background-color: var(--ember);
+  color: var(--ink);
+}
+
+.site-header__nav a.site-header__cta.is-current {
+  background-color: var(--ember);
+  color: var(--ink);
+  box-shadow: none;
+}
+
 /* ハンバーガーメニューボタン */
 .site-header__menu-btn {
   display: none;
@@ -170,6 +194,16 @@ a {
     box-shadow: none;
     border-left: 3px solid var(--ember);
     padding-left: calc(0.5rem - 3px);
+  }
+
+  .site-header__nav a.site-header__cta {
+    margin: 0.5rem;
+    text-align: center;
+    border: 1px solid var(--ember);
+  }
+
+  .site-header__nav a.site-header__cta.is-current {
+    padding-left: 1rem;
   }
 }
 
@@ -265,5 +299,14 @@ a {
 
   .news-list-scroll::after {
     display: none;
+  }
+
+  body.js-reveal .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .ornament-gear {
+    animation: none;
   }
 }

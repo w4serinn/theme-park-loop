@@ -10,6 +10,7 @@ export default [
         window: "readonly",
         document: "readonly",
         URL: "readonly",
+        IntersectionObserver: "readonly",
         console: "readonly",
         process: "readonly",
         test: "readonly",

@@ -20,6 +20,44 @@
 
   function getInt(id) { return Math.max(0, parseInt(document.getElementById(id).value, 10) || 0); }
 
+  var lastTotal = 0;
+  var animFrame = null;
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 合計金額を「操作の結果が反映された」実感が伝わるようカウントアップで表示する。
+  // prefers-reduced-motion時は即座に最終値を表示する。
+  // liveRegion(#sim-result、aria-live="polite")はアニメーション中だけ一時的に
+  // offにする。付けたままだと、1回のキー入力で最大24回程度書き換わる中間値が
+  // すべて読み上げられてしまうため、最終値が確定した瞬間だけ読み上げさせる。
+  function animateTotal(el, from, to, liveRegion) {
+    if (animFrame !== null) { window.cancelAnimationFrame(animFrame); animFrame = null; }
+    if (reduceMotion || from === to) {
+      el.textContent = fmt(to);
+      return;
+    }
+    if (liveRegion) { liveRegion.setAttribute('aria-live', 'off'); }
+    var duration = 400;
+    var start = null;
+    function step(ts) {
+      if (start === null) { start = ts; }
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = Math.round(from + (to - from) * eased);
+      el.textContent = fmt(current);
+      if (progress < 1) {
+        animFrame = window.requestAnimationFrame(step);
+      } else {
+        el.textContent = fmt(to);
+        animFrame = null;
+        el.classList.remove('is-updated');
+        void el.offsetWidth;
+        el.classList.add('is-updated');
+        if (liveRegion) { liveRegion.setAttribute('aria-live', 'polite'); }
+      }
+    }
+    animFrame = window.requestAnimationFrame(step);
+  }
+
   function updateResult() {
     var a = getInt('sim-adults');
     var s = getInt('sim-students');
@@ -27,7 +65,7 @@
     var i = getInt('sim-infants');
     var result = document.getElementById('sim-result');
     if (!result) { return; }
-    if (a + s + c + i === 0) { result.hidden = true; return; }
+    if (a + s + c + i === 0) { result.hidden = true; lastTotal = 0; return; }
 
     var opt = calcOptimal(a, s, c, i);
     var lines = [];
@@ -45,7 +83,11 @@
     result.innerHTML =
       '<ul class="sim-breakdown">' + lines.map(function (l) { return '<li>' + l + '</li>'; }).join('') + '</ul>' +
       familyNote +
-      '<p class="sim-total">合計 <strong>' + fmt(opt.total) + '</strong></p>';
+      '<p class="sim-total">合計 <strong id="sim-total-value"></strong></p>';
+
+    var totalEl = document.getElementById('sim-total-value');
+    animateTotal(totalEl, lastTotal, opt.total, result);
+    lastTotal = opt.total;
   }
 
   var form = document.getElementById('ticket-sim');

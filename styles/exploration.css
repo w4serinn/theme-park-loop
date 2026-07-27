@@ -36,17 +36,21 @@
   gap: 1.5rem;
 }
 
-.area-card__link {
-  display: block;
-  color: var(--brass);
+.area-card {
   border-width: 1px;
   border-style: solid;
   border-color: color-mix(in oklch, var(--brass) 35%, transparent);
   transition: border-color 0.2s;
 }
 
-.area-card__link:hover {
+.area-card:hover,
+.area-card:focus-within {
   border-color: var(--brass);
+}
+
+.area-card__link {
+  display: block;
+  color: var(--brass);
 }
 
 .area-card__thumbnail {
@@ -86,52 +90,134 @@
   line-height: 1.6;
 }
 
+.area-card__peek-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0.6rem 1.25rem;
+  border: none;
+  border-top: 1px solid color-mix(in oklch, var(--brass) 22%, transparent);
+  background: none;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  font-family: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.area-card__peek-trigger:hover,
+.area-card__peek-trigger:focus-visible {
+  color: var(--brass);
+  outline: none;
+}
+
+.area-card__peek-icon {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.area-card__peek-trigger[aria-expanded="true"] .area-card__peek-icon {
+  transform: rotate(180deg);
+}
+
+.area-card__peek {
+  list-style: none;
+  margin: 0;
+  padding: 0 1.25rem 1rem;
+  font-size: 0.82rem;
+  color: color-mix(in oklch, var(--brass) 85%, transparent);
+  animation: area-peek-open 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.area-card__peek li {
+  padding: 0.3rem 0 0.3rem 0.9rem;
+  position: relative;
+}
+
+.area-card__peek li::before {
+  content: '＊';
+  position: absolute;
+  left: 0;
+  color: var(--ember);
+}
+
 /* エリア固有アクセント: border-top (baseを全て先に、hoverを後にまとめる) */
-.area-card--alchemy .area-card__link {
+.area-card--alchemy {
   border-top-width: 3px;
   border-top-color: var(--ember);
 }
 
-.area-card--airship .area-card__link,
-.area-card--observatory .area-card__link {
+.area-card--airship,
+.area-card--observatory {
   border-top-width: 3px;
   border-top-color: var(--azure);
 }
 
-.area-card--summoning .area-card__link {
+.area-card--summoning {
   border-top-width: 3px;
   border-top-color: var(--arcane);
 }
 
-.area-card--clock-tower .area-card__link {
+.area-card--clock-tower {
   border-top-width: 3px;
   border-top-color: var(--silver);
 }
 
-.area-card--dueling-ground .area-card__link {
+.area-card--dueling-ground {
   border-top-width: 3px;
   border-top-color: var(--crimson);
 }
 
-.area-card--alchemy .area-card__link:hover {
+.area-card--alchemy:hover,
+.area-card--alchemy:focus-within {
   border-color: var(--ember);
 }
 
-.area-card--airship .area-card__link:hover,
-.area-card--observatory .area-card__link:hover {
+.area-card--airship:hover,
+.area-card--airship:focus-within,
+.area-card--observatory:hover,
+.area-card--observatory:focus-within {
   border-color: var(--azure);
 }
 
-.area-card--summoning .area-card__link:hover {
+.area-card--summoning:hover,
+.area-card--summoning:focus-within {
   border-color: var(--arcane);
 }
 
-.area-card--clock-tower .area-card__link:hover {
+.area-card--clock-tower:hover,
+.area-card--clock-tower:focus-within {
   border-color: var(--silver);
 }
 
-.area-card--dueling-ground .area-card__link:hover {
+.area-card--dueling-ground:hover,
+.area-card--dueling-ground:focus-within {
   border-color: var(--crimson);
+}
+
+/* 見どころ一覧が、歯車が噛み合ってカチッと収まるように現れる(scaleは使わない)。 */
+@keyframes area-peek-open {
+  0% {
+    opacity: 0;
+    transform: rotate(-1.5deg) translateY(-4px);
+  }
+
+  70% {
+    opacity: 1;
+    transform: rotate(0.5deg) translateY(1px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(0deg) translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .area-card__peek {
+    animation: none;
+  }
 }
 
 @media (width <= 600px) {
