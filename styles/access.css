@@ -469,3 +469,11 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* 印刷用スタイル */
+@media print {
+  .campus-map__hint,
+  .lodging-card__visual {
+    display: none;
+  }
+}

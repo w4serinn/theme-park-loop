@@ -34,7 +34,12 @@
   /* 画像はMidjourneyで --ar 5:1 生成のため、コンテナのアスペクト比を合わせて
      object-fit: cover によるクロップを最小限にする(幅が広いページでも
      画像の上下が過度に見切れないようにするため)。max-heightは
-     超ワイド画面での縦伸びを防ぐ上限。 */
+     超ワイド画面での縦伸びを防ぐ上限。
+     width:100%は必須: aspect-ratio + max-height の組み合わせで width が
+     auto のままだと、ブラウザが max-height 側から幅を逆算し
+     (max-height × aspect-ratio)、コンテナ幅より狭くなってしまうバグがあった
+     (2026-07-27発覚。右側に黒い余白ができ「バナーが切れる」ように見えた)。 */
+  width: 100%;
   aspect-ratio: 5 / 1;
   max-height: 320px;
   background-color: color-mix(in srgb, var(--emerald) 30%, var(--ink));
@@ -548,43 +553,23 @@
 /* カテゴリ固有 商品ビジュアル */
 .product-entry__visual--uniform {
   background-color: color-mix(in srgb, var(--ember) 20%, var(--ink));
-  background-image: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 8px,
-    color-mix(in oklch, var(--ember) 8%, transparent) 8px,
-    color-mix(in oklch, var(--ember) 8%, transparent) 9px
-  );
+  background-image: url('../assets/images/shop/product-uniform.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .product-entry__visual--tool {
   background-color: color-mix(in srgb, var(--azure) 18%, var(--ink));
-  background-image: repeating-radial-gradient(
-    circle at 50% 50%,
-    transparent,
-    transparent 14px,
-    color-mix(in oklch, var(--azure) 9%, transparent) 14px,
-    color-mix(in oklch, var(--azure) 9%, transparent) 15px
-  );
+  background-image: url('../assets/images/shop/product-tool.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .product-entry__visual--souvenir {
   background-color: color-mix(in srgb, var(--arcane) 16%, var(--ink));
-  background-image:
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 10px,
-      color-mix(in oklch, var(--arcane) 10%, transparent) 10px,
-      color-mix(in oklch, var(--arcane) 10%, transparent) 11px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 10px,
-      color-mix(in oklch, var(--arcane) 10%, transparent) 10px,
-      color-mix(in oklch, var(--arcane) 10%, transparent) 11px
-    );
+  background-image: url('../assets/images/shop/product-souvenir.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .product-entry__visual--book {
@@ -649,6 +634,26 @@
   color: color-mix(in oklch, var(--brass) 82%, transparent);
   margin: 0;
   line-height: 1.7;
+}
+
+/* エリア探索ページへの導線 */
+.shop-related-link {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.shop-related-link__link {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--ember);
+  border: 1px solid color-mix(in oklch, var(--ember) 45%, transparent);
+  padding: 0.5rem 1.25rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.shop-related-link__link:hover {
+  border-color: var(--ember);
+  color: var(--brass);
 }
 
 @media (width <= 600px) {

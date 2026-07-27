@@ -216,10 +216,45 @@ a {
   color: color-mix(in oklch, var(--brass) 75%, var(--ink));
 }
 
+.site-footer__sitemap-link {
+  display: inline-block;
+  margin: 0 0 0.75rem;
+  font-size: 0.75rem;
+  color: color-mix(in oklch, var(--brass) 60%, transparent);
+  transition: color 0.2s;
+}
+
+.site-footer__sitemap-link:hover {
+  color: var(--ember);
+}
+
 .site-footer__copy {
   margin: 0;
   font-size: 0.72rem;
   color: color-mix(in oklch, var(--brass) 40%, transparent);
   border-top: 1px solid color-mix(in oklch, var(--brass) 15%, transparent);
   padding-top: 1rem;
+}
+
+/* 印刷用スタイル(サイト共通) */
+@media print {
+  .site-header,
+  .site-header__menu-btn,
+  .site-header__nav {
+    display: none;
+  }
+
+  .site-footer {
+    background: none;
+    border-top-color: var(--ink);
+  }
+
+  .site-footer__sitemap-link {
+    display: none;
+  }
+
+  body {
+    background: none;
+    color: var(--ink);
+  }
 }
