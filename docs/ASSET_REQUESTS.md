@@ -84,6 +84,19 @@
 - 提案プロンプト: simple flat icon of a small brass telescope pointed at a star, steampunk fantasy academy style, badge composition, azure and deep ink color palette, transparent background
 - 補足: 96px正方形枠での表示を想定。
 
+### REQ-069 [type: image]
+- 用途: 購買部トップ(shop/index.html)のタブナビ付近 — 全エリア共通の「店番」
+  キャラクター的な小さな挿絵(「全ページ演出・体験強化」タスクで検討)
+- 配置先パス: assets/images/shop/shopkeeper-mascot.png
+- 想定ツール: Midjourney
+- 提案プロンプト: a small friendly clockwork gear-cat mascot character standing guard,
+  brass and copper mechanical body with tiny gear joints, wearing a miniature shop
+  apron, steampunk fantasy academy style, simple flat/vector-ish illustration,
+  emerald and brass color palette, transparent background, single character no text
+- 補足: 各エリアタブごとに個別の店番キャラクターを作るのは規模が大きいため、
+  まずは購買部全体で共通の1体を想定。72px程度の小さな表示を想定(guide/index.html
+  のmascot__avatarと同程度のサイズ感)。到着後、タブナビ付近に配置する。
+
 ## 対応済み
 
 ### REQ-068 [type: image]

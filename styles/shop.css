@@ -313,6 +313,10 @@
 .tab-btn.is-active {
   color: var(--brass);
   border-bottom-color: var(--brass);
+
+  /* タブが「切り替わった」ことを伝えるロックイン演出(scaleは使わない)。
+     新しく.is-activeが付いた要素だけでanimationが再生される。 */
+  animation: tab-lock-in 0.35s ease-out;
 }
 
 .tab-btn--soon:hover {
@@ -322,6 +326,50 @@
 .tab-btn--soon.is-active {
   color: color-mix(in oklch, var(--brass) 58%, transparent);
   border-bottom-color: color-mix(in oklch, var(--brass) 40%, transparent);
+}
+
+.tab-panel {
+  /* パネルの切り替わりを、噛み合って正位置に収まる動きで伝える
+     (highlight-card-engage / area-peek-openと同じ動きの言語。scaleは使わない)。 */
+  animation: tab-panel-engage 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes tab-lock-in {
+  0% {
+    text-shadow: none;
+  }
+
+  50% {
+    text-shadow: 0 0 6px color-mix(in oklch, var(--brass) 70%, transparent);
+  }
+
+  100% {
+    text-shadow: none;
+  }
+}
+
+@keyframes tab-panel-engage {
+  0% {
+    opacity: 0;
+    transform: rotate(-1deg) translateY(-8px);
+  }
+
+  70% {
+    opacity: 1;
+    transform: rotate(0.3deg) translateY(2px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(0deg) translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tab-btn.is-active,
+  .tab-panel {
+    animation: none;
+  }
 }
 
 .tab-panel__soon {

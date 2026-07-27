@@ -425,3 +425,17 @@
       一貫した機械的な質感を持たせた(scaleは使わない)。カードのボーダー装飾を
       `.area-card__link`から`.area-card`自体に移し、キーボード操作時も
       `:focus-within`でハイライトされるようにした。
+
+- [x] (M) 購買部(一覧+14店舗): エリアタブ切替に「切り替わった」実感を伝える演出を
+      追加(HTML変更なし、CSSのみ)。
+      1. `.tab-btn.is-active`に`tab-lock-in`(text-shadowの一瞬の発光フラッシュ)
+         を追加。新しくis-activeが付いたタブだけで再生される
+      2. `.tab-panel`に`tab-panel-engage`(学院内探索の`area-peek-open`・
+         トップページの`highlight-card-engage`と同じ「回転+ズレの噛み合いから
+         正位置に収まる」動き)を追加し、サイト全体で一貫した機械的な質感を継続
+      3. dining.cssの`.dining-tabs .tab-btn`は独立した名前空間のため影響なし
+         (学食・喫茶室は別サブタスクとして今後対応)
+      店番キャラクター的な挿絵は、REQ-069として購買部共通の1体
+      (`assets/images/shop/shopkeeper-mascot.png`)をASSET_REQUESTS.mdに依頼済み
+      (素材到着後、タブナビ付近に配置する別サブタスクとして扱う)。
+      prefers-reduced-motion時は両アニメーションを停止。
