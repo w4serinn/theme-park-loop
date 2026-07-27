@@ -7,6 +7,15 @@
 
 ## 依頼中(未対応)
 
+### REQ-068 [type: image]
+- 用途: サイト全体共通のOGPアイキャッチ画像(og:image。SNS等でURLが共有された際に
+  表示されるプレビュー画像)
+- 配置先パス: assets/images/og-image.jpg
+- 想定ツール: Midjourney(実写風・雰囲気重視)
+- 提案プロンプト: grand steampunk fantasy magic academy exterior at golden hour, ornate clock tower and brass domes, small airships floating in the sky, wide establishing shot, painterly illustration, brass emerald deep-ink color palette, cinematic composition --ar 1200:630
+- 補足: OGP標準サイズ(1200×630、比率約1.91:1)。学院を象徴する時計塔・飛行船を
+  含む外観の一枚絵で、サイト全体の顔として使う。
+
 ### REQ-055 [type: image]
 - 用途: 購買部 制服・ローブページ — 商品アイコン(product-entry__visual--uniform、5商品共通)
 - 配置先パス: assets/images/shop/product-uniform.png
