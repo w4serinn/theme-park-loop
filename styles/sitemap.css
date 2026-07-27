@@ -1,0 +1,79 @@
+/* サイトマップページ固有スタイル */
+
+.page-hero {
+  text-align: center;
+  padding: 3rem 1.5rem 2.5rem;
+  border-bottom: 1px solid var(--brass);
+}
+
+.page-hero__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 0.75rem;
+}
+
+.page-hero__desc {
+  font-size: 1rem;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.sitemap-content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem 2.5rem;
+}
+
+.sitemap-section--wide {
+  grid-column: 1 / -1;
+}
+
+.sitemap-section__heading {
+  font-size: 1rem;
+  color: var(--brass);
+  border-bottom: 1px solid color-mix(in oklch, var(--brass) 35%, transparent);
+  padding-bottom: 0.4rem;
+  margin: 0 0 1rem;
+}
+
+.sitemap-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  columns: 1;
+}
+
+.sitemap-section--wide .sitemap-list {
+  columns: 2;
+}
+
+.sitemap-list li {
+  break-inside: avoid;
+  padding: 0.3rem 0;
+}
+
+.sitemap-list a {
+  font-size: 0.875rem;
+  color: color-mix(in oklch, var(--brass) 85%, transparent);
+  transition: color 0.2s;
+}
+
+.sitemap-list a:hover {
+  color: var(--ember);
+}
+
+@media (width <= 700px) {
+  .sitemap-content {
+    grid-template-columns: 1fr;
+  }
+
+  .sitemap-section--wide .sitemap-list {
+    columns: 1;
+  }
+}

@@ -216,6 +216,18 @@ a {
   color: color-mix(in oklch, var(--brass) 75%, var(--ink));
 }
 
+.site-footer__sitemap-link {
+  display: inline-block;
+  margin: 0 0 0.75rem;
+  font-size: 0.75rem;
+  color: color-mix(in oklch, var(--brass) 60%, transparent);
+  transition: color 0.2s;
+}
+
+.site-footer__sitemap-link:hover {
+  color: var(--ember);
+}
+
 .site-footer__copy {
   margin: 0;
   font-size: 0.72rem;
@@ -235,6 +247,10 @@ a {
   .site-footer {
     background: none;
     border-top-color: var(--ink);
+  }
+
+  .site-footer__sitemap-link {
+    display: none;
   }
 
   body {
