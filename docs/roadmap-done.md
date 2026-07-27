@@ -463,3 +463,16 @@
          フィルタで新たに表示されたカードだけが動く(hidden属性が外れた瞬間のみ
          再生されるため、既に表示中のカードは動かない)
       いずれもscaleは使わず、prefers-reduced-motion時は両方停止。
+
+- [x] (S) 入学願書(チケット案内): 料金シミュレーターの合計金額表示に、rAFベースの
+      カウントアップ(0.4s、ease-out cubic)を追加。着地した瞬間にember色の発光
+      フラッシュ(`sim-total-settle`)も加えた。
+      - `src/ticket-sim.js`: `animateTotal()`を追加。`prefers-reduced-motion`時は
+        即座に最終値を表示
+      - **アクセシビリティ修正(local-reviewで検出・その場で対応)**: `#sim-result`は
+        `aria-live="polite"`のため、そのままではカウントアップ中の中間値
+        (1キー入力あたり最大24回程度)がすべて読み上げられてしまう不具合を発見。
+        アニメーション中だけ`aria-live`を`off`にし、最終値が確定した瞬間に
+        `polite`へ戻すことで、スクリーンリーダーには最終合計のみが1回読み上げ
+        られるようにした(Playwrightでaria-live値の推移を確認済み)
+      - scaleは使用していない(数値のカウントアップ自体が固有の演出のため)
