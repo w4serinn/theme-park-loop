@@ -651,6 +651,26 @@
   line-height: 1.7;
 }
 
+/* エリア探索ページへの導線 */
+.shop-related-link {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.shop-related-link__link {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--ember);
+  border: 1px solid color-mix(in oklch, var(--ember) 45%, transparent);
+  padding: 0.5rem 1.25rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.shop-related-link__link:hover {
+  border-color: var(--ember);
+  color: var(--brass);
+}
+
 @media (width <= 600px) {
   .shop-hero {
     grid-template-rows: 160px auto;

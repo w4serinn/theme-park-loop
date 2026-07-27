@@ -402,3 +402,10 @@
     flex-direction: column;
   }
 }
+
+/* 印刷用スタイル */
+@media print {
+  .ticket-sim {
+    display: none;
+  }
+}
