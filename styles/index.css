@@ -1,5 +1,26 @@
 /* トップページ固有スタイル */
 
+/* スクロールで各セクションが現れる演出。JS無効時は常に表示(body.js-revealが
+   付かないため下のルールが効かない)。prefers-reduced-motionの場合もJS側で
+   is-visibleを即時付与した上で、下のreduced-motionブロックでtransitionを止める。 */
+body.js-reveal .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+body.js-reveal .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ornament-gear {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: var(--brass);
+  animation: gear-spin 16s linear infinite;
+}
+
 .hero {
   text-align: center;
   padding: 5rem 1.5rem;
@@ -700,7 +721,31 @@
   font-weight: 700;
   color: var(--brass);
   letter-spacing: 0.06em;
-  margin: 0;
+  margin: 0 0 1rem;
+}
+
+.ticket-info-section__ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.ticket-info-section__ornament::before,
+.ticket-info-section__ornament::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+}
+
+.ticket-info-section__ornament::before {
+  background-image: linear-gradient(to right, transparent, var(--brass));
+}
+
+.ticket-info-section__ornament::after {
+  background-image: linear-gradient(to left, transparent, var(--brass));
 }
 
 .ticket-info-grid {
@@ -996,6 +1041,11 @@
   to { opacity: 1; }
 }
 
+@keyframes gear-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero__subtitle,
   .hero__title,
@@ -1003,6 +1053,14 @@
   .hero__tagline,
   .hero__cta {
     animation: none;
+  }
+
+  .ornament-gear {
+    animation: none;
+  }
+
+  body.js-reveal .reveal {
+    transition: none;
   }
 
   .highlight-list.is-carousel .highlight-card {

@@ -1,5 +1,36 @@
 # サイクル履歴
 
+## 2026-07-27 17:25
+- ブランチ: evolve/cycle-24 は未マージのため継続。前サイクル終了後、ユーザーから
+  隠し用語集ページ(pages/glossary/mythical-creatures.html)の承認と、隠しページを
+  複数対象に広げる追加指示があり、docs/ROADMAP.mdの### 13を先行して更新済み
+  (このサイクルではコード変更なし、対話内でcommit・push済み)。
+- 実装: 「### 12. 全ページ演出・体験強化」の最初のサブタスク(トップページ)に着手。
+  1. src/scroll-reveal.js を新設。IntersectionObserverで`.reveal`要素を検知し
+     `.is-visible`を付与するスクロール連動fade-in。JS無効時・IntersectionObserver
+     非対応時・prefers-reduced-motion時は即座に表示。
+  2. pages/index.html の7セクション(about/highlights/nav-cards/seasonal-events/
+     ticket-info/access-summary/news)に`.reveal`クラスを付与。
+  3. about-section・ticket-info-section の区切り(ornament)に、緩やかに回転する
+     歯車グリフ(`.ornament-gear`、Unicode ⚙️、16s周期)を追加(蒸気機械モチーフの
+     装飾演出)。ticket-info-sectionには同様のornament要素が無かったため新設。
+  4. styles/base.cssの`@media print`に、印刷時は`.reveal`要素を常時表示・歯車の
+     回転を停止する上書きを追加(印刷時にスクロール前提の演出で本文が消えるのを防止)。
+  5. eslint.config.js に `IntersectionObserver` グローバルを追加。
+- レビュー: local-review実施。指摘0件(印刷時の`.reveal`クリッピングは、レビュー前の
+  自己チェックで気づいて先に修正済み)。
+- lint: ✓ / lint:css: ✓ / test: ✓(210件) / build: ✓
+- Playwrightで実ブラウザ確認: 初期表示でabout-sectionが視界内のため即fade-in、
+  news-sectionは未スクロール時opacity:0→スクロール到達で1に変化することを確認。
+  歯車グリフの回転アニメーション(gear-spin, 16s)も確認。
+- ドキュメント: docs/ROADMAP.mdの### 12からトップページのサブタスクを`[x]`化して
+  docs/roadmap-done.mdの新規見出し「### 12. 全ページ演出・体験強化」へ退避。
+- 次回予定: 「### 12」の残り8項目(学院内探索/購買部/学食・喫茶室/学院祭・行事/
+  入学願書/学院への道のり/学院案内/ナレーション・環境音の土台)から1項目に着手。
+  または「### 13」の隠しページ候補の棚卸し。
+- blocked / partial: なし
+- asset-pending: なし(歯車はUnicodeグリフのため画像不要)
+
 ## 2026-07-27 16:20
 - ブランチ: evolve/cycle-23 は main にマージ・削除済みを検知したため(PR #28)、
   main から新規に evolve/cycle-24 を作成して着手。

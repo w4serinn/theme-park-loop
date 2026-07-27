@@ -266,4 +266,13 @@ a {
   .news-list-scroll::after {
     display: none;
   }
+
+  body.js-reveal .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .ornament-gear {
+    animation: none;
+  }
 }

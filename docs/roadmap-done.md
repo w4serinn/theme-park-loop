@@ -370,3 +370,15 @@
 
 - [x] (S) 共通アイキャッチ画像(assets/images/og-image.jpg)をREQ-068として依頼・反映。
       時計塔と飛行船が浮かぶ夕景の一枚絵
+
+### 12. 全ページ演出・体験強化
+
+- [x] (M) トップページ: about-section・highlights-section・nav-cards-section・
+      seasonal-events-section・ticket-info-section・access-summary-section・
+      news-sectionの計7セクションに、IntersectionObserverベースのスクロール連動
+      fade-in(`.reveal`クラス、`src/scroll-reveal.js`)を追加。about-section と
+      ticket-info-section のセクション区切り(ornament)に、緩やかに回転する歯車
+      グリフ(`.ornament-gear`、Unicode ⚙️、16s周期)を追加した。JS無効時は常に
+      表示(body.js-revealが付かない)、prefers-reduced-motion時はtransition/
+      animationを停止、印刷時も全セクション常時表示になるようbase.cssの
+      `@media print`にも対応を追加。
