@@ -1,5 +1,5 @@
 import { test, expect, describe } from 'vitest';
-import { TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex } from '../src/logic.js';
+import { TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex, filterSearchIndex } from '../src/logic.js';
 
 describe('TICKET_PRICES', () => {
   test('adult is 2800', () => { expect(TICKET_PRICES.adult).toBe(2800); });
@@ -97,5 +97,38 @@ describe('carouselPrevIndex', () => {
   });
   test('total of 0 returns 0', () => {
     expect(carouselPrevIndex(0, 0)).toBe(0);
+  });
+});
+
+describe('filterSearchIndex', () => {
+  const index = [
+    { path: 'exploration/alchemy-tower.html', title: '錬金術研究棟', category: '学院内探索' },
+    { path: 'exploration/airship-dock.html', title: '飛行船ドック', category: '学院内探索' },
+    { path: 'tickets/index.html', title: '入学願書・チケット案内', category: 'ご案内' }
+  ];
+
+  test('matches by title substring', () => {
+    const results = filterSearchIndex('錬金術', index);
+    expect(results).toHaveLength(1);
+    expect(results[0].path).toBe('exploration/alchemy-tower.html');
+  });
+
+  test('matches by category substring', () => {
+    const results = filterSearchIndex('学院内探索', index);
+    expect(results).toHaveLength(2);
+  });
+
+  test('is case-insensitive for ascii text', () => {
+    const asciiIndex = [{ path: 'a.html', title: 'Airship Dock', category: 'Exploration' }];
+    expect(filterSearchIndex('AIRSHIP', asciiIndex)).toHaveLength(1);
+  });
+
+  test('returns empty array for empty query', () => {
+    expect(filterSearchIndex('', index)).toEqual([]);
+    expect(filterSearchIndex('   ', index)).toEqual([]);
+  });
+
+  test('returns empty array when nothing matches', () => {
+    expect(filterSearchIndex('存在しないキーワード', index)).toEqual([]);
   });
 });

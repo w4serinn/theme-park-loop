@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="王立魔法学院アルノルド公式サイト内をキーワードで検索できます。学院内探索・購買部・学食など、全ページから目的の情報を探せます。" />
+  <title>サイト内検索 — 王立魔法学院アルノルド</title>
+  <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/base.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/search.css" />
+</head>
+<body>
+<!-- HEADER -->
+<main>
+  <section class="page-hero">
+    <h1 class="page-hero__title">サイト内検索</h1>
+    <p class="page-hero__desc">学院内探索・購買部・学食など、サイト内の全ページをキーワードで検索できます。エリア名や店舗名、行事名などでお試しください。</p>
+  </section>
+
+  <div class="search-content" data-base="{{BASE}}">
+    <form class="search-form" role="search" onsubmit="return false;">
+      <label class="search-form__label" for="search-input">検索キーワード</label>
+      <input type="search" id="search-input" class="search-form__input" placeholder="例: 錬金術、飛行船、チケット" autocomplete="off" />
+    </form>
+
+    <p class="search-status" id="search-status" aria-live="polite"></p>
+
+    <ul class="search-results" id="search-results"></ul>
+  </div>
+</main>
+<!-- FOOTER -->
+<script src="{{BASE}}src/search-data.js" defer></script>
+<script src="{{BASE}}src/search.js" defer></script>
+</body>
+</html>

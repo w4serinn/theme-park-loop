@@ -1,0 +1,48 @@
+window.SEARCH_INDEX = [
+  { path: 'index.html', title: '王立魔法学院アルノルド トップ', category: 'トップページ' },
+
+  { path: 'exploration/index.html', title: '学院内探索 一覧', category: '学院内探索' },
+  { path: 'exploration/alchemy-tower.html', title: '錬金術研究棟', category: '学院内探索' },
+  { path: 'exploration/airship-dock.html', title: '飛行船ドック', category: '学院内探索' },
+  { path: 'exploration/clock-tower.html', title: '時計塔', category: '学院内探索' },
+  { path: 'exploration/grand-library.html', title: '大図書館', category: '学院内探索' },
+  { path: 'exploration/dueling-ground.html', title: '決闘演武場', category: '学院内探索' },
+  { path: 'exploration/summoning-plaza.html', title: '魔法陣召喚広場', category: '学院内探索' },
+  { path: 'exploration/observatory.html', title: '天文台', category: '学院内探索' },
+
+  { path: 'events/index.html', title: '学院祭・行事 一覧', category: '学院祭・行事' },
+
+  { path: 'shop/index.html', title: '購買部 一覧', category: '購買部' },
+  { path: 'shop/uniforms.html', title: '制服・ローブ', category: '購買部' },
+  { path: 'shop/magical-tools.html', title: '魔導具', category: '購買部' },
+  { path: 'shop/souvenirs.html', title: 'みやげ・食品', category: '購買部' },
+  { path: 'shop/books.html', title: '書籍・資料', category: '購買部' },
+  { path: 'shop/groceries.html', title: '食料品・薬草', category: '購買部' },
+  { path: 'shop/alchemy-shop.html', title: '蒸留工房店(錬金術研究棟)', category: '購買部' },
+  { path: 'shop/alchemy-tools.html', title: '実験器具販売所(錬金術研究棟)', category: '購買部' },
+  { path: 'shop/airship-shop.html', title: '羅針堂(飛行船ドック)', category: '購買部' },
+  { path: 'shop/airship-gear.html', title: '風袋商会(飛行船ドック)', category: '購買部' },
+  { path: 'shop/clock-tower-shop.html', title: '時刻堂(時計塔)', category: '購買部' },
+  { path: 'shop/clock-accessories.html', title: '歯車細工所(時計塔)', category: '購買部' },
+  { path: 'shop/library-shop.html', title: '写本堂(大図書館)', category: '購買部' },
+  { path: 'shop/library-tools.html', title: '魔法インク工房(大図書館)', category: '購買部' },
+  { path: 'shop/dueling-shop.html', title: '決闘記念品店(決闘演武場)', category: '購買部' },
+  { path: 'shop/dueling-gear.html', title: '魔法武具展示室(決闘演武場)', category: '購買部' },
+  { path: 'shop/summoning-shop.html', title: '召喚素材専門店(魔法陣召喚広場)', category: '購買部' },
+  { path: 'shop/summoning-circle.html', title: '魔法陣工房(魔法陣召喚広場)', category: '購買部' },
+  { path: 'shop/observatory-shop.html', title: '星図堂(天文台)', category: '購買部' },
+  { path: 'shop/observatory-goods.html', title: '夜空雑貨店(天文台)', category: '購買部' },
+
+  { path: 'dining/index.html', title: '学食・喫茶室 一覧', category: '学食・喫茶室' },
+  { path: 'dining/alchemy-dining.html', title: '秘薬スタンド(錬金術研究棟)', category: '学食・喫茶室' },
+  { path: 'dining/airship-dining.html', title: '空賊カフェ「嵐の羅針盤」(飛行船ドック)', category: '学食・喫茶室' },
+  { path: 'dining/clock-tower-dining.html', title: '歯車喫茶「鐘と砂」(時計塔)', category: '学食・喫茶室' },
+  { path: 'dining/library-dining.html', title: '読書喫茶「書の香り」(大図書館)', category: '学食・喫茶室' },
+  { path: 'dining/dueling-dining.html', title: '回復スタンド「鉄と炎」(決闘演武場)', category: '学食・喫茶室' },
+  { path: 'dining/summoning-dining.html', title: '召喚前夜祭カフェ「扉の前で」(魔法陣召喚広場)', category: '学食・喫茶室' },
+  { path: 'dining/observatory-dining.html', title: '星見ダイナー「ふたご座の食卓」(天文台)', category: '学食・喫茶室' },
+
+  { path: 'tickets/index.html', title: '入学願書・チケット案内', category: 'ご案内' },
+  { path: 'access/index.html', title: '学院への道のり', category: 'ご案内' },
+  { path: 'guide/index.html', title: '学院案内', category: 'ご案内' }
+];

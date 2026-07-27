@@ -52,3 +52,13 @@ export function carouselPrevIndex(current, total) {
   if (total <= 0) { return 0; }
   return (current - 1 + total) % total;
 }
+
+// サイト内検索: クエリに一致するページをタイトル・カテゴリの部分一致で絞り込む
+export function filterSearchIndex(query, index) {
+  var q = (query || '').trim().toLowerCase();
+  if (!q) { return []; }
+  return index.filter(function (entry) {
+    var haystack = (entry.title + ' ' + entry.category).toLowerCase();
+    return haystack.indexOf(q) !== -1;
+  });
+}
