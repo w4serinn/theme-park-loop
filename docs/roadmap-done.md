@@ -670,6 +670,29 @@
       のOR判定により、P1・P3のどちらか片方のみの訪問でも解禁されることを
       Playwrightで両経路とも確認済み。
 
+- [x] (S) P7(fragment、F2産出)を実装(2026-07-28)。たどり着き方はP6
+      (`glossary/first-astronomer.html`本文中の「観測記録帳」、既存本文の改変
+      なしにそのまま`keywords`として流用)。新規隠しページ
+      `pages/glossary/final-entry.html`(記録帳、最後の頁)を`.origin-story`
+      レイアウト(日記の抜粋のような一人称の引用形式)で新設し、オーレンが
+      カタログに無い「89番目の星」を見た夜を最後に記録が途切れるという
+      伏線を追加(具体的な正体は明かさずスポイラーセーフに留めた)。断片F2
+      (個別名「記帳の断片」、P21で使う中間断片)の獲得は`src/final-entry.js`
+      (新設、P91のnostion-memory.jsと同じ設計)で行う。
+      `prereq: ['glossary/first-astronomer.html']`によるゲーティングを
+      Playwrightで確認済み。
+
+- [x] (S) P8(flavor、断片なし)を実装(2026-07-28)。たどり着き方はP4
+      (`glossary/dueling-champions.html`の独り言「さらに古い時代の決闘王」、
+      既存本文の改変なしにそのまま`keywords`として流用)。新規隠しページ
+      `pages/glossary/erased-champion.html`(名を消された決闘王)を
+      `.archive-entry`レイアウトで新設し、P4の最古参(56年前)よりさらに
+      古い約90年前の決闘記録で、勝者名だけが意図的に消されているという
+      謎を紹介(P5・P6・P7と同じ「記録の欠落・消失」というモチーフを
+      異なる具体的な形で反復し、ARG全体の不穏な通奏低音を補強)。
+      `prereq: ['glossary/dueling-champions.html']`によるゲーティングを
+      Playwrightで確認済み。
+
 ### 14. 提携宿泊施設
 
 - [x] (M) `pages/access/lodging.html`(depth-1)を新設(2026-07-28、ユーザー承認済み
