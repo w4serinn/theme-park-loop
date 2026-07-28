@@ -134,8 +134,80 @@
   }
 }
 
+/* 資料アーカイブ形式(画像を持たないテキスト中心の隠しページ用。
+   永久運動術式などの技術・歴史資料はキャラクター図鑑と違い写真的な顔が無いため、
+   creature-entryとは別のブロックとして用意する) */
+.archive-list {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.archive-entry {
+  padding: 1.75rem 1.75rem 1.75rem 1.5rem;
+  border-left: 3px solid var(--ember);
+  background-color: color-mix(in oklch, var(--emerald) 8%, var(--ink));
+}
+
+.archive-entry__name {
+  font-size: 1.1rem;
+  color: var(--brass);
+  margin: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.archive-entry__glyph {
+  display: inline-block;
+  color: var(--ember);
+  font-size: 1rem;
+  text-shadow: 0 0 6px color-mix(in oklch, var(--ember) 45%, transparent);
+  animation: gear-spin 9s linear infinite;
+}
+
+.archive-entry__profile {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.35rem 1rem;
+  font-size: 0.82rem;
+  margin: 0 0 1rem;
+}
+
+.archive-entry__profile dt {
+  color: var(--ember);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.archive-entry__profile dd {
+  margin: 0;
+  color: color-mix(in oklch, var(--brass) 85%, transparent);
+}
+
+.archive-entry__lore {
+  font-size: 0.9rem;
+  line-height: 1.85;
+  color: color-mix(in oklch, var(--brass) 88%, transparent);
+  margin: 0;
+}
+
+@keyframes gear-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .creature-entry__avatar {
+  .creature-entry__avatar,
+  .archive-entry__glyph {
     animation: none;
   }
 }

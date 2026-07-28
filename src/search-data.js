@@ -50,5 +50,6 @@ window.SEARCH_INDEX = [
   // 意図的に載せていない。ここ(検索インデックス)にだけ追加することで、検索でしか
   // 辿り着けない発見型のページになる。将来のサイクルがサイトマップ等への掲載漏れと
   // 誤解して追加してしまわないよう、変更しないこと(docs/ROADMAP.md「### 13」参照)。
-  { path: 'glossary/mythical-creatures.html', title: '魔法生物図鑑', category: '図鑑' }
+  { path: 'glossary/mythical-creatures.html', title: '魔法生物図鑑', category: '図鑑' },
+  { path: 'glossary/perpetual-motion.html', title: '永久運動術式', category: '図鑑' }
 ];
