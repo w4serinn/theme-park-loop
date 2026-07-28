@@ -693,6 +693,25 @@
       `prereq: ['glossary/dueling-champions.html']`によるゲーティングを
       Playwrightで確認済み。
 
+- [x] (S) 初期42ページの語彙棚卸し・トップページ(2026-07-29): `index.html`を
+      読み、`docs/ARG-WORDBANK.md`「1.」に4件の候補を記載(魔導機械科の
+      「アルノルド卿直系」、「アルノルド卿の丘」駅、「魔法陣転移広場」等)。
+      あわせて、中庭の大魔法陣の直径がindex.html(20m)と
+      exploration/summoning-plaza.html(30m)で食い違っている既存バグを発見し、
+      ROADMAP.mdのバグ修正セクションに別途記載した。
+- [x] (S) 初期42ページの語彙棚卸し・学食喫茶室(2026-07-29): 未読だった
+      `dining/clock-tower-dining.html`・`dining/observatory-dining.html`を読み、
+      `docs/ARG-WORDBANK.md`「5.」に2件追記して全8ページ収集完了とした。
+- [x] (S) 初期42ページの語彙棚卸し・入学願書(2026-07-29): `tickets/index.html`を
+      読み、`docs/ARG-WORDBANK.md`「6.」に記載(候補薄い。年間パス「四季来訪証」
+      以外は実用情報で完結)。
+- [x] (S) 初期42ページの語彙棚卸し・学院への道のり(2026-07-29):
+      `access/index.html`・`access/lodging.html`を読み、`docs/ARG-WORDBANK.md`
+      「7.」に記載(候補薄い。「学院東駐車場」以外に目立った候補なし)。
+- [x] (S) 初期42ページの語彙棚卸し・学院案内(2026-07-29): `guide/index.html`を
+      読み、`docs/ARG-WORDBANK.md`「8.」に記載(候補薄い。マスコット個体名は
+      既にP1のkeywordsとして登録済みのため新規候補なし)。
+
 ### 14. 提携宿泊施設
 
 - [x] (M) `pages/access/lodging.html`(depth-1)を新設(2026-07-28、ユーザー承認済み
