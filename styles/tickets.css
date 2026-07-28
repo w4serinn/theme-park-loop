@@ -165,6 +165,28 @@
   transform: rotate(90deg);
 }
 
+.qa-item.is-open .qa-panel {
+  animation: qa-panel-engage 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes qa-panel-engage {
+  0% {
+    transform: rotate(-1deg) translateY(-8px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qa-item.is-open .qa-panel {
+    animation: none;
+  }
+}
+
 /* 団体・修学旅行プラン */
 .group-plan {
   display: flex;

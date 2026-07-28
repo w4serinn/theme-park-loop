@@ -298,6 +298,19 @@
   margin: 0;
 }
 
+.lodging-card__link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: color-mix(in oklch, var(--brass) 75%, transparent);
+  transition: color 0.2s;
+}
+
+.lodging-card__link:hover {
+  color: var(--brass);
+}
+
 /* キャンパスマップ: SVG + 説明パネル */
 .campus-map {
   display: flex;

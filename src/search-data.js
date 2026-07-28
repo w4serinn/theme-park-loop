@@ -44,11 +44,15 @@ window.SEARCH_INDEX = [
 
   { path: 'tickets/index.html', title: '入学願書・チケット案内', category: 'ご案内' },
   { path: 'access/index.html', title: '学院への道のり', category: 'ご案内' },
+  { path: 'access/lodging.html', title: '提携宿泊施設', category: 'ご案内' },
   { path: 'guide/index.html', title: '学院案内', category: 'ご案内' },
 
   // 隠しページ: 通常のヘッダーナビ・フッター・サイトマップ(pages/sitemap.html)には
   // 意図的に載せていない。ここ(検索インデックス)にだけ追加することで、検索でしか
   // 辿り着けない発見型のページになる。将来のサイクルがサイトマップ等への掲載漏れと
   // 誤解して追加してしまわないよう、変更しないこと(docs/ROADMAP.md「### 13」参照)。
-  { path: 'glossary/mythical-creatures.html', title: '魔法生物図鑑', category: '図鑑' }
+  { path: 'glossary/mythical-creatures.html', title: '魔法生物図鑑', category: '図鑑' },
+  { path: 'glossary/perpetual-motion.html', title: '永久運動術式', category: '図鑑' },
+  { path: 'glossary/starmap-fragments.html', title: '魔導88星座 星図の断片', category: '図鑑' },
+  { path: 'glossary/dueling-champions.html', title: '決闘王列伝', category: '図鑑' }
 ];
