@@ -112,6 +112,20 @@
   color: var(--ember);
 }
 
+/* 隠しページの発見バッジ(### 13の未決事項解消)。淡い発光でうっすらと
+   「特別なページ」であることを伝える。ホバーではなく常時表示のため、
+   pulseアニメーションは付けず静的な発光に留める(一覧に複数出た場合の
+   視覚的なうるささを避けるため)。 */
+.search-result__badge {
+  flex-shrink: 0;
+  margin-left: auto;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--ember);
+  text-shadow: 0 0 6px color-mix(in oklch, var(--ember) 55%, transparent);
+  white-space: nowrap;
+}
+
 @media (width <= 600px) {
   .page-hero {
     padding: 2rem 1rem 1.5rem;

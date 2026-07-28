@@ -50,6 +50,14 @@
 
       a.appendChild(category);
       a.appendChild(title);
+
+      if (entry.hidden) {
+        var badge = document.createElement('span');
+        badge.className = 'search-result__badge';
+        badge.textContent = '✦ 発見';
+        a.appendChild(badge);
+      }
+
       li.appendChild(a);
       resultsEl.appendChild(li);
     });
