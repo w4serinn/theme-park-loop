@@ -326,6 +326,25 @@
   margin: 0;
 }
 
+/* 散文形式(ノスティオン自身が一人称で語る独白ページ用。図鑑・資料・年表とは
+   異なり一覧構造を持たない単一の語りのため、あえて要素数を絞ったシンプルな
+   構成にする) */
+.origin-story {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.origin-story__paragraph {
+  font-size: 0.92rem;
+  line-height: 1.9;
+  color: color-mix(in oklch, var(--brass) 88%, transparent);
+  margin: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .creature-entry__avatar,
   .archive-entry__glyph {
@@ -353,6 +372,10 @@
   }
 
   .fragment-list {
+    padding: 1.5rem 1rem;
+  }
+
+  .origin-story {
     padding: 1.5rem 1rem;
   }
 

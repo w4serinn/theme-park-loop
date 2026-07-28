@@ -137,34 +137,6 @@
   white-space: nowrap;
 }
 
-/* P91: ノスティオン自身への自己言及に対する応答(通常のリンク結果とは違う、
-   本が語りかけてくる特別な1件) */
-.search-result--codex {
-  border: 1px solid color-mix(in oklch, var(--ember) 45%, transparent);
-  padding: 1rem 1.25rem;
-  animation: codex-response-appear 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.codex-response {
-  font-size: 0.9rem;
-  font-style: italic;
-  color: var(--ember);
-  line-height: 1.8;
-  margin: 0;
-}
-
-@keyframes codex-response-appear {
-  0% {
-    transform: rotate(-1deg) translateY(-8px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: rotate(0) translateY(0);
-    opacity: 1;
-  }
-}
-
 /* ノスティオンの記録(P91達成後にのみ表示、docs/ARG-DESIGN.md 4-7節) */
 .codex-memory {
   margin-top: 2rem;
@@ -226,12 +198,6 @@
   font-style: italic;
   color: color-mix(in oklch, var(--brass) 55%, transparent);
   margin: 0.75rem 0 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .search-result--codex {
-    animation: none;
-  }
 }
 
 @media (width <= 600px) {

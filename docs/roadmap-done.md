@@ -12,6 +12,17 @@
 
 ## バグ修正(解消済み)
 
+- [x] (S) ノスティオン(`pages/search.html`)の「記録」欄(`#codex-memory-section`):
+      別ページで新しく「学院の秘密」や「断片」を獲得した後、ブラウザの戻るボタン
+      等でノスティオンのページに戻ると、記録欄の内容が更新されない(直前の古い
+      状態のまま)。ページを明示的に開き直す(リロードする)と正しく反映される
+      (2026-07-28 ユーザー報告)。原因: ブラウザのbfcache(back/forward cache)
+      からページが復元された場合、`src/search.js`の初期化処理
+      (`renderMemorySection()`)がスクリプト再実行なしで復元されるため、DOMが
+      離脱時点のまま古くなる。`src/search.js`に`pageshow`イベント
+      (`event.persisted`が`true`の場合)のリスナーを追加し、bfcache復元を
+      検知して記録欄を最新のlocalStorageの内容で再描画するようにして解消した。
+
 - [x] (S) 学食・喫茶室: 中央学食タブ内の「詳細」ボタンを押しても展開されない。
       原因: `pages/dining/index.html` に `.menu-item__trigger` を処理する
       `src/dining-menu.js` が読み込まれていなかった(`src/shop-tabs.js` のみ読み込み)。
@@ -645,7 +656,7 @@
       とは異なり、意図的に発見しやすい通常ページとして追加)。`src/search-data.js`
       の検索インデックスにも追加。
 
-### 15. ARG基盤・コデックス
+### 15. ARG基盤・ノスティオン(旧称: コデックス)
 
 - [x] (S) 断片依存順序の検証テスト(2026-07-28): `scripts/arg-design-utils.js`を
       新設し、`docs/ARG-DESIGN.md`4節の表をmarkdownテーブルとしてパースする
@@ -733,3 +744,18 @@
       (Playwrightで0/4のように正しく除外されることを確認)。
       Playwrightで、初回非表示・自己言及後の表示切替・リロード後の永続化・
       通常検索への非干渉を実ブラウザで確認済み。
+- [x] (M) P91応答方式の変更・キャラクター名改名(2026-07-28): ユーザー指摘
+      (「ノスティオンについて調べたらノスティオンのページがヒットして押すと
+      遷移する感じがよかった」)を受け、`src/search.js`の`renderSelfReferenceResponse`
+      (インラインテキスト表示)を廃止し、通常の検索結果と同じクリック可能な
+      カード(`SELF_REFERENCE_ENTRY`、`hidden:true`で発見バッジも共通表示)に
+      変更した。遷移先として`pages/glossary/nostion-memory.html`(ノスティオンが
+      一人称で自身の記憶を語る散文形式の隠しページ、`.origin-story`レイアウトを
+      新設)を作成。断片F13の獲得は`src/nostion-memory.js`(新設、そのページ固有の
+      アクションとして分離)が担い、達成マーカー文字列`codex-self-reference`は
+      廃止して実際のページpath(`glossary/nostion-memory.html`)を「学院の秘密」の
+      解禁条件として使うよう`renderMemorySection`を簡素化した。不要になった
+      `.search-result--codex`/`.codex-response`/`codex-response-appear`の
+      CSSも削除。あわせてキャラクター名を「コデックス」から「ノスティオン」へ
+      改名(検索ページ・ナビ・自己言及ギミックの判定ワード・`docs/ARG-DESIGN.md`を
+      含め全面更新)。

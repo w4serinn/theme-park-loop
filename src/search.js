@@ -7,12 +7,17 @@
 
   var base = root.getAttribute('data-base') || '';
 
-  // P91(docs/ARG-DESIGN.md 4-3節): ノスティオン自身への自己言及の達成マーカーと、
-  // それによって獲得する断片。「学院の秘密」の配列は本来は隠しページのpathを
-  // 保持するためのものだが、この達成も同じ配列に文字列マーカーとして記録し、
-  // 「これまでの記録」セクション(下記)の表示解禁条件として流用する。
-  var SELF_REFERENCE_SECRET = 'codex-self-reference';
-  var SELF_REFERENCE_FRAGMENT_ID = 'F13';
+  // P91(docs/ARG-DESIGN.md 4-3節): ノスティオン自身への自己言及の誘導に対する
+  // 検索結果。通常の検索結果と同じクリック可能なカードとして表示し、専用の
+  // 隠しページ(F13「本心の断片」の獲得もそのページ側で行う)へ遷移させる
+  // (2026-07-28 ユーザー指摘によりインライン応答から変更)。
+  var SELF_REFERENCE_PAGE_PATH = 'glossary/nostion-memory.html';
+  var SELF_REFERENCE_ENTRY = {
+    title: '最初の記憶',
+    category: '物知りの魔導書',
+    path: SELF_REFERENCE_PAGE_PATH,
+    hidden: true
+  };
 
   var memorySection = document.getElementById('codex-memory-section');
   var memorySecretsLabel = document.getElementById('codex-memory-secrets-label');
@@ -51,7 +56,7 @@
   function renderMemorySection() {
     if (!memorySection || !window.CodexProgress) { return; }
     var progress = window.CodexProgress.load();
-    var achieved = progress.secrets.indexOf(SELF_REFERENCE_SECRET) !== -1;
+    var achieved = progress.secrets.indexOf(SELF_REFERENCE_PAGE_PATH) !== -1;
     memorySection.hidden = !achieved;
     if (!achieved) { return; }
 
@@ -89,25 +94,6 @@
     }
   }
 
-  function renderSelfReferenceResponse() {
-    resultsEl.innerHTML = '';
-    statusEl.textContent = '';
-
-    var li = document.createElement('li');
-    li.className = 'search-result search-result--codex';
-    var p = document.createElement('p');
-    p.className = 'codex-response';
-    p.textContent = '「……ふふ、私のことが気になりますか。私は昔からこの学院にいる、物覚えの良い一冊です。詳しい素性はまだ明かせませんが……これは、少し特別な贈り物です。」';
-    li.appendChild(p);
-    resultsEl.appendChild(li);
-
-    if (window.CodexProgress) {
-      window.CodexProgress.addSecret(SELF_REFERENCE_SECRET);
-      window.CodexProgress.addFragment(SELF_REFERENCE_FRAGMENT_ID, 'search.html');
-    }
-    renderMemorySection();
-  }
-
   function render(query) {
     if (!query.trim()) {
       statusEl.textContent = '';
@@ -115,12 +101,9 @@
       return;
     }
 
-    if (isCodexSelfReference(query)) {
-      renderSelfReferenceResponse();
-      return;
-    }
-
-    var results = filterIndex(query, window.SEARCH_INDEX).filter(isUnlocked);
+    var results = isCodexSelfReference(query)
+      ? [SELF_REFERENCE_ENTRY]
+      : filterIndex(query, window.SEARCH_INDEX).filter(isUnlocked);
     resultsEl.innerHTML = '';
 
     if (results.length === 0) {
