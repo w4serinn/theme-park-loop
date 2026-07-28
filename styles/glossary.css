@@ -205,6 +205,56 @@
   }
 }
 
+/* 星図断片形式(魔導88星座のような「一覧の一部だけ判明している」隠しページ用。
+   資料アーカイブ(.archive-entry)とはレイアウトを変え、カタログ番号+短い逸話の
+   索引カード風にすることで単調なカードグリッドの繰り返しを避ける。
+   天文台関連コンテンツ向けに承認済みの --azure を使用) */
+.fragment-list {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.fragment-entry {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--azure) 25%, transparent);
+}
+
+.fragment-entry:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.fragment-entry__number {
+  flex-shrink: 0;
+  width: 3.25rem;
+  padding: 0.3rem 0;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--azure);
+  border: 1px solid color-mix(in oklch, var(--azure) 45%, transparent);
+}
+
+.fragment-entry__name {
+  font-size: 1.05rem;
+  color: var(--brass);
+  margin: 0 0 0.5rem;
+}
+
+.fragment-entry__lore {
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: color-mix(in oklch, var(--brass) 85%, transparent);
+  margin: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .creature-entry__avatar,
   .archive-entry__glyph {
@@ -229,5 +279,13 @@
   .creature-entry {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .fragment-list {
+    padding: 1.5rem 1rem;
+  }
+
+  .fragment-entry__number {
+    width: 2.75rem;
   }
 }
