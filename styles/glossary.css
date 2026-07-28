@@ -255,6 +255,66 @@
   margin: 0;
 }
 
+/* 年表形式(決闘王列伝のような時系列の隠しページ用。資料アーカイブ・星図断片
+   とはさらに異なるレイアウトにし、単調な繰り返しを避ける。決闘演武場向けに
+   承認済みの --crimson を使用) */
+.champion-timeline {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  list-style: none;
+  border-left: 2px solid color-mix(in oklch, var(--crimson) 40%, transparent);
+}
+
+.champion-entry {
+  position: relative;
+  padding: 0 0 2rem 1.75rem;
+}
+
+.champion-entry:last-child {
+  padding-bottom: 0;
+}
+
+.champion-entry::before {
+  content: '';
+  position: absolute;
+  left: -0.4rem;
+  top: 0.3rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background-color: var(--ink);
+  border: 2px solid var(--crimson);
+}
+
+.champion-entry__year {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--crimson);
+  margin-bottom: 0.3rem;
+}
+
+.champion-entry__name {
+  font-size: 1.05rem;
+  color: var(--brass);
+  margin: 0 0 0.35rem;
+}
+
+.champion-entry__move {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: color-mix(in oklch, var(--brass) 70%, transparent);
+  margin: 0 0 0.6rem;
+}
+
+.champion-entry__lore {
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: color-mix(in oklch, var(--brass) 85%, transparent);
+  margin: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .creature-entry__avatar,
   .archive-entry__glyph {
@@ -287,5 +347,9 @@
 
   .fragment-entry__number {
     width: 2.75rem;
+  }
+
+  .champion-timeline {
+    padding: 1.5rem 1rem;
   }
 }

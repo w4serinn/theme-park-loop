@@ -599,3 +599,18 @@
       「天文台(予定)」として既に許可されていた枠)。`exploration/observatory.html`
       側の既存言及は変更せず。`src/search-data.js`・`pages/sitemap.html`に
       隠しページ登録+除外コメントを追記。画像アセットなしのテキストページ。
+
+- [x] (S) 候補4「歴代決闘王」を実装(2026-07-28、ユーザー承認済み)。
+      `pages/glossary/dueling-champions.html`(決闘王列伝)を新設し、歴代決闘王
+      5名を年表形式で紹介。伝説の一戦「第三閃光戦」(`exploration/dueling-ground.html`
+      既出)の勝者エドモン・ヴェイルを最古の代として含め、既存設定と矛盾しない
+      よう56年前と位置づけた。他4名(初の女子決闘王、最年少決闘王、29連勝記録
+      保持者、直近の決闘王)は新規に書き下ろし、それぞれ得意技・逸話を添えた。
+      「レイアウト多様化」方針に沿い、資料アーカイブ・星図断片とも異なる年表
+      レイアウト(`.champion-timeline`、縦線+ドットの時系列表示)を新設。
+      決闘演武場向けに承認済みの`--crimson`をアクセント色として使用。
+      `shop/dueling-shop.html`・`shop/index.html`・`exploration/dueling-ground.html`
+      の既存言及は変更せず。`src/search-data.js`・`pages/sitemap.html`に隠しページ
+      登録+除外コメントを追記。画像アセットなしのテキストページ。
+      これで承認済みだった候補2〜4はすべて実装完了(候補一覧は`docs/ROADMAP.md`
+      「### 13」に引き続き残置、今後の新候補は5番以降として追加していく)。
