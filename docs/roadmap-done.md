@@ -615,6 +615,15 @@
       これで承認済みだった候補2〜4はすべて実装完了(候補一覧は`docs/ROADMAP.md`
       「### 13」に引き続き残置、今後の新候補は5番以降として追加していく)。
 
+- [x] (S) 未決事項を解消(2026-07-28): 検索結果一覧(`pages/search.html`)で
+      隠しページが通常ページと見分けが付かなかったため、`src/search-data.js`の
+      隠しページ4件に`hidden: true`フラグを追加し、`src/search.js`の描画処理で
+      該当エントリにのみ「✦ 発見」バッジを付与するようにした。過度に目立たせない
+      よう、ホバー時のみではなく常時のごく淡い発光(`text-shadow`)のみとし、
+      pulseアニメーションは付けなかった(検索結果に複数ヒットした場合の視覚的な
+      うるささを避けるため)。Playwrightで、隠しページ検索時のみバッジが表示され
+      通常ページでは表示されないことを確認済み。
+
 ### 14. 提携宿泊施設
 
 - [x] (M) `pages/access/lodging.html`(depth-1)を新設(2026-07-28、ユーザー承認済み
@@ -635,3 +644,92 @@
 - [x] (S) `pages/sitemap.html`の「その他のご案内」に新ページを掲載(隠しページ群
       とは異なり、意図的に発見しやすい通常ページとして追加)。`src/search-data.js`
       の検索インデックスにも追加。
+
+### 15. ARG基盤・コデックス
+
+- [x] (S) 断片依存順序の検証テスト(2026-07-28): `scripts/arg-design-utils.js`を
+      新設し、`docs/ARG-DESIGN.md`4節の表をmarkdownテーブルとしてパースする
+      関数群(`extractIdGraph`・`extractImplementedPaths`・
+      `extractFragmentDependencies`)を実装。`tests/arg-design-consistency.test.js`
+      で以下3点を機械的に検証する: (1) status「実装済み」の実ファイルパスが
+      実在するか、(2) 表のどこかで参照されるP番号/PGATE/PFINALが表のどこかに
+      実在する定義を持つか(網状構造の複数親・4-5節のチェーン表記にも対応)、
+      (3) 「必要な断片」を持つ行がstatus「実装済み」の場合、その断片の産出元
+      行も実装済みになっているか(依存順序違反の検出)。
+      実装中、4-5節の単発チェーン行(矢印「→」を使わない`P47 | P48`のような
+      1段だけの行)が「定義」として認識されず、P48/P50/P52が誤って
+      「未定義への参照」判定される実バグを発見・修正した(3列固定の
+      4-5節フォーマットでは2列目のIDトークンを常に新規定義とみなすよう
+      パーサーを調整)。虚偽陽性・陰性が無いことを、存在しないP番号参照・
+      存在しないファイルパス・依存順序違反の3パターンを意図的に作った
+      一時データで動作確認済み。
+
+- [x] (S) 複数キーワード対応(2026-07-28): `src/logic.js`の`filterSearchIndex`と
+      `src/search.js`の`filterIndex`(file://対応のため複製、既存の`search.js`/
+      `search-data.js`の関係と同じ設計)を、`title`+`category`に加えて
+      `entry.keywords`配列も対象にした部分一致に拡張。`src/search-data.js`に
+      `keywords`/`prereq`フィールドの使い方を説明するコメントを追記(既存4
+      エントリへの実際のキーワード追加は別タスク)。重複検出テストとして
+      `tests/search-data-consistency.test.js`を新設。`search-data.js`は
+      `window.SEARCH_INDEX`へのグローバル代入というES module外の形式のため、
+      Node標準の`vm`モジュールで`window`サンドボックスを作って読み込む方式にした。
+      当初`title`/`category`/`keywords`をまとめて重複チェック対象にしたところ、
+      `category`(「学食・喫茶室」等)は複数ページで共有される前提のラベルであり
+      誤検知したため、`title`+`keywords`のみに絞って修正。
+- [x] (S) 進捗の保持(2026-07-28): `src/logic.js`に`addSecretToProgress`・
+      `addFragmentToProgress`・`markFragmentUsed`を純粋関数として実装
+      (`{ secrets: string[], fragments: {id,foundAt,used}[] }`という
+      `docs/ARG-DESIGN.md`2-2節の構造をそのまま操作)。`src/codex-progress.js`を
+      新設し、`localStorage`キー`codex-memory`への実際の読み書きを担う
+      (ロジックは`logic.js`と同内容を複製、DOM操作のみのスクリプトのため)。
+      `data-page-path`属性でページ自身のpathを宣言してこのスクリプトを
+      読み込むと、`document.currentScript`経由で自動的に「学院の秘密」へ
+      記録される設計にし、既存の隠しページ4件(`pages/glossary/*.html`)に
+      それぞれ対応する`data-page-path`付きで読み込みタグを追加した。
+      `pages/search.html`にも(記録用ではなく読み取り用として、
+      `data-page-path`無しで)読み込ませた。Playwrightで、訪問時の自動記録・
+      再訪時の重複防止・search.html側での読み取り(自身は記録されない)を
+      実ブラウザで確認済み。
+- [x] (S) 検索ゲーティング(2026-07-28): `src/logic.js`に`isSearchEntryUnlocked`
+      (純粋関数、`entry.prereq`と訪問済みpath配列を受け取る)を実装し、
+      `src/search.js`にはDOM/`window.CodexProgress`経由で同じ判定を行う
+      `isUnlocked`を実装、`render()`の結果に`.filter(isUnlocked)`を追加した。
+      `CodexProgress`が読み込まれていないページでは判定をスキップし常に表示する
+      フェイルオープン設計(パズル用のゲーティングであり、壊れた時に隠しすぎる
+      より見せすぎる方を選んだ)。既存4エントリの`prereq`は`docs/ARG-DESIGN.md`
+      の指示どおり未設定のまま(常に検索可能)。
+
+- [x] (S) コデックスへの改名(2026-07-28): `pages/search.html`のtitleタグ・
+      meta description・見出し(H1)を「サイト内検索」から
+      「物知りの魔導書『コデックス』」に変更し、`partials/header.html`の
+      ナビ表示名も「検索」から「コデックス」に変更(URLは`pages/search.html`
+      のまま維持)。検索バー下にコデックスが一人称で語りかける誘導文
+      (`.codex-hint`、「私について知りたいなら、まず『私』について聞いてみる
+      とよいでしょう」)を追加し、次のP91実装の伏線を張った。
+- [x] (S) P91・コデックス自身への自己言及(2026-07-28): `src/logic.js`に
+      `isCodexSelfReferenceQuery`(「私」または「コデックス」を含む問いかけを
+      判定する純粋関数)を実装し、`src/search.js`に同ロジックを複製した
+      `isCodexSelfReference`+`renderSelfReferenceResponse`を実装。該当する
+      検索語が入力されると、通常の検索結果の代わりにコデックスが一人称で
+      語る特別な応答(`.search-result--codex`、既存の
+      engage系アニメーションを再利用)を表示し、断片F13(個別名「本心の断片」、
+      `src/fragment-names.js`に登録)を獲得、達成マーカー`codex-self-reference`を
+      「学院の秘密」配列に記録する(実在ページではない合言葉的な達成のため、
+      本来の隠しページpathとは別枠のマーカー文字列として扱う)。実装中に
+      判明した注意点として、`docs/ARG-DESIGN.md`に「私」「コデックス」を
+      今後のP番号ページの`title`/`keywords`に含めないよう注意書きを追記
+      (自己言及の特別応答に横取りされてしまうため)。
+- [x] (M) コデックスの記録表示(2026-07-28): `pages/search.html`に
+      P91未達成の間は`hidden`な`#codex-memory-section`を追加し、
+      `src/search.js`の`renderMemorySection`が`window.CodexProgress`の状態から
+      内容を組み立てる。「学院の秘密」は分母(`SEARCH_INDEX`の`hidden:true`件数を
+      動的カウント、ハードコードしない)付きの件数表示+タイトルリンク一覧、
+      「手にした断片」は`src/fragment-names.js`の個別名一覧(使用済みは
+      取り消し線でグレーアウト)。断片側は要求される総数などの具体的な残数は
+      出さず「学院の奥深くに、まだ知らないことがありそうです……」という
+      曖昧な一文に留めた(仕様どおり、達成感の答え合わせにしない)。
+      自己言及の達成マーカー(`codex-self-reference`)は実際の隠しページpathでは
+      ないため、「学院の秘密」の分母/分子カウントには含めないよう実装した
+      (Playwrightで0/4のように正しく除外されることを確認)。
+      Playwrightで、初回非表示・自己言及後の表示切替・リロード後の永続化・
+      通常検索への非干渉を実ブラウザで確認済み。

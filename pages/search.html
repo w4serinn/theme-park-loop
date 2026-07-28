@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="王立魔法学院アルノルド公式サイト内をキーワードで検索できます。学院内探索・購買部・学食など、全ページから目的の情報を探せます。" />
-  <title>サイト内検索 — 王立魔法学院アルノルド</title>
+  <meta name="description" content="王立魔法学院アルノルド公式サイト内を、物知りの魔導書「コデックス」に尋ねて調べられます。学院内探索・購買部・学食など、全ページから目的の情報を探せます。" />
+  <title>コデックス — 王立魔法学院アルノルド</title>
   <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
   <link rel="stylesheet" href="{{BASE}}styles/base.css" />
   <link rel="stylesheet" href="{{BASE}}styles/search.css" />
@@ -13,22 +13,42 @@
 <!-- HEADER -->
 <main>
   <section class="page-hero">
-    <h1 class="page-hero__title">サイト内検索</h1>
-    <p class="page-hero__desc">学院内探索・購買部・学食など、サイト内の全ページをキーワードで検索できます。エリア名や店舗名、行事名などでお試しください。</p>
+    <h1 class="page-hero__title">物知りの魔導書「コデックス」</h1>
+    <p class="page-hero__desc">大図書館の奥、誰が置いたとも知れず佇む一冊の魔導書。頁を繰るだけで、学院内のあらゆる出来事を語ってくれるといいます。気になる言葉を入力してみてください。</p>
   </section>
 
   <div class="search-content" data-base="{{BASE}}">
     <form class="search-form" role="search" onsubmit="return false;">
-      <label class="search-form__label" for="search-input">検索キーワード</label>
+      <label class="search-form__label" for="search-input">コデックスに尋ねる</label>
       <input type="search" id="search-input" class="search-form__input" placeholder="例: 錬金術、飛行船、チケット" autocomplete="off" />
     </form>
+
+    <p class="codex-hint">「何でも聞いてください。私はこの学院で起きたこと、学んだこと、見てきたことを、なんでも記録しています。……私について知りたいなら、まず『私』について聞いてみるとよいでしょう。」</p>
 
     <p class="search-status" id="search-status" aria-live="polite"></p>
 
     <ul class="search-results" id="search-results"></ul>
+
+    <section class="codex-memory" id="codex-memory-section" hidden>
+      <h2 class="codex-memory__heading">コデックスの記録</h2>
+      <p class="codex-memory__intro">「……ふむ。あなたと一緒に見つけたものを、少しだけ記しておきましょう。」</p>
+
+      <div class="codex-memory__block">
+        <p class="codex-memory__label" id="codex-memory-secrets-label"></p>
+        <ul class="codex-memory__list" id="codex-memory-secrets-list"></ul>
+      </div>
+
+      <div class="codex-memory__block">
+        <p class="codex-memory__label">手にした断片</p>
+        <ul class="codex-memory__list" id="codex-memory-fragments-list"></ul>
+        <p class="codex-memory__vague">学院の奥深くに、まだ知らないことがありそうです……。</p>
+      </div>
+    </section>
   </div>
 </main>
 <!-- FOOTER -->
+<script src="{{BASE}}src/codex-progress.js" defer></script>
+<script src="{{BASE}}src/fragment-names.js" defer></script>
 <script src="{{BASE}}src/search-data.js" defer></script>
 <script src="{{BASE}}src/search.js" defer></script>
 </body>

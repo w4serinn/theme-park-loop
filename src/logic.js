@@ -53,12 +53,76 @@ export function carouselPrevIndex(current, total) {
   return (current - 1 + total) % total;
 }
 
-// サイト内検索: クエリに一致するページをタイトル・カテゴリの部分一致で絞り込む
+// サイト内検索: クエリに一致するページをタイトル・カテゴリ・keywords(あれば)の
+// 部分一致で絞り込む。keywordsは正式名称(title)とは別に複数の言い回しでも
+// ヒットさせるための隠しフィールド(docs/ARG-DESIGN.md 2-1節)。
 export function filterSearchIndex(query, index) {
   var q = (query || '').trim().toLowerCase();
   if (!q) { return []; }
   return index.filter(function (entry) {
-    var haystack = (entry.title + ' ' + entry.category).toLowerCase();
+    var keywords = entry.keywords || [];
+    var haystack = (entry.title + ' ' + entry.category + ' ' + keywords.join(' ')).toLowerCase();
     return haystack.indexOf(q) !== -1;
   });
+}
+
+// コデックスの「学院の秘密」(訪問済み隠しページ)・「手にした断片」の状態を
+// 純粋関数として操作する(docs/ARG-DESIGN.md 2-2節)。DOM/localStorageの
+// 読み書きは src/codex-progress.js が担い、実際の状態更新ロジックはここに置く。
+
+// progress: { secrets: string[], fragments: { id, foundAt, used }[] }
+function normalizeProgress(progress) {
+  return {
+    secrets: (progress && progress.secrets) || [],
+    fragments: (progress && progress.fragments) || []
+  };
+}
+
+// 隠しページを訪問した記録を追加する(「学院の秘密」)。既に記録済みなら変化なし。
+export function addSecretToProgress(progress, path) {
+  var normalized = normalizeProgress(progress);
+  if (normalized.secrets.indexOf(path) !== -1) { return normalized; }
+  return {
+    secrets: normalized.secrets.concat([path]),
+    fragments: normalized.fragments
+  };
+}
+
+// 断片を獲得した記録を追加する(「手にした断片」)。既に獲得済みのidなら変化なし。
+export function addFragmentToProgress(progress, id, foundAt) {
+  var normalized = normalizeProgress(progress);
+  if (normalized.fragments.some(function (f) { return f.id === id; })) { return normalized; }
+  return {
+    secrets: normalized.secrets,
+    fragments: normalized.fragments.concat([{ id: id, foundAt: foundAt, used: false }])
+  };
+}
+
+// 断片を「使用済み」にする(中間断片が別のページの謎解きに実際に使われた時)。
+export function markFragmentUsed(progress, id) {
+  var normalized = normalizeProgress(progress);
+  return {
+    secrets: normalized.secrets,
+    fragments: normalized.fragments.map(function (f) {
+      return f.id === id ? { id: f.id, foundAt: f.foundAt, used: true } : f;
+    })
+  };
+}
+
+// 隠し検索エントリが、現在の閲覧履歴(訪問済み隠しページのpath配列)で
+// 検索可能かどうかを判定する(docs/ARG-DESIGN.md 2-3節、検索ゲーティング)。
+// entry.prereq が null/未指定なら常にtrue。配列ならどれか1つでも
+// visitedPathsに含まれていればtrue(網状構造の複数経路OR判定)。
+export function isSearchEntryUnlocked(entry, visitedPaths) {
+  if (!entry.prereq) { return true; }
+  return entry.prereq.some(function (p) { return visitedPaths.indexOf(p) !== -1; });
+}
+
+// P91(docs/ARG-DESIGN.md 4-3節): コデックス自身について尋ねたかどうかを判定する。
+// 誘導文で示した通り「私」「コデックス」のいずれかを含む問いかけを自己言及とみなす
+// (雰囲気重視のため厳密な完全一致は求めない)。
+export function isCodexSelfReferenceQuery(query) {
+  var q = (query || '').trim();
+  if (!q) { return false; }
+  return q.indexOf('私') !== -1 || q.indexOf('コデックス') !== -1;
 }
