@@ -177,7 +177,7 @@ P番号ページの`title`/`keywords`を決める際、これら2語を単体ま
 | P2 | root | `exploration/clock-tower.html`「彼が考案した『永久運動術式』により」 | — | — | 実装済み(`pages/glossary/perpetual-motion.html`) |
 | P3 | root | `exploration/observatory.html`「『魔導88星座』と一般的な星座とは配置が異なる」 | — | — | 実装済み(`pages/glossary/starmap-fragments.html`) |
 | P4 | root | `shop/dueling-shop.html`「歴代決闘王」公式記念帖、`shop/index.html`「観戦歴50年の老店主が選ぶ…歴代決闘王の記念帖」 | — | — | 実装済み(`pages/glossary/dueling-champions.html`) |
-| P5 | fragment | P2 | F1(→扉) | — | 未着手 |
+| P5 | fragment | P2(`glossary/perpetual-motion.html`の独り言「修繕工房には…研究し続ける学生」) | F1(刻の断片、→扉) | — | 実装済み(`pages/glossary/apprentice-notes.html`) |
 | P6 | flavor | P3, P1(同じ単語が両方の本文に出てくる想定) | — | — | 未着手 |
 | P7 | fragment | P6 | F2(→P21で使用) | — | 未着手 |
 | P8 | flavor | P4 | — | — | 未着手 |
