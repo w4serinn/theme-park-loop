@@ -1,4 +1,4 @@
-// コデックス(物知りの魔導書、pages/search.html)の記録機能が使う localStorage の
+// ノスティオン(物知りの魔導書、pages/search.html)の記録機能が使う localStorage の
 // 読み書き。docs/ARG-DESIGN.md 2-2節参照。DOM操作のみのスクリプトなので、
 // 実際の状態更新ロジック(重複追加の防止など)は src/logic.js の
 // addSecretToProgress / addFragmentToProgress / markFragmentUsed と同じ内容を

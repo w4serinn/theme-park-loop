@@ -59,7 +59,7 @@
   color: color-mix(in oklch, var(--brass) 45%, transparent);
 }
 
-/* コデックスが一人称で語りかける誘導文 */
+/* ノスティオンが一人称で語りかける誘導文 */
 .codex-hint {
   font-size: 0.85rem;
   font-style: italic;
@@ -137,7 +137,7 @@
   white-space: nowrap;
 }
 
-/* P91: コデックス自身への自己言及に対する応答(通常のリンク結果とは違う、
+/* P91: ノスティオン自身への自己言及に対する応答(通常のリンク結果とは違う、
    本が語りかけてくる特別な1件) */
 .search-result--codex {
   border: 1px solid color-mix(in oklch, var(--ember) 45%, transparent);
@@ -165,7 +165,7 @@
   }
 }
 
-/* コデックスの記録(P91達成後にのみ表示、docs/ARG-DESIGN.md 4-7節) */
+/* ノスティオンの記録(P91達成後にのみ表示、docs/ARG-DESIGN.md 4-7節) */
 .codex-memory {
   margin-top: 2rem;
   padding-top: 1.75rem;

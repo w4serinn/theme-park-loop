@@ -220,9 +220,9 @@ describe('isCodexSelfReferenceQuery', () => {
     expect(isCodexSelfReferenceQuery('私について')).toBe(true);
   });
 
-  test('matches a query containing コデックス', () => {
-    expect(isCodexSelfReferenceQuery('コデックス')).toBe(true);
-    expect(isCodexSelfReferenceQuery('コデックスとは')).toBe(true);
+  test('matches a query containing ノスティオン', () => {
+    expect(isCodexSelfReferenceQuery('ノスティオン')).toBe(true);
+    expect(isCodexSelfReferenceQuery('ノスティオンとは')).toBe(true);
   });
 
   test('does not match unrelated queries', () => {

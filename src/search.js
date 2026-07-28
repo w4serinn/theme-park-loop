@@ -7,7 +7,7 @@
 
   var base = root.getAttribute('data-base') || '';
 
-  // P91(docs/ARG-DESIGN.md 4-3節): コデックス自身への自己言及の達成マーカーと、
+  // P91(docs/ARG-DESIGN.md 4-3節): ノスティオン自身への自己言及の達成マーカーと、
   // それによって獲得する断片。「学院の秘密」の配列は本来は隠しページのpathを
   // 保持するためのものだが、この達成も同じ配列に文字列マーカーとして記録し、
   // 「これまでの記録」セクション(下記)の表示解禁条件として流用する。
@@ -43,7 +43,7 @@
   function isCodexSelfReference(query) {
     var q = (query || '').trim();
     if (!q) { return false; }
-    return q.indexOf('私') !== -1 || q.indexOf('コデックス') !== -1;
+    return q.indexOf('私') !== -1 || q.indexOf('ノスティオン') !== -1;
   }
 
   // 「これまでの記録」セクションの表示・内容を、現在のlocalStorageの状態から作る。
