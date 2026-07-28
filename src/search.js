@@ -7,7 +7,7 @@
 
   var base = root.getAttribute('data-base') || '';
 
-  // P91(docs/ARG-DESIGN.md 4-3節): コデックス自身への自己言及の達成マーカーと、
+  // P91(docs/ARG-DESIGN.md 4-3節): ノスティオン自身への自己言及の達成マーカーと、
   // それによって獲得する断片。「学院の秘密」の配列は本来は隠しページのpathを
   // 保持するためのものだが、この達成も同じ配列に文字列マーカーとして記録し、
   // 「これまでの記録」セクション(下記)の表示解禁条件として流用する。
@@ -43,7 +43,7 @@
   function isCodexSelfReference(query) {
     var q = (query || '').trim();
     if (!q) { return false; }
-    return q.indexOf('私') !== -1 || q.indexOf('コデックス') !== -1;
+    return q.indexOf('私') !== -1 || q.indexOf('ノスティオン') !== -1;
   }
 
   // 「これまでの記録」セクションの表示・内容を、現在のlocalStorageの状態から作る。
@@ -163,6 +163,18 @@
 
   input.addEventListener('input', function () {
     render(input.value);
+  });
+
+  // ブラウザの戻る/進む操作でbfcache(back/forward cache)からページが復元された
+  // 場合、スクリプトは再実行されずDOMも離脱時点のまま保持される。そのため、
+  // 他ページで新たに獲得した「学院の秘密」「断片」が記録欄に反映されないまま
+  // 表示され続けてしまう(2026-07-28 ユーザー報告のバグ)。pageshowイベントの
+  // event.persistedでbfcache復元を検知し、記録欄を最新のlocalStorageの内容で
+  // 再描画する。
+  window.addEventListener('pageshow', function (event) {
+    if (event.persisted) {
+      renderMemorySection();
+    }
   });
 
   renderMemorySection();

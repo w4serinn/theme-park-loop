@@ -66,7 +66,7 @@ export function filterSearchIndex(query, index) {
   });
 }
 
-// コデックスの「学院の秘密」(訪問済み隠しページ)・「手にした断片」の状態を
+// ノスティオンの「学院の秘密」(訪問済み隠しページ)・「手にした断片」の状態を
 // 純粋関数として操作する(docs/ARG-DESIGN.md 2-2節)。DOM/localStorageの
 // 読み書きは src/codex-progress.js が担い、実際の状態更新ロジックはここに置く。
 
@@ -118,11 +118,11 @@ export function isSearchEntryUnlocked(entry, visitedPaths) {
   return entry.prereq.some(function (p) { return visitedPaths.indexOf(p) !== -1; });
 }
 
-// P91(docs/ARG-DESIGN.md 4-3節): コデックス自身について尋ねたかどうかを判定する。
-// 誘導文で示した通り「私」「コデックス」のいずれかを含む問いかけを自己言及とみなす
+// P91(docs/ARG-DESIGN.md 4-3節): ノスティオン自身について尋ねたかどうかを判定する。
+// 誘導文で示した通り「私」「ノスティオン」のいずれかを含む問いかけを自己言及とみなす
 // (雰囲気重視のため厳密な完全一致は求めない)。
 export function isCodexSelfReferenceQuery(query) {
   var q = (query || '').trim();
   if (!q) { return false; }
-  return q.indexOf('私') !== -1 || q.indexOf('コデックス') !== -1;
+  return q.indexOf('私') !== -1 || q.indexOf('ノスティオン') !== -1;
 }

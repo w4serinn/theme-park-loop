@@ -118,9 +118,20 @@
   margin: 0 auto;
   padding: 0 1.5rem 3rem;
   text-align: center;
+}
+
+.glossary-footnote__label {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--ember);
+  margin: 0 0 0.4rem;
+}
+
+.glossary-footnote__text {
   font-size: 0.85rem;
   font-style: italic;
   color: color-mix(in oklch, var(--brass) 55%, transparent);
+  margin: 0;
 }
 
 @keyframes creature-bob {
