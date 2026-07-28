@@ -65,5 +65,6 @@ window.SEARCH_INDEX = [
   { path: 'glossary/gear-cipher.html', title: '光る符丁の正体', category: '図鑑', hidden: true, keywords: ['はぐるま'], prereq: ['glossary/apprentice-notes.html'] },
   { path: 'glossary/first-astronomer.html', title: '初代天文官 シベル・オーレン', category: '図鑑', hidden: true, keywords: ['シベル・オーレン'], prereq: ['glossary/mythical-creatures.html', 'glossary/starmap-fragments.html'] },
   { path: 'glossary/final-entry.html', title: '記録帳、最後の頁', category: '図鑑', hidden: true, keywords: ['観測記録帳'], prereq: ['glossary/first-astronomer.html'] },
+  { path: 'glossary/return-mark.html', title: 'もどりば、という言葉', category: '図鑑', hidden: true, keywords: ['もどりば'], prereq: ['glossary/final-entry.html'] },
   { path: 'glossary/erased-champion.html', title: '名を消された決闘王', category: '図鑑', hidden: true, keywords: ['さらに古い時代の決闘王'], prereq: ['glossary/dueling-champions.html'] }
 ];
