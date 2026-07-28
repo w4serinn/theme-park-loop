@@ -57,8 +57,12 @@ window.SEARCH_INDEX = [
   //   同じ文字列を複数エントリのkeywordsに重複させないこと(多対1はOK、1対多はNG)。
   // - prereq: string[]  このエントリが検索に出現するために、事前に訪問しているべき
   //   隠しページのpath候補一覧(どれか1つでも訪問済みならOKのOR判定)。省略/nullなら常に検索可能。
-  { path: 'glossary/mythical-creatures.html', title: '魔法生物図鑑', category: '図鑑', hidden: true },
-  { path: 'glossary/perpetual-motion.html', title: '永久運動術式', category: '図鑑', hidden: true },
-  { path: 'glossary/starmap-fragments.html', title: '魔導88星座 星図の断片', category: '図鑑', hidden: true },
-  { path: 'glossary/dueling-champions.html', title: '決闘王列伝', category: '図鑑', hidden: true }
+  { path: 'glossary/mythical-creatures.html', title: '魔法生物図鑑', category: '図鑑', hidden: true, keywords: ['ホーホー', 'カチカチ', 'ルミナ'] },
+  { path: 'glossary/perpetual-motion.html', title: '永久運動術式', category: '図鑑', hidden: true, keywords: ['フィンレー'] },
+  { path: 'glossary/starmap-fragments.html', title: '魔導88星座 星図の断片', category: '図鑑', hidden: true, keywords: ['星座紋解析台'] },
+  { path: 'glossary/dueling-champions.html', title: '決闘王列伝', category: '図鑑', hidden: true, keywords: ['第三閃光戦'] },
+  { path: 'glossary/apprentice-notes.html', title: '見習い整備士の手記', category: '図鑑', hidden: true, keywords: ['修繕工房'], prereq: ['glossary/perpetual-motion.html'] },
+  { path: 'glossary/first-astronomer.html', title: '初代天文官 シベル・オーレン', category: '図鑑', hidden: true, keywords: ['シベル・オーレン'], prereq: ['glossary/mythical-creatures.html', 'glossary/starmap-fragments.html'] },
+  { path: 'glossary/final-entry.html', title: '記録帳、最後の頁', category: '図鑑', hidden: true, keywords: ['観測記録帳'], prereq: ['glossary/first-astronomer.html'] },
+  { path: 'glossary/erased-champion.html', title: '名を消された決闘王', category: '図鑑', hidden: true, keywords: ['さらに古い時代の決闘王'], prereq: ['glossary/dueling-champions.html'] }
 ];
