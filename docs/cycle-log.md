@@ -1,5 +1,23 @@
 # サイクル履歴
 
+## 2026-07-29 01:29
+- ブランチ: evolve/cycle-29は未マージのため継続。
+- タスク選定: バグ修正セクションの唯一の項目(大魔法陣の直径不一致)に着手。
+  あわせて`### 13`の語彙棚卸し再確認タスクから学院内探索・学院祭の2件を実施
+  (学院祭は手動チャットで既読了だったためstatus更新のみ)。
+- 実装: `pages/index.html`の大魔法陣の直径を20m→30mに修正し
+  `exploration/summoning-plaza.html`と統一。`exploration/`全7ページ
+  (alchemy-tower・airship-dock・clock-tower・grand-library・dueling-ground・
+  observatory、summoning-plazaは前サイクル確認済み)を読み直し、
+  `docs/ARG-WORDBANK.md`に10件を追記。「立入禁止・一般非公開の保管庫」が
+  ほぼ全エリアに存在するという学院共通モチーフを発見。
+- レビュー: OK(バグ修正は1行のテキスト修正のみで影響範囲は限定的。
+  ドキュメント変更は該当なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(290件) / build: ✓
+- 次回予定: `### 13`残り1分類(購買部の再確認)、または語彙のグルーピング作業。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-29 00:29
 - ブランチ: evolve/cycle-29は未マージのため継続(前サイクルのコミット1件が
   未pushだったため、このサイクルの成果とまとめてpush)。
