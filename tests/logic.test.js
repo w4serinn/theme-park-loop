@@ -1,5 +1,9 @@
 import { test, expect, describe } from 'vitest';
-import { TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex, filterSearchIndex } from '../src/logic.js';
+import {
+  TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex,
+  filterSearchIndex, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
+  isSearchEntryUnlocked
+} from '../src/logic.js';
 
 describe('TICKET_PRICES', () => {
   test('adult is 2800', () => { expect(TICKET_PRICES.adult).toBe(2800); });
@@ -130,5 +134,82 @@ describe('filterSearchIndex', () => {
 
   test('returns empty array when nothing matches', () => {
     expect(filterSearchIndex('存在しないキーワード', index)).toEqual([]);
+  });
+
+  test('matches by keywords even when title/category do not contain the query', () => {
+    const withKeywords = [
+      { path: 'glossary/mythical-creatures.html', title: '魔法生物図鑑', category: '図鑑', keywords: ['ホーホー', 'カチカチ'] }
+    ];
+    expect(filterSearchIndex('ホーホー', withKeywords)).toHaveLength(1);
+    expect(filterSearchIndex('カチカチ', withKeywords)).toHaveLength(1);
+  });
+
+  test('entries without keywords still match by title/category only', () => {
+    expect(filterSearchIndex('ホーホー', index)).toEqual([]);
+  });
+});
+
+describe('addSecretToProgress', () => {
+  test('adds a new path to an empty progress', () => {
+    const result = addSecretToProgress({ secrets: [], fragments: [] }, 'glossary/mythical-creatures.html');
+    expect(result.secrets).toEqual(['glossary/mythical-creatures.html']);
+  });
+
+  test('does not duplicate an already-recorded path', () => {
+    const start = { secrets: ['glossary/mythical-creatures.html'], fragments: [] };
+    const result = addSecretToProgress(start, 'glossary/mythical-creatures.html');
+    expect(result.secrets).toEqual(['glossary/mythical-creatures.html']);
+  });
+
+  test('handles undefined progress gracefully', () => {
+    const result = addSecretToProgress(undefined, 'a.html');
+    expect(result.secrets).toEqual(['a.html']);
+    expect(result.fragments).toEqual([]);
+  });
+});
+
+describe('addFragmentToProgress', () => {
+  test('adds a new fragment with foundAt and used:false', () => {
+    const result = addFragmentToProgress({ secrets: [], fragments: [] }, 'F1', 'glossary/perpetual-motion.html');
+    expect(result.fragments).toEqual([{ id: 'F1', foundAt: 'glossary/perpetual-motion.html', used: false }]);
+  });
+
+  test('does not duplicate an already-obtained fragment id', () => {
+    const start = { secrets: [], fragments: [{ id: 'F1', foundAt: 'a.html', used: false }] };
+    const result = addFragmentToProgress(start, 'F1', 'b.html');
+    expect(result.fragments).toHaveLength(1);
+    expect(result.fragments[0].foundAt).toBe('a.html');
+  });
+});
+
+describe('markFragmentUsed', () => {
+  test('marks only the matching fragment as used', () => {
+    const start = {
+      secrets: [],
+      fragments: [
+        { id: 'F1', foundAt: 'a.html', used: false },
+        { id: 'F2', foundAt: 'b.html', used: false }
+      ]
+    };
+    const result = markFragmentUsed(start, 'F2');
+    expect(result.fragments).toEqual([
+      { id: 'F1', foundAt: 'a.html', used: false },
+      { id: 'F2', foundAt: 'b.html', used: true }
+    ]);
+  });
+});
+
+describe('isSearchEntryUnlocked', () => {
+  test('is always unlocked when prereq is not set', () => {
+    expect(isSearchEntryUnlocked({}, [])).toBe(true);
+    expect(isSearchEntryUnlocked({ prereq: null }, [])).toBe(true);
+  });
+
+  test('is locked when none of the prereq paths are visited', () => {
+    expect(isSearchEntryUnlocked({ prereq: ['a.html'] }, ['b.html'])).toBe(false);
+  });
+
+  test('is unlocked when at least one prereq path is visited (OR判定)', () => {
+    expect(isSearchEntryUnlocked({ prereq: ['a.html', 'b.html'] }, ['b.html'])).toBe(true);
   });
 });

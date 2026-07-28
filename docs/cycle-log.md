@@ -1,5 +1,35 @@
 # サイクル履歴
 
+## 2026-07-28 16:50
+- ブランチ: evolve/cycle-26 は未マージのため継続。前サイクルはユーザーとの
+  ARG設計対話セッション(docs/ARG-DESIGN.md新設等、docsのみのcommit)だったため、
+  今回が設計後初の実装サイクル。
+- タスク選定: `### 15`(ARG基盤・コデックス)が`### 13`のP番号実装より最優先の
+  ため、6タスク中の最初の3つ(複数キーワード対応・進捗の保持・検索ゲーティング、
+  いずれも検索基盤として密接に関連)をまとめて着手。
+- 実装:
+  1. 複数キーワード対応: `src/logic.js`の`filterSearchIndex`と`src/search.js`の
+     `filterIndex`を`keywords`配列も対象にした部分一致に拡張。重複検出テスト
+     `tests/search-data-consistency.test.js`を新設(`vm`モジュールで
+     `window.SEARCH_INDEX`のグローバル代入を読み込む方式)。
+  2. 進捗の保持: `src/logic.js`に`addSecretToProgress`・`addFragmentToProgress`・
+     `markFragmentUsed`を純粋関数として実装。`src/codex-progress.js`を新設し
+     `localStorage`(キー`codex-memory`)への実読み書きを担当。`data-page-path`
+     属性で宣言したページを自動的に「学院の秘密」へ記録する設計にし、既存の
+     隠しページ4件と`pages/search.html`に読み込みタグを追加。
+  3. 検索ゲーティング: `src/logic.js`に`isSearchEntryUnlocked`、`src/search.js`に
+     `window.CodexProgress`経由で同じ判定を行う`isUnlocked`を実装し、検索結果に
+     フィルタとして適用。`CodexProgress`未読み込み時はフェイルオープン
+     (常に表示)。
+  Playwrightで実ブラウザ動作を確認(訪問時の自動記録・再訪時の重複防止・
+  search.html側での読み取り専用動作・既存の通常検索への非破壊を確認)。
+- レビュー: local-review実施。指摘0件。
+- lint: ✓ / lint:css: ✓ / test: ✓(266件) / build: ✓
+- 次回予定: `### 15`残り3タスク(コデックスへの改名・P91・記録表示)。改名が
+  P91の前提のため、改名から着手する見込み。
+- blocked / partial: なし
+- asset-pending: なし(新しい視覚要素なし)
+
 ## 2026-07-28 13:20
 - ブランチ: evolve/cycle-25 が origin/main に自動マージ済みを確認、main を
   最新化して evolve/cycle-26 を新規作成。

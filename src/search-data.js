@@ -51,6 +51,12 @@ window.SEARCH_INDEX = [
   // 意図的に載せていない。ここ(検索インデックス)にだけ追加することで、検索でしか
   // 辿り着けない発見型のページになる。将来のサイクルがサイトマップ等への掲載漏れと
   // 誤解して追加してしまわないよう、変更しないこと(docs/ROADMAP.md「### 13」参照)。
+  //
+  // 各エントリは以下のフィールドも持てる(docs/ARG-DESIGN.md 2節参照):
+  // - keywords: string[]  正式名称(title)以外の言い回しでもヒットさせたい場合に追加する。
+  //   同じ文字列を複数エントリのkeywordsに重複させないこと(多対1はOK、1対多はNG)。
+  // - prereq: string[]  このエントリが検索に出現するために、事前に訪問しているべき
+  //   隠しページのpath候補一覧(どれか1つでも訪問済みならOKのOR判定)。省略/nullなら常に検索可能。
   { path: 'glossary/mythical-creatures.html', title: '魔法生物図鑑', category: '図鑑', hidden: true },
   { path: 'glossary/perpetual-motion.html', title: '永久運動術式', category: '図鑑', hidden: true },
   { path: 'glossary/starmap-fragments.html', title: '魔導88星座 星図の断片', category: '図鑑', hidden: true },

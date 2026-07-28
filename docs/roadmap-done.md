@@ -663,3 +663,38 @@
       パーサーを調整)。虚偽陽性・陰性が無いことを、存在しないP番号参照・
       存在しないファイルパス・依存順序違反の3パターンを意図的に作った
       一時データで動作確認済み。
+
+- [x] (S) 複数キーワード対応(2026-07-28): `src/logic.js`の`filterSearchIndex`と
+      `src/search.js`の`filterIndex`(file://対応のため複製、既存の`search.js`/
+      `search-data.js`の関係と同じ設計)を、`title`+`category`に加えて
+      `entry.keywords`配列も対象にした部分一致に拡張。`src/search-data.js`に
+      `keywords`/`prereq`フィールドの使い方を説明するコメントを追記(既存4
+      エントリへの実際のキーワード追加は別タスク)。重複検出テストとして
+      `tests/search-data-consistency.test.js`を新設。`search-data.js`は
+      `window.SEARCH_INDEX`へのグローバル代入というES module外の形式のため、
+      Node標準の`vm`モジュールで`window`サンドボックスを作って読み込む方式にした。
+      当初`title`/`category`/`keywords`をまとめて重複チェック対象にしたところ、
+      `category`(「学食・喫茶室」等)は複数ページで共有される前提のラベルであり
+      誤検知したため、`title`+`keywords`のみに絞って修正。
+- [x] (S) 進捗の保持(2026-07-28): `src/logic.js`に`addSecretToProgress`・
+      `addFragmentToProgress`・`markFragmentUsed`を純粋関数として実装
+      (`{ secrets: string[], fragments: {id,foundAt,used}[] }`という
+      `docs/ARG-DESIGN.md`2-2節の構造をそのまま操作)。`src/codex-progress.js`を
+      新設し、`localStorage`キー`codex-memory`への実際の読み書きを担う
+      (ロジックは`logic.js`と同内容を複製、DOM操作のみのスクリプトのため)。
+      `data-page-path`属性でページ自身のpathを宣言してこのスクリプトを
+      読み込むと、`document.currentScript`経由で自動的に「学院の秘密」へ
+      記録される設計にし、既存の隠しページ4件(`pages/glossary/*.html`)に
+      それぞれ対応する`data-page-path`付きで読み込みタグを追加した。
+      `pages/search.html`にも(記録用ではなく読み取り用として、
+      `data-page-path`無しで)読み込ませた。Playwrightで、訪問時の自動記録・
+      再訪時の重複防止・search.html側での読み取り(自身は記録されない)を
+      実ブラウザで確認済み。
+- [x] (S) 検索ゲーティング(2026-07-28): `src/logic.js`に`isSearchEntryUnlocked`
+      (純粋関数、`entry.prereq`と訪問済みpath配列を受け取る)を実装し、
+      `src/search.js`にはDOM/`window.CodexProgress`経由で同じ判定を行う
+      `isUnlocked`を実装、`render()`の結果に`.filter(isUnlocked)`を追加した。
+      `CodexProgress`が読み込まれていないページでは判定をスキップし常に表示する
+      フェイルオープン設計(パズル用のゲーティングであり、壊れた時に隠しすぎる
+      より見せすぎる方を選んだ)。既存4エントリの`prereq`は`docs/ARG-DESIGN.md`
+      の指示どおり未設定のまま(常に検索可能)。

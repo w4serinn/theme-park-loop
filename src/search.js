@@ -11,13 +11,25 @@
     var q = (query || '').trim().toLowerCase();
     if (!q) { return []; }
     return index.filter(function (entry) {
-      var haystack = (entry.title + ' ' + entry.category).toLowerCase();
+      var keywords = entry.keywords || [];
+      var haystack = (entry.title + ' ' + entry.category + ' ' + keywords.join(' ')).toLowerCase();
       return haystack.indexOf(q) !== -1;
     });
   }
 
+  // 検索ゲーティング(docs/ARG-DESIGN.md 2-3節): entry.prereqが設定されている場合、
+  // 「学院の秘密」(訪問済み隠しページ)にそのうちどれか1つでも含まれていない限り、
+  // 単語が一致していても検索結果には出さない。CodexProgressが読み込まれていない
+  // ページでは、ゲーティングせず常に表示する(通常ページ側のフォールバック)。
+  function isUnlocked(entry) {
+    if (!entry.prereq) { return true; }
+    if (!window.CodexProgress) { return true; }
+    var secrets = window.CodexProgress.load().secrets;
+    return entry.prereq.some(function (p) { return secrets.indexOf(p) !== -1; });
+  }
+
   function render(query) {
-    var results = filterIndex(query, window.SEARCH_INDEX);
+    var results = filterIndex(query, window.SEARCH_INDEX).filter(isUnlocked);
     resultsEl.innerHTML = '';
 
     if (!query.trim()) {
