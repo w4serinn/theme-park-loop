@@ -146,7 +146,8 @@
     "note": "ノスティオンの記録帳に不具合があり、他のページを見て戻ってきても",
     "type": "bugfix",
     "items": [
-      "ノスティオン(`pages/search.html`)の「記録」欄(`#codex-memory-section`):"
+      "ノスティオン(`pages/search.html`)の「記録」欄(`#codex-memory-section`):",
+      "中庭の大魔法陣の直径表記が不一致(2026-07-28、ARG語彙棚卸し中に発見)。"
     ]
   },
   {
