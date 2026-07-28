@@ -147,6 +147,30 @@ describe('filterSearchIndex', () => {
   test('entries without keywords still match by title/category only', () => {
     expect(filterSearchIndex('ホーホー', index)).toEqual([]);
   });
+
+  test('exactMatch entries do not match on partial substring', () => {
+    const puzzle = [
+      { path: 'glossary/gear-cipher.html', title: '光る符丁の正体', category: '図鑑', keywords: ['HAGURUMA'], exactMatch: true }
+    ];
+    expect(filterSearchIndex('HAGURU', puzzle)).toEqual([]);
+    expect(filterSearchIndex('HAGURUMAX', puzzle)).toEqual([]);
+  });
+
+  test('exactMatch entries match on exact keyword (case-insensitive)', () => {
+    const puzzle = [
+      { path: 'glossary/gear-cipher.html', title: '光る符丁の正体', category: '図鑑', keywords: ['HAGURUMA'], exactMatch: true }
+    ];
+    expect(filterSearchIndex('haguruma', puzzle)).toHaveLength(1);
+    expect(filterSearchIndex('HAGURUMA', puzzle)).toHaveLength(1);
+  });
+
+  test('exactMatch entries still match on exact title', () => {
+    const puzzle = [
+      { path: 'glossary/gear-cipher.html', title: '光る符丁の正体', category: '図鑑', exactMatch: true }
+    ];
+    expect(filterSearchIndex('光る符丁の正体', puzzle)).toHaveLength(1);
+    expect(filterSearchIndex('光る符丁', puzzle)).toEqual([]);
+  });
 });
 
 describe('addSecretToProgress', () => {

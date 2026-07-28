@@ -1,6 +1,7 @@
 // P5(docs/ARG-DESIGN.md 4-1節)の謎解き到達先ページ。手記(apprentice-notes.html)
-// に刻まれた符丁を解読し、検索窓に「はぐるま」と入力して初めてこのページへ
-// たどり着ける(prereqによるゲーティング、src/search-data.js参照)。訪問記録
+// に刻まれた記号をP2(perpetual-motion.html)の記譜法で解読し、検索窓に
+// 「HAGURUMA」と入力して初めてこのページへたどり着ける(prereqによる
+// ゲーティング・exactMatchによる完全一致判定、src/search-data.js参照)。訪問記録
 // (「学院の秘密」)はsrc/codex-progress.jsのdata-page-path経由で自動記録されるが、
 // 断片(F1「刻の断片」)の獲得はこのページ固有のアクションとして別途記録する。
 (function () {

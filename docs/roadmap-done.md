@@ -786,6 +786,26 @@
       「学院魔法決闘規定法典」第十七条を引用し、名前の消去が学院長による
       正式な決裁だったことを示す)。断片を産出しないページのため謎解き対応は
       不要。
+- [x] (S) 謎解きの合言葉を完全一致で判定できるようにする(2026-07-29)。
+      `src/logic.js`の`filterSearchIndex`・`src/search.js`の`filterIndex`に、
+      `entry.exactMatch`が`true`の場合はtitle/category/keywordsのいずれかとの
+      完全一致(大文字小文字は区別しない)でのみヒットする分岐を追加した
+      (通常のエントリは従来通り部分一致のまま)。`docs/ARG-DESIGN.md`2-1節・
+      `src/search-data.js`のフィールド説明コメントに追記。P5の到達先
+      (`gear-cipher.html`)に`exactMatch: true`を設定して適用(P7・P91は
+      各作り直しタスク側で今後設定する)。`tests/logic.test.js`に完全一致・
+      部分一致で当たらないことのテストケースを追加。
+- [x] (M) P5「見習い整備士の手記」の謎解きを再修正(2026-07-29 ユーザー指摘)。
+      最初の作り直しでは答えの単語「はぐるま」をページ本文にそのまま書いて
+      しまっており、実質的な謎解きになっていなかった。修正として、
+      P2(`perpetual-motion.html`)に新しい項目「フィンレー式記譜法」を追加し、
+      四大元素になぞらえた4つの錬金術記号(🜂=火/🜄=水/🜃=土/🜁=風)と
+      それぞれが表す音(HA/GU/RU/MA)の対応表を提示。P5(`apprentice-notes.html`)
+      側の符丁は記号(🜂🜄🜃🜁)のみを提示し読みは書かない形に変更した。答えは
+      ひらがな「はぐるま」からローマ字「HAGURUMA」に変更し(`docs/ARG-DESIGN.md`
+      5節の方針)、`gear-cipher.html`本文・`src/gear-cipher.js`のコメント・
+      `src/search-data.js`のkeywordsを合わせて更新、上記の`exactMatch: true`を
+      設定した。
 
 ### 14. 提携宿泊施設
 

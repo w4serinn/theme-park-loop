@@ -24,11 +24,17 @@
   var memorySecretsList = document.getElementById('codex-memory-secrets-list');
   var memoryFragmentsList = document.getElementById('codex-memory-fragments-list');
 
+  // entry.exactMatchがtrueの場合、部分一致ではなくtitle/category/keywordsの
+  // いずれかとの完全一致を要求する(謎解きの合言葉対策。src/logic.jsと同じロジック)。
   function filterIndex(query, index) {
     var q = (query || '').trim().toLowerCase();
     if (!q) { return []; }
     return index.filter(function (entry) {
       var keywords = entry.keywords || [];
+      if (entry.exactMatch) {
+        var candidates = [entry.title, entry.category].concat(keywords);
+        return candidates.some(function (c) { return c.toLowerCase() === q; });
+      }
       var haystack = (entry.title + ' ' + entry.category + ' ' + keywords.join(' ')).toLowerCase();
       return haystack.indexOf(q) !== -1;
     });

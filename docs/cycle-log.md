@@ -1,5 +1,34 @@
 # サイクル履歴
 
+## 2026-07-29 08:53
+- タスク選定: `### 13`(隠し用語集ページ群)から、優先度の高い順に(1)謎解きの
+  合言葉を完全一致で判定する仕組み(S)、(2)P5「見習い整備士の手記」の謎解き
+  再修正(M)の2件をまとめて着手。両者は「exactMatchをP5に設定する」で
+  直接つながっているため同サイクルにまとめた。
+- 実装:
+  - `src/logic.js`の`filterSearchIndex`・`src/search.js`の`filterIndex`に
+    `entry.exactMatch`対応を追加(true時のみtitle/category/keywordsの完全一致、
+    通常は従来通り部分一致)。`docs/ARG-DESIGN.md`2-1節・`src/search-data.js`の
+    フィールド説明コメントに追記。
+  - P5の謎解きを作り直し: P2(`perpetual-motion.html`)に新項目「フィンレー式
+    記譜法」を追加し、四大元素になぞらえた錬金術記号(🜂🜄🜃🜁)と読み
+    (HA/GU/RU/MA)の対応表を提示。P5(`apprentice-notes.html`)側は記号のみを
+    提示し読みは書かない形に変更(答えを本文に直接書いていた不具合を修正)。
+    答えをひらがな「はぐるま」からローマ字「HAGURUMA」に変更し、
+    `gear-cipher.html`・`src/gear-cipher.js`・`src/search-data.js`
+    (`exactMatch: true`設定含む)を合わせて更新。
+- レビュー: local-review skillを実行(手順に沿って自己レビュー)。世界観
+  (コアカラーのみ・記号は錬金術モチーフで単純図形回避)・keywords重複無し・
+  ヘッダー/フッターのプレースホルダー・絶対パス無し・2階層ルールを確認。
+  exactMatchはtitleの完全一致でも解錠される既存挙動(P5に限らず全隠しページ
+  共通の仕様)を確認したが、今回の変更による新規の不具合ではなく、
+  ARG-DESIGN.md 2-1節に既述の仕様通りのため対応不要と判断。
+- lint: ✓ / lint:css: ✓ / test: ✓(301件、+3) / build: ✓
+- 次回予定: P7「記録帳、最後の頁」の謎解き再修正(P5と同じ「記号→文字」方式は
+  使わない別方式を検討)。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-29 07:27
 - ブランチ: evolve/cycle-30は未マージのため継続(前サイクルの未pushコミット1件
   も含めてまとめてpush)。
