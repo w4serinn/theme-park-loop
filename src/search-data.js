@@ -44,6 +44,7 @@ window.SEARCH_INDEX = [
 
   { path: 'tickets/index.html', title: '入学願書・チケット案内', category: 'ご案内' },
   { path: 'access/index.html', title: '学院への道のり', category: 'ご案内' },
+  { path: 'access/lodging.html', title: '提携宿泊施設', category: 'ご案内' },
   { path: 'guide/index.html', title: '学院案内', category: 'ご案内' },
 
   // 隠しページ: 通常のヘッダーナビ・フッター・サイトマップ(pages/sitemap.html)には
