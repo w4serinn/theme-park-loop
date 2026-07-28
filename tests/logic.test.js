@@ -2,7 +2,7 @@ import { test, expect, describe } from 'vitest';
 import {
   TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex,
   filterSearchIndex, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
-  isSearchEntryUnlocked
+  isSearchEntryUnlocked, isCodexSelfReferenceQuery
 } from '../src/logic.js';
 
 describe('TICKET_PRICES', () => {
@@ -211,5 +211,26 @@ describe('isSearchEntryUnlocked', () => {
 
   test('is unlocked when at least one prereq path is visited (OR判定)', () => {
     expect(isSearchEntryUnlocked({ prereq: ['a.html', 'b.html'] }, ['b.html'])).toBe(true);
+  });
+});
+
+describe('isCodexSelfReferenceQuery', () => {
+  test('matches a query containing 私', () => {
+    expect(isCodexSelfReferenceQuery('私')).toBe(true);
+    expect(isCodexSelfReferenceQuery('私について')).toBe(true);
+  });
+
+  test('matches a query containing コデックス', () => {
+    expect(isCodexSelfReferenceQuery('コデックス')).toBe(true);
+    expect(isCodexSelfReferenceQuery('コデックスとは')).toBe(true);
+  });
+
+  test('does not match unrelated queries', () => {
+    expect(isCodexSelfReferenceQuery('錬金術')).toBe(false);
+  });
+
+  test('does not match an empty query', () => {
+    expect(isCodexSelfReferenceQuery('')).toBe(false);
+    expect(isCodexSelfReferenceQuery('   ')).toBe(false);
   });
 });

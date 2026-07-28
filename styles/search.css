@@ -59,6 +59,17 @@
   color: color-mix(in oklch, var(--brass) 45%, transparent);
 }
 
+/* コデックスが一人称で語りかける誘導文 */
+.codex-hint {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: color-mix(in oklch, var(--brass) 72%, transparent);
+  border-left: 2px solid var(--ember);
+  padding-left: 0.875rem;
+  margin: 0 0 1.5rem;
+  line-height: 1.8;
+}
+
 .search-status {
   font-size: 0.85rem;
   color: color-mix(in oklch, var(--brass) 68%, transparent);
@@ -124,6 +135,103 @@
   color: var(--ember);
   text-shadow: 0 0 6px color-mix(in oklch, var(--ember) 55%, transparent);
   white-space: nowrap;
+}
+
+/* P91: コデックス自身への自己言及に対する応答(通常のリンク結果とは違う、
+   本が語りかけてくる特別な1件) */
+.search-result--codex {
+  border: 1px solid color-mix(in oklch, var(--ember) 45%, transparent);
+  padding: 1rem 1.25rem;
+  animation: codex-response-appear 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.codex-response {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--ember);
+  line-height: 1.8;
+  margin: 0;
+}
+
+@keyframes codex-response-appear {
+  0% {
+    transform: rotate(-1deg) translateY(-8px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* コデックスの記録(P91達成後にのみ表示、docs/ARG-DESIGN.md 4-7節) */
+.codex-memory {
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid color-mix(in oklch, var(--brass) 25%, transparent);
+}
+
+.codex-memory__heading {
+  font-size: 1.05rem;
+  color: var(--brass);
+  margin: 0 0 0.5rem;
+}
+
+.codex-memory__intro {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: color-mix(in oklch, var(--brass) 72%, transparent);
+  margin: 0 0 1.25rem;
+  line-height: 1.7;
+}
+
+.codex-memory__block + .codex-memory__block {
+  margin-top: 1.5rem;
+}
+
+.codex-memory__label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 0.6rem;
+}
+
+.codex-memory__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.codex-memory__list a {
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  transition: color 0.2s;
+}
+
+.codex-memory__list a:hover {
+  color: var(--ember);
+}
+
+.codex-memory__list li.codex-memory__fragment--used {
+  color: color-mix(in oklch, var(--brass) 45%, transparent);
+  text-decoration: line-through;
+}
+
+.codex-memory__vague {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: color-mix(in oklch, var(--brass) 55%, transparent);
+  margin: 0.75rem 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .search-result--codex {
+    animation: none;
+  }
 }
 
 @media (width <= 600px) {

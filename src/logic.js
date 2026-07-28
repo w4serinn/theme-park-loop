@@ -117,3 +117,12 @@ export function isSearchEntryUnlocked(entry, visitedPaths) {
   if (!entry.prereq) { return true; }
   return entry.prereq.some(function (p) { return visitedPaths.indexOf(p) !== -1; });
 }
+
+// P91(docs/ARG-DESIGN.md 4-3節): コデックス自身について尋ねたかどうかを判定する。
+// 誘導文で示した通り「私」「コデックス」のいずれかを含む問いかけを自己言及とみなす
+// (雰囲気重視のため厳密な完全一致は求めない)。
+export function isCodexSelfReferenceQuery(query) {
+  var q = (query || '').trim();
+  if (!q) { return false; }
+  return q.indexOf('私') !== -1 || q.indexOf('コデックス') !== -1;
+}
