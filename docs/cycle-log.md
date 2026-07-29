@@ -1,5 +1,29 @@
 # サイクル履歴
 
+## 2026-07-30 02:55
+- ブランチ: 引き続き`evolve/cycle-35`(未マージ)。
+- タスク選定: `docs/ARG-WORDBANK.md`「未分類のまま残る候補」から
+  「七代続く写本師一族」を選定。
+- 実装: `pages/glossary/scribe-lineage.html`を新設(4カード)。実装時、
+  既存の実装済みページ2件(P16 arnold-relics.htmlの「創魔の書」複製、
+  P28 second-headmaster.htmlの葦ペン復刻)がどちらも同じ写本師一族の
+  仕事だったことが判明し、当初「他候補と重複」としていた懸念とは逆に、
+  既存2ページを裏でつなぐ一族そのものとして独立に成立する形にできた。
+  本文中の「初代の名は公式に記録されていない」等flavor化の余地がある
+  と判断し、予約済みのroot→flavor 3段枠P35〜P38へ最初から当てはめて
+  実装。`src/search-data.js`に1エントリ追加(2つの表記ゆれを両方
+  exactMatch keywordsに登録)、`src/hint-data.js`にroot型ヒント2件を
+  追加。`docs/ARG-DESIGN.md`・`docs/ARG-WORDBANK.md`を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(423件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の「未分類のまま残る候補」は残り2件
+  (魔法資質証明証・7番試薬)。それぞれ単体では弱いため、次回は活用を
+  検討するか、それでも難しければROADMAP.mdの指示通り全ページの本文を
+  棚卸しして新しい候補を追加する。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 02:25
 - ブランチ: 引き続き`evolve/cycle-35`(未マージ)。
 - タスク選定: `### 13`のP番号ページ実装。グループA〜Hを使い切ったため、
