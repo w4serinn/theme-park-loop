@@ -45,5 +45,9 @@ window.HINT_DATA = [
   {
     requiresPage: 'glossary/dueling-champions.html',
     hint: '公式に語られなかった決闘の記録にも、何か短い言葉が残されているかもしれません。'
+  },
+  {
+    requiresPage: ['glossary/time-ring-record.html', 'glossary/time-ledger.html'],
+    hint: '「刻」の字を冠する装置は、広場にも塔にも一つずつあったはず。もう一つ、同じ字を持つものについての噂を、思い出してみてください。'
   }
 ];

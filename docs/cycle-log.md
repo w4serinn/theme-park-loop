@@ -1,5 +1,42 @@
 # サイクル履歴
 
+## 2026-07-29 18:33
+- ブランチ: 引き続き`evolve/cycle-33`(未マージ)。
+- タスク選定: `### 13`の未着手P番号ページタスク(前サイクルで着手条件が
+  解除済み)。`docs/ARG-WORDBANK.md`グルーピング候補のグループA「刻」三部作
+  (3項目ちょうど、root優先方針にも合致)を選択。
+- 実装: P97〜P99として新規3ページを追加。
+  - P97(root)`pages/glossary/time-ring-record.html`「刻の輪、四百年の来歴」
+    ← `exploration/summoning-plaza.html`の「大魔法陣『刻の輪』」
+  - P98(root)`pages/glossary/time-ledger.html`「刻の書、十二代の写し」
+    ← `exploration/clock-tower.html`の「管理台帳『刻の書』」
+  - P99(flavor)`pages/glossary/time-bell.html`「刻の声、その一撞き」
+    ← P97・P98いずれか一方の訪問で解禁(広場と時計塔の2エリアから接続
+    できる網状構造。prereqはOR配列)
+  P97・P98それぞれの本文に「刻の声」という語を仕込み、P99への発見経路を
+  確保。断片は産出しない純粋なフレーバー層。`src/search-data.js`にkeyword
+  登録(`刻の輪`/`刻の書`/`刻の声`、既存エントリと重複なし確認済み)、
+  `src/hint-data.js`にもP99発見用のヒントを1件追加(前サイクルで拡大した
+  ヒント対象の運用を踏襲)。`docs/ARG-DESIGN.md`4-2節に該当行を追記、
+  `docs/ARG-WORDBANK.md`のグループAを使用済みとしてマーク。
+- 実装中のユーザー指摘への対応: 「次に検索すべき語句を『ノスティオンの
+  独り言』に置きたくない、本文側に置くべき」との好みを受け、P97/P98の
+  独り言にあった「刻の声」を本文(縁石の銘・欄外の走り書き)へ移設し、
+  独り言側は語句を含まない一文に書き改めた。方針を`docs/ARG-DESIGN.md`
+  3節に追記。既存の`dueling-champions.html`(独り言に「静寂の一撃」)・
+  `perpetual-motion.html`(独り言に「修繕工房」を含む一文)の2件が同じ
+  問題を抱えたまま残っていることも判明したため、`docs/ROADMAP.md`
+  「### 13」にtodoとして追記(このサイクルではスコープ外として着手せず)。
+- レビュー: OK(local-review相当のセルフチェックを実施。本文の語り手ルール
+  [独り言以外は客観描写]・自己言及ワード回避・keyword重複なしを確認。
+  hidden pageのためsitemap.html/ASSET_REQUESTS.mdの対象外であることも確認。
+  指摘なし)。
+- lint: ✓ / lint:css: ✓ / test: ✓(361件、+12) / build: ✓
+- 次回予定: 独り言→本文への語句移設todo(既存2ページ)、`### 13`の次の
+  P番号ページ(グループB〜Hから選定)、またはP91以外の新規タスク候補の棚卸し。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-29 18:28
 - ブランチ: 引き続き`evolve/cycle-33`(未マージ)。
 - タスク選定: `### 15`最後の残タスク「ヒントの手引きの対象拡大」(M)を実装。
