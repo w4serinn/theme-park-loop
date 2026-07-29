@@ -234,4 +234,9 @@ window.HINT_DATA = [
     leadsTo: 'glossary/scribe-lineage.html',
     hint: '写本堂そのものの紹介文にも、代々続く一族についての記述があったはずです。もう一度読んでみてください。'
   },
+  {
+    hintFor: 'shop/magical-tools.html',
+    leadsTo: 'glossary/aptitude-certificate.html',
+    hint: '魔導具店の購入注意には、強力な魔力石を買う際に必要な証明書についての一文があったはずです。もう一度読んでみてください。'
+  },
 ];

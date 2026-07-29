@@ -306,7 +306,7 @@ flavor/fragmentが組めない」と判断した場合、その接続を無理�
 | P38 | flavor | P37 | — | — | 未着手 |
 | P39 | root | `events/index.html`「研究棟の記録簿」(錬金術品評会の豆知識)、`exploration/dueling-ground.html`「考査記録室」の2箇所から接続 | — | — | 実装済み(`pages/glossary/merit-records.html`)。`docs/ARG-WORDBANK.md`グループB-2「実績・認定の記録」(2026-07-29実装)。本文中の「指輪が副賞に選ばれた理由不明」「非公開の理由が噂のみ」等flavor化の余地があると判断し、予約済みのroot→flavor 1段枠であるP39〜P40へ最初から当てはめて実装(2026-07-29) |
 | P40 | flavor | P39 | — | — | 未着手 |
-| P41 | root | 通常ページ(未定) | — | — | 未着手 |
+| P41 | root | `shop/magical-tools.html`「学院発行の『魔法資質証明証』」(魔導具店の購入注意) | — | — | 実装済み(`pages/glossary/aptitude-certificate.html`)。`docs/ARG-WORDBANK.md`「未分類のまま残る候補」の「魔法資質証明証」を実装(2026-07-30)。既存の`exploration/observatory.html`「魔法適性」ワークショップ(星座紋解析台・学院入試の参考資料)との関連を示唆する形で厚みを持たせた。本文中の「証明証を持たない場合の扱いが不明」等flavor化の余地があると判断し、予約済みのroot→flavor 2段枠であるP41〜P43へ最初から当てはめて実装 |
 | P42 | flavor | P41 | — | — | 未着手 |
 | P43 | flavor | P42 | — | — | 未着手 |
 | P44 | root | 通常ページ(未定) | — | — | 未着手 |
