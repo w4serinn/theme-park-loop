@@ -1,5 +1,109 @@
 # サイクル履歴
 
+## 2026-07-29 21:35
+- ブランチ: 引き続き`evolve/cycle-34`(未マージ)。
+- タスク選定: 「バグ修正」の唯一の未対応項目(library-shop.htmlの学長表記
+  矛盾)と、`### 13`のP番号ページ実装(グループF)をまとめて実装。
+- 実装:
+  1. `pages/shop/library-shop.html`の商品説明「第三代学院長アルノルド卿」を
+     「創立者アルノルド卿」に修正(他の全ページで確立された創立者[初代]
+     設定との矛盾を解消)。
+  2. P105〜P107として新規3ページを追加(グループF「異次元・精霊との
+     接触」):
+     - P105(root)`pages/glossary/otherworld-presence.html`「異次元存在、
+       その正体をめぐって」← `shop/summoning-shop.html`の降霊護符説明
+     - P106(root)`pages/glossary/sylphe-dialogue.html`「契約精霊シルフィ、
+       水面の返答」← `exploration/summoning-plaza.html`の対話コーナー
+     - P107(root)`pages/glossary/starfield-spirit.html`「星界の精霊、
+       新月の夜にだけ」← `events/index.html`の精霊観測会
+     3ページとも「精霊」と「異次元存在」が同じものを指すのか別物なのか
+     という謎を各ページの独り言でそれとなく示唆する形にしたが、
+     断片やprereqによる強制接続はせず独立したroot行のまま実装。
+  `docs/ARG-WORDBANK.md`グループFを使用済みに。`src/hint-data.js`に3件の
+  root行ヒントを追加。
+- レビュー: OK(local-review相当のセルフチェックを実施。narration rule・
+  自己言及ワード回避・keyword衝突なしを確認。指摘なし)。
+- lint: ✓ / lint:css: ✓ / test: ✓(409件、+12) / build: ✓
+- 次回予定: `### 13`の次のP番号ページ(グループG、月草/月光草の混同ネタ。
+  fragment種別の謎解きページで、他グループより設計に時間がかかる想定)。
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-29 21:29
+- ブランチ: 引き続き`evolve/cycle-34`(未マージ)。
+- タスク選定: `### 13`のP番号ページ実装。`docs/ARG-WORDBANK.md`グループH
+  「アルノルド卿にまつわる物証」(3項目、root優先方針にも合致)を選択。
+- 実装: P102〜P104として新規3ページを追加。
+  - P102(root)`pages/glossary/arnold-crest.html`「紋章『双頭の鷲と魔法陣』、
+    その意味」← `shop/souvenirs.html`のバッジ商品説明
+  - P103(root)`pages/glossary/arnold-manuscript.html`「研究手稿、余白に
+    残された走り書き」← `shop/books.html`の商品説明
+  - P104(root)`pages/glossary/founding-grimoire.html`「創魔の書、第四章に
+    ついて」← `shop/library-shop.html`の商品説明
+  いずれも断片を産出しない純粋なフレーバー層。keywordは各ページの商品名に
+  含まれる特徴的な語句を採用し、「アルノルド」のような既存エントリ
+  (トップページ)と衝突しうる汎用的な接頭辞は避けた。`src/hint-data.js`に
+  3件のroot行ヒントを追加。`docs/ARG-WORDBANK.md`グループHを使用済みに。
+- 副産物: P104実装中に`shop/library-shop.html`の商品説明が、他の全ページで
+  確立された「創立者(初代)アルノルド卿」設定と矛盾する「第三代学院長」
+  表記になっている世界観の不整合を発見。今回は修正せず
+  `docs/ROADMAP.md`「## バグ修正」にtodoとして記録。
+- レビュー: OK(local-review相当のセルフチェックを実施。narration rule・
+  自己言及ワード回避・keyword衝突なしを確認。指摘なし)。
+- lint: ✓ / lint:css: ✓ / test: ✓(397件、+12) / build: ✓
+- 次回予定: バグ修正todo(library-shop.htmlの学長表記矛盾)、または
+  `### 13`の次のP番号ページ(グループF・Gから選定)。
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-29 20:29
+- ブランチ: 引き続き`evolve/cycle-34`(未マージ)。
+- タスク選定: `### 15`最後の残タスク「発見済みページに対するヒントを
+  非表示化」(M)を実装。
+- 実装: 各`HINT_DATA`エントリに`leadsTo`(このヒントが導く先の隠しページ、
+  表示には一切使わないフィルタ専用の値)を追加。`hintFor`(見出し表示用、
+  答えを出してはならない)とは役割が異なり、`leadsTo`は答えのページを
+  指しても構わない設計にした。`src/logic.js`に純粋関数
+  `filterActiveHints(hintData, visitedPaths)`(テスト付き)を新設し、
+  `filterUnlockedHints`に加えて`leadsTo`が既に「学院の秘密」に含まれる
+  エントリを除外するようにした。`src/hint-book.js`に同じロジックを複製。
+  全14エントリの`leadsTo`値を`src/search-data.js`のprereqチェーンと
+  突き合わせて検証済み。`### 15`にこれで未完了サブタスクが無くなったため
+  statusを完了に変更。
+- レビュー: OK(local-review相当のセルフチェックを実施。leadsToが表示系
+  関数[resolveHintPageTitle/hintFor]に一切渡っていないこと、全エントリの
+  leadsTo値が正しいことを確認。指摘なし)。
+- lint: ✓ / lint:css: ✓ / test: ✓(385件、+4) / build: ✓
+- 次回予定: `### 13`の次のP番号ページ(グループF〜H)、または新たな候補出し。
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-29 20:02
+- ブランチ: `evolve/cycle-33`はPR #42のマージ済みを確認、`main`をpullした上で
+  新規`evolve/cycle-34`ブランチを作り直して継続。
+- ドキュメント整理: `evolve/cycle-33`で解消したバグ修正4件(news.json自動
+  生成・ヒント見出しの後退・「刻」keyword衝突・ヒント重複表示)がorigin/main
+  に取り込み済みであることを確認できたため、`docs/roadmap-done.md`へ退避。
+- タスク選定: `### 13`のP番号ページ実装(グループE)と、直前の手動チャットで
+  記録した「学院の秘密」ツリーのスマホ誤タップ対策をまとめて実装。
+  1. P100(root)`pages/glossary/northern-cloud-sea.html`「北方雲海、その先
+     について」← `shop/airship-shop.html`の航路図みやげ商品説明
+  2. P101(root)`pages/glossary/transit-plaza.html`「魔法陣転移広場、王都の
+     もう一つの顔」← `index.html`のアクセス案内。keyword「魔法陣転移広場」
+     は既存の「魔法陣召喚広場」系4エントリと接頭辞が重複するため
+     `exactMatch: true`に設定
+     (`docs/ARG-WORDBANK.md`グループE「キャンパスの外側」を使用済みに)
+  3. 「学院の秘密」ツリーの「つながり(n)」開閉トグルと前後のページリンクの
+     誤タップ対策: `@media (width <= 600px)`でタップ領域(padding)を広げ、
+     トグルの上マージンも増やした(`styles/search.css`)
+- レビュー: OK(local-review相当のセルフチェックを実施。新規2ページの
+  narration rule・自己言及ワード回避・keyword衝突を確認。指摘なし)。
+- lint: ✓ / lint:css: ✓ / test: ✓(381件、+8) / build: ✓
+- 次回予定: `### 15`残り1件(発見済みページのヒント非表示化、M)、または
+  `### 13`の次のP番号ページ(グループF〜H)。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-29 19:32
 - ブランチ: 引き続き`evolve/cycle-33`(未マージ)。
 - タスク選定: 「バグ修正(最優先)」セクションの唯一の未対応項目

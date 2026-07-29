@@ -24,73 +24,135 @@
 //   表示自体が答えを丸ごと明かしてしまう[検索窓にそのまま打てば見つかる]
 //   という重大な後退だった。全エントリでhintFor=「安全に開示できる、既に
 //   持っている情報」に統一し直した)。
+// - leadsTo: このヒントが導く先の隠しページ(表示には一切使わない、
+//   フィルタ専用の値。2026-07-29 ユーザー提案: 「既に閲覧済みのページは
+//   秘密に残るからヒントは消していい」)。`visitedPaths`(「学院の秘密」)に
+//   このpathが含まれていれば、プレイヤーは既にこのヒントの目的地を
+//   発見済みなので一覧から取り除く(src/logic.jsのfilterActiveHints参照)。
+//   `hintFor`とは役割が異なることに注意: `hintFor`は見出しの表示に使う
+//   (答えを表に出してはならない)一方、`leadsTo`は表示に一切関わらない
+//   フィルタ専用の値なので、答えのページを指しても構わない。
 // - hint: 本文からは取り除いた、解ければ嬉しい程度の軽いヒント。
 window.HINT_DATA = [
   {
     hintFor: 'guide/index.html',
+    leadsTo: 'glossary/mythical-creatures.html',
     hint: '学院を案内してくれる、生き物たちがいるという話を聞いたことがあります。学院案内のページをもう一度覗いてみてはどうでしょう。'
   },
   {
     hintFor: 'exploration/clock-tower.html',
+    leadsTo: 'glossary/perpetual-motion.html',
     hint: '時計塔の中枢には、魔力の補給なしで動き続ける仕掛けがあるという話です。塔の主要機構についての記述を探してみてください。'
   },
   {
     hintFor: 'exploration/observatory.html',
+    leadsTo: 'glossary/starmap-fragments.html',
     hint: '天文台に伝わる星座の呼び方は、一般的なものとは少し違うという噂です。天文台のページをじっくり読んでみてください。'
   },
   {
     hintFor: 'shop/dueling-shop.html',
+    leadsTo: 'glossary/dueling-champions.html',
     hint: '決闘演武場にまつわる、歴代の優勝者の記録が残されているそうです。決闘関連の売店のページを覗いてみてください。'
   },
   {
     hintFor: 'exploration/summoning-plaza.html',
+    leadsTo: 'glossary/time-ring-record.html',
     hint: '魔法陣召喚広場には、創立以来使われ続けている大きな仕掛けがあるようです。広場の設備についての記述を確かめてみてください。'
   },
   {
     hintFor: 'exploration/clock-tower.html',
+    leadsTo: 'glossary/time-ledger.html',
     hint: '時計塔には、稼働記録を代々書き継ぐ台帳もあるそうです。同じ塔の主要機構についての記述を、もう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'shop/airship-shop.html',
+    leadsTo: 'glossary/northern-cloud-sea.html',
+    hint: '飛行船ドックの航路図には、あまり知られていない場所も描かれているようです。ドックの売店のページを覗いてみてください。'
+  },
+  {
+    hintFor: 'index.html',
+    leadsTo: 'glossary/transit-plaza.html',
+    hint: '学院への行き方の中に、王都中央のある場所を経由するものがあったはずです。トップページのアクセス案内をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'shop/souvenirs.html',
+    leadsTo: 'glossary/arnold-crest.html',
+    hint: 'アルノルド卿の紋章をかたどった品が、みやげ店にあったはずです。バッジ商品の説明をもう一度読んでみてください。'
+  },
+  {
+    hintFor: 'shop/books.html',
+    leadsTo: 'glossary/arnold-manuscript.html',
+    hint: 'アルノルド卿直筆とされる資料の写しが、書籍・資料店に並んでいたはずです。その商品説明をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'shop/library-shop.html',
+    leadsTo: 'glossary/founding-grimoire.html',
+    hint: '写本堂には、ある古い書物の一章だけを複製した品があったはずです。その商品説明をもう一度読んでみてください。'
+  },
+  {
+    hintFor: 'shop/summoning-shop.html',
+    leadsTo: 'glossary/otherworld-presence.html',
+    hint: '召喚素材専門店の護符は、ある存在から身を守るためのものだったはずです。その商品説明をもう一度読んでみてください。'
+  },
+  {
+    hintFor: 'exploration/summoning-plaza.html',
+    leadsTo: 'glossary/sylphe-dialogue.html',
+    hint: '魔法陣召喚広場の北隅には、言葉を交わせる相手がいるという話です。広場の見どころをもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'events/index.html',
+    leadsTo: 'glossary/starfield-spirit.html',
+    hint: '新月の夜だけ開かれる、ある観測会があったはずです。学院祭・行事の案内をもう一度確かめてみてください。'
   },
   {
     id: 'F1',
     requiresPage: 'glossary/apprentice-notes.html',
     hintFor: 'glossary/apprentice-notes.html',
+    leadsTo: 'glossary/gear-cipher.html',
     hint: '学院に残る記録の中には、記号を使った独自の記譜法について触れているものがあるようです。近い場所にある記録を、もう一度読み直してみてはどうでしょう。'
   },
   {
     id: 'F2',
     requiresPage: 'glossary/final-entry.html',
     hintFor: 'glossary/final-entry.html',
+    leadsTo: 'glossary/shooting-star.html',
     hint: 'この記録帳全体が天文台の観測記録である以上、これらの数字も星に無関係ではないのかもしれません。'
   },
   {
     id: 'F13',
     requiresPage: 'glossary/nostion-memory.html',
     hintFor: 'glossary/nostion-memory.html',
+    leadsTo: 'glossary/yorishiro-echo.html',
     hint: '五つの候補それぞれの理由を、直前に語られたことと照らし合わせてみてください。矛盾が無いのは、そのうちの一つだけのはずです。'
   },
   {
     requiresPage: 'glossary/perpetual-motion.html',
     hintFor: 'glossary/perpetual-motion.html',
+    leadsTo: 'glossary/apprentice-notes.html',
     hint: '永久運動術式を陰で支える技師たちは、いったいどこで日々の作業をしているのでしょうか。その場所についての記述に、もう一度目を通してみてください。'
   },
   {
     requiresPage: ['glossary/mythical-creatures.html', 'glossary/starmap-fragments.html'],
     hintFor: ['glossary/mythical-creatures.html', 'glossary/starmap-fragments.html'],
+    leadsTo: 'glossary/first-astronomer.html',
     hint: 'この学院の歴史を作った、ある人物の名前。生き物たちの記録にも、星々の記録にも、思いがけないところで刻まれているようです。'
   },
   {
     requiresPage: 'glossary/first-astronomer.html',
     hintFor: 'glossary/first-astronomer.html',
+    leadsTo: 'glossary/final-entry.html',
     hint: 'ある天文官が几帳面に付け続けていたという、あの記録の存在を思い出してみてください。'
   },
   {
     requiresPage: 'glossary/dueling-champions.html',
     hintFor: 'glossary/dueling-champions.html',
+    leadsTo: 'glossary/erased-champion.html',
     hint: '公式に語られなかった決闘の記録にも、何か短い言葉が残されているかもしれません。'
   },
   {
     requiresPage: ['glossary/time-ring-record.html', 'glossary/time-ledger.html'],
     hintFor: ['glossary/time-ring-record.html', 'glossary/time-ledger.html'],
+    leadsTo: 'glossary/time-bell.html',
     hint: '「刻」の字を冠する装置は、広場にも塔にも一つずつあったはず。もう一つ、同じ字を持つものについての噂を、思い出してみてください。'
   }
 ];

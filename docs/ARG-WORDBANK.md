@@ -208,18 +208,20 @@ lodging.htmlも交通・宿泊の実用情報が中心で、ARGの入口とし�
   「天文台を作った学長」と「天文台で星座を編纂した天文官」という2人の
   歴史上の人物がいることを掘り下げられる。
 
-### グループE: キャンパスの外側(見えない境界線)
-- 北方雲海・飛行禁止区域・飛行獣の生息ゾーン(shop/airship-shop.html)
-- 「魔法陣転移広場」(index.html、王都中央)
+### グループE: キャンパスの外側(見えない境界線)[使用済み: P100〜P101、2026-07-29]
+- 北方雲海・飛行禁止区域・飛行獣の生息ゾーン(shop/airship-shop.html) → P100 `pages/glossary/northern-cloud-sea.html`
+- 「魔法陣転移広場」(index.html、王都中央) → P101 `pages/glossary/transit-plaza.html`
 → 学院の外にも広い世界があることを示す数少ない手がかり2件。root行の
-  たどり着き方をトップページ+飛行船ドックの2エリアにできる。
+  たどり着き方をトップページ+飛行船ドックの2エリアにできた。
 
-### グループF: 異次元・精霊との接触(召喚まわりの神秘性)
-- 異次元存在(shop/summoning-shop.html、降霊護符の保護対象)
-- 契約精霊シルフィ(summoning-plaza.html、対話コーナー)
-- 星界の精霊(events/index.html、夜の精霊観測会)
+### グループF: 異次元・精霊との接触(召喚まわりの神秘性)[使用済み: P105〜P107、2026-07-29]
+- 異次元存在(shop/summoning-shop.html、降霊護符の保護対象) → P105 `pages/glossary/otherworld-presence.html`
+- 契約精霊シルフィ(summoning-plaza.html、対話コーナー) → P106 `pages/glossary/sylphe-dialogue.html`
+- 星界の精霊(events/index.html、夜の精霊観測会) → P107 `pages/glossary/starfield-spirit.html`
 → 3項目ちょうど。「精霊」「異次元存在」という語の違いが実は同じものを
-  指しているのか、別物なのか、を核にした謎を作れる。
+  指しているのか、別物なのか、という謎を各ページの独り言でそれとなく
+  示唆する形にした(断片やprereqによる強制接続はせず、3件とも独立した
+  root行のまま)。
 
 ### グループG: 月草/月光草の混同ネタ(謎解き必須方針との相性が良い)
 - 珍薬草「月草」(4節・5節に多数出現、満月の夜のみ採取可能)
@@ -228,12 +230,12 @@ lodging.htmlも交通・宿泊の実用情報が中心で、ARGの入口とし�
   検索窓に入力しないと断片が手に入らない、という謎解き(2026-07-28確定方針)
   の実例として使いやすい。fragment種別のページに向く。
 
-### グループH: アルノルド卿にまつわる物証(創設者の遺したもの)
-- アルノルド卿の家紋「双頭の鷲と魔法陣」(shop/souvenirs.html)
-- アルノルド卿 研究手稿の精密写本(shop/books.html)
-- 「創魔の書」第四章(shop/library-shop.html)
+### グループH: アルノルド卿にまつわる物証(創設者の遺したもの)[使用済み: P102〜P104、2026-07-29]
+- アルノルド卿の家紋「双頭の鷲と魔法陣」(shop/souvenirs.html) → P102 `pages/glossary/arnold-crest.html`
+- アルノルド卿 研究手稿の精密写本(shop/books.html) → P103 `pages/glossary/arnold-manuscript.html`
+- 「創魔の書」第四章(shop/library-shop.html) → P104 `pages/glossary/founding-grimoire.html`
 → 3項目ちょうど。購買部の3店舗(みやげ・書籍・写本堂)を横断する形で
-  たどり着けるroot候補。
+  たどり着けるroot候補にできた。
 
 未分類のまま残る候補(独立した1件としてはやや弱いか、既に他候補と重複):
 魔法資質証明証・七代続く写本師一族・時計塔設計図の「地下の魔法陣接続部」

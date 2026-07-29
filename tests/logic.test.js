@@ -1,6 +1,6 @@
 import { test, expect, describe } from 'vitest';
 import {
-  buildHiddenEntryList, filterUnlockedHints, resolveHintPageTitle, groupHintsByHintFor, buildSecretsTree, buildFragmentDisplayList,
+  buildHiddenEntryList, filterUnlockedHints, filterActiveHints, resolveHintPageTitle, groupHintsByHintFor, buildSecretsTree, buildFragmentDisplayList,
   shouldShowDiscoveryBadge, isDebugResetQuery, DEBUG_RESET_QUERY, shouldShowHintLink,
   isNostionMemoryWrongCandidate, NOSTION_MEMORY_PAGE_PATH, NOSTION_MEMORY_WRONG_CANDIDATES,
   TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex,
@@ -332,6 +332,38 @@ describe('filterUnlockedHints', () => {
     const rootHintData = [{ hintFor: 'glossary/mythical-creatures.html', hint: 'hint4' }];
     expect(filterUnlockedHints(rootHintData, [])).toHaveLength(1);
     expect(filterUnlockedHints(rootHintData, ['glossary/dueling-champions.html'])).toHaveLength(1);
+  });
+});
+
+describe('filterActiveHints', () => {
+  const hintData = [
+    { hintFor: 'guide/index.html', leadsTo: 'glossary/mythical-creatures.html', hint: 'hint1' },
+    {
+      requiresPage: 'glossary/perpetual-motion.html',
+      hintFor: 'glossary/perpetual-motion.html',
+      leadsTo: 'glossary/apprentice-notes.html',
+      hint: 'hint2'
+    }
+  ];
+
+  test('keeps an unlocked hint whose target has not been found yet', () => {
+    const result = filterActiveHints(hintData, ['glossary/perpetual-motion.html']);
+    expect(result.map((e) => e.hint)).toEqual(['hint1', 'hint2']);
+  });
+
+  test('removes a hint once its leadsTo page has been found', () => {
+    const result = filterActiveHints(hintData, ['glossary/perpetual-motion.html', 'glossary/mythical-creatures.html']);
+    expect(result.map((e) => e.hint)).toEqual(['hint2']);
+  });
+
+  test('still respects the requiresPage gate (locked hints stay hidden even if leadsTo is unset)', () => {
+    const result = filterActiveHints(hintData, []);
+    expect(result.map((e) => e.hint)).toEqual(['hint1']);
+  });
+
+  test('keeps an entry with no leadsTo regardless of visitedPaths', () => {
+    const noTargetHint = [{ hintFor: 'guide/index.html', hint: 'hint3' }];
+    expect(filterActiveHints(noTargetHint, ['glossary/mythical-creatures.html'])).toHaveLength(1);
   });
 });
 
