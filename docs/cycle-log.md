@@ -1,5 +1,26 @@
 # サイクル履歴
 
+## 2026-07-30 06:50
+- ブランチ: 引き続き`evolve/cycle-39`(未マージ)。
+- タスク選定: 前サイクルの方針(既存rootの予約済みflavor枠を掘り下げる)に
+  沿って、P13(circle-warden.html)のflavor2段目P14に着手。
+- 実装: 「陣紋師の選定基準は公式には示されていない」というP13のフックを、
+  学院の各所に既にある「記録簿」モチーフ(陣紋補修記録簿・刻の書等)を
+  踏襲した新しい記録物「陣紋師任命記録」で継続。`pages/glossary/warden-registry.html`
+  を新設(2カード)。400年分の記録のうち一件だけ任命された者の名の欄が
+  空白という具体的な謎を配置した。P13側に手がかりカードを追加。
+  `src/search-data.js`でprereqゲーティング、`src/hint-data.js`に発見の
+  連鎖型ヒントを1件追加。`docs/ARG-DESIGN.md`P14行・`docs/ARG-WORDBANK.md`
+  グループAの記載を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(461件) / build: ✓
+- 次回予定: P12チェーンの最後の1段(P15)、または他の実装済みroot
+  (P16→P17[fragment、F3]・P23→P24〜P25・P28→P29〜P30・P35→P36〜P38・
+  P41→P42〜P43)の予約済み枠を継続して掘り下げる。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 06:20
 - ブランチ: `evolve/cycle-38`がPR #48でmainへ自動マージ・削除済みを確認。
   `main`を最新化し、新しく`evolve/cycle-39`を作成。
