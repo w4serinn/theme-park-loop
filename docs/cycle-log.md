@@ -1,5 +1,217 @@
 # サイクル履歴
 
+## 2026-07-30 03:20
+- ブランチ: 引き続き`evolve/cycle-35`(未マージ)。
+- タスク選定: `docs/ARG-WORDBANK.md`「未分類のまま残る候補」から
+  「魔法資質証明証」を選定。
+- 実装: `pages/glossary/aptitude-certificate.html`を新設(3カード)。既存の
+  `exploration/observatory.html`「魔法適性」ワークショップ設定(星座紋
+  解析台・学院入試の参考資料)との関連を示唆する形で厚みを持たせた。
+  本文中の「証明証を持たない場合の扱いが不明」等flavor化の余地がある
+  と判断し、予約済みのroot→flavor 2段枠P41〜P43へ最初から当てはめて
+  実装。`src/search-data.js`に1エントリ追加、`src/hint-data.js`に
+  root型ヒント1件を追加。`docs/ARG-DESIGN.md`・`docs/ARG-WORDBANK.md`
+  を更新。残る「7番試薬」は他ページとの接続点が見当たらず素材不足の
+  ため保留とした。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(427件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の候補は「7番試薬」1件のみ残るが素材
+  不足で保留中。次回はROADMAP.mdの指示通り全ページの本文を棚卸しして
+  新しい候補を追加するフェーズに入る見込み。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 02:55
+- ブランチ: 引き続き`evolve/cycle-35`(未マージ)。
+- タスク選定: `docs/ARG-WORDBANK.md`「未分類のまま残る候補」から
+  「七代続く写本師一族」を選定。
+- 実装: `pages/glossary/scribe-lineage.html`を新設(4カード)。実装時、
+  既存の実装済みページ2件(P16 arnold-relics.htmlの「創魔の書」複製、
+  P28 second-headmaster.htmlの葦ペン復刻)がどちらも同じ写本師一族の
+  仕事だったことが判明し、当初「他候補と重複」としていた懸念とは逆に、
+  既存2ページを裏でつなぐ一族そのものとして独立に成立する形にできた。
+  本文中の「初代の名は公式に記録されていない」等flavor化の余地がある
+  と判断し、予約済みのroot→flavor 3段枠P35〜P38へ最初から当てはめて
+  実装。`src/search-data.js`に1エントリ追加(2つの表記ゆれを両方
+  exactMatch keywordsに登録)、`src/hint-data.js`にroot型ヒント2件を
+  追加。`docs/ARG-DESIGN.md`・`docs/ARG-WORDBANK.md`を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(423件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の「未分類のまま残る候補」は残り2件
+  (魔法資質証明証・7番試薬)。それぞれ単体では弱いため、次回は活用を
+  検討するか、それでも難しければROADMAP.mdの指示通り全ページの本文を
+  棚卸しして新しい候補を追加する。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 02:25
+- ブランチ: 引き続き`evolve/cycle-35`(未マージ)。
+- タスク選定: `### 13`のP番号ページ実装。グループA〜Hを使い切ったため、
+  `docs/ARG-WORDBANK.md`末尾の「未分類のまま残る候補」から
+  「時計塔設計図の『地下の魔法陣接続部』」を選定。
+- 実装: 完了済みグループC「立入禁止・非公開区画」の締めくくりとなる補遺
+  として`pages/glossary/underground-network.html`を新設。P85
+  (weathervane-shrine.html)から連なるflavor5段目とし、設計図に記された
+  「地下の魔法陣接続部」を軸に、6つの一角が地下でつながっているかもしれ
+  ないという可能性だけを示し、断定はせず問いのまま終える形にした。
+  `src/search-data.js`でprereqゲーティング、`src/hint-data.js`に発見の
+  連鎖型ヒントを1件追加。`docs/ARG-DESIGN.md`・`docs/ARG-WORDBANK.md`を
+  更新し、グループCをroot+flavor5段の完全完了として記録。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(419件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の「未分類のまま残る候補」は残り3件
+  (魔法資質証明証・七代続く写本師一族・7番試薬)。個別には弱いため、
+  次回はこれらの活用を検討するか、それでも難しければROADMAP.mdの指示
+  通り全ページの本文を棚卸しして新しい候補を追加する。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 02:00
+- ブランチ: 引き続き`evolve/cycle-35`(未マージ)。
+- タスク選定: `### 13`のP番号ページ実装、`docs/ARG-WORDBANK.md`グループG
+  「月草/月光草の混同ネタ」(最後の未使用グループ)。
+- 実装: 学食・購買部の6ページに散らばる「月草」の記述をまとめ、この薬草
+  自体を説明する`pages/glossary/moon-grass.html`を新設(3カード)。既存
+  ギミック(検索窓そのもの)を使い、名前が紛らわしい「月光草」
+  (grand-library.html、魔法インクの原料、別の植物)で検索してしまうと、
+  通常の「見つかりませんでした」ではなく専用の応答を返すようにした
+  (P91の`isNostionMemoryWrongCandidate`と同型だが、ページ訪問済みかどうか
+  は問わない)。`src/logic.js`に`isMoonGrassWrongCandidate`を新設しテスト
+  追加、`src/search.js`に同じロジックを複製。fragment化は見送り、root型の
+  単純な発見ページとして実装(新しい断片を追加するとPGATEの必要断片数を
+  拡張する構造的判断になるため、ユーザー確認後の課題として残した)。
+  local-reviewで、本文カードに実在しない架空の商品名を書いていた誤りを
+  発見・修正(実際のメニュー名に訂正)。`docs/ARG-WORDBANK.md`に
+  グループA〜H全て使用済みのステータスを明記。
+- レビュー: 指摘1件対応(架空の商品名を実在の名称に修正)
+- lint: ✓ / lint:css: ✓ / test: ✓(416件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`のグループA〜Hは全て使用済み。次は
+  「未分類のまま残る候補」(魔法資質証明証・七代続く写本師一族・地下の
+  魔法陣接続部・7番試薬)を検討するか、それも尽きればROADMAP.mdの指示
+  通り全ページの本文を棚卸しして新しい候補を追加する。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 01:35
+- ブランチ: 引き続き`evolve/cycle-35`(未マージ)。
+- タスク選定: `### 13`のP番号ページ実装、`docs/ARG-WORDBANK.md`グループC
+  「立入禁止・非公開区画」の最後の1件(P85)。
+- 実装: P84(`pages/glossary/forbidden-books-room.html`)から連なる
+  flavor4段目として、魔法陣召喚広場の「風見の祠」(summoning-plaza.html)を
+  扱う`pages/glossary/weathervane-shrine.html`を新設。これでグループC全6件
+  (root=P81+flavor4段=P82〜P85)が完成。既存のP23(spirits-of-arnold.html)
+  のシルフィ契約設定と矛盾しない範囲で、祠そのものの構造・名の由来に焦点を
+  当てた。チェーン最後の独り言で6件全ての一角を並べ、余韻を残す形で締めた。
+  P84側に「風見の祠」への言及を追加して最後の手がかりとした。
+  `src/search-data.js`でprereqゲーティング、`src/hint-data.js`に発見の
+  連鎖型ヒントを1件追加。`docs/ARG-DESIGN.md`・`docs/ARG-WORDBANK.md`を
+  更新し、グループC完了を記録。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(408件) / build: ✓
+- 次回予定: グループG(月草/月光草の混同、fragment向き)が最後の未使用
+  グループとして残っている。fragment型のため新しいギミック設計が必要
+  (単純なroot発見型とは異なる)。グループCが完了したことで、
+  `docs/ARG-WORDBANK.md`のグルーピング候補はグループGのみに。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 01:05
+- ブランチ: 引き続き`evolve/cycle-35`(未マージ)。
+- タスク選定: `### 13`のP番号ページ実装、`docs/ARG-WORDBANK.md`グループC
+  「立入禁止・非公開区画」のflavor3段目(P84)。
+- 実装: P83(`pages/glossary/sealed-stone-vault.html`)から連なるflavor3段目
+  として、大図書館の「禁書閲覧室」(grand-library.html)を扱う
+  `pages/glossary/forbidden-books-room.html`を新設。既存本文の「展示87冊中
+  12冊は表紙すら非公開」という数字と、禁書指定理由「存在を知られると困る
+  人物がいる」を軸に構成し、独り言でそれとなく強調した。P83側に「禁書
+  閲覧室」への言及を追加して手がかりとした。`src/search-data.js`でprereq
+  ゲーティング、`src/hint-data.js`に発見の連鎖型ヒントを1件追加。
+  `docs/ARG-DESIGN.md`・`docs/ARG-WORDBANK.md`を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(405件) / build: ✓
+- 次回予定: グループCの最後の1件(P85: 契約精霊の棲家「風見の祠」)を実装
+  すればグループC完了。その後はグループG(月草/月光草の混同、fragment向き)
+  が未使用のまま残っている。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 00:40
+- ブランチ: 引き続き`evolve/cycle-35`(未マージ)。
+- タスク選定: `### 13`のP番号ページ実装、`docs/ARG-WORDBANK.md`グループC
+  「立入禁止・非公開区画」のflavor2段目(P83)。
+- 実装: P82(`pages/glossary/affinity-circle.html`)から連なるflavor2段目
+  として、決闘演武場の「魔封石保管庫」(dueling-ground.html)を扱う
+  `pages/glossary/sealed-stone-vault.html`を新設。既存本文の「魔封石
+  ギャラリー」(展示20試合)との対比を軸に、保管庫には未展示分を含め
+  2,000個以上あるという構成にし、独り言でP8「名を消された決闘王」を
+  それとなく暗示した。P82側に「魔封石保管庫」への言及を追加して手がかり
+  とした。`src/search-data.js`でprereqゲーティング、`src/hint-data.js`に
+  発見の連鎖型ヒントを1件追加。`docs/ARG-DESIGN.md`・`docs/ARG-WORDBANK.md`
+  を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(402件) / build: ✓
+- 次回予定: グループCのflavor続き(P84: 禁書閲覧室、P85: 契約精霊の棲家)。
+  グループG(月草/月光草の混同、fragment向き)も未使用のまま残っている。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 00:10
+- ブランチ: 引き続き`evolve/cycle-35`(未マージ)。
+- タスク選定: `### 13`のP番号ページ実装、`docs/ARG-WORDBANK.md`グループC
+  「立入禁止・非公開区画」のflavor1段目(P82)。
+- 実装: root(`pages/glossary/hidden-corners.html`)から連なるflavor1段目
+  として、大図書館の「蔵書親和魔法陣」(grand-library.html)を扱う
+  `pages/glossary/affinity-circle.html`を新設。root側に「蔵書親和魔法陣」
+  への言及を新しいカードとして追加し、次の手がかりとした。
+  `src/search-data.js`でhidden-corners.htmlへの訪問をprereqとしてゲーティング、
+  `src/hint-data.js`に発見の連鎖型ヒントを1件追加。`docs/ARG-DESIGN.md`・
+  `docs/ARG-WORDBANK.md`を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(399件) / build: ✓
+- 次回予定: グループCのflavor続き(P83: 魔封石保管庫、以降P84: 禁書閲覧室、
+  P85: 契約精霊の棲家)。グループG(月草/月光草の混同、fragment向き)も
+  未使用のまま残っている。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-29 23:20
+- ブランチ: `evolve/cycle-34`がPR #44でmainへ自動マージ・削除済みを確認。
+  `main`を最新化し、新しく`evolve/cycle-35`を作成。
+- タスク選定: (1) 解消済みバグ2件のroadmap-done.mdへの退避(bookkeeping)、
+  (2) `### 13`のP番号ページ実装、`docs/ARG-WORDBANK.md`グループC
+  「立入禁止・非公開区画」のroot部分。
+- 実装:
+  1. `docs/ROADMAP.md`のバグ修正セクションから解消済み2件(学院創立者の
+     表記矛盾・学長/学院長の表記ゆれ)を`docs/roadmap-done.md`へ退避、
+     お知らせ文を削除。
+  2. グループC root: 「なぜどのエリアにも人知れない一角があるのか」を
+     掲げる`pages/glossary/hidden-corners.html`を新設(4カード)。6件中
+     触媒保管庫(alchemy-tower.html)・予備歯車庫(clock-tower.html)の
+     2件を採用。グループCは1ページに詰め込まず`docs/ARG-DESIGN.md`4-5節
+     のroot→flavorチェーン形式で実装する方針のため、残り4件(蔵書親和
+     魔法陣・魔封石保管庫・禁書閲覧室・契約精霊の棲家)はP82〜P85として
+     骨組みだけ追記し、次回以降のサイクルで1件ずつ着手する(サイズLの
+     ため今回はrootのみ実装)。
+  `src/search-data.js`に1エントリ、`src/hint-data.js`にroot型ヒント2件を
+  追加。`docs/ARG-DESIGN.md`・`docs/ARG-WORDBANK.md`を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(396件) / build: ✓
+- 次回予定: グループCのflavor(P82: 蔵書親和魔法陣、以降P83〜P85)を
+  1件ずつ実装。グループG(月草/月光草の混同、fragment向き)も未使用のまま
+  残っている。
+- blocked / partial: なし(グループCの残り4件はサイズL分割のため
+  `docs/ARG-DESIGN.md`に骨組みのみ記載、blockedではなく計画的な分割)
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-29 22:50
 - ブランチ: 引き続き`evolve/cycle-34`(未マージ)。
 - タスク選定: `### 13`のP番号ページ実装、`docs/ARG-WORDBANK.md`グループD

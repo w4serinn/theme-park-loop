@@ -287,6 +287,7 @@ flavor/fragmentが組めない」と判断した場合、その接続を無理�
 | P27 | fragment | 既存ギミック: `tickets/index.html`の料金シミュレーター | F6(→P32で使用) | — | 未着手 |
 | P90 | fragment | 既存ギミック: `events/index.html`の季節×エリア絞り込みで特定の組み合わせにすると出現 | F12(→扉) | — | 未着手 |
 | P91 | fragment | 既存ギミック: `pages/search.html`(物知りの魔導書「ノスティオン」)で「私」または「ノスティオン」を含む語を検索すると、通常の検索結果と同じクリック可能なカードとして出現し、専用の隠しページへ遷移する | F13(本心の断片、→扉) | — | 実装済み(`pages/glossary/nostion-memory.html`)。ページ内で提示される5つの候補名(はじまりの書/みちしるべ/刻みの守人/詠み子/よりしろ)のうち、本文中の矛盾から4つを消去し、残った「よりしろ」を検索して初めて到達する実装済み(`pages/glossary/yorishiro-echo.html`)で獲得(2026-07-29 選択・消去方式に作り直し。P5[対応表方式]・P7[位置・配置方式]とは異なるギミック。候補名は当初ラテン語[MEMORIA/VERITAS/ORIGO]だったが、答えのローマ字化は誤った一般化だったとのユーザー指摘を受け自然な日本語に訂正。exactMatch設定済み。2026-07-29 3択は総当たりで解けてしまうとのユーザー指摘を受け、候補を5つに増やした上、誤った候補を検索した際(ページ訪問済みの場合のみ)には通常の「見つかりませんでした」ではなく専用の応答[`src/logic.js`の`isNostionMemoryWrongCandidate`]を返すよう変更) |
+| P97 | root | `shop/groceries.html`「珍薬草『月草』乾燥品」、`dining/index.html`ほか6ページ(alchemy-dining/library-dining/summoning-dining/observatory-goods等)に散らばる「月草」の各種メニュー・商品から接続 | — | — | 実装済み(`pages/glossary/moon-grass.html`)。`docs/ARG-WORDBANK.md`グループG「月草/月光草の混同ネタ」(2026-07-30実装)。既存ギミック(検索窓そのもの)を使い、名前が紛らわしい「月光草」(`exploration/grand-library.html`、魔法インクの原料、全くの別植物)で検索してしまうと専用の応答[`src/logic.js`の`isMoonGrassWrongCandidate`、P91の`isNostionMemoryWrongCandidate`と同型だがページ訪問済みかどうかは問わない]を返し、正しい「月草」で検索して初めて到達する設計にした。**断片は産出していない**(現時点ではroot型の単純な発見。fragment化してPGATEの必要断片[現在10種]に加えるかどうかは、既存の断片経済[F1〜F14]を拡張する構造的な判断になるため、今回は見送り実装せず、ユーザー確認を経てから決めることとした) |
 
 ### 4-4. 通常ページ発の新規ルート群(続き、断片絡み)
 
@@ -299,13 +300,13 @@ flavor/fragmentが組めない」と判断した場合、その接続を無理�
 | P32 | fragment | P31 | F7(→扉) | F6(P27産出) | 未着手 |
 | P33 | root | `exploration/alchemy-tower.html`「魔法陣刻印記録簿」、`exploration/summoning-plaza.html`「陣紋補修記録簿」の2箇所から接続 | — | — | 実装済み(`pages/glossary/circle-ledgers.html`)。`docs/ARG-WORDBANK.md`グループB-1「陣紋の保守記録」(2026-07-29実装)。本文中の「初代の署名欄が判読不能」「石版帳にも判読しづらい項目が残る」等flavor化の余地があると判断し、予約済みのroot→flavor 1段枠であるP33〜P34へ最初から当てはめて実装(2026-07-29) |
 | P34 | flavor | P33 | — | — | 未着手 |
-| P35 | root | 通常ページ(未定) | — | — | 未着手 |
+| P35 | root | `shop/index.html`「七代続く写本師一族の古書専門店」、`shop/library-shop.html`「七代続く写本師の一族が運営」の2箇所から接続 | — | — | 実装済み(`pages/glossary/scribe-lineage.html`)。`docs/ARG-WORDBANK.md`「未分類のまま残る候補」の「七代続く写本師一族」を実装(2026-07-30)。既存の実装済みページ(P16 `arnold-relics.html`の「創魔の書」複製、P28 `second-headmaster.html`の葦ペン復刻)がどちらも同じ写本師一族の仕事だったことに着目し、一族そのものに焦点を当てた4カード構成にした。本文中の「初代の名は公式に記録されていない」等flavor化の余地があると判断し、予約済みのroot→flavor 3段枠であるP35〜P38へ最初から当てはめて実装 |
 | P36 | flavor | P35 | — | — | 未着手 |
 | P37 | flavor | P36 | — | — | 未着手 |
 | P38 | flavor | P37 | — | — | 未着手 |
 | P39 | root | `events/index.html`「研究棟の記録簿」(錬金術品評会の豆知識)、`exploration/dueling-ground.html`「考査記録室」の2箇所から接続 | — | — | 実装済み(`pages/glossary/merit-records.html`)。`docs/ARG-WORDBANK.md`グループB-2「実績・認定の記録」(2026-07-29実装)。本文中の「指輪が副賞に選ばれた理由不明」「非公開の理由が噂のみ」等flavor化の余地があると判断し、予約済みのroot→flavor 1段枠であるP39〜P40へ最初から当てはめて実装(2026-07-29) |
 | P40 | flavor | P39 | — | — | 未着手 |
-| P41 | root | 通常ページ(未定) | — | — | 未着手 |
+| P41 | root | `shop/magical-tools.html`「学院発行の『魔法資質証明証』」(魔導具店の購入注意) | — | — | 実装済み(`pages/glossary/aptitude-certificate.html`)。`docs/ARG-WORDBANK.md`「未分類のまま残る候補」の「魔法資質証明証」を実装(2026-07-30)。既存の`exploration/observatory.html`「魔法適性」ワークショップ(星座紋解析台・学院入試の参考資料)との関連を示唆する形で厚みを持たせた。本文中の「証明証を持たない場合の扱いが不明」等flavor化の余地があると判断し、予約済みのroot→flavor 2段枠であるP41〜P43へ最初から当てはめて実装 |
 | P42 | flavor | P41 | — | — | 未着手 |
 | P43 | flavor | P42 | — | — | 未着手 |
 | P44 | root | 通常ページ(未定) | — | — | 未着手 |
@@ -346,6 +347,7 @@ flavor/fragmentが組めない」と判断した場合、その接続を無理�
 | P66 | P67 → P68 → P69 | 未着手 |
 | P70 | P71 → P72 → P73 → P74 | 未着手 |
 | P75 | P76 → P77 → P78 → P79 → P80 | 未着手 |
+| P81 | P82 → P83 → P84 → P85 → P86 | 実装済み(root=P81・flavor=P82〜P86まで全段完了。root: `pages/glossary/hidden-corners.html`[触媒保管庫/alchemy-tower.html・予備歯車庫/clock-tower.html]、2026-07-29実装。P82: `pages/glossary/affinity-circle.html`[蔵書親和魔法陣/grand-library.html]、2026-07-29実装。P83: `pages/glossary/sealed-stone-vault.html`[魔封石保管庫/dueling-ground.html]、2026-07-30実装。決闘演武場の魔封石ギャラリー(既存本文、20試合展示)に対し、保管庫には未展示分を含め2,000個以上あるという対比を軸に、P8「名を消された決闘王」を独り言でそれとなく暗示した。P84: `pages/glossary/forbidden-books-room.html`[禁書閲覧室/grand-library.html]、2026-07-30実装。展示87冊中12冊が表紙すら非公開という既存本文の数字を軸に、禁書指定理由の一つ「存在を知られると困る人物がいる」を独り言でそれとなく強調した。P85: `pages/glossary/weathervane-shrine.html`[契約精霊の棲家「風見の祠」/summoning-plaza.html]、2026-07-30実装。既存のP23(spirits-of-arnold.html)で触れたシルフィの契約とは矛盾しない範囲で、祠そのものの構造・名の由来に焦点を当てた。P86: `pages/glossary/underground-network.html`[時計塔設計図(限定ポスター)/clock-accessories.html]、2026-07-30実装。`docs/ARG-WORDBANK.md`の「未分類のまま残る候補」にあった「時計塔設計図の『地下の魔法陣接続部』」を、グループCの6件を締めくくる補遺(capstone)として追加。6つの一角が地下でつながっているかもしれないという可能性だけを示し、断定はせず問いのまま終える形にした。各段とも直前のページ本文に次の行き先への言及を追加する形で手がかりの連鎖を作っている。`docs/ARG-WORDBANK.md`グループC「立入禁止・非公開区画」6件+補遺1件を消化し、グループC完全完了) |
 
 ### 4-6. ゴール
 

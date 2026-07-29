@@ -77,5 +77,14 @@ window.SEARCH_INDEX = [
   { path: 'glossary/spirits-of-arnold.html', title: '精霊、それぞれの現れ方', category: '図鑑', hidden: true, keywords: ['異次元存在', '契約精霊シルフィ', '星界の精霊'] },
   { path: 'glossary/circle-ledgers.html', title: '陣紋を刻み、守り継いだ記録簿', category: '図鑑', hidden: true, keywords: ['魔法陣刻印記録簿', '陣紋補修記録簿'], exactMatch: true },
   { path: 'glossary/merit-records.html', title: '品評会と段位、記録に残るもの', category: '図鑑', hidden: true, keywords: ['研究棟の記録簿', '考査記録室'], exactMatch: true },
-  { path: 'glossary/second-headmaster.html', title: '第2代学長フローラ・シルヴァーン、書簡と湿地', category: '図鑑', hidden: true, keywords: ['復刻版 万年葦ペン', '学院湿地区画'] }
+  { path: 'glossary/second-headmaster.html', title: '第2代学長フローラ・シルヴァーン、書簡と湿地', category: '図鑑', hidden: true, keywords: ['復刻版 万年葦ペン', '学院湿地区画'] },
+  { path: 'glossary/hidden-corners.html', title: '学院のどこにでもある、人知れない一角', category: '図鑑', hidden: true, keywords: ['触媒保管庫', '予備歯車庫'] },
+  { path: 'glossary/affinity-circle.html', title: '蔵書親和魔法陣、書庫を動かす仕組み', category: '図鑑', hidden: true, keywords: ['蔵書親和魔法陣'], prereq: ['glossary/hidden-corners.html'] },
+  { path: 'glossary/sealed-stone-vault.html', title: '魔封石保管庫、展示されなかった記録', category: '図鑑', hidden: true, keywords: ['魔封石保管庫'], prereq: ['glossary/affinity-circle.html'] },
+  { path: 'glossary/forbidden-books-room.html', title: '禁書閲覧室、表紙すら非公開の12冊', category: '図鑑', hidden: true, keywords: ['禁書閲覧室'], prereq: ['glossary/sealed-stone-vault.html'] },
+  { path: 'glossary/weathervane-shrine.html', title: '風見の祠、名の由来', category: '図鑑', hidden: true, keywords: ['風見の祠'], prereq: ['glossary/forbidden-books-room.html'] },
+  { path: 'glossary/moon-grass.html', title: '珍薬草「月草」、満月の夜だけの恵み', category: '図鑑', hidden: true, keywords: ['月草'], exactMatch: true },
+  { path: 'glossary/underground-network.html', title: '時計塔設計図、地下の魔法陣接続部', category: '図鑑', hidden: true, keywords: ['時計塔設計図'], prereq: ['glossary/weathervane-shrine.html'] },
+  { path: 'glossary/scribe-lineage.html', title: '七代続く写本師一族、その素顔', category: '図鑑', hidden: true, keywords: ['七代続く写本師一族', '七代続く写本師の一族'], exactMatch: true },
+  { path: 'glossary/aptitude-certificate.html', title: '「魔法資質証明証」、提示を求められるとき', category: '図鑑', hidden: true, keywords: ['魔法資質証明証'], exactMatch: true }
 ];

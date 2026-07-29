@@ -183,6 +183,18 @@
   line-height: 1.4;
 }
 
+.event-card__countdown {
+  display: inline-block;
+  margin-top: 0.35rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklch, var(--ember) 55%, transparent);
+  color: var(--ember);
+  font-size: 0.6rem;
+  font-weight: 700;
+  max-width: 100%;
+}
+
 /* イベント本文 */
 .event-card__body {
   display: flex;
