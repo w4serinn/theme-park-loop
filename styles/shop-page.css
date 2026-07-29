@@ -443,6 +443,30 @@
   margin: 0 0 1.5rem;
 }
 
+/* 季節限定フィルタ */
+.product-filter {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.75rem;
+}
+
+.product-filter__btn {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--arcane);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--arcane);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.product-filter__btn.is-active {
+  background-color: var(--arcane);
+  color: var(--ink);
+}
+
 /* 商品リスト */
 .product-list {
   list-style: none;

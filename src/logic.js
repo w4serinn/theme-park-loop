@@ -391,3 +391,9 @@ export function daysUntilNextEvent(rule, today) {
   var msPerDay = 24 * 60 * 60 * 1000;
   return Math.round((candidate.getTime() - todayMidnight.getTime()) / msPerDay);
 }
+
+// 購買部: 季節限定商品だけの絞り込みフィルタ(2026-07-30、「今後のタスク候補」
+// より実装)。フィルタが無効なら常に表示、有効なら季節限定商品のみ表示する。
+export function shouldShowProduct(isSeasonal, seasonalFilterActive) {
+  return !seasonalFilterActive || isSeasonal;
+}

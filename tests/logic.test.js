@@ -7,7 +7,8 @@ import {
   TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex,
   filterSearchIndex, MIN_SEARCH_QUERY_LENGTH, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
   isSearchEntryUnlocked, isCodexSelfReferenceQuery,
-  nthWeekdayOfMonth, lastWeekdayOfMonth, resolveEventDate, daysUntilNextEvent
+  nthWeekdayOfMonth, lastWeekdayOfMonth, resolveEventDate, daysUntilNextEvent,
+  shouldShowProduct
 } from '../src/logic.js';
 
 describe('TICKET_PRICES', () => {
@@ -686,6 +687,18 @@ describe('daysUntilNextEvent', () => {
   test('ignores time-of-day when comparing dates', () => {
     const today = new Date(2026, 0, 1, 23, 59);
     expect(daysUntilNextEvent({ type: 'fixed', month: 1, day: 1 }, today)).toBe(0);
+  });
+});
+
+describe('shouldShowProduct', () => {
+  test('shows everything when the filter is inactive, regardless of seasonality', () => {
+    expect(shouldShowProduct(true, false)).toBe(true);
+    expect(shouldShowProduct(false, false)).toBe(true);
+  });
+
+  test('shows only seasonal products when the filter is active', () => {
+    expect(shouldShowProduct(true, true)).toBe(true);
+    expect(shouldShowProduct(false, true)).toBe(false);
   });
 });
 

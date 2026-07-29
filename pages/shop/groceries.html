@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
   <link rel="stylesheet" href="{{BASE}}styles/base.css" />
   <link rel="stylesheet" href="{{BASE}}styles/shop-page.css" />
+  <script src="{{BASE}}src/product-season-filter.js" defer></script>
 </head>
 <body>
 <!-- HEADER -->
@@ -28,6 +29,9 @@
   </div>
 
   <div class="shop-content">
+    <div class="product-filter">
+      <button type="button" class="product-filter__btn" data-seasonal-filter aria-pressed="false">季節限定のみ表示</button>
+    </div>
     <section class="shop-section">
       <h2 class="shop-section__heading">薬草・乾燥素材</h2>
       <ul class="product-list">
