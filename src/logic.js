@@ -262,6 +262,21 @@ export function isDebugResetQuery(query) {
   return (query || '').trim() === DEBUG_RESET_QUERY;
 }
 
+// P91(docs/ARG-DESIGN.md 4-3節)「本心の断片」の矛盾探しパズル対策
+// (2026-07-29 ユーザー指摘: 候補が3つしかなく、総当たりで解けてしまう)。
+// 候補を5つに増やしたことに加え、誤った候補を検索した際は通常の
+// 「見つかりませんでした」ではなく専用の応答を返し、力任せの総当たりを
+// 牽制する(ページを訪問済みの場合のみ。未訪問のまま特別な応答を返すと、
+// この語自体が謎のヒントであることを先に漏らしてしまうため)。
+export var NOSTION_MEMORY_PAGE_PATH = 'glossary/nostion-memory.html';
+export var NOSTION_MEMORY_WRONG_CANDIDATES = ['はじまりの書', 'みちしるべ', '刻みの守人', '詠み子'];
+
+export function isNostionMemoryWrongCandidate(query, visitedPaths) {
+  var q = (query || '').trim();
+  var visited = (visitedPaths || []).indexOf(NOSTION_MEMORY_PAGE_PATH) !== -1;
+  return visited && NOSTION_MEMORY_WRONG_CANDIDATES.indexOf(q) !== -1;
+}
+
 // 「謎解きに行き詰まったら」リンク(ヒントの手引きへの導線)の表示条件
 // (2026-07-29 ユーザー指摘: 隠しページを何も見つけていない訪問者に
 // いきなり出るのは不自然)。「学院の秘密」を1件以上見つけた後にのみ表示する。

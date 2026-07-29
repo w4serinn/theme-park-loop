@@ -390,7 +390,11 @@
   flex-shrink: 0;
 }
 
-.fragment-effect__glyph circle {
+/* 内側の意匠は断片ごとにcircle(未登録IDのフォールバック)またはpath(専用図形)。
+   どちらも同じstroke描画アニメーションを適用する(2026-07-29 断片ごとに
+   異なる意匠を追加)。 */
+.fragment-effect__glyph circle,
+.fragment-effect__glyph path {
   fill: none;
   stroke: var(--ember);
   stroke-width: 1.4;
@@ -399,7 +403,7 @@
   animation: fragment-effect-draw 1.4s ease forwards;
 }
 
-.fragment-effect__glyph circle:last-child {
+.fragment-effect__glyph :last-child {
   animation-delay: 0.3s;
 }
 
@@ -439,7 +443,8 @@
     animation: fragment-effect-fade 3.6s ease forwards;
   }
 
-  .fragment-effect__glyph circle {
+  .fragment-effect__glyph circle,
+  .fragment-effect__glyph path {
     animation: none;
     stroke-dashoffset: 0;
   }

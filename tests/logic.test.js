@@ -2,6 +2,7 @@ import { test, expect, describe } from 'vitest';
 import {
   buildHiddenEntryList, filterUnlockedHints, resolveHintPageTitle, buildSecretsTree, buildFragmentDisplayList,
   shouldShowDiscoveryBadge, isDebugResetQuery, DEBUG_RESET_QUERY, shouldShowHintLink,
+  isNostionMemoryWrongCandidate, NOSTION_MEMORY_PAGE_PATH, NOSTION_MEMORY_WRONG_CANDIDATES,
   TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex,
   filterSearchIndex, MIN_SEARCH_QUERY_LENGTH, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
   isSearchEntryUnlocked, isCodexSelfReferenceQuery
@@ -478,6 +479,26 @@ describe('shouldShowHintLink', () => {
 
   test('shown once at least one secret has been found', () => {
     expect(shouldShowHintLink(['glossary/mythical-creatures.html'])).toBe(true);
+  });
+});
+
+describe('isNostionMemoryWrongCandidate', () => {
+  const visited = [NOSTION_MEMORY_PAGE_PATH];
+
+  test('matches a known wrong candidate when the page has been visited', () => {
+    expect(isNostionMemoryWrongCandidate(NOSTION_MEMORY_WRONG_CANDIDATES[0], visited)).toBe(true);
+  });
+
+  test('does not match before the page has been visited', () => {
+    expect(isNostionMemoryWrongCandidate(NOSTION_MEMORY_WRONG_CANDIDATES[0], [])).toBe(false);
+  });
+
+  test('does not match the correct answer', () => {
+    expect(isNostionMemoryWrongCandidate('よりしろ', visited)).toBe(false);
+  });
+
+  test('does not match an unrelated query', () => {
+    expect(isNostionMemoryWrongCandidate('錬金術', visited)).toBe(false);
   });
 });
 
