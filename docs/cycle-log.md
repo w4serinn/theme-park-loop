@@ -1,5 +1,26 @@
 # サイクル履歴
 
+## 2026-07-29 19:23
+- ブランチ: 引き続き`evolve/cycle-33`。
+- 経緯: ユーザーから「ヒントページ、今一ページに一つしかないけどこれ
+  一ページに複数あればちゃんと問題なく動く?」との質問。確認したところ、
+  P2「永久運動核」・P98「刻の書」のように複数のヒントエントリが同じ
+  `hintFor`(`exploration/clock-tower.html`「時計塔」)を持つケースが
+  既にデータ上存在しており、実際に確認すると見出し「時計塔」が重複して
+  2つ並んでしまう不具合だった。
+- 実装: `src/logic.js`に純粋関数`groupHintsByHintFor(hints, searchIndex,
+  extraEntries)`(テスト付き)を新設し、同じ見出しのエントリを1つの
+  `<details>`にまとめてヒント本文を複数の`<p>`として並べる形に変更
+  (`src/hint-book.js`に同じロジックを複製)。`styles/hint-book.css`に
+  2件目以降の`.hint-book__entry-text`の間隔用スタイルを追加。
+  `docs/ARG-DESIGN.md`4-8節・`docs/ROADMAP.md`に記録。
+- レビュー: OK。
+- lint: ✓ / lint:css: ✓ / test: ✓(365件、+3) / build: ✓
+- 次回予定: `scripts/roadmap-utils.js`のお知らせ生成不具合の調査・修正、
+  その後グループE(北方雲海・魔法陣転移広場)の新規Pページ実装。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-29 19:15
 - ブランチ: 引き続き`evolve/cycle-33`。
 - 経緯: ユーザーから「『刻の』ですべて検索結果出るのダメかも」との指摘。

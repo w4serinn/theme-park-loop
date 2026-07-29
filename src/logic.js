@@ -186,6 +186,26 @@ export function resolveHintPageTitle(path, searchIndex, extraEntries) {
   return titles.join(' / ');
 }
 
+// ヒントの手引き用: 解禁済みのヒントを、見出し(resolveHintPageTitleの結果)
+// ごとにまとめる(2026-07-29 ユーザー指摘)。複数のHINT_DATAエントリが同じ
+// hintFor(例: P2「永久運動核」・P98「刻の書」はどちらも
+// exploration/clock-tower.html)を持つ場合、そのままでは同じ見出し
+// (「時計塔」)を持つ`<li>`が別々に並んでしまい冗長になる。同じ見出しの
+// エントリは1つのグループにまとめ、ヒント本文を複数持たせる。
+export function groupHintsByHintFor(hints, searchIndex, extraEntries) {
+  var groups = [];
+  var byHeading = {};
+  hints.forEach(function (entry) {
+    var heading = resolveHintPageTitle(entry.hintFor, searchIndex, extraEntries);
+    if (!byHeading[heading]) {
+      byHeading[heading] = { heading: heading, hints: [] };
+      groups.push(byHeading[heading]);
+    }
+    byHeading[heading].hints.push(entry.hint);
+  });
+  return groups;
+}
+
 // 「学院の秘密」欄をツリー表示するための木構造を組み立てる(2026-07-29
 // ユーザー指摘)。訪問済みページ(visitedPaths、codex-progress.jsにより
 // 訪問順で並んでいる)のみを対象にし、各ページのhiddenEntries上のprereq

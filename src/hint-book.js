@@ -39,14 +39,32 @@
     return titles.join(' / ');
   }
 
+  // 複数のHINT_DATAエントリが同じhintFor(見出し)を持つ場合、同じ見出しの
+  // `<li>`が別々に並んでしまい冗長になるため、見出しごとにまとめる
+  // (2026-07-29 ユーザー指摘。src/logic.jsのgroupHintsByHintForと同じロジック)。
+  function groupHintsByHintFor(hints) {
+    var groups = [];
+    var byHeading = {};
+    hints.forEach(function (entry) {
+      var heading = findPageTitle(entry.hintFor);
+      if (!byHeading[heading]) {
+        byHeading[heading] = { heading: heading, hints: [] };
+        groups.push(byHeading[heading]);
+      }
+      byHeading[heading].hints.push(entry.hint);
+    });
+    return groups;
+  }
+
   function render() {
     var visitedPaths = window.CodexProgress.load().secrets;
     var unlocked = filterUnlockedHints(window.HINT_DATA, visitedPaths);
+    var groups = groupHintsByHintFor(unlocked);
 
     listEl.innerHTML = '';
-    emptyEl.hidden = unlocked.length > 0;
+    emptyEl.hidden = groups.length > 0;
 
-    unlocked.forEach(function (entry) {
+    groups.forEach(function (group) {
       var li = document.createElement('li');
       li.className = 'hint-book__entry';
 
@@ -55,14 +73,17 @@
 
       var summary = document.createElement('summary');
       summary.className = 'hint-book__entry-label';
-      summary.textContent = findPageTitle(entry.hintFor);
-
-      var text = document.createElement('p');
-      text.className = 'hint-book__entry-text';
-      text.textContent = entry.hint;
+      summary.textContent = group.heading;
 
       details.appendChild(summary);
-      details.appendChild(text);
+
+      group.hints.forEach(function (hintText) {
+        var text = document.createElement('p');
+        text.className = 'hint-book__entry-text';
+        text.textContent = hintText;
+        details.appendChild(text);
+      });
+
       li.appendChild(details);
       listEl.appendChild(li);
     });

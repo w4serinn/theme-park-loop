@@ -73,6 +73,12 @@
   margin: 0;
 }
 
+/* 同じ見出しに複数のヒントがまとまる場合、2件目以降の間隔を空ける
+   (2026-07-29 ユーザー指摘、同じhintForを持つ複数エントリのグループ化対応)。 */
+.hint-book__entry-text + .hint-book__entry-text {
+  margin-top: 0.6rem;
+}
+
 @media (width <= 600px) {
   .page-hero {
     padding: 2rem 1rem 1.5rem;
