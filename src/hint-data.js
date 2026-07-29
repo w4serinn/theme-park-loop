@@ -184,4 +184,10 @@ window.HINT_DATA = [
     leadsTo: 'glossary/erased-champion.html',
     hint: '公式に語られなかった決闘の記録にも、何か短い言葉が残されているかもしれません。'
   },
+  {
+    requiresPage: 'glossary/hidden-corners.html',
+    hintFor: 'glossary/hidden-corners.html',
+    leadsTo: 'glossary/affinity-circle.html',
+    hint: '似たような一角は、他のエリアにもあるという話でした。大図書館のある設備についての記述を思い出してみてください。'
+  },
 ];
