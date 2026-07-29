@@ -150,6 +150,21 @@ window.HINT_DATA = [
     hint: '中央学食の季節メニューには、ある薬草をブレンドしたホットドリンクがあったはずです。その説明をもう一度確かめてみてください。'
   },
   {
+    hintFor: 'index.html',
+    leadsTo: 'glossary/arnold-namesake.html',
+    hint: 'トップページの学院紹介文には、創設者の正式な姓名が書かれていたはずです。「アルノルド卿とは」の本文をもう一度読んでみてください。'
+  },
+  {
+    hintFor: 'index.html',
+    leadsTo: 'glossary/arnold-namesake.html',
+    hint: 'トップページのアクセス案内、魔導鉄道の最寄り駅名にも創設者の名が入っていたはずです。もう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'exploration/alchemy-tower.html',
+    leadsTo: 'glossary/arnold-namesake.html',
+    hint: '錬金術研究棟の中心設備は、アルノルド卿自身が設計したと伝わるものだそうです。主要研究設備の説明をもう一度確かめてみてください。'
+  },
+  {
     id: 'F1',
     requiresPage: 'glossary/apprentice-notes.html',
     hintFor: 'glossary/apprentice-notes.html',

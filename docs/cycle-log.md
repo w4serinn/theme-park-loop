@@ -1,5 +1,53 @@
 # サイクル履歴
 
+## 2026-07-30 08:20
+- ブランチ: 引き続き`evolve/cycle-39`(未マージ)。
+- タスク選定: 3項目まとめて着手。(1)`### 13`root行の実装(改訂した優先順位
+  ルールに沿い、生の棚卸しから直接)、(2)`### 17`(季節限定フィルタ)の削除、
+  (3)`### 19`(発見数カウンター)のP91達成後の重複表示解消。(2)(3)は手動
+  チャットでユーザーからタスク追記済みだった小さめの独立項目のため、
+  APIコスト削減のためまとめた。
+- 実装:
+  (1) P44(root)として`pages/glossary/arnold-namesake.html`を新設(3カード)。
+      `docs/ARG-WORDBANK.md`「## 1. トップページ」の「エルンスト・フォン・
+      アルノルド卿」「『アルノルド卿の丘』駅」と「## 2. 学院内探索」の
+      「大蒸留器『琥珀の心臓』」をグルーピングし、P16(購買部で買える遺品)
+      とは異なる「名が残る場所」という切り口にした。`src/search-data.js`・
+      `src/hint-data.js`(index.htmlから2件、alchemy-tower.htmlから1件)・
+      `docs/ARG-DESIGN.md` P44行・`docs/ARG-WORDBANK.md`該当箇所を更新。
+  (2) `src/product-season-filter.js`を削除、8ショップページから`<script>`・
+      `.product-filter`ボタンを除去、`styles/shop-page.css`の関連スタイルと
+      `src/logic.js`の`shouldShowProduct`・対応テストを削除。`### 17`の
+      statusを完了に戻し、roadmap-done.mdへ退避。
+  (3) `src/logic.js`に`shouldShowSearchProgress(foundCount, achieved)`を
+      追加しテスト済み。`src/search.js`の`updateSearchProgressDisplay()`で
+      P91達成後は`#search-progress`を隠すようにした。`### 19`のstatusを
+      完了に戻し、roadmap-done.mdへ退避。
+- レビュー: OK(local-review、指摘なし。`docs/cycle-log.md`内の削除済み
+  WORDBANKセクションへのダングリング参照を1件発見・修正)。
+- lint: ✓ / lint:css: ✓ / test: ✓(470件) / build: ✓
+- 次回予定: 他の実装済みroot(P16→P17[fragment、F3]・P23→P24〜P25・
+  P28→P29〜P30・P35→P36〜P38・P41→P42〜P43・P44→P45)の予約済み枠、
+  または`docs/ARG-WORDBANK.md`の残り未使用候補(占術師・学院農園・
+  竜鱗布など)からのroot追加。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30(手動チャットでの訂正・追記)
+- evolveサイクルではなく、ユーザーとの手動チャットでの訂正。
+- 2026-07-30 06:20付エントリ等で「WORDBANKのグルーピング候補・未分類候補が
+  出尽くした」と記録したのは、`docs/ARG-WORDBANK.md`冒頭の生の棚卸し
+  (「## 1.」〜「## 8.」)まで遡らず、グルーピング済み(グループA〜H)と
+  末尾の未分類リストだけを見た不完全な判断だった。ユーザー指摘により
+  再照合し、大蒸留器「琥珀の心臓」・エルンスト・フォン・アルノルド卿など
+  root候補になり得る未使用の単語が20語近く残っていたことを確認(その後の
+  サイクルで一部を`docs/ARG-DESIGN.md` P44として使用済み)。
+- 対応: `docs/ROADMAP.md``### 13`の標準ルールを改訂し、グループA〜Hだけで
+  なく生の棚卸しもグループA〜Hと同格の有効な候補として扱うことを明記した
+  (既存rootの予約済みflavor枠の掘り下げより優先)。
+- コード変更なし(ドキュメントのみ)。
+
 ## 2026-07-30 07:20
 - ブランチ: 引き続き`evolve/cycle-39`(未マージ)。
 - タスク選定: P12(koku-trio.html)から始まるroot→flavorチェーンの最終段

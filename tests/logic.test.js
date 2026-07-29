@@ -8,7 +8,7 @@ import {
   filterSearchIndex, MIN_SEARCH_QUERY_LENGTH, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
   isSearchEntryUnlocked, isCodexSelfReferenceQuery,
   nthWeekdayOfMonth, lastWeekdayOfMonth, resolveEventDate, daysUntilNextEvent,
-  shouldShowProduct, countFoundSecrets, formatDiscoveryProgressText
+  countFoundSecrets, formatDiscoveryProgressText, shouldShowSearchProgress
 } from '../src/logic.js';
 
 describe('TICKET_PRICES', () => {
@@ -690,18 +690,6 @@ describe('daysUntilNextEvent', () => {
   });
 });
 
-describe('shouldShowProduct', () => {
-  test('shows everything when the filter is inactive, regardless of seasonality', () => {
-    expect(shouldShowProduct(true, false)).toBe(true);
-    expect(shouldShowProduct(false, false)).toBe(true);
-  });
-
-  test('shows only seasonal products when the filter is active', () => {
-    expect(shouldShowProduct(true, true)).toBe(true);
-    expect(shouldShowProduct(false, true)).toBe(false);
-  });
-});
-
 describe('countFoundSecrets', () => {
   const hiddenEntries = [
     { path: 'glossary/mythical-creatures.html' },
@@ -730,6 +718,20 @@ describe('formatDiscoveryProgressText', () => {
 
   test('formats zero the same way (caller is responsible for hiding it)', () => {
     expect(formatDiscoveryProgressText(0)).toBe('学院の秘密を0件発見しました');
+  });
+});
+
+describe('shouldShowSearchProgress', () => {
+  test('hides when nothing has been found yet', () => {
+    expect(shouldShowSearchProgress(0, false)).toBe(false);
+  });
+
+  test('shows once something has been found and P91 is not yet achieved', () => {
+    expect(shouldShowSearchProgress(2, false)).toBe(true);
+  });
+
+  test('hides once P91 is achieved, even with a positive count', () => {
+    expect(shouldShowSearchProgress(5, true)).toBe(false);
   });
 });
 

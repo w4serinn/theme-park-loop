@@ -392,12 +392,6 @@ export function daysUntilNextEvent(rule, today) {
   return Math.round((candidate.getTime() - todayMidnight.getTime()) / msPerDay);
 }
 
-// 購買部: 季節限定商品だけの絞り込みフィルタ(2026-07-30、「今後のタスク候補」
-// より実装)。フィルタが無効なら常に表示、有効なら季節限定商品のみ表示する。
-export function shouldShowProduct(isSeasonal, seasonalFilterActive) {
-  return !seasonalFilterActive || isSeasonal;
-}
-
 // ノスティオン(検索ページ): 発見数の周回カウンター表示(2026-07-30、
 // 「今後のタスク候補」より実装)。hiddenEntriesはbuildHiddenEntryListの
 // 戻り値、visitedPathsは「学院の秘密」(CodexProgressのsecrets)。
@@ -405,6 +399,12 @@ export function countFoundSecrets(hiddenEntries, visitedPaths) {
   return (visitedPaths || []).filter(function (path) {
     return hiddenEntries.some(function (entry) { return entry.path === path; });
   }).length;
+}
+
+// P91達成後は「これまでの記録」欄が同じ情報をより詳しく表示するため、
+// この簡易カウンターは重複を避けて隠す(2026-07-30 ユーザー指摘)。
+export function shouldShowSearchProgress(foundCount, achieved) {
+  return foundCount > 0 && !achieved;
 }
 
 export function formatDiscoveryProgressText(foundCount) {

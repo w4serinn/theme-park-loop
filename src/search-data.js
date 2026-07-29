@@ -89,5 +89,6 @@ window.SEARCH_INDEX = [
   { path: 'glossary/aptitude-certificate.html', title: '「魔法資質証明証」、提示を求められるとき', category: '図鑑', hidden: true, keywords: ['魔法資質証明証'], exactMatch: true },
   { path: 'glossary/circle-warden.html', title: '陣紋師という仕事', category: '図鑑', hidden: true, keywords: ['陣紋師'], prereq: ['glossary/koku-trio.html', 'glossary/circle-ledgers.html'] },
   { path: 'glossary/warden-registry.html', title: '陣紋師任命記録、空白の一件', category: '図鑑', hidden: true, keywords: ['陣紋師任命記録'], prereq: ['glossary/circle-warden.html'] },
-  { path: 'glossary/unnamed-warden.html', title: '三つの「刻」との奇妙な符合', category: '図鑑', hidden: true, keywords: ['相応しい名を'], prereq: ['glossary/warden-registry.html'], exactMatch: true }
+  { path: 'glossary/unnamed-warden.html', title: '三つの「刻」との奇妙な符合', category: '図鑑', hidden: true, keywords: ['相応しい名を'], prereq: ['glossary/warden-registry.html'], exactMatch: true },
+  { path: 'glossary/arnold-namesake.html', title: 'アルノルド卿の名前、三つの残り方', category: '図鑑', hidden: true, keywords: ['エルンスト・フォン・アルノルド卿', 'アルノルド卿の丘', '琥珀の心臓'], exactMatch: true }
 ];

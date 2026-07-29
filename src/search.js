@@ -110,9 +110,18 @@
   // (#codex-memory-section)はP91達成まで非表示のままだが、こちらは
   // updateHintLinkVisibilityと同じく「学院の秘密」を1件以上見つけた
   // 時点でさりげなく表示する、より手前の進捗表示。
+  // P91達成後は「これまでの記録」欄が同じ情報(学院の秘密N/総数)を詳しく
+  // 表示するため、この簡易カウンターは重複を避けて隠す(2026-07-30
+  // ユーザー指摘)。
   function updateSearchProgressDisplay() {
     if (!searchProgressEl || !window.CodexProgress) { return; }
-    var visitedPaths = window.CodexProgress.load().secrets;
+    var progress = window.CodexProgress.load();
+    var achieved = progress.secrets.indexOf(SELF_REFERENCE_PAGE_PATH) !== -1;
+    if (achieved) {
+      searchProgressEl.hidden = true;
+      return;
+    }
+    var visitedPaths = progress.secrets;
     if (visitedPaths.length === 0) {
       searchProgressEl.hidden = true;
       return;

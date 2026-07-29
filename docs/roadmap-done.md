@@ -1400,3 +1400,24 @@
       した。`src/hint-book.js`に同じロジックを複製し`render()`の呼び出し
       先を変更。`### 15`にこれで未完了サブタスクが無くなったため、
       statusを完了に変更。
+
+### 17. 購買部: 季節限定商品だけの絞り込みフィルタ
+
+- [x] (S) 機能自体が不要と判明したため削除(2026-07-30 ユーザー指示)。
+      `src/product-season-filter.js`を削除、8ショップページ
+      (`pages/shop/alchemy-shop.html`・`clock-accessories.html`・
+      `dueling-shop.html`・`groceries.html`・`observatory-goods.html`・
+      `souvenirs.html`・`summoning-shop.html`・`uniforms.html`)から
+      `<script>`読み込みと`.product-filter`ボタンを除去、
+      `styles/shop-page.css`の`.product-filter`関連スタイルを除去、
+      `src/logic.js`の`shouldShowProduct`関数と対応テストを削除した。
+
+### 19. ノスティオン: 発見数の周回カウンター表示
+
+- [x] (S) P91達成後、「これまでの記録」欄(`#codex-memory-section`、詳しい
+      `学院の秘密(N/総数)`表示を含む)と情報が重複してしまう問題を解消
+      (2026-07-30 ユーザー指摘)。`src/logic.js`に純粋関数
+      `shouldShowSearchProgress(foundCount, achieved)`を追加しテスト済み。
+      `src/search.js`の`updateSearchProgressDisplay()`内で`achieved`
+      (P91達成判定、`renderMemorySection()`と同じロジック)を見て、
+      達成後は`searchProgressEl.hidden = true`にする形で実装した。

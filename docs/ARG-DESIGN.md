@@ -309,7 +309,7 @@ flavor/fragmentが組めない」と判断した場合、その接続を無理�
 | P41 | root | `shop/magical-tools.html`「学院発行の『魔法資質証明証』」(魔導具店の購入注意) | — | — | 実装済み(`pages/glossary/aptitude-certificate.html`)。`docs/ARG-WORDBANK.md`「未分類のまま残る候補」の「魔法資質証明証」を実装(2026-07-30)。既存の`exploration/observatory.html`「魔法適性」ワークショップ(星座紋解析台・学院入試の参考資料)との関連を示唆する形で厚みを持たせた。本文中の「証明証を持たない場合の扱いが不明」等flavor化の余地があると判断し、予約済みのroot→flavor 2段枠であるP41〜P43へ最初から当てはめて実装 |
 | P42 | flavor | P41 | — | — | 未着手 |
 | P43 | flavor | P42 | — | — | 未着手 |
-| P44 | root | 通常ページ(未定) | — | — | 未着手 |
+| P44 | root | `index.html`「アルノルド卿とは」本文(エルンスト・フォン・アルノルド卿)、同ページアクセス案内(「アルノルド卿の丘」駅)、`exploration/alchemy-tower.html`「大蒸留器『琥珀の心臓』」の3箇所から接続 | — | — | 実装済み(`pages/glossary/arnold-namesake.html`)。2026-07-30実装。`docs/ROADMAP.md`「### 13」2026-07-30改訂(生の棚卸しもグループA〜Hと同格の候補として扱う方針)に沿って、`docs/ARG-WORDBANK.md`「## 1. トップページ」「## 2. 学院内探索」の未使用候補から3件をグルーピングして実装。P16(`arnold-relics.html`、購買部で買える遺品3点)とは異なり、名前・地名・設計という「本人の遺したものではなく、名が残る場所」に焦点を当てた。本文中の「設計図原本の所在は公式には把握されていない」等flavor化の余地を残し、予約済みのroot→flavor 1段枠であるP44〜P45へ当てはめた |
 | P45 | flavor | P44 | — | — | 未着手 |
 | P46 | fragment | 既存ギミック(未定・実装時に選定) | F8(→扉) | — | 未着手 |
 
