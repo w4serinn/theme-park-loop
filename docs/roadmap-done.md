@@ -1066,30 +1066,51 @@
       同一グループに属する既存9ページを、グループ単位で1ページに統合
       (2026-07-29 ユーザー指摘・承認: 「同じグループにまとめてるなら1ページに
       するとかさ」)。
-      - グループA「刻」三部作: 旧`time-ring-record.html`(P97)・
-        `time-ledger.html`(P98)・`time-bell.html`(P99、旧flavor)を
-        `pages/glossary/koku-trio.html`(8カード)に統合。P99のprereqは
+      - グループA「刻」三部作: 旧`time-ring-record.html`(旧#97)・
+        `time-ledger.html`(旧#98)・`time-bell.html`(旧#99、旧flavor)を
+        `pages/glossary/koku-trio.html`(6カード)に統合。旧#99のprereqは
         直接到達可能になったため削除。
-      - グループE「キャンパスの外側」: 旧`northern-cloud-sea.html`(P100)・
-        `transit-plaza.html`(P101)を`pages/glossary/beyond-the-map.html`
+      - グループE「キャンパスの外側」: 旧`northern-cloud-sea.html`(旧#100)・
+        `transit-plaza.html`(旧#101)を`pages/glossary/beyond-the-map.html`
         (4カード)に統合。
       - グループH「アルノルド卿にまつわる物証」: 旧`arnold-crest.html`
-        (P102)・`arnold-manuscript.html`(P103)・`founding-grimoire.html`
-        (P104)を`pages/glossary/arnold-relics.html`(6カード)に統合。
+        (旧#102)・`arnold-manuscript.html`(旧#103)・`founding-grimoire.html`
+        (旧#104)を`pages/glossary/arnold-relics.html`(6カード)に統合。
       - グループF「異次元・精霊との接触」: 旧`otherworld-presence.html`
-        (P105)・`sylphe-dialogue.html`(P106)・`starfield-spirit.html`
-        (P107)を`pages/glossary/spirits-of-arnold.html`(6カード)に統合。
+        (旧#105)・`sylphe-dialogue.html`(旧#106)・`starfield-spirit.html`
+        (旧#107)を`pages/glossary/spirits-of-arnold.html`(6カード)に統合。
       各ページとも既存カードの内容はほぼそのまま流用し、カード見出しに
       元の項目名(「刻の輪」「刻の書」等)を接頭辞として補って、どの
-      サブトピックのカードかを判別できるようにした。`src/search-data.js`は
+      サブトピックのカードかを判別できるようにした。統合時、他ページへの
+      手がかり導線だったカード(グループAの「陣の縁に刻まれた小さな銘」
+      「欄外の走り書き」)は同一ページ内の自己言及になるため割愛し、
+      グループAは各装置2カードずつ計6カード構成にした。`src/search-data.js`は
       11エントリを4エントリに整理(keywordsを合併、Group Aは
       `exactMatch: true`を維持、Group Eも「魔法陣」接頭辞の既存衝突対策で
       新たに`exactMatch: true`に統一)。`src/hint-data.js`は各`leadsTo`を
-      新しい統合先パスに付け替え、P99への到達を担っていた前提条件つきの
+      新しい統合先パスに付け替え、旧#99への到達を担っていた前提条件つきの
       連鎖ヒント(旧`leadsTo: time-bell.html`)は統合により不要になったため
-      削除。`docs/ARG-DESIGN.md`4-2節の該当行(P97〜P107)と
-      `docs/ARG-WORDBANK.md`の各グループの「使用済み」注記を、統合後の
-      構成に合わせて更新。
+      削除。`docs/ARG-DESIGN.md`4-2節の該当行と`docs/ARG-WORDBANK.md`の
+      各グループの「使用済み」注記を、統合後の構成に合わせて更新。
+- [x] (S) 上記4ページの新規ID(旧#97・#100・#102・#105)を、`docs/ARG-DESIGN.md`
+      4-2節に予約済みだった空き枠へ採番し直した(2026-07-29 ユーザー指摘:
+      「新規ではなく、構造的に当てはまる行に割り当てなおしていいよ」)。
+      統合後の各ページ本文には「陣紋師」「研究手稿の余白が大部分未解読」
+      「精霊と異次元存在の区別基準が示されていない」等、flavor/fragmentへ
+      発展させやすい素材が残っており、新規IDのまま末尾に追記するのではなく、
+      既存の骨組み(root→flavor/fragmentの連鎖)に構造的に当てはめるべきと
+      判断した。
+      - グループA「刻」三部作 → 旧#97から**P12**(root→flavor 3段の予約枠)へ
+      - グループE「キャンパスの外側」 → 旧#100から**P10**(root→flavor 1段)へ
+      - グループH「アルノルド卿にまつわる物証」 → 旧#102から**P16**
+        (root→fragment、F3産出の予約枠)へ
+      - グループF「異次元・精霊との接触」 → 旧#105から**P23**(root→flavor 2段)へ
+      いずれもroot行(P10/P12/P16/P23)のみを実データで置き換え、後続の
+      flavor/fragment行(P11、P13〜P15、P17、P24〜P25)は今回は着手せず
+      「未着手」のまま残した(番号の採番替えのみ、中身の設計は別サイクル)。
+      `docs/ARG-DESIGN.md`4-2節・`docs/ARG-WORDBANK.md`の各グループ注記を
+      新しいID(P10/P12/P16/P23)に更新。あわせて、グループAのカード数を
+      前項で誤って「8カード」と記載していたのを実際の「6カード」に訂正した。
 
 ### 14. 提携宿泊施設
 
