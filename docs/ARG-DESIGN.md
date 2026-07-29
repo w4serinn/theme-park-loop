@@ -405,8 +405,11 @@ F1,F3,F4,...」は、断片を単純な所持チェック(インベントリの�
   (先読み防止)。
 - **たどり着き方**: `SEARCH_INDEX`には登録せず(検索一発で見つかると
   本末転倒なため)、代わりに`pages/search.html`の誘導文のすぐ下に、
-  小さく控えめなテキストリンク(`.search-hint-link`)を常時設置する形にした。
+  小さく控えめなテキストリンク(`.search-hint-link`)を設置した。
   隠しページ網(`### 13`)の発見の連鎖とは別枠の、常設の救済導線という位置づけ。
+  ただし「学院の秘密」を1件も見つけていない訪問者にいきなり出るのは不自然
+  なため(2026-07-29 ユーザー指摘)、`src/logic.js`の
+  `shouldShowHintLink(visitedPaths)`により1件以上見つけた後にのみ表示する。
 - **既存ページからの移設**: P7(`final-entry.html`)に埋め込まれていたヒントは
   `hint-book.html`側(`requiresPage: 'glossary/final-entry.html'`)へ移設し、
   本文からは削除した。P5(`apprentice-notes.html`)は既にヒントを含まない

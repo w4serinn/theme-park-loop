@@ -239,3 +239,21 @@ export function buildFragmentDisplayList(fragments, names, hiddenEntries) {
 export function shouldShowDiscoveryBadge(entry, visitedPaths) {
   return !!entry.hidden && visitedPaths.indexOf(entry.path) === -1;
 }
+
+// 開発用デバッグコマンド(2026-07-29 ユーザー提案): ノスティオンの検索窓に
+// この文字列だけを入力した場合に限り、開発者向けの発見履歴リセット動作の
+// トリガーとみなす。通常の検索語(日本語の単語)とは衝突しない記号始まりの
+// 文字列にしてあり、SEARCH_INDEXには一切登録しない(プレイヤー向けの
+// 説明もしない裏コマンド)。
+export var DEBUG_RESET_QUERY = '!reset';
+
+export function isDebugResetQuery(query) {
+  return (query || '').trim() === DEBUG_RESET_QUERY;
+}
+
+// 「謎解きに行き詰まったら」リンク(ヒントの手引きへの導線)の表示条件
+// (2026-07-29 ユーザー指摘: 隠しページを何も見つけていない訪問者に
+// いきなり出るのは不自然)。「学院の秘密」を1件以上見つけた後にのみ表示する。
+export function shouldShowHintLink(visitedPaths) {
+  return (visitedPaths || []).length > 0;
+}

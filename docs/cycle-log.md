@@ -1,5 +1,31 @@
 # サイクル履歴
 
+## 2026-07-29 17:50
+- ブランチ: 引き続き`evolve/cycle-33`(未マージ)。
+- タスク選定: `### 15`(ARG基盤・ノスティオン)から、いずれも`src/search.js`/
+  `pages/search.html`まわりの近い領域を触る独立したS規模タスク3件をまとめて
+  実装(ユーザーからチャットで提案・追加された「デバッグ用検索機能」を含む)。
+  1. デバッグ用の発見履歴リセット機能: ノスティオンの検索窓に裏コマンド
+     `!reset`を入力すると`codex-memory`を削除してリロードする。判定は
+     `src/logic.js`の`isDebugResetQuery`(テスト付き)、リセット処理は
+     `src/codex-progress.js`に`CodexProgress.reset()`を新設。
+  2. 「学院の秘密」欄全体の折りたたみ: `<details>`/`<summary>`で包み
+     デフォルト閉に(`pages/search.html`・`styles/search.css`)。
+  3. 「謎解きに行き詰まったら」リンクの表示条件: 「学院の秘密」を1件以上
+     見つけた後にのみ表示するよう変更。判定は`src/logic.js`の
+     `shouldShowHintLink`(テスト付き)。
+  あわせて`docs/ARG-DESIGN.md`のヒントリンク説明(「常時設置」の記述)を
+  新しい表示条件に合わせて更新。
+- レビュー: OK(local-review相当のセルフチェックを実施。3件とも独立して
+  動作すること、`<details>`のデフォルト状態が閉であること、bfcache復元時にも
+  `updateHintLinkVisibility`が呼ばれることを確認。指摘なし)。
+- lint: ✓ / lint:css: ✓ / test: ✓(340件、+8) / build: ✓
+- 次回予定: `### 15`残りタスク(ヒント手引きの開閉式化・見出し変更・断片
+  エフェクト第2弾・ヒントページ導線文言・ヒント対象拡大)、または`### 13`の
+  「未着手」P番号ページ・P91三択対策。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-29 17:35
 - ブランチ: `evolve/cycle-32`はすでに`origin/main`に取り込み済み(PR #38、
   `chore: update news for completed pages [skip ci]`コミット`5bcca74`)

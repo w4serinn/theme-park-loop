@@ -1,7 +1,7 @@
 import { test, expect, describe } from 'vitest';
 import {
   buildHiddenEntryList, filterUnlockedHints, buildSecretsTree, buildFragmentDisplayList,
-  shouldShowDiscoveryBadge,
+  shouldShowDiscoveryBadge, isDebugResetQuery, DEBUG_RESET_QUERY, shouldShowHintLink,
   TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex,
   filterSearchIndex, MIN_SEARCH_QUERY_LENGTH, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
   isSearchEntryUnlocked, isCodexSelfReferenceQuery
@@ -418,6 +418,43 @@ describe('shouldShowDiscoveryBadge', () => {
 
   test('is unaffected by unrelated visited paths', () => {
     expect(shouldShowDiscoveryBadge({ path: 'a.html', hidden: true }, ['b.html'])).toBe(true);
+  });
+});
+
+describe('isDebugResetQuery', () => {
+  test('matches the exact debug command', () => {
+    expect(isDebugResetQuery(DEBUG_RESET_QUERY)).toBe(true);
+  });
+
+  test('trims surrounding whitespace', () => {
+    expect(isDebugResetQuery('  ' + DEBUG_RESET_QUERY + '  ')).toBe(true);
+  });
+
+  test('does not match an ordinary search query', () => {
+    expect(isDebugResetQuery('錬金術')).toBe(false);
+  });
+
+  test('does not match a query that merely contains the command', () => {
+    expect(isDebugResetQuery(DEBUG_RESET_QUERY + 'です')).toBe(false);
+  });
+
+  test('does not match empty input', () => {
+    expect(isDebugResetQuery('')).toBe(false);
+    expect(isDebugResetQuery(undefined)).toBe(false);
+  });
+});
+
+describe('shouldShowHintLink', () => {
+  test('hidden when no secrets have been found', () => {
+    expect(shouldShowHintLink([])).toBe(false);
+  });
+
+  test('hidden when visitedPaths is not provided', () => {
+    expect(shouldShowHintLink(undefined)).toBe(false);
+  });
+
+  test('shown once at least one secret has been found', () => {
+    expect(shouldShowHintLink(['glossary/mythical-creatures.html'])).toBe(true);
   });
 });
 

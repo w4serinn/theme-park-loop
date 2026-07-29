@@ -59,11 +59,22 @@
     return progress;
   }
 
+  // 開発用デバッグコマンド(2026-07-29 ユーザー提案、src/search.jsの
+  // isDebugResetQueryから呼ばれる)。発見履歴を初期状態に戻す。
+  function reset() {
+    try {
+      window.localStorage.removeItem(STORAGE_KEY);
+    } catch {
+      // localStorageが使えない環境では静かに諦める
+    }
+  }
+
   window.CodexProgress = {
     load: load,
     addSecret: addSecret,
     addFragment: addFragment,
-    markFragmentUsed: markFragmentUsed
+    markFragmentUsed: markFragmentUsed,
+    reset: reset
   };
 
   // data-page-path が指定されているscriptタグから読み込まれた場合、

@@ -1127,3 +1127,24 @@
       フェードイン/アウトする形にした(回転し続けるスピナー等の量産型演出は
       避けた)。`prefers-reduced-motion`では stroke描画を省略し単純な
       フェードのみにする。`styles/glossary.css`に`.fragment-effect*`を新設。
+- [x] (S) 「学院の秘密」欄全体を折りたためるようにする(2026-07-29
+      ユーザー指摘)。`#codex-memory-secrets-list`とラベル行
+      (`#codex-memory-secrets-label`)を`<details>`/`<summary>`で包み、
+      デフォルトは閉(`open`属性なし)にした(`pages/search.html`)。
+      `styles/search.css`に`summary.codex-memory__label`のカーソル/
+      hover装飾を追加。
+- [x] (S) 「謎解きに行き詰まったら」リンクの表示条件を見直す(2026-07-29
+      ユーザー指摘: 「いきなり出るのは変」)。「学院の秘密」を1件も
+      見つけていない訪問者には表示しないよう変更した。判定は`src/logic.js`の
+      純粋関数`shouldShowHintLink(visitedPaths)`(テスト付き)、
+      `src/search.js`に同じロジックを複製し`updateHintLinkVisibility`で
+      `#search-hint-link`の`hidden`属性を切り替える(初期状態・bfcache復元時
+      いずれも呼び出す)。
+- [x] (S) デバッグ用の発見履歴リセット機能(2026-07-29 ユーザー提案)。
+      ノスティオンの検索窓に裏コマンド文字列(`!reset`、通常の検索語とは
+      衝突しない記号始まり)を入力した時だけ、`codex-memory`(発見履歴)を
+      削除してページを再読み込みする。判定は`src/logic.js`の純粋関数
+      `isDebugResetQuery(query)`(テスト付き)、`src/codex-progress.js`に
+      `CodexProgress.reset()`を新設し、`src/search.js`の入力ハンドラから
+      呼び出す。`SEARCH_INDEX`には登録せず、プレイヤー向けの説明もしない
+      開発者専用の仕込み。

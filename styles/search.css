@@ -169,6 +169,20 @@
   margin: 0 0 0.6rem;
 }
 
+/* 「学院の秘密」欄全体の折りたたみ(2026-07-29 ユーザー指摘)。デフォルト
+   閉にし、<summary>(codex-memory__label)をクリックすると開く。 */
+summary.codex-memory__label {
+  cursor: pointer;
+}
+
+summary.codex-memory__label:hover {
+  color: var(--ember);
+}
+
+.codex-memory__secrets .codex-memory__tree {
+  margin-top: 0.6rem;
+}
+
 .codex-memory__list {
   list-style: none;
   padding: 0;
