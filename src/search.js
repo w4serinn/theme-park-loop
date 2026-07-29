@@ -24,11 +24,17 @@
   var memorySecretsList = document.getElementById('codex-memory-secrets-list');
   var memoryFragmentsList = document.getElementById('codex-memory-fragments-list');
 
+  // entry.exactMatchがtrueの場合、部分一致ではなくtitle/category/keywordsの
+  // いずれかとの完全一致を要求する(謎解きの合言葉対策。src/logic.jsと同じロジック)。
   function filterIndex(query, index) {
     var q = (query || '').trim().toLowerCase();
     if (!q) { return []; }
     return index.filter(function (entry) {
       var keywords = entry.keywords || [];
+      if (entry.exactMatch) {
+        var candidates = [entry.title, entry.category].concat(keywords);
+        return candidates.some(function (c) { return c.toLowerCase() === q; });
+      }
       var haystack = (entry.title + ' ' + entry.category + ' ' + keywords.join(' ')).toLowerCase();
       return haystack.indexOf(q) !== -1;
     });
@@ -53,6 +59,11 @@
 
   // 「これまでの記録」セクションの表示・内容を、現在のlocalStorageの状態から作る。
   // P91未達成の間は非表示のまま(docs/ARG-DESIGN.md 4-7節)。
+  //
+  // hiddenEntriesは、window.SEARCH_INDEXのhiddenエントリに加え、SELF_REFERENCE_ENTRY
+  // (SEARCH_INDEXには未登録)も合流させたもの(src/logic.jsのbuildHiddenEntryListと
+  // 同じロジック)。SEARCH_INDEXだけを見ていると、nostion-memory.htmlを訪問しても
+  // 「学院の秘密」欄・進捗の分母に出てこないバグがあったため(2026-07-29 ユーザー報告)。
   function renderMemorySection() {
     if (!memorySection || !window.CodexProgress) { return; }
     var progress = window.CodexProgress.load();
@@ -60,9 +71,10 @@
     memorySection.hidden = !achieved;
     if (!achieved) { return; }
 
-    var hiddenTotal = window.SEARCH_INDEX.filter(function (e) { return e.hidden; }).length;
+    var hiddenEntries = window.SEARCH_INDEX.filter(function (e) { return e.hidden; }).concat([SELF_REFERENCE_ENTRY]);
+    var hiddenTotal = hiddenEntries.length;
     var foundHiddenCount = progress.secrets.filter(function (s) {
-      return window.SEARCH_INDEX.some(function (e) { return e.hidden && e.path === s; });
+      return hiddenEntries.some(function (e) { return e.path === s; });
     }).length;
     if (memorySecretsLabel) {
       memorySecretsLabel.textContent = '学院の秘密(' + foundHiddenCount + '/' + hiddenTotal + ')';
@@ -71,7 +83,7 @@
     if (memorySecretsList) {
       memorySecretsList.innerHTML = '';
       progress.secrets.forEach(function (path) {
-        var entry = window.SEARCH_INDEX.filter(function (e) { return e.hidden && e.path === path; })[0];
+        var entry = hiddenEntries.filter(function (e) { return e.path === path; })[0];
         if (!entry) { return; }
         var li = document.createElement('li');
         var a = document.createElement('a');

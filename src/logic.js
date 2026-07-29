@@ -56,11 +56,18 @@ export function carouselPrevIndex(current, total) {
 // サイト内検索: クエリに一致するページをタイトル・カテゴリ・keywords(あれば)の
 // 部分一致で絞り込む。keywordsは正式名称(title)とは別に複数の言い回しでも
 // ヒットさせるための隠しフィールド(docs/ARG-DESIGN.md 2-1節)。
+// entry.exactMatch が true の場合のみ、部分一致ではなくtitle/category/keywordsの
+// いずれかとの完全一致を要求する(謎解きの合言葉が、答えの一部を入力しただけで
+// 偶然ヒットしてしまうのを防ぐため。2026-07-29 ユーザー指摘)。
 export function filterSearchIndex(query, index) {
   var q = (query || '').trim().toLowerCase();
   if (!q) { return []; }
   return index.filter(function (entry) {
     var keywords = entry.keywords || [];
+    if (entry.exactMatch) {
+      var candidates = [entry.title, entry.category].concat(keywords);
+      return candidates.some(function (c) { return c.toLowerCase() === q; });
+    }
     var haystack = (entry.title + ' ' + entry.category + ' ' + keywords.join(' ')).toLowerCase();
     return haystack.indexOf(q) !== -1;
   });
@@ -125,4 +132,14 @@ export function isCodexSelfReferenceQuery(query) {
   var q = (query || '').trim();
   if (!q) { return false; }
   return q.indexOf('私') !== -1 || q.indexOf('ノスティオン') !== -1;
+}
+
+// 「学院の秘密」欄で使う隠しページ一覧を構築する(2026-07-29 バグ修正)。
+// searchIndexのhiddenエントリに加え、SEARCH_INDEXには登録されていない特別な
+// エントリ(P91の自己言及トリガー用SELF_REFERENCE_ENTRY等、通常検索でヒット
+// させたくないもの)もextraEntriesとして合流させる。これにより、そうした
+// ページを訪問しても「学院の秘密」欄・進捗の分母から漏れなくなる。
+export function buildHiddenEntryList(searchIndex, extraEntries) {
+  var hidden = searchIndex.filter(function (e) { return e.hidden; });
+  return hidden.concat(extraEntries || []);
 }
