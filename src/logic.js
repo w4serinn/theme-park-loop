@@ -343,3 +343,51 @@ export function isMoonGrassWrongCandidate(query) {
 export function shouldShowHintLink(visitedPaths) {
   return (visitedPaths || []).length > 0;
 }
+
+// 学院祭・行事: 次回開催日までのカウントダウン表示(2026-07-30、
+// 「今後のタスク候補」より実装)。8行事の日付表記は「第1土曜」「最終週末」
+// 「新月の夜」等、曜日・月相に依存する表現がほとんどで、単純な月日の
+// 固定値では表せない。weekday: 0=日曜〜6=土曜。
+
+// 指定した年月のn番目のweekday(例: 4月第1土曜)を返す。
+export function nthWeekdayOfMonth(year, month, weekday, n) {
+  var firstOfMonth = new Date(year, month - 1, 1);
+  var offset = (weekday - firstOfMonth.getDay() + 7) % 7;
+  var day = 1 + offset + (n - 1) * 7;
+  return new Date(year, month - 1, day);
+}
+
+// 指定した年月の最終weekday(例: 7月最終週末→最終土曜)を返す。
+export function lastWeekdayOfMonth(year, month, weekday) {
+  var lastOfMonth = new Date(year, month, 0);
+  var offset = (lastOfMonth.getDay() - weekday + 7) % 7;
+  return new Date(year, month - 1, lastOfMonth.getDate() - offset);
+}
+
+// rule.type: 'fixed'(month/day固定) | 'nth-weekday'(month/weekday/n) |
+// 'last-weekday'(month/weekday)。「中旬3日間」「新月の夜」等、曜日にも
+// 月相にも還元できない表現は、開催期間内の代表日を`fixed`として近似する
+// (`docs/ROADMAP.md`「### 16」参照)。
+export function resolveEventDate(rule, year) {
+  if (rule.type === 'nth-weekday') {
+    return nthWeekdayOfMonth(year, rule.month, rule.weekday, rule.n);
+  }
+  if (rule.type === 'last-weekday') {
+    return lastWeekdayOfMonth(year, rule.month, rule.weekday);
+  }
+  return new Date(year, rule.month - 1, rule.day);
+}
+
+// 今年の開催日が既に過ぎていれば来年の開催日へ繰り越し、todayからの
+// 残り日数を返す(当日なら0)。todayは時刻を含んでいてもよい(日付部分
+// のみで比較する)。
+export function daysUntilNextEvent(rule, today) {
+  var year = today.getFullYear();
+  var todayMidnight = new Date(year, today.getMonth(), today.getDate());
+  var candidate = resolveEventDate(rule, year);
+  if (candidate < todayMidnight) {
+    candidate = resolveEventDate(rule, year + 1);
+  }
+  var msPerDay = 24 * 60 * 60 * 1000;
+  return Math.round((candidate.getTime() - todayMidnight.getTime()) / msPerDay);
+}

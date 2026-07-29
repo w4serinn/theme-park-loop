@@ -6,7 +6,8 @@ import {
   isMoonGrassWrongCandidate,
   TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex,
   filterSearchIndex, MIN_SEARCH_QUERY_LENGTH, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
-  isSearchEntryUnlocked, isCodexSelfReferenceQuery
+  isSearchEntryUnlocked, isCodexSelfReferenceQuery,
+  nthWeekdayOfMonth, lastWeekdayOfMonth, resolveEventDate, daysUntilNextEvent
 } from '../src/logic.js';
 
 describe('TICKET_PRICES', () => {
@@ -614,6 +615,77 @@ describe('isMoonGrassWrongCandidate', () => {
 
   test('does not require any prior page visit (unlike isNostionMemoryWrongCandidate)', () => {
     expect(isMoonGrassWrongCandidate('月光草')).toBe(true);
+  });
+});
+
+describe('nthWeekdayOfMonth', () => {
+  test('finds the 1st Monday of January 2024 (Jan 1, 2024 is itself a Monday)', () => {
+    const result = nthWeekdayOfMonth(2024, 1, 1, 1);
+    expect(result.getFullYear()).toBe(2024);
+    expect(result.getMonth()).toBe(0);
+    expect(result.getDate()).toBe(1);
+  });
+
+  test('finds the 1st Saturday of April 2026 (April 1, 2026 is a Wednesday)', () => {
+    const result = nthWeekdayOfMonth(2026, 4, 6, 1);
+    expect(result.getDay()).toBe(6);
+    expect(result.getMonth()).toBe(3);
+    expect(result.getDate()).toBeGreaterThanOrEqual(1);
+    expect(result.getDate()).toBeLessThanOrEqual(7);
+  });
+});
+
+describe('lastWeekdayOfMonth', () => {
+  test('finds the last Monday of January 2024', () => {
+    const result = lastWeekdayOfMonth(2024, 1, 1);
+    expect(result.getDay()).toBe(1);
+    expect(result.getDate()).toBe(29);
+  });
+
+  test('finds the last Saturday of July', () => {
+    const result = lastWeekdayOfMonth(2026, 7, 6);
+    expect(result.getDay()).toBe(6);
+    expect(result.getMonth()).toBe(6);
+  });
+});
+
+describe('resolveEventDate', () => {
+  test('resolves a fixed month/day rule', () => {
+    const result = resolveEventDate({ type: 'fixed', month: 1, day: 1 }, 2026);
+    expect(result.getMonth()).toBe(0);
+    expect(result.getDate()).toBe(1);
+  });
+
+  test('resolves an nth-weekday rule', () => {
+    const result = resolveEventDate({ type: 'nth-weekday', month: 4, weekday: 6, n: 1 }, 2026);
+    expect(result.getDay()).toBe(6);
+  });
+
+  test('resolves a last-weekday rule', () => {
+    const result = resolveEventDate({ type: 'last-weekday', month: 7, weekday: 6 }, 2026);
+    expect(result.getDay()).toBe(6);
+  });
+});
+
+describe('daysUntilNextEvent', () => {
+  test('returns 0 when today is the event day', () => {
+    const today = new Date(2026, 0, 1);
+    expect(daysUntilNextEvent({ type: 'fixed', month: 1, day: 1 }, today)).toBe(0);
+  });
+
+  test('returns a positive count when the event is still ahead this year', () => {
+    const today = new Date(2025, 11, 31);
+    expect(daysUntilNextEvent({ type: 'fixed', month: 1, day: 1 }, today)).toBe(1);
+  });
+
+  test('rolls over to next year once this year\'s date has passed', () => {
+    const today = new Date(2026, 0, 2);
+    expect(daysUntilNextEvent({ type: 'fixed', month: 1, day: 1 }, today)).toBe(364);
+  });
+
+  test('ignores time-of-day when comparing dates', () => {
+    const today = new Date(2026, 0, 1, 23, 59);
+    expect(daysUntilNextEvent({ type: 'fixed', month: 1, day: 1 }, today)).toBe(0);
   });
 });
 
