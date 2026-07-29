@@ -202,3 +202,25 @@ export function buildSecretsTree(hiddenEntries, visitedPaths) {
 
   return roots;
 }
+
+// 「手にした断片」欄の表示用データを組み立てる(2026-07-29 ユーザー指摘)。
+// 各断片は元々foundAt(ギミック元のページのpath)を持っているが、これまで
+// 表示していなかった。hiddenEntriesからfoundAtに対応するタイトルを引いて
+// 添えることで、PGATEで「あ、これ覚えてる」と振り返れるようにする。
+// 対応するエントリが見つからない場合(データ不整合等)はsourceTitle/
+// sourcePathをnullにし、表示自体は継続する。
+export function buildFragmentDisplayList(fragments, names, hiddenEntries) {
+  var byPath = {};
+  hiddenEntries.forEach(function (e) { byPath[e.path] = e; });
+
+  return fragments.map(function (f) {
+    var source = byPath[f.foundAt];
+    return {
+      id: f.id,
+      name: names[f.id] || f.id,
+      used: f.used,
+      sourcePath: source ? source.path : null,
+      sourceTitle: source ? source.title : null
+    };
+  });
+}

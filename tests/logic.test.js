@@ -1,6 +1,6 @@
 import { test, expect, describe } from 'vitest';
 import {
-  buildHiddenEntryList, filterUnlockedHints, buildSecretsTree,
+  buildHiddenEntryList, filterUnlockedHints, buildSecretsTree, buildFragmentDisplayList,
   TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex,
   filterSearchIndex, MIN_SEARCH_QUERY_LENGTH, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
   isSearchEntryUnlocked, isCodexSelfReferenceQuery
@@ -371,5 +371,45 @@ describe('buildSecretsTree', () => {
   test('multiple unrelated roots stay separate', () => {
     const tree = buildSecretsTree(hiddenEntries, ['A.html', 'D.html']);
     expect(tree.map((n) => n.path).sort()).toEqual(['A.html', 'D.html']);
+  });
+});
+
+describe('buildFragmentDisplayList', () => {
+  const names = { F1: '刻の断片', F2: '記帳の断片' };
+  const hiddenEntries = [
+    { path: 'glossary/gear-cipher.html', title: '光る符丁の正体', hidden: true },
+    { path: 'glossary/shooting-star.html', title: '流れ星、という言葉', hidden: true }
+  ];
+
+  test('attaches the source page title from foundAt', () => {
+    const fragments = [{ id: 'F1', foundAt: 'glossary/gear-cipher.html', used: false }];
+    const result = buildFragmentDisplayList(fragments, names, hiddenEntries);
+    expect(result).toEqual([{
+      id: 'F1', name: '刻の断片', used: false,
+      sourcePath: 'glossary/gear-cipher.html', sourceTitle: '光る符丁の正体'
+    }]);
+  });
+
+  test('falls back to the raw id when no display name is registered', () => {
+    const fragments = [{ id: 'F99', foundAt: 'glossary/gear-cipher.html', used: false }];
+    const result = buildFragmentDisplayList(fragments, names, hiddenEntries);
+    expect(result[0].name).toBe('F99');
+  });
+
+  test('leaves sourcePath/sourceTitle null when foundAt has no matching entry', () => {
+    const fragments = [{ id: 'F1', foundAt: 'glossary/unknown.html', used: false }];
+    const result = buildFragmentDisplayList(fragments, names, hiddenEntries);
+    expect(result[0].sourcePath).toBeNull();
+    expect(result[0].sourceTitle).toBeNull();
+  });
+
+  test('preserves the used flag', () => {
+    const fragments = [{ id: 'F2', foundAt: 'glossary/shooting-star.html', used: true }];
+    const result = buildFragmentDisplayList(fragments, names, hiddenEntries);
+    expect(result[0].used).toBe(true);
+  });
+
+  test('returns an empty array for no fragments', () => {
+    expect(buildFragmentDisplayList([], names, hiddenEntries)).toEqual([]);
   });
 });

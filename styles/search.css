@@ -193,6 +193,23 @@
   text-decoration: line-through;
 }
 
+/* 「手にした断片」欄に、獲得元のギミックページへのリンクを添える
+   (2026-07-29 ユーザー指摘。PGATEで解読方法を思い出す手がかりにするため)。 */
+.codex-memory__fragment-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.codex-memory__fragment-source {
+  font-size: 0.72rem;
+  color: color-mix(in oklch, var(--brass) 55%, transparent);
+}
+
+.codex-memory__fragment-source:hover {
+  color: var(--ember);
+}
+
 /* 「学院の秘密」欄のツリー表示(2026-07-29 ユーザー指摘)。子を持つノードは
    <details>で折りたためるようにする。 */
 .codex-memory__tree-node > .codex-memory__tree-toggle {

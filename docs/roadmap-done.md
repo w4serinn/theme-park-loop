@@ -1060,3 +1060,22 @@
       `src/search.js`の`render`側で、自己言及トリガー(「私」等1文字)は
       文字数制限の対象外にしつつ、それ以外の短すぎるクエリには
       「もう少し詳しく入力してください。」という案内を表示するようにした。
+- [x] (M) 「手にした断片」欄に、その断片獲得に使ったギミック元のページを
+      記録・表示(2026-07-29 ユーザー指摘)。各断片は元々`foundAt`(獲得元
+      ページのpath)を持っていたが表示していなかった。`src/logic.js`に
+      純粋関数`buildFragmentDisplayList(fragments, names, hiddenEntries)`を
+      新設(テスト5件)し、`foundAt`から対応するページのタイトルを引いて
+      添える。`src/search.js`に同じロジックを複製し、断片名の下に獲得元
+      ページへのリンク(`.codex-memory__fragment-source`)を表示する形に変更。
+- [x] (M) 断片を新しく獲得した瞬間が分かる演出を追加(2026-07-29 ユーザー
+      指摘: 「今なんかそのページを読んで、戻ったらなんか増えてる」→明らかに
+      何か進んだとわかる演出が欲しい)。各断片到達先ページの個別スクリプト
+      (`gear-cipher.js`・`shooting-star.js`・`yorishiro-echo.js`)を廃止し、
+      共通の`src/fragment-effect.js`に統合(`data-fragment-id`/
+      `data-found-at`属性で対象を指定するスクリプトタグ経由で読み込む)。
+      `addFragment`呼び出し前に既に断片を持っているかを確認し、新規獲得時
+      のみ画面上部に演出バナーを表示(既存断片への再訪問時には出さない)。
+      演出は二重の魔法陣が一度だけstroke描画で浮かび上がり、文言とともに
+      フェードイン/アウトする形にした(回転し続けるスピナー等の量産型演出は
+      避けた)。`prefers-reduced-motion`では stroke描画を省略し単純な
+      フェードのみにする。`styles/glossary.css`に`.fragment-effect*`を新設。

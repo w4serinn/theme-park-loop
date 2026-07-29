@@ -134,6 +134,24 @@
     });
   }
 
+  // 「手にした断片」欄の表示用データを組み立てる(src/logic.jsの
+  // buildFragmentDisplayListと同じロジック。2026-07-29 ユーザー指摘)。
+  function buildFragmentDisplayList(fragments, names, hiddenEntries) {
+    var byPath = {};
+    hiddenEntries.forEach(function (e) { byPath[e.path] = e; });
+
+    return fragments.map(function (f) {
+      var source = byPath[f.foundAt];
+      return {
+        id: f.id,
+        name: names[f.id] || f.id,
+        used: f.used,
+        sourcePath: source ? source.path : null,
+        sourceTitle: source ? source.title : null
+      };
+    });
+  }
+
   // 「これまでの記録」セクションの表示・内容を、現在のlocalStorageの状態から作る。
   // P91未達成の間は非表示のまま(docs/ARG-DESIGN.md 4-7節)。
   //
@@ -166,10 +184,23 @@
     if (memoryFragmentsList) {
       memoryFragmentsList.innerHTML = '';
       var names = window.FRAGMENT_NAMES || {};
-      progress.fragments.forEach(function (fragment) {
+      var fragmentList = buildFragmentDisplayList(progress.fragments, names, hiddenEntries);
+      fragmentList.forEach(function (fragment) {
         var li = document.createElement('li');
-        li.textContent = names[fragment.id] || fragment.id;
-        if (fragment.used) { li.className = 'codex-memory__fragment--used'; }
+        li.className = 'codex-memory__fragment-item' + (fragment.used ? ' codex-memory__fragment--used' : '');
+
+        var label = document.createElement('span');
+        label.textContent = fragment.name;
+        li.appendChild(label);
+
+        if (fragment.sourcePath) {
+          var sourceLink = document.createElement('a');
+          sourceLink.className = 'codex-memory__fragment-source';
+          sourceLink.href = base + fragment.sourcePath;
+          sourceLink.textContent = fragment.sourceTitle;
+          li.appendChild(sourceLink);
+        }
+
         memoryFragmentsList.appendChild(li);
       });
     }
