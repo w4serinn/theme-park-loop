@@ -53,33 +53,8 @@ evolveループはこの方針を毎サイクル遵守すること:
 
 ## バグ修正(最優先 — 通常機能より先に上から順に着手する)
 
-> お知らせ: 学院創立者および歴代学長の役職表記に誤りや揺れが見つかった箇所を、
-> 順次修繕いたしました。
-
-- [x] (S) `pages/shop/library-shop.html`の「複製羊皮紙写本『創魔の書より』」
-      商品説明が、アルノルド卿を「第三代学院長」と表記している(2026-07-29
-      P104実装中に発見)。他の全ページ(`pages/index.html`「エルンスト・
-      フォン・アルノルド卿は…学院の礎石を置いた」、
-      `pages/exploration/alchemy-tower.html`「創立者アルノルド卿」、
-      `pages/exploration/clock-tower.html`「創立者アルノルド卿」、
-      `pages/exploration/dueling-ground.html`「創立者アルノルド卿」、
-      `pages/glossary/perpetual-motion.html`「学院創立者アルノルド卿」等)
-      では一貫して「創立者(初代)」として扱われており、「第三代学院長」
-      表記はこれと矛盾する世界観の不整合だった。`library-shop.html`側の
-      表記を「創立者アルノルド卿」に修正して解消した。
-- [x] (S) 学院トップの役職名が「学長」「学院長」で表記ゆれしている
-      (2026-07-29 P28実装中に発見)。`pages/exploration/dueling-ground.html`
-      「初代学長」、`pages/exploration/observatory.html`「第2代学長
-      フローラ・シルヴァーン」、`pages/glossary/first-astronomer.html`
-      「第2代学長フローラ・シルヴァーン」の3ファイルでは「学長」表記に
-      統一されている一方、`pages/shop/library-shop.html`「第二代学院長」、
-      `pages/glossary/erased-champion.html`「学院長」、
-      `pages/glossary/koku-trio.html`「学院長」の3ファイルは「学院長」
-      表記だった(いずれも代替わりの序数や文脈から同一の役職を指している)。
-      多数派かつ`observatory.html`本文の主要設定と直結する「学長」を正式
-      表記とみなし、後者3ファイルを「学長」表記に統一(`library-shop.html`
-      はあわせて序数も漢数字「第二代」から他ページと同じ算用数字
-      「第2代」に統一)して解消した。
+(現在、未対応のバグ無し。解消済みの項目は`docs/roadmap-done.md`「## バグ修正
+(解消済み)」参照)
 
 ## 新規ページ提案(承認待ち — 承認されたら下の「ページ一覧」に移動する)
 

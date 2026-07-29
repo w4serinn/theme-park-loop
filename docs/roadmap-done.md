@@ -12,6 +12,32 @@
 
 ## バグ修正(解消済み)
 
+- [x] (S) `pages/shop/library-shop.html`の「複製羊皮紙写本『創魔の書より』」
+      商品説明が、アルノルド卿を「第三代学院長」と表記している(2026-07-29
+      P104実装中に発見)。他の全ページ(`pages/index.html`「エルンスト・
+      フォン・アルノルド卿は…学院の礎石を置いた」、
+      `pages/exploration/alchemy-tower.html`「創立者アルノルド卿」、
+      `pages/exploration/clock-tower.html`「創立者アルノルド卿」、
+      `pages/exploration/dueling-ground.html`「創立者アルノルド卿」、
+      `pages/glossary/perpetual-motion.html`「学院創立者アルノルド卿」等)
+      では一貫して「創立者(初代)」として扱われており、「第三代学院長」
+      表記はこれと矛盾する世界観の不整合だった。`library-shop.html`側の
+      表記を「創立者アルノルド卿」に修正して解消した。
+
+- [x] (S) 学院トップの役職名が「学長」「学院長」で表記ゆれしている
+      (2026-07-29 P28実装中に発見)。`pages/exploration/dueling-ground.html`
+      「初代学長」、`pages/exploration/observatory.html`「第2代学長
+      フローラ・シルヴァーン」、`pages/glossary/first-astronomer.html`
+      「第2代学長フローラ・シルヴァーン」の3ファイルでは「学長」表記に
+      統一されている一方、`pages/shop/library-shop.html`「第二代学院長」、
+      `pages/glossary/erased-champion.html`「学院長」、
+      `pages/glossary/koku-trio.html`「学院長」の3ファイルは「学院長」
+      表記だった(いずれも代替わりの序数や文脈から同一の役職を指している)。
+      多数派かつ`observatory.html`本文の主要設定と直結する「学長」を正式
+      表記とみなし、後者3ファイルを「学長」表記に統一(`library-shop.html`
+      はあわせて序数も漢数字「第二代」から他ページと同じ算用数字
+      「第2代」に統一)して解消した。
+
 - [x] (S) 中庭の大魔法陣の直径表記が不一致(2026-07-28、ARG語彙棚卸し中に発見)。
       `pages/index.html`(学院の3大体験セクション)では「直径20mの大魔法陣」、
       `pages/exploration/summoning-plaza.html`では「大魔法陣『刻の輪』…直径30mの
