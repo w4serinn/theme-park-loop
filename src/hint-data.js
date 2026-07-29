@@ -11,43 +11,43 @@
 //   ヒント対象拡大)。
 // - requiresPage: このヒントを解禁する条件(「学院の秘密」に持っているべき
 //   ページ、複数候補ある場合はいずれか1つでOKのOR判定)。文字列またはstring[]。
-// - hintFor: このヒントが「何についてのヒントか」を表すページ(見出しに
-//   このページのタイトルを使う。src/logic.jsのresolveHintPageTitle参照)。
-//   暗号解読型(その場にある符丁を解読するタイプ)はrequiresPageと同じページ
-//   (今まさに詰まっているそのページ自身)になるが、発見の連鎖型(次に何を
-//   検索すればいいか分からないタイプ)ではrequiresPageと異なる
-//   (requiresPage=既に訪問済みの前段ページ、hintFor=まだ見ぬ次のページ)
-//   ことに注意(2026-07-29 ユーザー指摘により両者を分離。以前はrequiresPageを
-//   見出しにも流用しており、発見の連鎖型ヒントで見出しと本文の指す先が
-//   食い違っていた)。
+//   root行(前提となる隠しページが存在しない)は省略する。
+// - hintFor: 見出しに使う「手がかりを探しに戻るべきページ」(このヒントが
+//   何についてのヒントかを示す)。**答え(まだ見ぬ次のページ)を指しては
+//   ならない**。プレイヤーが既に持っている情報(訪問済みの隠しページ、または
+//   誰でも読める通常ページ)だけを指すこと。暗号解読型(F1/F2/F13)は
+//   requiresPageと同じ(今まさに詰まっているそのページ自身)。発見の連鎖型は
+//   requiresPageと同じ値(既に訪問済みの前段ページ)。root行はrequiresPageを
+//   持たないため、代わりに手がかりの文言が実際に書かれている通常ページ
+//   (guide/index.htmlなど)を指す(2026-07-29 ユーザー指摘・修正: 一度は
+//   「まだ見ぬ次のページ」をhintForにしていたが、それではページタイトルの
+//   表示自体が答えを丸ごと明かしてしまう[検索窓にそのまま打てば見つかる]
+//   という重大な後退だった。全エントリでhintFor=「安全に開示できる、既に
+//   持っている情報」に統一し直した)。
 // - hint: 本文からは取り除いた、解ければ嬉しい程度の軽いヒント。
-//
-// root行(通常ページから直接見つかるページ)には前提となる隠しページが
-// 存在しないため、requiresPageを省略している(常に解禁済み扱い。
-// src/logic.jsのfilterUnlockedHints参照。2026-07-29 ユーザー指摘により追加)。
 window.HINT_DATA = [
   {
-    hintFor: 'glossary/mythical-creatures.html',
+    hintFor: 'guide/index.html',
     hint: '学院を案内してくれる、生き物たちがいるという話を聞いたことがあります。学院案内のページをもう一度覗いてみてはどうでしょう。'
   },
   {
-    hintFor: 'glossary/perpetual-motion.html',
+    hintFor: 'exploration/clock-tower.html',
     hint: '時計塔の中枢には、魔力の補給なしで動き続ける仕掛けがあるという話です。塔の主要機構についての記述を探してみてください。'
   },
   {
-    hintFor: 'glossary/starmap-fragments.html',
+    hintFor: 'exploration/observatory.html',
     hint: '天文台に伝わる星座の呼び方は、一般的なものとは少し違うという噂です。天文台のページをじっくり読んでみてください。'
   },
   {
-    hintFor: 'glossary/dueling-champions.html',
+    hintFor: 'shop/dueling-shop.html',
     hint: '決闘演武場にまつわる、歴代の優勝者の記録が残されているそうです。決闘関連の売店のページを覗いてみてください。'
   },
   {
-    hintFor: 'glossary/time-ring-record.html',
+    hintFor: 'exploration/summoning-plaza.html',
     hint: '魔法陣召喚広場には、創立以来使われ続けている大きな仕掛けがあるようです。広場の設備についての記述を確かめてみてください。'
   },
   {
-    hintFor: 'glossary/time-ledger.html',
+    hintFor: 'exploration/clock-tower.html',
     hint: '時計塔には、稼働記録を代々書き継ぐ台帳もあるそうです。同じ塔の主要機構についての記述を、もう一度確かめてみてください。'
   },
   {
@@ -70,27 +70,27 @@ window.HINT_DATA = [
   },
   {
     requiresPage: 'glossary/perpetual-motion.html',
-    hintFor: 'glossary/apprentice-notes.html',
+    hintFor: 'glossary/perpetual-motion.html',
     hint: '永久運動術式を陰で支える技師たちは、いったいどこで日々の作業をしているのでしょうか。その場所についての記述に、もう一度目を通してみてください。'
   },
   {
     requiresPage: ['glossary/mythical-creatures.html', 'glossary/starmap-fragments.html'],
-    hintFor: 'glossary/first-astronomer.html',
+    hintFor: ['glossary/mythical-creatures.html', 'glossary/starmap-fragments.html'],
     hint: 'この学院の歴史を作った、ある人物の名前。生き物たちの記録にも、星々の記録にも、思いがけないところで刻まれているようです。'
   },
   {
     requiresPage: 'glossary/first-astronomer.html',
-    hintFor: 'glossary/final-entry.html',
+    hintFor: 'glossary/first-astronomer.html',
     hint: 'ある天文官が几帳面に付け続けていたという、あの記録の存在を思い出してみてください。'
   },
   {
     requiresPage: 'glossary/dueling-champions.html',
-    hintFor: 'glossary/erased-champion.html',
+    hintFor: 'glossary/dueling-champions.html',
     hint: '公式に語られなかった決闘の記録にも、何か短い言葉が残されているかもしれません。'
   },
   {
     requiresPage: ['glossary/time-ring-record.html', 'glossary/time-ledger.html'],
-    hintFor: 'glossary/time-bell.html',
+    hintFor: ['glossary/time-ring-record.html', 'glossary/time-ledger.html'],
     hint: '「刻」の字を冠する装置は、広場にも塔にも一つずつあったはず。もう一つ、同じ字を持つものについての噂を、思い出してみてください。'
   }
 ];

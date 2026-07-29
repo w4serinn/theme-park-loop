@@ -14,7 +14,12 @@
 // (同じ文言のお知らせが日付違いの番号で何件も並ぶのを防ぐため)。
 
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
-import { getNewlyCompletedPages, getBugfixResolutionNews, isPageAlreadyRecorded } from "./roadmap-utils.js";
+import {
+  getNewlyCompletedPages,
+  getBugfixResolutionNews,
+  isPageAlreadyRecorded,
+  upsertBugfixNewsEntry
+} from "./roadmap-utils.js";
 
 const NEWS_PATH = "data/news.json";
 
@@ -42,28 +47,7 @@ for (const { number, title, introText } of toAdd) {
 }
 
 const bugfixNews = getBugfixResolutionNews();
-let bugfixChanged = false;
-if (bugfixNews) {
-  const todayBugfixEntry = news.find((entry) => entry.type === "bugfix" && entry.number === `bugfix-${date}`);
-  if (todayBugfixEntry) {
-    const existingItems = new Set(todayBugfixEntry.items || []);
-    const newItems = bugfixNews.resolvedItems.filter((item) => !existingItems.has(item));
-    if (newItems.length > 0) {
-      todayBugfixEntry.items = [...(todayBugfixEntry.items || []), ...newItems];
-      bugfixChanged = true;
-    }
-  } else {
-    news.push({
-      date,
-      number: `bugfix-${date}`,
-      title: bugfixNews.title,
-      note: bugfixNews.note,
-      type: "bugfix",
-      items: bugfixNews.resolvedItems
-    });
-    bugfixChanged = true;
-  }
-}
+const bugfixChanged = bugfixNews ? upsertBugfixNewsEntry(news, bugfixNews, date) : false;
 
 if (toAdd.length === 0 && !bugfixChanged) {
   console.log("追記対象はありません(対象なし、または既に記録済み)");

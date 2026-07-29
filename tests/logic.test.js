@@ -1,6 +1,6 @@
 import { test, expect, describe } from 'vitest';
 import {
-  buildHiddenEntryList, filterUnlockedHints, resolveHintPageTitle, buildSecretsTree, buildFragmentDisplayList,
+  buildHiddenEntryList, filterUnlockedHints, resolveHintPageTitle, groupHintsByHintFor, buildSecretsTree, buildFragmentDisplayList,
   shouldShowDiscoveryBadge, isDebugResetQuery, DEBUG_RESET_QUERY, shouldShowHintLink,
   isNostionMemoryWrongCandidate, NOSTION_MEMORY_PAGE_PATH, NOSTION_MEMORY_WRONG_CANDIDATES,
   TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex,
@@ -363,6 +363,47 @@ describe('resolveHintPageTitle', () => {
     expect(resolveHintPageTitle(
       ['glossary/mythical-creatures.html', 'glossary/starmap-fragments.html'], searchIndex, extraEntries
     )).toBe('魔法生物図鑑 / 魔導88星座');
+  });
+});
+
+describe('groupHintsByHintFor', () => {
+  const searchIndex = [
+    { path: 'exploration/clock-tower.html', title: '時計塔' },
+    { path: 'guide/index.html', title: '学院案内' }
+  ];
+
+  test('keeps distinct hintFor values as separate groups', () => {
+    const hints = [
+      { hintFor: 'exploration/clock-tower.html', hint: 'hint1' },
+      { hintFor: 'guide/index.html', hint: 'hint2' }
+    ];
+    const groups = groupHintsByHintFor(hints, searchIndex, []);
+    expect(groups).toEqual([
+      { heading: '時計塔', hints: ['hint1'] },
+      { heading: '学院案内', hints: ['hint2'] }
+    ]);
+  });
+
+  test('merges entries that share the same hintFor into one group', () => {
+    const hints = [
+      { hintFor: 'exploration/clock-tower.html', hint: 'hint1' },
+      { hintFor: 'exploration/clock-tower.html', hint: 'hint2' }
+    ];
+    const groups = groupHintsByHintFor(hints, searchIndex, []);
+    expect(groups).toEqual([
+      { heading: '時計塔', hints: ['hint1', 'hint2'] }
+    ]);
+  });
+
+  test('preserves the order groups first appear in', () => {
+    const hints = [
+      { hintFor: 'guide/index.html', hint: 'hint1' },
+      { hintFor: 'exploration/clock-tower.html', hint: 'hint2' },
+      { hintFor: 'guide/index.html', hint: 'hint3' }
+    ];
+    const groups = groupHintsByHintFor(hints, searchIndex, []);
+    expect(groups.map((g) => g.heading)).toEqual(['学院案内', '時計塔']);
+    expect(groups[0].hints).toEqual(['hint1', 'hint3']);
   });
 });
 

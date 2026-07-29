@@ -14,6 +14,36 @@ const BUGFIX_SECTION_HEADING = /^##\s*バグ修正/;
 const SECTION_HEADING = /^##\s/;
 const CHECKED_ITEM_PATTERN = /^-\s*\[x\]\s*\([SML]\)\s*(.+)$/i;
 const UNCHECKED_ITEM_PATTERN = /^-\s*\[ \]\s*\([SML]\)\s*(.+)$/i;
+const NEW_BLOCK_PATTERN = /^-\s*\[[ x]\]/i;
+
+/**
+ * `> 紹介文: ...` / `> お知らせ: ...` のように、evolveループが2行以上に
+ * 折り返して書く一文を1つに連結する(2026-07-29 ユーザー報告の不具合修正:
+ * 従来は最初の1行しか読み取っておらず、2行目以降が黙って切り捨てられ、
+ * data/news.json のnoteが文の途中で途切れていた)。継続行は次の行が
+ * 空行・見出し(`#`)・新しい箇条書き項目(`- [ ]`/`- [x]`)のいずれかに
+ * 当たるまで読み進める。継続行の先頭に`>`が付いていても付いていなくても
+ * (このリポジトリでは両方の書き方が混在する)対応できるよう、連結時に
+ * 先頭の`>`があれば取り除く。
+ * 注意: バグ修正項目(`- [x] (S) ...`)の説明文には適用しない。あちらは
+ * 1行目だけを識別子として使う設計であり(origin/mainとの重複判定に使う
+ * 安定したキーが必要)、複数行を連結すると些細な文言の揺れで
+ * 「新たに解消された」と誤検出しかねないため、意図的に1行目のみを見る。
+ * @returns {{ text: string, nextIndex: number }}
+ */
+function collectWrappedLine(lines, firstLineIndex, endIndex, firstLineText) {
+  let text = firstLineText;
+  let next = firstLineIndex + 1;
+  while (next < endIndex) {
+    const trimmed = lines[next].trim();
+    if (trimmed === "") break;
+    if (SECTION_HEADING.test(trimmed) || HEADING_PATTERN.test(trimmed)) break;
+    if (NEW_BLOCK_PATTERN.test(trimmed)) break;
+    text += trimmed.replace(/^>\s*/, "");
+    next++;
+  }
+  return { text, nextIndex: next };
+}
 
 /**
  * ROADMAP.mdをパースし、ページ番号 -> {title, status, introText} のMapを返す。
@@ -35,7 +65,9 @@ export function extractPages(markdown) {
       const trimmed = lines[j].trim();
       if (trimmed === "") continue;
       const introMatch = INTRO_PATTERN.exec(trimmed);
-      if (introMatch) introText = introMatch[1].trim();
+      if (introMatch) {
+        introText = collectWrappedLine(lines, j, lines.length, introMatch[1].trim()).text;
+      }
       break; // 空行以外の最初の行だけを見る(サブタスク行なら紹介文は無い)
     }
 
@@ -149,7 +181,9 @@ export function extractBugfixSection(markdown) {
     const trimmed = lines[j].trim();
     if (trimmed === "") continue;
     const noteMatch = BUGFIX_NOTE_PATTERN.exec(trimmed);
-    if (noteMatch) note = noteMatch[1].trim();
+    if (noteMatch) {
+      note = collectWrappedLine(lines, j, end, noteMatch[1].trim()).text;
+    }
     break; // 空行以外の最初の行だけを見る(サブタスク行ならお知らせ文は無い)
   }
 
@@ -191,6 +225,39 @@ export function getBugfixResolutionNews() {
     note: branch.note || "学院内の一部設備に不具合が見つかり、修繕いたしました。",
     resolvedItems: newlyResolved
   };
+}
+
+/**
+ * data/news.json の配列(news、破壊的に更新する)へ、バグ解消のお知らせを
+ * 追記または更新する。同じ日付の`bugfix-YYYY-MM-DD`エントリが既にあれば、
+ * 未記録のitemsだけを追記し、noteも常に最新の文言で上書きする(2026-07-29
+ * ユーザー報告の不具合修正: 従来はnoteを追記時に更新しておらず、同じ日に
+ * 複数回バグ解消が検出されると、その日最初の解消時点のお知らせ文が
+ * 固定表示され続けていた)。エントリが無ければ新規追加する。
+ * @param {any[]} news 破壊的に更新される
+ * @param {{ title: string, note: string, resolvedItems: string[] }} bugfixNews
+ * @param {string} date YYYY-MM-DD
+ * @returns {boolean} newsを変更したか
+ */
+export function upsertBugfixNewsEntry(news, bugfixNews, date) {
+  const todayBugfixEntry = news.find((entry) => entry.type === "bugfix" && entry.number === `bugfix-${date}`);
+  if (todayBugfixEntry) {
+    const existingItems = new Set(todayBugfixEntry.items || []);
+    const newItems = bugfixNews.resolvedItems.filter((item) => !existingItems.has(item));
+    if (newItems.length === 0) return false;
+    todayBugfixEntry.items = [...(todayBugfixEntry.items || []), ...newItems];
+    todayBugfixEntry.note = bugfixNews.note;
+    return true;
+  }
+  news.push({
+    date,
+    number: `bugfix-${date}`,
+    title: bugfixNews.title,
+    note: bugfixNews.note,
+    type: "bugfix",
+    items: bugfixNews.resolvedItems
+  });
+  return true;
 }
 
 /**
