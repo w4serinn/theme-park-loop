@@ -187,9 +187,9 @@ P番号ページの`title`/`keywords`を決める際、これら2語を単体ま
 | P2 | root | `exploration/clock-tower.html`「彼が考案した『永久運動術式』により」 | — | — | 実装済み(`pages/glossary/perpetual-motion.html`) |
 | P3 | root | `exploration/observatory.html`「『魔導88星座』と一般的な星座とは配置が異なる」 | — | — | 実装済み(`pages/glossary/starmap-fragments.html`) |
 | P4 | root | `shop/dueling-shop.html`「歴代決闘王」公式記念帖、`shop/index.html`「観戦歴50年の老店主が選ぶ…歴代決闘王の記念帖」 | — | — | 実装済み(`pages/glossary/dueling-champions.html`) |
-| P5 | fragment | P2(`glossary/perpetual-motion.html`の独り言「修繕工房には…研究し続ける学生」) | F1(刻の断片、→扉) | — | 実装済み(`pages/glossary/apprentice-notes.html`)。P2に追加した「フィンレー式記譜法」(記号↔音の対応表)を使って手記内の記号を解読し、「HAGURUMA」を検索して初めて到達する実装済み(`pages/glossary/gear-cipher.html`)で獲得(2026-07-29 答えを本文に直接書かない方式に作り直し。exactMatch設定済み) |
+| P5 | fragment | P2(`glossary/perpetual-motion.html`の独り言「修繕工房には…研究し続ける学生」) | F1(刻の断片、→扉) | — | 実装済み(`pages/glossary/apprentice-notes.html`)。P2に追加した「フィンレー式記譜法」(1記号=1アルファベットの対応表、ダミー含む12種)を使って手記内の8記号(歯車8枚歯)を解読すると読み「haguruma」になり、そこから連想される単語「歯車」を検索して初めて到達する実装済み(`pages/glossary/gear-cipher.html`)で獲得(2026-07-29 対応表を1記号=1モーラから1記号=1アルファベット+ダミー拡充に訂正、答えもローマ字「HAGURUMA」から自然な単語「歯車」に訂正。exactMatch設定済み) |
 | P6 | flavor | P3, P1(両ページの本文に「シベル・オーレン」という人物名を追記して接続) | — | — | 実装済み(`pages/glossary/first-astronomer.html`) |
-| P7 | fragment | P6(`glossary/first-astronomer.html`の「観測記録帳」) | F2(記帳の断片、→P21で使用) | — | 実装済み(`pages/glossary/final-entry.html`)。P6に追加した「観測日誌、書き出しの癖」(4つの書き出し文の一覧)と、頁に書き足された印(一つ目〜四つ目の位置指定)を突き合わせ、各書き出しの頭文字を並べて「MODORIBA」を検索して初めて到達する実装済み(`pages/glossary/return-mark.html`)で獲得(2026-07-29 対応表方式[P5]とは異なる位置・配置方式に作り直し。exactMatch設定済み) |
+| P7 | fragment | P6(`glossary/first-astronomer.html`の「観測記録帳」) | F2(記帳の断片、→P21で使用) | — | 実装済み(`pages/glossary/final-entry.html`)。P6に追加した「観測日誌、書き出しの癖」(4つの書き出し文の一覧)と、頁に書き足された印(一つ目〜四つ目の位置指定)を突き合わせ、各書き出しの頭文字を並べて「もどりば」を検索して初めて到達する実装済み(`pages/glossary/return-mark.html`)で獲得(2026-07-29 対応表方式[P5]とは異なる位置・配置方式に作り直し。答えは一時ローマ字「MODORIBA」にしていたが、自然な単語[ひらがな「もどりば」]に訂正。exactMatch設定済み) |
 | P8 | flavor | P4(`glossary/dueling-champions.html`の独り言「さらに古い時代の決闘王」) | — | — | 実装済み(`pages/glossary/erased-champion.html`) |
 | P9 | flavor | P8, P24 | — | — | 未着手 |
 
