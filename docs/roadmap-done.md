@@ -819,6 +819,21 @@
       からローマ字「MODORIBA」に変更し、`return-mark.html`(タイトル含む)・
       `src/return-mark.js`のコメント・`src/search-data.js`のtitle/keywordsを
       合わせて更新、`exactMatch: true`を設定した。
+- [x] (M) P91「最初の記憶」を作り直す(2026-07-29)。P5(対応表方式)・
+      P7(位置・配置方式)のいずれとも異なる「選択・消去方式」を採用。
+      `nostion-memory.html`に3段落目を追加し、ノスティオンの古名候補として
+      『MEMORIA』『VERITAS』『ORIGO』の3つを提示。前段落までに語られた事実
+      (創立時の記録が一切無い/常に大図書館の奥にいて他所から運ばれた形跡が無い)
+      と矛盾する2候補(MEMORIA・VERITAS)を本文中の記述で自然に消去でき、
+      矛盾のない「ORIGO」だけが残る構成にした。答えを直接書かず、3つの候補と
+      その矛盾点だけを提示して読者に選ばせる点がP5・P7とは異なる。
+      断片F13(本心の断片)の獲得は、単純訪問での自動獲得(`src/nostion-memory.js`、
+      削除済み)から、「ORIGO」を検索して新設ページ`glossary/origo-echo.html`
+      (`src/origo-echo.js`が獲得を担当)に到達する形に変更。ノスティオン自身への
+      自己言及というP91固有の入口(検索欄への「私」「ノスティオン」の入力)は
+      変更していない。`src/search-data.js`にorigo-echo.htmlのエントリを追加し
+      (`exactMatch: true`、prereq: nostion-memory.html)、`docs/ARG-DESIGN.md`
+      4-3節のP91行を更新した。これでP5〜P8・P91の作り直しタスクが全て完了。
 
 ### 14. 提携宿泊施設
 

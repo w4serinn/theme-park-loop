@@ -221,7 +221,7 @@ P番号ページの`title`/`keywords`を決める際、これら2語を単体ま
 | P26 | fragment | 既存ギミック: `guide/index.html`のマスコットのセリフ | F5(→扉) | — | 未着手 |
 | P27 | fragment | 既存ギミック: `tickets/index.html`の料金シミュレーター | F6(→P32で使用) | — | 未着手 |
 | P90 | fragment | 既存ギミック: `events/index.html`の季節×エリア絞り込みで特定の組み合わせにすると出現 | F12(→扉) | — | 未着手 |
-| P91 | fragment | 既存ギミック: `pages/search.html`(物知りの魔導書「ノスティオン」)で「私」または「ノスティオン」を含む語を検索すると、通常の検索結果と同じクリック可能なカードとして出現し、専用の隠しページへ遷移する | F13(本心の断片、→扉) | — | 実装済み(`pages/glossary/nostion-memory.html`) |
+| P91 | fragment | 既存ギミック: `pages/search.html`(物知りの魔導書「ノスティオン」)で「私」または「ノスティオン」を含む語を検索すると、通常の検索結果と同じクリック可能なカードとして出現し、専用の隠しページへ遷移する | F13(本心の断片、→扉) | — | 実装済み(`pages/glossary/nostion-memory.html`)。ページ内で提示される3つの候補名(MEMORIA/VERITAS/ORIGO)のうち、本文中の矛盾から2つを消去し、残った「ORIGO」を検索して初めて到達する実装済み(`pages/glossary/origo-echo.html`)で獲得(2026-07-29 選択・消去方式に作り直し。P5[対応表方式]・P7[位置・配置方式]とは異なるギミック。exactMatch設定済み) |
 
 ### 4-4. 通常ページ発の新規ルート群(続き、断片絡み)
 
