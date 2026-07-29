@@ -1,5 +1,26 @@
 # サイクル履歴
 
+## 2026-07-29 12:32
+- タスク選定: 「バグ修正(最優先)」セクションの未対応項目
+  (「学院の秘密」欄にP91が乗らない)に着手。
+- 実装: `pages/glossary/nostion-memory.html`が`window.SEARCH_INDEX`未登録
+  (自己言及トリガー専用の`SELF_REFERENCE_ENTRY`でのみ扱われる)ため、
+  「学院の秘密」欄の描画ロジックがこのページを見つけられずスキップして
+  いたのが原因。`SEARCH_INDEX`自体は変更せず(通常検索でヒットさせたくない
+  ため)、`src/logic.js`に純粋関数`buildHiddenEntryList(searchIndex,
+  extraEntries)`を新設し、`src/search.js`の`renderMemorySection`で
+  `SEARCH_INDEX`のhiddenエントリ+`SELF_REFERENCE_ENTRY`を合流させた一覧を
+  リスト表示・進捗の分母カウント両方に使うよう修正。
+- レビュー: local-review skillを実行(手順に沿って自己レビュー)。修正が
+  `filterIndex`/`isUnlocked`(通常検索の到達可否)に影響していないこと
+  (P91は引き続き自己言及トリガー経由でのみ到達可能)を確認。世界観・
+  keywords重複無し・絶対パス無し・コアカラーのみもあわせて確認、指摘なし。
+- lint: ✓ / lint:css: ✓ / test: ✓(306件) / build: ✓
+- 次回予定: P91の合言葉候補(ラテン語)を自然な日本語に作り直すタスク、または
+  P2対応表の並び替え・レイアウト調整タスク。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-29 11:31
 - タスク選定: `### 13`から、ユーザーレビューで判明したP5(M)・P7(S)の合言葉
   訂正タスクをまとめて着手(いずれも同一レビューに起因する関連修正のため)。

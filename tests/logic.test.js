@@ -1,5 +1,6 @@
 import { test, expect, describe } from 'vitest';
 import {
+  buildHiddenEntryList,
   TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex,
   filterSearchIndex, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
   isSearchEntryUnlocked, isCodexSelfReferenceQuery
@@ -256,5 +257,28 @@ describe('isCodexSelfReferenceQuery', () => {
   test('does not match an empty query', () => {
     expect(isCodexSelfReferenceQuery('')).toBe(false);
     expect(isCodexSelfReferenceQuery('   ')).toBe(false);
+  });
+});
+
+describe('buildHiddenEntryList', () => {
+  const searchIndex = [
+    { path: 'index.html', title: 'トップ', category: 'トップページ' },
+    { path: 'glossary/a.html', title: 'A', category: '図鑑', hidden: true },
+    { path: 'glossary/b.html', title: 'B', category: '図鑑', hidden: true }
+  ];
+
+  test('includes only hidden entries from searchIndex when no extras given', () => {
+    const result = buildHiddenEntryList(searchIndex, []);
+    expect(result.map((e) => e.path)).toEqual(['glossary/a.html', 'glossary/b.html']);
+  });
+
+  test('appends extraEntries not present in searchIndex', () => {
+    const extra = { path: 'glossary/nostion-memory.html', title: '最初の記憶', category: '物知りの魔導書', hidden: true };
+    const result = buildHiddenEntryList(searchIndex, [extra]);
+    expect(result.map((e) => e.path)).toEqual(['glossary/a.html', 'glossary/b.html', 'glossary/nostion-memory.html']);
+  });
+
+  test('treats missing extraEntries as an empty list', () => {
+    expect(buildHiddenEntryList(searchIndex).map((e) => e.path)).toEqual(['glossary/a.html', 'glossary/b.html']);
   });
 });

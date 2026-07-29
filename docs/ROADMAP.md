@@ -53,7 +53,10 @@ evolveループはこの方針を毎サイクル遵守すること:
 
 ## バグ修正(最優先 — 通常機能より先に上から順に着手する)
 
-- [ ] (S) 「学院の秘密」欄にP91(ノスティオンのページ)が乗らない
+> お知らせ: ノスティオン自身にまつわる記憶が、彼女自身の「学院の秘密」の記録帳から
+> 漏れてしまうという不具合が見つかり、修繕いたしました。今後は正しく刻まれるはずです。
+
+- [x] (S) 「学院の秘密」欄にP91(ノスティオンのページ)が乗らない
       (2026-07-29 ユーザー報告)。`pages/glossary/nostion-memory.html`は
       `src/search-data.js`の`window.SEARCH_INDEX`に登録されておらず、検索欄で
       「私」「ノスティオン」と入力した際に表示される専用カードは
@@ -63,10 +66,12 @@ evolveループはこの方針を毎サイクル遵守すること:
       (`progress.secrets`)を`window.SEARCH_INDEX`から検索して見つかった
       ものだけを表示するため、nostion-memory.htmlは訪問記録自体はあるのに
       一覧に出ない。あわせて「学院の秘密(n/合計)」の分母(`hiddenTotal`)にも
-      含まれていない。`SEARCH_INDEX`にnostion-memory.htmlのエントリを追加する
-      (ただし通常検索でヒットさせる必要はなく、自己言及トリガー経由でのみ
-      到達させたいので、`SELF_REFERENCE_ENTRY`とは別に「学院の秘密」表示専用の
-      扱いが必要になる可能性がある。実装方針は着手時に検討)。
+      含まれていない。**修正**: `SEARCH_INDEX`は変更せず(通常検索でヒットさせ
+      たくないため)、`src/logic.js`に純粋関数`buildHiddenEntryList(searchIndex,
+      extraEntries)`を新設し、`src/search.js`の`renderMemorySection`で
+      `SEARCH_INDEX`のhiddenエントリ+`SELF_REFERENCE_ENTRY`を合流させた
+      `hiddenEntries`をリスト表示・分母カウント両方に使うよう変更。
+      `tests/logic.test.js`にテストを追加。
 
 ## 新規ページ提案(承認待ち — 承認されたら下の「ページ一覧」に移動する)
 

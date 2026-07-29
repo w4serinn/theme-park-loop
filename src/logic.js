@@ -133,3 +133,13 @@ export function isCodexSelfReferenceQuery(query) {
   if (!q) { return false; }
   return q.indexOf('私') !== -1 || q.indexOf('ノスティオン') !== -1;
 }
+
+// 「学院の秘密」欄で使う隠しページ一覧を構築する(2026-07-29 バグ修正)。
+// searchIndexのhiddenエントリに加え、SEARCH_INDEXには登録されていない特別な
+// エントリ(P91の自己言及トリガー用SELF_REFERENCE_ENTRY等、通常検索でヒット
+// させたくないもの)もextraEntriesとして合流させる。これにより、そうした
+// ページを訪問しても「学院の秘密」欄・進捗の分母から漏れなくなる。
+export function buildHiddenEntryList(searchIndex, extraEntries) {
+  var hidden = searchIndex.filter(function (e) { return e.hidden; });
+  return hidden.concat(extraEntries || []);
+}
