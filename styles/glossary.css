@@ -199,6 +199,22 @@
   color: color-mix(in oklch, var(--brass) 85%, transparent);
 }
 
+/* 記号↔文字の対応表のように、dt/ddがともに短く行数が多いエントリ専用の
+   複数列レイアウト(例: フィンレー式記譜法、P2)。単一列のままだと
+   縦に伸びすぎ、右側の余白ばかりが目立つため(2026-07-29 ユーザー指摘)。
+   先頭のdt/ddだけは通常の長さの説明文なので、1行分をフル幅で使う。 */
+.archive-entry__profile--cipher {
+  grid-template-columns: repeat(3, max-content 1fr);
+}
+
+.archive-entry__profile--cipher dt:first-of-type {
+  grid-column: 1;
+}
+
+.archive-entry__profile--cipher dd:first-of-type {
+  grid-column: 2 / -1;
+}
+
 .archive-entry__lore {
   font-size: 0.9rem;
   line-height: 1.85;
@@ -373,6 +389,10 @@
 
   .fragment-list {
     padding: 1.5rem 1rem;
+  }
+
+  .archive-entry__profile--cipher {
+    grid-template-columns: max-content 1fr;
   }
 
   .origin-story {

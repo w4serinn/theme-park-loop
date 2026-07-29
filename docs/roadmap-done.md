@@ -40,6 +40,23 @@
       後勝ちで上書きし、JSが `card.hidden = true` を設定しても実際には非表示に
       ならなかった。`.event-card[hidden] { display: none; }` を追加して解消した。
 
+- [x] (S) 「学院の秘密」欄にP91(ノスティオンのページ)が乗らない
+      (2026-07-29 ユーザー報告)。`pages/glossary/nostion-memory.html`は
+      `src/search-data.js`の`window.SEARCH_INDEX`に登録されておらず、検索欄で
+      「私」「ノスティオン」と入力した際に表示される専用カードは
+      `src/search.js`内にハードコードされた`SELF_REFERENCE_ENTRY`という
+      別変数(`SEARCH_INDEX`には含まれない)。一方`renderMemorySection`
+      (`src/search.js`)の「学院の秘密」リスト描画は、訪問済みpath
+      (`progress.secrets`)を`window.SEARCH_INDEX`から検索して見つかった
+      ものだけを表示するため、nostion-memory.htmlは訪問記録自体はあるのに
+      一覧に出ない。あわせて「学院の秘密(n/合計)」の分母(`hiddenTotal`)にも
+      含まれていない。**修正**: `SEARCH_INDEX`は変更せず(通常検索でヒットさせ
+      たくないため)、`src/logic.js`に純粋関数`buildHiddenEntryList(searchIndex,
+      extraEntries)`を新設し、`src/search.js`の`renderMemorySection`で
+      `SEARCH_INDEX`のhiddenエントリ+`SELF_REFERENCE_ENTRY`を合流させた
+      `hiddenEntries`をリスト表示・分母カウント両方に使うよう変更。
+      `tests/logic.test.js`にテストを追加。
+
 - [x] (M) 全ページ共通: ヒーロービジュアル(`area-hero__visual` / `shop-hero__visual` /
       `dining-page-hero__visual`)がウィンドウ幅を広げると画像下部が見切れ、上部しか
       見えなくなる。原因: `.shop-hero`/`.area-hero`(grid-template-rows固定px)・
@@ -857,6 +874,37 @@
       漢字表記ではなくひらがなが適切と判断)。`return-mark.html`
       (タイトル・本文)・`src/return-mark.js`・`src/search-data.js`の
       title/keywordsを合わせて更新。
+- [x] (M) P91の合言葉候補を作り直す(2026-07-29)。選択・消去方式のギミック
+      自体は変更せず、候補名をラテン語(『MEMORIA』『VERITAS』『ORIGO』、
+      答えのローマ字化は誤った一般化だったとの以前のユーザー指摘に基づく
+      訂正)から自然な日本語(『はじまりの書』『みちしるべ』『よりしろ』)に
+      置き換えた。矛盾づけロジック(前段落の記述と矛盾する2候補・矛盾のない
+      1候補が残る構成)は踏襲: 「はじまりの書」は創立時の記録が無いという
+      既出事実と、「みちしるべ」は天文台から運ばれてきた形跡が無いという
+      既出事実と矛盾し、「よりしろ」(誰か一人の作でなく自然と宿った、という説)
+      のみ矛盾なく残る。`nostion-memory.html`の3段落目を更新し、到達先ページを
+      `origo-echo.html`から`yorishiro-echo.html`に改名(`src/origo-echo.js`→
+      `src/yorishiro-echo.js`)。`src/search-data.js`のpath/title/keywordsも
+      合わせて更新、`exactMatch: true`は維持。
+- [x] (S) P2「フィンレー式記譜法」の対応表を並び替え・レイアウト調整
+      (2026-07-29 ユーザー指摘)。`pages/glossary/perpetual-motion.html`の
+      対応表を、解読に使う順(H,A,G,U,R,M,T,S,N,K,O,I)からアルファベット順
+      (A,G,H,I,K,M,N,O,R,S,T,U)に並び替えた。`styles/glossary.css`に
+      `.archive-entry__profile--cipher`という専用モディファイアクラスを
+      新設し、`grid-template-columns: repeat(3, max-content 1fr)`で
+      dt/ddの短い行を3列に並べる形に変更(先頭の「正体」行はdt/ddとも
+      `grid-column`指定でフル幅の1行として残す)。600px以下では1列表示に
+      戻す。他ページの`.archive-entry__profile`(モディファイアなし)には
+      影響しない。
+- [x] (S) P5の謎解き文中の語り口の矛盾を直す(2026-07-29 ユーザー指摘・
+      方針確定。`docs/ARG-DESIGN.md`3節「本文の語り手ルール」参照)。
+      `pages/glossary/apprentice-notes.html`の「どこかで見た覚えのある記号だ、
+      という気がするが、この手記だけでは意味までは分からない」という一文
+      (暗黙にノスティオンの主観的な語りとして書かれていたが、同じ段落末尾の
+      「ノスティオンに尋ねてみて」という外部への呼びかけと矛盾していた)を
+      削除し、記号の列挙から「真上から時計回りに読み解ければ……」に直接
+      つながる客観的な記述に整理した。P7の同種の箇所は先のP7ギミック
+      全面作り直しの際に解消済み。
 
 ### 14. 提携宿泊施設
 
