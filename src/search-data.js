@@ -88,5 +88,6 @@ window.SEARCH_INDEX = [
   { path: 'glossary/scribe-lineage.html', title: '七代続く写本師一族、その素顔', category: '図鑑', hidden: true, keywords: ['七代続く写本師一族', '七代続く写本師の一族'], exactMatch: true },
   { path: 'glossary/aptitude-certificate.html', title: '「魔法資質証明証」、提示を求められるとき', category: '図鑑', hidden: true, keywords: ['魔法資質証明証'], exactMatch: true },
   { path: 'glossary/circle-warden.html', title: '陣紋師という仕事', category: '図鑑', hidden: true, keywords: ['陣紋師'], prereq: ['glossary/koku-trio.html', 'glossary/circle-ledgers.html'] },
-  { path: 'glossary/warden-registry.html', title: '陣紋師任命記録、空白の一件', category: '図鑑', hidden: true, keywords: ['陣紋師任命記録'], prereq: ['glossary/circle-warden.html'] }
+  { path: 'glossary/warden-registry.html', title: '陣紋師任命記録、空白の一件', category: '図鑑', hidden: true, keywords: ['陣紋師任命記録'], prereq: ['glossary/circle-warden.html'] },
+  { path: 'glossary/unnamed-warden.html', title: '三つの「刻」との奇妙な符合', category: '図鑑', hidden: true, keywords: ['相応しい名を'], prereq: ['glossary/warden-registry.html'], exactMatch: true }
 ];

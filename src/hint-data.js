@@ -251,4 +251,10 @@ window.HINT_DATA = [
     leadsTo: 'glossary/warden-registry.html',
     hint: '学院はあらゆる物事を記録し続ける場所です。歴代の陣紋師についても、正式な記録がどこかに保管されているはずだと思いませんか。'
   },
+  {
+    requiresPage: 'glossary/warden-registry.html',
+    hintFor: 'glossary/warden-registry.html',
+    leadsTo: 'glossary/unnamed-warden.html',
+    hint: '大鐘「刻の声」の命名式典の記録にも、理由を語らない短い一文が残されていたはずです。もう一度思い出してみてください。'
+  },
 ];
