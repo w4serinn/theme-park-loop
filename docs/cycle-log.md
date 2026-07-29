@@ -1,5 +1,33 @@
 # サイクル履歴
 
+## 2026-07-29 22:50
+- ブランチ: 引き続き`evolve/cycle-34`(未マージ)。
+- タスク選定: `### 13`のP番号ページ実装、`docs/ARG-WORDBANK.md`グループD
+  「天文台の2人の学長級人物」。実装中に世界観バグ(「学長」「学院長」の
+  表記ゆれ)を発見したため、あわせて修正。
+- 実装:
+  1. 学院トップの役職名「学長」「学院長」の表記ゆれを「学長」に統一
+     (`shop/library-shop.html`・`glossary/erased-champion.html`・
+     `glossary/koku-trio.html`の3ファイル)。`docs/ROADMAP.md`のバグ修正
+     セクションに記録、お知らせ文も両方の修正内容を含む形に書き直した。
+  2. グループD「天文台の2人の学長級人物」: 第2代学長フローラ・
+     シルヴァーンの現存する書簡・学院湿地区画(shop/library-shop.html)を
+     `pages/glossary/second-headmaster.html`に統合(4カード)。本文に
+     flavor向きの謎(筆記具の寸法を書簡に記した理由不明、湿地区画の
+     管理者不明)を含めたため、予約済みのroot→flavor 2段枠P28〜P30へ
+     最初から当てはめて実装。
+  `src/search-data.js`に1エントリ追加、`src/hint-data.js`にroot型ヒント
+  1件追加。`docs/ARG-DESIGN.md`・`docs/ARG-WORDBANK.md`を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(393件) / build: ✓
+- 次回予定: `### 13`のP番号ページ実装を継続。`docs/ARG-WORDBANK.md`の
+  グループC(立入禁止・非公開区画、6件の深いflavor連鎖に向く最有力候補、
+  未着手のまま)・グループG(月草/月光草の混同、fragment向き、未着手のまま)
+  が未使用で残っている。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-29 22:30
 - ブランチ: 引き続き`evolve/cycle-34`(未マージ)。
 - タスク選定: `### 13`のP番号ページ実装、`docs/ARG-WORDBANK.md`グループB
