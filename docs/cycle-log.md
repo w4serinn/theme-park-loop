@@ -1,5 +1,26 @@
 # サイクル履歴
 
+## 2026-07-30 01:05
+- ブランチ: 引き続き`evolve/cycle-35`(未マージ)。
+- タスク選定: `### 13`のP番号ページ実装、`docs/ARG-WORDBANK.md`グループC
+  「立入禁止・非公開区画」のflavor3段目(P84)。
+- 実装: P83(`pages/glossary/sealed-stone-vault.html`)から連なるflavor3段目
+  として、大図書館の「禁書閲覧室」(grand-library.html)を扱う
+  `pages/glossary/forbidden-books-room.html`を新設。既存本文の「展示87冊中
+  12冊は表紙すら非公開」という数字と、禁書指定理由「存在を知られると困る
+  人物がいる」を軸に構成し、独り言でそれとなく強調した。P83側に「禁書
+  閲覧室」への言及を追加して手がかりとした。`src/search-data.js`でprereq
+  ゲーティング、`src/hint-data.js`に発見の連鎖型ヒントを1件追加。
+  `docs/ARG-DESIGN.md`・`docs/ARG-WORDBANK.md`を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(405件) / build: ✓
+- 次回予定: グループCの最後の1件(P85: 契約精霊の棲家「風見の祠」)を実装
+  すればグループC完了。その後はグループG(月草/月光草の混同、fragment向き)
+  が未使用のまま残っている。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 00:40
 - ブランチ: 引き続き`evolve/cycle-35`(未マージ)。
 - タスク選定: `### 13`のP番号ページ実装、`docs/ARG-WORDBANK.md`グループC
