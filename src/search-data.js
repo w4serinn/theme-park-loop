@@ -81,5 +81,6 @@ window.SEARCH_INDEX = [
   { path: 'glossary/hidden-corners.html', title: '学院のどこにでもある、人知れない一角', category: '図鑑', hidden: true, keywords: ['触媒保管庫', '予備歯車庫'] },
   { path: 'glossary/affinity-circle.html', title: '蔵書親和魔法陣、書庫を動かす仕組み', category: '図鑑', hidden: true, keywords: ['蔵書親和魔法陣'], prereq: ['glossary/hidden-corners.html'] },
   { path: 'glossary/sealed-stone-vault.html', title: '魔封石保管庫、展示されなかった記録', category: '図鑑', hidden: true, keywords: ['魔封石保管庫'], prereq: ['glossary/affinity-circle.html'] },
-  { path: 'glossary/forbidden-books-room.html', title: '禁書閲覧室、表紙すら非公開の12冊', category: '図鑑', hidden: true, keywords: ['禁書閲覧室'], prereq: ['glossary/sealed-stone-vault.html'] }
+  { path: 'glossary/forbidden-books-room.html', title: '禁書閲覧室、表紙すら非公開の12冊', category: '図鑑', hidden: true, keywords: ['禁書閲覧室'], prereq: ['glossary/sealed-stone-vault.html'] },
+  { path: 'glossary/weathervane-shrine.html', title: '風見の祠、名の由来', category: '図鑑', hidden: true, keywords: ['風見の祠'], prereq: ['glossary/forbidden-books-room.html'] }
 ];

@@ -202,4 +202,10 @@ window.HINT_DATA = [
     leadsTo: 'glossary/forbidden-books-room.html',
     hint: '大図書館には、一部だけ表紙すら見せてもらえない展示があるという話でした。その見学アトラクションについての記述を思い出してみてください。'
   },
+  {
+    requiresPage: 'glossary/forbidden-books-room.html',
+    hintFor: 'glossary/forbidden-books-room.html',
+    leadsTo: 'glossary/weathervane-shrine.html',
+    hint: '魔法陣召喚広場の北隅にも、契約精霊が身を潜めるという小さな祠があるという話でした。広場の設備についての記述を思い出してみてください。'
+  },
 ];
