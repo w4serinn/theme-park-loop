@@ -1,5 +1,34 @@
 # サイクル履歴
 
+## 2026-07-29 21:35
+- ブランチ: 引き続き`evolve/cycle-34`(未マージ)。
+- タスク選定: 「バグ修正」の唯一の未対応項目(library-shop.htmlの学長表記
+  矛盾)と、`### 13`のP番号ページ実装(グループF)をまとめて実装。
+- 実装:
+  1. `pages/shop/library-shop.html`の商品説明「第三代学院長アルノルド卿」を
+     「創立者アルノルド卿」に修正(他の全ページで確立された創立者[初代]
+     設定との矛盾を解消)。
+  2. P105〜P107として新規3ページを追加(グループF「異次元・精霊との
+     接触」):
+     - P105(root)`pages/glossary/otherworld-presence.html`「異次元存在、
+       その正体をめぐって」← `shop/summoning-shop.html`の降霊護符説明
+     - P106(root)`pages/glossary/sylphe-dialogue.html`「契約精霊シルフィ、
+       水面の返答」← `exploration/summoning-plaza.html`の対話コーナー
+     - P107(root)`pages/glossary/starfield-spirit.html`「星界の精霊、
+       新月の夜にだけ」← `events/index.html`の精霊観測会
+     3ページとも「精霊」と「異次元存在」が同じものを指すのか別物なのか
+     という謎を各ページの独り言でそれとなく示唆する形にしたが、
+     断片やprereqによる強制接続はせず独立したroot行のまま実装。
+  `docs/ARG-WORDBANK.md`グループFを使用済みに。`src/hint-data.js`に3件の
+  root行ヒントを追加。
+- レビュー: OK(local-review相当のセルフチェックを実施。narration rule・
+  自己言及ワード回避・keyword衝突なしを確認。指摘なし)。
+- lint: ✓ / lint:css: ✓ / test: ✓(409件、+12) / build: ✓
+- 次回予定: `### 13`の次のP番号ページ(グループG、月草/月光草の混同ネタ。
+  fragment種別の謎解きページで、他グループより設計に時間がかかる想定)。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-29 21:29
 - ブランチ: 引き続き`evolve/cycle-34`(未マージ)。
 - タスク選定: `### 13`のP番号ページ実装。`docs/ARG-WORDBANK.md`グループH

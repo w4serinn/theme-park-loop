@@ -250,7 +250,10 @@ P番号ページの`title`/`keywords`を決める際、これら2語を単体ま
 | P101 | root | `index.html`「王都中央『魔法陣転移広場』」(アクセス案内の転移魔法陣) | — | — | 実装済み(`pages/glossary/transit-plaza.html`)。グループEの2本目。keyword「魔法陣転移広場」は既存の「魔法陣召喚広場」系エントリ(exploration/summoning-plaza.html等4件)と「魔法陣」の接頭辞が重複するため`exactMatch: true`に設定(2026-07-29) |
 | P102 | root | `shop/souvenirs.html`「アルノルド卿の家紋『双頭の鷲と魔法陣』」(バッジ商品説明) | — | — | 実装済み(`pages/glossary/arnold-crest.html`)。`docs/ARG-WORDBANK.md`グループH「アルノルド卿にまつわる物証」の1本目(2026-07-29) |
 | P103 | root | `shop/books.html`「アルノルド卿 研究手稿 精密写本」(商品説明) | — | — | 実装済み(`pages/glossary/arnold-manuscript.html`)。グループHの2本目 |
-| P104 | root | `shop/library-shop.html`「複製羊皮紙写本『創魔の書より』」(商品説明) | — | — | 実装済み(`pages/glossary/founding-grimoire.html`)。グループHの3本目。同ページ本文に既存の世界観矛盾(「第三代学院長アルノルド卿」表記が、他の全ページで確立された創設者[初代]設定と矛盾)を発見、`docs/ROADMAP.md`にバグとして記録(2026-07-29) |
+| P104 | root | `shop/library-shop.html`「複製羊皮紙写本『創魔の書より』」(商品説明) | — | — | 実装済み(`pages/glossary/founding-grimoire.html`)。グループHの3本目。同ページ本文に既存の世界観矛盾(「第三代学院長アルノルド卿」表記が、他の全ページで確立された創設者[初代]設定と矛盾)を発見、`docs/ROADMAP.md`にバグとして記録・修正済み(2026-07-29) |
+| P105 | root | `shop/summoning-shop.html`「異次元存在との接触から使用者を保護する」(降霊護符の商品説明) | — | — | 実装済み(`pages/glossary/otherworld-presence.html`)。`docs/ARG-WORDBANK.md`グループF「異次元・精霊との接触」の1本目(2026-07-29) |
+| P106 | root | `exploration/summoning-plaza.html`「契約精霊シルフィ」(対話コーナーの見どころ紹介) | — | — | 実装済み(`pages/glossary/sylphe-dialogue.html`)。グループFの2本目 |
+| P107 | root | `events/index.html`「星界の精霊」(新月の精霊観測会の紹介) | — | — | 実装済み(`pages/glossary/starfield-spirit.html`)。グループFの3本目。3ページとも「精霊」と「異次元存在」が同じものを指すのか別物なのかという謎を各ページの本文・独り言でそれとなく示唆する形にしたが、断片やprereqによる強制的な接続は設けていない(それぞれ独立したroot行として発見できる) |
 
 ### 4-3. 既存ページのギミックを使うグループ
 

@@ -90,6 +90,21 @@ window.HINT_DATA = [
     hint: '写本堂には、ある古い書物の一章だけを複製した品があったはずです。その商品説明をもう一度読んでみてください。'
   },
   {
+    hintFor: 'shop/summoning-shop.html',
+    leadsTo: 'glossary/otherworld-presence.html',
+    hint: '召喚素材専門店の護符は、ある存在から身を守るためのものだったはずです。その商品説明をもう一度読んでみてください。'
+  },
+  {
+    hintFor: 'exploration/summoning-plaza.html',
+    leadsTo: 'glossary/sylphe-dialogue.html',
+    hint: '魔法陣召喚広場の北隅には、言葉を交わせる相手がいるという話です。広場の見どころをもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'events/index.html',
+    leadsTo: 'glossary/starfield-spirit.html',
+    hint: '新月の夜だけ開かれる、ある観測会があったはずです。学院祭・行事の案内をもう一度確かめてみてください。'
+  },
+  {
     id: 'F1',
     requiresPage: 'glossary/apprentice-notes.html',
     hintFor: 'glossary/apprentice-notes.html',

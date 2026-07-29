@@ -214,12 +214,14 @@ lodging.htmlも交通・宿泊の実用情報が中心で、ARGの入口とし�
 → 学院の外にも広い世界があることを示す数少ない手がかり2件。root行の
   たどり着き方をトップページ+飛行船ドックの2エリアにできた。
 
-### グループF: 異次元・精霊との接触(召喚まわりの神秘性)
-- 異次元存在(shop/summoning-shop.html、降霊護符の保護対象)
-- 契約精霊シルフィ(summoning-plaza.html、対話コーナー)
-- 星界の精霊(events/index.html、夜の精霊観測会)
+### グループF: 異次元・精霊との接触(召喚まわりの神秘性)[使用済み: P105〜P107、2026-07-29]
+- 異次元存在(shop/summoning-shop.html、降霊護符の保護対象) → P105 `pages/glossary/otherworld-presence.html`
+- 契約精霊シルフィ(summoning-plaza.html、対話コーナー) → P106 `pages/glossary/sylphe-dialogue.html`
+- 星界の精霊(events/index.html、夜の精霊観測会) → P107 `pages/glossary/starfield-spirit.html`
 → 3項目ちょうど。「精霊」「異次元存在」という語の違いが実は同じものを
-  指しているのか、別物なのか、を核にした謎を作れる。
+  指しているのか、別物なのか、という謎を各ページの独り言でそれとなく
+  示唆する形にした(断片やprereqによる強制接続はせず、3件とも独立した
+  root行のまま)。
 
 ### グループG: 月草/月光草の混同ネタ(謎解き必須方針との相性が良い)
 - 珍薬草「月草」(4節・5節に多数出現、満月の夜のみ採取可能)
