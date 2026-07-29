@@ -239,4 +239,10 @@ window.HINT_DATA = [
     leadsTo: 'glossary/aptitude-certificate.html',
     hint: '魔導具店の購入注意には、強力な魔力石を買う際に必要な証明書についての一文があったはずです。もう一度読んでみてください。'
   },
+  {
+    requiresPage: ['glossary/koku-trio.html', 'glossary/circle-ledgers.html'],
+    hintFor: ['glossary/koku-trio.html', 'glossary/circle-ledgers.html'],
+    leadsTo: 'glossary/circle-warden.html',
+    hint: '「刻の輪」の補修記録にも、陣紋補修記録簿の解読作業にも、同じ役職の名前が挙がっていたはずです。もう一度どちらかの記述を確かめてみてください。'
+  },
 ];
