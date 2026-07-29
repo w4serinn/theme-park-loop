@@ -62,13 +62,13 @@ window.SEARCH_INDEX = [
   //   設定し、答えの一部を入力しただけで偶然当たってしまうのを防ぐ(docs/ARG-DESIGN.md 2-1節)。
   { path: 'glossary/mythical-creatures.html', title: '魔法生物図鑑', category: '図鑑', hidden: true, keywords: ['ホーホー', 'カチカチ', 'ルミナ'] },
   { path: 'glossary/perpetual-motion.html', title: '永久運動術式', category: '図鑑', hidden: true, keywords: ['フィンレー'] },
-  { path: 'glossary/starmap-fragments.html', title: '魔導88星座 星図の断片', category: '図鑑', hidden: true, keywords: ['星座紋解析台'] },
+  { path: 'glossary/starmap-fragments.html', title: '魔導88星座', category: '図鑑', hidden: true, keywords: ['星座紋解析台'] },
   { path: 'glossary/dueling-champions.html', title: '決闘王列伝', category: '図鑑', hidden: true, keywords: ['第三閃光戦'] },
   { path: 'glossary/apprentice-notes.html', title: '見習い整備士の手記', category: '図鑑', hidden: true, keywords: ['修繕工房'], prereq: ['glossary/perpetual-motion.html'] },
   { path: 'glossary/gear-cipher.html', title: '光る符丁の正体', category: '図鑑', hidden: true, keywords: ['歯車'], prereq: ['glossary/apprentice-notes.html'], exactMatch: true },
   { path: 'glossary/first-astronomer.html', title: '初代天文官 シベル・オーレン', category: '図鑑', hidden: true, keywords: ['シベル・オーレン'], prereq: ['glossary/mythical-creatures.html', 'glossary/starmap-fragments.html'] },
   { path: 'glossary/final-entry.html', title: '記録帳、最後の頁', category: '図鑑', hidden: true, keywords: ['観測記録帳'], prereq: ['glossary/first-astronomer.html'] },
-  { path: 'glossary/return-mark.html', title: 'もどりば、という言葉', category: '図鑑', hidden: true, keywords: ['もどりば'], prereq: ['glossary/final-entry.html'], exactMatch: true },
+  { path: 'glossary/shooting-star.html', title: '流れ星、という言葉', category: '図鑑', hidden: true, keywords: ['流れ星'], prereq: ['glossary/final-entry.html'], exactMatch: true },
   { path: 'glossary/erased-champion.html', title: '名を消された決闘王', category: '図鑑', hidden: true, keywords: ['さらに古い時代の決闘王'], prereq: ['glossary/dueling-champions.html'] },
   { path: 'glossary/origo-echo.html', title: 'ORIGOという残響', category: '図鑑', hidden: true, keywords: ['ORIGO'], prereq: ['glossary/nostion-memory.html'], exactMatch: true }
 ];
