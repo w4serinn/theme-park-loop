@@ -346,6 +346,7 @@ flavor/fragmentが組めない」と判断した場合、その接続を無理�
 | P66 | P67 → P68 → P69 | 未着手 |
 | P70 | P71 → P72 → P73 → P74 | 未着手 |
 | P75 | P76 → P77 → P78 → P79 → P80 | 未着手 |
+| P81 | P82 → P83 → P84 → P85 | 一部実装済み(root=P81のみ。`pages/glossary/hidden-corners.html`、`docs/ARG-WORDBANK.md`グループC「立入禁止・非公開区画」6件のうち触媒保管庫[alchemy-tower.html]・予備歯車庫[clock-tower.html]の2件を採用、2026-07-29実装。「なぜどのエリアにも人知れない一角があるのか」という問いを掲げるroot。グループCの推奨通り、1ページに詰め込まず深い章立てのroot→flavorチェーンとして実装する方針のため、残る4件[蔵書親和魔法陣/grand-library.html・魔封石保管庫/dueling-ground.html・禁書閲覧室/grand-library.html・契約精霊の棲家「風見の祠」/summoning-plaza.html]をP82〜P85の4段flavorとして1件ずつ実装する予定。サイズLのため今回は分割のみ、P82以降は次回以降のサイクルで着手) |
 
 ### 4-6. ゴール
 

@@ -77,5 +77,6 @@ window.SEARCH_INDEX = [
   { path: 'glossary/spirits-of-arnold.html', title: '精霊、それぞれの現れ方', category: '図鑑', hidden: true, keywords: ['異次元存在', '契約精霊シルフィ', '星界の精霊'] },
   { path: 'glossary/circle-ledgers.html', title: '陣紋を刻み、守り継いだ記録簿', category: '図鑑', hidden: true, keywords: ['魔法陣刻印記録簿', '陣紋補修記録簿'], exactMatch: true },
   { path: 'glossary/merit-records.html', title: '品評会と段位、記録に残るもの', category: '図鑑', hidden: true, keywords: ['研究棟の記録簿', '考査記録室'], exactMatch: true },
-  { path: 'glossary/second-headmaster.html', title: '第2代学長フローラ・シルヴァーン、書簡と湿地', category: '図鑑', hidden: true, keywords: ['復刻版 万年葦ペン', '学院湿地区画'] }
+  { path: 'glossary/second-headmaster.html', title: '第2代学長フローラ・シルヴァーン、書簡と湿地', category: '図鑑', hidden: true, keywords: ['復刻版 万年葦ペン', '学院湿地区画'] },
+  { path: 'glossary/hidden-corners.html', title: '学院のどこにでもある、人知れない一角', category: '図鑑', hidden: true, keywords: ['触媒保管庫', '予備歯車庫'] }
 ];

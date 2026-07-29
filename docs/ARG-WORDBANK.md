@@ -203,14 +203,20 @@ flavorへ発展させやすいとの指摘を受け、新規ID[旧#97]から、�
   盛り込めたため、新規ID追記ではなく予約済みのroot→flavor 1段枠
   (P33〜P34・P39〜P40)へ最初から当てはめて実装した(2026-07-29)。
 
-### グループC: 立入禁止・非公開区画(学院内探索の再確認で判明した最有力モチーフ)
-- 触媒保管庫(alchemy-tower.html) / 予備歯車庫(clock-tower.html) /
-  蔵書親和魔法陣(grand-library.html) / 魔封石保管庫(dueling-ground.html) /
-  禁書閲覧室(grand-library.html) / 契約精霊の棲家「風見の祠」(summoning-plaza.html)
+### グループC: 立入禁止・非公開区画(学院内探索の再確認で判明した最有力モチーフ)[一部使用済み: P81(root)、2026-07-29実装]
+- 触媒保管庫(alchemy-tower.html) → P81 `pages/glossary/hidden-corners.html`
+- 予備歯車庫(clock-tower.html) → P81 `pages/glossary/hidden-corners.html`
+- 蔵書親和魔法陣(grand-library.html) → 未使用(P82予定)
+- 魔封石保管庫(dueling-ground.html) → 未使用(P83予定)
+- 禁書閲覧室(grand-library.html) → 未使用(P84予定。展示87冊中12冊は表紙すら
+  非公開という具体的な数字あり、flavor化しやすい)
+- 契約精霊の棲家「風見の祠」(summoning-plaza.html) → 未使用(P85予定)
 → 6件と多いため1ページには収めず、4-5節の「root→flavor→flavor→…」チェーン
-  形式が最適(1つのroot「なぜどのエリアにも人知れない一角があるのか」から、
+  形式を採用(1つのroot「なぜどのエリアにも人知れない一角があるのか」から、
   各エリアの禁域を1つずつ巡るflavor連鎖にする)。深さのある章立てにできる
-  最有力候補。
+  最有力候補。2026-07-29、root(触媒保管庫・予備歯車庫の2件)のみ実装
+  (`docs/ARG-DESIGN.md`4-5節P81行)。サイズLのため残り4件は
+  P82〜P85のflavorとして次回以降のサイクルで1件ずつ着手する。
 
 ### グループD: 天文台の2人の学長級人物(フローラ・シルヴァーン関連)[使用済み: P28、2026-07-29実装]
 - 第2代学長(フローラ・シルヴァーン)の現存する書簡(library-shop.html) →

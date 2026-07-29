@@ -130,6 +130,16 @@ window.HINT_DATA = [
     hint: '写本堂の復刻ペンの商品説明には、ある歴代学長にまつわる由来が書かれていたはずです。その説明文をもう一度読んでみてください。'
   },
   {
+    hintFor: 'exploration/alchemy-tower.html',
+    leadsTo: 'glossary/hidden-corners.html',
+    hint: '錬金術研究棟の地下には、希少な触媒だけを保管する専用の倉庫があるそうです。研究棟の設備についての記述をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'exploration/clock-tower.html',
+    leadsTo: 'glossary/hidden-corners.html',
+    hint: '時計塔の地下には、予備の歯車部品だけを集めた備蓄庫もあるという話です。塔の設備についての記述を、もう一度確かめてみてください。'
+  },
+  {
     id: 'F1',
     requiresPage: 'glossary/apprentice-notes.html',
     hintFor: 'glossary/apprentice-notes.html',
