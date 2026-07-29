@@ -287,6 +287,7 @@ flavor/fragmentが組めない」と判断した場合、その接続を無理�
 | P27 | fragment | 既存ギミック: `tickets/index.html`の料金シミュレーター | F6(→P32で使用) | — | 未着手 |
 | P90 | fragment | 既存ギミック: `events/index.html`の季節×エリア絞り込みで特定の組み合わせにすると出現 | F12(→扉) | — | 未着手 |
 | P91 | fragment | 既存ギミック: `pages/search.html`(物知りの魔導書「ノスティオン」)で「私」または「ノスティオン」を含む語を検索すると、通常の検索結果と同じクリック可能なカードとして出現し、専用の隠しページへ遷移する | F13(本心の断片、→扉) | — | 実装済み(`pages/glossary/nostion-memory.html`)。ページ内で提示される5つの候補名(はじまりの書/みちしるべ/刻みの守人/詠み子/よりしろ)のうち、本文中の矛盾から4つを消去し、残った「よりしろ」を検索して初めて到達する実装済み(`pages/glossary/yorishiro-echo.html`)で獲得(2026-07-29 選択・消去方式に作り直し。P5[対応表方式]・P7[位置・配置方式]とは異なるギミック。候補名は当初ラテン語[MEMORIA/VERITAS/ORIGO]だったが、答えのローマ字化は誤った一般化だったとのユーザー指摘を受け自然な日本語に訂正。exactMatch設定済み。2026-07-29 3択は総当たりで解けてしまうとのユーザー指摘を受け、候補を5つに増やした上、誤った候補を検索した際(ページ訪問済みの場合のみ)には通常の「見つかりませんでした」ではなく専用の応答[`src/logic.js`の`isNostionMemoryWrongCandidate`]を返すよう変更) |
+| P97 | root | `shop/groceries.html`「珍薬草『月草』乾燥品」、`dining/index.html`ほか6ページ(alchemy-dining/library-dining/summoning-dining/observatory-goods等)に散らばる「月草」の各種メニュー・商品から接続 | — | — | 実装済み(`pages/glossary/moon-grass.html`)。`docs/ARG-WORDBANK.md`グループG「月草/月光草の混同ネタ」(2026-07-30実装)。既存ギミック(検索窓そのもの)を使い、名前が紛らわしい「月光草」(`exploration/grand-library.html`、魔法インクの原料、全くの別植物)で検索してしまうと専用の応答[`src/logic.js`の`isMoonGrassWrongCandidate`、P91の`isNostionMemoryWrongCandidate`と同型だがページ訪問済みかどうかは問わない]を返し、正しい「月草」で検索して初めて到達する設計にした。**断片は産出していない**(現時点ではroot型の単純な発見。fragment化してPGATEの必要断片[現在10種]に加えるかどうかは、既存の断片経済[F1〜F14]を拡張する構造的な判断になるため、今回は見送り実装せず、ユーザー確認を経てから決めることとした) |
 
 ### 4-4. 通常ページ発の新規ルート群(続き、断片絡み)
 

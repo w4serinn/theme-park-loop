@@ -3,6 +3,7 @@ import {
   buildHiddenEntryList, filterUnlockedHints, filterActiveHints, resolveHintPageTitle, groupHintsByHintFor, buildSecretsTree, buildFragmentDisplayList,
   shouldShowDiscoveryBadge, isDebugResetQuery, DEBUG_RESET_QUERY, shouldShowHintLink,
   isNostionMemoryWrongCandidate, NOSTION_MEMORY_PAGE_PATH, NOSTION_MEMORY_WRONG_CANDIDATES,
+  isMoonGrassWrongCandidate,
   TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex,
   filterSearchIndex, MIN_SEARCH_QUERY_LENGTH, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
   isSearchEntryUnlocked, isCodexSelfReferenceQuery
@@ -595,6 +596,24 @@ describe('isNostionMemoryWrongCandidate', () => {
 
   test('does not match an unrelated query', () => {
     expect(isNostionMemoryWrongCandidate('錬金術', visited)).toBe(false);
+  });
+});
+
+describe('isMoonGrassWrongCandidate', () => {
+  test('matches the confusable decoy plant name', () => {
+    expect(isMoonGrassWrongCandidate('月光草')).toBe(true);
+  });
+
+  test('does not match the correct answer', () => {
+    expect(isMoonGrassWrongCandidate('月草')).toBe(false);
+  });
+
+  test('does not match an unrelated query', () => {
+    expect(isMoonGrassWrongCandidate('錬金術')).toBe(false);
+  });
+
+  test('does not require any prior page visit (unlike isNostionMemoryWrongCandidate)', () => {
+    expect(isMoonGrassWrongCandidate('月光草')).toBe(true);
   });
 });
 

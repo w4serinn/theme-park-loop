@@ -30,6 +30,14 @@
     return visited && NOSTION_MEMORY_WRONG_CANDIDATES.indexOf(q) !== -1;
   }
 
+  // docs/ARG-WORDBANK.mdグループG(2026-07-30実装、src/logic.jsの
+  // isMoonGrassWrongCandidateと同じロジック)。「月草」と紛らわしい
+  // 「月光草」で検索した際に専用の応答を返す。P91と異なりページ訪問済み
+  // かどうかは問わない。
+  function isMoonGrassWrongCandidate(query) {
+    return (query || '').trim() === '月光草';
+  }
+
   var memorySection = document.getElementById('codex-memory-section');
   var memorySecretsLabel = document.getElementById('codex-memory-secrets-label');
   var memorySecretsList = document.getElementById('codex-memory-secrets-list');
@@ -269,9 +277,13 @@
     resultsEl.innerHTML = '';
 
     if (results.length === 0) {
-      statusEl.textContent = isNostionMemoryWrongCandidate(query, visitedPaths)
-        ? '……その響きには、聞き覚えがありません。'
-        : '「' + query + '」に一致するページが見つかりませんでした。';
+      if (isNostionMemoryWrongCandidate(query, visitedPaths)) {
+        statusEl.textContent = '……その響きには、聞き覚えがありません。';
+      } else if (isMoonGrassWrongCandidate(query)) {
+        statusEl.textContent = '……「月光草」ではなく「月草」ではありませんか? よく似た名前ですが、別の植物です。';
+      } else {
+        statusEl.textContent = '「' + query + '」に一致するページが見つかりませんでした。';
+      }
       return;
     }
 

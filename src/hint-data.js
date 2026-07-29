@@ -140,6 +140,16 @@ window.HINT_DATA = [
     hint: '時計塔の地下には、予備の歯車部品だけを集めた備蓄庫もあるという話です。塔の設備についての記述を、もう一度確かめてみてください。'
   },
   {
+    hintFor: 'shop/groceries.html',
+    leadsTo: 'glossary/moon-grass.html',
+    hint: '食料品・薬草店には、満月の夜にしか採れないという珍しい薬草があったはずです。その商品説明をもう一度読んでみてください。似た名前の別の植物と間違えないように。'
+  },
+  {
+    hintFor: 'dining/index.html',
+    leadsTo: 'glossary/moon-grass.html',
+    hint: '中央学食の季節メニューには、ある薬草をブレンドしたホットドリンクがあったはずです。その説明をもう一度確かめてみてください。'
+  },
+  {
     id: 'F1',
     requiresPage: 'glossary/apprentice-notes.html',
     hintFor: 'glossary/apprentice-notes.html',
