@@ -207,7 +207,7 @@ P番号ページの`title`/`keywords`を決める際、これら2語を単体ま
 | P5 | fragment | P2(`glossary/perpetual-motion.html`の独り言「修繕工房には…研究し続ける学生」) | F1(刻の断片、→扉) | — | 実装済み(`pages/glossary/apprentice-notes.html`)。P2に追加した「フィンレー式記譜法」(1記号=1アルファベットの対応表、ダミー含む12種)を使って手記内の8記号(歯車8枚歯)を解読すると読み「haguruma」になり、そこから連想される単語「歯車」を検索して初めて到達する実装済み(`pages/glossary/gear-cipher.html`)で獲得(2026-07-29 対応表を1記号=1モーラから1記号=1アルファベット+ダミー拡充に訂正、答えもローマ字「HAGURUMA」から自然な単語「歯車」に訂正。exactMatch設定済み) |
 | P6 | flavor | P3, P1(両ページの本文に「シベル・オーレン」という人物名を追記して接続) | — | — | 実装済み(`pages/glossary/first-astronomer.html`) |
 | P7 | fragment | P6(`glossary/first-astronomer.html`の「観測記録帳」) | F2(記帳の断片、→P21で使用) | — | 実装済み(`pages/glossary/final-entry.html`)。頁に書き足された5つの座標「N-M」(N=P3「魔導88星座」の星座番号、M=その星座名[ひらがな部分]のM文字目)を、P3(`glossary/starmap-fragments.html`)の該当5座(第07/23/41/56/74番)と突き合わせて解読すると「な・が・れ・ぼ・し」になり、「流れ星」を検索して初めて到達する実装済み(`pages/glossary/shooting-star.html`)で獲得(2026-07-29 ユーザー指摘によりギミックを位置・配置方式[P6の頭文字抽出、答え「もどりば」]から全面的に作り直し。P6の「観測日誌、書き出しの癖」項目は不要になったため削除。exactMatch設定済み) |
-| P8 | flavor | P4(`glossary/dueling-champions.html`の独り言「一撃で場を静める」) | — | — | 実装済み(`pages/glossary/erased-champion.html`)(2026-07-29 元のkeyword「さらに古い時代の決闘王」は文章そのものかつ「決闘王」がP4・P8のタイトルと重複し紛らわしいとのユーザー指摘を受け、P8本文に既出の一文「一撃で場を静める」に変更) |
+| P8 | flavor | P4(`glossary/dueling-champions.html`の独り言「静寂の一撃」) | — | — | 実装済み(`pages/glossary/erased-champion.html`)(2026-07-29 元のkeyword「さらに古い時代の決闘王」は文章そのものかつ「決闘王」がP4・P8のタイトルと重複し紛らわしいとのユーザー指摘を受け、P8本文に既出の一文「一撃で場を静める」に変更→さらに、この言い回し自体も文章(動詞を含む一節)であり同種の問題が残っているとのユーザー再指摘を受け、体言止めの技名「静寂の一撃」に変更) |
 | P9 | flavor | P8, P24 | — | — | 未着手 |
 
 ### 4-2. 通常ページ発の新規ルート群

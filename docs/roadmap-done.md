@@ -954,8 +954,10 @@
       見直し(2026-07-29 ユーザー指摘)。文章そのもの(主語・述語を含む一節)が
       検索語になっており不自然な上、「決闘王」がP4・P8自身のタイトルと
       重複し紛らわしい問題があったため、P4の独り言をP8本文に既出の一文
-      「一撃で場を静める」を参照する内容に書き換え、keywordもそれに合わせて
-      変更した(`src/search-data.js`・`pages/glossary/dueling-champions.html`・
+      「一撃で場を静める」を参照する内容に一度書き換えたが、この言い回し
+      自体も動詞を含む文章であり同種の問題が残るとのユーザー再指摘を受け、
+      体言止めの技名「静寂の一撃」に最終的に変更した(`src/search-data.js`・
+      `pages/glossary/dueling-champions.html`・`pages/glossary/erased-champion.html`・
       `docs/ARG-DESIGN.md`)。
 - [x] (S) P5・P7の謎解き文末「ノスティオンに尋ねてみて」を語り手ルール違反
       として修正(2026-07-29 ユーザー指摘)。`docs/ARG-DESIGN.md`3節
