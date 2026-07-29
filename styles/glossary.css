@@ -342,6 +342,19 @@
   margin: 0;
 }
 
+/* 決闘王列伝、年表の下に添える補記(2026-07-29 ユーザー指摘: 次に検索すべき
+   語句は独り言ではなく本文側に置くべき)。年表本体とは区別しつつも、
+   ノスティオンの独り言ほど演出を強めない中間的な扱い。 */
+.champion-note {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  line-height: 1.8;
+  color: color-mix(in oklch, var(--brass) 75%, transparent);
+}
+
 /* 散文形式(ノスティオン自身が一人称で語る独白ページ用。図鑑・資料・年表とは
    異なり一覧構造を持たない単一の語りのため、あえて要素数を絞ったシンプルな
    構成にする) */

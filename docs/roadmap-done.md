@@ -976,6 +976,14 @@
       未訪問のまま特別応答を返すと語句自体がヒントになってしまうため)。
       `src/logic.js`に純粋関数`isNostionMemoryWrongCandidate(query, visitedPaths)`
       を新設(テスト付き)、`src/search.js`に同じロジックを複製。
+- [x] (S) 独り言に置かれたままの検索語句を本文側へ移設(2026-07-29
+      ユーザー指摘)。`glossary/dueling-champions.html`(独り言に「静寂の
+      一撃」)は年表の下に新設した`.champion-note`へ移設、
+      `glossary/perpetual-motion.html`(独り言に「修繕工房」を含む一文)は
+      フィンレー式記譜法の`archive-entry__lore`に一文を追記する形で移設した。
+      両ページの独り言側は語句を含まない雰囲気重視の一文に書き改めた。
+      `docs/ARG-DESIGN.md`4-1節のP5・P8行の「たどり着き方」列も実際の
+      掲載場所(本文)に合わせて更新。
 
 ### 14. 提携宿泊施設
 
@@ -1206,3 +1214,17 @@
       対応する断片IDが無いため`id`フィールドは省略可とした。あわせて、
       F13のヒント文言が「三つの候補」のままP91の候補5択化(前サイクル)に
       追随できていなかった表記ずれも「五つの候補」に修正した。
+- [x] (S) root行(通常ページから直接見つかるページ)へのヒントを追加
+      (2026-07-29 ユーザー指摘: 「rootからたどり着くページたちへのヒントも
+      ない」)。root行には解禁条件となる前提の隠しページが存在しないため、
+      `requiresPage`を省略すると常に解禁済み扱いになるよう
+      `filterUnlockedHints`(`src/logic.js`・`src/hint-book.js`、テスト付き)
+      を拡張し、P1(`mythical-creatures.html`)・P2(`perpetual-motion.html`)・
+      P3(`starmap-fragments.html`)・P4(`dueling-champions.html`)・
+      P97(`time-ring-record.html`)・P98(`time-ledger.html`)の6件を
+      `window.HINT_DATA`に追加した。
+- [x] (S) 断片F2の個別名を「記帳の断片」から「星の断片」に変更(2026-07-29
+      ユーザー指摘)。ギミックの実態(魔導88星座の星図を使った座標解読)に
+      「星の断片」の方が合っているとの判断。`src/fragment-names.js`・
+      `src/fragment-effect.js`(コメント)・`docs/ARG-DESIGN.md`(3節の例示・
+      P7行)を更新。
