@@ -1,5 +1,27 @@
 # サイクル履歴
 
+## 2026-07-30 03:20
+- ブランチ: 引き続き`evolve/cycle-35`(未マージ)。
+- タスク選定: `docs/ARG-WORDBANK.md`「未分類のまま残る候補」から
+  「魔法資質証明証」を選定。
+- 実装: `pages/glossary/aptitude-certificate.html`を新設(3カード)。既存の
+  `exploration/observatory.html`「魔法適性」ワークショップ設定(星座紋
+  解析台・学院入試の参考資料)との関連を示唆する形で厚みを持たせた。
+  本文中の「証明証を持たない場合の扱いが不明」等flavor化の余地がある
+  と判断し、予約済みのroot→flavor 2段枠P41〜P43へ最初から当てはめて
+  実装。`src/search-data.js`に1エントリ追加、`src/hint-data.js`に
+  root型ヒント1件を追加。`docs/ARG-DESIGN.md`・`docs/ARG-WORDBANK.md`
+  を更新。残る「7番試薬」は他ページとの接続点が見当たらず素材不足の
+  ため保留とした。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(427件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の候補は「7番試薬」1件のみ残るが素材
+  不足で保留中。次回はROADMAP.mdの指示通り全ページの本文を棚卸しして
+  新しい候補を追加するフェーズに入る見込み。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 02:55
 - ブランチ: 引き続き`evolve/cycle-35`(未マージ)。
 - タスク選定: `docs/ARG-WORDBANK.md`「未分類のまま残る候補」から
