@@ -1,8 +1,8 @@
 import { test, expect, describe } from 'vitest';
 import {
-  buildHiddenEntryList, filterUnlockedHints,
+  buildHiddenEntryList, filterUnlockedHints, buildSecretsTree,
   TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex,
-  filterSearchIndex, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
+  filterSearchIndex, MIN_SEARCH_QUERY_LENGTH, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
   isSearchEntryUnlocked, isCodexSelfReferenceQuery
 } from '../src/logic.js';
 
@@ -131,6 +131,16 @@ describe('filterSearchIndex', () => {
   test('returns empty array for empty query', () => {
     expect(filterSearchIndex('', index)).toEqual([]);
     expect(filterSearchIndex('   ', index)).toEqual([]);
+  });
+
+  test('returns empty array for a query shorter than MIN_SEARCH_QUERY_LENGTH', () => {
+    const single = [{ path: 'a.html', title: 'の', category: 'カテゴリ' }];
+    expect(MIN_SEARCH_QUERY_LENGTH).toBe(2);
+    expect(filterSearchIndex('の', single)).toEqual([]);
+  });
+
+  test('matches once the query reaches MIN_SEARCH_QUERY_LENGTH', () => {
+    expect(filterSearchIndex('学院', index)).toHaveLength(2);
   });
 
   test('returns empty array when nothing matches', () => {
@@ -305,5 +315,61 @@ describe('filterUnlockedHints', () => {
 
   test('is unaffected by unrelated visited paths', () => {
     expect(filterUnlockedHints(hintData, ['glossary/mythical-creatures.html'])).toEqual([]);
+  });
+});
+
+describe('buildSecretsTree', () => {
+  const hiddenEntries = [
+    { path: 'A.html', title: 'A', hidden: true },
+    { path: 'B.html', title: 'B', hidden: true, prereq: ['A.html'] },
+    { path: 'C.html', title: 'C', hidden: true, prereq: ['A.html', 'B.html'] },
+    { path: 'D.html', title: 'D', hidden: true }
+  ];
+
+  test('returns an empty array when nothing is visited', () => {
+    expect(buildSecretsTree(hiddenEntries, [])).toEqual([]);
+  });
+
+  test('places a prereq-less entry as a root', () => {
+    const tree = buildSecretsTree(hiddenEntries, ['A.html']);
+    expect(tree).toEqual([{ path: 'A.html', title: 'A', children: [] }]);
+  });
+
+  test('nests a child under its visited parent', () => {
+    const tree = buildSecretsTree(hiddenEntries, ['A.html', 'B.html']);
+    expect(tree).toEqual([
+      { path: 'A.html', title: 'A', children: [
+        { path: 'B.html', title: 'B', children: [] }
+      ] }
+    ]);
+  });
+
+  test('attaches to the most recently visited prereq when multiple parents qualify (mesh structure)', () => {
+    // A visited, then B (via A), then C (whose prereq is [A, B]) — C should
+    // nest under B (the more specific, more recently visited parent), not A.
+    const tree = buildSecretsTree(hiddenEntries, ['A.html', 'B.html', 'C.html']);
+    expect(tree[0].children[0].path).toBe('B.html');
+    expect(tree[0].children[0].children.map((n) => n.path)).toEqual(['C.html']);
+  });
+
+  test('does not reveal an unvisited parent candidate (mesh structure, only one parent visited)', () => {
+    // C.html has prereq [A.html, B.html]; only B.html is visited, not A.html.
+    // C should nest under the visited B, and A must not appear anywhere.
+    const tree = buildSecretsTree(hiddenEntries, ['B.html', 'C.html']);
+    expect(tree).toEqual([
+      { path: 'B.html', title: 'B', children: [
+        { path: 'C.html', title: 'C', children: [] }
+      ] }
+    ]);
+  });
+
+  test('a visited entry with an unmatched entry (not in hiddenEntries) is silently skipped', () => {
+    const tree = buildSecretsTree(hiddenEntries, ['A.html', 'unknown.html']);
+    expect(tree).toEqual([{ path: 'A.html', title: 'A', children: [] }]);
+  });
+
+  test('multiple unrelated roots stay separate', () => {
+    const tree = buildSecretsTree(hiddenEntries, ['A.html', 'D.html']);
+    expect(tree.map((n) => n.path).sort()).toEqual(['A.html', 'D.html']);
   });
 });

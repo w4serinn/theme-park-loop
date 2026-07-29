@@ -1043,3 +1043,20 @@
       CSSも削除。あわせてキャラクター名を「コデックス」から「ノスティオン」へ
       改名(検索ページ・ナビ・自己言及ギミックの判定ワード・`docs/ARG-DESIGN.md`を
       含め全面更新)。
+- [x] (M) 「学院の秘密」欄をツリー構造で表示(2026-07-29 ユーザー指摘)。
+      `src/logic.js`に純粋関数`buildSecretsTree(hiddenEntries, visitedPaths)`
+      を新設(テスト7件)し、訪問済みページのみを対象に`prereq`を辿って
+      親子関係の木構造を組み立てる。網状構造で複数の親候補が訪問済みの場合は、
+      `visitedPaths`内で最も後(最近)に訪問された方を親として採用(より具体的な
+      発見の連鎖を優先)。未訪問の親候補の存在を推測させる情報は一切出力しない。
+      `src/search.js`に同じロジックを複製し、`renderMemorySection`内で
+      子を持つノードを`<details>/<summary>`で折りたためる形に描画変更
+      (リンクは`<summary>`の外に置き、遷移と開閉のクリックが競合しないように
+      した)。`styles/search.css`に`.codex-memory__tree-*`を新設。
+- [x] (S) 検索クエリに最低文字数を設ける(2026-07-29 ユーザー指摘)。
+      `src/logic.js`に`MIN_SEARCH_QUERY_LENGTH = 2`を新設し、
+      `filterSearchIndex`・`src/search.js`の`filterIndex`とも、この文字数
+      未満のクエリは一致なし(空配列)を返すよう変更(テスト追加)。
+      `src/search.js`の`render`側で、自己言及トリガー(「私」等1文字)は
+      文字数制限の対象外にしつつ、それ以外の短すぎるクエリには
+      「もう少し詳しく入力してください。」という案内を表示するようにした。

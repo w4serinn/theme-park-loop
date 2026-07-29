@@ -193,6 +193,28 @@
   text-decoration: line-through;
 }
 
+/* 「学院の秘密」欄のツリー表示(2026-07-29 ユーザー指摘)。子を持つノードは
+   <details>で折りたためるようにする。 */
+.codex-memory__tree-node > .codex-memory__tree-toggle {
+  margin-top: 0.3rem;
+}
+
+.codex-memory__tree-toggle summary {
+  cursor: pointer;
+  font-size: 0.72rem;
+  color: color-mix(in oklch, var(--brass) 55%, transparent);
+}
+
+.codex-memory__tree-toggle summary:hover {
+  color: var(--ember);
+}
+
+.codex-memory__tree-toggle .codex-memory__tree {
+  margin-top: 0.4rem;
+  padding-left: 1.1rem;
+  border-left: 1px solid color-mix(in oklch, var(--brass) 20%, transparent);
+}
+
 .codex-memory__vague {
   font-size: 0.78rem;
   font-style: italic;
