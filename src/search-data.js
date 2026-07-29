@@ -83,5 +83,6 @@ window.SEARCH_INDEX = [
   { path: 'glossary/sealed-stone-vault.html', title: '魔封石保管庫、展示されなかった記録', category: '図鑑', hidden: true, keywords: ['魔封石保管庫'], prereq: ['glossary/affinity-circle.html'] },
   { path: 'glossary/forbidden-books-room.html', title: '禁書閲覧室、表紙すら非公開の12冊', category: '図鑑', hidden: true, keywords: ['禁書閲覧室'], prereq: ['glossary/sealed-stone-vault.html'] },
   { path: 'glossary/weathervane-shrine.html', title: '風見の祠、名の由来', category: '図鑑', hidden: true, keywords: ['風見の祠'], prereq: ['glossary/forbidden-books-room.html'] },
-  { path: 'glossary/moon-grass.html', title: '珍薬草「月草」、満月の夜だけの恵み', category: '図鑑', hidden: true, keywords: ['月草'], exactMatch: true }
+  { path: 'glossary/moon-grass.html', title: '珍薬草「月草」、満月の夜だけの恵み', category: '図鑑', hidden: true, keywords: ['月草'], exactMatch: true },
+  { path: 'glossary/underground-network.html', title: '時計塔設計図、地下の魔法陣接続部', category: '図鑑', hidden: true, keywords: ['時計塔設計図'], prereq: ['glossary/weathervane-shrine.html'] }
 ];

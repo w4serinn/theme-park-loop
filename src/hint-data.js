@@ -218,4 +218,10 @@ window.HINT_DATA = [
     leadsTo: 'glossary/weathervane-shrine.html',
     hint: '魔法陣召喚広場の北隅にも、契約精霊が身を潜めるという小さな祠があるという話でした。広場の設備についての記述を思い出してみてください。'
   },
+  {
+    requiresPage: 'glossary/weathervane-shrine.html',
+    hintFor: 'glossary/weathervane-shrine.html',
+    leadsTo: 'glossary/underground-network.html',
+    hint: '時刻堂には、地下の接続部まで書き込まれた設計図の複製ポスターが売られているそうです。その商品説明を思い出してみてください。'
+  },
 ];
