@@ -174,10 +174,13 @@ lodging.htmlも交通・宿泊の実用情報が中心で、ARGの入口とし�
 満たせそうな組み合わせをまとめたもの。**P番号の割り当てはまだ行わない**
 (実装に着手するサイクルで、その時点の空き枠に当てはめる)。
 
-### グループA: 「刻」三部作(命名パターンの呼応)[使用済み: P97〜P99、2026-07-29]
-- 大魔法陣「刻の輪」(summoning-plaza.html) → P97 `pages/glossary/time-ring-record.html`
-- 管理台帳「刻の書」(clock-tower.html) → P98 `pages/glossary/time-ledger.html`
-- 大鐘「刻の声」(clock-tower.html) → P99 `pages/glossary/time-bell.html`(P97/P98どちらか一方の訪問で解禁、網状構造)
+### グループA: 「刻」三部作(命名パターンの呼応)[使用済み: P97、2026-07-29実装/2026-07-29に1ページへ統合]
+- 大魔法陣「刻の輪」(summoning-plaza.html) → P97 `pages/glossary/koku-trio.html`
+- 管理台帳「刻の書」(clock-tower.html) → P97 `pages/glossary/koku-trio.html`
+- 大鐘「刻の声」(clock-tower.html) → P97 `pages/glossary/koku-trio.html`
+(旧P97〜P99として3ページ個別に実装していたが、1ページ2カードでは物足りないとの
+ユーザー指摘を受け1ページ8カード構成に統合。旧prereq[P97/P98どちらか一方の
+訪問で解禁]は統合により不要になったため削除)
 → 3項目ちょうど。広場と時計塔という2エリアから接続できる網状構造も組めた
 (なぜ離れた2エリアの装置が同じ「刻」の字を冠するのか、という謎を核にした。
 最終的な答えは明示せず、ノスティオンの独り言で余韻を残す形にした)。
@@ -208,16 +211,18 @@ lodging.htmlも交通・宿泊の実用情報が中心で、ARGの入口とし�
   「天文台を作った学長」と「天文台で星座を編纂した天文官」という2人の
   歴史上の人物がいることを掘り下げられる。
 
-### グループE: キャンパスの外側(見えない境界線)[使用済み: P100〜P101、2026-07-29]
-- 北方雲海・飛行禁止区域・飛行獣の生息ゾーン(shop/airship-shop.html) → P100 `pages/glossary/northern-cloud-sea.html`
-- 「魔法陣転移広場」(index.html、王都中央) → P101 `pages/glossary/transit-plaza.html`
+### グループE: キャンパスの外側(見えない境界線)[使用済み: P100、2026-07-29実装/2026-07-29に1ページへ統合]
+- 北方雲海・飛行禁止区域・飛行獣の生息ゾーン(shop/airship-shop.html) → P100 `pages/glossary/beyond-the-map.html`
+- 「魔法陣転移広場」(index.html、王都中央) → P100 `pages/glossary/beyond-the-map.html`
+(旧P100〜P101として2ページ個別に実装していたが、1ページ4カード構成に統合)
 → 学院の外にも広い世界があることを示す数少ない手がかり2件。root行の
   たどり着き方をトップページ+飛行船ドックの2エリアにできた。
 
-### グループF: 異次元・精霊との接触(召喚まわりの神秘性)[使用済み: P105〜P107、2026-07-29]
-- 異次元存在(shop/summoning-shop.html、降霊護符の保護対象) → P105 `pages/glossary/otherworld-presence.html`
-- 契約精霊シルフィ(summoning-plaza.html、対話コーナー) → P106 `pages/glossary/sylphe-dialogue.html`
-- 星界の精霊(events/index.html、夜の精霊観測会) → P107 `pages/glossary/starfield-spirit.html`
+### グループF: 異次元・精霊との接触(召喚まわりの神秘性)[使用済み: P105、2026-07-29実装/2026-07-29に1ページへ統合]
+- 異次元存在(shop/summoning-shop.html、降霊護符の保護対象) → P105 `pages/glossary/spirits-of-arnold.html`
+- 契約精霊シルフィ(summoning-plaza.html、対話コーナー) → P105 `pages/glossary/spirits-of-arnold.html`
+- 星界の精霊(events/index.html、夜の精霊観測会) → P105 `pages/glossary/spirits-of-arnold.html`
+(旧P105〜P107として3ページ個別に実装していたが、1ページ6カード構成に統合)
 → 3項目ちょうど。「精霊」「異次元存在」という語の違いが実は同じものを
   指しているのか、別物なのか、という謎を各ページの独り言でそれとなく
   示唆する形にした(断片やprereqによる強制接続はせず、3件とも独立した
@@ -230,10 +235,11 @@ lodging.htmlも交通・宿泊の実用情報が中心で、ARGの入口とし�
   検索窓に入力しないと断片が手に入らない、という謎解き(2026-07-28確定方針)
   の実例として使いやすい。fragment種別のページに向く。
 
-### グループH: アルノルド卿にまつわる物証(創設者の遺したもの)[使用済み: P102〜P104、2026-07-29]
-- アルノルド卿の家紋「双頭の鷲と魔法陣」(shop/souvenirs.html) → P102 `pages/glossary/arnold-crest.html`
-- アルノルド卿 研究手稿の精密写本(shop/books.html) → P103 `pages/glossary/arnold-manuscript.html`
-- 「創魔の書」第四章(shop/library-shop.html) → P104 `pages/glossary/founding-grimoire.html`
+### グループH: アルノルド卿にまつわる物証(創設者の遺したもの)[使用済み: P102、2026-07-29実装/2026-07-29に1ページへ統合]
+- アルノルド卿の家紋「双頭の鷲と魔法陣」(shop/souvenirs.html) → P102 `pages/glossary/arnold-relics.html`
+- アルノルド卿 研究手稿の精密写本(shop/books.html) → P102 `pages/glossary/arnold-relics.html`
+- 「創魔の書」第四章(shop/library-shop.html) → P102 `pages/glossary/arnold-relics.html`
+(旧P102〜P104として3ページ個別に実装していたが、1ページ6カード構成に統合)
 → 3項目ちょうど。購買部の3店舗(みやげ・書籍・写本堂)を横断する形で
   たどり着けるroot候補にできた。
 

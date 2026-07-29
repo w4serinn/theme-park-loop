@@ -1061,6 +1061,35 @@
       両ページの独り言側は語句を含まない雰囲気重視の一文に書き改めた。
       `docs/ARG-DESIGN.md`4-1節のP5・P8行の「たどり着き方」列も実際の
       掲載場所(本文)に合わせて更新。
+- [x] (M) 隠しページ1ページあたりのカード数を2枚から最低3枚(目安4枚)に
+      拡張する方針を受け(2026-07-29 ユーザー指摘)、`docs/ARG-WORDBANK.md`の
+      同一グループに属する既存9ページを、グループ単位で1ページに統合
+      (2026-07-29 ユーザー指摘・承認: 「同じグループにまとめてるなら1ページに
+      するとかさ」)。
+      - グループA「刻」三部作: 旧`time-ring-record.html`(P97)・
+        `time-ledger.html`(P98)・`time-bell.html`(P99、旧flavor)を
+        `pages/glossary/koku-trio.html`(8カード)に統合。P99のprereqは
+        直接到達可能になったため削除。
+      - グループE「キャンパスの外側」: 旧`northern-cloud-sea.html`(P100)・
+        `transit-plaza.html`(P101)を`pages/glossary/beyond-the-map.html`
+        (4カード)に統合。
+      - グループH「アルノルド卿にまつわる物証」: 旧`arnold-crest.html`
+        (P102)・`arnold-manuscript.html`(P103)・`founding-grimoire.html`
+        (P104)を`pages/glossary/arnold-relics.html`(6カード)に統合。
+      - グループF「異次元・精霊との接触」: 旧`otherworld-presence.html`
+        (P105)・`sylphe-dialogue.html`(P106)・`starfield-spirit.html`
+        (P107)を`pages/glossary/spirits-of-arnold.html`(6カード)に統合。
+      各ページとも既存カードの内容はほぼそのまま流用し、カード見出しに
+      元の項目名(「刻の輪」「刻の書」等)を接頭辞として補って、どの
+      サブトピックのカードかを判別できるようにした。`src/search-data.js`は
+      11エントリを4エントリに整理(keywordsを合併、Group Aは
+      `exactMatch: true`を維持、Group Eも「魔法陣」接頭辞の既存衝突対策で
+      新たに`exactMatch: true`に統一)。`src/hint-data.js`は各`leadsTo`を
+      新しい統合先パスに付け替え、P99への到達を担っていた前提条件つきの
+      連鎖ヒント(旧`leadsTo: time-bell.html`)は統合により不要になったため
+      削除。`docs/ARG-DESIGN.md`4-2節の該当行(P97〜P107)と
+      `docs/ARG-WORDBANK.md`の各グループの「使用済み」注記を、統合後の
+      構成に合わせて更新。
 
 ### 14. 提携宿泊施設
 

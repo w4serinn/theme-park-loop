@@ -243,17 +243,10 @@ P番号ページの`title`/`keywords`を決める際、これら2語を単体ま
 | P23 | root | 通常ページ(未定) | — | — | 未着手 |
 | P24 | flavor | P23 | — | — | 未着手 |
 | P25 | flavor | P24 | — | — | 未着手 |
-| P97 | root | `exploration/summoning-plaza.html`「大魔法陣『刻の輪』」 | — | — | 実装済み(`pages/glossary/time-ring-record.html`)。`docs/ARG-WORDBANK.md`グループA「刻」三部作の1本目(2026-07-29) |
-| P98 | root | `exploration/clock-tower.html`「管理台帳『刻の書』」 | — | — | 実装済み(`pages/glossary/time-ledger.html`)。グループA「刻」三部作の2本目(2026-07-29) |
-| P99 | flavor | P97, P98(いずれか一方の訪問でOK) | — | — | 実装済み(`pages/glossary/time-bell.html`)。グループA「刻」三部作の3本目、広場と時計塔という2エリアから接続できる網状構造(2026-07-29。同日、keyword「刻の輪」「刻の書」「刻の声」が全て「刻の」という共通の接頭辞を持ち、部分一致のままだと短い共通部分だけで3件まとめて検索結果に出てしまう[個別に発見していく設計が崩れる]とのユーザー指摘を受け、3件とも`exactMatch: true`に変更) |
-| P100 | root | `shop/airship-shop.html`「北方雲海」(航路図みやげの商品説明) | — | — | 実装済み(`pages/glossary/northern-cloud-sea.html`)。`docs/ARG-WORDBANK.md`グループE「キャンパスの外側」の1本目(2026-07-29) |
-| P101 | root | `index.html`「王都中央『魔法陣転移広場』」(アクセス案内の転移魔法陣) | — | — | 実装済み(`pages/glossary/transit-plaza.html`)。グループEの2本目。keyword「魔法陣転移広場」は既存の「魔法陣召喚広場」系エントリ(exploration/summoning-plaza.html等4件)と「魔法陣」の接頭辞が重複するため`exactMatch: true`に設定(2026-07-29) |
-| P102 | root | `shop/souvenirs.html`「アルノルド卿の家紋『双頭の鷲と魔法陣』」(バッジ商品説明) | — | — | 実装済み(`pages/glossary/arnold-crest.html`)。`docs/ARG-WORDBANK.md`グループH「アルノルド卿にまつわる物証」の1本目(2026-07-29) |
-| P103 | root | `shop/books.html`「アルノルド卿 研究手稿 精密写本」(商品説明) | — | — | 実装済み(`pages/glossary/arnold-manuscript.html`)。グループHの2本目 |
-| P104 | root | `shop/library-shop.html`「複製羊皮紙写本『創魔の書より』」(商品説明) | — | — | 実装済み(`pages/glossary/founding-grimoire.html`)。グループHの3本目。同ページ本文に既存の世界観矛盾(「第三代学院長アルノルド卿」表記が、他の全ページで確立された創設者[初代]設定と矛盾)を発見、`docs/ROADMAP.md`にバグとして記録・修正済み(2026-07-29) |
-| P105 | root | `shop/summoning-shop.html`「異次元存在との接触から使用者を保護する」(降霊護符の商品説明) | — | — | 実装済み(`pages/glossary/otherworld-presence.html`)。`docs/ARG-WORDBANK.md`グループF「異次元・精霊との接触」の1本目(2026-07-29) |
-| P106 | root | `exploration/summoning-plaza.html`「契約精霊シルフィ」(対話コーナーの見どころ紹介) | — | — | 実装済み(`pages/glossary/sylphe-dialogue.html`)。グループFの2本目 |
-| P107 | root | `events/index.html`「星界の精霊」(新月の精霊観測会の紹介) | — | — | 実装済み(`pages/glossary/starfield-spirit.html`)。グループFの3本目。3ページとも「精霊」と「異次元存在」が同じものを指すのか別物なのかという謎を各ページの本文・独り言でそれとなく示唆する形にしたが、断片やprereqによる強制的な接続は設けていない(それぞれ独立したroot行として発見できる) |
+| P97 | root | `exploration/summoning-plaza.html`「大魔法陣『刻の輪』」、`exploration/clock-tower.html`「管理台帳『刻の書』」の2箇所から接続(網状構造) | — | — | 実装済み(`pages/glossary/koku-trio.html`)。`docs/ARG-WORDBANK.md`グループA「刻」三部作(2026-07-29実装)。1ページ2カードでは物足りないとのユーザー指摘(2026-07-29)を受け、旧#97「刻の輪」(`time-ring-record.html`)・旧#98「刻の書」(`time-ledger.html`)・旧#99「刻の声」(`time-bell.html`、旧flavor)の3ページを1ページに統合。旧#99のprereqは統合により不要になったため削除、8カード構成に。旧#98・#99の番号は欠番として扱う |
+| P100 | root | `shop/airship-shop.html`「北方雲海」(航路図みやげの商品説明)、`index.html`「王都中央『魔法陣転移広場』」(アクセス案内の転移魔法陣)の2箇所から接続 | — | — | 実装済み(`pages/glossary/beyond-the-map.html`)。`docs/ARG-WORDBANK.md`グループE「キャンパスの外側」(2026-07-29実装)。旧#100「北方雲海」(`northern-cloud-sea.html`)・旧#101「魔法陣転移広場」(`transit-plaza.html`)の2ページを1ページに統合(2026-07-29)、4カード構成に。旧#101の番号は欠番として扱う |
+| P102 | root | `shop/souvenirs.html`「アルノルド卿の家紋『双頭の鷲と魔法陣』」、`shop/books.html`「アルノルド卿 研究手稿 精密写本」、`shop/library-shop.html`「複製羊皮紙写本『創魔の書より』」の3箇所から接続 | — | — | 実装済み(`pages/glossary/arnold-relics.html`)。`docs/ARG-WORDBANK.md`グループH「アルノルド卿にまつわる物証」(2026-07-29実装)。旧#102「紋章」(`arnold-crest.html`)・旧#103「研究手稿」(`arnold-manuscript.html`)・旧#104「創魔の書」(`founding-grimoire.html`)の3ページを1ページに統合(2026-07-29)、6カード構成に。旧#104実装時に発見した既存の世界観矛盾(「第三代学院長アルノルド卿」表記)は`docs/ROADMAP.md`にバグとして記録・修正済み(統合前に対応済み)。旧#103・#104の番号は欠番として扱う |
+| P105 | root | `shop/summoning-shop.html`「異次元存在との接触から使用者を保護する」(降霊護符の商品説明)、`exploration/summoning-plaza.html`「契約精霊シルフィ」、`events/index.html`「星界の精霊」の3箇所から接続 | — | — | 実装済み(`pages/glossary/spirits-of-arnold.html`)。`docs/ARG-WORDBANK.md`グループF「異次元・精霊との接触」(2026-07-29実装)。旧#105「異次元存在」(`otherworld-presence.html`)・旧#106「契約精霊シルフィ」(`sylphe-dialogue.html`)・旧#107「星界の精霊」(`starfield-spirit.html`)の3ページを1ページに統合(2026-07-29)、6カード構成に。3項目とも「精霊」と「異次元存在」が同じものを指すのか別物なのかという謎を各カード・独り言でそれとなく示唆する形は統合後も維持。断片やprereqによる強制的な接続は設けていない。旧#106・#107の番号は欠番として扱う |
 
 ### 4-3. 既存ページのギミックを使うグループ
 
