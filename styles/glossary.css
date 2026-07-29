@@ -476,7 +476,7 @@
   }
 
   .archive-entry__profile--cipher {
-    grid-template-columns: max-content 1fr;
+    grid-template-columns: repeat(2, max-content 1fr);
   }
 
   .origin-story {

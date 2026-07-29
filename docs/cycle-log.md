@@ -1,5 +1,38 @@
 # サイクル履歴
 
+## 2026-07-29 17:35
+- ブランチ: `evolve/cycle-32`はすでに`origin/main`に取り込み済み(PR #38、
+  `chore: update news for completed pages [skip ci]`コミット`5bcca74`)
+  だったため、`main`をpullした上で新規`evolve/cycle-33`ブランチを
+  作り直して継続(手順通り)。
+- ドキュメント整理: `evolve/cycle-32`で解消したバグ修正2件(ツリー安定化・
+  発見バッジ)が`origin/main`に取り込み済みであることを確認できたため、
+  `docs/ROADMAP.md`の「## バグ修正」セクションから`docs/roadmap-done.md`の
+  「バグ修正(解消済み)」欄へ退避し、お知らせ行を削除。
+- タスク選定: `### 13`のレビュー待ちタスクから、独立して着手できる小規模
+  (S)修正3件をまとめて実装。
+  1. P8「名を消された決闘王」のkeyword見直し: 元のkeyword「さらに古い時代の
+     決闘王」が文章そのものかつ「決闘王」がP4・P8のタイトルと重複していた
+     問題を、P8本文に既出の一文「一撃で場を静める」への変更で解消
+     (`src/search-data.js`・`pages/glossary/dueling-champions.html`・
+     `docs/ARG-DESIGN.md`)。
+  2. P2「フィンレー式記譜法」対応表のスマホ表示修正: `@media (width <= 600px)`
+     で1列に戻っていた`.archive-entry__profile--cipher`を2列
+     (`repeat(2, max-content 1fr)`)に変更(`styles/glossary.css`)。
+  3. P5・P7の語り手ルール違反修正: 書き手が知りようのない「ノスティオンに
+     尋ねてみて」という直接的な呼びかけを、検索機能の名を出さない推測の
+     一文に書き改めた(`pages/glossary/apprentice-notes.html`・
+     `pages/glossary/final-entry.html`)。
+- レビュー: OK(local-review相当のセルフチェックを実施。各修正が意図通りの
+  差分に収まっていること、P8の新keywordがP8本文に実在すること、モバイル
+  グリッドの列数変更が他のブレークポイントと衝突しないことを確認。指摘なし)。
+- lint: ✓ / lint:css: ✓ / test: ✓(332件) / build: ✓
+- 次回予定: `### 13`の「未着手」P番号ページの新規実装、またはP91の三択
+  総当たり対策(M)。
+- blocked / partial: なし
+- asset-pending: なし(今回は既存ページのテキスト・CSS修正のみで新規
+  ビジュアルエリアの追加なし)
+
 ## 2026-07-29 17:20
 - ブランチ: 前回の`evolve/cycle-31`はすでに`origin/main`に取り込み済み
   だったため、`main`をpullした上で新規`evolve/cycle-32`ブランチを
