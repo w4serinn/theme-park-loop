@@ -19,10 +19,33 @@
     hidden: true
   };
 
+  // P91の矛盾探しパズル対策(2026-07-29 ユーザー指摘、src/logic.jsの
+  // isNostionMemoryWrongCandidateと同じロジック)。ページ訪問済みの場合のみ、
+  // 誤った候補の検索に専用の応答を返す(力任せの総当たりを牽制する)。
+  var NOSTION_MEMORY_WRONG_CANDIDATES = ['はじまりの書', 'みちしるべ', '刻みの守人', '詠み子'];
+
+  function isNostionMemoryWrongCandidate(query, visitedPaths) {
+    var q = (query || '').trim();
+    var visited = visitedPaths.indexOf(SELF_REFERENCE_PAGE_PATH) !== -1;
+    return visited && NOSTION_MEMORY_WRONG_CANDIDATES.indexOf(q) !== -1;
+  }
+
   var memorySection = document.getElementById('codex-memory-section');
   var memorySecretsLabel = document.getElementById('codex-memory-secrets-label');
   var memorySecretsList = document.getElementById('codex-memory-secrets-list');
   var memoryFragmentsList = document.getElementById('codex-memory-fragments-list');
+  var hintLinkEl = document.getElementById('search-hint-link');
+
+  // 開発用デバッグコマンド(2026-07-29 ユーザー提案、src/logic.jsの
+  // isDebugResetQueryと同じロジック)。検索窓にこの文字列だけを入力すると、
+  // 発見履歴(codex-memory)を消してページを再読み込みする。通常の検索語
+  // (日本語の単語)とは衝突しない記号始まりの文字列で、SEARCH_INDEXには
+  // 登録せずプレイヤー向けの説明もしない裏コマンド。
+  var DEBUG_RESET_QUERY = '!reset';
+
+  function isDebugResetQuery(query) {
+    return (query || '').trim() === DEBUG_RESET_QUERY;
+  }
 
   // クエリが「の」のような助詞1文字だと大量ヒットしてしまうため、この文字数
   // 未満のクエリは一致なしとして扱う(src/logic.jsのMIN_SEARCH_QUERY_LENGTHと
@@ -60,6 +83,16 @@
     var q = (query || '').trim();
     if (!q) { return false; }
     return q.indexOf('私') !== -1 || q.indexOf('ノスティオン') !== -1;
+  }
+
+  // 「謎解きに行き詰まったら」リンクの表示条件(2026-07-29 ユーザー指摘、
+  // src/logic.jsのshouldShowHintLinkと同じロジック)。「学院の秘密」を
+  // 1件以上見つけた後にのみ表示する(隠しページを一つも知らない訪問者に
+  // いきなり出るのは不自然なため)。
+  function updateHintLinkVisibility() {
+    if (!hintLinkEl) { return; }
+    var visitedPaths = window.CodexProgress ? window.CodexProgress.load().secrets : [];
+    hintLinkEl.hidden = visitedPaths.length === 0;
   }
 
   // 「学院の秘密」欄のツリー表示用(2026-07-29 ユーザー指摘・バグ修正、
@@ -228,19 +261,21 @@
       return;
     }
 
+    var visitedPaths = window.CodexProgress ? window.CodexProgress.load().secrets : [];
+
     var results = selfReference
       ? [SELF_REFERENCE_ENTRY]
       : filterIndex(query, window.SEARCH_INDEX).filter(isUnlocked);
     resultsEl.innerHTML = '';
 
     if (results.length === 0) {
-      statusEl.textContent = '「' + query + '」に一致するページが見つかりませんでした。';
+      statusEl.textContent = isNostionMemoryWrongCandidate(query, visitedPaths)
+        ? '……その響きには、聞き覚えがありません。'
+        : '「' + query + '」に一致するページが見つかりませんでした。';
       return;
     }
 
     statusEl.textContent = results.length + '件のページが見つかりました。';
-
-    var visitedPaths = window.CodexProgress ? window.CodexProgress.load().secrets : [];
 
     results.forEach(function (entry) {
       var li = document.createElement('li');
@@ -278,6 +313,13 @@
   }
 
   input.addEventListener('input', function () {
+    if (isDebugResetQuery(input.value)) {
+      if (window.CodexProgress && window.CodexProgress.reset) {
+        window.CodexProgress.reset();
+      }
+      window.location.reload();
+      return;
+    }
     render(input.value);
   });
 
@@ -290,8 +332,10 @@
   window.addEventListener('pageshow', function (event) {
     if (event.persisted) {
       renderMemorySection();
+      updateHintLinkVisibility();
     }
   });
 
   renderMemorySection();
+  updateHintLinkVisibility();
 }());

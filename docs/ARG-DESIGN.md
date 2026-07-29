@@ -207,7 +207,7 @@ P番号ページの`title`/`keywords`を決める際、これら2語を単体ま
 | P5 | fragment | P2(`glossary/perpetual-motion.html`の独り言「修繕工房には…研究し続ける学生」) | F1(刻の断片、→扉) | — | 実装済み(`pages/glossary/apprentice-notes.html`)。P2に追加した「フィンレー式記譜法」(1記号=1アルファベットの対応表、ダミー含む12種)を使って手記内の8記号(歯車8枚歯)を解読すると読み「haguruma」になり、そこから連想される単語「歯車」を検索して初めて到達する実装済み(`pages/glossary/gear-cipher.html`)で獲得(2026-07-29 対応表を1記号=1モーラから1記号=1アルファベット+ダミー拡充に訂正、答えもローマ字「HAGURUMA」から自然な単語「歯車」に訂正。exactMatch設定済み) |
 | P6 | flavor | P3, P1(両ページの本文に「シベル・オーレン」という人物名を追記して接続) | — | — | 実装済み(`pages/glossary/first-astronomer.html`) |
 | P7 | fragment | P6(`glossary/first-astronomer.html`の「観測記録帳」) | F2(記帳の断片、→P21で使用) | — | 実装済み(`pages/glossary/final-entry.html`)。頁に書き足された5つの座標「N-M」(N=P3「魔導88星座」の星座番号、M=その星座名[ひらがな部分]のM文字目)を、P3(`glossary/starmap-fragments.html`)の該当5座(第07/23/41/56/74番)と突き合わせて解読すると「な・が・れ・ぼ・し」になり、「流れ星」を検索して初めて到達する実装済み(`pages/glossary/shooting-star.html`)で獲得(2026-07-29 ユーザー指摘によりギミックを位置・配置方式[P6の頭文字抽出、答え「もどりば」]から全面的に作り直し。P6の「観測日誌、書き出しの癖」項目は不要になったため削除。exactMatch設定済み) |
-| P8 | flavor | P4(`glossary/dueling-champions.html`の独り言「さらに古い時代の決闘王」) | — | — | 実装済み(`pages/glossary/erased-champion.html`) |
+| P8 | flavor | P4(`glossary/dueling-champions.html`の独り言「静寂の一撃」) | — | — | 実装済み(`pages/glossary/erased-champion.html`)(2026-07-29 元のkeyword「さらに古い時代の決闘王」は文章そのものかつ「決闘王」がP4・P8のタイトルと重複し紛らわしいとのユーザー指摘を受け、P8本文に既出の一文「一撃で場を静める」に変更→さらに、この言い回し自体も文章(動詞を含む一節)であり同種の問題が残っているとのユーザー再指摘を受け、体言止めの技名「静寂の一撃」に変更) |
 | P9 | flavor | P8, P24 | — | — | 未着手 |
 
 ### 4-2. 通常ページ発の新規ルート群
@@ -238,7 +238,7 @@ P番号ページの`title`/`keywords`を決める際、これら2語を単体ま
 | P26 | fragment | 既存ギミック: `guide/index.html`のマスコットのセリフ | F5(→扉) | — | 未着手 |
 | P27 | fragment | 既存ギミック: `tickets/index.html`の料金シミュレーター | F6(→P32で使用) | — | 未着手 |
 | P90 | fragment | 既存ギミック: `events/index.html`の季節×エリア絞り込みで特定の組み合わせにすると出現 | F12(→扉) | — | 未着手 |
-| P91 | fragment | 既存ギミック: `pages/search.html`(物知りの魔導書「ノスティオン」)で「私」または「ノスティオン」を含む語を検索すると、通常の検索結果と同じクリック可能なカードとして出現し、専用の隠しページへ遷移する | F13(本心の断片、→扉) | — | 実装済み(`pages/glossary/nostion-memory.html`)。ページ内で提示される3つの候補名(はじまりの書/みちしるべ/よりしろ)のうち、本文中の矛盾から2つを消去し、残った「よりしろ」を検索して初めて到達する実装済み(`pages/glossary/yorishiro-echo.html`)で獲得(2026-07-29 選択・消去方式に作り直し。P5[対応表方式]・P7[位置・配置方式]とは異なるギミック。候補名は当初ラテン語[MEMORIA/VERITAS/ORIGO]だったが、答えのローマ字化は誤った一般化だったとのユーザー指摘を受け自然な日本語に訂正。exactMatch設定済み) |
+| P91 | fragment | 既存ギミック: `pages/search.html`(物知りの魔導書「ノスティオン」)で「私」または「ノスティオン」を含む語を検索すると、通常の検索結果と同じクリック可能なカードとして出現し、専用の隠しページへ遷移する | F13(本心の断片、→扉) | — | 実装済み(`pages/glossary/nostion-memory.html`)。ページ内で提示される5つの候補名(はじまりの書/みちしるべ/刻みの守人/詠み子/よりしろ)のうち、本文中の矛盾から4つを消去し、残った「よりしろ」を検索して初めて到達する実装済み(`pages/glossary/yorishiro-echo.html`)で獲得(2026-07-29 選択・消去方式に作り直し。P5[対応表方式]・P7[位置・配置方式]とは異なるギミック。候補名は当初ラテン語[MEMORIA/VERITAS/ORIGO]だったが、答えのローマ字化は誤った一般化だったとのユーザー指摘を受け自然な日本語に訂正。exactMatch設定済み。2026-07-29 3択は総当たりで解けてしまうとのユーザー指摘を受け、候補を5つに増やした上、誤った候補を検索した際(ページ訪問済みの場合のみ)には通常の「見つかりませんでした」ではなく専用の応答[`src/logic.js`の`isNostionMemoryWrongCandidate`]を返すよう変更) |
 
 ### 4-4. 通常ページ発の新規ルート群(続き、断片絡み)
 
@@ -405,14 +405,44 @@ F1,F3,F4,...」は、断片を単純な所持チェック(インベントリの�
   (先読み防止)。
 - **たどり着き方**: `SEARCH_INDEX`には登録せず(検索一発で見つかると
   本末転倒なため)、代わりに`pages/search.html`の誘導文のすぐ下に、
-  小さく控えめなテキストリンク(`.search-hint-link`)を常時設置する形にした。
+  小さく控えめなテキストリンク(`.search-hint-link`)を設置した。
   隠しページ網(`### 13`)の発見の連鎖とは別枠の、常設の救済導線という位置づけ。
+  ただし「学院の秘密」を1件も見つけていない訪問者にいきなり出るのは不自然
+  なため(2026-07-29 ユーザー指摘)、`src/logic.js`の
+  `shouldShowHintLink(visitedPaths)`により1件以上見つけた後にのみ表示する。
 - **既存ページからの移設**: P7(`final-entry.html`)に埋め込まれていたヒントは
   `hint-book.html`側(`requiresPage: 'glossary/final-entry.html'`)へ移設し、
   本文からは削除した。P5(`apprentice-notes.html`)は既にヒントを含まない
   形に整理済みだったため、`hint-book.html`用に新規のヒントを1件書き起こした。
   P91(`nostion-memory.html`)は候補+矛盾点の提示自体が謎解きの主要素であり
   本文にヒントの埋め込みは無かったが、一貫性のため軽いヒントを1件追加した。
+- **見出し・開閉(2026-07-29 ユーザー指摘)**: 各ヒントの見出しは、当初
+  断片の個別名(`window.FRAGMENT_NAMES[entry.id]`、例:「本心の断片」)を
+  使っていたが、断片の個別名自体が謎解きの報酬・答えの一部であり先出しは
+  ネタバレになるため、`entry.requiresPage`に対応する`SEARCH_INDEX`(または
+  P91のようにSEARCH_INDEX外の特別なページの場合は同等のタイトル)の
+  タイトルに変更した(`src/logic.js`の`resolveHintPageTitle`)。また各ヒント
+  本文は`<details>`(デフォルト閉)で開閉式にし、開いた時だけ見えるようにした
+  (「開いたときにいきなり全部出るとネタバレ感がある」との指摘)。
+- **導線文言(2026-07-29 ユーザー指摘)**: `pages/search.html`側のリンク文言
+  「謎解きに行き詰まったら」が現代的なゲーム攻略サイトのような言い回しで
+  世界観にそぐわないとの指摘を受け、「迷える者への、小さな手引き」という
+  控えめな文言に変更した。「ここはヒントを集めた場所です」という趣旨の
+  説明は`hint-book.html`側の`.page-hero__desc`に書く形に寄せた。
+- **対象拡大(2026-07-29 ユーザー指摘)**: 当初は謎解き(暗号解読、F1・F2・F13)
+  のみが対象だったが、それ以外の大多数の隠しページ(root/flavor、`prereq`を
+  持つ通常の発見リンク)には次に何を検索すればいいか分からなくなった場合の
+  ヒントが無かった。`window.SEARCH_INDEX`の`prereq`を持つエントリのうち、
+  まだヒントの無かった`apprentice-notes.html`(← `perpetual-motion.html`)・
+  `first-astronomer.html`(← `mythical-creatures.html` / `starmap-fragments.html`
+  のOR)・`final-entry.html`(← `first-astronomer.html`)・
+  `erased-champion.html`(← `dueling-champions.html`)の4件を追加した(実際の
+  `keywords`をそのまま見せず、ぼかした言い回しに留める)。OR-prereqの
+  ページに対応するため、`entry.requiresPage`は文字列に加えてstring[]も
+  受け付けるよう`filterUnlockedHints`・`resolveHintPageTitle`(いずれも
+  `src/logic.js`)を拡張した(配列の場合、見出しは両方のタイトルを
+  「 / 」でつなぐ)。断片を産出しない発見の連鎖のヒントには対応する
+  断片IDが無いため、`id`フィールドは省略可とした。
 
 ## 5. 実装の進め方(evolveループ向け)
 

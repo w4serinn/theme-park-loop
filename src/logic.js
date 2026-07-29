@@ -152,11 +152,31 @@ export function buildHiddenEntryList(searchIndex, extraEntries) {
 // 謎解きヒント専用ページ(docs/ROADMAP.md「### 13」参照)用: hintDataのうち、
 // entry.requiresPageをvisitedPathsにまだ持っていないものを除外する。
 // まだ出会っていない謎のヒントを先読みできてしまわないようにするため
-// (2026-07-29 ユーザー提案)。
+// (2026-07-29 ユーザー提案)。requiresPageは文字列またはstring[]
+// (複数ページのいずれか1つでも訪問済みならOKのOR判定。2026-07-29
+// ヒント対象拡大: 例えばP6は魔法生物図鑑・魔導88星座のどちらからでも
+// たどり着けるため、ヒントもどちらか一方の訪問で解禁する必要がある)。
 export function filterUnlockedHints(hintData, visitedPaths) {
   return hintData.filter(function (entry) {
-    return visitedPaths.indexOf(entry.requiresPage) !== -1;
+    var required = Array.isArray(entry.requiresPage) ? entry.requiresPage : [entry.requiresPage];
+    return required.some(function (p) { return visitedPaths.indexOf(p) !== -1; });
   });
+}
+
+// ヒントの手引き(pages/glossary/hint-book.html)の見出し用(2026-07-29
+// ユーザー指摘)。断片の個別名(先読みでネタバレになる)ではなく、手がかりが
+// あるページ自体のタイトルを見出しにする。extraEntries経由で、SEARCH_INDEXに
+// 登録されていない特別なページ(P91の自己言及ページ等)も解決できるようにする
+// (buildHiddenEntryListと同じ考え方)。pathは文字列またはstring[]
+// (OR条件の場合、両方のタイトルを「 / 」でつないで見出しにする)。
+export function resolveHintPageTitle(path, searchIndex, extraEntries) {
+  var all = (searchIndex || []).concat(extraEntries || []);
+  var paths = Array.isArray(path) ? path : [path];
+  var titles = paths.map(function (p) {
+    var match = all.filter(function (e) { return e.path === p; })[0];
+    return match ? match.title : p;
+  });
+  return titles.join(' / ');
 }
 
 // 「学院の秘密」欄をツリー表示するための木構造を組み立てる(2026-07-29
@@ -238,4 +258,37 @@ export function buildFragmentDisplayList(fragments, names, hiddenEntries) {
 // なら「今まさに発見した」わけではないため表示しない。
 export function shouldShowDiscoveryBadge(entry, visitedPaths) {
   return !!entry.hidden && visitedPaths.indexOf(entry.path) === -1;
+}
+
+// 開発用デバッグコマンド(2026-07-29 ユーザー提案): ノスティオンの検索窓に
+// この文字列だけを入力した場合に限り、開発者向けの発見履歴リセット動作の
+// トリガーとみなす。通常の検索語(日本語の単語)とは衝突しない記号始まりの
+// 文字列にしてあり、SEARCH_INDEXには一切登録しない(プレイヤー向けの
+// 説明もしない裏コマンド)。
+export var DEBUG_RESET_QUERY = '!reset';
+
+export function isDebugResetQuery(query) {
+  return (query || '').trim() === DEBUG_RESET_QUERY;
+}
+
+// P91(docs/ARG-DESIGN.md 4-3節)「本心の断片」の矛盾探しパズル対策
+// (2026-07-29 ユーザー指摘: 候補が3つしかなく、総当たりで解けてしまう)。
+// 候補を5つに増やしたことに加え、誤った候補を検索した際は通常の
+// 「見つかりませんでした」ではなく専用の応答を返し、力任せの総当たりを
+// 牽制する(ページを訪問済みの場合のみ。未訪問のまま特別な応答を返すと、
+// この語自体が謎のヒントであることを先に漏らしてしまうため)。
+export var NOSTION_MEMORY_PAGE_PATH = 'glossary/nostion-memory.html';
+export var NOSTION_MEMORY_WRONG_CANDIDATES = ['はじまりの書', 'みちしるべ', '刻みの守人', '詠み子'];
+
+export function isNostionMemoryWrongCandidate(query, visitedPaths) {
+  var q = (query || '').trim();
+  var visited = (visitedPaths || []).indexOf(NOSTION_MEMORY_PAGE_PATH) !== -1;
+  return visited && NOSTION_MEMORY_WRONG_CANDIDATES.indexOf(q) !== -1;
+}
+
+// 「謎解きに行き詰まったら」リンク(ヒントの手引きへの導線)の表示条件
+// (2026-07-29 ユーザー指摘: 隠しページを何も見つけていない訪問者に
+// いきなり出るのは不自然)。「学院の秘密」を1件以上見つけた後にのみ表示する。
+export function shouldShowHintLink(visitedPaths) {
+  return (visitedPaths || []).length > 0;
 }

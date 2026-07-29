@@ -81,6 +81,32 @@
       `assets/images/exploration/thumb-airship-dock.jpg`(上下25px)。
       他の画像は同じ手法で走査し黒帯なしを確認済み。
 
+- [x] (M) 「学院の秘密」ツリーの親子関係が、後から別ページを訪問すると
+      過去に遡って変わってしまう(2026-07-29 ユーザー報告)。例: 魔導88星座
+      →シベル・オーレン(P6、prereqは魔法生物図鑑[P1]・魔導88星座[P3]の
+      OR)→魔法生物図鑑、の順に訪問すると、最初はP3の子として表示されて
+      いたP6が、後からP1を訪れた時点でP1の子に付け替わってしまう。
+      原因: `src/logic.js`の`buildSecretsTree`(`src/search.js`に複製あり)は
+      呼ばれるたびに、その時点の全訪問履歴から親子関係を毎回ゼロから
+      再計算しており、複数の親候補がある場合は「`visitedPaths`内で最も後に
+      訪問された候補」を親として採用する仕様のため、後の訪問で結果が
+      変わってしまう。**修正内容**: `codex-progress.js`の拡張やデータ
+      スキーマ変更は行わず、候補の絞り込み条件に「そのページ自身より前に
+      訪問されていること」(`visitedPaths.indexOf(p) < index`)を追加する
+      だけで解決した。`visitedPaths`は追記専用(過去の順序が変わらない)の
+      ため、この条件を満たす候補集合は将来どれだけ新しいページを訪れても
+      変化せず、一度確定した親子関係は安定する。`src/logic.js`・
+      `src/search.js`の両方に適用し、再現テストを追加。
+- [x] (S) 発見済みの隠しページでも、検索結果に出るたびに「✦ 発見」バッジが
+      表示されてしまう(2026-07-29 ユーザー報告)。`src/search.js`の
+      結果描画(`entry.hidden`が`true`ならバッジを付ける箇所)は
+      `window.CodexProgress`の訪問済み履歴(`progress.secrets`)を一切
+      参照しておらず、既に見つけたページを再検索した際にも毎回「発見」と
+      出てしまい紛らわしい。`entry.path`が`progress.secrets`にまだ含まれて
+      いない(=本当に初めて見つけた)場合だけバッジを表示するよう修正した。
+      `src/logic.js`に純粋関数`shouldShowDiscoveryBadge(entry, visitedPaths)`
+      を新設(テスト付き)、`src/search.js`にも同じロジックを反映。
+
 ### 0. 共通パーツ(ヘッダー/フッター) [status: 完了]
 > 紹介文: 全ページ共通のヘッダーとフッターが完成しました。真鍮色ナビゲーション・モバイルスライドメニュー・学院案内フッターが、アルノルド魔法学院の風格をすべてのページに通わせます。
 
@@ -918,6 +944,38 @@
       見つかると本末転倒なため)。P7(`final-entry.html`)の埋め込みヒントは
       移設・削除、P5は元々ヒント無しのため新規に1件書き起こし、P91にも
       一貫性のため1件追加。`styles/hint-book.css`を新設。
+- [x] (S) P2「フィンレー式記譜法」対応表のスマホ表示を修正(2026-07-29
+      ユーザー報告、スクリーンショット添付)。`styles/glossary.css`の
+      `.archive-entry__profile--cipher`は`@media (width <= 600px)`で
+      `grid-template-columns: max-content 1fr`(1列)に戻る設定になっており、
+      600px以下で当初の「余白が目立つ」問題が再発していたのを、
+      `repeat(2, max-content 1fr)`(2列)に変更して解消した。
+- [x] (S) P8「名を消された決闘王」のkeyword「さらに古い時代の決闘王」を
+      見直し(2026-07-29 ユーザー指摘)。文章そのもの(主語・述語を含む一節)が
+      検索語になっており不自然な上、「決闘王」がP4・P8自身のタイトルと
+      重複し紛らわしい問題があったため、P4の独り言をP8本文に既出の一文
+      「一撃で場を静める」を参照する内容に一度書き換えたが、この言い回し
+      自体も動詞を含む文章であり同種の問題が残るとのユーザー再指摘を受け、
+      体言止めの技名「静寂の一撃」に最終的に変更した(`src/search-data.js`・
+      `pages/glossary/dueling-champions.html`・`pages/glossary/erased-champion.html`・
+      `docs/ARG-DESIGN.md`)。
+- [x] (S) P5・P7の謎解き文末「ノスティオンに尋ねてみて」を語り手ルール違反
+      として修正(2026-07-29 ユーザー指摘)。`docs/ARG-DESIGN.md`3節
+      「本文の語り手ルール」の対応漏れで、書き手(見習い整備士/シベル・
+      オーレン)が知りようのない「ノスティオン」への直接的な呼びかけが
+      地の文に残っていた。`pages/glossary/apprentice-notes.html`・
+      `pages/glossary/final-entry.html`双方の締めを、検索機能の名を出さない
+      推測の一文に書き改めた。
+- [x] (M) P91「本心の断片」の三択が総当たりで解けてしまう問題への対策
+      (2026-07-29 ユーザー指摘)。`pages/glossary/nostion-memory.html`の候補を
+      3つ(『はじまりの書』『みちしるべ』『よりしろ』)から5つ(『刻みの
+      守人』『詠み子』を追加)に増やし、それぞれに矛盾の手がかりを追記した。
+      あわせて、誤った候補(4つ)を検索した際は通常の「見つかりませんでした」
+      ではなく専用の応答「……その響きには、聞き覚えがありません。」を返す
+      ようにし、力任せの総当たりを牽制した(ページ訪問済みの場合のみ発火。
+      未訪問のまま特別応答を返すと語句自体がヒントになってしまうため)。
+      `src/logic.js`に純粋関数`isNostionMemoryWrongCandidate(query, visitedPaths)`
+      を新設(テスト付き)、`src/search.js`に同じロジックを複製。
 
 ### 14. 提携宿泊施設
 
@@ -1079,3 +1137,72 @@
       フェードイン/アウトする形にした(回転し続けるスピナー等の量産型演出は
       避けた)。`prefers-reduced-motion`では stroke描画を省略し単純な
       フェードのみにする。`styles/glossary.css`に`.fragment-effect*`を新設。
+- [x] (S) 「学院の秘密」欄全体を折りたためるようにする(2026-07-29
+      ユーザー指摘)。`#codex-memory-secrets-list`とラベル行
+      (`#codex-memory-secrets-label`)を`<details>`/`<summary>`で包み、
+      デフォルトは閉(`open`属性なし)にした(`pages/search.html`)。
+      `styles/search.css`に`summary.codex-memory__label`のカーソル/
+      hover装飾を追加。
+- [x] (S) 「謎解きに行き詰まったら」リンクの表示条件を見直す(2026-07-29
+      ユーザー指摘: 「いきなり出るのは変」)。「学院の秘密」を1件も
+      見つけていない訪問者には表示しないよう変更した。判定は`src/logic.js`の
+      純粋関数`shouldShowHintLink(visitedPaths)`(テスト付き)、
+      `src/search.js`に同じロジックを複製し`updateHintLinkVisibility`で
+      `#search-hint-link`の`hidden`属性を切り替える(初期状態・bfcache復元時
+      いずれも呼び出す)。
+- [x] (S) デバッグ用の発見履歴リセット機能(2026-07-29 ユーザー提案)。
+      ノスティオンの検索窓に裏コマンド文字列(`!reset`、通常の検索語とは
+      衝突しない記号始まり)を入力した時だけ、`codex-memory`(発見履歴)を
+      削除してページを再読み込みする。判定は`src/logic.js`の純粋関数
+      `isDebugResetQuery(query)`(テスト付き)、`src/codex-progress.js`に
+      `CodexProgress.reset()`を新設し、`src/search.js`の入力ハンドラから
+      呼び出す。`SEARCH_INDEX`には登録せず、プレイヤー向けの説明もしない
+      開発者専用の仕込み。
+- [x] (S) ヒントの手引き、各ヒントを開閉式(デフォルト閉)にする(2026-07-29
+      ユーザー指摘: 「開いたときにいきなり全部出るとネタバレ感がある」)。
+      `src/hint-book.js`の各エントリを`<details>`(初期状態は`open`なし=閉)で
+      包み、プレイヤーが自分で開いた時だけ本文が見える形にした。
+- [x] (S) ヒントの見出しを、断片の個別名ではなく問題があるページのタイトルに
+      変更(2026-07-29 ユーザー指摘: 「本心の断片って変じゃないかな?
+      解いたらそこが分かるけど」)。断片の個別名自体が謎解きの報酬・答えの
+      一部であり先出しはネタバレになるため、`entry.requiresPage`に対応する
+      `window.SEARCH_INDEX`のtitleを見出しにするよう変更した。`src/logic.js`に
+      純粋関数`resolveHintPageTitle(path, searchIndex, extraEntries)`を新設
+      (テスト付き。P91のようにSEARCH_INDEX未登録の特別なページも
+      extraEntries経由で解決できる)、`src/hint-book.js`に同じロジックを複製。
+      `pages/glossary/hint-book.html`に`src/search-data.js`の読み込みを追加
+      (不要になった`src/fragment-names.js`の読み込みは削除)。
+- [x] (S) ヒントページへの導線の文言を見直す(2026-07-29 ユーザー指摘)。
+      `pages/search.html`のリンク文言「謎解きに行き詰まったら」が現代的な
+      ゲーム攻略サイトのような言い回しで世界観にそぐわなかったため、
+      「迷える者への、小さな手引き」という控えめな文言に変更した。
+      「ここはヒントを集めた場所です」という趣旨の説明は、遷移先の
+      `pages/glossary/hint-book.html`側の`.page-hero__desc`に寄せた。
+- [x] (M) 断片取得エフェクトの第2弾(何を取ったかの表示)を追加(2026-07-29
+      ユーザー指摘。「……断片を手にしました。」演出は好評だったため、
+      それを活かしつつ拡張)。1つ目のバナーが消えた直後
+      (`animationend`後)、同じ演出スタイルで2つ目のバナー
+      「……その名は、「○○の断片」。」を表示するようにした
+      (`window.FRAGMENT_NAMES`から解決)。あわせて`.fragment-effect__glyph`の
+      内側の意匠を断片ごとに変更(外側の円は共通、内側だけ差し替え):
+      F1(刻の断片)は六角形(歯車を象徴)、F2(記帳の断片)は五芒星、
+      F13(本心の断片)は菱形(核・記憶の紋)。未登録の断片IDはこれまで通りの
+      円形にフォールバックする。`gear-cipher.html`・`shooting-star.html`・
+      `yorishiro-echo.html`に`src/fragment-names.js`の読み込みを追加
+      (断片名の解決に必要なため)。
+- [x] (M) ヒントの手引きの対象を、謎解き(暗号解読)だけでなく通常の発見の
+      連鎖にも拡大(2026-07-29 ユーザー指摘)。`window.HINT_DATA`(元は
+      P5・P7・P91の3件のみ)に、`prereq`を持つ隠しページのうちヒント未整備
+      だった4件を追加: `apprentice-notes.html`(← `perpetual-motion.html`)・
+      `first-astronomer.html`(← `mythical-creatures.html` /
+      `starmap-fragments.html`のOR)・`final-entry.html`
+      (← `first-astronomer.html`)・`erased-champion.html`
+      (← `dueling-champions.html`)。実際の`keywords`は見せず、ぼかした
+      言い回しに留めた。OR-prereqページに対応するため、`entry.requiresPage`
+      が文字列に加えてstring[]も受け付けるよう`filterUnlockedHints`・
+      `resolveHintPageTitle`(いずれも`src/logic.js`、テスト付き)を拡張し、
+      `src/hint-book.js`に同じロジックを複製(配列の場合、見出しは両方の
+      タイトルを「 / 」でつなぐ)。断片を産出しない発見の連鎖のヒントには
+      対応する断片IDが無いため`id`フィールドは省略可とした。あわせて、
+      F13のヒント文言が「三つの候補」のままP91の候補5択化(前サイクル)に
+      追随できていなかった表記ずれも「五つの候補」に修正した。

@@ -1,5 +1,135 @@
 # サイクル履歴
 
+## 2026-07-29 18:28
+- ブランチ: 引き続き`evolve/cycle-33`(未マージ)。
+- タスク選定: `### 15`最後の残タスク「ヒントの手引きの対象拡大」(M)を実装。
+  これで`### 13`のP番号ページ実装タスクにあった「13,15の他タスクが終わる
+  まで着手しない」という条件が解除された。
+- 実装: `window.HINT_DATA`(元はP5・P7・P91の暗号解読3件のみ)に、
+  `prereq`を持つがヒント未整備だった4件を追加(`apprentice-notes.html`・
+  `first-astronomer.html`・`final-entry.html`・`erased-champion.html`)。
+  OR-prereqページ(first-astronomer.htmlは魔法生物図鑑/魔導88星座どちらから
+  でも到達可)に対応するため、`entry.requiresPage`が文字列に加えて
+  string[]も受け付けるよう`filterUnlockedHints`・`resolveHintPageTitle`
+  (`src/logic.js`、テスト付き)を拡張し、`src/hint-book.js`にも複製。
+  ついでに、F13のヒント文言が前サイクルの候補5択化に追随できておらず
+  「三つの候補」のままだった表記ずれも修正。
+  `### 15`にこれで未完了サブタスクが無くなったため、statusを`完了`に変更。
+- レビュー: OK(local-review相当のセルフチェックを実施。OR配列のfallback
+  (文字列のみのケース)が既存3件のヒントで壊れていないことを確認。指摘なし)。
+- lint: ✓ / lint:css: ✓ / test: ✓(349件、+2) / build: ✓
+- 次回予定: `### 13`の未着手Pページ実装(条件解除済み、グループA「刻」三部作
+  など)。
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-29 18:20
+- ブランチ: 引き続き`evolve/cycle-33`(未マージ)。
+- タスク選定: `### 13`の新規Pページ実装タスクは「13,15の他タスクが終わる
+  まで着手しないこと」との注記が付いたため見送り、`### 13`のP91対策(M)と
+  `### 15`の断片取得エフェクト第2弾(M)を実装。
+  1. P91「本心の断片」総当たり対策: `nostion-memory.html`の候補を3つ→5つに
+     増やし(『刻みの守人』『詠み子』追加)、それぞれに矛盾の手がかりを追記。
+     誤った候補を検索した際(ページ訪問済みの場合のみ)は専用の応答
+     「……その響きには、聞き覚えがありません。」を返すようにした
+     (`src/logic.js`: `isNostionMemoryWrongCandidate`、テスト付き)。
+  2. 断片取得エフェクト第2弾: 1つ目のバナー消滅後に断片名を明かす2つ目の
+     バナーを追加。`.fragment-effect__glyph`の内側意匠を断片ごとに変更
+     (F1=六角形/F2=五芒星/F13=菱形、未登録IDは円形にフォールバック)。
+     3つの断片到達ページに`fragment-names.js`の読み込みを追加。
+  `docs/ARG-DESIGN.md`のP91行にも変更内容を反映。
+- レビュー: OK(local-review相当のセルフチェックを実施。誤答フィードバックが
+  ページ未訪問時には発火しないこと、SVGのpathLength正規化が新しい意匠でも
+  機能することを確認。指摘なし)。
+- lint: ✓ / lint:css: ✓ / test: ✓(347件、+4) / build: ✓
+- 次回予定: `### 15`残り1件(ヒント対象拡大[M])、または`### 13`の未着手Pページ
+  (13,15の他タスクが片付いたため次回から着手可)。
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-29 18:10
+- ブランチ: 引き続き`evolve/cycle-33`(未マージ)。
+- タスク選定: ユーザーから「`### 15`の残タスクを優先してほしい」と直接指摘
+  を受け、新規Pページ実装(`### 13`)への着手を取りやめ、`### 15`の
+  `src/hint-book.js`/`pages/glossary/hint-book.html`まわりで関連性の強い
+  S規模タスク3件をまとめて実装。
+  1. 各ヒントを`<details>`(デフォルト閉)で開閉式に変更。
+  2. ヒントの見出しを断片の個別名(ネタバレになる)から、謎解きがある
+     ページ自体のタイトルに変更。`src/logic.js`に`resolveHintPageTitle`を
+     新設(テスト付き)。`hint-book.html`に`search-data.js`の読み込みを追加、
+     不要になった`fragment-names.js`の読み込みは削除。
+  3. `pages/search.html`のヒントリンク文言「謎解きに行き詰まったら」を
+     「迷える者への、小さな手引き」に変更し、「ここはヒントを集めた場所
+     です」という説明は`hint-book.html`の`.page-hero__desc`側に寄せた。
+  `docs/ARG-DESIGN.md`4-8節にも変更内容を反映。
+- レビュー: OK(local-review相当のセルフチェックを実施。`<details>`のデフォルト
+  状態が閉であること、P91のようにSEARCH_INDEX未登録ページの見出しも
+  `resolveHintPageTitle`で解決できることを確認。指摘なし)。
+- lint: ✓ / lint:css: ✓ / test: ✓(343件、+3) / build: ✓
+- 次回予定: `### 15`残り2件(断片取得エフェクト第2弾[M]・ヒント対象拡大[M])、
+  または`### 13`の「未着手」P番号ページ・P91三択対策。
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-29 17:50
+- ブランチ: 引き続き`evolve/cycle-33`(未マージ)。
+- タスク選定: `### 15`(ARG基盤・ノスティオン)から、いずれも`src/search.js`/
+  `pages/search.html`まわりの近い領域を触る独立したS規模タスク3件をまとめて
+  実装(ユーザーからチャットで提案・追加された「デバッグ用検索機能」を含む)。
+  1. デバッグ用の発見履歴リセット機能: ノスティオンの検索窓に裏コマンド
+     `!reset`を入力すると`codex-memory`を削除してリロードする。判定は
+     `src/logic.js`の`isDebugResetQuery`(テスト付き)、リセット処理は
+     `src/codex-progress.js`に`CodexProgress.reset()`を新設。
+  2. 「学院の秘密」欄全体の折りたたみ: `<details>`/`<summary>`で包み
+     デフォルト閉に(`pages/search.html`・`styles/search.css`)。
+  3. 「謎解きに行き詰まったら」リンクの表示条件: 「学院の秘密」を1件以上
+     見つけた後にのみ表示するよう変更。判定は`src/logic.js`の
+     `shouldShowHintLink`(テスト付き)。
+  あわせて`docs/ARG-DESIGN.md`のヒントリンク説明(「常時設置」の記述)を
+  新しい表示条件に合わせて更新。
+- レビュー: OK(local-review相当のセルフチェックを実施。3件とも独立して
+  動作すること、`<details>`のデフォルト状態が閉であること、bfcache復元時にも
+  `updateHintLinkVisibility`が呼ばれることを確認。指摘なし)。
+- lint: ✓ / lint:css: ✓ / test: ✓(340件、+8) / build: ✓
+- 次回予定: `### 15`残りタスク(ヒント手引きの開閉式化・見出し変更・断片
+  エフェクト第2弾・ヒントページ導線文言・ヒント対象拡大)、または`### 13`の
+  「未着手」P番号ページ・P91三択対策。
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-29 17:35
+- ブランチ: `evolve/cycle-32`はすでに`origin/main`に取り込み済み(PR #38、
+  `chore: update news for completed pages [skip ci]`コミット`5bcca74`)
+  だったため、`main`をpullした上で新規`evolve/cycle-33`ブランチを
+  作り直して継続(手順通り)。
+- ドキュメント整理: `evolve/cycle-32`で解消したバグ修正2件(ツリー安定化・
+  発見バッジ)が`origin/main`に取り込み済みであることを確認できたため、
+  `docs/ROADMAP.md`の「## バグ修正」セクションから`docs/roadmap-done.md`の
+  「バグ修正(解消済み)」欄へ退避し、お知らせ行を削除。
+- タスク選定: `### 13`のレビュー待ちタスクから、独立して着手できる小規模
+  (S)修正3件をまとめて実装。
+  1. P8「名を消された決闘王」のkeyword見直し: 元のkeyword「さらに古い時代の
+     決闘王」が文章そのものかつ「決闘王」がP4・P8のタイトルと重複していた
+     問題を、P8本文に既出の一文「一撃で場を静める」への変更で解消
+     (`src/search-data.js`・`pages/glossary/dueling-champions.html`・
+     `docs/ARG-DESIGN.md`)。
+  2. P2「フィンレー式記譜法」対応表のスマホ表示修正: `@media (width <= 600px)`
+     で1列に戻っていた`.archive-entry__profile--cipher`を2列
+     (`repeat(2, max-content 1fr)`)に変更(`styles/glossary.css`)。
+  3. P5・P7の語り手ルール違反修正: 書き手が知りようのない「ノスティオンに
+     尋ねてみて」という直接的な呼びかけを、検索機能の名を出さない推測の
+     一文に書き改めた(`pages/glossary/apprentice-notes.html`・
+     `pages/glossary/final-entry.html`)。
+- レビュー: OK(local-review相当のセルフチェックを実施。各修正が意図通りの
+  差分に収まっていること、P8の新keywordがP8本文に実在すること、モバイル
+  グリッドの列数変更が他のブレークポイントと衝突しないことを確認。指摘なし)。
+- lint: ✓ / lint:css: ✓ / test: ✓(332件) / build: ✓
+- 次回予定: `### 13`の「未着手」P番号ページの新規実装、またはP91の三択
+  総当たり対策(M)。
+- blocked / partial: なし
+- asset-pending: なし(今回は既存ページのテキスト・CSS修正のみで新規
+  ビジュアルエリアの追加なし)
+
 ## 2026-07-29 17:20
 - ブランチ: 前回の`evolve/cycle-31`はすでに`origin/main`に取り込み済み
   だったため、`main`をpullした上で新規`evolve/cycle-32`ブランチを

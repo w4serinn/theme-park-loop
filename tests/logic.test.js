@@ -1,7 +1,8 @@
 import { test, expect, describe } from 'vitest';
 import {
-  buildHiddenEntryList, filterUnlockedHints, buildSecretsTree, buildFragmentDisplayList,
-  shouldShowDiscoveryBadge,
+  buildHiddenEntryList, filterUnlockedHints, resolveHintPageTitle, buildSecretsTree, buildFragmentDisplayList,
+  shouldShowDiscoveryBadge, isDebugResetQuery, DEBUG_RESET_QUERY, shouldShowHintLink,
+  isNostionMemoryWrongCandidate, NOSTION_MEMORY_PAGE_PATH, NOSTION_MEMORY_WRONG_CANDIDATES,
   TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex,
   filterSearchIndex, MIN_SEARCH_QUERY_LENGTH, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
   isSearchEntryUnlocked, isCodexSelfReferenceQuery
@@ -317,6 +318,46 @@ describe('filterUnlockedHints', () => {
   test('is unaffected by unrelated visited paths', () => {
     expect(filterUnlockedHints(hintData, ['glossary/mythical-creatures.html'])).toEqual([]);
   });
+
+  test('unlocks an OR-array requiresPage when only one of the candidates is visited', () => {
+    const orHintData = [
+      { requiresPage: ['glossary/mythical-creatures.html', 'glossary/starmap-fragments.html'], hint: 'hint3' }
+    ];
+    expect(filterUnlockedHints(orHintData, ['glossary/starmap-fragments.html'])).toHaveLength(1);
+    expect(filterUnlockedHints(orHintData, ['glossary/mythical-creatures.html'])).toHaveLength(1);
+    expect(filterUnlockedHints(orHintData, ['glossary/dueling-champions.html'])).toEqual([]);
+  });
+});
+
+describe('resolveHintPageTitle', () => {
+  const searchIndex = [
+    { path: 'glossary/apprentice-notes.html', title: '見習い整備士の手記' },
+    { path: 'glossary/final-entry.html', title: '記録帳、最後の頁' },
+    { path: 'glossary/mythical-creatures.html', title: '魔法生物図鑑' },
+    { path: 'glossary/starmap-fragments.html', title: '魔導88星座' }
+  ];
+  const extraEntries = [{ path: 'glossary/nostion-memory.html', title: '最初の記憶' }];
+
+  test('resolves a title from the main search index', () => {
+    expect(resolveHintPageTitle('glossary/apprentice-notes.html', searchIndex, extraEntries))
+      .toBe('見習い整備士の手記');
+  });
+
+  test('resolves a title from extraEntries when not in the search index', () => {
+    expect(resolveHintPageTitle('glossary/nostion-memory.html', searchIndex, extraEntries))
+      .toBe('最初の記憶');
+  });
+
+  test('falls back to the raw path when no title is found', () => {
+    expect(resolveHintPageTitle('glossary/unknown.html', searchIndex, extraEntries))
+      .toBe('glossary/unknown.html');
+  });
+
+  test('joins multiple titles with " / " when path is an array', () => {
+    expect(resolveHintPageTitle(
+      ['glossary/mythical-creatures.html', 'glossary/starmap-fragments.html'], searchIndex, extraEntries
+    )).toBe('魔法生物図鑑 / 魔導88星座');
+  });
 });
 
 describe('buildSecretsTree', () => {
@@ -418,6 +459,63 @@ describe('shouldShowDiscoveryBadge', () => {
 
   test('is unaffected by unrelated visited paths', () => {
     expect(shouldShowDiscoveryBadge({ path: 'a.html', hidden: true }, ['b.html'])).toBe(true);
+  });
+});
+
+describe('isDebugResetQuery', () => {
+  test('matches the exact debug command', () => {
+    expect(isDebugResetQuery(DEBUG_RESET_QUERY)).toBe(true);
+  });
+
+  test('trims surrounding whitespace', () => {
+    expect(isDebugResetQuery('  ' + DEBUG_RESET_QUERY + '  ')).toBe(true);
+  });
+
+  test('does not match an ordinary search query', () => {
+    expect(isDebugResetQuery('錬金術')).toBe(false);
+  });
+
+  test('does not match a query that merely contains the command', () => {
+    expect(isDebugResetQuery(DEBUG_RESET_QUERY + 'です')).toBe(false);
+  });
+
+  test('does not match empty input', () => {
+    expect(isDebugResetQuery('')).toBe(false);
+    expect(isDebugResetQuery(undefined)).toBe(false);
+  });
+});
+
+describe('shouldShowHintLink', () => {
+  test('hidden when no secrets have been found', () => {
+    expect(shouldShowHintLink([])).toBe(false);
+  });
+
+  test('hidden when visitedPaths is not provided', () => {
+    expect(shouldShowHintLink(undefined)).toBe(false);
+  });
+
+  test('shown once at least one secret has been found', () => {
+    expect(shouldShowHintLink(['glossary/mythical-creatures.html'])).toBe(true);
+  });
+});
+
+describe('isNostionMemoryWrongCandidate', () => {
+  const visited = [NOSTION_MEMORY_PAGE_PATH];
+
+  test('matches a known wrong candidate when the page has been visited', () => {
+    expect(isNostionMemoryWrongCandidate(NOSTION_MEMORY_WRONG_CANDIDATES[0], visited)).toBe(true);
+  });
+
+  test('does not match before the page has been visited', () => {
+    expect(isNostionMemoryWrongCandidate(NOSTION_MEMORY_WRONG_CANDIDATES[0], [])).toBe(false);
+  });
+
+  test('does not match the correct answer', () => {
+    expect(isNostionMemoryWrongCandidate('よりしろ', visited)).toBe(false);
+  });
+
+  test('does not match an unrelated query', () => {
+    expect(isNostionMemoryWrongCandidate('錬金術', visited)).toBe(false);
   });
 });
 

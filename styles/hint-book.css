@@ -48,10 +48,21 @@
   padding-left: 1rem;
 }
 
+/* 各ヒントを開閉式・デフォルト閉にする(2026-07-29 ユーザー指摘: 「開いたときに
+   いきなり全部出るとネタバレ感がある」)。プレイヤーが自分で開いた時だけ
+   本文が見える。 */
 .hint-book__entry-label {
+  cursor: pointer;
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--brass);
+}
+
+.hint-book__entry-label:hover {
+  color: var(--ember);
+}
+
+.hint-book__entry-toggle[open] > .hint-book__entry-label {
   margin: 0 0 0.4rem;
 }
 
