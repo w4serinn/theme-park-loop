@@ -1,5 +1,35 @@
 # サイクル履歴
 
+## 2026-07-29 23:20
+- ブランチ: `evolve/cycle-34`がPR #44でmainへ自動マージ・削除済みを確認。
+  `main`を最新化し、新しく`evolve/cycle-35`を作成。
+- タスク選定: (1) 解消済みバグ2件のroadmap-done.mdへの退避(bookkeeping)、
+  (2) `### 13`のP番号ページ実装、`docs/ARG-WORDBANK.md`グループC
+  「立入禁止・非公開区画」のroot部分。
+- 実装:
+  1. `docs/ROADMAP.md`のバグ修正セクションから解消済み2件(学院創立者の
+     表記矛盾・学長/学院長の表記ゆれ)を`docs/roadmap-done.md`へ退避、
+     お知らせ文を削除。
+  2. グループC root: 「なぜどのエリアにも人知れない一角があるのか」を
+     掲げる`pages/glossary/hidden-corners.html`を新設(4カード)。6件中
+     触媒保管庫(alchemy-tower.html)・予備歯車庫(clock-tower.html)の
+     2件を採用。グループCは1ページに詰め込まず`docs/ARG-DESIGN.md`4-5節
+     のroot→flavorチェーン形式で実装する方針のため、残り4件(蔵書親和
+     魔法陣・魔封石保管庫・禁書閲覧室・契約精霊の棲家)はP82〜P85として
+     骨組みだけ追記し、次回以降のサイクルで1件ずつ着手する(サイズLの
+     ため今回はrootのみ実装)。
+  `src/search-data.js`に1エントリ、`src/hint-data.js`にroot型ヒント2件を
+  追加。`docs/ARG-DESIGN.md`・`docs/ARG-WORDBANK.md`を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(396件) / build: ✓
+- 次回予定: グループCのflavor(P82: 蔵書親和魔法陣、以降P83〜P85)を
+  1件ずつ実装。グループG(月草/月光草の混同、fragment向き)も未使用のまま
+  残っている。
+- blocked / partial: なし(グループCの残り4件はサイズL分割のため
+  `docs/ARG-DESIGN.md`に骨組みのみ記載、blockedではなく計画的な分割)
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-29 22:50
 - ブランチ: 引き続き`evolve/cycle-34`(未マージ)。
 - タスク選定: `### 13`のP番号ページ実装、`docs/ARG-WORDBANK.md`グループD
