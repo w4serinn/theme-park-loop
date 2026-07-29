@@ -75,6 +75,21 @@ window.HINT_DATA = [
     hint: '学院への行き方の中に、王都中央のある場所を経由するものがあったはずです。トップページのアクセス案内をもう一度確かめてみてください。'
   },
   {
+    hintFor: 'shop/souvenirs.html',
+    leadsTo: 'glossary/arnold-crest.html',
+    hint: 'アルノルド卿の紋章をかたどった品が、みやげ店にあったはずです。バッジ商品の説明をもう一度読んでみてください。'
+  },
+  {
+    hintFor: 'shop/books.html',
+    leadsTo: 'glossary/arnold-manuscript.html',
+    hint: 'アルノルド卿直筆とされる資料の写しが、書籍・資料店に並んでいたはずです。その商品説明をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'shop/library-shop.html',
+    leadsTo: 'glossary/founding-grimoire.html',
+    hint: '写本堂には、ある古い書物の一章だけを複製した品があったはずです。その商品説明をもう一度読んでみてください。'
+  },
+  {
     id: 'F1',
     requiresPage: 'glossary/apprentice-notes.html',
     hintFor: 'glossary/apprentice-notes.html',

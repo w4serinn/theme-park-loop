@@ -228,12 +228,12 @@ lodging.htmlも交通・宿泊の実用情報が中心で、ARGの入口とし�
   検索窓に入力しないと断片が手に入らない、という謎解き(2026-07-28確定方針)
   の実例として使いやすい。fragment種別のページに向く。
 
-### グループH: アルノルド卿にまつわる物証(創設者の遺したもの)
-- アルノルド卿の家紋「双頭の鷲と魔法陣」(shop/souvenirs.html)
-- アルノルド卿 研究手稿の精密写本(shop/books.html)
-- 「創魔の書」第四章(shop/library-shop.html)
+### グループH: アルノルド卿にまつわる物証(創設者の遺したもの)[使用済み: P102〜P104、2026-07-29]
+- アルノルド卿の家紋「双頭の鷲と魔法陣」(shop/souvenirs.html) → P102 `pages/glossary/arnold-crest.html`
+- アルノルド卿 研究手稿の精密写本(shop/books.html) → P103 `pages/glossary/arnold-manuscript.html`
+- 「創魔の書」第四章(shop/library-shop.html) → P104 `pages/glossary/founding-grimoire.html`
 → 3項目ちょうど。購買部の3店舗(みやげ・書籍・写本堂)を横断する形で
-  たどり着けるroot候補。
+  たどり着けるroot候補にできた。
 
 未分類のまま残る候補(独立した1件としてはやや弱いか、既に他候補と重複):
 魔法資質証明証・七代続く写本師一族・時計塔設計図の「地下の魔法陣接続部」

@@ -248,6 +248,9 @@ P番号ページの`title`/`keywords`を決める際、これら2語を単体ま
 | P99 | flavor | P97, P98(いずれか一方の訪問でOK) | — | — | 実装済み(`pages/glossary/time-bell.html`)。グループA「刻」三部作の3本目、広場と時計塔という2エリアから接続できる網状構造(2026-07-29。同日、keyword「刻の輪」「刻の書」「刻の声」が全て「刻の」という共通の接頭辞を持ち、部分一致のままだと短い共通部分だけで3件まとめて検索結果に出てしまう[個別に発見していく設計が崩れる]とのユーザー指摘を受け、3件とも`exactMatch: true`に変更) |
 | P100 | root | `shop/airship-shop.html`「北方雲海」(航路図みやげの商品説明) | — | — | 実装済み(`pages/glossary/northern-cloud-sea.html`)。`docs/ARG-WORDBANK.md`グループE「キャンパスの外側」の1本目(2026-07-29) |
 | P101 | root | `index.html`「王都中央『魔法陣転移広場』」(アクセス案内の転移魔法陣) | — | — | 実装済み(`pages/glossary/transit-plaza.html`)。グループEの2本目。keyword「魔法陣転移広場」は既存の「魔法陣召喚広場」系エントリ(exploration/summoning-plaza.html等4件)と「魔法陣」の接頭辞が重複するため`exactMatch: true`に設定(2026-07-29) |
+| P102 | root | `shop/souvenirs.html`「アルノルド卿の家紋『双頭の鷲と魔法陣』」(バッジ商品説明) | — | — | 実装済み(`pages/glossary/arnold-crest.html`)。`docs/ARG-WORDBANK.md`グループH「アルノルド卿にまつわる物証」の1本目(2026-07-29) |
+| P103 | root | `shop/books.html`「アルノルド卿 研究手稿 精密写本」(商品説明) | — | — | 実装済み(`pages/glossary/arnold-manuscript.html`)。グループHの2本目 |
+| P104 | root | `shop/library-shop.html`「複製羊皮紙写本『創魔の書より』」(商品説明) | — | — | 実装済み(`pages/glossary/founding-grimoire.html`)。グループHの3本目。同ページ本文に既存の世界観矛盾(「第三代学院長アルノルド卿」表記が、他の全ページで確立された創設者[初代]設定と矛盾)を発見、`docs/ROADMAP.md`にバグとして記録(2026-07-29) |
 
 ### 4-3. 既存ページのギミックを使うグループ
 

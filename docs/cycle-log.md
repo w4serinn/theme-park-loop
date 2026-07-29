@@ -1,5 +1,32 @@
 # サイクル履歴
 
+## 2026-07-29 21:29
+- ブランチ: 引き続き`evolve/cycle-34`(未マージ)。
+- タスク選定: `### 13`のP番号ページ実装。`docs/ARG-WORDBANK.md`グループH
+  「アルノルド卿にまつわる物証」(3項目、root優先方針にも合致)を選択。
+- 実装: P102〜P104として新規3ページを追加。
+  - P102(root)`pages/glossary/arnold-crest.html`「紋章『双頭の鷲と魔法陣』、
+    その意味」← `shop/souvenirs.html`のバッジ商品説明
+  - P103(root)`pages/glossary/arnold-manuscript.html`「研究手稿、余白に
+    残された走り書き」← `shop/books.html`の商品説明
+  - P104(root)`pages/glossary/founding-grimoire.html`「創魔の書、第四章に
+    ついて」← `shop/library-shop.html`の商品説明
+  いずれも断片を産出しない純粋なフレーバー層。keywordは各ページの商品名に
+  含まれる特徴的な語句を採用し、「アルノルド」のような既存エントリ
+  (トップページ)と衝突しうる汎用的な接頭辞は避けた。`src/hint-data.js`に
+  3件のroot行ヒントを追加。`docs/ARG-WORDBANK.md`グループHを使用済みに。
+- 副産物: P104実装中に`shop/library-shop.html`の商品説明が、他の全ページで
+  確立された「創立者(初代)アルノルド卿」設定と矛盾する「第三代学院長」
+  表記になっている世界観の不整合を発見。今回は修正せず
+  `docs/ROADMAP.md`「## バグ修正」にtodoとして記録。
+- レビュー: OK(local-review相当のセルフチェックを実施。narration rule・
+  自己言及ワード回避・keyword衝突なしを確認。指摘なし)。
+- lint: ✓ / lint:css: ✓ / test: ✓(397件、+12) / build: ✓
+- 次回予定: バグ修正todo(library-shop.htmlの学長表記矛盾)、または
+  `### 13`の次のP番号ページ(グループF・Gから選定)。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-29 20:29
 - ブランチ: 引き続き`evolve/cycle-34`(未マージ)。
 - タスク選定: `### 15`最後の残タスク「発見済みページに対するヒントを

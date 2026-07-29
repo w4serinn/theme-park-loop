@@ -53,7 +53,19 @@ evolveループはこの方針を毎サイクル遵守すること:
 
 ## バグ修正(最優先 — 通常機能より先に上から順に着手する)
 
-(現在なし)
+- [ ] (S) `pages/shop/library-shop.html`の「複製羊皮紙写本『創魔の書より』」
+      商品説明が、アルノルド卿を「第三代学院長」と表記している(2026-07-29
+      P104実装中に発見)。他の全ページ(`pages/index.html`「エルンスト・
+      フォン・アルノルド卿は…学院の礎石を置いた」、
+      `pages/exploration/alchemy-tower.html`「創立者アルノルド卿」、
+      `pages/exploration/clock-tower.html`「創立者アルノルド卿」、
+      `pages/exploration/dueling-ground.html`「創立者アルノルド卿」、
+      `pages/glossary/perpetual-motion.html`「学院創立者アルノルド卿」等)
+      では一貫して「創立者(初代)」として扱われており、「第三代学院長」
+      表記はこれと矛盾する世界観の不整合。`library-shop.html`側の表記を
+      「創立者アルノルド卿」に修正すること。
+
+## 新規ページ提案(承認待ち — 承認されたら下の「ページ一覧」に移動する)
 
 ## 新規ページ提案(承認待ち — 承認されたら下の「ページ一覧」に移動する)
 
