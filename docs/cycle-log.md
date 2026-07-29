@@ -1,5 +1,34 @@
 # サイクル履歴
 
+## 2026-07-30 06:20
+- ブランチ: `evolve/cycle-38`がPR #48でmainへ自動マージ・削除済みを確認。
+  `main`を最新化し、新しく`evolve/cycle-39`を作成。
+- タスク選定: `docs/ARG-WORDBANK.md`のグルーピング候補・未分類候補、
+  「今後のタスク候補」がいずれも出尽くしたため、既存の実装済みroot
+  (P12・P33)に残っていた予約済みflavor枠を掘り下げる方向に転換。
+  #4(購買部アイコン)・#12(ナレーション音声)の素材到着も確認したが
+  未着(assets/images/shop/にproduct-*.pngが3種のみ、assets/audio/自体が
+  存在せず)、引き続きblocked。
+- 実装: P12(koku-trio.html「刻の輪」カード)とP33(circle-ledgers.html
+  「陣紋補修記録簿」カード)の双方に「陣紋師」という同じ役職名が既に
+  登場していたことに着目し、`pages/glossary/circle-warden.html`を新設
+  (2カード)。P6と同型の網状構造(P12・P33いずれか一方の訪問でOK)に
+  した。`src/search-data.js`にprereq OR配列で1エントリ追加、
+  `src/hint-data.js`に発見の連鎖型ヒントを1件追加。`docs/ARG-DESIGN.md`
+  P13行・`docs/ARG-WORDBANK.md`グループAの記載を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(457件) / build: ✓
+- 次回予定: 同様に、他の実装済みroot(P16→P17[fragment、F3産出]・
+  P23→P24〜P25・P28→P29〜P30・P35→P36〜P38・P41→P42〜P43)に残る
+  予約済みflavor/fragment枠も、各rootの本文中の未解決フックを使って
+  1件ずつ掘り下げていく方針。特にP16→P17はFRAGMENT(F3)を産出する
+  唯一未着手の単純枠で、PGATEに必要な10断片のうち現在F1・F2・F13の
+  3つしか実装されていないため優先度が高いが、暗号ギミックの設計が
+  必要でサイズが大きくなる可能性があり、着手前に慎重な見積もりが必要。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 05:50
 - ブランチ: `evolve/cycle-37`がPR #47でmainへ自動マージ・削除済みを確認。
   `main`を最新化し、新しく`evolve/cycle-38`を作成。
