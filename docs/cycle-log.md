@@ -1,5 +1,25 @@
 # サイクル履歴
 
+## 2026-07-30 00:10
+- ブランチ: 引き続き`evolve/cycle-35`(未マージ)。
+- タスク選定: `### 13`のP番号ページ実装、`docs/ARG-WORDBANK.md`グループC
+  「立入禁止・非公開区画」のflavor1段目(P82)。
+- 実装: root(`pages/glossary/hidden-corners.html`)から連なるflavor1段目
+  として、大図書館の「蔵書親和魔法陣」(grand-library.html)を扱う
+  `pages/glossary/affinity-circle.html`を新設。root側に「蔵書親和魔法陣」
+  への言及を新しいカードとして追加し、次の手がかりとした。
+  `src/search-data.js`でhidden-corners.htmlへの訪問をprereqとしてゲーティング、
+  `src/hint-data.js`に発見の連鎖型ヒントを1件追加。`docs/ARG-DESIGN.md`・
+  `docs/ARG-WORDBANK.md`を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(399件) / build: ✓
+- 次回予定: グループCのflavor続き(P83: 魔封石保管庫、以降P84: 禁書閲覧室、
+  P85: 契約精霊の棲家)。グループG(月草/月光草の混同、fragment向き)も
+  未使用のまま残っている。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-29 23:20
 - ブランチ: `evolve/cycle-34`がPR #44でmainへ自動マージ・削除済みを確認。
   `main`を最新化し、新しく`evolve/cycle-35`を作成。
