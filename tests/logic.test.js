@@ -8,7 +8,7 @@ import {
   filterSearchIndex, MIN_SEARCH_QUERY_LENGTH, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
   isSearchEntryUnlocked, isCodexSelfReferenceQuery,
   nthWeekdayOfMonth, lastWeekdayOfMonth, resolveEventDate, daysUntilNextEvent,
-  shouldShowProduct
+  shouldShowProduct, countFoundSecrets, formatDiscoveryProgressText
 } from '../src/logic.js';
 
 describe('TICKET_PRICES', () => {
@@ -699,6 +699,37 @@ describe('shouldShowProduct', () => {
   test('shows only seasonal products when the filter is active', () => {
     expect(shouldShowProduct(true, true)).toBe(true);
     expect(shouldShowProduct(false, true)).toBe(false);
+  });
+});
+
+describe('countFoundSecrets', () => {
+  const hiddenEntries = [
+    { path: 'glossary/mythical-creatures.html' },
+    { path: 'glossary/perpetual-motion.html' },
+    { path: 'glossary/moon-grass.html' }
+  ];
+
+  test('counts only visited paths that are actually hidden entries', () => {
+    const visited = ['glossary/mythical-creatures.html', 'index.html', 'glossary/moon-grass.html'];
+    expect(countFoundSecrets(hiddenEntries, visited)).toBe(2);
+  });
+
+  test('returns 0 when nothing has been visited', () => {
+    expect(countFoundSecrets(hiddenEntries, [])).toBe(0);
+  });
+
+  test('treats a missing visitedPaths argument as empty', () => {
+    expect(countFoundSecrets(hiddenEntries, undefined)).toBe(0);
+  });
+});
+
+describe('formatDiscoveryProgressText', () => {
+  test('formats the count into the expected sentence', () => {
+    expect(formatDiscoveryProgressText(3)).toBe('学院の秘密を3件発見しました');
+  });
+
+  test('formats zero the same way (caller is responsible for hiding it)', () => {
+    expect(formatDiscoveryProgressText(0)).toBe('学院の秘密を0件発見しました');
   });
 });
 

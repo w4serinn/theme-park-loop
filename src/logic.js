@@ -397,3 +397,16 @@ export function daysUntilNextEvent(rule, today) {
 export function shouldShowProduct(isSeasonal, seasonalFilterActive) {
   return !seasonalFilterActive || isSeasonal;
 }
+
+// ノスティオン(検索ページ): 発見数の周回カウンター表示(2026-07-30、
+// 「今後のタスク候補」より実装)。hiddenEntriesはbuildHiddenEntryListの
+// 戻り値、visitedPathsは「学院の秘密」(CodexProgressのsecrets)。
+export function countFoundSecrets(hiddenEntries, visitedPaths) {
+  return (visitedPaths || []).filter(function (path) {
+    return hiddenEntries.some(function (entry) { return entry.path === path; });
+  }).length;
+}
+
+export function formatDiscoveryProgressText(foundCount) {
+  return '学院の秘密を' + foundCount + '件発見しました';
+}

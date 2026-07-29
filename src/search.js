@@ -43,6 +43,7 @@
   var memorySecretsList = document.getElementById('codex-memory-secrets-list');
   var memoryFragmentsList = document.getElementById('codex-memory-fragments-list');
   var hintLinkEl = document.getElementById('search-hint-link');
+  var searchProgressEl = document.getElementById('search-progress');
 
   // 開発用デバッグコマンド(2026-07-29 ユーザー提案、src/logic.jsの
   // isDebugResetQueryと同じロジック)。検索窓にこの文字列だけを入力すると、
@@ -101,6 +102,31 @@
     if (!hintLinkEl) { return; }
     var visitedPaths = window.CodexProgress ? window.CodexProgress.load().secrets : [];
     hintLinkEl.hidden = visitedPaths.length === 0;
+  }
+
+  // ノスティオン(検索ページ): 発見数の周回カウンター表示(2026-07-30、
+  // 「今後のタスク候補」より実装、src/logic.jsのcountFoundSecrets・
+  // formatDiscoveryProgressTextと同じロジック)。「これまでの記録」欄
+  // (#codex-memory-section)はP91達成まで非表示のままだが、こちらは
+  // updateHintLinkVisibilityと同じく「学院の秘密」を1件以上見つけた
+  // 時点でさりげなく表示する、より手前の進捗表示。
+  function updateSearchProgressDisplay() {
+    if (!searchProgressEl || !window.CodexProgress) { return; }
+    var visitedPaths = window.CodexProgress.load().secrets;
+    if (visitedPaths.length === 0) {
+      searchProgressEl.hidden = true;
+      return;
+    }
+    var hiddenEntries = window.SEARCH_INDEX.filter(function (e) { return e.hidden; }).concat([SELF_REFERENCE_ENTRY]);
+    var foundCount = visitedPaths.filter(function (path) {
+      return hiddenEntries.some(function (entry) { return entry.path === path; });
+    }).length;
+    if (foundCount === 0) {
+      searchProgressEl.hidden = true;
+      return;
+    }
+    searchProgressEl.textContent = '学院の秘密を' + foundCount + '件発見しました';
+    searchProgressEl.hidden = false;
   }
 
   // 「学院の秘密」欄のツリー表示用(2026-07-29 ユーザー指摘・バグ修正、
@@ -345,9 +371,11 @@
     if (event.persisted) {
       renderMemorySection();
       updateHintLinkVisibility();
+      updateSearchProgressDisplay();
     }
   });
 
   renderMemorySection();
   updateHintLinkVisibility();
+  updateSearchProgressDisplay();
 }());
