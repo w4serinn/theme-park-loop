@@ -245,7 +245,7 @@ P番号ページの`title`/`keywords`を決める際、これら2語を単体ま
 | P25 | flavor | P24 | — | — | 未着手 |
 | P97 | root | `exploration/summoning-plaza.html`「大魔法陣『刻の輪』」 | — | — | 実装済み(`pages/glossary/time-ring-record.html`)。`docs/ARG-WORDBANK.md`グループA「刻」三部作の1本目(2026-07-29) |
 | P98 | root | `exploration/clock-tower.html`「管理台帳『刻の書』」 | — | — | 実装済み(`pages/glossary/time-ledger.html`)。グループA「刻」三部作の2本目(2026-07-29) |
-| P99 | flavor | P97, P98(いずれか一方の訪問でOK) | — | — | 実装済み(`pages/glossary/time-bell.html`)。グループA「刻」三部作の3本目、広場と時計塔という2エリアから接続できる網状構造(2026-07-29) |
+| P99 | flavor | P97, P98(いずれか一方の訪問でOK) | — | — | 実装済み(`pages/glossary/time-bell.html`)。グループA「刻」三部作の3本目、広場と時計塔という2エリアから接続できる網状構造(2026-07-29。同日、keyword「刻の輪」「刻の書」「刻の声」が全て「刻の」という共通の接頭辞を持ち、部分一致のままだと短い共通部分だけで3件まとめて検索結果に出てしまう[個別に発見していく設計が崩れる]とのユーザー指摘を受け、3件とも`exactMatch: true`に変更) |
 
 ### 4-3. 既存ページのギミックを使うグループ
 
