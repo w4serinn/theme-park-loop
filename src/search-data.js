@@ -73,5 +73,7 @@ window.SEARCH_INDEX = [
   { path: 'glossary/yorishiro-echo.html', title: 'よりしろ、という響き', category: '図鑑', hidden: true, keywords: ['よりしろ'], prereq: ['glossary/nostion-memory.html'], exactMatch: true },
   { path: 'glossary/time-ring-record.html', title: '刻の輪、四百年の来歴', category: '図鑑', hidden: true, keywords: ['刻の輪'], exactMatch: true },
   { path: 'glossary/time-ledger.html', title: '刻の書、十二代の写し', category: '図鑑', hidden: true, keywords: ['刻の書'], exactMatch: true },
-  { path: 'glossary/time-bell.html', title: '刻の声、その一撞き', category: '図鑑', hidden: true, keywords: ['刻の声'], prereq: ['glossary/time-ring-record.html', 'glossary/time-ledger.html'], exactMatch: true }
+  { path: 'glossary/time-bell.html', title: '刻の声、その一撞き', category: '図鑑', hidden: true, keywords: ['刻の声'], prereq: ['glossary/time-ring-record.html', 'glossary/time-ledger.html'], exactMatch: true },
+  { path: 'glossary/northern-cloud-sea.html', title: '北方雲海、その先について', category: '図鑑', hidden: true, keywords: ['北方雲海'] },
+  { path: 'glossary/transit-plaza.html', title: '魔法陣転移広場、王都のもう一つの顔', category: '図鑑', hidden: true, keywords: ['魔法陣転移広場'], exactMatch: true }
 ];

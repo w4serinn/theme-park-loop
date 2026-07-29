@@ -1,5 +1,31 @@
 # サイクル履歴
 
+## 2026-07-29 20:02
+- ブランチ: `evolve/cycle-33`はPR #42のマージ済みを確認、`main`をpullした上で
+  新規`evolve/cycle-34`ブランチを作り直して継続。
+- ドキュメント整理: `evolve/cycle-33`で解消したバグ修正4件(news.json自動
+  生成・ヒント見出しの後退・「刻」keyword衝突・ヒント重複表示)がorigin/main
+  に取り込み済みであることを確認できたため、`docs/roadmap-done.md`へ退避。
+- タスク選定: `### 13`のP番号ページ実装(グループE)と、直前の手動チャットで
+  記録した「学院の秘密」ツリーのスマホ誤タップ対策をまとめて実装。
+  1. P100(root)`pages/glossary/northern-cloud-sea.html`「北方雲海、その先
+     について」← `shop/airship-shop.html`の航路図みやげ商品説明
+  2. P101(root)`pages/glossary/transit-plaza.html`「魔法陣転移広場、王都の
+     もう一つの顔」← `index.html`のアクセス案内。keyword「魔法陣転移広場」
+     は既存の「魔法陣召喚広場」系4エントリと接頭辞が重複するため
+     `exactMatch: true`に設定
+     (`docs/ARG-WORDBANK.md`グループE「キャンパスの外側」を使用済みに)
+  3. 「学院の秘密」ツリーの「つながり(n)」開閉トグルと前後のページリンクの
+     誤タップ対策: `@media (width <= 600px)`でタップ領域(padding)を広げ、
+     トグルの上マージンも増やした(`styles/search.css`)
+- レビュー: OK(local-review相当のセルフチェックを実施。新規2ページの
+  narration rule・自己言及ワード回避・keyword衝突を確認。指摘なし)。
+- lint: ✓ / lint:css: ✓ / test: ✓(381件、+8) / build: ✓
+- 次回予定: `### 15`残り1件(発見済みページのヒント非表示化、M)、または
+  `### 13`の次のP番号ページ(グループF〜H)。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-29 19:32
 - ブランチ: 引き続き`evolve/cycle-33`(未マージ)。
 - タスク選定: 「バグ修正(最優先)」セクションの唯一の未対応項目

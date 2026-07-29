@@ -289,4 +289,21 @@ summary.codex-memory__label:hover {
     align-items: flex-start;
     gap: 0.4rem;
   }
+
+  /* 「学院の秘密」ツリーの各ノードで、ページへのリンクと「つながり(n)」
+     開閉トグルが近すぎて押し間違えやすい(2026-07-29 ユーザー指摘)。
+     スマホ幅ではタップ領域(padding)を広げ、上下の間隔も確保する。 */
+  .codex-memory__tree-node > a {
+    display: inline-block;
+    padding: 0.3rem 0;
+  }
+
+  .codex-memory__tree-node > .codex-memory__tree-toggle {
+    margin-top: 0.5rem;
+  }
+
+  .codex-memory__tree-toggle summary {
+    display: inline-block;
+    padding: 0.3rem 0;
+  }
 }
