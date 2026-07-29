@@ -53,6 +53,11 @@ export function carouselPrevIndex(current, total) {
   return (current - 1 + total) % total;
 }
 
+// クエリが「の」のような助詞1文字・ありふれた1文字だと、その文字を含む
+// ページが大量にヒットしてしまう(ページ数が増えるほど悪化する)。この文字数
+// 未満のクエリは一致なしとして扱う(2026-07-29 ユーザー指摘)。
+export var MIN_SEARCH_QUERY_LENGTH = 2;
+
 // サイト内検索: クエリに一致するページをタイトル・カテゴリ・keywords(あれば)の
 // 部分一致で絞り込む。keywordsは正式名称(title)とは別に複数の言い回しでも
 // ヒットさせるための隠しフィールド(docs/ARG-DESIGN.md 2-1節)。
@@ -61,7 +66,7 @@ export function carouselPrevIndex(current, total) {
 // 偶然ヒットしてしまうのを防ぐため。2026-07-29 ユーザー指摘)。
 export function filterSearchIndex(query, index) {
   var q = (query || '').trim().toLowerCase();
-  if (!q) { return []; }
+  if (!q || q.length < MIN_SEARCH_QUERY_LENGTH) { return []; }
   return index.filter(function (entry) {
     var keywords = entry.keywords || [];
     if (entry.exactMatch) {
@@ -142,4 +147,80 @@ export function isCodexSelfReferenceQuery(query) {
 export function buildHiddenEntryList(searchIndex, extraEntries) {
   var hidden = searchIndex.filter(function (e) { return e.hidden; });
   return hidden.concat(extraEntries || []);
+}
+
+// 謎解きヒント専用ページ(docs/ROADMAP.md「### 13」参照)用: hintDataのうち、
+// entry.requiresPageをvisitedPathsにまだ持っていないものを除外する。
+// まだ出会っていない謎のヒントを先読みできてしまわないようにするため
+// (2026-07-29 ユーザー提案)。
+export function filterUnlockedHints(hintData, visitedPaths) {
+  return hintData.filter(function (entry) {
+    return visitedPaths.indexOf(entry.requiresPage) !== -1;
+  });
+}
+
+// 「学院の秘密」欄をツリー表示するための木構造を組み立てる(2026-07-29
+// ユーザー指摘)。訪問済みページ(visitedPaths、codex-progress.jsにより
+// 訪問順で並んでいる)のみを対象にし、各ページのhiddenEntries上のprereq
+// (親候補のpath配列、OR判定)のうち、実際に訪問済みのものだけを親として
+// 採用する。prereqが無い、または訪問済みの親候補が1つも無い場合はルート
+// ノードになる。
+// **網状構造への配慮**: 複数の親候補が訪問済みの場合、`visitedPaths`内で
+// 最も後(最近)に訪問された候補を親として採用する(より具体的な発見の連鎖を
+// 優先するため。例: A→B→Cの順に訪問し、CがA・B両方をprereqに持つ場合、
+// Cは(Aではなく)Bの子として表示する)。訪問していない親候補の存在を
+// 推測させる情報は一切出力しない。
+export function buildSecretsTree(hiddenEntries, visitedPaths) {
+  var byPath = {};
+  hiddenEntries.forEach(function (e) { byPath[e.path] = e; });
+
+  var nodes = {};
+  visitedPaths.forEach(function (path) {
+    var entry = byPath[path];
+    if (!entry) { return; }
+    nodes[path] = { path: entry.path, title: entry.title, children: [] };
+  });
+
+  var roots = [];
+  visitedPaths.forEach(function (path) {
+    var node = nodes[path];
+    if (!node) { return; }
+    var entry = byPath[path];
+    var prereq = entry.prereq || [];
+    var candidates = prereq.filter(function (p) { return nodes[p]; });
+    var parentPath = candidates.length > 0
+      ? candidates.reduce(function (latest, p) {
+        return visitedPaths.indexOf(p) > visitedPaths.indexOf(latest) ? p : latest;
+      })
+      : null;
+    if (parentPath) {
+      nodes[parentPath].children.push(node);
+    } else {
+      roots.push(node);
+    }
+  });
+
+  return roots;
+}
+
+// 「手にした断片」欄の表示用データを組み立てる(2026-07-29 ユーザー指摘)。
+// 各断片は元々foundAt(ギミック元のページのpath)を持っているが、これまで
+// 表示していなかった。hiddenEntriesからfoundAtに対応するタイトルを引いて
+// 添えることで、PGATEで「あ、これ覚えてる」と振り返れるようにする。
+// 対応するエントリが見つからない場合(データ不整合等)はsourceTitle/
+// sourcePathをnullにし、表示自体は継続する。
+export function buildFragmentDisplayList(fragments, names, hiddenEntries) {
+  var byPath = {};
+  hiddenEntries.forEach(function (e) { byPath[e.path] = e; });
+
+  return fragments.map(function (f) {
+    var source = byPath[f.foundAt];
+    return {
+      id: f.id,
+      name: names[f.id] || f.id,
+      used: f.used,
+      sourcePath: source ? source.path : null,
+      sourceTitle: source ? source.title : null
+    };
+  });
 }

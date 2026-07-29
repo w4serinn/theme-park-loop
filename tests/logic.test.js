@@ -1,8 +1,8 @@
 import { test, expect, describe } from 'vitest';
 import {
-  buildHiddenEntryList,
+  buildHiddenEntryList, filterUnlockedHints, buildSecretsTree, buildFragmentDisplayList,
   TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex,
-  filterSearchIndex, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
+  filterSearchIndex, MIN_SEARCH_QUERY_LENGTH, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
   isSearchEntryUnlocked, isCodexSelfReferenceQuery
 } from '../src/logic.js';
 
@@ -131,6 +131,16 @@ describe('filterSearchIndex', () => {
   test('returns empty array for empty query', () => {
     expect(filterSearchIndex('', index)).toEqual([]);
     expect(filterSearchIndex('   ', index)).toEqual([]);
+  });
+
+  test('returns empty array for a query shorter than MIN_SEARCH_QUERY_LENGTH', () => {
+    const single = [{ path: 'a.html', title: 'の', category: 'カテゴリ' }];
+    expect(MIN_SEARCH_QUERY_LENGTH).toBe(2);
+    expect(filterSearchIndex('の', single)).toEqual([]);
+  });
+
+  test('matches once the query reaches MIN_SEARCH_QUERY_LENGTH', () => {
+    expect(filterSearchIndex('学院', index)).toHaveLength(2);
   });
 
   test('returns empty array when nothing matches', () => {
@@ -280,5 +290,126 @@ describe('buildHiddenEntryList', () => {
 
   test('treats missing extraEntries as an empty list', () => {
     expect(buildHiddenEntryList(searchIndex).map((e) => e.path)).toEqual(['glossary/a.html', 'glossary/b.html']);
+  });
+});
+
+describe('filterUnlockedHints', () => {
+  const hintData = [
+    { id: 'F1', requiresPage: 'glossary/apprentice-notes.html', hint: 'hint1' },
+    { id: 'F2', requiresPage: 'glossary/final-entry.html', hint: 'hint2' }
+  ];
+
+  test('returns no hints when nothing has been visited', () => {
+    expect(filterUnlockedHints(hintData, [])).toEqual([]);
+  });
+
+  test('returns only hints whose requiresPage has been visited', () => {
+    const result = filterUnlockedHints(hintData, ['glossary/apprentice-notes.html']);
+    expect(result.map((e) => e.id)).toEqual(['F1']);
+  });
+
+  test('returns all hints when every requiresPage has been visited', () => {
+    const visited = ['glossary/apprentice-notes.html', 'glossary/final-entry.html'];
+    expect(filterUnlockedHints(hintData, visited).map((e) => e.id)).toEqual(['F1', 'F2']);
+  });
+
+  test('is unaffected by unrelated visited paths', () => {
+    expect(filterUnlockedHints(hintData, ['glossary/mythical-creatures.html'])).toEqual([]);
+  });
+});
+
+describe('buildSecretsTree', () => {
+  const hiddenEntries = [
+    { path: 'A.html', title: 'A', hidden: true },
+    { path: 'B.html', title: 'B', hidden: true, prereq: ['A.html'] },
+    { path: 'C.html', title: 'C', hidden: true, prereq: ['A.html', 'B.html'] },
+    { path: 'D.html', title: 'D', hidden: true }
+  ];
+
+  test('returns an empty array when nothing is visited', () => {
+    expect(buildSecretsTree(hiddenEntries, [])).toEqual([]);
+  });
+
+  test('places a prereq-less entry as a root', () => {
+    const tree = buildSecretsTree(hiddenEntries, ['A.html']);
+    expect(tree).toEqual([{ path: 'A.html', title: 'A', children: [] }]);
+  });
+
+  test('nests a child under its visited parent', () => {
+    const tree = buildSecretsTree(hiddenEntries, ['A.html', 'B.html']);
+    expect(tree).toEqual([
+      { path: 'A.html', title: 'A', children: [
+        { path: 'B.html', title: 'B', children: [] }
+      ] }
+    ]);
+  });
+
+  test('attaches to the most recently visited prereq when multiple parents qualify (mesh structure)', () => {
+    // A visited, then B (via A), then C (whose prereq is [A, B]) — C should
+    // nest under B (the more specific, more recently visited parent), not A.
+    const tree = buildSecretsTree(hiddenEntries, ['A.html', 'B.html', 'C.html']);
+    expect(tree[0].children[0].path).toBe('B.html');
+    expect(tree[0].children[0].children.map((n) => n.path)).toEqual(['C.html']);
+  });
+
+  test('does not reveal an unvisited parent candidate (mesh structure, only one parent visited)', () => {
+    // C.html has prereq [A.html, B.html]; only B.html is visited, not A.html.
+    // C should nest under the visited B, and A must not appear anywhere.
+    const tree = buildSecretsTree(hiddenEntries, ['B.html', 'C.html']);
+    expect(tree).toEqual([
+      { path: 'B.html', title: 'B', children: [
+        { path: 'C.html', title: 'C', children: [] }
+      ] }
+    ]);
+  });
+
+  test('a visited entry with an unmatched entry (not in hiddenEntries) is silently skipped', () => {
+    const tree = buildSecretsTree(hiddenEntries, ['A.html', 'unknown.html']);
+    expect(tree).toEqual([{ path: 'A.html', title: 'A', children: [] }]);
+  });
+
+  test('multiple unrelated roots stay separate', () => {
+    const tree = buildSecretsTree(hiddenEntries, ['A.html', 'D.html']);
+    expect(tree.map((n) => n.path).sort()).toEqual(['A.html', 'D.html']);
+  });
+});
+
+describe('buildFragmentDisplayList', () => {
+  const names = { F1: '刻の断片', F2: '記帳の断片' };
+  const hiddenEntries = [
+    { path: 'glossary/gear-cipher.html', title: '光る符丁の正体', hidden: true },
+    { path: 'glossary/shooting-star.html', title: '流れ星、という言葉', hidden: true }
+  ];
+
+  test('attaches the source page title from foundAt', () => {
+    const fragments = [{ id: 'F1', foundAt: 'glossary/gear-cipher.html', used: false }];
+    const result = buildFragmentDisplayList(fragments, names, hiddenEntries);
+    expect(result).toEqual([{
+      id: 'F1', name: '刻の断片', used: false,
+      sourcePath: 'glossary/gear-cipher.html', sourceTitle: '光る符丁の正体'
+    }]);
+  });
+
+  test('falls back to the raw id when no display name is registered', () => {
+    const fragments = [{ id: 'F99', foundAt: 'glossary/gear-cipher.html', used: false }];
+    const result = buildFragmentDisplayList(fragments, names, hiddenEntries);
+    expect(result[0].name).toBe('F99');
+  });
+
+  test('leaves sourcePath/sourceTitle null when foundAt has no matching entry', () => {
+    const fragments = [{ id: 'F1', foundAt: 'glossary/unknown.html', used: false }];
+    const result = buildFragmentDisplayList(fragments, names, hiddenEntries);
+    expect(result[0].sourcePath).toBeNull();
+    expect(result[0].sourceTitle).toBeNull();
+  });
+
+  test('preserves the used flag', () => {
+    const fragments = [{ id: 'F2', foundAt: 'glossary/shooting-star.html', used: true }];
+    const result = buildFragmentDisplayList(fragments, names, hiddenEntries);
+    expect(result[0].used).toBe(true);
+  });
+
+  test('returns an empty array for no fragments', () => {
+    expect(buildFragmentDisplayList([], names, hiddenEntries)).toEqual([]);
   });
 });

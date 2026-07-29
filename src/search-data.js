@@ -70,5 +70,5 @@ window.SEARCH_INDEX = [
   { path: 'glossary/final-entry.html', title: '記録帳、最後の頁', category: '図鑑', hidden: true, keywords: ['観測記録帳'], prereq: ['glossary/first-astronomer.html'] },
   { path: 'glossary/shooting-star.html', title: '流れ星、という言葉', category: '図鑑', hidden: true, keywords: ['流れ星'], prereq: ['glossary/final-entry.html'], exactMatch: true },
   { path: 'glossary/erased-champion.html', title: '名を消された決闘王', category: '図鑑', hidden: true, keywords: ['さらに古い時代の決闘王'], prereq: ['glossary/dueling-champions.html'] },
-  { path: 'glossary/origo-echo.html', title: 'ORIGOという残響', category: '図鑑', hidden: true, keywords: ['ORIGO'], prereq: ['glossary/nostion-memory.html'], exactMatch: true }
+  { path: 'glossary/yorishiro-echo.html', title: 'よりしろ、という響き', category: '図鑑', hidden: true, keywords: ['よりしろ'], prereq: ['glossary/nostion-memory.html'], exactMatch: true }
 ];

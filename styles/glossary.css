@@ -199,6 +199,22 @@
   color: color-mix(in oklch, var(--brass) 85%, transparent);
 }
 
+/* 記号↔文字の対応表のように、dt/ddがともに短く行数が多いエントリ専用の
+   複数列レイアウト(例: フィンレー式記譜法、P2)。単一列のままだと
+   縦に伸びすぎ、右側の余白ばかりが目立つため(2026-07-29 ユーザー指摘)。
+   先頭のdt/ddだけは通常の長さの説明文なので、1行分をフル幅で使う。 */
+.archive-entry__profile--cipher {
+  grid-template-columns: repeat(3, max-content 1fr);
+}
+
+.archive-entry__profile--cipher dt:first-of-type {
+  grid-column: 1;
+}
+
+.archive-entry__profile--cipher dd:first-of-type {
+  grid-column: 2 / -1;
+}
+
 .archive-entry__lore {
   font-size: 0.9rem;
   line-height: 1.85;
@@ -345,11 +361,95 @@
   margin: 0;
 }
 
+/* 断片を新しく獲得した瞬間の演出(2026-07-29 ユーザー指摘)。二重の魔法陣が
+   一度だけ描き上がり、文言とともにフェードイン/アウトする(回転し続ける
+   スピナーのような量産型演出にはしない)。 */
+.fragment-effect {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  background-color: color-mix(in oklch, var(--ink) 92%, transparent);
+  border: 1px solid var(--ember);
+  box-shadow: 0 0 16px color-mix(in oklch, var(--ember) 45%, transparent);
+  color: var(--ember);
+  font-size: 0.85rem;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: fragment-effect-appear 3.6s ease forwards;
+}
+
+.fragment-effect__glyph {
+  width: 1.6rem;
+  height: 1.6rem;
+  flex-shrink: 0;
+}
+
+.fragment-effect__glyph circle {
+  fill: none;
+  stroke: var(--ember);
+  stroke-width: 1.4;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: fragment-effect-draw 1.4s ease forwards;
+}
+
+.fragment-effect__glyph circle:last-child {
+  animation-delay: 0.3s;
+}
+
+@keyframes fragment-effect-appear {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -0.5rem);
+  }
+
+  12% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  82% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -0.5rem);
+  }
+}
+
+@keyframes fragment-effect-draw {
+  to { stroke-dashoffset: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .creature-entry__avatar,
   .archive-entry__glyph {
     animation: none;
   }
+
+  .fragment-effect {
+    animation: fragment-effect-fade 3.6s ease forwards;
+  }
+
+  .fragment-effect__glyph circle {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fragment-effect-fade {
+  0% { opacity: 0; }
+  12% { opacity: 1; }
+  82% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 @media (width <= 600px) {
@@ -373,6 +473,10 @@
 
   .fragment-list {
     padding: 1.5rem 1rem;
+  }
+
+  .archive-entry__profile--cipher {
+    grid-template-columns: max-content 1fr;
   }
 
   .origin-story {

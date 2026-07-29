@@ -193,11 +193,68 @@
   text-decoration: line-through;
 }
 
+/* 「手にした断片」欄に、獲得元のギミックページへのリンクを添える
+   (2026-07-29 ユーザー指摘。PGATEで解読方法を思い出す手がかりにするため)。 */
+.codex-memory__fragment-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.codex-memory__fragment-source {
+  font-size: 0.72rem;
+  color: color-mix(in oklch, var(--brass) 55%, transparent);
+}
+
+.codex-memory__fragment-source:hover {
+  color: var(--ember);
+}
+
+/* 「学院の秘密」欄のツリー表示(2026-07-29 ユーザー指摘)。子を持つノードは
+   <details>で折りたためるようにする。 */
+.codex-memory__tree-node > .codex-memory__tree-toggle {
+  margin-top: 0.3rem;
+}
+
+.codex-memory__tree-toggle summary {
+  cursor: pointer;
+  font-size: 0.72rem;
+  color: color-mix(in oklch, var(--brass) 55%, transparent);
+}
+
+.codex-memory__tree-toggle summary:hover {
+  color: var(--ember);
+}
+
+.codex-memory__tree-toggle .codex-memory__tree {
+  margin-top: 0.4rem;
+  padding-left: 1.1rem;
+  border-left: 1px solid color-mix(in oklch, var(--brass) 20%, transparent);
+}
+
 .codex-memory__vague {
   font-size: 0.78rem;
   font-style: italic;
   color: color-mix(in oklch, var(--brass) 55%, transparent);
   margin: 0.75rem 0 0;
+}
+
+/* ヒントの手引きへの控えめな導線。検索一発で見つかると本末転倒なため、
+   目立たせすぎない小さなテキストリンクに留める(2026-07-29 ユーザー提案)。 */
+.search-hint-link {
+  font-size: 0.75rem;
+  margin: 0 0 1.5rem;
+}
+
+.search-hint-link__anchor {
+  color: color-mix(in oklch, var(--brass) 55%, transparent);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklch, var(--brass) 30%, transparent);
+  transition: color 0.2s;
+}
+
+.search-hint-link__anchor:hover {
+  color: var(--ember);
 }
 
 @media (width <= 600px) {

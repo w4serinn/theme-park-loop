@@ -40,6 +40,23 @@
       後勝ちで上書きし、JSが `card.hidden = true` を設定しても実際には非表示に
       ならなかった。`.event-card[hidden] { display: none; }` を追加して解消した。
 
+- [x] (S) 「学院の秘密」欄にP91(ノスティオンのページ)が乗らない
+      (2026-07-29 ユーザー報告)。`pages/glossary/nostion-memory.html`は
+      `src/search-data.js`の`window.SEARCH_INDEX`に登録されておらず、検索欄で
+      「私」「ノスティオン」と入力した際に表示される専用カードは
+      `src/search.js`内にハードコードされた`SELF_REFERENCE_ENTRY`という
+      別変数(`SEARCH_INDEX`には含まれない)。一方`renderMemorySection`
+      (`src/search.js`)の「学院の秘密」リスト描画は、訪問済みpath
+      (`progress.secrets`)を`window.SEARCH_INDEX`から検索して見つかった
+      ものだけを表示するため、nostion-memory.htmlは訪問記録自体はあるのに
+      一覧に出ない。あわせて「学院の秘密(n/合計)」の分母(`hiddenTotal`)にも
+      含まれていない。**修正**: `SEARCH_INDEX`は変更せず(通常検索でヒットさせ
+      たくないため)、`src/logic.js`に純粋関数`buildHiddenEntryList(searchIndex,
+      extraEntries)`を新設し、`src/search.js`の`renderMemorySection`で
+      `SEARCH_INDEX`のhiddenエントリ+`SELF_REFERENCE_ENTRY`を合流させた
+      `hiddenEntries`をリスト表示・分母カウント両方に使うよう変更。
+      `tests/logic.test.js`にテストを追加。
+
 - [x] (M) 全ページ共通: ヒーロービジュアル(`area-hero__visual` / `shop-hero__visual` /
       `dining-page-hero__visual`)がウィンドウ幅を広げると画像下部が見切れ、上部しか
       見えなくなる。原因: `.shop-hero`/`.area-hero`(grid-template-rows固定px)・
@@ -857,6 +874,50 @@
       漢字表記ではなくひらがなが適切と判断)。`return-mark.html`
       (タイトル・本文)・`src/return-mark.js`・`src/search-data.js`の
       title/keywordsを合わせて更新。
+- [x] (M) P91の合言葉候補を作り直す(2026-07-29)。選択・消去方式のギミック
+      自体は変更せず、候補名をラテン語(『MEMORIA』『VERITAS』『ORIGO』、
+      答えのローマ字化は誤った一般化だったとの以前のユーザー指摘に基づく
+      訂正)から自然な日本語(『はじまりの書』『みちしるべ』『よりしろ』)に
+      置き換えた。矛盾づけロジック(前段落の記述と矛盾する2候補・矛盾のない
+      1候補が残る構成)は踏襲: 「はじまりの書」は創立時の記録が無いという
+      既出事実と、「みちしるべ」は天文台から運ばれてきた形跡が無いという
+      既出事実と矛盾し、「よりしろ」(誰か一人の作でなく自然と宿った、という説)
+      のみ矛盾なく残る。`nostion-memory.html`の3段落目を更新し、到達先ページを
+      `origo-echo.html`から`yorishiro-echo.html`に改名(`src/origo-echo.js`→
+      `src/yorishiro-echo.js`)。`src/search-data.js`のpath/title/keywordsも
+      合わせて更新、`exactMatch: true`は維持。
+- [x] (S) P2「フィンレー式記譜法」の対応表を並び替え・レイアウト調整
+      (2026-07-29 ユーザー指摘)。`pages/glossary/perpetual-motion.html`の
+      対応表を、解読に使う順(H,A,G,U,R,M,T,S,N,K,O,I)からアルファベット順
+      (A,G,H,I,K,M,N,O,R,S,T,U)に並び替えた。`styles/glossary.css`に
+      `.archive-entry__profile--cipher`という専用モディファイアクラスを
+      新設し、`grid-template-columns: repeat(3, max-content 1fr)`で
+      dt/ddの短い行を3列に並べる形に変更(先頭の「正体」行はdt/ddとも
+      `grid-column`指定でフル幅の1行として残す)。600px以下では1列表示に
+      戻す。他ページの`.archive-entry__profile`(モディファイアなし)には
+      影響しない。
+- [x] (S) P5の謎解き文中の語り口の矛盾を直す(2026-07-29 ユーザー指摘・
+      方針確定。`docs/ARG-DESIGN.md`3節「本文の語り手ルール」参照)。
+      `pages/glossary/apprentice-notes.html`の「どこかで見た覚えのある記号だ、
+      という気がするが、この手記だけでは意味までは分からない」という一文
+      (暗黙にノスティオンの主観的な語りとして書かれていたが、同じ段落末尾の
+      「ノスティオンに尋ねてみて」という外部への呼びかけと矛盾していた)を
+      削除し、記号の列挙から「真上から時計回りに読み解ければ……」に直接
+      つながる客観的な記述に整理した。P7の同種の箇所は先のP7ギミック
+      全面作り直しの際に解消済み。
+- [x] (M) 謎解きのヒント専用ページを設ける(2026-07-29 ユーザー提案)。
+      各謎解きページの本文に薄く埋め込まれていたヒントを完全に取り除き、
+      `pages/glossary/hint-book.html`(「ヒントの手引き」)という専用ページに
+      集約した。仕組み: `src/hint-data.js`の`window.HINT_DATA`
+      (`{id, requiresPage, hint}`の配列)のうち、`requiresPage`を「学院の秘密」
+      に持っているものだけを表示する(`src/logic.js`の
+      `filterUnlockedHints(hintData, visitedPaths)`、テスト付き純粋関数)。
+      まだ出会っていない謎のヒントは一切見えない(先読み防止)。到達導線は
+      `SEARCH_INDEX`に登録せず、`pages/search.html`の誘導文の下に小さく
+      控えめなリンク(`.search-hint-link`)を常設する形にした(検索一発で
+      見つかると本末転倒なため)。P7(`final-entry.html`)の埋め込みヒントは
+      移設・削除、P5は元々ヒント無しのため新規に1件書き起こし、P91にも
+      一貫性のため1件追加。`styles/hint-book.css`を新設。
 
 ### 14. 提携宿泊施設
 
@@ -982,3 +1043,39 @@
       CSSも削除。あわせてキャラクター名を「コデックス」から「ノスティオン」へ
       改名(検索ページ・ナビ・自己言及ギミックの判定ワード・`docs/ARG-DESIGN.md`を
       含め全面更新)。
+- [x] (M) 「学院の秘密」欄をツリー構造で表示(2026-07-29 ユーザー指摘)。
+      `src/logic.js`に純粋関数`buildSecretsTree(hiddenEntries, visitedPaths)`
+      を新設(テスト7件)し、訪問済みページのみを対象に`prereq`を辿って
+      親子関係の木構造を組み立てる。網状構造で複数の親候補が訪問済みの場合は、
+      `visitedPaths`内で最も後(最近)に訪問された方を親として採用(より具体的な
+      発見の連鎖を優先)。未訪問の親候補の存在を推測させる情報は一切出力しない。
+      `src/search.js`に同じロジックを複製し、`renderMemorySection`内で
+      子を持つノードを`<details>/<summary>`で折りたためる形に描画変更
+      (リンクは`<summary>`の外に置き、遷移と開閉のクリックが競合しないように
+      した)。`styles/search.css`に`.codex-memory__tree-*`を新設。
+- [x] (S) 検索クエリに最低文字数を設ける(2026-07-29 ユーザー指摘)。
+      `src/logic.js`に`MIN_SEARCH_QUERY_LENGTH = 2`を新設し、
+      `filterSearchIndex`・`src/search.js`の`filterIndex`とも、この文字数
+      未満のクエリは一致なし(空配列)を返すよう変更(テスト追加)。
+      `src/search.js`の`render`側で、自己言及トリガー(「私」等1文字)は
+      文字数制限の対象外にしつつ、それ以外の短すぎるクエリには
+      「もう少し詳しく入力してください。」という案内を表示するようにした。
+- [x] (M) 「手にした断片」欄に、その断片獲得に使ったギミック元のページを
+      記録・表示(2026-07-29 ユーザー指摘)。各断片は元々`foundAt`(獲得元
+      ページのpath)を持っていたが表示していなかった。`src/logic.js`に
+      純粋関数`buildFragmentDisplayList(fragments, names, hiddenEntries)`を
+      新設(テスト5件)し、`foundAt`から対応するページのタイトルを引いて
+      添える。`src/search.js`に同じロジックを複製し、断片名の下に獲得元
+      ページへのリンク(`.codex-memory__fragment-source`)を表示する形に変更。
+- [x] (M) 断片を新しく獲得した瞬間が分かる演出を追加(2026-07-29 ユーザー
+      指摘: 「今なんかそのページを読んで、戻ったらなんか増えてる」→明らかに
+      何か進んだとわかる演出が欲しい)。各断片到達先ページの個別スクリプト
+      (`gear-cipher.js`・`shooting-star.js`・`yorishiro-echo.js`)を廃止し、
+      共通の`src/fragment-effect.js`に統合(`data-fragment-id`/
+      `data-found-at`属性で対象を指定するスクリプトタグ経由で読み込む)。
+      `addFragment`呼び出し前に既に断片を持っているかを確認し、新規獲得時
+      のみ画面上部に演出バナーを表示(既存断片への再訪問時には出さない)。
+      演出は二重の魔法陣が一度だけstroke描画で浮かび上がり、文言とともに
+      フェードイン/アウトする形にした(回転し続けるスピナー等の量産型演出は
+      避けた)。`prefers-reduced-motion`では stroke描画を省略し単純な
+      フェードのみにする。`styles/glossary.css`に`.fragment-effect*`を新設。

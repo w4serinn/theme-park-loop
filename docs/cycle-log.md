@@ -1,5 +1,114 @@
 # サイクル履歴
 
+## 2026-07-29 16:34
+- タスク選定: `### 15`の残り2件(「手にした断片」欄へのギミック元ページ記録[M]・
+  断片獲得時の演出[M])をまとめて着手。両方とも断片の表示・獲得体験という
+  同じ領域のため、比較・統一感を重視してまとめた。
+- 実装: (ギミック元ページ記録) 各断片が元々持っていた`foundAt`(獲得元ページ
+  のpath)を、`src/logic.js`の新設`buildFragmentDisplayList`(テスト5件)で
+  対応タイトルと突き合わせ、`src/search.js`で断片名の下にリンク表示する形に
+  変更。(獲得演出) `gear-cipher.js`・`shooting-star.js`・`yorishiro-echo.js`
+  という3つのほぼ同一の断片付与スクリプトを、共通の`src/fragment-effect.js`
+  (`data-fragment-id`/`data-found-at`属性で対象指定)に統合。新規獲得時のみ
+  二重の魔法陣がstroke描画で一度だけ浮かび上がる演出バナーを表示(回転し
+  続けるスピナー等は避けた)。`prefers-reduced-motion`では単純なフェードに
+  縮退。
+- レビュー: local-review skillを実行(手順に沿って自己レビュー)。
+  fragment-effect.jsで新規/再訪問の判定順序(addFragment呼び出し前に
+  既存チェック)をコードトレースで確認。codex-progress.js→
+  fragment-effect.jsのスクリプト読み込み順序(defer順)も確認。
+  ブラウザでの実機確認は、この環境にPlaywright等が未セットアップのため
+  スキップ(コードトレースで代替、前回までと同様)。世界観・keywords重複無し・
+  絶対パス無し・コアカラーのみもあわせて確認、指摘なし。
+- `### 15`(ARG基盤・ノスティオン)の未完了サブタスクが0件になったため
+  statusを`完了`に変更。これに伴い`### 13`側の「`### 15`優先」のゲート記述
+  も解消し、未着手P番号ページの実装に進めるようにした。
+- lint: ✓ / lint:css: ✓ / test: ✓(329件) / build: ✓
+- 次回予定: `docs/ARG-DESIGN.md`4節の「未着手」P番号ページを1行選んで実装
+  (`docs/ARG-WORDBANK.md`のグルーピング候補を優先的に検討)。
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-29 15:33
+- タスク選定: `### 15`から2件(「学院の秘密」欄のツリー構造化[M]・検索クエリの
+  最低文字数[S])をまとめて着手。`### 13`のP番号未着手タスクは引き続き
+  `### 15`優先のゲート待ちのため見送り。
+- 実装: (ツリー構造化) `src/logic.js`に純粋関数`buildSecretsTree`を新設
+  (テスト7件)。網状構造で複数の親候補が訪問済みの場合は最も後に訪問された
+  方を親として採用し、未訪問の親候補の存在は一切推測させない。
+  `src/search.js`に同じロジックを複製し、`<details>/<summary>`で
+  折りたためるツリー表示に変更(リンクは`<summary>`外に配置し遷移と
+  開閉のクリックを分離)。(最低文字数) `MIN_SEARCH_QUERY_LENGTH = 2`を
+  `src/logic.js`・`src/search.js`両方に導入し、自己言及トリガー
+  (「私」等1文字)だけは対象外にしつつ、それ以外の短いクエリには
+  専用の案内メッセージを表示するようにした。ついでに`docs/ROADMAP.md`の
+  古い`origo-echo.html`参照を`yorishiro-echo.html`に修正。
+- レビュー: local-review skillを実行(手順に沿って自己レビュー)。
+  buildSecretsTreeのテストで、網状構造(複数親候補)・未訪問親の非表示・
+  未知エントリのスキップを重点確認。自己言及クエリ「私」が最低文字数制限の
+  対象外であることをコードトレースで確認。ブラウザでの実機確認は、
+  この環境にPlaywright等が未セットアップのためスキップ(コードトレースで
+  代替、前回サイクルと同様)。世界観・keywords重複無し・絶対パス無し・
+  コアカラーのみもあわせて確認、指摘なし。
+- lint: ✓ / lint:css: ✓ / test: ✓(324件) / build: ✓
+- 次回予定: 「手にした断片」欄へのギミック元ページ記録、または断片獲得時の
+  演出追加(いずれも`### 15`)。
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-29 14:34
+- タスク選定: `### 13`から「謎解きのヒント専用ページを設ける」(M、
+  ユーザー提案)に着手。P-番号未着手行の実装タスクは`### 15`優先の
+  ゲート待ちのため見送り。
+- 実装: `pages/glossary/hint-book.html`(「ヒントの手引き」)を新設。
+  `src/hint-data.js`の`window.HINT_DATA`(id/requiresPage/hintの配列)と、
+  `src/logic.js`の新設純粋関数`filterUnlockedHints(hintData, visitedPaths)`
+  (テスト付き)で、訪問済み(「学院の秘密」)の謎だけヒントを表示する
+  仕組みにした。`SEARCH_INDEX`には登録せず、`pages/search.html`の誘導文
+  下に小さな控えめリンク(`.search-hint-link`)を常設して導線とした。
+  P7(`final-entry.html`)の埋め込みヒントを移設・削除、P5・P91にも
+  ヒントを新規追加。`styles/hint-book.css`新設、`styles/search.css`に
+  リンク用スタイル追加(stylelintのno-descending-specificity対応で
+  `.search-hint-link__anchor`という独立クラスに変更)。
+- レビュー: local-review skillを実行(手順に沿って自己レビュー)。
+  filterUnlockedHintsのロジックをコード上で追跡し、初期状態(非表示)→
+  該当ページ訪問後(表示)の流れを確認。codex-progress.jsの実装も
+  確認し、hint-book.html自体は「学院の秘密」に記録されないこと
+  (data-page-path未指定)を確認。ブラウザでの実機確認は、この環境に
+  Playwright等のブラウザ自動化ツールが未セットアップのためスキップ
+  (コードレベルのトレースで代替)。世界観・keywords重複無し・
+  絶対パス無し・コアカラーのみもあわせて確認、指摘なし。
+- lint: ✓ / lint:css: ✓ / test: ✓(315件) / build: ✓
+- 次回予定: 「学院の秘密」欄のツリー構造化、または「手にした断片」欄への
+  ギミック元ページ記録(`### 15`)。
+- blocked / partial: なし
+- asset-pending: なし
+
+## 2026-07-29 13:32
+- ブランチ: 前回まで作業していた`evolve/cycle-30`は、直近のPR自動マージ
+  (#36)によりすでに`origin/main`に取り込み済みだったため、`main`を
+  pullした上で新規`evolve/cycle-31`ブランチを作り直して継続(手順通り)。
+- タスク選定: `### 13`から、関連する3件(P91の合言葉候補の作り直し[M]・
+  P2対応表の並び替え/レイアウト調整[S]・P5の語り口矛盾の修正[S])を
+  まとめて着手。まず解消済みバグ(P91「学院の秘密」欄の不具合、既に
+  origin/mainへマージ済みを確認)を`docs/roadmap-done.md`へ退避。
+- 実装: (P91) 候補名をラテン語(MEMORIA/VERITAS/ORIGO)から自然な日本語
+  (はじまりの書/みちしるべ/よりしろ)に変更、矛盾づけロジックは踏襲。
+  到達先ページを`yorishiro-echo.html`に改名。(P2) 対応表をアルファベット順
+  に並び替え、`styles/glossary.css`に`.archive-entry__profile--cipher`
+  モディファイアを新設し3列グリッド化(先頭の説明行はフル幅、600px以下は
+  1列に戻す)。(P5) 「気がするが」という主観表現を削除し、語り手の矛盾を解消。
+- レビュー: local-review skillを実行(手順に沿って自己レビュー)。P91の
+  矛盾づけロジックが実際に機能するか(はじまりの書・みちしるべがそれぞれ
+  既出事実と矛盾し、よりしろのみ残ること)を再確認。origo-echo関連の
+  ファイル・参照が残っていないことも確認。世界観・keywords重複無し・
+  絶対パス無し・コアカラーのみもあわせて確認、指摘なし。
+- lint: ✓ / lint:css: ✓ / test: ✓(308件) / build: ✓
+- 次回予定: 謎解きヒント専用ページの設計・実装、または
+  「学院の秘密」欄のツリー構造化。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-29 12:32
 - タスク選定: 「バグ修正(最優先)」セクションの未対応項目
   (「学院の秘密」欄にP91が乗らない)に着手。
