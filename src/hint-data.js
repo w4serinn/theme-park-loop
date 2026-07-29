@@ -245,4 +245,10 @@ window.HINT_DATA = [
     leadsTo: 'glossary/circle-warden.html',
     hint: '「刻の輪」の補修記録にも、陣紋補修記録簿の解読作業にも、同じ役職の名前が挙がっていたはずです。もう一度どちらかの記述を確かめてみてください。'
   },
+  {
+    requiresPage: 'glossary/circle-warden.html',
+    hintFor: 'glossary/circle-warden.html',
+    leadsTo: 'glossary/warden-registry.html',
+    hint: '学院はあらゆる物事を記録し続ける場所です。歴代の陣紋師についても、正式な記録がどこかに保管されているはずだと思いませんか。'
+  },
 ];
