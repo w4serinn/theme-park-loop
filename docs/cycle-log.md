@@ -1,5 +1,33 @@
 # サイクル履歴
 
+## 2026-07-29 22:30
+- ブランチ: 引き続き`evolve/cycle-34`(未マージ)。
+- タスク選定: `### 13`のP番号ページ実装、`docs/ARG-WORDBANK.md`グループB
+  「記録簿モチーフ」を2ページに分割して実装。
+- 実装:
+  1. B-1「陣紋の保守記録」: 魔法陣刻印記録簿(alchemy-tower.html)・
+     陣紋補修記録簿(summoning-plaza.html)を
+     `pages/glossary/circle-ledgers.html`に統合(4カード)。
+  2. B-2「実績・認定の記録」: 錬金術研究棟の記録簿(events/index.html)・
+     考査記録室(dueling-ground.html)を`pages/glossary/merit-records.html`
+     に統合(4カード)。
+  両ページとも、本文にflavor向きの素材(初代の署名欄が判読不能、副賞の
+  指輪が選ばれた理由不明、等)を含めたため、新規ID追記ではなく前サイクルで
+  明文化した方針(`docs/ARG-DESIGN.md`4節)に沿って、予約済みのroot→flavor
+  1段枠(P33〜P34・P39〜P40)へ最初から当てはめて実装した。
+  `src/search-data.js`に2エントリ追加(「記録簿」という共通語を含むため
+  両方`exactMatch: true`で衝突回避)、`src/hint-data.js`にroot型ヒント4件
+  追加。`docs/ARG-DESIGN.md`・`docs/ARG-WORDBANK.md`を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(389件) / build: ✓
+- 次回予定: `### 13`のP番号ページ実装を継続。`docs/ARG-WORDBANK.md`の
+  グループC(立入禁止・非公開区画、6件の深いflavor連鎖に向く最有力候補)・
+  グループD(天文台の2人の学長級人物)・グループG(月草/月光草の混同、
+  fragment向き)が未使用のまま残っている。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-29 21:35
 - ブランチ: 引き続き`evolve/cycle-34`(未マージ)。
 - タスク選定: 「バグ修正」の唯一の未対応項目(library-shop.htmlの学長表記
