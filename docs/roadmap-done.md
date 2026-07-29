@@ -1312,3 +1312,15 @@
       `summary`双方を`display: inline-block`+`padding: 0.3rem 0`にして
       タップ領域を広げ、トグル自体の`margin-top`も0.3rem→0.5remに増やして
       視覚的な間隔も確保した(`styles/search.css`)。
+- [x] (M) ヒントの手引きで、既に発見済みのページに対するヒントを非表示に
+      する(2026-07-29 ユーザー提案: 「既に閲覧済みのページは秘密に残る
+      からヒントは消していいのでは」)。各`HINT_DATA`エントリに`leadsTo`
+      (このヒントが導く先の隠しページ、表示には一切使わないフィルタ専用の
+      値)を追加した。`hintFor`(見出し表示用、答えを出してはならない)とは
+      役割が異なり、`leadsTo`は答えのページを指しても構わない。
+      `src/logic.js`に純粋関数`filterActiveHints(hintData, visitedPaths)`
+      (テスト付き)を新設し、`filterUnlockedHints`(解禁判定)に加えて
+      `leadsTo`が既に「学院の秘密」に含まれるエントリを除外するように
+      した。`src/hint-book.js`に同じロジックを複製し`render()`の呼び出し
+      先を変更。`### 15`にこれで未完了サブタスクが無くなったため、
+      statusを完了に変更。

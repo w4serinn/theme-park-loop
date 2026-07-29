@@ -170,6 +170,19 @@ export function filterUnlockedHints(hintData, visitedPaths) {
   });
 }
 
+// ヒントの手引き用: 解禁済み(filterUnlockedHints)のヒントのうち、既に
+// 目的地(entry.leadsTo)を発見済みのものをさらに除外する(2026-07-29
+// ユーザー提案: 「既に閲覧済みのページは秘密に残るからヒントは消していい
+// のでは」)。leadsToは表示には一切使わないフィルタ専用の値であり、
+// hintFor(見出し表示用、答えを出してはならない)とは役割が異なる
+// (entry.leadsToが未設定のエントリは、目的地の概念が無いため常に残す)。
+export function filterActiveHints(hintData, visitedPaths) {
+  return filterUnlockedHints(hintData, visitedPaths).filter(function (entry) {
+    if (!entry.leadsTo) { return true; }
+    return visitedPaths.indexOf(entry.leadsTo) === -1;
+  });
+}
+
 // ヒントの手引き(pages/glossary/hint-book.html)の見出し用(2026-07-29
 // ユーザー指摘)。断片の個別名(先読みでネタバレになる)ではなく、手がかりが
 // あるページ自体のタイトルを見出しにする。extraEntries経由で、SEARCH_INDEXに

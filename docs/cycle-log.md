@@ -1,5 +1,27 @@
 # サイクル履歴
 
+## 2026-07-29 20:29
+- ブランチ: 引き続き`evolve/cycle-34`(未マージ)。
+- タスク選定: `### 15`最後の残タスク「発見済みページに対するヒントを
+  非表示化」(M)を実装。
+- 実装: 各`HINT_DATA`エントリに`leadsTo`(このヒントが導く先の隠しページ、
+  表示には一切使わないフィルタ専用の値)を追加。`hintFor`(見出し表示用、
+  答えを出してはならない)とは役割が異なり、`leadsTo`は答えのページを
+  指しても構わない設計にした。`src/logic.js`に純粋関数
+  `filterActiveHints(hintData, visitedPaths)`(テスト付き)を新設し、
+  `filterUnlockedHints`に加えて`leadsTo`が既に「学院の秘密」に含まれる
+  エントリを除外するようにした。`src/hint-book.js`に同じロジックを複製。
+  全14エントリの`leadsTo`値を`src/search-data.js`のprereqチェーンと
+  突き合わせて検証済み。`### 15`にこれで未完了サブタスクが無くなったため
+  statusを完了に変更。
+- レビュー: OK(local-review相当のセルフチェックを実施。leadsToが表示系
+  関数[resolveHintPageTitle/hintFor]に一切渡っていないこと、全エントリの
+  leadsTo値が正しいことを確認。指摘なし)。
+- lint: ✓ / lint:css: ✓ / test: ✓(385件、+4) / build: ✓
+- 次回予定: `### 13`の次のP番号ページ(グループF〜H)、または新たな候補出し。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-29 20:02
 - ブランチ: `evolve/cycle-33`はPR #42のマージ済みを確認、`main`をpullした上で
   新規`evolve/cycle-34`ブランチを作り直して継続。

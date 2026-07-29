@@ -24,6 +24,18 @@
     });
   }
 
+  // 解禁済みのヒントのうち、既に目的地(entry.leadsTo)を発見済みのものを
+  // さらに除外する(2026-07-29 ユーザー提案: 「既に閲覧済みのページは
+  // 秘密に残るからヒントは消していいのでは」。src/logic.jsの
+  // filterActiveHintsと同じロジック)。leadsToは表示には使わない
+  // フィルタ専用の値(hintForとは役割が異なる)。
+  function filterActiveHints(hintData, visitedPaths) {
+    return filterUnlockedHints(hintData, visitedPaths).filter(function (entry) {
+      if (!entry.leadsTo) { return true; }
+      return visitedPaths.indexOf(entry.leadsTo) === -1;
+    });
+  }
+
   // ヒントの見出しを、断片の個別名(先読みでネタバレになる)ではなく、このヒントが
   // 「何についてのヒントか」を表すentry.hintForのタイトルにする(2026-07-29
   // ユーザー指摘。requiresPage[解禁条件]とhintFor[見出しの対象]は別物であり、
@@ -58,7 +70,7 @@
 
   function render() {
     var visitedPaths = window.CodexProgress.load().secrets;
-    var unlocked = filterUnlockedHints(window.HINT_DATA, visitedPaths);
+    var unlocked = filterActiveHints(window.HINT_DATA, visitedPaths);
     var groups = groupHintsByHintFor(unlocked);
 
     listEl.innerHTML = '';

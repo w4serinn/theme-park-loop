@@ -502,6 +502,16 @@ F1,F3,F4,...」は、断片を単純な所持チェック(インベントリの�
   `groupHintsByHintFor(hints, searchIndex, extraEntries)`(テスト付き)を
   新設し、同じ見出しのエントリを1つの`<details>`にまとめ、ヒント本文を
   複数の`<p>`として並べる形にした。`src/hint-book.js`に同じロジックを複製。
+- **発見済みページのヒントを非表示化(2026-07-29 ユーザー提案)**: 「既に
+  閲覧済みのページは秘密に残るからヒントは消していいのでは」との提案を
+  受け、各`HINT_DATA`エントリに`leadsTo`(このヒントが導く先の隠しページ)
+  フィールドを追加した。`hintFor`(見出し表示用、答えを出してはならない)
+  とは役割が異なり、`leadsTo`は表示に一切使わないフィルタ専用の値なので、
+  答えのページを指しても構わない。`src/logic.js`に純粋関数
+  `filterActiveHints(hintData, visitedPaths)`(テスト付き)を新設し、
+  `filterUnlockedHints`(解禁判定)に加えて、`leadsTo`が既に「学院の秘密」
+  に含まれるエントリを除外するようにした。`src/hint-book.js`に同じ
+  ロジックを複製し、`render()`の呼び出し先を`filterActiveHints`に変更。
 
 ## 5. 実装の進め方(evolveループ向け)
 
