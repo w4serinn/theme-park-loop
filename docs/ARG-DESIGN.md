@@ -300,7 +300,7 @@ flavor/fragmentが組めない」と判断した場合、その接続を無理�
 | P32 | fragment | P31 | F7(→扉) | F6(P27産出) | 未着手 |
 | P33 | root | `exploration/alchemy-tower.html`「魔法陣刻印記録簿」、`exploration/summoning-plaza.html`「陣紋補修記録簿」の2箇所から接続 | — | — | 実装済み(`pages/glossary/circle-ledgers.html`)。`docs/ARG-WORDBANK.md`グループB-1「陣紋の保守記録」(2026-07-29実装)。本文中の「初代の署名欄が判読不能」「石版帳にも判読しづらい項目が残る」等flavor化の余地があると判断し、予約済みのroot→flavor 1段枠であるP33〜P34へ最初から当てはめて実装(2026-07-29) |
 | P34 | flavor | P33 | — | — | 未着手 |
-| P35 | root | 通常ページ(未定) | — | — | 未着手 |
+| P35 | root | `shop/index.html`「七代続く写本師一族の古書専門店」、`shop/library-shop.html`「七代続く写本師の一族が運営」の2箇所から接続 | — | — | 実装済み(`pages/glossary/scribe-lineage.html`)。`docs/ARG-WORDBANK.md`「未分類のまま残る候補」の「七代続く写本師一族」を実装(2026-07-30)。既存の実装済みページ(P16 `arnold-relics.html`の「創魔の書」複製、P28 `second-headmaster.html`の葦ペン復刻)がどちらも同じ写本師一族の仕事だったことに着目し、一族そのものに焦点を当てた4カード構成にした。本文中の「初代の名は公式に記録されていない」等flavor化の余地があると判断し、予約済みのroot→flavor 3段枠であるP35〜P38へ最初から当てはめて実装 |
 | P36 | flavor | P35 | — | — | 未着手 |
 | P37 | flavor | P36 | — | — | 未着手 |
 | P38 | flavor | P37 | — | — | 未着手 |

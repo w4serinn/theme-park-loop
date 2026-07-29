@@ -224,4 +224,14 @@ window.HINT_DATA = [
     leadsTo: 'glossary/underground-network.html',
     hint: '時刻堂には、地下の接続部まで書き込まれた設計図の複製ポスターが売られているそうです。その商品説明を思い出してみてください。'
   },
+  {
+    hintFor: 'shop/index.html',
+    leadsTo: 'glossary/scribe-lineage.html',
+    hint: '写本堂の紹介文には、何代も続く一族が営んでいるという記述があったはずです。購買部一覧のその店の説明をもう一度読んでみてください。'
+  },
+  {
+    hintFor: 'shop/library-shop.html',
+    leadsTo: 'glossary/scribe-lineage.html',
+    hint: '写本堂そのものの紹介文にも、代々続く一族についての記述があったはずです。もう一度読んでみてください。'
+  },
 ];
