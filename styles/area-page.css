@@ -406,6 +406,36 @@
   border-color: color-mix(in oklch, var(--brass) 55%, transparent);
 }
 
+/* 豆知識コールアウト */
+.area-trivia {
+  margin: 1.5rem 0 0;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--ember);
+  background: color-mix(in oklch, var(--ember) 6%, transparent);
+}
+
+.area-trivia__heading {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ember);
+  margin: 0 0 0.6rem;
+  letter-spacing: 0.05em;
+}
+
+.area-trivia__list {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.area-trivia__list li {
+  font-size: 0.875rem;
+  color: color-mix(in oklch, var(--brass) 85%, transparent);
+  line-height: 1.7;
+}
+
 /* ご案内ボックス */
 .area-info {
   margin-top: 2.5rem;
