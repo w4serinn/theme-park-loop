@@ -1,5 +1,26 @@
 # サイクル履歴
 
+## 2026-07-30 00:40
+- ブランチ: 引き続き`evolve/cycle-35`(未マージ)。
+- タスク選定: `### 13`のP番号ページ実装、`docs/ARG-WORDBANK.md`グループC
+  「立入禁止・非公開区画」のflavor2段目(P83)。
+- 実装: P82(`pages/glossary/affinity-circle.html`)から連なるflavor2段目
+  として、決闘演武場の「魔封石保管庫」(dueling-ground.html)を扱う
+  `pages/glossary/sealed-stone-vault.html`を新設。既存本文の「魔封石
+  ギャラリー」(展示20試合)との対比を軸に、保管庫には未展示分を含め
+  2,000個以上あるという構成にし、独り言でP8「名を消された決闘王」を
+  それとなく暗示した。P82側に「魔封石保管庫」への言及を追加して手がかり
+  とした。`src/search-data.js`でprereqゲーティング、`src/hint-data.js`に
+  発見の連鎖型ヒントを1件追加。`docs/ARG-DESIGN.md`・`docs/ARG-WORDBANK.md`
+  を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(402件) / build: ✓
+- 次回予定: グループCのflavor続き(P84: 禁書閲覧室、P85: 契約精霊の棲家)。
+  グループG(月草/月光草の混同、fragment向き)も未使用のまま残っている。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 00:10
 - ブランチ: 引き続き`evolve/cycle-35`(未マージ)。
 - タスク選定: `### 13`のP番号ページ実装、`docs/ARG-WORDBANK.md`グループC
