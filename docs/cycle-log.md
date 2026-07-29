@@ -1,5 +1,28 @@
 # サイクル履歴
 
+## 2026-07-30 02:25
+- ブランチ: 引き続き`evolve/cycle-35`(未マージ)。
+- タスク選定: `### 13`のP番号ページ実装。グループA〜Hを使い切ったため、
+  `docs/ARG-WORDBANK.md`末尾の「未分類のまま残る候補」から
+  「時計塔設計図の『地下の魔法陣接続部』」を選定。
+- 実装: 完了済みグループC「立入禁止・非公開区画」の締めくくりとなる補遺
+  として`pages/glossary/underground-network.html`を新設。P85
+  (weathervane-shrine.html)から連なるflavor5段目とし、設計図に記された
+  「地下の魔法陣接続部」を軸に、6つの一角が地下でつながっているかもしれ
+  ないという可能性だけを示し、断定はせず問いのまま終える形にした。
+  `src/search-data.js`でprereqゲーティング、`src/hint-data.js`に発見の
+  連鎖型ヒントを1件追加。`docs/ARG-DESIGN.md`・`docs/ARG-WORDBANK.md`を
+  更新し、グループCをroot+flavor5段の完全完了として記録。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(419件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の「未分類のまま残る候補」は残り3件
+  (魔法資質証明証・七代続く写本師一族・7番試薬)。個別には弱いため、
+  次回はこれらの活用を検討するか、それでも難しければROADMAP.mdの指示
+  通り全ページの本文を棚卸しして新しい候補を追加する。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 02:00
 - ブランチ: 引き続き`evolve/cycle-35`(未マージ)。
 - タスク選定: `### 13`のP番号ページ実装、`docs/ARG-WORDBANK.md`グループG
