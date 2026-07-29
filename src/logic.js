@@ -143,3 +143,13 @@ export function buildHiddenEntryList(searchIndex, extraEntries) {
   var hidden = searchIndex.filter(function (e) { return e.hidden; });
   return hidden.concat(extraEntries || []);
 }
+
+// 謎解きヒント専用ページ(docs/ROADMAP.md「### 13」参照)用: hintDataのうち、
+// entry.requiresPageをvisitedPathsにまだ持っていないものを除外する。
+// まだ出会っていない謎のヒントを先読みできてしまわないようにするため
+// (2026-07-29 ユーザー提案)。
+export function filterUnlockedHints(hintData, visitedPaths) {
+  return hintData.filter(function (entry) {
+    return visitedPaths.indexOf(entry.requiresPage) !== -1;
+  });
+}

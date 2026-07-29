@@ -1,5 +1,33 @@
 # サイクル履歴
 
+## 2026-07-29 14:34
+- タスク選定: `### 13`から「謎解きのヒント専用ページを設ける」(M、
+  ユーザー提案)に着手。P-番号未着手行の実装タスクは`### 15`優先の
+  ゲート待ちのため見送り。
+- 実装: `pages/glossary/hint-book.html`(「ヒントの手引き」)を新設。
+  `src/hint-data.js`の`window.HINT_DATA`(id/requiresPage/hintの配列)と、
+  `src/logic.js`の新設純粋関数`filterUnlockedHints(hintData, visitedPaths)`
+  (テスト付き)で、訪問済み(「学院の秘密」)の謎だけヒントを表示する
+  仕組みにした。`SEARCH_INDEX`には登録せず、`pages/search.html`の誘導文
+  下に小さな控えめリンク(`.search-hint-link`)を常設して導線とした。
+  P7(`final-entry.html`)の埋め込みヒントを移設・削除、P5・P91にも
+  ヒントを新規追加。`styles/hint-book.css`新設、`styles/search.css`に
+  リンク用スタイル追加(stylelintのno-descending-specificity対応で
+  `.search-hint-link__anchor`という独立クラスに変更)。
+- レビュー: local-review skillを実行(手順に沿って自己レビュー)。
+  filterUnlockedHintsのロジックをコード上で追跡し、初期状態(非表示)→
+  該当ページ訪問後(表示)の流れを確認。codex-progress.jsの実装も
+  確認し、hint-book.html自体は「学院の秘密」に記録されないこと
+  (data-page-path未指定)を確認。ブラウザでの実機確認は、この環境に
+  Playwright等のブラウザ自動化ツールが未セットアップのためスキップ
+  (コードレベルのトレースで代替)。世界観・keywords重複無し・
+  絶対パス無し・コアカラーのみもあわせて確認、指摘なし。
+- lint: ✓ / lint:css: ✓ / test: ✓(315件) / build: ✓
+- 次回予定: 「学院の秘密」欄のツリー構造化、または「手にした断片」欄への
+  ギミック元ページ記録(`### 15`)。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-29 13:32
 - ブランチ: 前回まで作業していた`evolve/cycle-30`は、直近のPR自動マージ
   (#36)によりすでに`origin/main`に取り込み済みだったため、`main`を

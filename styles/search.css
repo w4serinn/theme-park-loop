@@ -200,6 +200,24 @@
   margin: 0.75rem 0 0;
 }
 
+/* ヒントの手引きへの控えめな導線。検索一発で見つかると本末転倒なため、
+   目立たせすぎない小さなテキストリンクに留める(2026-07-29 ユーザー提案)。 */
+.search-hint-link {
+  font-size: 0.75rem;
+  margin: 0 0 1.5rem;
+}
+
+.search-hint-link__anchor {
+  color: color-mix(in oklch, var(--brass) 55%, transparent);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklch, var(--brass) 30%, transparent);
+  transition: color 0.2s;
+}
+
+.search-hint-link__anchor:hover {
+  color: var(--ember);
+}
+
 @media (width <= 600px) {
   .page-hero {
     padding: 2rem 1rem 1.5rem;

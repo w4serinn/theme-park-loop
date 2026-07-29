@@ -1,6 +1,6 @@
 import { test, expect, describe } from 'vitest';
 import {
-  buildHiddenEntryList,
+  buildHiddenEntryList, filterUnlockedHints,
   TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex,
   filterSearchIndex, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
   isSearchEntryUnlocked, isCodexSelfReferenceQuery
@@ -280,5 +280,30 @@ describe('buildHiddenEntryList', () => {
 
   test('treats missing extraEntries as an empty list', () => {
     expect(buildHiddenEntryList(searchIndex).map((e) => e.path)).toEqual(['glossary/a.html', 'glossary/b.html']);
+  });
+});
+
+describe('filterUnlockedHints', () => {
+  const hintData = [
+    { id: 'F1', requiresPage: 'glossary/apprentice-notes.html', hint: 'hint1' },
+    { id: 'F2', requiresPage: 'glossary/final-entry.html', hint: 'hint2' }
+  ];
+
+  test('returns no hints when nothing has been visited', () => {
+    expect(filterUnlockedHints(hintData, [])).toEqual([]);
+  });
+
+  test('returns only hints whose requiresPage has been visited', () => {
+    const result = filterUnlockedHints(hintData, ['glossary/apprentice-notes.html']);
+    expect(result.map((e) => e.id)).toEqual(['F1']);
+  });
+
+  test('returns all hints when every requiresPage has been visited', () => {
+    const visited = ['glossary/apprentice-notes.html', 'glossary/final-entry.html'];
+    expect(filterUnlockedHints(hintData, visited).map((e) => e.id)).toEqual(['F1', 'F2']);
+  });
+
+  test('is unaffected by unrelated visited paths', () => {
+    expect(filterUnlockedHints(hintData, ['glossary/mythical-creatures.html'])).toEqual([]);
   });
 });

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ヒントの手引き — 王立魔法学院アルノルド</title>
+  <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/base.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/hint-book.css" />
+</head>
+<body>
+<!-- HEADER -->
+<main>
+  <section class="page-hero">
+    <h1 class="page-hero__title">ヒントの手引き</h1>
+    <p class="page-hero__desc">学院の奥に眠る謎に行き詰まったなら、ここに立ち寄ってみてください。ただし、まだ出会っていない謎については、何も記されていません。</p>
+  </section>
+
+  <div class="hint-book">
+    <p class="hint-book__empty" id="hint-book-empty">まだ、手助けできそうな謎に出会っていないようです。</p>
+    <ul class="hint-book__list" id="hint-book-list"></ul>
+  </div>
+</main>
+<!-- FOOTER -->
+<script src="{{BASE}}src/codex-progress.js" defer></script>
+<script src="{{BASE}}src/fragment-names.js" defer></script>
+<script src="{{BASE}}src/hint-data.js" defer></script>
+<script src="{{BASE}}src/hint-book.js" defer></script>
+</body>
+</html>

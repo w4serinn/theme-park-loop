@@ -905,6 +905,19 @@
       削除し、記号の列挙から「真上から時計回りに読み解ければ……」に直接
       つながる客観的な記述に整理した。P7の同種の箇所は先のP7ギミック
       全面作り直しの際に解消済み。
+- [x] (M) 謎解きのヒント専用ページを設ける(2026-07-29 ユーザー提案)。
+      各謎解きページの本文に薄く埋め込まれていたヒントを完全に取り除き、
+      `pages/glossary/hint-book.html`(「ヒントの手引き」)という専用ページに
+      集約した。仕組み: `src/hint-data.js`の`window.HINT_DATA`
+      (`{id, requiresPage, hint}`の配列)のうち、`requiresPage`を「学院の秘密」
+      に持っているものだけを表示する(`src/logic.js`の
+      `filterUnlockedHints(hintData, visitedPaths)`、テスト付き純粋関数)。
+      まだ出会っていない謎のヒントは一切見えない(先読み防止)。到達導線は
+      `SEARCH_INDEX`に登録せず、`pages/search.html`の誘導文の下に小さく
+      控えめなリンク(`.search-hint-link`)を常設する形にした(検索一発で
+      見つかると本末転倒なため)。P7(`final-entry.html`)の埋め込みヒントは
+      移設・削除、P5は元々ヒント無しのため新規に1件書き起こし、P91にも
+      一貫性のため1件追加。`styles/hint-book.css`を新設。
 
 ### 14. 提携宿泊施設
 
