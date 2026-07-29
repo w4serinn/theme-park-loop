@@ -62,10 +62,13 @@
     return q.indexOf('私') !== -1 || q.indexOf('ノスティオン') !== -1;
   }
 
-  // 「学院の秘密」欄のツリー表示用(2026-07-29 ユーザー指摘、src/logic.jsの
-  // buildSecretsTreeと同じロジック)。訪問済みページのみを対象にし、複数の
-  // 親候補が訪問済みの場合は最も後に訪問された方を親として採用する(網状構造で
-  // 未訪問の親候補を推測させないため)。
+  // 「学院の秘密」欄のツリー表示用(2026-07-29 ユーザー指摘・バグ修正、
+  // src/logic.jsのbuildSecretsTreeと同じロジック)。訪問済みページのみを
+  // 対象にし、複数の親候補が訪問済みの場合は、そのページ自身より前に
+  // 訪問されていた候補の中で最も後に訪問された方を親として採用する
+  // (網状構造で未訪問の親候補を推測させないため)。自分より後に訪問された
+  // 候補は対象外にすることで、後から別の経路を訪れても既存の親子関係が
+  // 過去に遡って変わらないようにしている。
   function buildSecretsTree(hiddenEntries, visitedPaths) {
     var byPath = {};
     hiddenEntries.forEach(function (e) { byPath[e.path] = e; });
@@ -78,12 +81,14 @@
     });
 
     var roots = [];
-    visitedPaths.forEach(function (path) {
+    visitedPaths.forEach(function (path, index) {
       var node = nodes[path];
       if (!node) { return; }
       var entry = byPath[path];
       var prereq = entry.prereq || [];
-      var candidates = prereq.filter(function (p) { return nodes[p]; });
+      var candidates = prereq.filter(function (p) {
+        return nodes[p] && visitedPaths.indexOf(p) < index;
+      });
       var parentPath = candidates.length > 0
         ? candidates.reduce(function (latest, p) {
           return visitedPaths.indexOf(p) > visitedPaths.indexOf(latest) ? p : latest;
@@ -235,6 +240,8 @@
 
     statusEl.textContent = results.length + '件のページが見つかりました。';
 
+    var visitedPaths = window.CodexProgress ? window.CodexProgress.load().secrets : [];
+
     results.forEach(function (entry) {
       var li = document.createElement('li');
       li.className = 'search-result';
@@ -254,7 +261,11 @@
       a.appendChild(category);
       a.appendChild(title);
 
-      if (entry.hidden) {
+      // 既に「学院の秘密」に記録済み(訪問済み)のページでは、検索するたびに
+      // 「発見」バッジが出てしまうと紛らわしいため、本当に未訪問の場合だけ
+      // 表示する(2026-07-29 バグ修正、src/logic.jsのshouldShowDiscoveryBadge
+      // と同じロジック)。
+      if (entry.hidden && visitedPaths.indexOf(entry.path) === -1) {
         var badge = document.createElement('span');
         badge.className = 'search-result__badge';
         badge.textContent = '✦ 発見';

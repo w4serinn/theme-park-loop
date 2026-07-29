@@ -165,11 +165,17 @@ export function filterUnlockedHints(hintData, visitedPaths) {
 // (親候補のpath配列、OR判定)のうち、実際に訪問済みのものだけを親として
 // 採用する。prereqが無い、または訪問済みの親候補が1つも無い場合はルート
 // ノードになる。
-// **網状構造への配慮**: 複数の親候補が訪問済みの場合、`visitedPaths`内で
-// 最も後(最近)に訪問された候補を親として採用する(より具体的な発見の連鎖を
-// 優先するため。例: A→B→Cの順に訪問し、CがA・B両方をprereqに持つ場合、
-// Cは(Aではなく)Bの子として表示する)。訪問していない親候補の存在を
-// 推測させる情報は一切出力しない。
+// **網状構造への配慮**: 複数の親候補が訪問済みの場合、そのページ自身より
+// 「前に」訪問されていた候補の中で、最も後(最近)に訪問された候補を親として
+// 採用する(より具体的な発見の連鎖を優先するため。例: A→B→Cの順に訪問し、
+// CがA・B両方をprereqに持つ場合、Cは(Aではなく)Bの子として表示する)。
+// **自分より後に訪問された候補は対象から除外する**: これにより、後から
+// 別の経路(まだ訪れていなかった方の親)を訪れても、既に表示されていた
+// 親子関係が過去に遡って変わることはない(2026-07-29 バグ修正。例:
+// 魔導88星座→シベル・オーレン→魔法生物図鑑の順に訪問した場合、シベル・
+// オーレンは魔導88星座の子のまま固定され、後から魔法生物図鑑を訪れても
+// 付け替わらない)。訪問していない親候補の存在を推測させる情報は一切
+// 出力しない。
 export function buildSecretsTree(hiddenEntries, visitedPaths) {
   var byPath = {};
   hiddenEntries.forEach(function (e) { byPath[e.path] = e; });
@@ -182,12 +188,14 @@ export function buildSecretsTree(hiddenEntries, visitedPaths) {
   });
 
   var roots = [];
-  visitedPaths.forEach(function (path) {
+  visitedPaths.forEach(function (path, index) {
     var node = nodes[path];
     if (!node) { return; }
     var entry = byPath[path];
     var prereq = entry.prereq || [];
-    var candidates = prereq.filter(function (p) { return nodes[p]; });
+    var candidates = prereq.filter(function (p) {
+      return nodes[p] && visitedPaths.indexOf(p) < index;
+    });
     var parentPath = candidates.length > 0
       ? candidates.reduce(function (latest, p) {
         return visitedPaths.indexOf(p) > visitedPaths.indexOf(latest) ? p : latest;
@@ -223,4 +231,11 @@ export function buildFragmentDisplayList(fragments, names, hiddenEntries) {
       sourceTitle: source ? source.title : null
     };
   });
+}
+
+// 検索結果の「✦ 発見」バッジを表示すべきかどうかを判定する(2026-07-29
+// バグ修正)。hiddenなエントリでも、既に「学院の秘密」に記録済み(訪問済み)
+// なら「今まさに発見した」わけではないため表示しない。
+export function shouldShowDiscoveryBadge(entry, visitedPaths) {
+  return !!entry.hidden && visitedPaths.indexOf(entry.path) === -1;
 }
