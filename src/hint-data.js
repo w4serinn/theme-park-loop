@@ -125,6 +125,11 @@ window.HINT_DATA = [
     hint: '決闘演武場には、段位認定の記録を保管する非公開の一室があるそうです。演武場の設備についての記述を、もう一度確かめてみてください。'
   },
   {
+    hintFor: 'shop/library-shop.html',
+    leadsTo: 'glossary/second-headmaster.html',
+    hint: '写本堂の復刻ペンの商品説明には、ある歴代学長にまつわる由来が書かれていたはずです。その説明文をもう一度読んでみてください。'
+  },
+  {
     id: 'F1',
     requiresPage: 'glossary/apprentice-notes.html',
     hintFor: 'glossary/apprentice-notes.html',
