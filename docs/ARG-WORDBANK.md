@@ -203,21 +203,23 @@ flavorへ発展させやすいとの指摘を受け、新規ID[旧#97]から、�
   盛り込めたため、新規ID追記ではなく予約済みのroot→flavor 1段枠
   (P33〜P34・P39〜P40)へ最初から当てはめて実装した(2026-07-29)。
 
-### グループC: 立入禁止・非公開区画(学院内探索の再確認で判明した最有力モチーフ)[一部使用済み: P81(root)・P82(flavor)、2026-07-29実装]
+### グループC: 立入禁止・非公開区画(学院内探索の再確認で判明した最有力モチーフ)[一部使用済み: P81(root)・P82・P83(flavor)、2026-07-30実装]
 - 触媒保管庫(alchemy-tower.html) → P81 `pages/glossary/hidden-corners.html`
 - 予備歯車庫(clock-tower.html) → P81 `pages/glossary/hidden-corners.html`
 - 蔵書親和魔法陣(grand-library.html) → P82 `pages/glossary/affinity-circle.html`
-- 魔封石保管庫(dueling-ground.html) → 未使用(P83予定)
+- 魔封石保管庫(dueling-ground.html) → P83 `pages/glossary/sealed-stone-vault.html`
 - 禁書閲覧室(grand-library.html) → 未使用(P84予定。展示87冊中12冊は表紙すら
   非公開という具体的な数字あり、flavor化しやすい)
 - 契約精霊の棲家「風見の祠」(summoning-plaza.html) → 未使用(P85予定)
 → 6件と多いため1ページには収めず、4-5節の「root→flavor→flavor→…」チェーン
   形式を採用(1つのroot「なぜどのエリアにも人知れない一角があるのか」から、
   各エリアの禁域を1つずつ巡るflavor連鎖にする)。深さのある章立てにできる
-  最有力候補。2026-07-29、root(触媒保管庫・予備歯車庫)を実装
-  (`docs/ARG-DESIGN.md`4-5節P81行)、続けてflavor1段目(蔵書親和魔法陣)も
-  同日実装。サイズLのため残り3件はP83〜P85のflavorとして次回以降の
-  サイクルで1件ずつ着手する。
+  最有力候補。2026-07-29にroot(触媒保管庫・予備歯車庫)とflavor1段目
+  (蔵書親和魔法陣)を実装、2026-07-30にflavor2段目(魔封石保管庫)を追加
+  (`docs/ARG-DESIGN.md`4-5節P81行)。魔封石保管庫は既存本文の「魔封石
+  ギャラリー」(展示20試合)との対比を軸に、P8「名を消された決闘王」を
+  独り言でそれとなく暗示する形にした。サイズLのため残り2件はP84〜P85の
+  flavorとして次回以降のサイクルで1件ずつ着手する。
 
 ### グループD: 天文台の2人の学長級人物(フローラ・シルヴァーン関連)[使用済み: P28、2026-07-29実装]
 - 第2代学長(フローラ・シルヴァーン)の現存する書簡(library-shop.html) →

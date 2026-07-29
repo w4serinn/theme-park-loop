@@ -190,4 +190,10 @@ window.HINT_DATA = [
     leadsTo: 'glossary/affinity-circle.html',
     hint: '似たような一角は、他のエリアにもあるという話でした。大図書館のある設備についての記述を思い出してみてください。'
   },
+  {
+    requiresPage: 'glossary/affinity-circle.html',
+    hintFor: 'glossary/affinity-circle.html',
+    leadsTo: 'glossary/sealed-stone-vault.html',
+    hint: '決闘演武場の地下にも、同じように一般非公開の場所があるという話でした。その設備についての記述を思い出してみてください。'
+  },
 ];
