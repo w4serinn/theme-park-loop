@@ -196,4 +196,10 @@ window.HINT_DATA = [
     leadsTo: 'glossary/sealed-stone-vault.html',
     hint: '決闘演武場の地下にも、同じように一般非公開の場所があるという話でした。その設備についての記述を思い出してみてください。'
   },
+  {
+    requiresPage: 'glossary/sealed-stone-vault.html',
+    hintFor: 'glossary/sealed-stone-vault.html',
+    leadsTo: 'glossary/forbidden-books-room.html',
+    hint: '大図書館には、一部だけ表紙すら見せてもらえない展示があるという話でした。その見学アトラクションについての記述を思い出してみてください。'
+  },
 ];
