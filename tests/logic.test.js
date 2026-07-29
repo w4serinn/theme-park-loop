@@ -1,6 +1,7 @@
 import { test, expect, describe } from 'vitest';
 import {
   buildHiddenEntryList, filterUnlockedHints, buildSecretsTree, buildFragmentDisplayList,
+  shouldShowDiscoveryBadge,
   TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex,
   filterSearchIndex, MIN_SEARCH_QUERY_LENGTH, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
   isSearchEntryUnlocked, isCodexSelfReferenceQuery
@@ -371,6 +372,52 @@ describe('buildSecretsTree', () => {
   test('multiple unrelated roots stay separate', () => {
     const tree = buildSecretsTree(hiddenEntries, ['A.html', 'D.html']);
     expect(tree.map((n) => n.path).sort()).toEqual(['A.html', 'D.html']);
+  });
+
+  test('parent attachment is stable and does not retroactively change when a later-visited sibling candidate appears (2026-07-29 bug fix)', () => {
+    // P6-like node whose prereq is an OR of two independent roots (P1, P3).
+    const entries = [
+      { path: 'P1.html', title: 'P1', hidden: true },
+      { path: 'P3.html', title: 'P3', hidden: true },
+      { path: 'P6.html', title: 'P6', hidden: true, prereq: ['P1.html', 'P3.html'] }
+    ];
+
+    // Visit order: P3, then P6. Only P3 was visited so far, so P6 must
+    // attach under P3.
+    const treeBefore = buildSecretsTree(entries, ['P3.html', 'P6.html']);
+    expect(treeBefore).toEqual([
+      { path: 'P3.html', title: 'P3', children: [
+        { path: 'P6.html', title: 'P6', children: [] }
+      ] }
+    ]);
+
+    // P1 is visited afterward. P6 must remain attached under P3 — it must
+    // not retroactively move to P1, since P1 was not yet known when P6 was
+    // first reached.
+    const treeAfter = buildSecretsTree(entries, ['P3.html', 'P6.html', 'P1.html']);
+    expect(treeAfter.map((n) => n.path).sort()).toEqual(['P1.html', 'P3.html']);
+    const p3Node = treeAfter.find((n) => n.path === 'P3.html');
+    expect(p3Node.children.map((n) => n.path)).toEqual(['P6.html']);
+    const p1Node = treeAfter.find((n) => n.path === 'P1.html');
+    expect(p1Node.children).toEqual([]);
+  });
+});
+
+describe('shouldShowDiscoveryBadge', () => {
+  test('shows the badge for a hidden entry not yet visited', () => {
+    expect(shouldShowDiscoveryBadge({ path: 'a.html', hidden: true }, [])).toBe(true);
+  });
+
+  test('hides the badge for a hidden entry already visited', () => {
+    expect(shouldShowDiscoveryBadge({ path: 'a.html', hidden: true }, ['a.html'])).toBe(false);
+  });
+
+  test('hides the badge for a non-hidden entry', () => {
+    expect(shouldShowDiscoveryBadge({ path: 'a.html' }, [])).toBe(false);
+  });
+
+  test('is unaffected by unrelated visited paths', () => {
+    expect(shouldShowDiscoveryBadge({ path: 'a.html', hidden: true }, ['b.html'])).toBe(true);
   });
 });
 
