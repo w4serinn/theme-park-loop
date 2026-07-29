@@ -271,6 +271,14 @@ summary.codex-memory__label:hover {
   color: var(--ember);
 }
 
+/* 発見数の周回カウンター。「これまでの記録」欄より手前で、控えめに
+   進捗だけを示す(2026-07-30、「今後のタスク候補」より実装)。 */
+.search-progress {
+  font-size: 0.75rem;
+  color: color-mix(in oklch, var(--brass) 75%, transparent);
+  margin: 0 0 1.5rem;
+}
+
 @media (width <= 600px) {
   .page-hero {
     padding: 2rem 1rem 1.5rem;
