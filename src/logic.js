@@ -152,22 +152,31 @@ export function buildHiddenEntryList(searchIndex, extraEntries) {
 // 謎解きヒント専用ページ(docs/ROADMAP.md「### 13」参照)用: hintDataのうち、
 // entry.requiresPageをvisitedPathsにまだ持っていないものを除外する。
 // まだ出会っていない謎のヒントを先読みできてしまわないようにするため
-// (2026-07-29 ユーザー提案)。
+// (2026-07-29 ユーザー提案)。requiresPageは文字列またはstring[]
+// (複数ページのいずれか1つでも訪問済みならOKのOR判定。2026-07-29
+// ヒント対象拡大: 例えばP6は魔法生物図鑑・魔導88星座のどちらからでも
+// たどり着けるため、ヒントもどちらか一方の訪問で解禁する必要がある)。
 export function filterUnlockedHints(hintData, visitedPaths) {
   return hintData.filter(function (entry) {
-    return visitedPaths.indexOf(entry.requiresPage) !== -1;
+    var required = Array.isArray(entry.requiresPage) ? entry.requiresPage : [entry.requiresPage];
+    return required.some(function (p) { return visitedPaths.indexOf(p) !== -1; });
   });
 }
 
 // ヒントの手引き(pages/glossary/hint-book.html)の見出し用(2026-07-29
-// ユーザー指摘)。断片の個別名(先読みでネタバレになる)ではなく、謎解きが
+// ユーザー指摘)。断片の個別名(先読みでネタバレになる)ではなく、手がかりが
 // あるページ自体のタイトルを見出しにする。extraEntries経由で、SEARCH_INDEXに
 // 登録されていない特別なページ(P91の自己言及ページ等)も解決できるようにする
-// (buildHiddenEntryListと同じ考え方)。
+// (buildHiddenEntryListと同じ考え方)。pathは文字列またはstring[]
+// (OR条件の場合、両方のタイトルを「 / 」でつないで見出しにする)。
 export function resolveHintPageTitle(path, searchIndex, extraEntries) {
   var all = (searchIndex || []).concat(extraEntries || []);
-  var match = all.filter(function (e) { return e.path === path; })[0];
-  return match ? match.title : path;
+  var paths = Array.isArray(path) ? path : [path];
+  var titles = paths.map(function (p) {
+    var match = all.filter(function (e) { return e.path === p; })[0];
+    return match ? match.title : p;
+  });
+  return titles.join(' / ');
 }
 
 // 「学院の秘密」欄をツリー表示するための木構造を組み立てる(2026-07-29

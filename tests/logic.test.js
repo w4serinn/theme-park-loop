@@ -318,12 +318,23 @@ describe('filterUnlockedHints', () => {
   test('is unaffected by unrelated visited paths', () => {
     expect(filterUnlockedHints(hintData, ['glossary/mythical-creatures.html'])).toEqual([]);
   });
+
+  test('unlocks an OR-array requiresPage when only one of the candidates is visited', () => {
+    const orHintData = [
+      { requiresPage: ['glossary/mythical-creatures.html', 'glossary/starmap-fragments.html'], hint: 'hint3' }
+    ];
+    expect(filterUnlockedHints(orHintData, ['glossary/starmap-fragments.html'])).toHaveLength(1);
+    expect(filterUnlockedHints(orHintData, ['glossary/mythical-creatures.html'])).toHaveLength(1);
+    expect(filterUnlockedHints(orHintData, ['glossary/dueling-champions.html'])).toEqual([]);
+  });
 });
 
 describe('resolveHintPageTitle', () => {
   const searchIndex = [
     { path: 'glossary/apprentice-notes.html', title: '見習い整備士の手記' },
-    { path: 'glossary/final-entry.html', title: '記録帳、最後の頁' }
+    { path: 'glossary/final-entry.html', title: '記録帳、最後の頁' },
+    { path: 'glossary/mythical-creatures.html', title: '魔法生物図鑑' },
+    { path: 'glossary/starmap-fragments.html', title: '魔導88星座' }
   ];
   const extraEntries = [{ path: 'glossary/nostion-memory.html', title: '最初の記憶' }];
 
@@ -340,6 +351,12 @@ describe('resolveHintPageTitle', () => {
   test('falls back to the raw path when no title is found', () => {
     expect(resolveHintPageTitle('glossary/unknown.html', searchIndex, extraEntries))
       .toBe('glossary/unknown.html');
+  });
+
+  test('joins multiple titles with " / " when path is an array', () => {
+    expect(resolveHintPageTitle(
+      ['glossary/mythical-creatures.html', 'glossary/starmap-fragments.html'], searchIndex, extraEntries
+    )).toBe('魔法生物図鑑 / 魔導88星座');
   });
 });
 

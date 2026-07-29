@@ -1,5 +1,28 @@
 # サイクル履歴
 
+## 2026-07-29 18:28
+- ブランチ: 引き続き`evolve/cycle-33`(未マージ)。
+- タスク選定: `### 15`最後の残タスク「ヒントの手引きの対象拡大」(M)を実装。
+  これで`### 13`のP番号ページ実装タスクにあった「13,15の他タスクが終わる
+  まで着手しない」という条件が解除された。
+- 実装: `window.HINT_DATA`(元はP5・P7・P91の暗号解読3件のみ)に、
+  `prereq`を持つがヒント未整備だった4件を追加(`apprentice-notes.html`・
+  `first-astronomer.html`・`final-entry.html`・`erased-champion.html`)。
+  OR-prereqページ(first-astronomer.htmlは魔法生物図鑑/魔導88星座どちらから
+  でも到達可)に対応するため、`entry.requiresPage`が文字列に加えて
+  string[]も受け付けるよう`filterUnlockedHints`・`resolveHintPageTitle`
+  (`src/logic.js`、テスト付き)を拡張し、`src/hint-book.js`にも複製。
+  ついでに、F13のヒント文言が前サイクルの候補5択化に追随できておらず
+  「三つの候補」のままだった表記ずれも修正。
+  `### 15`にこれで未完了サブタスクが無くなったため、statusを`完了`に変更。
+- レビュー: OK(local-review相当のセルフチェックを実施。OR配列のfallback
+  (文字列のみのケース)が既存3件のヒントで壊れていないことを確認。指摘なし)。
+- lint: ✓ / lint:css: ✓ / test: ✓(349件、+2) / build: ✓
+- 次回予定: `### 13`の未着手Pページ実装(条件解除済み、グループA「刻」三部作
+  など)。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-29 18:20
 - ブランチ: 引き続き`evolve/cycle-33`(未マージ)。
 - タスク選定: `### 13`の新規Pページ実装タスクは「13,15の他タスクが終わる

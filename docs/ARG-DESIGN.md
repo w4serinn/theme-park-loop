@@ -429,6 +429,20 @@ F1,F3,F4,...」は、断片を単純な所持チェック(インベントリの�
   世界観にそぐわないとの指摘を受け、「迷える者への、小さな手引き」という
   控えめな文言に変更した。「ここはヒントを集めた場所です」という趣旨の
   説明は`hint-book.html`側の`.page-hero__desc`に書く形に寄せた。
+- **対象拡大(2026-07-29 ユーザー指摘)**: 当初は謎解き(暗号解読、F1・F2・F13)
+  のみが対象だったが、それ以外の大多数の隠しページ(root/flavor、`prereq`を
+  持つ通常の発見リンク)には次に何を検索すればいいか分からなくなった場合の
+  ヒントが無かった。`window.SEARCH_INDEX`の`prereq`を持つエントリのうち、
+  まだヒントの無かった`apprentice-notes.html`(← `perpetual-motion.html`)・
+  `first-astronomer.html`(← `mythical-creatures.html` / `starmap-fragments.html`
+  のOR)・`final-entry.html`(← `first-astronomer.html`)・
+  `erased-champion.html`(← `dueling-champions.html`)の4件を追加した(実際の
+  `keywords`をそのまま見せず、ぼかした言い回しに留める)。OR-prereqの
+  ページに対応するため、`entry.requiresPage`は文字列に加えてstring[]も
+  受け付けるよう`filterUnlockedHints`・`resolveHintPageTitle`(いずれも
+  `src/logic.js`)を拡張した(配列の場合、見出しは両方のタイトルを
+  「 / 」でつなぐ)。断片を産出しない発見の連鎖のヒントには対応する
+  断片IDが無いため、`id`フィールドは省略可とした。
 
 ## 5. 実装の進め方(evolveループ向け)
 

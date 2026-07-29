@@ -13,19 +13,27 @@
   // このページを参照する場合のために、ここでも同じタイトルを複製しておく。
   var SELF_REFERENCE_ENTRY = { path: 'glossary/nostion-memory.html', title: '最初の記憶' };
 
+  // requiresPageは文字列またはstring[](OR判定。2026-07-29 ヒント対象拡大、
+  // src/logic.jsのfilterUnlockedHintsと同じロジック)。
   function filterUnlockedHints(hintData, visitedPaths) {
     return hintData.filter(function (entry) {
-      return visitedPaths.indexOf(entry.requiresPage) !== -1;
+      var required = Array.isArray(entry.requiresPage) ? entry.requiresPage : [entry.requiresPage];
+      return required.some(function (p) { return visitedPaths.indexOf(p) !== -1; });
     });
   }
 
-  // ヒントの見出しを、断片の個別名(先読みでネタバレになる)ではなく、謎解きが
+  // ヒントの見出しを、断片の個別名(先読みでネタバレになる)ではなく、手がかりが
   // あるページ自体のタイトルにする(2026-07-29 ユーザー指摘。src/logic.jsの
-  // resolveHintPageTitleと同じロジック)。
+  // resolveHintPageTitleと同じロジック)。pathが配列の場合は両方のタイトルを
+  // 「 / 」でつなぐ。
   function findPageTitle(path) {
     var all = (window.SEARCH_INDEX || []).concat([SELF_REFERENCE_ENTRY]);
-    var match = all.filter(function (e) { return e.path === path; })[0];
-    return match ? match.title : path;
+    var paths = Array.isArray(path) ? path : [path];
+    var titles = paths.map(function (p) {
+      var match = all.filter(function (e) { return e.path === p; })[0];
+      return match ? match.title : p;
+    });
+    return titles.join(' / ');
   }
 
   function render() {

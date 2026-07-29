@@ -1190,3 +1190,19 @@
       円形にフォールバックする。`gear-cipher.html`・`shooting-star.html`・
       `yorishiro-echo.html`に`src/fragment-names.js`の読み込みを追加
       (断片名の解決に必要なため)。
+- [x] (M) ヒントの手引きの対象を、謎解き(暗号解読)だけでなく通常の発見の
+      連鎖にも拡大(2026-07-29 ユーザー指摘)。`window.HINT_DATA`(元は
+      P5・P7・P91の3件のみ)に、`prereq`を持つ隠しページのうちヒント未整備
+      だった4件を追加: `apprentice-notes.html`(← `perpetual-motion.html`)・
+      `first-astronomer.html`(← `mythical-creatures.html` /
+      `starmap-fragments.html`のOR)・`final-entry.html`
+      (← `first-astronomer.html`)・`erased-champion.html`
+      (← `dueling-champions.html`)。実際の`keywords`は見せず、ぼかした
+      言い回しに留めた。OR-prereqページに対応するため、`entry.requiresPage`
+      が文字列に加えてstring[]も受け付けるよう`filterUnlockedHints`・
+      `resolveHintPageTitle`(いずれも`src/logic.js`、テスト付き)を拡張し、
+      `src/hint-book.js`に同じロジックを複製(配列の場合、見出しは両方の
+      タイトルを「 / 」でつなぐ)。断片を産出しない発見の連鎖のヒントには
+      対応する断片IDが無いため`id`フィールドは省略可とした。あわせて、
+      F13のヒント文言が「三つの候補」のままP91の候補5択化(前サイクル)に
+      追随できていなかった表記ずれも「五つの候補」に修正した。
