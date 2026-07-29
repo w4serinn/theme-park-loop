@@ -1,5 +1,28 @@
 # サイクル履歴
 
+## 2026-07-30 08:35
+- ブランチ: 引き続き`evolve/cycle-39`(未マージ)。
+- タスク選定: `### 13`root行の実装を継続(改訂した優先順位ルールに沿い、
+  `docs/ARG-WORDBANK.md`の生の棚卸しから直接グルーピング)。
+- 実装: P47(root、4-5節の単発チェーン枠)として
+  `pages/glossary/airship-symbols.html`を新設(3カード)。「## 2. 学院内
+  探索」の「竜鱗布」「旗艦『アルノルド号』係留ドック」(いずれも
+  airship-dock.html)と「## 4. 購買部」の「ドックのシンボルマーク
+  『碇と羽根』」(airship-gear.html)をグルーピングし、飛行船を陰から
+  支える「素材・設備・意匠」という切り口にした。`src/search-data.js`・
+  `src/hint-data.js`(airship-dock.htmlから2件、airship-gear.htmlから1件)・
+  `docs/ARG-DESIGN.md` P47行・`docs/ARG-WORDBANK.md`該当箇所を更新。
+  本文中に「『碇と羽根』の由来は公式には示されていない」というフックを
+  残し、P48のflavor化余地とした。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(473件) / build: ✓
+- 次回予定: 他の実装済みroot(P16→P17[fragment、F3]等)の予約済み枠、
+  P44→P45・P47→P48のflavor化、または`docs/ARG-WORDBANK.md`の残り未使用
+  候補(占術師・学院農園・時間経路実験室など)からのroot追加。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 08:20
 - ブランチ: 引き続き`evolve/cycle-39`(未マージ)。
 - タスク選定: 3項目まとめて着手。(1)`### 13`root行の実装(改訂した優先順位

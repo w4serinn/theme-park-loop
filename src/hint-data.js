@@ -165,6 +165,21 @@ window.HINT_DATA = [
     hint: '錬金術研究棟の中心設備は、アルノルド卿自身が設計したと伝わるものだそうです。主要研究設備の説明をもう一度確かめてみてください。'
   },
   {
+    hintFor: 'exploration/airship-dock.html',
+    leadsTo: 'glossary/airship-symbols.html',
+    hint: '飛行船ドックの格納設備には、魔法帆の素材を保管する専用倉庫があったはずです。格納設備の説明をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'exploration/airship-dock.html',
+    leadsTo: 'glossary/airship-symbols.html',
+    hint: '旗艦「アルノルド号」を固定している設備自体にも、正式な名前があったはずです。格納設備の説明をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'shop/airship-gear.html',
+    leadsTo: 'glossary/airship-symbols.html',
+    hint: 'ドック用の帆布財布には、ある意匠をかたどったチャームが付いているそうです。その商品説明をもう一度読んでみてください。'
+  },
+  {
     id: 'F1',
     requiresPage: 'glossary/apprentice-notes.html',
     hintFor: 'glossary/apprentice-notes.html',

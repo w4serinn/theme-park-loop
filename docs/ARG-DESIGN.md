@@ -337,7 +337,7 @@ flavor/fragmentが組めない」と判断した場合、その接続を無理�
 
 | root ID | 連なる flavor ID(たどり着く順) | status |
 |---|---|---|
-| P47 | P48 | 未着手 |
+| P47 | P48 | 実装済み(root=P47。`pages/glossary/airship-symbols.html`、2026-07-30実装。`exploration/airship-dock.html`「竜鱗布倉庫」「『アルノルド号』係留ドック」、`shop/airship-gear.html`「ドックのシンボルマーク『碇と羽根』」の3箇所から接続。`docs/ARG-WORDBANK.md`「## 2. 学院内探索」「## 4. 購買部」の未使用候補をグルーピングして実装。本文中の「『碇と羽根』の意匠の由来は公式には示されていない」等flavor化の余地を残し、P48へ) |
 | P49 | P50 | 未着手 |
 | P51 | P52 | 未着手 |
 | P53 | P54 → P55 | 未着手 |
