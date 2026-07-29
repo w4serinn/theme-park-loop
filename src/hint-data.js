@@ -56,53 +56,78 @@ window.HINT_DATA = [
   },
   {
     hintFor: 'exploration/summoning-plaza.html',
-    leadsTo: 'glossary/time-ring-record.html',
+    leadsTo: 'glossary/koku-trio.html',
     hint: '魔法陣召喚広場には、創立以来使われ続けている大きな仕掛けがあるようです。広場の設備についての記述を確かめてみてください。'
   },
   {
     hintFor: 'exploration/clock-tower.html',
-    leadsTo: 'glossary/time-ledger.html',
+    leadsTo: 'glossary/koku-trio.html',
     hint: '時計塔には、稼働記録を代々書き継ぐ台帳もあるそうです。同じ塔の主要機構についての記述を、もう一度確かめてみてください。'
   },
   {
     hintFor: 'shop/airship-shop.html',
-    leadsTo: 'glossary/northern-cloud-sea.html',
+    leadsTo: 'glossary/beyond-the-map.html',
     hint: '飛行船ドックの航路図には、あまり知られていない場所も描かれているようです。ドックの売店のページを覗いてみてください。'
   },
   {
     hintFor: 'index.html',
-    leadsTo: 'glossary/transit-plaza.html',
+    leadsTo: 'glossary/beyond-the-map.html',
     hint: '学院への行き方の中に、王都中央のある場所を経由するものがあったはずです。トップページのアクセス案内をもう一度確かめてみてください。'
   },
   {
     hintFor: 'shop/souvenirs.html',
-    leadsTo: 'glossary/arnold-crest.html',
+    leadsTo: 'glossary/arnold-relics.html',
     hint: 'アルノルド卿の紋章をかたどった品が、みやげ店にあったはずです。バッジ商品の説明をもう一度読んでみてください。'
   },
   {
     hintFor: 'shop/books.html',
-    leadsTo: 'glossary/arnold-manuscript.html',
+    leadsTo: 'glossary/arnold-relics.html',
     hint: 'アルノルド卿直筆とされる資料の写しが、書籍・資料店に並んでいたはずです。その商品説明をもう一度確かめてみてください。'
   },
   {
     hintFor: 'shop/library-shop.html',
-    leadsTo: 'glossary/founding-grimoire.html',
+    leadsTo: 'glossary/arnold-relics.html',
     hint: '写本堂には、ある古い書物の一章だけを複製した品があったはずです。その商品説明をもう一度読んでみてください。'
   },
   {
     hintFor: 'shop/summoning-shop.html',
-    leadsTo: 'glossary/otherworld-presence.html',
+    leadsTo: 'glossary/spirits-of-arnold.html',
     hint: '召喚素材専門店の護符は、ある存在から身を守るためのものだったはずです。その商品説明をもう一度読んでみてください。'
   },
   {
     hintFor: 'exploration/summoning-plaza.html',
-    leadsTo: 'glossary/sylphe-dialogue.html',
+    leadsTo: 'glossary/spirits-of-arnold.html',
     hint: '魔法陣召喚広場の北隅には、言葉を交わせる相手がいるという話です。広場の見どころをもう一度確かめてみてください。'
   },
   {
     hintFor: 'events/index.html',
-    leadsTo: 'glossary/starfield-spirit.html',
+    leadsTo: 'glossary/spirits-of-arnold.html',
     hint: '新月の夜だけ開かれる、ある観測会があったはずです。学院祭・行事の案内をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'exploration/alchemy-tower.html',
+    leadsTo: 'glossary/circle-ledgers.html',
+    hint: '研究棟には、陣形式の移り変わりを歴代の錬金術師が書き継いできた記録簿があるそうです。研究棟の設備についての記述をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'exploration/summoning-plaza.html',
+    leadsTo: 'glossary/circle-ledgers.html',
+    hint: '魔法陣召喚広場には、陣紋の補修履歴を記した石版帳もあるという話です。広場の設備についての記述を、もう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'events/index.html',
+    leadsTo: 'glossary/merit-records.html',
+    hint: '錬金術品評会の豆知識には、受賞者の名が代々刻まれ続ける場所についての記述があったはずです。行事の案内をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'exploration/dueling-ground.html',
+    leadsTo: 'glossary/merit-records.html',
+    hint: '決闘演武場には、段位認定の記録を保管する非公開の一室があるそうです。演武場の設備についての記述を、もう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'shop/library-shop.html',
+    leadsTo: 'glossary/second-headmaster.html',
+    hint: '写本堂の復刻ペンの商品説明には、ある歴代学長にまつわる由来が書かれていたはずです。その説明文をもう一度読んでみてください。'
   },
   {
     id: 'F1',
@@ -149,10 +174,4 @@ window.HINT_DATA = [
     leadsTo: 'glossary/erased-champion.html',
     hint: '公式に語られなかった決闘の記録にも、何か短い言葉が残されているかもしれません。'
   },
-  {
-    requiresPage: ['glossary/time-ring-record.html', 'glossary/time-ledger.html'],
-    hintFor: ['glossary/time-ring-record.html', 'glossary/time-ledger.html'],
-    leadsTo: 'glossary/time-bell.html',
-    hint: '「刻」の字を冠する装置は、広場にも塔にも一つずつあったはず。もう一つ、同じ字を持つものについての噂を、思い出してみてください。'
-  }
 ];

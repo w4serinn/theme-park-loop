@@ -174,23 +174,34 @@ lodging.htmlも交通・宿泊の実用情報が中心で、ARGの入口とし�
 満たせそうな組み合わせをまとめたもの。**P番号の割り当てはまだ行わない**
 (実装に着手するサイクルで、その時点の空き枠に当てはめる)。
 
-### グループA: 「刻」三部作(命名パターンの呼応)[使用済み: P97〜P99、2026-07-29]
-- 大魔法陣「刻の輪」(summoning-plaza.html) → P97 `pages/glossary/time-ring-record.html`
-- 管理台帳「刻の書」(clock-tower.html) → P98 `pages/glossary/time-ledger.html`
-- 大鐘「刻の声」(clock-tower.html) → P99 `pages/glossary/time-bell.html`(P97/P98どちらか一方の訪問で解禁、網状構造)
+### グループA: 「刻」三部作(命名パターンの呼応)[使用済み: P12、2026-07-29実装/2026-07-29に1ページへ統合・採番変更]
+- 大魔法陣「刻の輪」(summoning-plaza.html) → P12 `pages/glossary/koku-trio.html`
+- 管理台帳「刻の書」(clock-tower.html) → P12 `pages/glossary/koku-trio.html`
+- 大鐘「刻の声」(clock-tower.html) → P12 `pages/glossary/koku-trio.html`
+(旧#97〜#99として3ページ個別に実装していたが、1ページ2カードでは物足りないとの
+ユーザー指摘を受け1ページ6カード構成に統合。旧prereq[旧#97/#98どちらか一方の
+訪問で解禁]は統合により不要になったため削除。さらに、本文中の「陣紋師」等が
+flavorへ発展させやすいとの指摘を受け、新規ID[旧#97]から、予約済みのroot→flavor
+3段枠であるP12〜P15に採番し直した[2026-07-29])
 → 3項目ちょうど。広場と時計塔という2エリアから接続できる網状構造も組めた
 (なぜ離れた2エリアの装置が同じ「刻」の字を冠するのか、という謎を核にした。
 最終的な答えは明示せず、ノスティオンの独り言で余韻を残す形にした)。
 
-### グループB: 記録簿モチーフ(同じモチーフの反復、2ページに分割推奨)
-- B-1(陣紋の保守記録): 魔法陣刻印記録簿(alchemy-tower.html) / 陣紋補修記録簿
-  (summoning-plaza.html) — どちらも「陣を保守してきた記録」という共通点
-- B-2(実績・認定の記録): 錬金術研究棟の記録簿(events/index.html、品評会
-  受賞者名簿) / 考査記録室(dueling-ground.html、段位認定簿) — どちらも
-  「学院生の実績を公式に記録する場所」という共通点
+### グループB: 記録簿モチーフ(同じモチーフの反復、2ページに分割推奨)[使用済み: P33・P39、2026-07-29実装]
+- B-1(陣紋の保守記録)[使用済み: P33]: 魔法陣刻印記録簿(alchemy-tower.html) →
+  P33 `pages/glossary/circle-ledgers.html` / 陣紋補修記録簿(summoning-plaza.html) →
+  P33 `pages/glossary/circle-ledgers.html` — どちらも「陣を保守してきた記録」
+  という共通点
+- B-2(実績・認定の記録)[使用済み: P39]: 錬金術研究棟の記録簿(events/index.html、
+  品評会受賞者名簿) → P39 `pages/glossary/merit-records.html` / 考査記録室
+  (dueling-ground.html、段位認定簿) → P39 `pages/glossary/merit-records.html`
+  — どちらも「学院生の実績を公式に記録する場所」という共通点
 → 全5件(管理台帳「刻の書」を含めると)を1ページに詰め込まず、性質の近い
   2件ずつに分割。「学院はあらゆる物事を記録し続ける」というノスティオン
-  自身の設定と重なるメタ的な意味も持たせられる。
+  自身の設定と重なるメタ的な意味も持たせられる。本文中に「初代の署名欄が
+  判読不能」「副賞の指輪が選ばれた理由不明」等flavor化しやすい素材を
+  盛り込めたため、新規ID追記ではなく予約済みのroot→flavor 1段枠
+  (P33〜P34・P39〜P40)へ最初から当てはめて実装した(2026-07-29)。
 
 ### グループC: 立入禁止・非公開区画(学院内探索の再確認で判明した最有力モチーフ)
 - 触媒保管庫(alchemy-tower.html) / 予備歯車庫(clock-tower.html) /
@@ -201,23 +212,44 @@ lodging.htmlも交通・宿泊の実用情報が中心で、ARGの入口とし�
   各エリアの禁域を1つずつ巡るflavor連鎖にする)。深さのある章立てにできる
   最有力候補。
 
-### グループD: 天文台の2人の学長級人物(フローラ・シルヴァーン関連)
-- 第二代学院長(フローラ・シルヴァーン)の現存する書簡(library-shop.html)
-- 学院湿地区画(library-shop.html、葦ペンの採取地。彼女ゆかりの品との関連づけ可)
-→ P6(初代天文官シベル・オーレン)とは別人の第二代学院長についての新情報。
+### グループD: 天文台の2人の学長級人物(フローラ・シルヴァーン関連)[使用済み: P28、2026-07-29実装]
+- 第2代学長(フローラ・シルヴァーン)の現存する書簡(library-shop.html) →
+  P28 `pages/glossary/second-headmaster.html`
+- 学院湿地区画(library-shop.html、葦ペンの採取地) → P28
+  `pages/glossary/second-headmaster.html`
+→ P6(初代天文官シベル・オーレン)とは別人の第2代学長についての新情報。
   「天文台を作った学長」と「天文台で星座を編纂した天文官」という2人の
-  歴史上の人物がいることを掘り下げられる。
+  歴史上の人物がいることを掘り下げられた。本文中の「筆記具の寸法まで
+  書簡に記していた理由不明」「湿地区画の管理者が語られていない」の2つの
+  謎がflavor化しやすいと判断し、予約済みのroot→flavor 2段枠P28〜P30へ
+  最初から当てはめて実装(2026-07-29)。
+  **表記ゆれのバグ発見**: 実装時、`library-shop.html`が「第二代学院長」、
+  `exploration/observatory.html`・`glossary/first-astronomer.html`が
+  「第2代学長」と、同一人物の役職名が「学長」「学院長」で揺れていることを
+  発見(`glossary/erased-champion.html`・`glossary/koku-trio.html`の
+  「学院長」表記も同様)。「学長」(`exploration/dueling-ground.html`
+  「初代学長」を含め計4ファイル)を正式表記とみなし、`docs/ROADMAP.md`に
+  バグとして記録の上、該当4ファイルを「学長」表記・算用数字(「第2代」)に
+  統一して同一サイクルで修正した。
 
-### グループE: キャンパスの外側(見えない境界線)[使用済み: P100〜P101、2026-07-29]
-- 北方雲海・飛行禁止区域・飛行獣の生息ゾーン(shop/airship-shop.html) → P100 `pages/glossary/northern-cloud-sea.html`
-- 「魔法陣転移広場」(index.html、王都中央) → P101 `pages/glossary/transit-plaza.html`
+### グループE: キャンパスの外側(見えない境界線)[使用済み: P10、2026-07-29実装/2026-07-29に1ページへ統合・採番変更]
+- 北方雲海・飛行禁止区域・飛行獣の生息ゾーン(shop/airship-shop.html) → P10 `pages/glossary/beyond-the-map.html`
+- 「魔法陣転移広場」(index.html、王都中央) → P10 `pages/glossary/beyond-the-map.html`
+(旧#100〜#101として2ページ個別に実装していたが、1ページ4カード構成に統合。
+さらに本文中の「陣前広場」等がflavorへ発展させやすいとの指摘を受け、新規ID
+[旧#100]から、予約済みのroot→flavor 1段枠であるP10〜P11に採番し直した
+[2026-07-29])
 → 学院の外にも広い世界があることを示す数少ない手がかり2件。root行の
   たどり着き方をトップページ+飛行船ドックの2エリアにできた。
 
-### グループF: 異次元・精霊との接触(召喚まわりの神秘性)[使用済み: P105〜P107、2026-07-29]
-- 異次元存在(shop/summoning-shop.html、降霊護符の保護対象) → P105 `pages/glossary/otherworld-presence.html`
-- 契約精霊シルフィ(summoning-plaza.html、対話コーナー) → P106 `pages/glossary/sylphe-dialogue.html`
-- 星界の精霊(events/index.html、夜の精霊観測会) → P107 `pages/glossary/starfield-spirit.html`
+### グループF: 異次元・精霊との接触(召喚まわりの神秘性)[使用済み: P23、2026-07-29実装/2026-07-29に1ページへ統合・採番変更]
+- 異次元存在(shop/summoning-shop.html、降霊護符の保護対象) → P23 `pages/glossary/spirits-of-arnold.html`
+- 契約精霊シルフィ(summoning-plaza.html、対話コーナー) → P23 `pages/glossary/spirits-of-arnold.html`
+- 星界の精霊(events/index.html、夜の精霊観測会) → P23 `pages/glossary/spirits-of-arnold.html`
+(旧#105〜#107として3ページ個別に実装していたが、1ページ6カード構成に統合。
+さらに本文中の「精霊と異次元存在の区別基準不明」等がflavorへ発展させやすい
+との指摘を受け、新規ID[旧#105]から、予約済みのroot→flavor 2段枠である
+P23〜P25に採番し直した[2026-07-29])
 → 3項目ちょうど。「精霊」「異次元存在」という語の違いが実は同じものを
   指しているのか、別物なのか、という謎を各ページの独り言でそれとなく
   示唆する形にした(断片やprereqによる強制接続はせず、3件とも独立した
@@ -230,10 +262,14 @@ lodging.htmlも交通・宿泊の実用情報が中心で、ARGの入口とし�
   検索窓に入力しないと断片が手に入らない、という謎解き(2026-07-28確定方針)
   の実例として使いやすい。fragment種別のページに向く。
 
-### グループH: アルノルド卿にまつわる物証(創設者の遺したもの)[使用済み: P102〜P104、2026-07-29]
-- アルノルド卿の家紋「双頭の鷲と魔法陣」(shop/souvenirs.html) → P102 `pages/glossary/arnold-crest.html`
-- アルノルド卿 研究手稿の精密写本(shop/books.html) → P103 `pages/glossary/arnold-manuscript.html`
-- 「創魔の書」第四章(shop/library-shop.html) → P104 `pages/glossary/founding-grimoire.html`
+### グループH: アルノルド卿にまつわる物証(創設者の遺したもの)[使用済み: P16、2026-07-29実装/2026-07-29に1ページへ統合・採番変更]
+- アルノルド卿の家紋「双頭の鷲と魔法陣」(shop/souvenirs.html) → P16 `pages/glossary/arnold-relics.html`
+- アルノルド卿 研究手稿の精密写本(shop/books.html) → P16 `pages/glossary/arnold-relics.html`
+- 「創魔の書」第四章(shop/library-shop.html) → P16 `pages/glossary/arnold-relics.html`
+(旧#102〜#104として3ページ個別に実装していたが、1ページ6カード構成に統合。
+さらに本文中の「余白の走り書き未解読」等が暗号解読型フラグメントへ発展
+させやすいとの指摘を受け、新規ID[旧#102]から、予約済みのroot→fragment
+(F3産出)枠であるP16〜P17に採番し直した[2026-07-29])
 → 3項目ちょうど。購買部の3店舗(みやげ・書籍・写本堂)を横断する形で
   たどり着けるroot候補にできた。
 

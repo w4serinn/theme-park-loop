@@ -71,15 +71,11 @@ window.SEARCH_INDEX = [
   { path: 'glossary/shooting-star.html', title: '流れ星、という言葉', category: '図鑑', hidden: true, keywords: ['流れ星'], prereq: ['glossary/final-entry.html'], exactMatch: true },
   { path: 'glossary/erased-champion.html', title: '名を消された決闘王', category: '図鑑', hidden: true, keywords: ['静寂の一撃'], prereq: ['glossary/dueling-champions.html'] },
   { path: 'glossary/yorishiro-echo.html', title: 'よりしろ、という響き', category: '図鑑', hidden: true, keywords: ['よりしろ'], prereq: ['glossary/nostion-memory.html'], exactMatch: true },
-  { path: 'glossary/time-ring-record.html', title: '刻の輪、四百年の来歴', category: '図鑑', hidden: true, keywords: ['刻の輪'], exactMatch: true },
-  { path: 'glossary/time-ledger.html', title: '刻の書、十二代の写し', category: '図鑑', hidden: true, keywords: ['刻の書'], exactMatch: true },
-  { path: 'glossary/time-bell.html', title: '刻の声、その一撞き', category: '図鑑', hidden: true, keywords: ['刻の声'], prereq: ['glossary/time-ring-record.html', 'glossary/time-ledger.html'], exactMatch: true },
-  { path: 'glossary/northern-cloud-sea.html', title: '北方雲海、その先について', category: '図鑑', hidden: true, keywords: ['北方雲海'] },
-  { path: 'glossary/transit-plaza.html', title: '魔法陣転移広場、王都のもう一つの顔', category: '図鑑', hidden: true, keywords: ['魔法陣転移広場'], exactMatch: true },
-  { path: 'glossary/arnold-crest.html', title: '紋章「双頭の鷲と魔法陣」、その意味', category: '図鑑', hidden: true, keywords: ['双頭の鷲と魔法陣'] },
-  { path: 'glossary/arnold-manuscript.html', title: '研究手稿、余白に残された走り書き', category: '図鑑', hidden: true, keywords: ['研究手稿'] },
-  { path: 'glossary/founding-grimoire.html', title: '創魔の書、第四章について', category: '図鑑', hidden: true, keywords: ['創魔の書'] },
-  { path: 'glossary/otherworld-presence.html', title: '異次元存在、その正体をめぐって', category: '図鑑', hidden: true, keywords: ['異次元存在'] },
-  { path: 'glossary/sylphe-dialogue.html', title: '契約精霊シルフィ、水面の返答', category: '図鑑', hidden: true, keywords: ['契約精霊シルフィ'] },
-  { path: 'glossary/starfield-spirit.html', title: '星界の精霊、新月の夜にだけ', category: '図鑑', hidden: true, keywords: ['星界の精霊'] }
+  { path: 'glossary/koku-trio.html', title: '「刻」を名に持つ三つの装置', category: '図鑑', hidden: true, keywords: ['刻の輪', '刻の書', '刻の声'], exactMatch: true },
+  { path: 'glossary/beyond-the-map.html', title: '北方雲海と転移広場、地図の余白について', category: '図鑑', hidden: true, keywords: ['北方雲海', '魔法陣転移広場'], exactMatch: true },
+  { path: 'glossary/arnold-relics.html', title: 'アルノルド卿が遺したもの、三つの資料', category: '図鑑', hidden: true, keywords: ['双頭の鷲と魔法陣', '研究手稿', '創魔の書'] },
+  { path: 'glossary/spirits-of-arnold.html', title: '精霊、それぞれの現れ方', category: '図鑑', hidden: true, keywords: ['異次元存在', '契約精霊シルフィ', '星界の精霊'] },
+  { path: 'glossary/circle-ledgers.html', title: '陣紋を刻み、守り継いだ記録簿', category: '図鑑', hidden: true, keywords: ['魔法陣刻印記録簿', '陣紋補修記録簿'], exactMatch: true },
+  { path: 'glossary/merit-records.html', title: '品評会と段位、記録に残るもの', category: '図鑑', hidden: true, keywords: ['研究棟の記録簿', '考査記録室'], exactMatch: true },
+  { path: 'glossary/second-headmaster.html', title: '第2代学長フローラ・シルヴァーン、書簡と湿地', category: '図鑑', hidden: true, keywords: ['復刻版 万年葦ペン', '学院湿地区画'] }
 ];
