@@ -156,8 +156,15 @@ export function buildHiddenEntryList(searchIndex, extraEntries) {
 // (複数ページのいずれか1つでも訪問済みならOKのOR判定。2026-07-29
 // ヒント対象拡大: 例えばP6は魔法生物図鑑・魔導88星座のどちらからでも
 // たどり着けるため、ヒントもどちらか一方の訪問で解禁する必要がある)。
+// requiresPageを省略/nullにした場合は常に解禁済み扱いにする(2026-07-29
+// ユーザー指摘: root行[通常ページから直接見つかるページ]には前提となる
+// 隠しページ自体が無いため、他のヒント同様に「訪問済みなら」というゲートを
+// 掛けられない。hint-book.htmlへの到達自体が「学院の秘密」を1件以上
+// 見つけた後という前提[shouldShowHintLink]なので、常時表示にしても
+// 過度な先読みにはならない)。
 export function filterUnlockedHints(hintData, visitedPaths) {
   return hintData.filter(function (entry) {
+    if (!entry.requiresPage) { return true; }
     var required = Array.isArray(entry.requiresPage) ? entry.requiresPage : [entry.requiresPage];
     return required.some(function (p) { return visitedPaths.indexOf(p) !== -1; });
   });

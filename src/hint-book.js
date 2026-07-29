@@ -14,18 +14,21 @@
   var SELF_REFERENCE_ENTRY = { path: 'glossary/nostion-memory.html', title: '最初の記憶' };
 
   // requiresPageは文字列またはstring[](OR判定。2026-07-29 ヒント対象拡大、
-  // src/logic.jsのfilterUnlockedHintsと同じロジック)。
+  // src/logic.jsのfilterUnlockedHintsと同じロジック)。省略/nullの場合は
+  // 常に解禁済み扱い(root行にはゲートとなる前提ページが無いため)。
   function filterUnlockedHints(hintData, visitedPaths) {
     return hintData.filter(function (entry) {
+      if (!entry.requiresPage) { return true; }
       var required = Array.isArray(entry.requiresPage) ? entry.requiresPage : [entry.requiresPage];
       return required.some(function (p) { return visitedPaths.indexOf(p) !== -1; });
     });
   }
 
-  // ヒントの見出しを、断片の個別名(先読みでネタバレになる)ではなく、手がかりが
-  // あるページ自体のタイトルにする(2026-07-29 ユーザー指摘。src/logic.jsの
-  // resolveHintPageTitleと同じロジック)。pathが配列の場合は両方のタイトルを
-  // 「 / 」でつなぐ。
+  // ヒントの見出しを、断片の個別名(先読みでネタバレになる)ではなく、このヒントが
+  // 「何についてのヒントか」を表すentry.hintForのタイトルにする(2026-07-29
+  // ユーザー指摘。requiresPage[解禁条件]とhintFor[見出しの対象]は別物であり、
+  // 発見の連鎖型ヒントでは異なるページを指す。src/logic.jsのresolveHintPageTitle
+  // と同じロジック)。pathが配列の場合は両方のタイトルを「 / 」でつなぐ。
   function findPageTitle(path) {
     var all = (window.SEARCH_INDEX || []).concat([SELF_REFERENCE_ENTRY]);
     var paths = Array.isArray(path) ? path : [path];
@@ -52,7 +55,7 @@
 
       var summary = document.createElement('summary');
       summary.className = 'hint-book__entry-label';
-      summary.textContent = findPageTitle(entry.requiresPage);
+      summary.textContent = findPageTitle(entry.hintFor);
 
       var text = document.createElement('p');
       text.className = 'hint-book__entry-text';

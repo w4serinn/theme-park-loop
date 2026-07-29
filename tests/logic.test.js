@@ -327,6 +327,12 @@ describe('filterUnlockedHints', () => {
     expect(filterUnlockedHints(orHintData, ['glossary/mythical-creatures.html'])).toHaveLength(1);
     expect(filterUnlockedHints(orHintData, ['glossary/dueling-champions.html'])).toEqual([]);
   });
+
+  test('always unlocks an entry with no requiresPage (root-page hint)', () => {
+    const rootHintData = [{ hintFor: 'glossary/mythical-creatures.html', hint: 'hint4' }];
+    expect(filterUnlockedHints(rootHintData, [])).toHaveLength(1);
+    expect(filterUnlockedHints(rootHintData, ['glossary/dueling-champions.html'])).toHaveLength(1);
+  });
 });
 
 describe('resolveHintPageTitle', () => {
@@ -520,7 +526,7 @@ describe('isNostionMemoryWrongCandidate', () => {
 });
 
 describe('buildFragmentDisplayList', () => {
-  const names = { F1: '刻の断片', F2: '記帳の断片' };
+  const names = { F1: '刻の断片', F2: '星の断片' };
   const hiddenEntries = [
     { path: 'glossary/gear-cipher.html', title: '光る符丁の正体', hidden: true },
     { path: 'glossary/shooting-star.html', title: '流れ星、という言葉', hidden: true }
