@@ -1148,3 +1148,23 @@
       `CodexProgress.reset()`を新設し、`src/search.js`の入力ハンドラから
       呼び出す。`SEARCH_INDEX`には登録せず、プレイヤー向けの説明もしない
       開発者専用の仕込み。
+- [x] (S) ヒントの手引き、各ヒントを開閉式(デフォルト閉)にする(2026-07-29
+      ユーザー指摘: 「開いたときにいきなり全部出るとネタバレ感がある」)。
+      `src/hint-book.js`の各エントリを`<details>`(初期状態は`open`なし=閉)で
+      包み、プレイヤーが自分で開いた時だけ本文が見える形にした。
+- [x] (S) ヒントの見出しを、断片の個別名ではなく問題があるページのタイトルに
+      変更(2026-07-29 ユーザー指摘: 「本心の断片って変じゃないかな?
+      解いたらそこが分かるけど」)。断片の個別名自体が謎解きの報酬・答えの
+      一部であり先出しはネタバレになるため、`entry.requiresPage`に対応する
+      `window.SEARCH_INDEX`のtitleを見出しにするよう変更した。`src/logic.js`に
+      純粋関数`resolveHintPageTitle(path, searchIndex, extraEntries)`を新設
+      (テスト付き。P91のようにSEARCH_INDEX未登録の特別なページも
+      extraEntries経由で解決できる)、`src/hint-book.js`に同じロジックを複製。
+      `pages/glossary/hint-book.html`に`src/search-data.js`の読み込みを追加
+      (不要になった`src/fragment-names.js`の読み込みは削除)。
+- [x] (S) ヒントページへの導線の文言を見直す(2026-07-29 ユーザー指摘)。
+      `pages/search.html`のリンク文言「謎解きに行き詰まったら」が現代的な
+      ゲーム攻略サイトのような言い回しで世界観にそぐわなかったため、
+      「迷える者への、小さな手引き」という控えめな文言に変更した。
+      「ここはヒントを集めた場所です」という趣旨の説明は、遷移先の
+      `pages/glossary/hint-book.html`側の`.page-hero__desc`に寄せた。

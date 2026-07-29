@@ -1,6 +1,6 @@
 import { test, expect, describe } from 'vitest';
 import {
-  buildHiddenEntryList, filterUnlockedHints, buildSecretsTree, buildFragmentDisplayList,
+  buildHiddenEntryList, filterUnlockedHints, resolveHintPageTitle, buildSecretsTree, buildFragmentDisplayList,
   shouldShowDiscoveryBadge, isDebugResetQuery, DEBUG_RESET_QUERY, shouldShowHintLink,
   TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex,
   filterSearchIndex, MIN_SEARCH_QUERY_LENGTH, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
@@ -316,6 +316,29 @@ describe('filterUnlockedHints', () => {
 
   test('is unaffected by unrelated visited paths', () => {
     expect(filterUnlockedHints(hintData, ['glossary/mythical-creatures.html'])).toEqual([]);
+  });
+});
+
+describe('resolveHintPageTitle', () => {
+  const searchIndex = [
+    { path: 'glossary/apprentice-notes.html', title: '見習い整備士の手記' },
+    { path: 'glossary/final-entry.html', title: '記録帳、最後の頁' }
+  ];
+  const extraEntries = [{ path: 'glossary/nostion-memory.html', title: '最初の記憶' }];
+
+  test('resolves a title from the main search index', () => {
+    expect(resolveHintPageTitle('glossary/apprentice-notes.html', searchIndex, extraEntries))
+      .toBe('見習い整備士の手記');
+  });
+
+  test('resolves a title from extraEntries when not in the search index', () => {
+    expect(resolveHintPageTitle('glossary/nostion-memory.html', searchIndex, extraEntries))
+      .toBe('最初の記憶');
+  });
+
+  test('falls back to the raw path when no title is found', () => {
+    expect(resolveHintPageTitle('glossary/unknown.html', searchIndex, extraEntries))
+      .toBe('glossary/unknown.html');
   });
 });
 

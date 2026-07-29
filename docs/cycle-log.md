@@ -1,5 +1,29 @@
 # サイクル履歴
 
+## 2026-07-29 18:10
+- ブランチ: 引き続き`evolve/cycle-33`(未マージ)。
+- タスク選定: ユーザーから「`### 15`の残タスクを優先してほしい」と直接指摘
+  を受け、新規Pページ実装(`### 13`)への着手を取りやめ、`### 15`の
+  `src/hint-book.js`/`pages/glossary/hint-book.html`まわりで関連性の強い
+  S規模タスク3件をまとめて実装。
+  1. 各ヒントを`<details>`(デフォルト閉)で開閉式に変更。
+  2. ヒントの見出しを断片の個別名(ネタバレになる)から、謎解きがある
+     ページ自体のタイトルに変更。`src/logic.js`に`resolveHintPageTitle`を
+     新設(テスト付き)。`hint-book.html`に`search-data.js`の読み込みを追加、
+     不要になった`fragment-names.js`の読み込みは削除。
+  3. `pages/search.html`のヒントリンク文言「謎解きに行き詰まったら」を
+     「迷える者への、小さな手引き」に変更し、「ここはヒントを集めた場所
+     です」という説明は`hint-book.html`の`.page-hero__desc`側に寄せた。
+  `docs/ARG-DESIGN.md`4-8節にも変更内容を反映。
+- レビュー: OK(local-review相当のセルフチェックを実施。`<details>`のデフォルト
+  状態が閉であること、P91のようにSEARCH_INDEX未登録ページの見出しも
+  `resolveHintPageTitle`で解決できることを確認。指摘なし)。
+- lint: ✓ / lint:css: ✓ / test: ✓(343件、+3) / build: ✓
+- 次回予定: `### 15`残り2件(断片取得エフェクト第2弾[M]・ヒント対象拡大[M])、
+  または`### 13`の「未着手」P番号ページ・P91三択対策。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-29 17:50
 - ブランチ: 引き続き`evolve/cycle-33`(未マージ)。
 - タスク選定: `### 15`(ARG基盤・ノスティオン)から、いずれも`src/search.js`/

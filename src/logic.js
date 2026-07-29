@@ -159,6 +159,17 @@ export function filterUnlockedHints(hintData, visitedPaths) {
   });
 }
 
+// ヒントの手引き(pages/glossary/hint-book.html)の見出し用(2026-07-29
+// ユーザー指摘)。断片の個別名(先読みでネタバレになる)ではなく、謎解きが
+// あるページ自体のタイトルを見出しにする。extraEntries経由で、SEARCH_INDEXに
+// 登録されていない特別なページ(P91の自己言及ページ等)も解決できるようにする
+// (buildHiddenEntryListと同じ考え方)。
+export function resolveHintPageTitle(path, searchIndex, extraEntries) {
+  var all = (searchIndex || []).concat(extraEntries || []);
+  var match = all.filter(function (e) { return e.path === path; })[0];
+  return match ? match.title : path;
+}
+
 // 「学院の秘密」欄をツリー表示するための木構造を組み立てる(2026-07-29
 // ユーザー指摘)。訪問済みページ(visitedPaths、codex-progress.jsにより
 // 訪問順で並んでいる)のみを対象にし、各ページのhiddenEntries上のprereq
