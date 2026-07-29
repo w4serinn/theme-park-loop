@@ -279,13 +279,13 @@ P番号ページの`title`/`keywords`を決める際、これら2語を単体ま
 | P30 | flavor | P29 | — | — | 未着手 |
 | P31 | root | 通常ページ(未定) | — | — | 未着手 |
 | P32 | fragment | P31 | F7(→扉) | F6(P27産出) | 未着手 |
-| P33 | root | 通常ページ(未定) | — | — | 未着手 |
+| P33 | root | `exploration/alchemy-tower.html`「魔法陣刻印記録簿」、`exploration/summoning-plaza.html`「陣紋補修記録簿」の2箇所から接続 | — | — | 実装済み(`pages/glossary/circle-ledgers.html`)。`docs/ARG-WORDBANK.md`グループB-1「陣紋の保守記録」(2026-07-29実装)。本文中の「初代の署名欄が判読不能」「石版帳にも判読しづらい項目が残る」等flavor化の余地があると判断し、予約済みのroot→flavor 1段枠であるP33〜P34へ最初から当てはめて実装(2026-07-29) |
 | P34 | flavor | P33 | — | — | 未着手 |
 | P35 | root | 通常ページ(未定) | — | — | 未着手 |
 | P36 | flavor | P35 | — | — | 未着手 |
 | P37 | flavor | P36 | — | — | 未着手 |
 | P38 | flavor | P37 | — | — | 未着手 |
-| P39 | root | 通常ページ(未定) | — | — | 未着手 |
+| P39 | root | `events/index.html`「研究棟の記録簿」(錬金術品評会の豆知識)、`exploration/dueling-ground.html`「考査記録室」の2箇所から接続 | — | — | 実装済み(`pages/glossary/merit-records.html`)。`docs/ARG-WORDBANK.md`グループB-2「実績・認定の記録」(2026-07-29実装)。本文中の「指輪が副賞に選ばれた理由不明」「非公開の理由が噂のみ」等flavor化の余地があると判断し、予約済みのroot→flavor 1段枠であるP39〜P40へ最初から当てはめて実装(2026-07-29) |
 | P40 | flavor | P39 | — | — | 未着手 |
 | P41 | root | 通常ページ(未定) | — | — | 未着手 |
 | P42 | flavor | P41 | — | — | 未着手 |

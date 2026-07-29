@@ -105,6 +105,26 @@ window.HINT_DATA = [
     hint: '新月の夜だけ開かれる、ある観測会があったはずです。学院祭・行事の案内をもう一度確かめてみてください。'
   },
   {
+    hintFor: 'exploration/alchemy-tower.html',
+    leadsTo: 'glossary/circle-ledgers.html',
+    hint: '研究棟には、陣形式の移り変わりを歴代の錬金術師が書き継いできた記録簿があるそうです。研究棟の設備についての記述をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'exploration/summoning-plaza.html',
+    leadsTo: 'glossary/circle-ledgers.html',
+    hint: '魔法陣召喚広場には、陣紋の補修履歴を記した石版帳もあるという話です。広場の設備についての記述を、もう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'events/index.html',
+    leadsTo: 'glossary/merit-records.html',
+    hint: '錬金術品評会の豆知識には、受賞者の名が代々刻まれ続ける場所についての記述があったはずです。行事の案内をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'exploration/dueling-ground.html',
+    leadsTo: 'glossary/merit-records.html',
+    hint: '決闘演武場には、段位認定の記録を保管する非公開の一室があるそうです。演武場の設備についての記述を、もう一度確かめてみてください。'
+  },
+  {
     id: 'F1',
     requiresPage: 'glossary/apprentice-notes.html',
     hintFor: 'glossary/apprentice-notes.html',
