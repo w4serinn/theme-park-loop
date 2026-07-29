@@ -1,5 +1,29 @@
 # サイクル履歴
 
+## 2026-07-30 01:35
+- ブランチ: 引き続き`evolve/cycle-35`(未マージ)。
+- タスク選定: `### 13`のP番号ページ実装、`docs/ARG-WORDBANK.md`グループC
+  「立入禁止・非公開区画」の最後の1件(P85)。
+- 実装: P84(`pages/glossary/forbidden-books-room.html`)から連なる
+  flavor4段目として、魔法陣召喚広場の「風見の祠」(summoning-plaza.html)を
+  扱う`pages/glossary/weathervane-shrine.html`を新設。これでグループC全6件
+  (root=P81+flavor4段=P82〜P85)が完成。既存のP23(spirits-of-arnold.html)
+  のシルフィ契約設定と矛盾しない範囲で、祠そのものの構造・名の由来に焦点を
+  当てた。チェーン最後の独り言で6件全ての一角を並べ、余韻を残す形で締めた。
+  P84側に「風見の祠」への言及を追加して最後の手がかりとした。
+  `src/search-data.js`でprereqゲーティング、`src/hint-data.js`に発見の
+  連鎖型ヒントを1件追加。`docs/ARG-DESIGN.md`・`docs/ARG-WORDBANK.md`を
+  更新し、グループC完了を記録。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(408件) / build: ✓
+- 次回予定: グループG(月草/月光草の混同、fragment向き)が最後の未使用
+  グループとして残っている。fragment型のため新しいギミック設計が必要
+  (単純なroot発見型とは異なる)。グループCが完了したことで、
+  `docs/ARG-WORDBANK.md`のグルーピング候補はグループGのみに。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 01:05
 - ブランチ: 引き続き`evolve/cycle-35`(未マージ)。
 - タスク選定: `### 13`のP番号ページ実装、`docs/ARG-WORDBANK.md`グループC
