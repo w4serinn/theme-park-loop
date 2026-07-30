@@ -230,6 +230,12 @@ window.HINT_DATA = [
     hint: '林檎が甘くなる理由は案内文に書かれていないそうですが、研究棟には栽培そのものを記録した実験記録が保管されているという話でした。'
   },
   {
+    requiresPage: 'glossary/orchard-experiment-log.html',
+    hintFor: 'glossary/orchard-experiment-log.html',
+    leadsTo: 'glossary/conductivity-instrument-log.html',
+    hint: '本来の検証対象が書かれたページは判読できないそうですが、備品を管理する台帳になら、当時使われた測定器の型式が残っているという話でした。'
+  },
+  {
     hintFor: 'exploration/summoning-plaza.html',
     leadsTo: 'glossary/four-elements-seal.html',
     hint: '魔法陣召喚広場の四隅には、力を集めるための石が埋め込まれているそうです。広場設備の説明をもう一度確かめてみてください。'
