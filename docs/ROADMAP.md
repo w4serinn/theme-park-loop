@@ -232,10 +232,7 @@ ARG(代替現実ゲーム)的な「発見の連鎖+謎解き+最終ゴール」�
       やり取り)形式も使ってよい。各ページの形式は`docs/ARG-DESIGN.md`4節の
       表「形式」列を参照(4-5節は個別列を持たないため既定は`証言`)。
 
-      対象(32件、上から順に進めるのが基本):
-      - [ ] glossary/circle-warden.html(陣紋師という仕事)
-      - [ ] glossary/warden-registry.html(陣紋師任命記録、空白の一件)
-      - [ ] glossary/unnamed-warden.html(三つの「刻」との奇妙な符合)
+      対象(29件、上から順に進めるのが基本):
       - [ ] glossary/arnold-namesake.html(アルノルド卿の名前、三つの残り方)
       - [ ] glossary/airship-symbols.html(飛行船ドック、船体を支えるもの三つ)
       - [ ] glossary/fifth-headmaster.html(天文台、名を秘めた第5代学長の仕事)
