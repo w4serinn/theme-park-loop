@@ -197,6 +197,12 @@ window.HINT_DATA = [
     hint: '天文台の主要観測設備には、ある学長の代に設置された望遠鏡があったはずです。設備の説明をもう一度確かめてみてください。'
   },
   {
+    requiresPage: 'glossary/fifth-headmaster.html',
+    hintFor: 'glossary/fifth-headmaster.html',
+    leadsTo: 'glossary/portrait-gallery.html',
+    hint: '実名は伝わっていないそうですが、本部棟には歴代学長を1ページずつ記録した帳面が残っているという話でした。'
+  },
+  {
     hintFor: 'events/index.html',
     leadsTo: 'glossary/festival-undertold.html',
     hint: '学院祭の豆知識には、正式名称になる前の呼び名が書かれていたはずです。学院祭・行事の案内をもう一度確かめてみてください。'

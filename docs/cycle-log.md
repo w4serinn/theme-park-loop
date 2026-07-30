@@ -1,5 +1,29 @@
 # サイクル履歴
 
+## 2026-07-30 18:15
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `docs/ARG-WORDBANK.md`の候補一覧を使い切ったため、`### 13`の
+  優先順位ルール3(既存root行の予約済みflavor枠の掘り下げ)に沿って、
+  P49(fifth-headmaster.html)のflavor枠P50に着手。
+- 実装: P49の「なぜこの学長だけ実名が伝わっていないのか」というフックを
+  継続し、`pages/glossary/portrait-gallery.html`を新設(2カード)。P44/P47
+  実装時と同じ手順で、P49側のこのフックが当初「〜見当たらない」という
+  疑問文のままで検索可能語句を伴っていなかったことに気づき、P49の本文にも
+  「歴代学長肖像画帳」という検索可能な具体語を手がかりとして追記
+  (P13→P14・P44→P45・P47→P48と同型の対応)。P50では謎を解決せず、
+  「肖像画は描かれているのに略歴欄だけ空白」という新たな謎を重ねる形にした
+  (P14→P15の「深める」パターンを踏襲)。`src/search-data.js`(prereq:
+  fifth-headmaster.html)・`src/hint-data.js`(チェーン継続ヒント1件)・
+  `docs/ARG-DESIGN.md` P49行を更新。
+- レビュー: OK(local-review、指摘なし。P番号重複なし、フックは検索可能
+  語句として本文に埋め込み済みであることを事前に自己チェック)
+- lint: ✓ / lint:css: ✓ / test: ✓(520件) / build: ✓
+- 次回予定: 他の実装済みroot(P16→P17[fragment F3、サイズL寄り]・
+  P51→P52・P53→P54,P55・P56→P57,P58等)のflavor化を継続。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 17:50
 - ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
 - タスク選定: `docs/ARG-WORDBANK.md`「## 候補一覧」に残っていた最後の未使用3行

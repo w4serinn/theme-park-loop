@@ -104,5 +104,6 @@ window.SEARCH_INDEX = [
   { path: 'glossary/anchor-feather-origin.html', title: '碇と羽根、意匠の生まれた場所', category: '図鑑', hidden: true, keywords: ['初代ドック長の航海日誌'], prereq: ['glossary/airship-symbols.html'], exactMatch: true },
   { path: 'glossary/machinery-department.html', title: '魔導機械科、学院の心臓部を託される学科', category: '図鑑', hidden: true, keywords: ['魔導機械科'], exactMatch: true },
   { path: 'glossary/apprentice-guides.html', title: '見習い案内人、「見習い」の先にあるもの', category: '図鑑', hidden: true, keywords: ['見習い案内人'], exactMatch: true },
-  { path: 'glossary/east-lot-history.html', title: '学院東駐車場、舗装の下に残るもの', category: '図鑑', hidden: true, keywords: ['学院東駐車場'], exactMatch: true }
+  { path: 'glossary/east-lot-history.html', title: '学院東駐車場、舗装の下に残るもの', category: '図鑑', hidden: true, keywords: ['学院東駐車場'], exactMatch: true },
+  { path: 'glossary/portrait-gallery.html', title: '歴代学長肖像画帳、第5代のページだけ', category: '図鑑', hidden: true, keywords: ['歴代学長肖像画帳'], prereq: ['glossary/fifth-headmaster.html'], exactMatch: true }
 ];
