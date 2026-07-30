@@ -86,5 +86,11 @@ window.SEARCH_INDEX = [
   { path: 'glossary/moon-grass.html', title: '珍薬草「月草」、満月の夜だけの恵み', category: '図鑑', hidden: true, keywords: ['月草'], exactMatch: true },
   { path: 'glossary/underground-network.html', title: '時計塔設計図、地下の魔法陣接続部', category: '図鑑', hidden: true, keywords: ['時計塔設計図'], prereq: ['glossary/weathervane-shrine.html'] },
   { path: 'glossary/scribe-lineage.html', title: '七代続く写本師一族、その素顔', category: '図鑑', hidden: true, keywords: ['七代続く写本師一族', '七代続く写本師の一族'], exactMatch: true },
-  { path: 'glossary/aptitude-certificate.html', title: '「魔法資質証明証」、提示を求められるとき', category: '図鑑', hidden: true, keywords: ['魔法資質証明証'], exactMatch: true }
+  { path: 'glossary/aptitude-certificate.html', title: '「魔法資質証明証」、提示を求められるとき', category: '図鑑', hidden: true, keywords: ['魔法資質証明証'], exactMatch: true },
+  { path: 'glossary/circle-warden.html', title: '陣紋師という仕事', category: '図鑑', hidden: true, keywords: ['陣紋師'], prereq: ['glossary/koku-trio.html', 'glossary/circle-ledgers.html'] },
+  { path: 'glossary/warden-registry.html', title: '陣紋師任命記録、空白の一件', category: '図鑑', hidden: true, keywords: ['陣紋師任命記録'], prereq: ['glossary/circle-warden.html'] },
+  { path: 'glossary/unnamed-warden.html', title: '三つの「刻」との奇妙な符合', category: '図鑑', hidden: true, keywords: ['相応しい名を'], prereq: ['glossary/warden-registry.html'], exactMatch: true },
+  { path: 'glossary/arnold-namesake.html', title: 'アルノルド卿の名前、三つの残り方', category: '図鑑', hidden: true, keywords: ['エルンスト・フォン・アルノルド卿', 'アルノルド卿の丘', '琥珀の心臓'], exactMatch: true },
+  { path: 'glossary/airship-symbols.html', title: '飛行船ドック、船体を支えるもの三つ', category: '図鑑', hidden: true, keywords: ['竜鱗布', 'アルノルド号係留ドック', '碇と羽根'], exactMatch: true },
+  { path: 'glossary/fifth-headmaster.html', title: '天文台、名を秘めた第5代学長の仕事', category: '図鑑', hidden: true, keywords: ['アルノルドの眼', '流星記録石板', '第5代学長'], exactMatch: true }
 ];

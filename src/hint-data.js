@@ -150,6 +150,41 @@ window.HINT_DATA = [
     hint: '中央学食の季節メニューには、ある薬草をブレンドしたホットドリンクがあったはずです。その説明をもう一度確かめてみてください。'
   },
   {
+    hintFor: 'index.html',
+    leadsTo: 'glossary/arnold-namesake.html',
+    hint: 'トップページの学院紹介文には、創設者の正式な姓名が書かれていたはずです。「アルノルド卿とは」の本文をもう一度読んでみてください。'
+  },
+  {
+    hintFor: 'index.html',
+    leadsTo: 'glossary/arnold-namesake.html',
+    hint: 'トップページのアクセス案内、魔導鉄道の最寄り駅名にも創設者の名が入っていたはずです。もう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'exploration/alchemy-tower.html',
+    leadsTo: 'glossary/arnold-namesake.html',
+    hint: '錬金術研究棟の中心設備は、アルノルド卿自身が設計したと伝わるものだそうです。主要研究設備の説明をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'exploration/airship-dock.html',
+    leadsTo: 'glossary/airship-symbols.html',
+    hint: '飛行船ドックの格納設備には、魔法帆の素材を保管する専用倉庫があったはずです。格納設備の説明をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'exploration/airship-dock.html',
+    leadsTo: 'glossary/airship-symbols.html',
+    hint: '旗艦「アルノルド号」を固定している設備自体にも、正式な名前があったはずです。格納設備の説明をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'shop/airship-gear.html',
+    leadsTo: 'glossary/airship-symbols.html',
+    hint: 'ドック用の帆布財布には、ある意匠をかたどったチャームが付いているそうです。その商品説明をもう一度読んでみてください。'
+  },
+  {
+    hintFor: 'exploration/observatory.html',
+    leadsTo: 'glossary/fifth-headmaster.html',
+    hint: '天文台の主要観測設備には、ある学長の代に設置された望遠鏡があったはずです。設備の説明をもう一度確かめてみてください。'
+  },
+  {
     id: 'F1',
     requiresPage: 'glossary/apprentice-notes.html',
     hintFor: 'glossary/apprentice-notes.html',
@@ -238,5 +273,23 @@ window.HINT_DATA = [
     hintFor: 'shop/magical-tools.html',
     leadsTo: 'glossary/aptitude-certificate.html',
     hint: '魔導具店の購入注意には、強力な魔力石を買う際に必要な証明書についての一文があったはずです。もう一度読んでみてください。'
+  },
+  {
+    requiresPage: ['glossary/koku-trio.html', 'glossary/circle-ledgers.html'],
+    hintFor: ['glossary/koku-trio.html', 'glossary/circle-ledgers.html'],
+    leadsTo: 'glossary/circle-warden.html',
+    hint: '「刻の輪」の補修記録にも、陣紋補修記録簿の解読作業にも、同じ役職の名前が挙がっていたはずです。もう一度どちらかの記述を確かめてみてください。'
+  },
+  {
+    requiresPage: 'glossary/circle-warden.html',
+    hintFor: 'glossary/circle-warden.html',
+    leadsTo: 'glossary/warden-registry.html',
+    hint: '学院はあらゆる物事を記録し続ける場所です。歴代の陣紋師についても、正式な記録がどこかに保管されているはずだと思いませんか。'
+  },
+  {
+    requiresPage: 'glossary/warden-registry.html',
+    hintFor: 'glossary/warden-registry.html',
+    leadsTo: 'glossary/unnamed-warden.html',
+    hint: '大鐘「刻の声」の命名式典の記録にも、理由を語らない短い一文が残されていたはずです。もう一度思い出してみてください。'
   },
 ];

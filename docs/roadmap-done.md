@@ -1138,6 +1138,19 @@
       新しいID(P10/P12/P16/P23)に更新。あわせて、グループAのカード数を
       前項で誤って「8カード」と記載していたのを実際の「6カード」に訂正した。
 
+- [x] (S) `docs/ARG-WORDBANK.md`を表形式に再構成(2026-07-30、ユーザー提案)。
+      それまで「セクション見出し+箇条書きの生の棚卸し(8セクション)」と
+      「末尾のグルーピング候補(グループA〜H)+未分類のまま残る候補」が
+      別構造で並んでおり、グルーピングに含まれない生の棚卸し項目が見落と
+      されやすかった(実際に大蒸留器「琥珀の心臓」等、複数の未使用候補が
+      見落とされていたことが判明)。「## 候補一覧」として、全65項目を
+      「ワード / 出典ページ / 元セクション / グループ(A〜H) / 使用状況 /
+      使用先ページID」の1つの表に統合した(グループ列はユーザー提案により
+      追加)。末尾の「グルーピング候補」節(グループA〜Hの詳細な採用経緯・
+      設計ラショナール)はそのまま残し、表の「グループ」列と相互参照できる
+      形にした。`docs/ROADMAP.md`「### 13」のroot選定手順も、この表の
+      未使用行を確認する形に書き換えた。
+
 ### 14. 提携宿泊施設
 
 - [x] (M) `pages/access/lodging.html`(depth-1)を新設(2026-07-28、ユーザー承認済み
@@ -1400,3 +1413,36 @@
       した。`src/hint-book.js`に同じロジックを複製し`render()`の呼び出し
       先を変更。`### 15`にこれで未完了サブタスクが無くなったため、
       statusを完了に変更。
+- [x] (S) 「これまでの記録」欄のツリー表示にある「つながり(N)」の件数を、
+      直下の子の数だけでなく、ネスト最下層まで含めた子孫の総数に変更
+      (2026-07-30 ユーザー指摘)。例: 魔導88星座→シベル・オーレン→
+      観測記録帳→流れ星と3段連なる場合、旧実装では直下の子が1件のため
+      「つながり(1)」としか表示されなかったが、子孫を辿った総数である
+      「つながり(3)」を表示するよう修正した。`src/logic.js`の
+      `buildSecretsTree`が返す各ノードに`descendantCount`(新設の純粋関数
+      `countTreeDescendants`で算出)を持たせ、`src/search.js`の
+      `renderSecretsTree`の表示をそれに差し替えた(file://環境向けの
+      複製ロジックも同様に更新)。既存の`buildSecretsTree`テストの期待値も
+      `descendantCount`を含む形に更新し、新シナリオ(4段チェーン)のテストを
+      追加。
+
+### 17. 購買部: 季節限定商品だけの絞り込みフィルタ
+
+- [x] (S) 機能自体が不要と判明したため削除(2026-07-30 ユーザー指示)。
+      `src/product-season-filter.js`を削除、8ショップページ
+      (`pages/shop/alchemy-shop.html`・`clock-accessories.html`・
+      `dueling-shop.html`・`groceries.html`・`observatory-goods.html`・
+      `souvenirs.html`・`summoning-shop.html`・`uniforms.html`)から
+      `<script>`読み込みと`.product-filter`ボタンを除去、
+      `styles/shop-page.css`の`.product-filter`関連スタイルを除去、
+      `src/logic.js`の`shouldShowProduct`関数と対応テストを削除した。
+
+### 19. ノスティオン: 発見数の周回カウンター表示
+
+- [x] (S) P91達成後、「これまでの記録」欄(`#codex-memory-section`、詳しい
+      `学院の秘密(N/総数)`表示を含む)と情報が重複してしまう問題を解消
+      (2026-07-30 ユーザー指摘)。`src/logic.js`に純粋関数
+      `shouldShowSearchProgress(foundCount, achieved)`を追加しテスト済み。
+      `src/search.js`の`updateSearchProgressDisplay()`内で`achieved`
+      (P91達成判定、`renderMemorySection()`と同じロジック)を見て、
+      達成後は`searchProgressEl.hidden = true`にする形で実装した。

@@ -268,7 +268,19 @@ export function buildSecretsTree(hiddenEntries, visitedPaths) {
     }
   });
 
+  Object.keys(nodes).forEach(function (path) {
+    nodes[path].descendantCount = countTreeDescendants(nodes[path]);
+  });
+
   return roots;
+}
+
+// 「これまでの記録」欄のツリー表示、「つながり(N)」の件数用(2026-07-30
+// ユーザー指摘)。直下の子だけでなく、ネスト最下層まで含めた子孫の総数を返す。
+export function countTreeDescendants(node) {
+  return node.children.reduce(function (total, child) {
+    return total + 1 + countTreeDescendants(child);
+  }, 0);
 }
 
 // 「手にした断片」欄の表示用データを組み立てる(2026-07-29 ユーザー指摘)。
@@ -392,12 +404,6 @@ export function daysUntilNextEvent(rule, today) {
   return Math.round((candidate.getTime() - todayMidnight.getTime()) / msPerDay);
 }
 
-// 購買部: 季節限定商品だけの絞り込みフィルタ(2026-07-30、「今後のタスク候補」
-// より実装)。フィルタが無効なら常に表示、有効なら季節限定商品のみ表示する。
-export function shouldShowProduct(isSeasonal, seasonalFilterActive) {
-  return !seasonalFilterActive || isSeasonal;
-}
-
 // ノスティオン(検索ページ): 発見数の周回カウンター表示(2026-07-30、
 // 「今後のタスク候補」より実装)。hiddenEntriesはbuildHiddenEntryListの
 // 戻り値、visitedPathsは「学院の秘密」(CodexProgressのsecrets)。
@@ -405,6 +411,12 @@ export function countFoundSecrets(hiddenEntries, visitedPaths) {
   return (visitedPaths || []).filter(function (path) {
     return hiddenEntries.some(function (entry) { return entry.path === path; });
   }).length;
+}
+
+// P91達成後は「これまでの記録」欄が同じ情報をより詳しく表示するため、
+// この簡易カウンターは重複を避けて隠す(2026-07-30 ユーザー指摘)。
+export function shouldShowSearchProgress(foundCount, achieved) {
+  return foundCount > 0 && !achieved;
 }
 
 export function formatDiscoveryProgressText(foundCount) {

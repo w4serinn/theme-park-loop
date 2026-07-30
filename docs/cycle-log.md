@@ -1,5 +1,236 @@
 # サイクル履歴
 
+## 2026-07-30 09:45
+- ブランチ: 引き続き`evolve/cycle-39`(未マージ)。
+- タスク選定: `### 15`の未完了サブタスク(「つながり(N)」件数の修正、
+  手動チャットでユーザーが指摘・タスク化していたもの)に着手。
+- 実装: 「これまでの記録」欄のツリー表示にある「つながり(N)」の件数を、
+  直下の子の数だけでなくネスト最下層まで含めた子孫の総数に変更。
+  `src/logic.js`の`buildSecretsTree`が返す各ノードに`descendantCount`
+  (新設の純粋関数`countTreeDescendants`で算出)を持たせ、`src/search.js`の
+  `renderSecretsTree`(file://環境向けの複製ロジック)の表示をそれに
+  差し替えた。既存の`buildSecretsTree`テストの期待値を`descendantCount`
+  込みに更新し、魔導88星座→シベル・オーレン→観測記録帳→流れ星の4段
+  チェーンで「つながり(3)」になることを検証する新規テストを追加。
+  `### 15`はこれで未完了サブタスクが無くなったためstatusを完了に戻した。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(480件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(占術師・学院農園など)
+  からのroot追加、またはP44/P47/P49のflavor化。
+- blocked / partial: なし
+- asset-pending: なし(コードのみの変更)
+
+## 2026-07-30 09:15
+- ブランチ: 引き続き`evolve/cycle-39`(未マージ)。
+- タスク選定: `### 13`root行の実装(前サイクルで表形式化した
+  `docs/ARG-WORDBANK.md`の未使用行から選定)。
+- 実装: P49(root、4-5節の単発チェーン枠)として
+  `pages/glossary/fifth-headmaster.html`を新設(3カード)。
+  `exploration/observatory.html`の「アルノルドの眼」「流星記録石板」
+  「第5代学長」(実名は本文中に記載なし)をグルーピングし、天文台を建てた
+  第2代学長フローラ・シルヴァーンとの対比で「なぜこの学長だけ実名が
+  伝わっていないのか」というフックを軸にした。`src/search-data.js`・
+  `src/hint-data.js`(observatory.htmlから1件)・`docs/ARG-DESIGN.md` P49行・
+  `docs/ARG-WORDBANK.md`該当箇所を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(476件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(占術師・学院農園・
+  時間経路実験室など)からのroot追加、またはP44→P45・P47→P48・P49→P50の
+  flavor化。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 08:50
+- ブランチ: 引き続き`evolve/cycle-39`(未マージ)。
+- タスク選定: `### 13`の表形式化タスク(手動チャットでユーザーが優先順位を
+  root実装より先に変更済み)に着手。
+- 実装: `docs/ARG-WORDBANK.md`を全面的に表形式へ再構成。旧「セクション
+  見出し+箇条書きの生の棚卸し(8セクション、64個の`- `箇条書き+prose中の
+  2候補)」を、「ワード / 出典ページ / 元セクション / グループ(A〜H) /
+  使用状況 / 使用先ページID」の単一表(全65行)に統合した。旧ファイルの
+  該当範囲から`- `箇条書きを全数抽出し、表の行数と突き合わせて漏れが
+  ないことを確認済み。末尾の「グルーピング候補」節(グループA〜Hの詳細な
+  採用経緯)はそのまま残し、表の「グループ」列と相互参照できるようにした。
+  `docs/ROADMAP.md``### 13`のroot選定手順も、「## 1〜## 8を直接見て
+  照合する」という旧手順から「## 候補一覧の表で未使用行を確認する」手順に
+  書き換えた。完了したサブタスクは`docs/roadmap-done.md`へ退避。
+- レビュー: OK(local-review、旧ファイルの箇条書き64件+prose2候補=66件を
+  全数照合し、新表65行との対応漏れがないことを確認)
+- lint: ✓ / lint:css: ✓ / test: ✓(473件) / build: ✓
+- 次回予定: この表を使ってP47/P44の残りflavor枠(P48・P45)、または表の
+  未使用行(占術師・学院農園・時間経路実験室など)からのroot追加。
+- blocked / partial: なし
+- asset-pending: なし(ドキュメントのみの変更)
+
+## 2026-07-30 08:35
+- ブランチ: 引き続き`evolve/cycle-39`(未マージ)。
+- タスク選定: `### 13`root行の実装を継続(改訂した優先順位ルールに沿い、
+  `docs/ARG-WORDBANK.md`の生の棚卸しから直接グルーピング)。
+- 実装: P47(root、4-5節の単発チェーン枠)として
+  `pages/glossary/airship-symbols.html`を新設(3カード)。「## 2. 学院内
+  探索」の「竜鱗布」「旗艦『アルノルド号』係留ドック」(いずれも
+  airship-dock.html)と「## 4. 購買部」の「ドックのシンボルマーク
+  『碇と羽根』」(airship-gear.html)をグルーピングし、飛行船を陰から
+  支える「素材・設備・意匠」という切り口にした。`src/search-data.js`・
+  `src/hint-data.js`(airship-dock.htmlから2件、airship-gear.htmlから1件)・
+  `docs/ARG-DESIGN.md` P47行・`docs/ARG-WORDBANK.md`該当箇所を更新。
+  本文中に「『碇と羽根』の由来は公式には示されていない」というフックを
+  残し、P48のflavor化余地とした。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(473件) / build: ✓
+- 次回予定: 他の実装済みroot(P16→P17[fragment、F3]等)の予約済み枠、
+  P44→P45・P47→P48のflavor化、または`docs/ARG-WORDBANK.md`の残り未使用
+  候補(占術師・学院農園・時間経路実験室など)からのroot追加。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 08:20
+- ブランチ: 引き続き`evolve/cycle-39`(未マージ)。
+- タスク選定: 3項目まとめて着手。(1)`### 13`root行の実装(改訂した優先順位
+  ルールに沿い、生の棚卸しから直接)、(2)`### 17`(季節限定フィルタ)の削除、
+  (3)`### 19`(発見数カウンター)のP91達成後の重複表示解消。(2)(3)は手動
+  チャットでユーザーからタスク追記済みだった小さめの独立項目のため、
+  APIコスト削減のためまとめた。
+- 実装:
+  (1) P44(root)として`pages/glossary/arnold-namesake.html`を新設(3カード)。
+      `docs/ARG-WORDBANK.md`「## 1. トップページ」の「エルンスト・フォン・
+      アルノルド卿」「『アルノルド卿の丘』駅」と「## 2. 学院内探索」の
+      「大蒸留器『琥珀の心臓』」をグルーピングし、P16(購買部で買える遺品)
+      とは異なる「名が残る場所」という切り口にした。`src/search-data.js`・
+      `src/hint-data.js`(index.htmlから2件、alchemy-tower.htmlから1件)・
+      `docs/ARG-DESIGN.md` P44行・`docs/ARG-WORDBANK.md`該当箇所を更新。
+  (2) `src/product-season-filter.js`を削除、8ショップページから`<script>`・
+      `.product-filter`ボタンを除去、`styles/shop-page.css`の関連スタイルと
+      `src/logic.js`の`shouldShowProduct`・対応テストを削除。`### 17`の
+      statusを完了に戻し、roadmap-done.mdへ退避。
+  (3) `src/logic.js`に`shouldShowSearchProgress(foundCount, achieved)`を
+      追加しテスト済み。`src/search.js`の`updateSearchProgressDisplay()`で
+      P91達成後は`#search-progress`を隠すようにした。`### 19`のstatusを
+      完了に戻し、roadmap-done.mdへ退避。
+- レビュー: OK(local-review、指摘なし。`docs/cycle-log.md`内の削除済み
+  WORDBANKセクションへのダングリング参照を1件発見・修正)。
+- lint: ✓ / lint:css: ✓ / test: ✓(470件) / build: ✓
+- 次回予定: 他の実装済みroot(P16→P17[fragment、F3]・P23→P24〜P25・
+  P28→P29〜P30・P35→P36〜P38・P41→P42〜P43・P44→P45)の予約済み枠、
+  または`docs/ARG-WORDBANK.md`の残り未使用候補(占術師・学院農園・
+  竜鱗布など)からのroot追加。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30(手動チャットでの訂正・追記)
+- evolveサイクルではなく、ユーザーとの手動チャットでの訂正。
+- 2026-07-30 06:20付エントリ等で「WORDBANKのグルーピング候補・未分類候補が
+  出尽くした」と記録したのは、`docs/ARG-WORDBANK.md`冒頭の生の棚卸し
+  (「## 1.」〜「## 8.」)まで遡らず、グルーピング済み(グループA〜H)と
+  末尾の未分類リストだけを見た不完全な判断だった。ユーザー指摘により
+  再照合し、大蒸留器「琥珀の心臓」・エルンスト・フォン・アルノルド卿など
+  root候補になり得る未使用の単語が20語近く残っていたことを確認(その後の
+  サイクルで一部を`docs/ARG-DESIGN.md` P44として使用済み)。
+- 対応: `docs/ROADMAP.md``### 13`の標準ルールを改訂し、グループA〜Hだけで
+  なく生の棚卸しもグループA〜Hと同格の有効な候補として扱うことを明記した
+  (既存rootの予約済みflavor枠の掘り下げより優先)。
+- コード変更なし(ドキュメントのみ)。
+
+## 2026-07-30 07:20
+- ブランチ: 引き続き`evolve/cycle-39`(未マージ)。
+- タスク選定: P12(koku-trio.html)から始まるroot→flavorチェーンの最終段
+  P15に着手。これでP12〜P15の予約枠を完全に使い切る。
+- 実装: P14(warden-registry.html)の「陣紋師任命記録の空白の一件はおおよそ
+  開校50周年前後」という推定時期を、P12本文で既に確立済みの「大鐘『刻の声』
+  も開校50周年記念に鋳造・命名され、命名理由は式典記録に残っていない」
+  という事実と重ね合わせ、`pages/glossary/unnamed-warden.html`(三つの
+  「刻」との奇妙な符合)を新設(2カード)。「名を記されなかった陣紋師」と
+  「理由を記されなかった鐘の命名」という2つの謎を並べ、断定はせず独り言で
+  余韻を残して締めくくった。P14側に手がかり文を追加。`src/search-data.js`
+  でprereqゲーティング(exactMatch: trueで「相応しい名を」を合言葉に)、
+  `src/hint-data.js`に発見の連鎖型ヒントを1件追加。`docs/ARG-DESIGN.md`
+  P15行・`docs/ARG-WORDBANK.md`グループAの記載を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(465件) / build: ✓
+- 次回予定: 他の実装済みroot(P16→P17[fragment、F3。暗号ギミック設計が
+  必要でサイズ大きくなりやすい]・P23→P24〜P25・P28→P29〜P30・
+  P35→P36〜P38・P41→P42〜P43)の予約済み枠を継続して掘り下げる。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 06:50
+- ブランチ: 引き続き`evolve/cycle-39`(未マージ)。
+- タスク選定: 前サイクルの方針(既存rootの予約済みflavor枠を掘り下げる)に
+  沿って、P13(circle-warden.html)のflavor2段目P14に着手。
+- 実装: 「陣紋師の選定基準は公式には示されていない」というP13のフックを、
+  学院の各所に既にある「記録簿」モチーフ(陣紋補修記録簿・刻の書等)を
+  踏襲した新しい記録物「陣紋師任命記録」で継続。`pages/glossary/warden-registry.html`
+  を新設(2カード)。400年分の記録のうち一件だけ任命された者の名の欄が
+  空白という具体的な謎を配置した。P13側に手がかりカードを追加。
+  `src/search-data.js`でprereqゲーティング、`src/hint-data.js`に発見の
+  連鎖型ヒントを1件追加。`docs/ARG-DESIGN.md`P14行・`docs/ARG-WORDBANK.md`
+  グループAの記載を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(461件) / build: ✓
+- 次回予定: P12チェーンの最後の1段(P15)、または他の実装済みroot
+  (P16→P17[fragment、F3]・P23→P24〜P25・P28→P29〜P30・P35→P36〜P38・
+  P41→P42〜P43)の予約済み枠を継続して掘り下げる。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 06:20
+- ブランチ: `evolve/cycle-38`がPR #48でmainへ自動マージ・削除済みを確認。
+  `main`を最新化し、新しく`evolve/cycle-39`を作成。
+- タスク選定: `docs/ARG-WORDBANK.md`のグルーピング候補・未分類候補、
+  「今後のタスク候補」がいずれも出尽くしたため、既存の実装済みroot
+  (P12・P33)に残っていた予約済みflavor枠を掘り下げる方向に転換。
+  #4(購買部アイコン)・#12(ナレーション音声)の素材到着も確認したが
+  未着(assets/images/shop/にproduct-*.pngが3種のみ、assets/audio/自体が
+  存在せず)、引き続きblocked。
+- 実装: P12(koku-trio.html「刻の輪」カード)とP33(circle-ledgers.html
+  「陣紋補修記録簿」カード)の双方に「陣紋師」という同じ役職名が既に
+  登場していたことに着目し、`pages/glossary/circle-warden.html`を新設
+  (2カード)。P6と同型の網状構造(P12・P33いずれか一方の訪問でOK)に
+  した。`src/search-data.js`にprereq OR配列で1エントリ追加、
+  `src/hint-data.js`に発見の連鎖型ヒントを1件追加。`docs/ARG-DESIGN.md`
+  P13行・`docs/ARG-WORDBANK.md`グループAの記載を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(457件) / build: ✓
+- 次回予定: 同様に、他の実装済みroot(P16→P17[fragment、F3産出]・
+  P23→P24〜P25・P28→P29〜P30・P35→P36〜P38・P41→P42〜P43)に残る
+  予約済みflavor/fragment枠も、各rootの本文中の未解決フックを使って
+  1件ずつ掘り下げていく方針。特にP16→P17はFRAGMENT(F3)を産出する
+  唯一未着手の単純枠で、PGATEに必要な10断片のうち現在F1・F2・F13の
+  3つしか実装されていないため優先度が高いが、暗号ギミックの設計が
+  必要でサイズが大きくなる可能性があり、着手前に慎重な見積もりが必要。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 05:50
+- ブランチ: `evolve/cycle-37`がPR #47でmainへ自動マージ・削除済みを確認。
+  `main`を最新化し、新しく`evolve/cycle-38`を作成。
+- タスク選定: 「今後のタスク候補」最後の1件「ノスティオン: 発見数の周回
+  カウンター表示」に着手。これで同セクションの候補が尽きた。
+- 実装: `### 19`(新規セクション)として、検索窓の下に「学院の秘密をN件
+  発見しました」の進捗表示を追加。既存の「これまでの記録」欄はP91達成まで
+  非表示のままだが、こちらは「学院の秘密」を1件以上見つけた時点でさりげなく
+  表示する軽量な進捗表示(updateHintLinkVisibilityと同じ表示条件)。新規
+  データ構造は追加せず、既存のCodexProgress・SEARCH_INDEXから機械的に算出。
+  `countFoundSecrets`・`formatDiscoveryProgressText`を`src/logic.js`に
+  純粋関数として実装しテスト済み。local-reviewで、下書き段階の
+  `var(--emerald)`のdark背景上テキスト誤用を発見・修正。
+  `docs/ARG-WORDBANK.md`の「未分類のまま残る候補」サマリーも最新状態に更新。
+- レビュー: 指摘1件対応(var(--emerald)の禁止用法を修正)
+- lint: ✓ / lint:css: ✓ / test: ✓(453件) / build: ✓
+- 次回予定: 「今後のタスク候補」が0件になったため、次回は`### 13`の隠しページ
+  候補出し(`docs/ARG-WORDBANK.md`「未分類のまま残る候補」の残り1件「7番試薬」
+  の検討、または全ページ本文の再棚卸し)から着手する必要がある。
+- blocked / partial: なし
+- asset-pending: なし(テキストのみの進捗表示、新規ビジュアルエリア無し)
+- 補足: UIはブラウザでの実機確認ができなかった(ブラウザ操作ツール無し)。
+  単体テスト・ビルド出力の確認・コードの目視確認で検証した。
+
 ## 2026-07-30 04:50
 - ブランチ: `evolve/cycle-36`がPR #46でmainへ自動マージ・削除済みを確認。
   `main`を最新化し、新しく`evolve/cycle-37`を作成。

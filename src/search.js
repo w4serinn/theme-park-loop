@@ -110,9 +110,18 @@
   // (#codex-memory-section)はP91達成まで非表示のままだが、こちらは
   // updateHintLinkVisibilityと同じく「学院の秘密」を1件以上見つけた
   // 時点でさりげなく表示する、より手前の進捗表示。
+  // P91達成後は「これまでの記録」欄が同じ情報(学院の秘密N/総数)を詳しく
+  // 表示するため、この簡易カウンターは重複を避けて隠す(2026-07-30
+  // ユーザー指摘)。
   function updateSearchProgressDisplay() {
     if (!searchProgressEl || !window.CodexProgress) { return; }
-    var visitedPaths = window.CodexProgress.load().secrets;
+    var progress = window.CodexProgress.load();
+    var achieved = progress.secrets.indexOf(SELF_REFERENCE_PAGE_PATH) !== -1;
+    if (achieved) {
+      searchProgressEl.hidden = true;
+      return;
+    }
+    var visitedPaths = progress.secrets;
     if (visitedPaths.length === 0) {
       searchProgressEl.hidden = true;
       return;
@@ -168,7 +177,21 @@
       }
     });
 
+    Object.keys(nodes).forEach(function (path) {
+      nodes[path].descendantCount = countTreeDescendants(nodes[path]);
+    });
+
     return roots;
+  }
+
+  // 「つながり(N)」の件数用(src/logic.jsのcountTreeDescendantsと同じ
+  // ロジック)。直下の子だけでなく、ネスト最下層まで含めた子孫の総数を返す
+  // (2026-07-30 ユーザー指摘: 直下の子の数だけでは、多段に連なる発見の
+  // 連鎖の深さが伝わらない)。
+  function countTreeDescendants(node) {
+    return node.children.reduce(function (total, child) {
+      return total + 1 + countTreeDescendants(child);
+    }, 0);
   }
 
   // ツリーノードの配列を<ul>の中に再帰的に描画する。子を持つノードは
@@ -191,7 +214,7 @@
         details.open = true;
 
         var summary = document.createElement('summary');
-        summary.textContent = 'つながり(' + node.children.length + ')';
+        summary.textContent = 'つながり(' + node.descendantCount + ')';
         details.appendChild(summary);
 
         var childUl = document.createElement('ul');
