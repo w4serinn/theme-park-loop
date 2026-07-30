@@ -1,5 +1,26 @@
 # サイクル履歴
 
+## 2026-07-30 10:15
+- ブランチ: `evolve/cycle-39`がPR #49でmainへ自動マージ・削除済みを確認。
+  `main`を最新化し、新しく`evolve/cycle-40`を作成。
+- タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から
+  選定)。
+- 実装: P51(root、4-5節の単発チェーン枠)として
+  `pages/glossary/festival-undertold.html`を新設(3カード)。
+  `events/index.html`の「旧称『秋祭り』」「『大点灯』の開始時刻が前日まで
+  確定しない理由」「占術師(現職17代目)」をグルーピングし、学院祭・行事の
+  豆知識にさりげなく書かれているだけの3つの事実を掘り下げた。
+  `src/search-data.js`・`src/hint-data.js`(events/index.htmlから1件)・
+  `docs/ARG-DESIGN.md` P51行・`docs/ARG-WORDBANK.md`該当箇所を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(483件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(魔法繊維「エルドクロス」・
+  学院農園・見習い案内人など)からのroot追加、またはP44/P47/P49/P51の
+  flavor化。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 09:45
 - ブランチ: 引き続き`evolve/cycle-39`(未マージ)。
 - タスク選定: `### 15`の未完了サブタスク(「つながり(N)」件数の修正、
