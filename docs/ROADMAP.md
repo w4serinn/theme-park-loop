@@ -232,8 +232,7 @@ ARG(代替現実ゲーム)的な「発見の連鎖+謎解き+最終ゴール」�
       やり取り)形式も使ってよい。各ページの形式は`docs/ARG-DESIGN.md`4節の
       表「形式」列を参照(4-5節は個別列を持たないため既定は`証言`)。
 
-      対象(42件、上から順に進めるのが基本):
-      - [ ] glossary/beyond-the-map.html(北方雲海と転移広場、地図の余白について)
+      対象(41件、上から順に進めるのが基本):
       - [ ] glossary/arnold-relics.html(アルノルド卿が遺したもの、三つの資料)
       - [ ] glossary/spirits-of-arnold.html(精霊、それぞれの現れ方)
       - [ ] glossary/circle-ledgers.html(陣紋を刻み、守り継いだ記録簿)
