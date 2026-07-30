@@ -232,8 +232,7 @@ ARG(代替現実ゲーム)的な「発見の連鎖+謎解き+最終ゴール」�
       やり取り)形式も使ってよい。各ページの形式は`docs/ARG-DESIGN.md`4節の
       表「形式」列を参照(4-5節は個別列を持たないため既定は`証言`)。
 
-      対象(29件、上から順に進めるのが基本):
-      - [ ] glossary/arnold-namesake.html(アルノルド卿の名前、三つの残り方)
+      対象(27件、上から順に進めるのが基本):
       - [ ] glossary/airship-symbols.html(飛行船ドック、船体を支えるもの三つ)
       - [ ] glossary/fifth-headmaster.html(天文台、名を秘めた第5代学長の仕事)
       - [ ] glossary/festival-undertold.html(学院祭・行事、あまり語られない三つの裏側)
@@ -248,7 +247,6 @@ ARG(代替現実ゲーム)的な「発見の連鎖+謎解き+最終ゴール」�
       - [ ] glossary/garigne-unit.html(独自単位「ガリグネ」、誰が決めたのか)
       - [ ] glossary/summoning-theory.html(召喚術理論体系、40年の研究と幻の続巻)
       - [ ] glossary/starfall-fortune.html(星屑ソーダ、今夜の星見の運を占う)
-      - [ ] glossary/amber-heart-blueprint.html(琥珀の心臓、失われた設計図の行方)
       - [ ] glossary/anchor-feather-origin.html(碇と羽根、意匠の生まれた場所)
       - [ ] glossary/machinery-department.html(魔導機械科、学院の心臓部を託される学科)
       - [ ] glossary/apprentice-guides.html(見習い案内人、「見習い」の先にあるもの)
