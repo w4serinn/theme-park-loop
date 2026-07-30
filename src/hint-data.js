@@ -292,6 +292,11 @@ window.HINT_DATA = [
     hint: '永久運動術式を陰で支える技師たちは、いったいどこで日々の作業をしているのでしょうか。その場所についての記述に、もう一度目を通してみてください。'
   },
   {
+    hintFor: 'exploration/clock-tower.html',
+    leadsTo: 'glossary/apprentice-notes.html',
+    hint: '時計塔1層回廊の修繕工房には、道具棚の奥に古い手記が紛れ込んでいるという噂です。塔の設備についての記述をもう一度確かめてみてください。'
+  },
+  {
     requiresPage: ['glossary/mythical-creatures.html', 'glossary/starmap-fragments.html'],
     hintFor: ['glossary/mythical-creatures.html', 'glossary/starmap-fragments.html'],
     leadsTo: 'glossary/first-astronomer.html',
@@ -310,34 +315,29 @@ window.HINT_DATA = [
     hint: '公式に語られなかった決闘の記録にも、何か短い言葉が残されているかもしれません。'
   },
   {
-    requiresPage: 'glossary/hidden-corners.html',
-    hintFor: 'glossary/hidden-corners.html',
-    leadsTo: 'glossary/affinity-circle.html',
-    hint: '似たような一角は、他のエリアにもあるという話でした。大図書館のある設備についての記述を思い出してみてください。'
+    hintFor: 'exploration/grand-library.html',
+    leadsTo: 'glossary/hidden-corners.html',
+    hint: '大図書館の中央ホール地下には、書架の自律配置を司る巨大な魔法陣があるそうです。エリアについての説明をもう一度確かめてみてください。'
   },
   {
-    requiresPage: 'glossary/affinity-circle.html',
-    hintFor: 'glossary/affinity-circle.html',
-    leadsTo: 'glossary/sealed-stone-vault.html',
-    hint: '決闘演武場の地下にも、同じように一般非公開の場所があるという話でした。その設備についての記述を思い出してみてください。'
+    hintFor: 'exploration/dueling-ground.html',
+    leadsTo: 'glossary/hidden-corners.html',
+    hint: '決闘演武場の地下には、展示されていない魔封石だけを集めた保管庫もあるという話です。演武場の設備についての記述をもう一度確かめてみてください。'
   },
   {
-    requiresPage: 'glossary/sealed-stone-vault.html',
-    hintFor: 'glossary/sealed-stone-vault.html',
-    leadsTo: 'glossary/forbidden-books-room.html',
-    hint: '大図書館には、一部だけ表紙すら見せてもらえない展示があるという話でした。その見学アトラクションについての記述を思い出してみてください。'
+    hintFor: 'exploration/grand-library.html',
+    leadsTo: 'glossary/hidden-corners.html',
+    hint: '大図書館には、表紙すら見せてもらえない蔵書を集めた見学アトラクションもあるそうです。もう一度確かめてみてください。'
   },
   {
-    requiresPage: 'glossary/forbidden-books-room.html',
-    hintFor: 'glossary/forbidden-books-room.html',
-    leadsTo: 'glossary/weathervane-shrine.html',
-    hint: '魔法陣召喚広場の北隅にも、契約精霊が身を潜めるという小さな祠があるという話でした。広場の設備についての記述を思い出してみてください。'
+    hintFor: 'exploration/summoning-plaza.html',
+    leadsTo: 'glossary/hidden-corners.html',
+    hint: '魔法陣召喚広場の北隅には、契約精霊が身を潜めるという小さな祠があるそうです。広場の設備についての記述をもう一度確かめてみてください。'
   },
   {
-    requiresPage: 'glossary/weathervane-shrine.html',
-    hintFor: 'glossary/weathervane-shrine.html',
-    leadsTo: 'glossary/underground-network.html',
-    hint: '時刻堂には、地下の接続部まで書き込まれた設計図の複製ポスターが売られているそうです。その商品説明を思い出してみてください。'
+    hintFor: 'shop/clock-accessories.html',
+    leadsTo: 'glossary/hidden-corners.html',
+    hint: '歯車細工所には、地下の接続部まで書き込まれた設計図の複製ポスターが売られているそうです。その商品説明をもう一度読んでみてください。'
   },
   {
     hintFor: 'shop/index.html',

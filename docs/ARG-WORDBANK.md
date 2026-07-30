@@ -47,17 +47,17 @@
 | 大鐘「刻の声」 | exploration/clock-tower.html | 2. 学院内探索 | A | 使用済み | P12 |
 | 予備歯車庫 | exploration/clock-tower.html | 2. 学院内探索 | C | 使用済み | P81 |
 | 時間経路実験室・「時間経路干渉」 | exploration/clock-tower.html | 2. 学院内探索 | — | 使用済み | P75 |
-| 蔵書親和魔法陣 | exploration/grand-library.html | 2. 学院内探索 | C | 使用済み | P82 |
+| 蔵書親和魔法陣 | exploration/grand-library.html | 2. 学院内探索 | C | 使用済み | P81 |
 | 記憶を持つ本 | exploration/grand-library.html | 2. 学院内探索 | — | 使用済み | P70 |
-| 禁書閲覧室 | exploration/grand-library.html | 2. 学院内探索 | C | 使用済み | P84 |
+| 禁書閲覧室 | exploration/grand-library.html | 2. 学院内探索 | C | 使用済み | P81 |
 | 月光草(「月草」と紛らわしい別植物) | exploration/grand-library.html | 2. 学院内探索 | G(デコイ) | 使用済み(デコイ) | moon-grass.htmlの誤答トリガー |
 | 演武場床「カルネ岩」 | exploration/dueling-ground.html | 2. 学院内探索 | — | 使用済み | P59 |
-| 魔封石保管庫 | exploration/dueling-ground.html | 2. 学院内探索 | C | 使用済み | P83 |
+| 魔封石保管庫 | exploration/dueling-ground.html | 2. 学院内探索 | C | 使用済み | P81 |
 | 考査記録室 | exploration/dueling-ground.html | 2. 学院内探索 | B-2 | 使用済み | P39 |
 | 大魔法陣「刻の輪」 | exploration/summoning-plaza.html | 2. 学院内探索 | A | 使用済み | P12 |
 | 四元素石 | exploration/summoning-plaza.html | 2. 学院内探索 | — | 使用済み | P56 |
 | 陣紋補修記録簿 | exploration/summoning-plaza.html | 2. 学院内探索 | B-1 | 使用済み | P33 |
-| 契約精霊の棲家「風見の祠」 | exploration/summoning-plaza.html | 2. 学院内探索 | C | 使用済み | P85 |
+| 契約精霊の棲家「風見の祠」 | exploration/summoning-plaza.html | 2. 学院内探索 | C | 使用済み | P81 |
 | 契約精霊シルフィ | exploration/summoning-plaza.html | 2. 学院内探索 | F | 使用済み | P23 |
 | 第2代学長フローラ・シルヴァーン | exploration/observatory.html | 2. 学院内探索 | D(関連) | 使用済み(関連) | P28(library-shop.html側の書簡から実装) |
 | 大望遠鏡「アルノルドの眼」 | exploration/observatory.html | 2. 学院内探索 | — | 使用済み | P49 |
@@ -81,7 +81,7 @@
 | 七代続く写本師一族 | shop/index.html・library-shop.html | 4. 購買部 | (未分類) | 使用済み | P35 |
 | 第二代学院長の現存する書簡 | shop/library-shop.html | 4. 購買部 | D | 使用済み | P28 |
 | 学院湿地区画 | shop/library-shop.html | 4. 購買部 | D | 使用済み | P28 |
-| 時計塔設計図「地下の魔法陣接続部」 | shop/clock-accessories.html | 4. 購買部 | C(補遺) | 使用済み | P86 |
+| 時計塔設計図「地下の魔法陣接続部」 | shop/clock-accessories.html | 4. 購買部 | C(補遺) | 使用済み | P81 |
 | 異次元存在 | shop/summoning-shop.html | 4. 購買部 | F | 使用済み | P23 |
 | 季節ごとのシグル紋様「炎の螺旋」「水流環」「雷紋双翼」 | shop/dueling-shop.html | 4. 購買部 | — | 使用済み | P59 |
 | 学院魔法決闘規定法典 | shop/dueling-gear.html | 4. 購買部 | — | 使用済み | P59 |
@@ -157,26 +157,29 @@ P13の「選定基準は公式には示されていない」というフック�
   盛り込めたため、新規ID追記ではなく予約済みのroot→flavor 1段枠
   (P33〜P34・P39〜P40)へ最初から当てはめて実装した(2026-07-29)。
 
-### グループC: 立入禁止・非公開区画(学院内探索の再確認で判明した最有力モチーフ)[使用済み: P81〜P86(root→flavor5段)、2026-07-30完全完了]
+### グループC: 立入禁止・非公開区画(学院内探索の再確認で判明した最有力モチーフ)[使用済み: P81、2026-07-30完全完了・同日1ページへ再統合]
 - 触媒保管庫(alchemy-tower.html) → P81 `pages/glossary/hidden-corners.html`
 - 予備歯車庫(clock-tower.html) → P81 `pages/glossary/hidden-corners.html`
-- 蔵書親和魔法陣(grand-library.html) → P82 `pages/glossary/affinity-circle.html`
-- 魔封石保管庫(dueling-ground.html) → P83 `pages/glossary/sealed-stone-vault.html`
-- 禁書閲覧室(grand-library.html) → P84 `pages/glossary/forbidden-books-room.html`
-- 契約精霊の棲家「風見の祠」(summoning-plaza.html) → P85
-  `pages/glossary/weathervane-shrine.html`
-- (補遺)時計塔設計図「地下の魔法陣接続部」(clock-accessories.html) → P86
-  `pages/glossary/underground-network.html`
-→ 6件と多いため1ページには収めず、4-5節の「root→flavor→flavor→…」チェーン
-  形式を採用(1つのroot「なぜどのエリアにも人知れない一角があるのか」から、
-  各エリアの禁域を1つずつ巡るflavor連鎖にする)。深さのある章立てにできる
-  最有力候補として、2026-07-29〜30の4サイクルにわたりroot+flavor5段を
-  完成させた(`docs/ARG-DESIGN.md`4-5節P81行)。P85は既存のP23
-  (spirits-of-arnold.html)で触れたシルフィの契約設定と矛盾しない範囲で、
-  祠そのものの構造・名の由来に焦点を当てた。最後にP86として、当初は
-  未分類だった「地下の魔法陣接続部」を補遺(capstone)に転用し、6つの一角が
-  地下でつながっているかもしれないという可能性だけを示して締めた
-  (断定はせず問いのまま終える)。
+- 蔵書親和魔法陣(grand-library.html) → P81 `pages/glossary/hidden-corners.html`
+- 魔封石保管庫(dueling-ground.html) → P81 `pages/glossary/hidden-corners.html`
+- 禁書閲覧室(grand-library.html) → P81 `pages/glossary/hidden-corners.html`
+- 契約精霊の棲家「風見の祠」(summoning-plaza.html) → P81
+  `pages/glossary/hidden-corners.html`
+- (補遺)時計塔設計図「地下の魔法陣接続部」(clock-accessories.html) → P81
+  `pages/glossary/hidden-corners.html`
+→ 当初は6件と多いため4-5節の「root→flavor→flavor→…」チェーン形式
+  (P81→P82→P83→P84→P85→P86、個別ページ)を採用し、2026-07-29〜30の
+  4サイクルにわたり完成させていた。しかし2026-07-30、ユーザー指摘により
+  2つの問題が判明: (1) 各ページの「類例カード」が次のキーワードを「」で
+  二重に引用符強調し、事実上「次はこれを検索してください」と宣言する
+  演出過剰になっていた。(2) `prereq`で直前ページ訪問を必須にしていたが、
+  各語(蔵書親和魔法陣・魔封石保管庫・禁書閲覧室・風見の祠・時計塔設計図)は
+  いずれも通常ページに既出であり、prereqが「読んだ語をそのまま検索すれば
+  見つかる」というサイトの基本原則に反する不具合だった。さらに全7項目が
+  同一カテゴリ(学院各所の立入禁止・非公開区画)であるとの指摘を受け、
+  個別ページ5つを`hidden-corners.html`(P81)へ統合・削除し、7語すべてを
+  1つのprereqなしrootエントリにまとめ直した(詳細は
+  `docs/ARG-DESIGN.md`4-5節P81行)。
 
 ### グループD: 天文台の2人の学長級人物(フローラ・シルヴァーン関連)[使用済み: P28、2026-07-29実装]
 - 第2代学長(フローラ・シルヴァーン)の現存する書簡(library-shop.html) →

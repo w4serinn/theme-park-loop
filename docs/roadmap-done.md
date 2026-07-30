@@ -1151,6 +1151,30 @@
       形にした。`docs/ROADMAP.md`「### 13」のroot選定手順も、この表の
       未使用行を確認する形に書き換えた。
 
+- [x] (M) P81チェーン(P82〜P86)を1ページに再統合(2026-07-30 ユーザー
+      指摘)。個別ページ5つ(`affinity-circle.html`・`sealed-stone-vault.html`・
+      `forbidden-books-room.html`・`weathervane-shrine.html`・
+      `underground-network.html`)で判明した2つの問題を修正した:
+      (1) 各ページの「類例カード」が次のキーワードを「」で二重に引用符
+      強調し、事実上「次はこれを検索してください」と宣言する演出過剰に
+      なっていた。(2) `prereq`で直前ページの訪問を必須にしていたが、各語
+      (蔵書親和魔法陣・魔封石保管庫・禁書閲覧室・風見の祠・時計塔設計図)は
+      いずれも通常ページに既出であり、「読んだ語をそのまま検索すれば
+      見つかる」というサイトの基本原則に反する不具合だった。さらにP81
+      (触媒保管庫・予備歯車庫)も含め全7項目が同一カテゴリ(学院各所の
+      立入禁止・非公開区画)であるとの指摘を受け、個別ページ5つを
+      `hidden-corners.html`(P81)へ統合・削除し、`keywords`に7語すべてを
+      追加、prereqなしのroot型エントリ1件に一本化した。時計塔設計図の
+      2カードは「場所」6件とは性質が異なる「手がかり(物証)」であるため、
+      `.archive-list`を2セクションに分けて視覚的にも区切った(2026-07-30
+      ユーザー指摘)。あわせて`apprentice-notes.html`(keywords: 修繕工房)
+      も同種のprereq不具合だったため`prereq`を削除。`src/hint-data.js`の
+      旧チェーン継続ヒントを、各keywordの出典ページ(grand-library.html・
+      dueling-ground.html・summoning-plaza.html・shop/clock-accessories.html・
+      exploration/clock-tower.html)から直接向かう形に置き換えた。
+      `docs/ARG-DESIGN.md`5節に「フックは検索可能な語句として残すこと」
+      ルールを追記(同日別件のユーザー指摘)。
+
 ### 14. 提携宿泊施設
 
 - [x] (M) `pages/access/lodging.html`(depth-1)を新設(2026-07-28、ユーザー承認済み

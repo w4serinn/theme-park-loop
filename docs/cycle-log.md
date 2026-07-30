@@ -1,5 +1,36 @@
 # サイクル履歴
 
+## 2026-07-30 15:00
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: 既存隠しページの改修(手動チャットでユーザーが発見した
+  「類例カード」の演出過剰と、通常ページ既出語への不要なprereqゲーティング
+  という2つの問題への対応)。バグ修正セクションには未記載だったが、
+  「### 13」に記録済みの改修タスクとして着手。
+- 実装: P81チェーン(P82〜P86)の個別ページ5つ(affinity-circle.html・
+  sealed-stone-vault.html・forbidden-books-room.html・weathervane-shrine.html・
+  underground-network.html)を`hidden-corners.html`(P81)へ全面統合・削除。
+  対話の中でP81(触媒保管庫・予備歯車庫)も含め全7項目が同一カテゴリだと
+  判明したため、6つの「立入禁止・非公開区画」カード+「地下でつながって
+  いるか」という手がかり系2カードの計8カード構成にし、後者2カードは
+  `.archive-list`を分けて視覚的にも区切った。`src/search-data.js`の
+  該当5エントリを削除し、`hidden-corners.html`の`keywords`に7語を統合、
+  prereqなしのroot型に一本化。あわせて`apprentice-notes.html`
+  (keywords: 修繕工房)の不要なprereqも削除。`src/hint-data.js`の旧
+  チェーン継続ヒントを、各keywordの出典ページから直接向かうヒントに
+  置き換え。手動チャットでの指摘に基づき、時計塔設計図の販売店を
+  「時刻堂」から正しい店名「歯車細工所」に訂正。`docs/ARG-DESIGN.md`
+  5節に「フックは検索可能な語句として残すこと」ルールも追記。
+- レビュー: OK(実装中にユーザーからの追加指摘を都度反映。ローカル
+  レビューでの新規指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(492件、5ページ削除分の階層・footer・
+  絶対パステストが減少) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(魔導機械科・独自単位
+  「ガリグネ」・レヴィン・オルトウェル教授・星屑ソーダで運を占う学生風習・
+  見習い案内人・学院東駐車場)からのroot追加、または各実装済みrootの
+  flavor化。
+- blocked / partial: なし
+- asset-pending: なし(コード・ドキュメントのみの変更)
+
 ## 2026-07-30 14:20
 - ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
 - タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から
