@@ -273,6 +273,12 @@ window.HINT_DATA = [
     hint: '魔法武具展示室には、200年前に制定された法典の復刻版があるそうです。その商品説明をもう一度読んでみてください。'
   },
   {
+    requiresPage: 'glossary/dueling-heritage.html',
+    hintFor: 'glossary/dueling-heritage.html',
+    leadsTo: 'glossary/margin-note.html',
+    hint: '決闘シグルの意匠と古語魔法文の関係は対訳にも解説にも触れられていないそうですが、法典の写しの一冊には後世の誰かが書き加えたという余白の書き込みが残っているという話でした。'
+  },
+  {
     hintFor: 'dining/index.html',
     leadsTo: 'glossary/hidden-ingredients.html',
     hint: '学食の定番丼には、微量の薬草が隠し味として使われているそうです。メニューの詳細をもう一度確かめてみてください。'
