@@ -111,5 +111,6 @@ window.SEARCH_INDEX = [
   { path: 'glossary/conductivity-instrument-log.html', title: '伝導率測定器台帳、型式から辿る実験の正体', category: '図鑑', hidden: true, keywords: ['伝導率測定器台帳'], prereq: ['glossary/orchard-experiment-log.html'], exactMatch: true },
   { path: 'glossary/resonance-adjustment-log.html', title: '連動調整記録、揃わない出力の理由', category: '図鑑', hidden: true, keywords: ['連動調整記録'], prereq: ['glossary/four-elements-seal.html'], exactMatch: true },
   { path: 'glossary/stone-inspection-report.html', title: '石材鑑定書、石は無実だったという結論', category: '図鑑', hidden: true, keywords: ['石材鑑定書'], prereq: ['glossary/resonance-adjustment-log.html'], exactMatch: true },
-  { path: 'glossary/margin-note.html', title: '法典余白の書き込み、紋様の原型らしき一文', category: '図鑑', hidden: true, keywords: ['法典余白の書き込み'], prereq: ['glossary/dueling-heritage.html'], exactMatch: true }
+  { path: 'glossary/margin-note.html', title: '法典余白の書き込み、紋様の原型らしき一文', category: '図鑑', hidden: true, keywords: ['法典余白の書き込み'], prereq: ['glossary/dueling-heritage.html'], exactMatch: true },
+  { path: 'glossary/visitor-log-match.html', title: '来場者記帳簿、同じ癖の「る」', category: '図鑑', hidden: true, keywords: ['来場者記帳簿'], prereq: ['glossary/margin-note.html'], exactMatch: true }
 ];

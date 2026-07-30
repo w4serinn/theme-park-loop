@@ -279,6 +279,12 @@ window.HINT_DATA = [
     hint: '決闘シグルの意匠と古語魔法文の関係は対訳にも解説にも触れられていないそうですが、法典の写しの一冊には後世の誰かが書き加えたという余白の書き込みが残っているという話でした。'
   },
   {
+    requiresPage: 'glossary/margin-note.html',
+    hintFor: 'glossary/margin-note.html',
+    leadsTo: 'glossary/visitor-log-match.html',
+    hint: '書き込みの主が誰かは筆跡照合でも特定できないそうですが、決闘演武場には来場者の名前を書き残す古い帳面が残っているという話でした。'
+  },
+  {
     hintFor: 'dining/index.html',
     leadsTo: 'glossary/hidden-ingredients.html',
     hint: '学食の定番丼には、微量の薬草が隠し味として使われているそうです。メニューの詳細をもう一度確かめてみてください。'
