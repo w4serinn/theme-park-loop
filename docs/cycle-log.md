@@ -1,5 +1,29 @@
 # サイクル履歴
 
+## 2026-07-30 16:15
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から
+  選定)。
+- 実装: P102(root、flavor: P103)として
+  `pages/glossary/starfall-fortune.html`を新設(2カード)。単語1つ
+  (`dining/observatory-dining.html`「星屑ソーダ『流星の軌跡』」、銀糖が
+  溶ける速さで運を占う学生風習)を「ソーダそのもの」「占いの風習」の
+  2つの切り口に掘り下げて実装。フックには新規語を発明せず、既存の
+  P49(fifth-headmaster.html)で使用済みの「流星記録石板」を自然な形で
+  再登場させ、占いの結果が実際の観測記録と照らし合わせられるかもしれない
+  という繋がりを示唆した。`src/search-data.js`・`src/hint-data.js`
+  (observatory-dining.htmlから1件)・`docs/ARG-DESIGN.md` P102行・
+  `docs/ARG-WORDBANK.md`該当箇所を更新。
+- レビュー: OK(local-review、指摘なし。P番号重複・フック検索可能性を
+  事前に自己チェック済み)
+- lint: ✓ / lint:css: ✓ / test: ✓(501件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(魔導機械科・見習い
+  案内人・学院東駐車場、いずれも候補薄いと明記済み)からのroot追加、
+  または各実装済みrootのflavor化を優先的に検討する。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 15:50
 - ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
 - タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から

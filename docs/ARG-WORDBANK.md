@@ -96,7 +96,7 @@
 | 鉄皮林檎 | dining/index.html | 5. 学食・喫茶室 | — | 使用済み | P53 |
 | 魔力ナッツ | dining/index.html | 5. 学食・喫茶室 | — | 使用済み | P62 |
 | 7番試薬/碧龍の試薬ソーダ「第7番」 | dining/alchemy-dining.html(4節と同一語) | 5. 学食・喫茶室 | (未分類) | 保留中(素材不足) | — |
-| 星屑ソーダで運を占う学生風習 | dining/observatory-dining.html | 5. 学食・喫茶室 | — | 未使用 | — |
+| 星屑ソーダで運を占う学生風習 | dining/observatory-dining.html | 5. 学食・喫茶室 | — | 使用済み | P102 |
 | 見習い案内人 | tickets/index.html | 6. 入学願書 | — | 未使用 | — |
 | 学院東駐車場 | access/index.html | 7. 学院への道のり | — | 未使用 | — |
 
