@@ -88,12 +88,12 @@
 | 「大結界召喚陣」 | shop/summoning-circle.html | 4. 購買部 | — | 未使用 | — |
 | 7番試薬/碧龍の試薬ソーダ「第7番」 | shop/alchemy-dining.html(5節と同一語) | 4. 購買部 | (未分類) | 保留中(素材不足) | — |
 | 月草 | dining/index.html 他6ページ | 5. 学食・喫茶室 | G | 使用済み | P97 |
-| 学院農園 | dining/index.html 他5ページ | 5. 学食・喫茶室 | — | 未使用 | — |
-| 薬草園 | dining/index.html 他4ページ | 5. 学食・喫茶室 | — | 未使用 | — |
+| 学院農園 | dining/index.html 他5ページ | 5. 学食・喫茶室 | — | 使用済み | P53 |
+| 薬草園 | dining/index.html 他4ページ | 5. 学食・喫茶室 | — | 使用済み | P53 |
 | エルダーフラワー | dining/index.html 他3ページ | 5. 学食・喫茶室 | — | 未使用 | — |
 | 写本師 | dining/library-dining.html | 5. 学食・喫茶室 | (未分類、関連) | 使用済み(関連) | P35 |
 | 安息薬草/安息草 | dining/index.html・alchemy-dining.html | 5. 学食・喫茶室 | — | 未使用 | — |
-| 鉄皮林檎 | dining/index.html | 5. 学食・喫茶室 | — | 未使用 | — |
+| 鉄皮林檎 | dining/index.html | 5. 学食・喫茶室 | — | 使用済み | P53 |
 | 魔力ナッツ | dining/index.html | 5. 学食・喫茶室 | — | 未使用 | — |
 | 7番試薬/碧龍の試薬ソーダ「第7番」 | dining/alchemy-dining.html(4節と同一語) | 5. 学食・喫茶室 | (未分類) | 保留中(素材不足) | — |
 | 星屑ソーダで運を占う学生風習 | dining/observatory-dining.html | 5. 学食・喫茶室 | — | 未使用 | — |

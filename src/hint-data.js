@@ -190,6 +190,16 @@ window.HINT_DATA = [
     hint: '学院祭の豆知識には、正式名称になる前の呼び名が書かれていたはずです。学院祭・行事の案内をもう一度確かめてみてください。'
   },
   {
+    hintFor: 'dining/index.html',
+    leadsTo: 'glossary/campus-harvest.html',
+    hint: '学食のアップルパイには、研究棟の林檎園で採れた特別な林檎が使われているそうです。デザートメニューの説明をもう一度読んでみてください。'
+  },
+  {
+    hintFor: 'shop/groceries.html',
+    leadsTo: 'glossary/campus-harvest.html',
+    hint: '食料品・薬草店の紹介文には、学院の食材が育つ二つの場所が書かれていたはずです。店の紹介文をもう一度確かめてみてください。'
+  },
+  {
     id: 'F1',
     requiresPage: 'glossary/apprentice-notes.html',
     hintFor: 'glossary/apprentice-notes.html',

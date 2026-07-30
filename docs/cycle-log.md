@@ -1,5 +1,26 @@
 # サイクル履歴
 
+## 2026-07-30 10:45
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から
+  選定)。
+- 実装: P53(root、4-5節のroot→flavor2段枠)として
+  `pages/glossary/campus-harvest.html`を新設(3カード)。
+  `dining/index.html`の「学院農園」「薬草園」「鉄皮林檎」(錬金術研究棟の
+  林檎園)をグルーピングし、学食メニューに繰り返し登場する3つの食材産地を
+  掘り下げた。学院農園・薬草園は`shop/groceries.html`の紹介文からも
+  接続可能な網状構造にした。`src/search-data.js`・`src/hint-data.js`
+  (dining/index.html・shop/groceries.htmlから各1件)・
+  `docs/ARG-DESIGN.md` P53行・`docs/ARG-WORDBANK.md`該当箇所を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(486件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(魔法繊維「エルドクロス」・
+  見習い案内人・エルダーフラワーなど)からのroot追加、またはP44/P47/P49/
+  P51/P53のflavor化。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 10:15
 - ブランチ: `evolve/cycle-39`がPR #49でmainへ自動マージ・削除済みを確認。
   `main`を最新化し、新しく`evolve/cycle-40`を作成。
