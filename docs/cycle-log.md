@@ -1,5 +1,36 @@
 # サイクル履歴
 
+## 2026-07-30 17:50
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `docs/ARG-WORDBANK.md`「## 候補一覧」に残っていた最後の未使用3行
+  (魔導機械科・見習い案内人・学院東駐車場)を消化。3語は出典ページも
+  テーマも異なりグルーピングできないため、単語1つのみでroot 1ページに
+  仕立てる方針(2026-07-30改訂)に沿って、それぞれ独立したrootページとして
+  実装(3件を1サイクルにまとめて処理、無関係項目のバンドルでAPI使用量を
+  抑える運用に沿った)。
+- 実装: P104 `pages/glossary/machinery-department.html`(index.html「魔導機械科」
+  から接続、2カード。フック「大時計塔保全記録」)。P106
+  `pages/glossary/apprentice-guides.html`(tickets/index.html「見習い案内人」
+  から接続、2カード。フック「正案内人認定簿」)。P108
+  `pages/glossary/east-lot-history.html`(access/index.html「学院東駐車場」
+  から接続、2カード。フック「旧地割図」)。いずれも当初からフックを検索
+  可能な具体語として本文に埋め込んで実装(5節ルール、遡及修正は不要だった)。
+  `src/search-data.js`(exactMatch 3件追加)・`src/hint-data.js`(root型ヒント
+  3件追加)・`docs/ARG-DESIGN.md`(P104〜P109の3行追加、flavor枠P105/P107/P109
+  は未着手のまま予約)・`docs/ARG-WORDBANK.md`(3行を使用済みに更新)・
+  `docs/ROADMAP.md`(WORDBANK枯渇と新規root行の採番をP110以降にする旨を追記)
+  を更新。
+- レビュー: OK(local-review、指摘なし。P番号重複なし、3ページとも検索可能な
+  具体語のフックを本文に埋め込み済みであることを事前に自己チェック)
+- lint: ✓ / lint:css: ✓ / test: ✓(517件) / build: ✓
+- 次回予定: P16→P17(fragment F3、サイズL寄り)・P49→P50・P51→P52・
+  P53→P54,P55等、既存root行の予約済みflavor枠(P105・P107・P109を含む)の
+  掘り下げを継続。WORDBANK候補は完全に消化済みのため、以降は`### 13`の
+  優先順位ルール3(既存root flavor枠の掘り下げ)が実質的なデフォルトになる。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 17:20
 - ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
 - タスク選定: 前サイクル(P45)に続き、既に実装済みroot行の予約済み

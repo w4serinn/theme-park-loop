@@ -399,4 +399,19 @@ window.HINT_DATA = [
     leadsTo: 'glossary/unnamed-warden.html',
     hint: '大鐘「刻の声」の命名式典の記録にも、理由を語らない短い一文が残されていたはずです。もう一度思い出してみてください。'
   },
+  {
+    hintFor: 'index.html',
+    leadsTo: 'glossary/machinery-department.html',
+    hint: 'トップページの学科紹介には、大時計塔の管理を一手に担うという学科があったはずです。もう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'tickets/index.html',
+    leadsTo: 'glossary/apprentice-guides.html',
+    hint: '団体様向けのご案内には、構内ガイドツアーを担う役職の名前があったはずです。入学願書のページをもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'access/index.html',
+    leadsTo: 'glossary/east-lot-history.html',
+    hint: 'お車での来場案内には、正門前にある駐車場の名前が書かれていたはずです。もう一度確かめてみてください。'
+  },
 ];
