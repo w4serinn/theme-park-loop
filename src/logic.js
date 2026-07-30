@@ -268,7 +268,19 @@ export function buildSecretsTree(hiddenEntries, visitedPaths) {
     }
   });
 
+  Object.keys(nodes).forEach(function (path) {
+    nodes[path].descendantCount = countTreeDescendants(nodes[path]);
+  });
+
   return roots;
+}
+
+// 「これまでの記録」欄のツリー表示、「つながり(N)」の件数用(2026-07-30
+// ユーザー指摘)。直下の子だけでなく、ネスト最下層まで含めた子孫の総数を返す。
+export function countTreeDescendants(node) {
+  return node.children.reduce(function (total, child) {
+    return total + 1 + countTreeDescendants(child);
+  }, 0);
 }
 
 // 「手にした断片」欄の表示用データを組み立てる(2026-07-29 ユーザー指摘)。

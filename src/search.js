@@ -177,7 +177,21 @@
       }
     });
 
+    Object.keys(nodes).forEach(function (path) {
+      nodes[path].descendantCount = countTreeDescendants(nodes[path]);
+    });
+
     return roots;
+  }
+
+  // 「つながり(N)」の件数用(src/logic.jsのcountTreeDescendantsと同じ
+  // ロジック)。直下の子だけでなく、ネスト最下層まで含めた子孫の総数を返す
+  // (2026-07-30 ユーザー指摘: 直下の子の数だけでは、多段に連なる発見の
+  // 連鎖の深さが伝わらない)。
+  function countTreeDescendants(node) {
+    return node.children.reduce(function (total, child) {
+      return total + 1 + countTreeDescendants(child);
+    }, 0);
   }
 
   // ツリーノードの配列を<ul>の中に再帰的に描画する。子を持つノードは
@@ -200,7 +214,7 @@
         details.open = true;
 
         var summary = document.createElement('summary');
-        summary.textContent = 'つながり(' + node.children.length + ')';
+        summary.textContent = 'つながり(' + node.descendantCount + ')';
         details.appendChild(summary);
 
         var childUl = document.createElement('ul');

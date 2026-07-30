@@ -1,6 +1,6 @@
 import { test, expect, describe } from 'vitest';
 import {
-  buildHiddenEntryList, filterUnlockedHints, filterActiveHints, resolveHintPageTitle, groupHintsByHintFor, buildSecretsTree, buildFragmentDisplayList,
+  buildHiddenEntryList, filterUnlockedHints, filterActiveHints, resolveHintPageTitle, groupHintsByHintFor, buildSecretsTree, countTreeDescendants, buildFragmentDisplayList,
   shouldShowDiscoveryBadge, isDebugResetQuery, DEBUG_RESET_QUERY, shouldShowHintLink,
   isNostionMemoryWrongCandidate, NOSTION_MEMORY_PAGE_PATH, NOSTION_MEMORY_WRONG_CANDIDATES,
   isMoonGrassWrongCandidate,
@@ -456,14 +456,14 @@ describe('buildSecretsTree', () => {
 
   test('places a prereq-less entry as a root', () => {
     const tree = buildSecretsTree(hiddenEntries, ['A.html']);
-    expect(tree).toEqual([{ path: 'A.html', title: 'A', children: [] }]);
+    expect(tree).toEqual([{ path: 'A.html', title: 'A', children: [], descendantCount: 0 }]);
   });
 
   test('nests a child under its visited parent', () => {
     const tree = buildSecretsTree(hiddenEntries, ['A.html', 'B.html']);
     expect(tree).toEqual([
-      { path: 'A.html', title: 'A', children: [
-        { path: 'B.html', title: 'B', children: [] }
+      { path: 'A.html', title: 'A', descendantCount: 1, children: [
+        { path: 'B.html', title: 'B', children: [], descendantCount: 0 }
       ] }
     ]);
   });
@@ -481,15 +481,15 @@ describe('buildSecretsTree', () => {
     // C should nest under the visited B, and A must not appear anywhere.
     const tree = buildSecretsTree(hiddenEntries, ['B.html', 'C.html']);
     expect(tree).toEqual([
-      { path: 'B.html', title: 'B', children: [
-        { path: 'C.html', title: 'C', children: [] }
+      { path: 'B.html', title: 'B', descendantCount: 1, children: [
+        { path: 'C.html', title: 'C', children: [], descendantCount: 0 }
       ] }
     ]);
   });
 
   test('a visited entry with an unmatched entry (not in hiddenEntries) is silently skipped', () => {
     const tree = buildSecretsTree(hiddenEntries, ['A.html', 'unknown.html']);
-    expect(tree).toEqual([{ path: 'A.html', title: 'A', children: [] }]);
+    expect(tree).toEqual([{ path: 'A.html', title: 'A', children: [], descendantCount: 0 }]);
   });
 
   test('multiple unrelated roots stay separate', () => {
@@ -509,8 +509,8 @@ describe('buildSecretsTree', () => {
     // attach under P3.
     const treeBefore = buildSecretsTree(entries, ['P3.html', 'P6.html']);
     expect(treeBefore).toEqual([
-      { path: 'P3.html', title: 'P3', children: [
-        { path: 'P6.html', title: 'P6', children: [] }
+      { path: 'P3.html', title: 'P3', descendantCount: 1, children: [
+        { path: 'P6.html', title: 'P6', children: [], descendantCount: 0 }
       ] }
     ]);
 
@@ -523,6 +523,40 @@ describe('buildSecretsTree', () => {
     expect(p3Node.children.map((n) => n.path)).toEqual(['P6.html']);
     const p1Node = treeAfter.find((n) => n.path === 'P1.html');
     expect(p1Node.children).toEqual([]);
+  });
+
+  test('descendantCount reflects the full nested chain, not just direct children (2026-07-30 user feedback)', () => {
+    // starmap-fragments → first-astronomer → final-entry → shooting-star
+    const entries = [
+      { path: 'starmap-fragments.html', title: '魔導88星座', hidden: true },
+      { path: 'first-astronomer.html', title: 'シベル・オーレン', hidden: true, prereq: ['starmap-fragments.html'] },
+      { path: 'final-entry.html', title: '観測記録帳', hidden: true, prereq: ['first-astronomer.html'] },
+      { path: 'shooting-star.html', title: '流れ星', hidden: true, prereq: ['final-entry.html'] }
+    ];
+    const tree = buildSecretsTree(entries, [
+      'starmap-fragments.html', 'first-astronomer.html', 'final-entry.html', 'shooting-star.html'
+    ]);
+    const root = tree[0];
+    expect(root.descendantCount).toBe(3);
+    expect(root.children[0].descendantCount).toBe(2);
+    expect(root.children[0].children[0].descendantCount).toBe(1);
+    expect(root.children[0].children[0].children[0].descendantCount).toBe(0);
+  });
+});
+
+describe('countTreeDescendants', () => {
+  test('returns 0 for a leaf node', () => {
+    expect(countTreeDescendants({ children: [] })).toBe(0);
+  });
+
+  test('counts direct children only when there is no further nesting', () => {
+    const node = { children: [{ children: [] }, { children: [] }] };
+    expect(countTreeDescendants(node)).toBe(2);
+  });
+
+  test('counts nested descendants beyond direct children', () => {
+    const node = { children: [{ children: [{ children: [{ children: [] }] }] }] };
+    expect(countTreeDescendants(node)).toBe(3);
   });
 });
 
