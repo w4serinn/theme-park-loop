@@ -1,5 +1,26 @@
 # サイクル履歴
 
+## 2026-07-30 09:15
+- ブランチ: 引き続き`evolve/cycle-39`(未マージ)。
+- タスク選定: `### 13`root行の実装(前サイクルで表形式化した
+  `docs/ARG-WORDBANK.md`の未使用行から選定)。
+- 実装: P49(root、4-5節の単発チェーン枠)として
+  `pages/glossary/fifth-headmaster.html`を新設(3カード)。
+  `exploration/observatory.html`の「アルノルドの眼」「流星記録石板」
+  「第5代学長」(実名は本文中に記載なし)をグルーピングし、天文台を建てた
+  第2代学長フローラ・シルヴァーンとの対比で「なぜこの学長だけ実名が
+  伝わっていないのか」というフックを軸にした。`src/search-data.js`・
+  `src/hint-data.js`(observatory.htmlから1件)・`docs/ARG-DESIGN.md` P49行・
+  `docs/ARG-WORDBANK.md`該当箇所を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(476件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(占術師・学院農園・
+  時間経路実験室など)からのroot追加、またはP44→P45・P47→P48・P49→P50の
+  flavor化。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 08:50
 - ブランチ: 引き続き`evolve/cycle-39`(未マージ)。
 - タスク選定: `### 13`の表形式化タスク(手動チャットでユーザーが優先順位を

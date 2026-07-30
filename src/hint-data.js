@@ -180,6 +180,11 @@ window.HINT_DATA = [
     hint: 'ドック用の帆布財布には、ある意匠をかたどったチャームが付いているそうです。その商品説明をもう一度読んでみてください。'
   },
   {
+    hintFor: 'exploration/observatory.html',
+    leadsTo: 'glossary/fifth-headmaster.html',
+    hint: '天文台の主要観測設備には、ある学長の代に設置された望遠鏡があったはずです。設備の説明をもう一度確かめてみてください。'
+  },
+  {
     id: 'F1',
     requiresPage: 'glossary/apprentice-notes.html',
     hintFor: 'glossary/apprentice-notes.html',

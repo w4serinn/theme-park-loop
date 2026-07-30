@@ -60,9 +60,9 @@
 | 契約精霊の棲家「風見の祠」 | exploration/summoning-plaza.html | 2. 学院内探索 | C | 使用済み | P85 |
 | 契約精霊シルフィ | exploration/summoning-plaza.html | 2. 学院内探索 | F | 使用済み | P23 |
 | 第2代学長フローラ・シルヴァーン | exploration/observatory.html | 2. 学院内探索 | D(関連) | 使用済み(関連) | P28(library-shop.html側の書簡から実装) |
-| 大望遠鏡「アルノルドの眼」 | exploration/observatory.html | 2. 学院内探索 | — | 未使用 | — |
-| 流星記録石板 | exploration/observatory.html | 2. 学院内探索 | — | 未使用 | — |
-| 第5代学長(名前は本文中に記載なし) | exploration/observatory.html | 2. 学院内探索 | — | 未使用 | — |
+| 大望遠鏡「アルノルドの眼」 | exploration/observatory.html | 2. 学院内探索 | — | 使用済み | P49 |
+| 流星記録石板 | exploration/observatory.html | 2. 学院内探索 | — | 使用済み | P49 |
+| 第5代学長(名前は本文中に記載なし) | exploration/observatory.html | 2. 学院内探索 | — | 使用済み | P49 |
 | 占術師(現職17代目) | events/index.html | 3. 学院祭・行事 | — | 未使用 | — |
 | 錬金術研究棟の記録簿 | events/index.html | 3. 学院祭・行事 | B-2 | 使用済み | P39 |
 | 錬金術師の指輪 | events/index.html | 3. 学院祭・行事 | — | 未使用 | — |
