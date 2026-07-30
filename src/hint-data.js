@@ -255,6 +255,11 @@ window.HINT_DATA = [
     hint: '大図書館の蔵書には、問いかけに応じてページが開く特別な一群があるそうです。エリアについての説明をもう一度確かめてみてください。'
   },
   {
+    hintFor: 'exploration/clock-tower.html',
+    leadsTo: 'glossary/time-path-interference.html',
+    hint: '時計塔には、同じ部屋の中で時間の流れが異なる展示室があるそうです。設備の紹介をもう一度確かめてみてください。'
+  },
+  {
     id: 'F1',
     requiresPage: 'glossary/apprentice-notes.html',
     hintFor: 'glossary/apprentice-notes.html',

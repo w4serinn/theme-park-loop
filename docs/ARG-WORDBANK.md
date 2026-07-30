@@ -46,7 +46,7 @@
 | 管理台帳「刻の書」 | exploration/clock-tower.html | 2. 学院内探索 | A | 使用済み | P12 |
 | 大鐘「刻の声」 | exploration/clock-tower.html | 2. 学院内探索 | A | 使用済み | P12 |
 | 予備歯車庫 | exploration/clock-tower.html | 2. 学院内探索 | C | 使用済み | P81 |
-| 時間経路実験室・「時間経路干渉」 | exploration/clock-tower.html | 2. 学院内探索 | — | 未使用 | — |
+| 時間経路実験室・「時間経路干渉」 | exploration/clock-tower.html | 2. 学院内探索 | — | 使用済み | P75 |
 | 蔵書親和魔法陣 | exploration/grand-library.html | 2. 学院内探索 | C | 使用済み | P82 |
 | 記憶を持つ本 | exploration/grand-library.html | 2. 学院内探索 | — | 使用済み | P70 |
 | 禁書閲覧室 | exploration/grand-library.html | 2. 学院内探索 | C | 使用済み | P84 |
