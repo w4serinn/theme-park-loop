@@ -300,6 +300,12 @@ window.HINT_DATA = [
     hint: '秘薬スタンドには、月草とある薬草をブレンドした温かい一服があるそうです。その説明をもう一度読んでみてください。'
   },
   {
+    requiresPage: 'glossary/hidden-ingredients.html',
+    hintFor: 'glossary/hidden-ingredients.html',
+    leadsTo: 'glossary/nut-supply-record.html',
+    hint: '魔力ナッツの収穫地はメニューの説明に触れられていないそうですが、学食の仕入れ担当には仕入れ先を記録した帳面が残っているという話でした。'
+  },
+  {
     hintFor: 'events/index.html',
     leadsTo: 'glossary/champions-prizes.html',
     hint: '飛行船競技大会の豆知識には、優勝チームに贈られる権利について書かれていたはずです。行事の案内をもう一度確かめてみてください。'
