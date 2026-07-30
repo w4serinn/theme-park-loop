@@ -186,6 +186,12 @@ window.HINT_DATA = [
     hint: 'ドック用の帆布財布には、ある意匠をかたどったチャームが付いているそうです。その商品説明をもう一度読んでみてください。'
   },
   {
+    requiresPage: 'glossary/airship-symbols.html',
+    hintFor: 'glossary/airship-symbols.html',
+    leadsTo: 'glossary/anchor-feather-origin.html',
+    hint: '意匠の由来は公式には示されていないそうですが、ドック事務所の書庫にはある人物の日誌が残っているという話でした。'
+  },
+  {
     hintFor: 'exploration/observatory.html',
     leadsTo: 'glossary/fifth-headmaster.html',
     hint: '天文台の主要観測設備には、ある学長の代に設置された望遠鏡があったはずです。設備の説明をもう一度確かめてみてください。'

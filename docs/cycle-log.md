@@ -1,5 +1,30 @@
 # サイクル履歴
 
+## 2026-07-30 17:20
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: 前サイクル(P45)に続き、既に実装済みroot行の予約済み
+  flavor枠を掘り下げる方針を継続。P47(airship-symbols.html)の
+  flavor枠P48に着手。
+- 実装: P47の「図案の意味も、由来と同様はっきりしない」というフックを
+  継続し、`pages/glossary/anchor-feather-origin.html`を新設(2カード)。
+  P44/P45実装時と同じ手順で、P47側のこのフックが当初「〜はっきりし
+  ない」という疑問文のままで検索可能語句を伴っていなかったことに気づき、
+  P47の本文にも「初代ドック長の航海日誌」という検索可能な具体語を
+  手がかりとして追記(P13→P14・P44→P45と同型の対応)。この語をそのまま
+  P48のkeywordに使用した。`src/search-data.js`(prereq:
+  airship-symbols.html)・`src/hint-data.js`(チェーン継続ヒント1件)・
+  `docs/ARG-DESIGN.md` P47行を更新。
+- レビュー: OK(local-review、指摘なし。P番号重複なし、フックは検索可能
+  語句として本文に埋め込み済みであることを事前に自己チェック)
+- lint: ✓ / lint:css: ✓ / test: ✓(508件) / build: ✓
+- 次回予定: 他の実装済みroot(P16→P17[fragment、F3。サイズL寄りのため
+  慎重に見積もる]・P49→P50・P51→P52・P53→P54,P55等)のflavor化を継続、
+  またはWORDBANK残り3件(魔導機械科・見習い案内人・学院東駐車場)からの
+  root追加。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 16:45
 - ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
 - タスク選定: `docs/ARG-WORDBANK.md`の未使用行が残り3件(いずれも候補薄いと
