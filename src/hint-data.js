@@ -200,6 +200,16 @@ window.HINT_DATA = [
     hint: '食料品・薬草店の紹介文には、学院の食材が育つ二つの場所が書かれていたはずです。店の紹介文をもう一度確かめてみてください。'
   },
   {
+    hintFor: 'exploration/summoning-plaza.html',
+    leadsTo: 'glossary/four-elements-seal.html',
+    hint: '魔法陣召喚広場の四隅には、力を集めるための石が埋め込まれているそうです。広場設備の説明をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'shop/summoning-circle.html',
+    leadsTo: 'glossary/four-elements-seal.html',
+    hint: '召喚素材専門店には、広場の実演で実際に使われた陣の設計図ポスターがあるそうです。その商品説明をもう一度読んでみてください。'
+  },
+  {
     id: 'F1',
     requiresPage: 'glossary/apprentice-notes.html',
     hintFor: 'glossary/apprentice-notes.html',

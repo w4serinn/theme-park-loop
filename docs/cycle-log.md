@@ -1,5 +1,26 @@
 # サイクル履歴
 
+## 2026-07-30 11:20
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から
+  選定)。
+- 実装: P56(root、4-5節のroot→flavor2段枠)として
+  `pages/glossary/four-elements-seal.html`を新設(2カード)。
+  `exploration/summoning-plaza.html`の「四元素石」(広場四隅の属性石)と
+  `shop/summoning-circle.html`の「大結界召喚陣」(広場の実演で実際に
+  使用された陣の設計図ポスター)をグルーピングし、召喚陣の力がどこから
+  来るのかという切り口にした。`src/search-data.js`・`src/hint-data.js`
+  (summoning-plaza.html・summoning-circle.htmlから各1件)・
+  `docs/ARG-DESIGN.md` P56行・`docs/ARG-WORDBANK.md`該当箇所を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(489件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(魔法繊維「エルドクロス」・
+  見習い案内人・学院東駐車場など)からのroot追加、または各実装済みroot
+  (P44/P47/P49/P51/P53/P56)のflavor化。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 10:45
 - ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
 - タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から

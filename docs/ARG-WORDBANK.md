@@ -55,7 +55,7 @@
 | 魔封石保管庫 | exploration/dueling-ground.html | 2. 学院内探索 | C | 使用済み | P83 |
 | 考査記録室 | exploration/dueling-ground.html | 2. 学院内探索 | B-2 | 使用済み | P39 |
 | 大魔法陣「刻の輪」 | exploration/summoning-plaza.html | 2. 学院内探索 | A | 使用済み | P12 |
-| 四元素石 | exploration/summoning-plaza.html | 2. 学院内探索 | — | 未使用 | — |
+| 四元素石 | exploration/summoning-plaza.html | 2. 学院内探索 | — | 使用済み | P56 |
 | 陣紋補修記録簿 | exploration/summoning-plaza.html | 2. 学院内探索 | B-1 | 使用済み | P33 |
 | 契約精霊の棲家「風見の祠」 | exploration/summoning-plaza.html | 2. 学院内探索 | C | 使用済み | P85 |
 | 契約精霊シルフィ | exploration/summoning-plaza.html | 2. 学院内探索 | F | 使用済み | P23 |
@@ -85,7 +85,7 @@
 | 異次元存在 | shop/summoning-shop.html | 4. 購買部 | F | 使用済み | P23 |
 | 季節ごとのシグル紋様「炎の螺旋」「水流環」「雷紋双翼」 | shop/dueling-shop.html | 4. 購買部 | — | 未使用 | — |
 | 学院魔法決闘規定法典 | shop/dueling-gear.html | 4. 購買部 | — | 未使用 | — |
-| 「大結界召喚陣」 | shop/summoning-circle.html | 4. 購買部 | — | 未使用 | — |
+| 「大結界召喚陣」 | shop/summoning-circle.html | 4. 購買部 | — | 使用済み | P56 |
 | 7番試薬/碧龍の試薬ソーダ「第7番」 | shop/alchemy-dining.html(5節と同一語) | 4. 購買部 | (未分類) | 保留中(素材不足) | — |
 | 月草 | dining/index.html 他6ページ | 5. 学食・喫茶室 | G | 使用済み | P97 |
 | 学院農園 | dining/index.html 他5ページ | 5. 学食・喫茶室 | — | 使用済み | P53 |

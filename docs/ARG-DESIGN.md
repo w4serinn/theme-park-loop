@@ -341,7 +341,7 @@ flavor/fragmentが組めない」と判断した場合、その接続を無理�
 | P49 | P50 | 実装済み(root=P49。`pages/glossary/fifth-headmaster.html`、2026-07-30実装。`exploration/observatory.html`「アルノルドの眼」「流星記録石板」「第5代学長」(実名は本文中に記載なし)の3項目から接続。`docs/ARG-WORDBANK.md`「## 候補一覧」の未使用行をグルーピングして実装。第2代学長フローラ・シルヴァーンとの対比で「なぜこの学長だけ実名が伝わっていないのか」というフックを残し、P50へ) |
 | P51 | P52 | 実装済み(root=P51。`pages/glossary/festival-undertold.html`、2026-07-30実装。`events/index.html`の「旧称『秋祭り』」「『大点灯』の開始時刻が前日まで確定しない理由」「占術師(現職17代目)」の3項目から接続。`docs/ARG-WORDBANK.md`「## 候補一覧」の未使用行をグルーピングして実装。「秋祭りから正式行事への格上げの契機」「歴代占術師の選定基準」等、複数の未解決フックを残し、P52へ) |
 | P53 | P54 → P55 | 実装済み(root=P53。`pages/glossary/campus-harvest.html`、2026-07-30実装。`dining/index.html`「学院農園」「薬草園」「鉄皮林檎」(錬金術研究棟の林檎園)の3項目から接続。`shop/groceries.html`の紹介文からも学院農園・薬草園に接続可能な網状構造。`docs/ARG-WORDBANK.md`「## 候補一覧」の未使用行をグルーピングして実装。「研究棟の林檎だけ甘い理由が不明」というフックを残し、P54へ) |
-| P56 | P57 → P58 | 未着手 |
+| P56 | P57 → P58 | 実装済み(root=P56。`pages/glossary/four-elements-seal.html`、2026-07-30実装。`exploration/summoning-plaza.html`「四元素石」、`shop/summoning-circle.html`「大結界召喚陣」(広場の実演で実際に使用された陣の設計図ポスター)の2箇所から接続。`docs/ARG-WORDBANK.md`「## 候補一覧」の未使用行をグルーピングして実装。「陣と四元素石がどう連動していたか説明なし」というフックを残し、P57へ) |
 | P59 | P60 → P61 | 未着手 |
 | P62 | P63 → P64 → P65 | 未着手 |
 | P66 | P67 → P68 → P69 | 未着手 |
