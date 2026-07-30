@@ -270,6 +270,11 @@ window.HINT_DATA = [
     hint: '魔導具・実験器具店の測定器には、学院独自の単位で数値を示すものがあるそうです。その商品説明をもう一度読んでみてください。'
   },
   {
+    hintFor: 'shop/books.html',
+    leadsTo: 'glossary/summoning-theory.html',
+    hint: '書籍・資料店には、召喚学科主任が40年をかけてまとめた大著があるそうです。その商品説明をもう一度読んでみてください。'
+  },
+  {
     id: 'F1',
     requiresPage: 'glossary/apprentice-notes.html',
     hintFor: 'glossary/apprentice-notes.html',

@@ -97,5 +97,6 @@ window.SEARCH_INDEX = [
   { path: 'glossary/memory-books.html', title: '記憶を持つ本、答えたくない問い', category: '図鑑', hidden: true, keywords: ['記憶を持つ本'], exactMatch: true },
   { path: 'glossary/time-path-interference.html', title: '時間経路干渉、再現実験室の外側', category: '図鑑', hidden: true, keywords: ['時間経路実験室', '時間経路干渉'], exactMatch: true },
   { path: 'glossary/eldcloth-fabric.html', title: '魔法繊維「エルドクロス」、拡散を抑える生地', category: '図鑑', hidden: true, keywords: ['エルドクロス'], exactMatch: true },
-  { path: 'glossary/garigne-unit.html', title: '独自単位「ガリグネ」、誰が決めたのか', category: '図鑑', hidden: true, keywords: ['ガリグネメーター', 'ガリグネ'], exactMatch: true }
+  { path: 'glossary/garigne-unit.html', title: '独自単位「ガリグネ」、誰が決めたのか', category: '図鑑', hidden: true, keywords: ['ガリグネメーター', 'ガリグネ'], exactMatch: true },
+  { path: 'glossary/summoning-theory.html', title: '召喚術理論体系、40年の研究と幻の続巻', category: '図鑑', hidden: true, keywords: ['召喚術理論体系', 'レヴィン・オルトウェル教授'], exactMatch: true }
 ];
