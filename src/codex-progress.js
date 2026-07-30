@@ -69,12 +69,24 @@
     }
   }
 
+  // 開発用デバッグコマンド(2026-07-31 ユーザー提案、src/search.jsの
+  // isDebugUnlockQueryから呼ばれる)。resetの逆で、渡された秘密・断片を
+  // まるごと発見済み状態として書き込む(検証用)。呼び出し側
+  // [src/search.js]がwindow.SEARCH_INDEX・window.FRAGMENT_NAMESから
+  // 対象を組み立てて渡す(このファイル自体はそれらの内容を知らない)。
+  function unlockAll(secretPaths, fragmentList) {
+    var progress = { secrets: secretPaths || [], fragments: fragmentList || [] };
+    save(progress);
+    return progress;
+  }
+
   window.CodexProgress = {
     load: load,
     addSecret: addSecret,
     addFragment: addFragment,
     markFragmentUsed: markFragmentUsed,
-    reset: reset
+    reset: reset,
+    unlockAll: unlockAll
   };
 
   // data-page-path が指定されているscriptタグから読み込まれた場合、

@@ -5,6 +5,7 @@ import {
   isNostionMemoryWrongCandidate, NOSTION_MEMORY_PAGE_PATH, NOSTION_MEMORY_WRONG_CANDIDATES,
   isMoonGrassWrongCandidate,
   isDebugAllQuery, DEBUG_ALL_QUERY, buildDebugGraphNodes, buildDebugGraphTree, findDebugGraphIssues,
+  isDebugUnlockQuery, DEBUG_UNLOCK_QUERY,
   TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex,
   filterSearchIndex, MIN_SEARCH_QUERY_LENGTH, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
   isSearchEntryUnlocked, isCodexSelfReferenceQuery,
@@ -622,6 +623,34 @@ describe('isDebugAllQuery', () => {
   test('does not match empty input', () => {
     expect(isDebugAllQuery('')).toBe(false);
     expect(isDebugAllQuery(undefined)).toBe(false);
+  });
+});
+
+describe('isDebugUnlockQuery', () => {
+  test('matches the exact debug command', () => {
+    expect(isDebugUnlockQuery(DEBUG_UNLOCK_QUERY)).toBe(true);
+  });
+
+  test('trims surrounding whitespace', () => {
+    expect(isDebugUnlockQuery('  ' + DEBUG_UNLOCK_QUERY + '  ')).toBe(true);
+  });
+
+  test('does not match an ordinary search query', () => {
+    expect(isDebugUnlockQuery('錬金術')).toBe(false);
+  });
+
+  test('does not match a query that merely contains the command', () => {
+    expect(isDebugUnlockQuery(DEBUG_UNLOCK_QUERY + 'です')).toBe(false);
+  });
+
+  test('does not match empty input', () => {
+    expect(isDebugUnlockQuery('')).toBe(false);
+    expect(isDebugUnlockQuery(undefined)).toBe(false);
+  });
+
+  test('is distinct from the reset and all commands', () => {
+    expect(DEBUG_UNLOCK_QUERY).not.toBe(DEBUG_RESET_QUERY);
+    expect(DEBUG_UNLOCK_QUERY).not.toBe(DEBUG_ALL_QUERY);
   });
 });
 

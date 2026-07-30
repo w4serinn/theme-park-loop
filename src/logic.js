@@ -334,6 +334,15 @@ export function isDebugAllQuery(query) {
   return (query || '').trim() === DEBUG_ALL_QUERY;
 }
 
+// 開発用デバッグコマンド「!unlockall」。!resetの逆で、隠しページ・断片を
+// すべて発見済みにする(検証用に「学院の秘密」欄を一括で埋める)。!reset同様
+// 記号始まりの裏コマンドでSEARCH_INDEXには登録せず、即座に動作してリロードする。
+export var DEBUG_UNLOCK_QUERY = '!unlockall';
+
+export function isDebugUnlockQuery(query) {
+  return (query || '').trim() === DEBUG_UNLOCK_QUERY;
+}
+
 // P91(docs/ARG-DESIGN.md 4-3節)「本心の断片」の矛盾探しパズル対策
 // (2026-07-29 ユーザー指摘: 候補が3つしかなく、総当たりで解けてしまう)。
 // 候補を5つに増やしたことに加え、誤った候補を検索した際は通常の

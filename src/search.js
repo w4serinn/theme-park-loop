@@ -75,6 +75,18 @@
     return (query || '').trim() === DEBUG_RESET_QUERY;
   }
 
+  // 開発用デバッグコマンド「!unlockall」(2026-07-31 ユーザー提案、
+  // src/logic.jsのisDebugUnlockQueryと同じロジック)。!resetの逆で、
+  // window.SEARCH_INDEXの隠しページ全件・自己言及ページ・
+  // window.FRAGMENT_NAMESの断片全件を「学院の秘密」「手にした断片」に
+  // まとめて書き込み、リロードする。通常の検索語とは衝突しない記号始まりの
+  // 文字列で、SEARCH_INDEXには登録せずプレイヤー向けの説明もしない裏コマンド。
+  var DEBUG_UNLOCK_QUERY = '!unlockall';
+
+  function isDebugUnlockQuery(query) {
+    return (query || '').trim() === DEBUG_UNLOCK_QUERY;
+  }
+
   // クエリが「の」のような助詞1文字だと大量ヒットしてしまうため、この文字数
   // 未満のクエリは一致なしとして扱う(src/logic.jsのMIN_SEARCH_QUERY_LENGTHと
   // 同じ値。2026-07-29 ユーザー指摘)。
@@ -399,6 +411,20 @@
     if (isDebugResetQuery(input.value)) {
       if (window.CodexProgress && window.CodexProgress.reset) {
         window.CodexProgress.reset();
+      }
+      window.location.reload();
+      return;
+    }
+    if (isDebugUnlockQuery(input.value)) {
+      if (window.CodexProgress && window.CodexProgress.unlockAll) {
+        var hiddenPaths = window.SEARCH_INDEX
+          .filter(function (e) { return e.hidden; })
+          .map(function (e) { return e.path; })
+          .concat([SELF_REFERENCE_PAGE_PATH]);
+        var fragments = Object.keys(window.FRAGMENT_NAMES || {}).map(function (id) {
+          return { id: id, foundAt: '', used: false };
+        });
+        window.CodexProgress.unlockAll(hiddenPaths, fragments);
       }
       window.location.reload();
       return;
