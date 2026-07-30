@@ -74,6 +74,7 @@ window.SEARCH_INDEX = [
   { path: 'glossary/koku-trio.html', title: '「刻」を名に持つ三つの装置', category: '図鑑', hidden: true, keywords: ['刻の輪', '刻の書', '刻の声'], exactMatch: true },
   { path: 'glossary/beyond-the-map.html', title: '北方雲海と転移広場、地図の余白について', category: '図鑑', hidden: true, keywords: ['北方雲海', '魔法陣転移広場'], exactMatch: true },
   { path: 'glossary/arnold-relics.html', title: 'アルノルド卿が遺したもの、三つの資料', category: '図鑑', hidden: true, keywords: ['双頭の鷲と魔法陣', '研究手稿', '創魔の書'] },
+  { path: 'glossary/original-insight.html', title: '創意、という言葉', category: '図鑑', hidden: true, keywords: ['創意'], prereq: ['glossary/arnold-relics.html'], exactMatch: true },
   { path: 'glossary/spirits-of-arnold.html', title: '精霊、それぞれの現れ方', category: '図鑑', hidden: true, keywords: ['異次元存在', '契約精霊シルフィ', '星界の精霊'] },
   { path: 'glossary/circle-ledgers.html', title: '陣紋を刻み、守り継いだ記録簿', category: '図鑑', hidden: true, keywords: ['魔法陣刻印記録簿', '陣紋補修記録簿'], exactMatch: true },
   { path: 'glossary/merit-records.html', title: '品評会と段位、記録に残るもの', category: '図鑑', hidden: true, keywords: ['研究棟の記録簿', '考査記録室'], exactMatch: true },

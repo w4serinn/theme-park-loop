@@ -360,6 +360,13 @@ window.HINT_DATA = [
     hint: 'この記録帳全体が天文台の観測記録である以上、これらの数字も星に無関係ではないのかもしれません。'
   },
   {
+    id: 'F3',
+    requiresPage: 'glossary/arnold-relics.html',
+    hintFor: 'glossary/arnold-relics.html',
+    leadsTo: 'glossary/original-insight.html',
+    hint: '研究手稿の余白に残る記号は、司書が書き起こした対応表を使えば文字に置き換えられるはずです。並んだ記号を一つずつ読み替えてみてください。'
+  },
+  {
     id: 'F13',
     requiresPage: 'glossary/nostion-memory.html',
     hintFor: 'glossary/nostion-memory.html',
