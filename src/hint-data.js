@@ -240,6 +240,16 @@ window.HINT_DATA = [
     hint: '秘薬スタンドには、月草とある薬草をブレンドした温かい一服があるそうです。その説明をもう一度読んでみてください。'
   },
   {
+    hintFor: 'events/index.html',
+    leadsTo: 'glossary/champions-prizes.html',
+    hint: '飛行船競技大会の豆知識には、優勝チームに贈られる権利について書かれていたはずです。行事の案内をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'events/index.html',
+    leadsTo: 'glossary/champions-prizes.html',
+    hint: '錬金術品評会の副賞は、実用品ではない少し変わった記念品だそうです。行事の案内をもう一度確かめてみてください。'
+  },
+  {
     id: 'F1',
     requiresPage: 'glossary/apprentice-notes.html',
     hintFor: 'glossary/apprentice-notes.html',

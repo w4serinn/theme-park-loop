@@ -1,5 +1,28 @@
 # サイクル履歴
 
+## 2026-07-30 12:50
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から
+  選定)。
+- 実装: P66(root、4-5節のroot→flavor3段枠)として
+  `pages/glossary/champions-prizes.html`を新設(2カード)。
+  `events/index.html`の「飛行船競技大会」(旗艦『アルノルド号』の年間
+  優先搭乗権)と「錬金術品評会」(『錬金術師の指輪』)をグルーピングし、
+  学院祭の優勝者に贈られる副賞という切り口にした。`src/search-data.js`・
+  `src/hint-data.js`(events/index.htmlから2件)・
+  `docs/ARG-DESIGN.md` P66行・`docs/ARG-WORDBANK.md`該当箇所を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(498件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の未使用行が残り9件(魔導機械科・
+  時間経路実験室・記憶を持つ本・魔法繊維「エルドクロス」・独自単位
+  「ガリグネ」・レヴィン・オルトウェル教授・星屑ソーダで運を占う学生風習・
+  見習い案内人・学院東駐車場)まで減っており、いずれも単独ページのみの
+  言及で組み合わせにくい。次サイクル以降は各実装済みroot(P44/P47/P49/
+  P51/P53/P56/P59/P62/P66)のflavor化を優先的に検討する。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 12:20
 - ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
 - タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から

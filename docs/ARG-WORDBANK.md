@@ -65,9 +65,9 @@
 | 第5代学長(名前は本文中に記載なし) | exploration/observatory.html | 2. 学院内探索 | — | 使用済み | P49 |
 | 占術師(現職17代目) | events/index.html | 3. 学院祭・行事 | — | 使用済み | P51 |
 | 錬金術研究棟の記録簿 | events/index.html | 3. 学院祭・行事 | B-2 | 使用済み | P39 |
-| 錬金術師の指輪 | events/index.html | 3. 学院祭・行事 | — | 未使用 | — |
+| 錬金術師の指輪 | events/index.html | 3. 学院祭・行事 | — | 使用済み | P66 |
 | 旧称「秋祭り」 | events/index.html | 3. 学院祭・行事 | — | 使用済み | P51 |
-| 旗艦「アルノルド号」年間優先搭乗権 | events/index.html | 3. 学院祭・行事 | — | 未使用 | — |
+| 旗艦「アルノルド号」年間優先搭乗権 | events/index.html | 3. 学院祭・行事 | — | 使用済み | P66 |
 | 「大点灯」(魔法陣点灯式) | events/index.html | 3. 学院祭・行事 | — | 使用済み | P51 |
 | 星界の精霊 | events/index.html | 3. 学院祭・行事 | F | 使用済み | P23 |
 | 魔法繊維「エルドクロス」 | shop/uniforms.html | 4. 購買部 | — | 未使用 | — |
