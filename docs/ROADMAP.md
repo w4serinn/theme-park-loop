@@ -232,8 +232,7 @@ ARG(代替現実ゲーム)的な「発見の連鎖+謎解き+最終ゴール」�
       やり取り)形式も使ってよい。各ページの形式は`docs/ARG-DESIGN.md`4節の
       表「形式」列を参照(4-5節は個別列を持たないため既定は`証言`)。
 
-      対象(15件、上から順に進めるのが基本):
-      - [ ] glossary/dueling-heritage.html(決闘演武場、力を支える三つのしるし)
+      対象(12件、上から順に進めるのが基本):
       - [ ] glossary/hidden-ingredients.html(隠し材料、三つの脇役)
       - [ ] glossary/champions-prizes.html(学院祭、優勝者に贈られるもの)
       - [ ] glossary/memory-books.html(記憶を持つ本、答えたくない問い)
@@ -245,8 +244,6 @@ ARG(代替現実ゲーム)的な「発見の連鎖+謎解き+最終ゴール」�
       - [ ] glossary/machinery-department.html(魔導機械科、学院の心臓部を託される学科)
       - [ ] glossary/apprentice-guides.html(見習い案内人、「見習い」の先にあるもの)
       - [ ] glossary/east-lot-history.html(学院東駐車場、舗装の下に残るもの)
-      - [ ] glossary/margin-note.html(法典余白の書き込み、紋様の原型らしき一文)
-      - [ ] glossary/visitor-log-match.html(来場者記帳簿、同じ癖の「る」)
       - [ ] glossary/nut-supply-record.html(魔力ナッツ仕入れ記録、地図に無い仕入れ先)
 
 - [ ] (S) `docs/ARG-DESIGN.md`4節の表にある「未着手」のP番号ページを1行(または
