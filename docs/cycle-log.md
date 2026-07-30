@@ -1,5 +1,534 @@
 # サイクル履歴
 
+## 2026-07-30 20:30
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: 手動チャットで`docs/ROADMAP.md`「### 10」に追記された
+  デバッグ用検索コマンド「!all」タスク(M)に着手。「進行中」に戻っていた
+  同ページの唯一の未完了サブタスク。
+- 実装: 検索窓に「!all」と入力すると、既存の「!reset」と同様の記号始まり
+  裏コマンドとして扱われるが、通常の検索結果と同じ形の1件のカード
+  (category: 「デバッグ」)として`pages/debug/search-graph.html`への案内を
+  表示するようにした。遷移先は、SEARCH_INDEX(src/search-data.js)の
+  hiddenエントリ一つひとつに、HINT_DATA(src/hint-data.js)側からそこへ
+  向かうヒントの一覧を付加して表示する開発者向けの可視化ページ。
+  root→flavorの木構造(prereqが複数の場合は両方の親の下に重複表示)、
+  keywords、incoming hintsに加え、整合性チェック(ヒントが1件も無い
+  孤立ページ・prereqの参照切れの検出)も表示する。プレイヤー向けのARG体験
+  には含めない(hidden: false、meta robots noindex,nofollow、
+  CodexProgressへの読み書き無し)。純粋関数は`src/logic.js`に実装しテスト
+  追加(buildDebugGraphNodes/buildDebugGraphTree/findDebugGraphIssues/
+  isDebugAllQuery)、`src/debug-graph.js`(ページ本体)・`src/search.js`
+  (検索結果カード)には同じロジックを複製(file://対応、既存の
+  isDebugResetQuery等と同じ設計方針)。
+- レビュー: 実装直後にPlaywrightでのブラウザ動作確認を2回実施し、以下を
+  発見・その場で修正: (1) buildDebugGraphTreeが3段以上のflavorチェーン
+  (P53→P54→P55等)で孫ノードにchildrenプロパティを付与し忘れておりTypeError
+  で木が空表示になる不具合(再発防止のテストケースを追加)、(2) 見出し・
+  本文の文字色にvar(--ink)を誤用しておりサイト背景(bodyの背景色も
+  var(--ink))と同化して文字が見えなくなる不具合(var(--brass)ベースに
+  修正)。さらに実データでの再検証時、P91(nostion-memory.html、意図的に
+  SEARCH_INDEX未登録)をprereqとするエントリがdangling-prereqとして誤検知
+  される問題も発見し、既知の例外として除外する対応とテストを追加。
+  再検証で全て解消を確認(コンソールエラー無し、隠しページ49件/root34件が
+  正しくツリー表示、3段チェーンも正しくネスト、文字色も可読)。
+- lint: ✓ / lint:css: ✓ / test: ✓(550件) / build: ✓
+- 次回予定: `### 13`のP16→P17(fragment F3、サイズL寄り)・P49→P50は実装済み
+  のため、P56→P57,P58等の既存root flavor枠の掘り下げを継続。
+- blocked / partial: なし
+- asset-pending: なし(デバッグ用ページのため、ビジュアルエリアは無し)
+
+## 2026-07-30 19:45
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: 前サイクル(P54)に続き、P53チェーンの最終段P55に着手し、
+  P53→P54→P55のチェーンを完成させた。
+- 実装: P54の「本来の検証対象は記録の該当ページが破損して判読不能」
+  というフックを継続し、`pages/glossary/conductivity-instrument-log.html`
+  を新設(2カード)。P54側にも「伝導率測定器台帳」という検索可能な具体語
+  を手がかりとして追記。台帳の貸出記録から、林檎園設立年に貸し出されて
+  いた測定器が本来「異界微弱反応検知用」の特殊型式だったことを示し、
+  単純な土壌検証ではなかった可能性を示唆する形で、チェーンを完全解決
+  せず余韻を残して締めくくった(P14→P15と同様のパターン)。
+  `src/search-data.js`(prereq: orchard-experiment-log.html)・
+  `src/hint-data.js`(チェーン継続ヒント1件)・`docs/ARG-DESIGN.md` P53行を
+  更新し、`docs/ROADMAP.md`のflavor枠一覧からP53チェーンの記載を除去。
+- レビュー: OK(local-review、指摘なし。P番号重複なし、フックは検索可能
+  語句として本文に埋め込み済みであることを事前に自己チェック)
+- lint: ✓ / lint:css: ✓ / test: ✓(529件) / build: ✓
+- 次回予定: P16→P17(fragment F3、サイズL寄り)・P56→P57,P58・
+  P59→P60,P61・P62→P63-65等のflavor化を継続。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 19:15
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `### 13`優先順位ルール3(既存root行の予約済みflavor枠の
+  掘り下げ)に沿って、P53(campus-harvest.html)のflavor枠(P54→P55の
+  2段チェーン)のうち、まずP54に着手。
+- 実装: P53の「研究棟の林檎だけ甘い理由が不明」というフックを継続し、
+  `pages/glossary/orchard-experiment-log.html`を新設(2カード)。P51/P49/
+  P44/P47実装時と同じ手順で、P53側のこのフックが当初「〜書かれていない」
+  という疑問文のままで検索可能語句を伴っていなかったことに気づき、P53の
+  本文にも「林檎栽培実験記録」という検索可能な具体語を手がかりとして追記
+  (P13→P14と同型の対応)。P54では甘さの理由を明かさず、「林檎園はもともと
+  土壌の魔力伝導率検証用の試験区画で、本来の検証対象が書かれたページは
+  破損して判読不能」という新たな謎を重ね、P55へ続く構成にした(P14→P15・
+  P49→P50・P51→P52の「深める」パターンを踏襲)。`src/search-data.js`
+  (prereq: campus-harvest.html)・`src/hint-data.js`(チェーン継続ヒント
+  1件)・`docs/ARG-DESIGN.md` P53行を更新。
+- レビュー: OK(local-review、指摘なし。P番号重複なし、フックは検索可能
+  語句として本文に埋め込み済みであることを事前に自己チェック)
+- lint: ✓ / lint:css: ✓ / test: ✓(526件) / build: ✓
+- 次回予定: P53チェーンの続き(P54→P55)、またはP16→P17(fragment F3、
+  サイズL寄り)・P56→P57,P58・P59→P60,P61等のflavor化を継続。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 18:45
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `### 13`優先順位ルール3(既存root行の予約済みflavor枠の
+  掘り下げ)に沿って、P51(festival-undertold.html)のflavor枠P52に着手。
+  同ページには3つの未解決フックがあったが、最も掘り下げやすい「歴代占術師
+  の選定基準」を選んだ。
+- 実装: P51の当該フックを継続し、`pages/glossary/fortune-teller-selection.html`
+  を新設(2カード)。P49/P44/P47実装時と同じ手順で、P51側のこのフックが
+  当初「〜語られていない」という疑問文のままで検索可能語句を伴っていな
+  かったことに気づき、P51の本文にも「占術師選定記録」という検索可能な
+  具体語を手がかりとして追記(P13→P14と同型の対応)。P52では選考基準を
+  明かさず、「歴代17人全員が『大点灯』当日生まれ」という新たな符合を
+  重ねる形にした(P14→P15・P49→P50の「深める」パターンを踏襲)。
+  `src/search-data.js`(prereq: festival-undertold.html)・`src/hint-data.js`
+  (チェーン継続ヒント1件)・`docs/ARG-DESIGN.md` P51行を更新。
+- レビュー: OK(local-review、指摘なし。P番号重複なし、フックは検索可能
+  語句として本文に埋め込み済みであることを事前に自己チェック)
+- lint: ✓ / lint:css: ✓ / test: ✓(523件) / build: ✓
+- 次回予定: P16→P17(fragment F3、サイズL寄り)・P53→P54,P55・
+  P56→P57,P58・P59→P60,P61等のflavor化を継続。P51に残る他2つの未解決
+  フック(秋祭りから正式行事への格上げの契機/大点灯の詠唱タイミングを
+  左右する要因)も、予約済みflavor枠が尽きた際の掘り下げ候補として残る。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 18:15
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `docs/ARG-WORDBANK.md`の候補一覧を使い切ったため、`### 13`の
+  優先順位ルール3(既存root行の予約済みflavor枠の掘り下げ)に沿って、
+  P49(fifth-headmaster.html)のflavor枠P50に着手。
+- 実装: P49の「なぜこの学長だけ実名が伝わっていないのか」というフックを
+  継続し、`pages/glossary/portrait-gallery.html`を新設(2カード)。P44/P47
+  実装時と同じ手順で、P49側のこのフックが当初「〜見当たらない」という
+  疑問文のままで検索可能語句を伴っていなかったことに気づき、P49の本文にも
+  「歴代学長肖像画帳」という検索可能な具体語を手がかりとして追記
+  (P13→P14・P44→P45・P47→P48と同型の対応)。P50では謎を解決せず、
+  「肖像画は描かれているのに略歴欄だけ空白」という新たな謎を重ねる形にした
+  (P14→P15の「深める」パターンを踏襲)。`src/search-data.js`(prereq:
+  fifth-headmaster.html)・`src/hint-data.js`(チェーン継続ヒント1件)・
+  `docs/ARG-DESIGN.md` P49行を更新。
+- レビュー: OK(local-review、指摘なし。P番号重複なし、フックは検索可能
+  語句として本文に埋め込み済みであることを事前に自己チェック)
+- lint: ✓ / lint:css: ✓ / test: ✓(520件) / build: ✓
+- 次回予定: 他の実装済みroot(P16→P17[fragment F3、サイズL寄り]・
+  P51→P52・P53→P54,P55・P56→P57,P58等)のflavor化を継続。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 17:50
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `docs/ARG-WORDBANK.md`「## 候補一覧」に残っていた最後の未使用3行
+  (魔導機械科・見習い案内人・学院東駐車場)を消化。3語は出典ページも
+  テーマも異なりグルーピングできないため、単語1つのみでroot 1ページに
+  仕立てる方針(2026-07-30改訂)に沿って、それぞれ独立したrootページとして
+  実装(3件を1サイクルにまとめて処理、無関係項目のバンドルでAPI使用量を
+  抑える運用に沿った)。
+- 実装: P104 `pages/glossary/machinery-department.html`(index.html「魔導機械科」
+  から接続、2カード。フック「大時計塔保全記録」)。P106
+  `pages/glossary/apprentice-guides.html`(tickets/index.html「見習い案内人」
+  から接続、2カード。フック「正案内人認定簿」)。P108
+  `pages/glossary/east-lot-history.html`(access/index.html「学院東駐車場」
+  から接続、2カード。フック「旧地割図」)。いずれも当初からフックを検索
+  可能な具体語として本文に埋め込んで実装(5節ルール、遡及修正は不要だった)。
+  `src/search-data.js`(exactMatch 3件追加)・`src/hint-data.js`(root型ヒント
+  3件追加)・`docs/ARG-DESIGN.md`(P104〜P109の3行追加、flavor枠P105/P107/P109
+  は未着手のまま予約)・`docs/ARG-WORDBANK.md`(3行を使用済みに更新)・
+  `docs/ROADMAP.md`(WORDBANK枯渇と新規root行の採番をP110以降にする旨を追記)
+  を更新。
+- レビュー: OK(local-review、指摘なし。P番号重複なし、3ページとも検索可能な
+  具体語のフックを本文に埋め込み済みであることを事前に自己チェック)
+- lint: ✓ / lint:css: ✓ / test: ✓(517件) / build: ✓
+- 次回予定: P16→P17(fragment F3、サイズL寄り)・P49→P50・P51→P52・
+  P53→P54,P55等、既存root行の予約済みflavor枠(P105・P107・P109を含む)の
+  掘り下げを継続。WORDBANK候補は完全に消化済みのため、以降は`### 13`の
+  優先順位ルール3(既存root flavor枠の掘り下げ)が実質的なデフォルトになる。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 17:20
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: 前サイクル(P45)に続き、既に実装済みroot行の予約済み
+  flavor枠を掘り下げる方針を継続。P47(airship-symbols.html)の
+  flavor枠P48に着手。
+- 実装: P47の「図案の意味も、由来と同様はっきりしない」というフックを
+  継続し、`pages/glossary/anchor-feather-origin.html`を新設(2カード)。
+  P44/P45実装時と同じ手順で、P47側のこのフックが当初「〜はっきりし
+  ない」という疑問文のままで検索可能語句を伴っていなかったことに気づき、
+  P47の本文にも「初代ドック長の航海日誌」という検索可能な具体語を
+  手がかりとして追記(P13→P14・P44→P45と同型の対応)。この語をそのまま
+  P48のkeywordに使用した。`src/search-data.js`(prereq:
+  airship-symbols.html)・`src/hint-data.js`(チェーン継続ヒント1件)・
+  `docs/ARG-DESIGN.md` P47行を更新。
+- レビュー: OK(local-review、指摘なし。P番号重複なし、フックは検索可能
+  語句として本文に埋め込み済みであることを事前に自己チェック)
+- lint: ✓ / lint:css: ✓ / test: ✓(508件) / build: ✓
+- 次回予定: 他の実装済みroot(P16→P17[fragment、F3。サイズL寄りのため
+  慎重に見積もる]・P49→P50・P51→P52・P53→P54,P55等)のflavor化を継続、
+  またはWORDBANK残り3件(魔導機械科・見習い案内人・学院東駐車場)からの
+  root追加。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 16:45
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `docs/ARG-WORDBANK.md`の未使用行が残り3件(いずれも候補薄いと
+  明記済み)まで減ったため、優先順位ルールに沿って既に実装済みroot行の
+  予約済みflavor枠を掘り下げる方針に切り替え。P44(arnold-namesake.html)
+  のflavor枠P45に着手。
+- 実装: P44の「琥珀の心臓の設計図原本の所在は把握されていない」という
+  フックを継続し、`pages/glossary/amber-heart-blueprint.html`を新設
+  (2カード)。実装にあたり、P44側のこのフックが当初「〜は把握されて
+  いない」という疑問文のままで検索可能語句を伴っていなかった(手動
+  チャットで追記した5節ルール違反)ことに気づき、P44の本文にも「設計図
+  台帳」という検索可能な具体語を手がかりとして追記(P13→P14実装時と
+  同型の対応)。この語をそのままP45のkeywordに使用した。
+  `src/search-data.js`(prereq: arnold-namesake.html)・`src/hint-data.js`
+  (チェーン継続ヒント1件)・`docs/ARG-DESIGN.md` P45行を更新。
+- レビュー: OK(local-review、指摘なし。P番号重複なし、フックは検索可能
+  語句として本文に埋め込み済みであることを事前に自己チェック)
+- lint: ✓ / lint:css: ✓ / test: ✓(505件) / build: ✓
+- 次回予定: 他の実装済みroot(P16→P17[fragment、F3。サイズL寄りのため
+  慎重に見積もる]・P47→P48・P49→P50・P51→P52・P53→P54,P55等)の
+  flavor化を継続、またはWORDBANK残り3件(魔導機械科・見習い案内人・
+  学院東駐車場)からのroot追加。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 16:15
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から
+  選定)。
+- 実装: P102(root、flavor: P103)として
+  `pages/glossary/starfall-fortune.html`を新設(2カード)。単語1つ
+  (`dining/observatory-dining.html`「星屑ソーダ『流星の軌跡』」、銀糖が
+  溶ける速さで運を占う学生風習)を「ソーダそのもの」「占いの風習」の
+  2つの切り口に掘り下げて実装。フックには新規語を発明せず、既存の
+  P49(fifth-headmaster.html)で使用済みの「流星記録石板」を自然な形で
+  再登場させ、占いの結果が実際の観測記録と照らし合わせられるかもしれない
+  という繋がりを示唆した。`src/search-data.js`・`src/hint-data.js`
+  (observatory-dining.htmlから1件)・`docs/ARG-DESIGN.md` P102行・
+  `docs/ARG-WORDBANK.md`該当箇所を更新。
+- レビュー: OK(local-review、指摘なし。P番号重複・フック検索可能性を
+  事前に自己チェック済み)
+- lint: ✓ / lint:css: ✓ / test: ✓(501件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(魔導機械科・見習い
+  案内人・学院東駐車場、いずれも候補薄いと明記済み)からのroot追加、
+  または各実装済みrootのflavor化を優先的に検討する。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 15:50
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から
+  選定)。
+- 実装: P98(root、flavor: P101)として
+  `pages/glossary/summoning-theory.html`を新設(2カード)。単語1つ
+  (`shop/books.html`「召喚術理論体系」全3巻セット、著者レヴィン・
+  オルトウェル教授)を「三巻に込められた40年」「四巻目はあるのか」の
+  2つの切り口に掘り下げて実装。フックには「召喚学科準備室」(未刊の
+  第4巻草稿を保管しているという)という検索可能な具体語を本文に埋め込み
+  (前サイクルの反省を踏まえ、抽象的な疑問文のままにしない)、P89/P90の
+  ときと同様、新規P番号(P98)が既存の個別予約行(4-6節等)と重複しないか
+  事前に確認してから採番した。`src/search-data.js`・`src/hint-data.js`
+  (books.htmlから1件)・`docs/ARG-DESIGN.md` P98行・
+  `docs/ARG-WORDBANK.md`該当箇所を更新。
+- レビュー: OK(local-review、指摘なし。P番号重複・フック検索可能性の
+  両観点を事前に自己チェック済み)
+- lint: ✓ / lint:css: ✓ / test: ✓(498件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(魔導機械科・星屑ソーダで
+  運を占う学生風習・見習い案内人・学院東駐車場)からのroot追加、または
+  各実装済みrootのflavor化。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 15:20
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から
+  選定)。
+- 実装: P99(root、当初P90を仮採番したが既存の別枠[季節×エリア絞り込み
+  ギミック]と衝突していたため採番し直し)として
+  `pages/glossary/garigne-unit.html`を新設(2カード)。単語1つ
+  (`shop/magical-tools.html`「独自単位『ガリグネ』」)を「測定器そのもの」
+  「単位の由来」の2つの切り口に掘り下げて実装。実装中、フックを「誰が
+  定めたか不明」という文章のまま書いてしまい、直前サイクルで追記した
+  「フックは検索可能な語句として残すこと」ルールに違反していることを
+  ユーザーに指摘され、「度量衡制定記録」という具体的な検索可能語句を
+  本文に追加して修正した。`src/search-data.js`・`src/hint-data.js`
+  (magical-tools.htmlから1件)・`docs/ARG-DESIGN.md` P99行・
+  `docs/ARG-WORDBANK.md`該当箇所を更新。
+- レビュー: OK(local-review、指摘2件対応 — P90番号衝突、フック文章化
+  ルール違反。いずれもユーザー指摘を受けて実装中に修正)
+- lint: ✓ / lint:css: ✓ / test: ✓(495件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(魔導機械科・レヴィン・
+  オルトウェル教授・星屑ソーダで運を占う学生風習・見習い案内人・学院東
+  駐車場)からのroot追加、または各実装済みrootのflavor化。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 15:00
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: 既存隠しページの改修(手動チャットでユーザーが発見した
+  「類例カード」の演出過剰と、通常ページ既出語への不要なprereqゲーティング
+  という2つの問題への対応)。バグ修正セクションには未記載だったが、
+  「### 13」に記録済みの改修タスクとして着手。
+- 実装: P81チェーン(P82〜P86)の個別ページ5つ(affinity-circle.html・
+  sealed-stone-vault.html・forbidden-books-room.html・weathervane-shrine.html・
+  underground-network.html)を`hidden-corners.html`(P81)へ全面統合・削除。
+  対話の中でP81(触媒保管庫・予備歯車庫)も含め全7項目が同一カテゴリだと
+  判明したため、6つの「立入禁止・非公開区画」カード+「地下でつながって
+  いるか」という手がかり系2カードの計8カード構成にし、後者2カードは
+  `.archive-list`を分けて視覚的にも区切った。`src/search-data.js`の
+  該当5エントリを削除し、`hidden-corners.html`の`keywords`に7語を統合、
+  prereqなしのroot型に一本化。あわせて`apprentice-notes.html`
+  (keywords: 修繕工房)の不要なprereqも削除。`src/hint-data.js`の旧
+  チェーン継続ヒントを、各keywordの出典ページから直接向かうヒントに
+  置き換え。手動チャットでの指摘に基づき、時計塔設計図の販売店を
+  「時刻堂」から正しい店名「歯車細工所」に訂正。`docs/ARG-DESIGN.md`
+  5節に「フックは検索可能な語句として残すこと」ルールも追記。
+- レビュー: OK(実装中にユーザーからの追加指摘を都度反映。ローカル
+  レビューでの新規指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(492件、5ページ削除分の階層・footer・
+  絶対パステストが減少) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(魔導機械科・独自単位
+  「ガリグネ」・レヴィン・オルトウェル教授・星屑ソーダで運を占う学生風習・
+  見習い案内人・学院東駐車場)からのroot追加、または各実装済みrootの
+  flavor化。
+- blocked / partial: なし
+- asset-pending: なし(コード・ドキュメントのみの変更)
+
+## 2026-07-30 14:20
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から
+  選定)。`docs/ARG-DESIGN.md`4-5節の最初のバッチ(P47〜P81)が全て
+  実装済みになったため、新規root行としてP87(flavor: P88)を追加。
+- 実装: P87(root)として`pages/glossary/eldcloth-fabric.html`を新設
+  (2カード)。単語1つ(`shop/uniforms.html`「魔法繊維『エルドクロス』」)を
+  「制服を仕立てる生地」「魔力拡散を抑える機能」の2つの切り口に掘り下げて
+  実装。「繊維の産地・製法が不明」という未解決フックを残した。
+  `src/search-data.js`・`src/hint-data.js`(uniforms.htmlから1件)・
+  `docs/ARG-DESIGN.md`(4-5節にP87行を新規追加、最初のバッチ枯渇を
+  明記)・`docs/ARG-WORDBANK.md`該当箇所を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(507件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(魔導機械科・独自単位
+  「ガリグネ」・レヴィン・オルトウェル教授・星屑ソーダで運を占う学生風習・
+  見習い案内人・学院東駐車場、計6件)から単語1つでもroot追加を継続
+  (新規root行はP89以降に追加)、または各実装済みrootのflavor化。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 13:50
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から
+  選定。単語1つでもroot 1ページにしてよい運用に沿う)。
+- 実装: P75(root、4-5節のroot→flavor5段枠)として
+  `pages/glossary/time-path-interference.html`を新設(2カード)。単語1つ
+  (`exploration/clock-tower.html`「時間経路実験室」「時間経路干渉」)を
+  「実験室の仕組み」「自然発生する現象そのもの」の2つの切り口に掘り下げて
+  実装。実験室は自然現象の再現実験にすぎないという既存本文の記述から、
+  「学院内のどこで自然発生しているか不明」という未解決フックを立てた。
+  `src/search-data.js`・`src/hint-data.js`(clock-tower.htmlから1件)・
+  `docs/ARG-DESIGN.md` P75行・`docs/ARG-WORDBANK.md`該当箇所を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(504件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(魔導機械科・魔法繊維
+  「エルドクロス」・独自単位「ガリグネ」・レヴィン・オルトウェル教授・
+  星屑ソーダで運を占う学生風習・見習い案内人・学院東駐車場、計7件)から
+  単語1つでもroot追加を継続、または各実装済みrootのflavor化。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 13:20
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `### 13`root行の実装。前サイクル終了時点でWORDBANK未使用行が
+  残り9件まで減り、いずれも他候補と組み合わせにくい単独ページ言及のみ
+  だったため、手動チャットでユーザーと「単語1つでもroot 1ページにして
+  よい(ただしカード数2〜3枚は維持)」という運用緩和を合意。
+  `docs/ROADMAP.md``### 13`にこの方針を追記済み(このサイクルでコミット
+  に含める)。
+- 実装: P70(root、4-5節のroot→flavor4段枠)として
+  `pages/glossary/memory-books.html`を新設(2カード)。単語1つ
+  (`exploration/grand-library.html`「記憶を持つ本」)を「反応の仕組み」
+  「答えたくない問いの謎」の2つの切り口に掘り下げて実装。ノスティオン
+  自身の設定(問いに応答する魔導書)と響き合う内容のため、独り言でそれと
+  なく示唆した。`src/search-data.js`・`src/hint-data.js`
+  (grand-library.htmlから1件)・`docs/ARG-DESIGN.md` P70行・
+  `docs/ARG-WORDBANK.md`該当箇所を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(501件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(魔導機械科・時間経路
+  実験室・魔法繊維「エルドクロス」・独自単位「ガリグネ」・レヴィン・
+  オルトウェル教授・星屑ソーダで運を占う学生風習・見習い案内人・学院東
+  駐車場、計8件)から単語1つでもroot追加を継続、または各実装済みrootの
+  flavor化。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 12:50
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から
+  選定)。
+- 実装: P66(root、4-5節のroot→flavor3段枠)として
+  `pages/glossary/champions-prizes.html`を新設(2カード)。
+  `events/index.html`の「飛行船競技大会」(旗艦『アルノルド号』の年間
+  優先搭乗権)と「錬金術品評会」(『錬金術師の指輪』)をグルーピングし、
+  学院祭の優勝者に贈られる副賞という切り口にした。`src/search-data.js`・
+  `src/hint-data.js`(events/index.htmlから2件)・
+  `docs/ARG-DESIGN.md` P66行・`docs/ARG-WORDBANK.md`該当箇所を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(498件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の未使用行が残り9件(魔導機械科・
+  時間経路実験室・記憶を持つ本・魔法繊維「エルドクロス」・独自単位
+  「ガリグネ」・レヴィン・オルトウェル教授・星屑ソーダで運を占う学生風習・
+  見習い案内人・学院東駐車場)まで減っており、いずれも単独ページのみの
+  言及で組み合わせにくい。次サイクル以降は各実装済みroot(P44/P47/P49/
+  P51/P53/P56/P59/P62/P66)のflavor化を優先的に検討する。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 12:20
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から
+  選定)。
+- 実装: P62(root、4-5節のroot→flavor3段枠)として
+  `pages/glossary/hidden-ingredients.html`を新設(3カード)。
+  `dining/index.html`「学院定番 魔道師ハヤシ」(安息薬草)・「魔力チャージ
+  マフィン」(魔力ナッツ)・エルダーフラワー(星詠みハーブティー/
+  エルダーフラワーソーダ)、`dining/alchemy-dining.html`「温薬草ポション
+  『安息のいちばん』」(安息草)をグルーピングし、主役メニューを陰で支える
+  隠し材料という切り口にした(P53「食材のふるさと」が産地視点だったのに
+  対し、こちらは個別メニューでの使われ方視点)。`src/search-data.js`・
+  `src/hint-data.js`(dining/index.htmlから2件、dining/alchemy-dining.html
+  から1件)・`docs/ARG-DESIGN.md` P62行・`docs/ARG-WORDBANK.md`該当箇所を
+  更新。
+- レビュー: OK(local-review、指摘1件対応 — `dining/alchemy-dining.html`
+  の店名を「蒸留工房喫茶室」と誤記していたため、正しい店名「秘薬スタンド」
+  に修正)
+- lint: ✓ / lint:css: ✓ / test: ✓(495件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(魔導機械科・
+  独自単位「ガリグネ」・見習い案内人など)からのroot追加、または各実装済み
+  root(P44/P47/P49/P51/P53/P56/P59/P62)のflavor化。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 11:50
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から
+  選定)。
+- 実装: P59(root、4-5節のroot→flavor2段枠)として
+  `pages/glossary/dueling-heritage.html`を新設(3カード)。
+  `exploration/dueling-ground.html`「演武場床『カルネ岩』」、
+  `shop/dueling-shop.html`「決闘シグル」(季節ごとの缶バッジ)、
+  `shop/dueling-gear.html`「学院魔法決闘規定法典」(200年前制定)を
+  グルーピングし、決闘文化が床材・紋様・法典という三つの形で受け継がれて
+  いるという切り口にした。`src/search-data.js`・`src/hint-data.js`
+  (3ページから各1件)・`docs/ARG-DESIGN.md` P59行・
+  `docs/ARG-WORDBANK.md`該当箇所を更新。
+- レビュー: OK(local-review、指摘1件対応 — `shop/dueling-shop.html`への
+  ヒントが1件漏れていたため追加。あわせて`shop/dueling-gear.html`の
+  正式名称「魔法武具展示室」を確認しヒント文言を修正)
+- lint: ✓ / lint:css: ✓ / test: ✓(492件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(魔導機械科・
+  時間経路実験室・記憶を持つ本など)からのroot追加、または各実装済みroot
+  (P44/P47/P49/P51/P53/P56/P59)のflavor化。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 11:20
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から
+  選定)。
+- 実装: P56(root、4-5節のroot→flavor2段枠)として
+  `pages/glossary/four-elements-seal.html`を新設(2カード)。
+  `exploration/summoning-plaza.html`の「四元素石」(広場四隅の属性石)と
+  `shop/summoning-circle.html`の「大結界召喚陣」(広場の実演で実際に
+  使用された陣の設計図ポスター)をグルーピングし、召喚陣の力がどこから
+  来るのかという切り口にした。`src/search-data.js`・`src/hint-data.js`
+  (summoning-plaza.html・summoning-circle.htmlから各1件)・
+  `docs/ARG-DESIGN.md` P56行・`docs/ARG-WORDBANK.md`該当箇所を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(489件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(魔法繊維「エルドクロス」・
+  見習い案内人・学院東駐車場など)からのroot追加、または各実装済みroot
+  (P44/P47/P49/P51/P53/P56)のflavor化。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 10:45
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から
+  選定)。
+- 実装: P53(root、4-5節のroot→flavor2段枠)として
+  `pages/glossary/campus-harvest.html`を新設(3カード)。
+  `dining/index.html`の「学院農園」「薬草園」「鉄皮林檎」(錬金術研究棟の
+  林檎園)をグルーピングし、学食メニューに繰り返し登場する3つの食材産地を
+  掘り下げた。学院農園・薬草園は`shop/groceries.html`の紹介文からも
+  接続可能な網状構造にした。`src/search-data.js`・`src/hint-data.js`
+  (dining/index.html・shop/groceries.htmlから各1件)・
+  `docs/ARG-DESIGN.md` P53行・`docs/ARG-WORDBANK.md`該当箇所を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(486件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(魔法繊維「エルドクロス」・
+  見習い案内人・エルダーフラワーなど)からのroot追加、またはP44/P47/P49/
+  P51/P53のflavor化。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
+## 2026-07-30 10:15
+- ブランチ: `evolve/cycle-39`がPR #49でmainへ自動マージ・削除済みを確認。
+  `main`を最新化し、新しく`evolve/cycle-40`を作成。
+- タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から
+  選定)。
+- 実装: P51(root、4-5節の単発チェーン枠)として
+  `pages/glossary/festival-undertold.html`を新設(3カード)。
+  `events/index.html`の「旧称『秋祭り』」「『大点灯』の開始時刻が前日まで
+  確定しない理由」「占術師(現職17代目)」をグルーピングし、学院祭・行事の
+  豆知識にさりげなく書かれているだけの3つの事実を掘り下げた。
+  `src/search-data.js`・`src/hint-data.js`(events/index.htmlから1件)・
+  `docs/ARG-DESIGN.md` P51行・`docs/ARG-WORDBANK.md`該当箇所を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(483件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(魔法繊維「エルドクロス」・
+  学院農園・見習い案内人など)からのroot追加、またはP44/P47/P49/P51の
+  flavor化。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 09:45
 - ブランチ: 引き続き`evolve/cycle-39`(未マージ)。
 - タスク選定: `### 15`の未完了サブタスク(「つながり(N)」件数の修正、

@@ -165,6 +165,12 @@ window.HINT_DATA = [
     hint: '錬金術研究棟の中心設備は、アルノルド卿自身が設計したと伝わるものだそうです。主要研究設備の説明をもう一度確かめてみてください。'
   },
   {
+    requiresPage: 'glossary/arnold-namesake.html',
+    hintFor: 'glossary/arnold-namesake.html',
+    leadsTo: 'glossary/amber-heart-blueprint.html',
+    hint: '琥珀の心臓の設計図原本は所在不明だそうですが、歴代の図面の所在を記録してきた台帳ならあるという話でした。'
+  },
+  {
     hintFor: 'exploration/airship-dock.html',
     leadsTo: 'glossary/airship-symbols.html',
     hint: '飛行船ドックの格納設備には、魔法帆の素材を保管する専用倉庫があったはずです。格納設備の説明をもう一度確かめてみてください。'
@@ -180,9 +186,134 @@ window.HINT_DATA = [
     hint: 'ドック用の帆布財布には、ある意匠をかたどったチャームが付いているそうです。その商品説明をもう一度読んでみてください。'
   },
   {
+    requiresPage: 'glossary/airship-symbols.html',
+    hintFor: 'glossary/airship-symbols.html',
+    leadsTo: 'glossary/anchor-feather-origin.html',
+    hint: '意匠の由来は公式には示されていないそうですが、ドック事務所の書庫にはある人物の日誌が残っているという話でした。'
+  },
+  {
     hintFor: 'exploration/observatory.html',
     leadsTo: 'glossary/fifth-headmaster.html',
     hint: '天文台の主要観測設備には、ある学長の代に設置された望遠鏡があったはずです。設備の説明をもう一度確かめてみてください。'
+  },
+  {
+    requiresPage: 'glossary/fifth-headmaster.html',
+    hintFor: 'glossary/fifth-headmaster.html',
+    leadsTo: 'glossary/portrait-gallery.html',
+    hint: '実名は伝わっていないそうですが、本部棟には歴代学長を1ページずつ記録した帳面が残っているという話でした。'
+  },
+  {
+    hintFor: 'events/index.html',
+    leadsTo: 'glossary/festival-undertold.html',
+    hint: '学院祭の豆知識には、正式名称になる前の呼び名が書かれていたはずです。学院祭・行事の案内をもう一度確かめてみてください。'
+  },
+  {
+    requiresPage: 'glossary/festival-undertold.html',
+    hintFor: 'glossary/festival-undertold.html',
+    leadsTo: 'glossary/fortune-teller-selection.html',
+    hint: '占術師の選考基準は公式には語られていないそうですが、学院事務局には歴代の選定記録が保管されているという話でした。'
+  },
+  {
+    hintFor: 'dining/index.html',
+    leadsTo: 'glossary/campus-harvest.html',
+    hint: '学食のアップルパイには、研究棟の林檎園で採れた特別な林檎が使われているそうです。デザートメニューの説明をもう一度読んでみてください。'
+  },
+  {
+    hintFor: 'shop/groceries.html',
+    leadsTo: 'glossary/campus-harvest.html',
+    hint: '食料品・薬草店の紹介文には、学院の食材が育つ二つの場所が書かれていたはずです。店の紹介文をもう一度確かめてみてください。'
+  },
+  {
+    requiresPage: 'glossary/campus-harvest.html',
+    hintFor: 'glossary/campus-harvest.html',
+    leadsTo: 'glossary/orchard-experiment-log.html',
+    hint: '林檎が甘くなる理由は案内文に書かれていないそうですが、研究棟には栽培そのものを記録した実験記録が保管されているという話でした。'
+  },
+  {
+    requiresPage: 'glossary/orchard-experiment-log.html',
+    hintFor: 'glossary/orchard-experiment-log.html',
+    leadsTo: 'glossary/conductivity-instrument-log.html',
+    hint: '本来の検証対象が書かれたページは判読できないそうですが、備品を管理する台帳になら、当時使われた測定器の型式が残っているという話でした。'
+  },
+  {
+    hintFor: 'exploration/summoning-plaza.html',
+    leadsTo: 'glossary/four-elements-seal.html',
+    hint: '魔法陣召喚広場の四隅には、力を集めるための石が埋め込まれているそうです。広場設備の説明をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'shop/summoning-circle.html',
+    leadsTo: 'glossary/four-elements-seal.html',
+    hint: '召喚素材専門店には、広場の実演で実際に使われた陣の設計図ポスターがあるそうです。その商品説明をもう一度読んでみてください。'
+  },
+  {
+    hintFor: 'exploration/dueling-ground.html',
+    leadsTo: 'glossary/dueling-heritage.html',
+    hint: '演武場の床には、古代の術式石を敷き詰めた設備があるそうです。演武場設備の説明をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'shop/dueling-shop.html',
+    leadsTo: 'glossary/dueling-heritage.html',
+    hint: '決闘記念品店には、季節ごとに紋様が変わる缶バッジセットがあるそうです。その商品説明をもう一度読んでみてください。'
+  },
+  {
+    hintFor: 'shop/dueling-gear.html',
+    leadsTo: 'glossary/dueling-heritage.html',
+    hint: '魔法武具展示室には、200年前に制定された法典の復刻版があるそうです。その商品説明をもう一度読んでみてください。'
+  },
+  {
+    hintFor: 'dining/index.html',
+    leadsTo: 'glossary/hidden-ingredients.html',
+    hint: '学食の定番丼には、微量の薬草が隠し味として使われているそうです。メニューの詳細をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'dining/index.html',
+    leadsTo: 'glossary/hidden-ingredients.html',
+    hint: '授業前に人気のマフィンには、砕いたナッツが練り込まれているそうです。デザートメニューの説明をもう一度読んでみてください。'
+  },
+  {
+    hintFor: 'dining/alchemy-dining.html',
+    leadsTo: 'glossary/hidden-ingredients.html',
+    hint: '秘薬スタンドには、月草とある薬草をブレンドした温かい一服があるそうです。その説明をもう一度読んでみてください。'
+  },
+  {
+    hintFor: 'events/index.html',
+    leadsTo: 'glossary/champions-prizes.html',
+    hint: '飛行船競技大会の豆知識には、優勝チームに贈られる権利について書かれていたはずです。行事の案内をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'events/index.html',
+    leadsTo: 'glossary/champions-prizes.html',
+    hint: '錬金術品評会の副賞は、実用品ではない少し変わった記念品だそうです。行事の案内をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'exploration/grand-library.html',
+    leadsTo: 'glossary/memory-books.html',
+    hint: '大図書館の蔵書には、問いかけに応じてページが開く特別な一群があるそうです。エリアについての説明をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'exploration/clock-tower.html',
+    leadsTo: 'glossary/time-path-interference.html',
+    hint: '時計塔には、同じ部屋の中で時間の流れが異なる展示室があるそうです。設備の紹介をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'shop/uniforms.html',
+    leadsTo: 'glossary/eldcloth-fabric.html',
+    hint: '制服・ローブ店の紹介文には、正式制服を仕立てる魔法繊維の名前が書かれていたはずです。店の紹介文をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'shop/magical-tools.html',
+    leadsTo: 'glossary/garigne-unit.html',
+    hint: '魔導具・実験器具店の測定器には、学院独自の単位で数値を示すものがあるそうです。その商品説明をもう一度読んでみてください。'
+  },
+  {
+    hintFor: 'shop/books.html',
+    leadsTo: 'glossary/summoning-theory.html',
+    hint: '書籍・資料店には、召喚学科主任が40年をかけてまとめた大著があるそうです。その商品説明をもう一度読んでみてください。'
+  },
+  {
+    hintFor: 'dining/observatory-dining.html',
+    leadsTo: 'glossary/starfall-fortune.html',
+    hint: '天文台の学食には、溶ける速さで運勢を占うという不思議なソーダがあるそうです。その商品説明をもう一度読んでみてください。'
   },
   {
     id: 'F1',
@@ -212,6 +343,11 @@ window.HINT_DATA = [
     hint: '永久運動術式を陰で支える技師たちは、いったいどこで日々の作業をしているのでしょうか。その場所についての記述に、もう一度目を通してみてください。'
   },
   {
+    hintFor: 'exploration/clock-tower.html',
+    leadsTo: 'glossary/apprentice-notes.html',
+    hint: '時計塔1層回廊の修繕工房には、道具棚の奥に古い手記が紛れ込んでいるという噂です。塔の設備についての記述をもう一度確かめてみてください。'
+  },
+  {
     requiresPage: ['glossary/mythical-creatures.html', 'glossary/starmap-fragments.html'],
     hintFor: ['glossary/mythical-creatures.html', 'glossary/starmap-fragments.html'],
     leadsTo: 'glossary/first-astronomer.html',
@@ -230,34 +366,29 @@ window.HINT_DATA = [
     hint: '公式に語られなかった決闘の記録にも、何か短い言葉が残されているかもしれません。'
   },
   {
-    requiresPage: 'glossary/hidden-corners.html',
-    hintFor: 'glossary/hidden-corners.html',
-    leadsTo: 'glossary/affinity-circle.html',
-    hint: '似たような一角は、他のエリアにもあるという話でした。大図書館のある設備についての記述を思い出してみてください。'
+    hintFor: 'exploration/grand-library.html',
+    leadsTo: 'glossary/hidden-corners.html',
+    hint: '大図書館の中央ホール地下には、書架の自律配置を司る巨大な魔法陣があるそうです。エリアについての説明をもう一度確かめてみてください。'
   },
   {
-    requiresPage: 'glossary/affinity-circle.html',
-    hintFor: 'glossary/affinity-circle.html',
-    leadsTo: 'glossary/sealed-stone-vault.html',
-    hint: '決闘演武場の地下にも、同じように一般非公開の場所があるという話でした。その設備についての記述を思い出してみてください。'
+    hintFor: 'exploration/dueling-ground.html',
+    leadsTo: 'glossary/hidden-corners.html',
+    hint: '決闘演武場の地下には、展示されていない魔封石だけを集めた保管庫もあるという話です。演武場の設備についての記述をもう一度確かめてみてください。'
   },
   {
-    requiresPage: 'glossary/sealed-stone-vault.html',
-    hintFor: 'glossary/sealed-stone-vault.html',
-    leadsTo: 'glossary/forbidden-books-room.html',
-    hint: '大図書館には、一部だけ表紙すら見せてもらえない展示があるという話でした。その見学アトラクションについての記述を思い出してみてください。'
+    hintFor: 'exploration/grand-library.html',
+    leadsTo: 'glossary/hidden-corners.html',
+    hint: '大図書館には、表紙すら見せてもらえない蔵書を集めた見学アトラクションもあるそうです。もう一度確かめてみてください。'
   },
   {
-    requiresPage: 'glossary/forbidden-books-room.html',
-    hintFor: 'glossary/forbidden-books-room.html',
-    leadsTo: 'glossary/weathervane-shrine.html',
-    hint: '魔法陣召喚広場の北隅にも、契約精霊が身を潜めるという小さな祠があるという話でした。広場の設備についての記述を思い出してみてください。'
+    hintFor: 'exploration/summoning-plaza.html',
+    leadsTo: 'glossary/hidden-corners.html',
+    hint: '魔法陣召喚広場の北隅には、契約精霊が身を潜めるという小さな祠があるそうです。広場の設備についての記述をもう一度確かめてみてください。'
   },
   {
-    requiresPage: 'glossary/weathervane-shrine.html',
-    hintFor: 'glossary/weathervane-shrine.html',
-    leadsTo: 'glossary/underground-network.html',
-    hint: '時刻堂には、地下の接続部まで書き込まれた設計図の複製ポスターが売られているそうです。その商品説明を思い出してみてください。'
+    hintFor: 'shop/clock-accessories.html',
+    leadsTo: 'glossary/hidden-corners.html',
+    hint: '歯車細工所には、地下の接続部まで書き込まれた設計図の複製ポスターが売られているそうです。その商品説明をもう一度読んでみてください。'
   },
   {
     hintFor: 'shop/index.html',
@@ -291,5 +422,20 @@ window.HINT_DATA = [
     hintFor: 'glossary/warden-registry.html',
     leadsTo: 'glossary/unnamed-warden.html',
     hint: '大鐘「刻の声」の命名式典の記録にも、理由を語らない短い一文が残されていたはずです。もう一度思い出してみてください。'
+  },
+  {
+    hintFor: 'index.html',
+    leadsTo: 'glossary/machinery-department.html',
+    hint: 'トップページの学科紹介には、大時計塔の管理を一手に担うという学科があったはずです。もう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'tickets/index.html',
+    leadsTo: 'glossary/apprentice-guides.html',
+    hint: '団体様向けのご案内には、構内ガイドツアーを担う役職の名前があったはずです。入学願書のページをもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'access/index.html',
+    leadsTo: 'glossary/east-lot-history.html',
+    hint: 'お車での来場案内には、正門前にある駐車場の名前が書かれていたはずです。もう一度確かめてみてください。'
   },
 ];

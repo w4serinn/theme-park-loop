@@ -4,6 +4,7 @@ import {
   shouldShowDiscoveryBadge, isDebugResetQuery, DEBUG_RESET_QUERY, shouldShowHintLink,
   isNostionMemoryWrongCandidate, NOSTION_MEMORY_PAGE_PATH, NOSTION_MEMORY_WRONG_CANDIDATES,
   isMoonGrassWrongCandidate,
+  isDebugAllQuery, DEBUG_ALL_QUERY, buildDebugGraphNodes, buildDebugGraphTree, findDebugGraphIssues,
   TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex,
   filterSearchIndex, MIN_SEARCH_QUERY_LENGTH, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
   isSearchEntryUnlocked, isCodexSelfReferenceQuery,
@@ -598,6 +599,147 @@ describe('isDebugResetQuery', () => {
   test('does not match empty input', () => {
     expect(isDebugResetQuery('')).toBe(false);
     expect(isDebugResetQuery(undefined)).toBe(false);
+  });
+});
+
+describe('isDebugAllQuery', () => {
+  test('matches the exact debug command', () => {
+    expect(isDebugAllQuery(DEBUG_ALL_QUERY)).toBe(true);
+  });
+
+  test('trims surrounding whitespace', () => {
+    expect(isDebugAllQuery('  ' + DEBUG_ALL_QUERY + '  ')).toBe(true);
+  });
+
+  test('does not match an ordinary search query', () => {
+    expect(isDebugAllQuery('錬金術')).toBe(false);
+  });
+
+  test('does not match a query that merely contains the command', () => {
+    expect(isDebugAllQuery(DEBUG_ALL_QUERY + 'です')).toBe(false);
+  });
+
+  test('does not match empty input', () => {
+    expect(isDebugAllQuery('')).toBe(false);
+    expect(isDebugAllQuery(undefined)).toBe(false);
+  });
+});
+
+describe('buildDebugGraphNodes', () => {
+  const searchIndex = [
+    { path: 'glossary/root.html', title: 'Root', category: '図鑑', hidden: true, keywords: ['ルート'], exactMatch: true },
+    { path: 'glossary/flavor.html', title: 'Flavor', category: '図鑑', hidden: true, keywords: ['フレーバー'], prereq: ['glossary/root.html'], exactMatch: true },
+    { path: 'index.html', title: 'Top', category: 'トップ', hidden: false }
+  ];
+  const hintData = [
+    { hintFor: 'exploration/index.html', leadsTo: 'glossary/root.html', hint: 'ヒントA' },
+    { hintFor: ['a.html', 'b.html'], leadsTo: 'glossary/flavor.html', hint: 'ヒントB' }
+  ];
+
+  test('only includes hidden entries', () => {
+    const nodes = buildDebugGraphNodes(searchIndex, hintData);
+    expect(nodes.map((n) => n.path)).toEqual(['glossary/root.html', 'glossary/flavor.html']);
+  });
+
+  test('attaches incoming hints with normalized sources array', () => {
+    const nodes = buildDebugGraphNodes(searchIndex, hintData);
+    const flavor = nodes.find((n) => n.path === 'glossary/flavor.html');
+    expect(flavor.incomingHints).toEqual([{ sources: ['a.html', 'b.html'], hint: 'ヒントB' }]);
+  });
+
+  test('entries with no matching hint get an empty incomingHints array', () => {
+    const nodes = buildDebugGraphNodes(searchIndex, []);
+    expect(nodes[0].incomingHints).toEqual([]);
+  });
+
+  test('handles missing searchIndex/hintData gracefully', () => {
+    expect(buildDebugGraphNodes(undefined, undefined)).toEqual([]);
+  });
+});
+
+describe('buildDebugGraphTree', () => {
+  test('groups flavor nodes under their prereq root', () => {
+    const nodes = [
+      { path: 'root.html', prereq: [], children: undefined, title: 'Root', category: 'c', keywords: [], exactMatch: false, incomingHints: [] },
+      { path: 'flavor.html', prereq: ['root.html'], children: undefined, title: 'Flavor', category: 'c', keywords: [], exactMatch: false, incomingHints: [] }
+    ];
+    const tree = buildDebugGraphTree(nodes);
+    expect(tree).toHaveLength(1);
+    expect(tree[0].path).toBe('root.html');
+    expect(tree[0].children.map((c) => c.path)).toEqual(['flavor.html']);
+  });
+
+  test('a node with multiple prereqs appears under each parent (network structure)', () => {
+    const nodes = [
+      { path: 'a.html', prereq: [], title: 'A', category: 'c', keywords: [], exactMatch: false, incomingHints: [] },
+      { path: 'b.html', prereq: [], title: 'B', category: 'c', keywords: [], exactMatch: false, incomingHints: [] },
+      { path: 'c.html', prereq: ['a.html', 'b.html'], title: 'C', category: 'c', keywords: [], exactMatch: false, incomingHints: [] }
+    ];
+    const tree = buildDebugGraphTree(nodes);
+    expect(tree).toHaveLength(2);
+    expect(tree[0].children.map((c) => c.path)).toEqual(['c.html']);
+    expect(tree[1].children.map((c) => c.path)).toEqual(['c.html']);
+  });
+
+  test('handles an empty node list', () => {
+    expect(buildDebugGraphTree([])).toEqual([]);
+  });
+
+  // 2026-07-30 バグ修正の再発防止(P53→P54→P55のような3段チェーンで、
+  // 孫ノードがchildrenプロパティを持たずTypeErrorになっていた)。
+  test('a three-level chain (root -> flavor -> flavor) exposes children at every depth', () => {
+    const nodes = [
+      { path: 'p53.html', prereq: [], title: 'P53', category: 'c', keywords: [], exactMatch: false, incomingHints: [] },
+      { path: 'p54.html', prereq: ['p53.html'], title: 'P54', category: 'c', keywords: [], exactMatch: false, incomingHints: [] },
+      { path: 'p55.html', prereq: ['p54.html'], title: 'P55', category: 'c', keywords: [], exactMatch: false, incomingHints: [] }
+    ];
+    const tree = buildDebugGraphTree(nodes);
+    expect(tree).toHaveLength(1);
+    const flavor = tree[0].children[0];
+    expect(flavor.path).toBe('p54.html');
+    expect(flavor.children).toBeDefined();
+    expect(flavor.children.map((c) => c.path)).toEqual(['p55.html']);
+    expect(flavor.children[0].children).toEqual([]);
+  });
+});
+
+describe('findDebugGraphIssues', () => {
+  test('flags a node with no incoming hints', () => {
+    const nodes = [
+      { path: 'orphan.html', title: 'Orphan', prereq: [], incomingHints: [] }
+    ];
+    const issues = findDebugGraphIssues(nodes);
+    expect(issues).toEqual([{ path: 'orphan.html', title: 'Orphan', type: 'no-hint' }]);
+  });
+
+  test('flags a dangling prereq reference', () => {
+    const nodes = [
+      { path: 'a.html', title: 'A', prereq: ['missing.html'], incomingHints: [{ sources: ['x.html'], hint: 'h' }] }
+    ];
+    const issues = findDebugGraphIssues(nodes);
+    expect(issues).toEqual([{ path: 'a.html', title: 'A', type: 'dangling-prereq', detail: 'missing.html' }]);
+  });
+
+  test('a well-formed node produces no issues', () => {
+    const nodes = [
+      { path: 'a.html', title: 'A', prereq: [], incomingHints: [{ sources: ['x.html'], hint: 'h' }] },
+      { path: 'b.html', title: 'B', prereq: ['a.html'], incomingHints: [{ sources: ['a.html'], hint: 'h2' }] }
+    ];
+    expect(findDebugGraphIssues(nodes)).toEqual([]);
+  });
+
+  test('handles an empty node list', () => {
+    expect(findDebugGraphIssues([])).toEqual([]);
+  });
+
+  // 2026-07-30 バグ修正の再発防止: P91(glossary/nostion-memory.html)は
+  // 意図的にSEARCH_INDEXへ登録していない特別ページなので、これをprereqとする
+  // エントリはdangling-prereqとして誤検知してはならない。
+  test('does not flag a prereq referencing the known P91 special page', () => {
+    const nodes = [
+      { path: 'yorishiro-echo.html', title: 'よりしろ', prereq: ['glossary/nostion-memory.html'], incomingHints: [{ sources: ['x.html'], hint: 'h' }] }
+    ];
+    expect(findDebugGraphIssues(nodes)).toEqual([]);
   });
 });
 

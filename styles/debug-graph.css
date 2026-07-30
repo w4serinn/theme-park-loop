@@ -1,0 +1,215 @@
+/* 検索データ可視化(デバッグ)ページ固有スタイル。開発者向けの確認用ページ
+   のため、パーク世界観の装飾よりも情報密度を優先した簡素なレイアウトにする。 */
+
+.page-hero {
+  text-align: center;
+  padding: 3rem 1.5rem 2.5rem;
+  border-bottom: 1px solid var(--brass);
+}
+
+.page-hero__title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 0.75rem;
+}
+
+.page-hero__desc {
+  font-size: 0.95rem;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.debug-graph {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.debug-graph__section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 1rem;
+}
+
+/* 整合性チェック */
+
+.debug-graph__issues-empty {
+  font-size: 0.9rem;
+  color: var(--emerald);
+}
+
+.debug-graph__issues-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.debug-graph__issue {
+  border-left: 3px solid var(--ember);
+  background: color-mix(in oklch, var(--ember) 8%, transparent);
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.debug-graph__issue-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--brass);
+}
+
+.debug-graph__issue-message {
+  font-size: 0.8rem;
+  color: color-mix(in oklch, var(--brass) 85%, transparent);
+}
+
+/* ページのつながり */
+
+.debug-graph__count {
+  font-size: 0.85rem;
+  color: color-mix(in oklch, var(--brass) 65%, transparent);
+  margin: 0 0 1rem;
+}
+
+.debug-graph__tree {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.debug-graph__tree .debug-graph__tree {
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+  border-left: 1px dashed color-mix(in oklch, var(--brass) 45%, transparent);
+}
+
+.debug-graph__node {
+  border: 1px solid color-mix(in oklch, var(--brass) 35%, transparent);
+  border-radius: 4px;
+  padding: 0.75rem 0.9rem;
+}
+
+.debug-graph__node-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.debug-graph__node-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--brass);
+}
+
+.debug-graph__node-path {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: color-mix(in oklch, var(--brass) 65%, transparent);
+}
+
+.debug-graph__node-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--emerald);
+  border: 1px solid var(--emerald);
+  border-radius: 3px;
+  padding: 0.05rem 0.35rem;
+}
+
+.debug-graph__node-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.debug-graph__node-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--brass);
+  text-transform: uppercase;
+  flex: 0 0 auto;
+  padding-top: 0.15rem;
+}
+
+.debug-graph__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.debug-graph__chip {
+  font-size: 0.75rem;
+  background: color-mix(in oklch, var(--brass) 15%, transparent);
+  border-radius: 3px;
+  padding: 0.1rem 0.5rem;
+}
+
+.debug-graph__hints {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.debug-graph__hint {
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.debug-graph__hint-sources {
+  font-family: monospace;
+  font-size: 0.7rem;
+  color: color-mix(in oklch, var(--brass) 65%, transparent);
+  margin-right: 0.4rem;
+}
+
+.debug-graph__hint-text {
+  color: color-mix(in oklch, var(--brass) 88%, transparent);
+}
+
+.debug-graph__toggle {
+  margin-top: 0.5rem;
+}
+
+.debug-graph__toggle summary {
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--brass);
+}
+
+.debug-graph__toggle summary:hover {
+  color: var(--ember);
+}
+
+@media (width <= 600px) {
+  .page-hero {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .page-hero__title {
+    font-size: 1.5rem;
+  }
+
+  .debug-graph {
+    padding: 1.5rem 1rem 3rem;
+  }
+}
