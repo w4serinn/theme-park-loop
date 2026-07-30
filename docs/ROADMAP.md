@@ -232,8 +232,7 @@ ARG(代替現実ゲーム)的な「発見の連鎖+謎解き+最終ゴール」�
       やり取り)形式も使ってよい。各ページの形式は`docs/ARG-DESIGN.md`4節の
       表「形式」列を参照(4-5節は個別列を持たないため既定は`証言`)。
 
-      対象(25件、上から順に進めるのが基本):
-      - [ ] glossary/fifth-headmaster.html(天文台、名を秘めた第5代学長の仕事)
+      対象(23件、上から順に進めるのが基本):
       - [ ] glossary/festival-undertold.html(学院祭・行事、あまり語られない三つの裏側)
       - [ ] glossary/campus-harvest.html(食材のふるさと、学院に三つ)
       - [ ] glossary/four-elements-seal.html(大結界召喚陣、力を集める四つの石)
@@ -249,7 +248,6 @@ ARG(代替現実ゲーム)的な「発見の連鎖+謎解き+最終ゴール」�
       - [ ] glossary/machinery-department.html(魔導機械科、学院の心臓部を託される学科)
       - [ ] glossary/apprentice-guides.html(見習い案内人、「見習い」の先にあるもの)
       - [ ] glossary/east-lot-history.html(学院東駐車場、舗装の下に残るもの)
-      - [ ] glossary/portrait-gallery.html(歴代学長肖像画帳、第5代のページだけ)
       - [ ] glossary/fortune-teller-selection.html(占術師選定記録、17代に共通する一つの符合)
       - [ ] glossary/orchard-experiment-log.html(林檎栽培実験記録、目的だったのは林檎ではない)
       - [ ] glossary/conductivity-instrument-log.html(伝導率測定器台帳、型式から辿る実験の正体)
