@@ -265,6 +265,11 @@ window.HINT_DATA = [
     hint: '制服・ローブ店の紹介文には、正式制服を仕立てる魔法繊維の名前が書かれていたはずです。店の紹介文をもう一度確かめてみてください。'
   },
   {
+    hintFor: 'shop/magical-tools.html',
+    leadsTo: 'glossary/garigne-unit.html',
+    hint: '魔導具・実験器具店の測定器には、学院独自の単位で数値を示すものがあるそうです。その商品説明をもう一度読んでみてください。'
+  },
+  {
     id: 'F1',
     requiresPage: 'glossary/apprentice-notes.html',
     hintFor: 'glossary/apprentice-notes.html',

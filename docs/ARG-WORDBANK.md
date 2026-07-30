@@ -71,7 +71,7 @@
 | 「大点灯」(魔法陣点灯式) | events/index.html | 3. 学院祭・行事 | — | 使用済み | P51 |
 | 星界の精霊 | events/index.html | 3. 学院祭・行事 | F | 使用済み | P23 |
 | 魔法繊維「エルドクロス」 | shop/uniforms.html | 4. 購買部 | — | 使用済み | P87 |
-| 独自単位「ガリグネ」 | shop/magical-tools.html | 4. 購買部 | — | 未使用 | — |
+| 独自単位「ガリグネ」 | shop/magical-tools.html | 4. 購買部 | — | 使用済み | P99 |
 | 魔法資質証明証 | shop/magical-tools.html | 4. 購買部 | (未分類) | 使用済み | P41 |
 | レヴィン・オルトウェル教授 | shop/books.html | 4. 購買部 | — | 未使用 | — |
 | 珍薬草「月草」 | shop/groceries.html 他 | 4. 購買部 | G | 使用済み | P97 |
