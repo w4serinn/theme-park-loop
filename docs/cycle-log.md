@@ -1,5 +1,28 @@
 # サイクル履歴
 
+## 2026-07-31 08:45
+- ブランチ: 引き続き`evolve/cycle-41`(未マージ)。
+- タスク選定: サイクル開始時点で、直前の手動チャットで実装済みだった検索窓の
+  デバッグコマンド「!unlockall」(lint/test/build済み、未commit)がワーキング
+  ツリーに残っていた。ユーザー自身の手作業ではなくAI側の完成済み成果だったため、
+  これを今回のサイクルの作業として仕上げることにした(新規ROADMAPタスクへの
+  着手はスキップ)。
+- 実装: 追加の実装は無し。既存の変更(src/codex-progress.jsの`unlockAll()`、
+  src/logic.js・src/search.jsの`isDebugUnlockQuery`、tests/logic.test.jsの
+  テスト6件)をlocal-review観点で再確認し、そのままcommit・pushした。
+  「!reset」の逆コマンドとして、隠しページ全件・断片全件を「学院の秘密」に
+  一括書き込みする検証用ツール。ROADMAPには元々無いタスクのため、
+  docs/ROADMAP.mdへの反映は無し。
+- レビュー: OK(色・ヘッダー/フッター・階層・アセット依頼のいずれも該当なし。
+  既存の!reset/!allと同じ構成で実装されており指摘なし)。
+- lint: ✓ / lint:css: ✓ / test: ✓(575件) / build: ✓
+- 次回予定: 通常のP番号ページ実装タスクに戻る。次点候補はP26(F5、
+  guide/index.htmlのマスコットのセリフという既存ギミック)・P27(F6、
+  tickets/index.htmlの料金シミュレーターという既存ギミック)・P46
+  (F8、既存ギミック未定)。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-31 08:15
 - ブランチ: 引き続き`evolve/cycle-41`(未マージ)。
 - タスク選定: `### 4`・`### 12`は引き続き素材待ちでスキップ。`### 13`書き直し
