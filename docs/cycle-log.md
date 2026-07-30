@@ -1,5 +1,30 @@
 # サイクル履歴
 
+## 2026-07-30 20:50
+- ブランチ: `evolve/cycle-40`はGitHub Actionsにより自動マージ・削除済み。
+  `git switch main && git pull`で最新化し、新規`evolve/cycle-41`を作成。
+- タスク選定: `### 13`優先順位ルール3(既存root行の予約済みflavor枠の
+  掘り下げ)に沿って、P56(four-elements-seal.html)のflavor枠P57に着手。
+- 実装: P56の「陣と四元素石がどう連動していたか説明なし」というフックを
+  継続し、`pages/glossary/resonance-adjustment-log.html`を新設(2カード)。
+  P51/P49/P44/P47実装時と同じ手順で、P56側のこのフックが当初「〜書かれて
+  いない」という疑問文のままで検索可能語句を伴っていなかったことに気づき、
+  P56の本文にも「連動調整記録」という検索可能な具体語を手がかりとして追記
+  (P13→P14と同型の対応)。P57では連動の仕組み(共鳴術式)は明かしつつ、
+  「儀式のたびに出力がずれる理由は記録の理由欄が空欄のまま」という新たな
+  謎を重ね、P58へ続く構成にした(P14→P15・P49→P50・P51→P52・P53→P55の
+  「深める」パターンを踏襲)。`src/search-data.js`(prereq:
+  four-elements-seal.html)・`src/hint-data.js`(チェーン継続ヒント1件)・
+  `docs/ARG-DESIGN.md` P56行を更新。
+- レビュー: OK(local-review、指摘なし。P番号重複なし、フックは検索可能
+  語句として本文に埋め込み済みであることを事前に自己チェック)
+- lint: ✓ / lint:css: ✓ / test: ✓(553件) / build: ✓
+- 次回予定: P56チェーンの続き(P57→P58)、またはP16→P17(fragment F3、
+  サイズL寄り)・P59→P60,P61・P62→P63-65等のflavor化を継続。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 20:30
 - ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
 - タスク選定: 手動チャットで`docs/ROADMAP.md`「### 10」に追記された

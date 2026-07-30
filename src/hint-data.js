@@ -246,6 +246,12 @@ window.HINT_DATA = [
     hint: '召喚素材専門店には、広場の実演で実際に使われた陣の設計図ポスターがあるそうです。その商品説明をもう一度読んでみてください。'
   },
   {
+    requiresPage: 'glossary/four-elements-seal.html',
+    hintFor: 'glossary/four-elements-seal.html',
+    leadsTo: 'glossary/resonance-adjustment-log.html',
+    hint: '陣と四元素石がどう連動していたかは設計図に書かれていないそうですが、広場の管理小屋には連動そのものを記録した帳面が残っているという話でした。'
+  },
+  {
     hintFor: 'exploration/dueling-ground.html',
     leadsTo: 'glossary/dueling-heritage.html',
     hint: '演武場の床には、古代の術式石を敷き詰めた設備があるそうです。演武場設備の説明をもう一度確かめてみてください。'
