@@ -100,5 +100,6 @@ window.SEARCH_INDEX = [
   { path: 'glossary/hidden-ingredients.html', title: '隠し材料、三つの脇役', category: '図鑑', hidden: true, keywords: ['安息薬草', '安息草', 'エルダーフラワー', '魔力ナッツ'], exactMatch: true },
   { path: 'glossary/champions-prizes.html', title: '学院祭、優勝者に贈られるもの', category: '図鑑', hidden: true, keywords: ['年間優先搭乗権', '錬金術師の指輪'], exactMatch: true },
   { path: 'glossary/memory-books.html', title: '記憶を持つ本、答えたくない問い', category: '図鑑', hidden: true, keywords: ['記憶を持つ本'], exactMatch: true },
-  { path: 'glossary/time-path-interference.html', title: '時間経路干渉、再現実験室の外側', category: '図鑑', hidden: true, keywords: ['時間経路実験室', '時間経路干渉'], exactMatch: true }
+  { path: 'glossary/time-path-interference.html', title: '時間経路干渉、再現実験室の外側', category: '図鑑', hidden: true, keywords: ['時間経路実験室', '時間経路干渉'], exactMatch: true },
+  { path: 'glossary/eldcloth-fabric.html', title: '魔法繊維「エルドクロス」、拡散を抑える生地', category: '図鑑', hidden: true, keywords: ['エルドクロス'], exactMatch: true }
 ];

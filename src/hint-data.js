@@ -260,6 +260,11 @@ window.HINT_DATA = [
     hint: '時計塔には、同じ部屋の中で時間の流れが異なる展示室があるそうです。設備の紹介をもう一度確かめてみてください。'
   },
   {
+    hintFor: 'shop/uniforms.html',
+    leadsTo: 'glossary/eldcloth-fabric.html',
+    hint: '制服・ローブ店の紹介文には、正式制服を仕立てる魔法繊維の名前が書かれていたはずです。店の紹介文をもう一度確かめてみてください。'
+  },
+  {
     id: 'F1',
     requiresPage: 'glossary/apprentice-notes.html',
     hintFor: 'glossary/apprentice-notes.html',

@@ -1,5 +1,27 @@
 # サイクル履歴
 
+## 2026-07-30 14:20
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から
+  選定)。`docs/ARG-DESIGN.md`4-5節の最初のバッチ(P47〜P81)が全て
+  実装済みになったため、新規root行としてP87(flavor: P88)を追加。
+- 実装: P87(root)として`pages/glossary/eldcloth-fabric.html`を新設
+  (2カード)。単語1つ(`shop/uniforms.html`「魔法繊維『エルドクロス』」)を
+  「制服を仕立てる生地」「魔力拡散を抑える機能」の2つの切り口に掘り下げて
+  実装。「繊維の産地・製法が不明」という未解決フックを残した。
+  `src/search-data.js`・`src/hint-data.js`(uniforms.htmlから1件)・
+  `docs/ARG-DESIGN.md`(4-5節にP87行を新規追加、最初のバッチ枯渇を
+  明記)・`docs/ARG-WORDBANK.md`該当箇所を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(507件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(魔導機械科・独自単位
+  「ガリグネ」・レヴィン・オルトウェル教授・星屑ソーダで運を占う学生風習・
+  見習い案内人・学院東駐車場、計6件)から単語1つでもroot追加を継続
+  (新規root行はP89以降に追加)、または各実装済みrootのflavor化。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 13:50
 - ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
 - タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から
