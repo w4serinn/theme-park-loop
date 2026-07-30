@@ -1204,6 +1204,11 @@
       `docs/ARG-DESIGN.md`5節に「フックは検索可能な語句として残すこと」
       ルールを追記(同日別件のユーザー指摘)。
 
+- 書き直し完了: glossary/mythical-creatures.html (2026-07-30)
+- 書き直し完了: glossary/perpetual-motion.html (2026-07-30)
+- 書き直し完了: glossary/starmap-fragments.html (2026-07-30)
+- 書き直し完了: glossary/dueling-champions.html (2026-07-30)
+
 ### 14. 提携宿泊施設
 
 - [x] (M) `pages/access/lodging.html`(depth-1)を新設(2026-07-28、ユーザー承認済み

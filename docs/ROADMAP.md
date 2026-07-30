@@ -209,6 +209,72 @@ ARG(代替現実ゲーム)的な「発見の連鎖+謎解き+最終ゴール」�
 `docs/ARG-DESIGN.md`4節の表から選んで実装していく(実装時の共通ルールは同ファイル
 5節参照)。
 
+- [ ] (M) **最優先: 既存隠しページ54件のライティング方針改訂に伴う全面書き直し
+      (2026-07-31 ユーザー指示)**。`docs/ARG-DESIGN.md`5節「フックの定型文
+      使い回しは禁止」「語り手視点の多様化」の2方針に沿って、下記の対象
+      ページを書き直す。**新規P番号ページの実装より優先すること。**
+      1サイクルにつき3〜4件を目安に進める(全体としてはサイズLだが、この
+      粒度に分割済みなので毎回サイズM相当の単位として着手してよい。
+      「サイズLの項目には着手しない」の原則には反しない)。同じroot→flavor
+      チェーンに属するページはまとめて処理すると語り手の一貫性を保ちやすい。
+      書き直しが完了したページは、下の対象リストから該当行を削除し、
+      `docs/roadmap-done.md`「### 13」に「書き直し完了: <path>
+      (YYYY-MM-DD)」の形で1行ずつ追記すること(個別の内容説明は不要、
+      まとめて記録するだけでよい)。全件完了したら、この親タスク行自体を
+      `[x]`にしてroadmap-done.mdへ退避する。
+
+      対象(50件、上から順に進めるのが基本):
+      - [ ] glossary/apprentice-notes.html(見習い整備士の手記)
+      - [ ] glossary/gear-cipher.html(光る符丁の正体)
+      - [ ] glossary/first-astronomer.html(初代天文官 シベル・オーレン)
+      - [ ] glossary/final-entry.html(記録帳、最後の頁)
+      - [ ] glossary/shooting-star.html(流れ星、という言葉)
+      - [ ] glossary/erased-champion.html(名を消された決闘王)
+      - [ ] glossary/yorishiro-echo.html(よりしろ、という響き)
+      - [ ] glossary/koku-trio.html(「刻」を名に持つ三つの装置)
+      - [ ] glossary/beyond-the-map.html(北方雲海と転移広場、地図の余白について)
+      - [ ] glossary/arnold-relics.html(アルノルド卿が遺したもの、三つの資料)
+      - [ ] glossary/spirits-of-arnold.html(精霊、それぞれの現れ方)
+      - [ ] glossary/circle-ledgers.html(陣紋を刻み、守り継いだ記録簿)
+      - [ ] glossary/merit-records.html(品評会と段位、記録に残るもの)
+      - [ ] glossary/second-headmaster.html(第2代学長フローラ・シルヴァーン、書簡と湿地)
+      - [ ] glossary/hidden-corners.html(学院のどこにでもある、人知れない一角)
+      - [ ] glossary/moon-grass.html(珍薬草「月草」、満月の夜だけの恵み)
+      - [ ] glossary/scribe-lineage.html(七代続く写本師一族、その素顔)
+      - [ ] glossary/aptitude-certificate.html(「魔法資質証明証」、提示を求められるとき)
+      - [ ] glossary/circle-warden.html(陣紋師という仕事)
+      - [ ] glossary/warden-registry.html(陣紋師任命記録、空白の一件)
+      - [ ] glossary/unnamed-warden.html(三つの「刻」との奇妙な符合)
+      - [ ] glossary/arnold-namesake.html(アルノルド卿の名前、三つの残り方)
+      - [ ] glossary/airship-symbols.html(飛行船ドック、船体を支えるもの三つ)
+      - [ ] glossary/fifth-headmaster.html(天文台、名を秘めた第5代学長の仕事)
+      - [ ] glossary/festival-undertold.html(学院祭・行事、あまり語られない三つの裏側)
+      - [ ] glossary/campus-harvest.html(食材のふるさと、学院に三つ)
+      - [ ] glossary/four-elements-seal.html(大結界召喚陣、力を集める四つの石)
+      - [ ] glossary/dueling-heritage.html(決闘演武場、力を支える三つのしるし)
+      - [ ] glossary/hidden-ingredients.html(隠し材料、三つの脇役)
+      - [ ] glossary/champions-prizes.html(学院祭、優勝者に贈られるもの)
+      - [ ] glossary/memory-books.html(記憶を持つ本、答えたくない問い)
+      - [ ] glossary/time-path-interference.html(時間経路干渉、再現実験室の外側)
+      - [ ] glossary/eldcloth-fabric.html(魔法繊維「エルドクロス」、拡散を抑える生地)
+      - [ ] glossary/garigne-unit.html(独自単位「ガリグネ」、誰が決めたのか)
+      - [ ] glossary/summoning-theory.html(召喚術理論体系、40年の研究と幻の続巻)
+      - [ ] glossary/starfall-fortune.html(星屑ソーダ、今夜の星見の運を占う)
+      - [ ] glossary/amber-heart-blueprint.html(琥珀の心臓、失われた設計図の行方)
+      - [ ] glossary/anchor-feather-origin.html(碇と羽根、意匠の生まれた場所)
+      - [ ] glossary/machinery-department.html(魔導機械科、学院の心臓部を託される学科)
+      - [ ] glossary/apprentice-guides.html(見習い案内人、「見習い」の先にあるもの)
+      - [ ] glossary/east-lot-history.html(学院東駐車場、舗装の下に残るもの)
+      - [ ] glossary/portrait-gallery.html(歴代学長肖像画帳、第5代のページだけ)
+      - [ ] glossary/fortune-teller-selection.html(占術師選定記録、17代に共通する一つの符合)
+      - [ ] glossary/orchard-experiment-log.html(林檎栽培実験記録、目的だったのは林檎ではない)
+      - [ ] glossary/conductivity-instrument-log.html(伝導率測定器台帳、型式から辿る実験の正体)
+      - [ ] glossary/resonance-adjustment-log.html(連動調整記録、揃わない出力の理由)
+      - [ ] glossary/stone-inspection-report.html(石材鑑定書、石は無実だったという結論)
+      - [ ] glossary/margin-note.html(法典余白の書き込み、紋様の原型らしき一文)
+      - [ ] glossary/visitor-log-match.html(来場者記帳簿、同じ癖の「る」)
+      - [ ] glossary/nut-supply-record.html(魔力ナッツ仕入れ記録、地図に無い仕入れ先)
+
 - [ ] (S) `docs/ARG-DESIGN.md`4節の表にある「未着手」のP番号ページを1行(または
       関連する2〜3行)選んで実装する。
       **たどり着き方が「通常ページ(未定)」のroot行を選ぶ場合、候補の優先順位は
