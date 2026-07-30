@@ -1,5 +1,31 @@
 # サイクル履歴
 
+## 2026-07-30 16:45
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `docs/ARG-WORDBANK.md`の未使用行が残り3件(いずれも候補薄いと
+  明記済み)まで減ったため、優先順位ルールに沿って既に実装済みroot行の
+  予約済みflavor枠を掘り下げる方針に切り替え。P44(arnold-namesake.html)
+  のflavor枠P45に着手。
+- 実装: P44の「琥珀の心臓の設計図原本の所在は把握されていない」という
+  フックを継続し、`pages/glossary/amber-heart-blueprint.html`を新設
+  (2カード)。実装にあたり、P44側のこのフックが当初「〜は把握されて
+  いない」という疑問文のままで検索可能語句を伴っていなかった(手動
+  チャットで追記した5節ルール違反)ことに気づき、P44の本文にも「設計図
+  台帳」という検索可能な具体語を手がかりとして追記(P13→P14実装時と
+  同型の対応)。この語をそのままP45のkeywordに使用した。
+  `src/search-data.js`(prereq: arnold-namesake.html)・`src/hint-data.js`
+  (チェーン継続ヒント1件)・`docs/ARG-DESIGN.md` P45行を更新。
+- レビュー: OK(local-review、指摘なし。P番号重複なし、フックは検索可能
+  語句として本文に埋め込み済みであることを事前に自己チェック)
+- lint: ✓ / lint:css: ✓ / test: ✓(505件) / build: ✓
+- 次回予定: 他の実装済みroot(P16→P17[fragment、F3。サイズL寄りのため
+  慎重に見積もる]・P47→P48・P49→P50・P51→P52・P53→P54,P55等)の
+  flavor化を継続、またはWORDBANK残り3件(魔導機械科・見習い案内人・
+  学院東駐車場)からのroot追加。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 16:15
 - ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
 - タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から

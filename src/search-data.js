@@ -99,5 +99,6 @@ window.SEARCH_INDEX = [
   { path: 'glossary/eldcloth-fabric.html', title: '魔法繊維「エルドクロス」、拡散を抑える生地', category: '図鑑', hidden: true, keywords: ['エルドクロス'], exactMatch: true },
   { path: 'glossary/garigne-unit.html', title: '独自単位「ガリグネ」、誰が決めたのか', category: '図鑑', hidden: true, keywords: ['ガリグネメーター', 'ガリグネ'], exactMatch: true },
   { path: 'glossary/summoning-theory.html', title: '召喚術理論体系、40年の研究と幻の続巻', category: '図鑑', hidden: true, keywords: ['召喚術理論体系', 'レヴィン・オルトウェル教授'], exactMatch: true },
-  { path: 'glossary/starfall-fortune.html', title: '星屑ソーダ、今夜の星見の運を占う', category: '図鑑', hidden: true, keywords: ['星屑ソーダ', '流星の軌跡'], exactMatch: true }
+  { path: 'glossary/starfall-fortune.html', title: '星屑ソーダ、今夜の星見の運を占う', category: '図鑑', hidden: true, keywords: ['星屑ソーダ', '流星の軌跡'], exactMatch: true },
+  { path: 'glossary/amber-heart-blueprint.html', title: '琥珀の心臓、失われた設計図の行方', category: '図鑑', hidden: true, keywords: ['設計図台帳'], prereq: ['glossary/arnold-namesake.html'], exactMatch: true }
 ];

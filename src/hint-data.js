@@ -165,6 +165,12 @@ window.HINT_DATA = [
     hint: '錬金術研究棟の中心設備は、アルノルド卿自身が設計したと伝わるものだそうです。主要研究設備の説明をもう一度確かめてみてください。'
   },
   {
+    requiresPage: 'glossary/arnold-namesake.html',
+    hintFor: 'glossary/arnold-namesake.html',
+    leadsTo: 'glossary/amber-heart-blueprint.html',
+    hint: '琥珀の心臓の設計図原本は所在不明だそうですが、歴代の図面の所在を記録してきた台帳ならあるという話でした。'
+  },
+  {
     hintFor: 'exploration/airship-dock.html',
     leadsTo: 'glossary/airship-symbols.html',
     hint: '飛行船ドックの格納設備には、魔法帆の素材を保管する専用倉庫があったはずです。格納設備の説明をもう一度確かめてみてください。'
