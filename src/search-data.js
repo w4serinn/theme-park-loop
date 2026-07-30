@@ -106,5 +106,6 @@ window.SEARCH_INDEX = [
   { path: 'glossary/apprentice-guides.html', title: '見習い案内人、「見習い」の先にあるもの', category: '図鑑', hidden: true, keywords: ['見習い案内人'], exactMatch: true },
   { path: 'glossary/east-lot-history.html', title: '学院東駐車場、舗装の下に残るもの', category: '図鑑', hidden: true, keywords: ['学院東駐車場'], exactMatch: true },
   { path: 'glossary/portrait-gallery.html', title: '歴代学長肖像画帳、第5代のページだけ', category: '図鑑', hidden: true, keywords: ['歴代学長肖像画帳'], prereq: ['glossary/fifth-headmaster.html'], exactMatch: true },
-  { path: 'glossary/fortune-teller-selection.html', title: '占術師選定記録、17代に共通する一つの符合', category: '図鑑', hidden: true, keywords: ['占術師選定記録'], prereq: ['glossary/festival-undertold.html'], exactMatch: true }
+  { path: 'glossary/fortune-teller-selection.html', title: '占術師選定記録、17代に共通する一つの符合', category: '図鑑', hidden: true, keywords: ['占術師選定記録'], prereq: ['glossary/festival-undertold.html'], exactMatch: true },
+  { path: 'glossary/orchard-experiment-log.html', title: '林檎栽培実験記録、目的だったのは林檎ではない', category: '図鑑', hidden: true, keywords: ['林檎栽培実験記録'], prereq: ['glossary/campus-harvest.html'], exactMatch: true }
 ];

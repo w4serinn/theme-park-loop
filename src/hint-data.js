@@ -224,6 +224,12 @@ window.HINT_DATA = [
     hint: '食料品・薬草店の紹介文には、学院の食材が育つ二つの場所が書かれていたはずです。店の紹介文をもう一度確かめてみてください。'
   },
   {
+    requiresPage: 'glossary/campus-harvest.html',
+    hintFor: 'glossary/campus-harvest.html',
+    leadsTo: 'glossary/orchard-experiment-log.html',
+    hint: '林檎が甘くなる理由は案内文に書かれていないそうですが、研究棟には栽培そのものを記録した実験記録が保管されているという話でした。'
+  },
+  {
     hintFor: 'exploration/summoning-plaza.html',
     leadsTo: 'glossary/four-elements-seal.html',
     hint: '魔法陣召喚広場の四隅には、力を集めるための石が埋め込まれているそうです。広場設備の説明をもう一度確かめてみてください。'
