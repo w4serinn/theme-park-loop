@@ -1,5 +1,32 @@
 # サイクル履歴
 
+## 2026-07-30 13:20
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `### 13`root行の実装。前サイクル終了時点でWORDBANK未使用行が
+  残り9件まで減り、いずれも他候補と組み合わせにくい単独ページ言及のみ
+  だったため、手動チャットでユーザーと「単語1つでもroot 1ページにして
+  よい(ただしカード数2〜3枚は維持)」という運用緩和を合意。
+  `docs/ROADMAP.md``### 13`にこの方針を追記済み(このサイクルでコミット
+  に含める)。
+- 実装: P70(root、4-5節のroot→flavor4段枠)として
+  `pages/glossary/memory-books.html`を新設(2カード)。単語1つ
+  (`exploration/grand-library.html`「記憶を持つ本」)を「反応の仕組み」
+  「答えたくない問いの謎」の2つの切り口に掘り下げて実装。ノスティオン
+  自身の設定(問いに応答する魔導書)と響き合う内容のため、独り言でそれと
+  なく示唆した。`src/search-data.js`・`src/hint-data.js`
+  (grand-library.htmlから1件)・`docs/ARG-DESIGN.md` P70行・
+  `docs/ARG-WORDBANK.md`該当箇所を更新。
+- レビュー: OK(local-review、指摘なし)
+- lint: ✓ / lint:css: ✓ / test: ✓(501件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(魔導機械科・時間経路
+  実験室・魔法繊維「エルドクロス」・独自単位「ガリグネ」・レヴィン・
+  オルトウェル教授・星屑ソーダで運を占う学生風習・見習い案内人・学院東
+  駐車場、計8件)から単語1つでもroot追加を継続、または各実装済みrootの
+  flavor化。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 12:50
 - ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
 - タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から

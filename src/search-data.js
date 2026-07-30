@@ -98,5 +98,6 @@ window.SEARCH_INDEX = [
   { path: 'glossary/four-elements-seal.html', title: '大結界召喚陣、力を集める四つの石', category: '図鑑', hidden: true, keywords: ['四元素石', '大結界召喚陣'], exactMatch: true },
   { path: 'glossary/dueling-heritage.html', title: '決闘演武場、力を支える三つのしるし', category: '図鑑', hidden: true, keywords: ['カルネ岩', '決闘シグル', '学院魔法決闘規定法典'], exactMatch: true },
   { path: 'glossary/hidden-ingredients.html', title: '隠し材料、三つの脇役', category: '図鑑', hidden: true, keywords: ['安息薬草', '安息草', 'エルダーフラワー', '魔力ナッツ'], exactMatch: true },
-  { path: 'glossary/champions-prizes.html', title: '学院祭、優勝者に贈られるもの', category: '図鑑', hidden: true, keywords: ['年間優先搭乗権', '錬金術師の指輪'], exactMatch: true }
+  { path: 'glossary/champions-prizes.html', title: '学院祭、優勝者に贈られるもの', category: '図鑑', hidden: true, keywords: ['年間優先搭乗権', '錬金術師の指輪'], exactMatch: true },
+  { path: 'glossary/memory-books.html', title: '記憶を持つ本、答えたくない問い', category: '図鑑', hidden: true, keywords: ['記憶を持つ本'], exactMatch: true }
 ];

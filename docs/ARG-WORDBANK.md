@@ -48,7 +48,7 @@
 | 予備歯車庫 | exploration/clock-tower.html | 2. 学院内探索 | C | 使用済み | P81 |
 | 時間経路実験室・「時間経路干渉」 | exploration/clock-tower.html | 2. 学院内探索 | — | 未使用 | — |
 | 蔵書親和魔法陣 | exploration/grand-library.html | 2. 学院内探索 | C | 使用済み | P82 |
-| 記憶を持つ本 | exploration/grand-library.html | 2. 学院内探索 | — | 未使用 | — |
+| 記憶を持つ本 | exploration/grand-library.html | 2. 学院内探索 | — | 使用済み | P70 |
 | 禁書閲覧室 | exploration/grand-library.html | 2. 学院内探索 | C | 使用済み | P84 |
 | 月光草(「月草」と紛らわしい別植物) | exploration/grand-library.html | 2. 学院内探索 | G(デコイ) | 使用済み(デコイ) | moon-grass.htmlの誤答トリガー |
 | 演武場床「カルネ岩」 | exploration/dueling-ground.html | 2. 学院内探索 | — | 使用済み | P59 |

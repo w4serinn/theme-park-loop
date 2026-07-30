@@ -250,6 +250,11 @@ window.HINT_DATA = [
     hint: '錬金術品評会の副賞は、実用品ではない少し変わった記念品だそうです。行事の案内をもう一度確かめてみてください。'
   },
   {
+    hintFor: 'exploration/grand-library.html',
+    leadsTo: 'glossary/memory-books.html',
+    hint: '大図書館の蔵書には、問いかけに応じてページが開く特別な一群があるそうです。エリアについての説明をもう一度確かめてみてください。'
+  },
+  {
     id: 'F1',
     requiresPage: 'glossary/apprentice-notes.html',
     hintFor: 'glossary/apprentice-notes.html',
