@@ -208,6 +208,12 @@ window.HINT_DATA = [
     hint: '学院祭の豆知識には、正式名称になる前の呼び名が書かれていたはずです。学院祭・行事の案内をもう一度確かめてみてください。'
   },
   {
+    requiresPage: 'glossary/festival-undertold.html',
+    hintFor: 'glossary/festival-undertold.html',
+    leadsTo: 'glossary/fortune-teller-selection.html',
+    hint: '占術師の選考基準は公式には語られていないそうですが、学院事務局には歴代の選定記録が保管されているという話でした。'
+  },
+  {
     hintFor: 'dining/index.html',
     leadsTo: 'glossary/campus-harvest.html',
     hint: '学食のアップルパイには、研究棟の林檎園で採れた特別な林檎が使われているそうです。デザートメニューの説明をもう一度読んでみてください。'
