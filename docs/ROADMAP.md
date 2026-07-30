@@ -232,10 +232,7 @@ ARG(代替現実ゲーム)的な「発見の連鎖+謎解き+最終ゴール」�
       やり取り)形式も使ってよい。各ページの形式は`docs/ARG-DESIGN.md`4節の
       表「形式」列を参照(4-5節は個別列を持たないため既定は`証言`)。
 
-      対象(46件、上から順に進めるのが基本):
-      - [ ] glossary/shooting-star.html(流れ星、という言葉)
-      - [ ] glossary/erased-champion.html(名を消された決闘王)
-      - [ ] glossary/yorishiro-echo.html(よりしろ、という響き)
+      対象(43件、上から順に進めるのが基本):
       - [ ] glossary/koku-trio.html(「刻」を名に持つ三つの装置)
       - [ ] glossary/beyond-the-map.html(北方雲海と転移広場、地図の余白について)
       - [ ] glossary/arnold-relics.html(アルノルド卿が遺したもの、三つの資料)
