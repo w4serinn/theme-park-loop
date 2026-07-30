@@ -1,5 +1,29 @@
 # サイクル履歴
 
+## 2026-07-30 11:50
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から
+  選定)。
+- 実装: P59(root、4-5節のroot→flavor2段枠)として
+  `pages/glossary/dueling-heritage.html`を新設(3カード)。
+  `exploration/dueling-ground.html`「演武場床『カルネ岩』」、
+  `shop/dueling-shop.html`「決闘シグル」(季節ごとの缶バッジ)、
+  `shop/dueling-gear.html`「学院魔法決闘規定法典」(200年前制定)を
+  グルーピングし、決闘文化が床材・紋様・法典という三つの形で受け継がれて
+  いるという切り口にした。`src/search-data.js`・`src/hint-data.js`
+  (3ページから各1件)・`docs/ARG-DESIGN.md` P59行・
+  `docs/ARG-WORDBANK.md`該当箇所を更新。
+- レビュー: OK(local-review、指摘1件対応 — `shop/dueling-shop.html`への
+  ヒントが1件漏れていたため追加。あわせて`shop/dueling-gear.html`の
+  正式名称「魔法武具展示室」を確認しヒント文言を修正)
+- lint: ✓ / lint:css: ✓ / test: ✓(492件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(魔導機械科・
+  時間経路実験室・記憶を持つ本など)からのroot追加、または各実装済みroot
+  (P44/P47/P49/P51/P53/P56/P59)のflavor化。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 11:20
 - ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
 - タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から

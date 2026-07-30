@@ -210,6 +210,21 @@ window.HINT_DATA = [
     hint: '召喚素材専門店には、広場の実演で実際に使われた陣の設計図ポスターがあるそうです。その商品説明をもう一度読んでみてください。'
   },
   {
+    hintFor: 'exploration/dueling-ground.html',
+    leadsTo: 'glossary/dueling-heritage.html',
+    hint: '演武場の床には、古代の術式石を敷き詰めた設備があるそうです。演武場設備の説明をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'shop/dueling-shop.html',
+    leadsTo: 'glossary/dueling-heritage.html',
+    hint: '決闘記念品店には、季節ごとに紋様が変わる缶バッジセットがあるそうです。その商品説明をもう一度読んでみてください。'
+  },
+  {
+    hintFor: 'shop/dueling-gear.html',
+    leadsTo: 'glossary/dueling-heritage.html',
+    hint: '魔法武具展示室には、200年前に制定された法典の復刻版があるそうです。その商品説明をもう一度読んでみてください。'
+  },
+  {
     id: 'F1',
     requiresPage: 'glossary/apprentice-notes.html',
     hintFor: 'glossary/apprentice-notes.html',

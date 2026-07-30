@@ -51,7 +51,7 @@
 | 記憶を持つ本 | exploration/grand-library.html | 2. 学院内探索 | — | 未使用 | — |
 | 禁書閲覧室 | exploration/grand-library.html | 2. 学院内探索 | C | 使用済み | P84 |
 | 月光草(「月草」と紛らわしい別植物) | exploration/grand-library.html | 2. 学院内探索 | G(デコイ) | 使用済み(デコイ) | moon-grass.htmlの誤答トリガー |
-| 演武場床「カルネ岩」 | exploration/dueling-ground.html | 2. 学院内探索 | — | 未使用 | — |
+| 演武場床「カルネ岩」 | exploration/dueling-ground.html | 2. 学院内探索 | — | 使用済み | P59 |
 | 魔封石保管庫 | exploration/dueling-ground.html | 2. 学院内探索 | C | 使用済み | P83 |
 | 考査記録室 | exploration/dueling-ground.html | 2. 学院内探索 | B-2 | 使用済み | P39 |
 | 大魔法陣「刻の輪」 | exploration/summoning-plaza.html | 2. 学院内探索 | A | 使用済み | P12 |
@@ -83,8 +83,8 @@
 | 学院湿地区画 | shop/library-shop.html | 4. 購買部 | D | 使用済み | P28 |
 | 時計塔設計図「地下の魔法陣接続部」 | shop/clock-accessories.html | 4. 購買部 | C(補遺) | 使用済み | P86 |
 | 異次元存在 | shop/summoning-shop.html | 4. 購買部 | F | 使用済み | P23 |
-| 季節ごとのシグル紋様「炎の螺旋」「水流環」「雷紋双翼」 | shop/dueling-shop.html | 4. 購買部 | — | 未使用 | — |
-| 学院魔法決闘規定法典 | shop/dueling-gear.html | 4. 購買部 | — | 未使用 | — |
+| 季節ごとのシグル紋様「炎の螺旋」「水流環」「雷紋双翼」 | shop/dueling-shop.html | 4. 購買部 | — | 使用済み | P59 |
+| 学院魔法決闘規定法典 | shop/dueling-gear.html | 4. 購買部 | — | 使用済み | P59 |
 | 「大結界召喚陣」 | shop/summoning-circle.html | 4. 購買部 | — | 使用済み | P56 |
 | 7番試薬/碧龍の試薬ソーダ「第7番」 | shop/alchemy-dining.html(5節と同一語) | 4. 購買部 | (未分類) | 保留中(素材不足) | — |
 | 月草 | dining/index.html 他6ページ | 5. 学食・喫茶室 | G | 使用済み | P97 |
