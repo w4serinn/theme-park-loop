@@ -38,6 +38,25 @@
     return (query || '').trim() === '月光草';
   }
 
+  // 開発用デバッグコマンド「!all」(2026-07-30 ユーザー提案、docs/ROADMAP.md
+  // 「### 10」タスク、src/logic.jsのisDebugAllQueryと同じロジック)。「!reset」と
+  // 同様SEARCH_INDEXには登録しない記号始まりの裏コマンドだが、即座に動作する
+  // のではなく、通常の検索結果と同じクリック可能な1件のカードとして
+  // pages/debug/search-graph.html(SEARCH_INDEX・HINT_DATAのつながりを一覧
+  // できる開発者向けページ)への案内を表示する。hidden: falseにして「✦ 発見」
+  // バッジや「学院の秘密」カウントの対象にはしない(ARG体験の一部ではないため)。
+  var DEBUG_ALL_QUERY = '!all';
+  var DEBUG_ALL_ENTRY = {
+    title: '検索データの可視化(デバッグ)',
+    category: 'デバッグ',
+    path: 'debug/search-graph.html',
+    hidden: false
+  };
+
+  function isDebugAllQuery(query) {
+    return (query || '').trim() === DEBUG_ALL_QUERY;
+  }
+
   var memorySection = document.getElementById('codex-memory-section');
   var memorySecretsLabel = document.getElementById('codex-memory-secrets-label');
   var memorySecretsList = document.getElementById('codex-memory-secrets-list');
@@ -310,9 +329,10 @@
     }
 
     var selfReference = isCodexSelfReference(query);
+    var debugAll = isDebugAllQuery(query);
 
-    // 自己言及トリガー(「私」1文字等)は文字数の制限対象外にする。
-    if (!selfReference && trimmed.length < MIN_SEARCH_QUERY_LENGTH) {
+    // 自己言及トリガー(「私」1文字等)・デバッグコマンドは文字数の制限対象外にする。
+    if (!selfReference && !debugAll && trimmed.length < MIN_SEARCH_QUERY_LENGTH) {
       resultsEl.innerHTML = '';
       statusEl.textContent = 'もう少し詳しく入力してください。';
       return;
@@ -320,9 +340,11 @@
 
     var visitedPaths = window.CodexProgress ? window.CodexProgress.load().secrets : [];
 
-    var results = selfReference
-      ? [SELF_REFERENCE_ENTRY]
-      : filterIndex(query, window.SEARCH_INDEX).filter(isUnlocked);
+    var results = debugAll
+      ? [DEBUG_ALL_ENTRY]
+      : selfReference
+        ? [SELF_REFERENCE_ENTRY]
+        : filterIndex(query, window.SEARCH_INDEX).filter(isUnlocked);
     resultsEl.innerHTML = '';
 
     if (results.length === 0) {

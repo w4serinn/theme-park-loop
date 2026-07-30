@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>検索データの可視化(デバッグ) — 王立魔法学院アルノルド</title>
+  <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/base.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/debug-graph.css" />
+</head>
+<body>
+<!-- HEADER -->
+<main>
+  <section class="page-hero">
+    <h1 class="page-hero__title">検索データの可視化(デバッグ)</h1>
+    <p class="page-hero__desc">ノスティオンの検索窓に「!all」と入力すると、この案内が検索結果に表示されます。SEARCH_INDEX(src/search-data.js)とHINT_DATA(src/hint-data.js)のつながりを一覧できる、開発者向けの確認用ページです。来園者向けの体験(ARG)には含まれません。</p>
+  </section>
+
+  <div class="debug-graph" data-base="{{BASE}}">
+    <section class="debug-graph__issues" id="debug-graph-issues">
+      <h2 class="debug-graph__section-title">整合性チェック</h2>
+      <p class="debug-graph__issues-empty" id="debug-graph-issues-empty" hidden>問題は見つかりませんでした。</p>
+      <ul class="debug-graph__issues-list" id="debug-graph-issues-list"></ul>
+    </section>
+
+    <section class="debug-graph__tree-section">
+      <h2 class="debug-graph__section-title">ページのつながり</h2>
+      <p class="debug-graph__count" id="debug-graph-count"></p>
+      <ul class="debug-graph__tree" id="debug-graph-tree"></ul>
+    </section>
+  </div>
+</main>
+<!-- FOOTER -->
+<script src="{{BASE}}src/search-data.js" defer></script>
+<script src="{{BASE}}src/hint-data.js" defer></script>
+<script src="{{BASE}}src/debug-graph.js" defer></script>
+</body>
+</html>

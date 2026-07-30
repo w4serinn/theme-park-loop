@@ -1,5 +1,42 @@
 # サイクル履歴
 
+## 2026-07-30 20:30
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: 手動チャットで`docs/ROADMAP.md`「### 10」に追記された
+  デバッグ用検索コマンド「!all」タスク(M)に着手。「進行中」に戻っていた
+  同ページの唯一の未完了サブタスク。
+- 実装: 検索窓に「!all」と入力すると、既存の「!reset」と同様の記号始まり
+  裏コマンドとして扱われるが、通常の検索結果と同じ形の1件のカード
+  (category: 「デバッグ」)として`pages/debug/search-graph.html`への案内を
+  表示するようにした。遷移先は、SEARCH_INDEX(src/search-data.js)の
+  hiddenエントリ一つひとつに、HINT_DATA(src/hint-data.js)側からそこへ
+  向かうヒントの一覧を付加して表示する開発者向けの可視化ページ。
+  root→flavorの木構造(prereqが複数の場合は両方の親の下に重複表示)、
+  keywords、incoming hintsに加え、整合性チェック(ヒントが1件も無い
+  孤立ページ・prereqの参照切れの検出)も表示する。プレイヤー向けのARG体験
+  には含めない(hidden: false、meta robots noindex,nofollow、
+  CodexProgressへの読み書き無し)。純粋関数は`src/logic.js`に実装しテスト
+  追加(buildDebugGraphNodes/buildDebugGraphTree/findDebugGraphIssues/
+  isDebugAllQuery)、`src/debug-graph.js`(ページ本体)・`src/search.js`
+  (検索結果カード)には同じロジックを複製(file://対応、既存の
+  isDebugResetQuery等と同じ設計方針)。
+- レビュー: 実装直後にPlaywrightでのブラウザ動作確認を2回実施し、以下を
+  発見・その場で修正: (1) buildDebugGraphTreeが3段以上のflavorチェーン
+  (P53→P54→P55等)で孫ノードにchildrenプロパティを付与し忘れておりTypeError
+  で木が空表示になる不具合(再発防止のテストケースを追加)、(2) 見出し・
+  本文の文字色にvar(--ink)を誤用しておりサイト背景(bodyの背景色も
+  var(--ink))と同化して文字が見えなくなる不具合(var(--brass)ベースに
+  修正)。さらに実データでの再検証時、P91(nostion-memory.html、意図的に
+  SEARCH_INDEX未登録)をprereqとするエントリがdangling-prereqとして誤検知
+  される問題も発見し、既知の例外として除外する対応とテストを追加。
+  再検証で全て解消を確認(コンソールエラー無し、隠しページ49件/root34件が
+  正しくツリー表示、3段チェーンも正しくネスト、文字色も可読)。
+- lint: ✓ / lint:css: ✓ / test: ✓(550件) / build: ✓
+- 次回予定: `### 13`のP16→P17(fragment F3、サイズL寄り)・P49→P50は実装済み
+  のため、P56→P57,P58等の既存root flavor枠の掘り下げを継続。
+- blocked / partial: なし
+- asset-pending: なし(デバッグ用ページのため、ビジュアルエリアは無し)
+
 ## 2026-07-30 19:45
 - ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
 - タスク選定: 前サイクル(P54)に続き、P53チェーンの最終段P55に着手し、

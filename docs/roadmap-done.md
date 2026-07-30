@@ -546,6 +546,35 @@
 - [x] (S) 共通アイキャッチ画像(assets/images/og-image.jpg)をREQ-068として依頼・反映。
       時計塔と飛行船が浮かぶ夕景の一枚絵
 
+### 10. ページ内検索機能
+
+- [x] (M) デバッグ用検索コマンド「!all」の追加(2026-07-30 ユーザー提案、
+      同日実装)。検索窓に「!all」と入力すると、既存の「!reset」と同様
+      記号始まりの裏コマンドとして扱われるが、即座に動作するのではなく、
+      通常の検索結果と同じ形の1件のカード(category: 「デバッグ」)として
+      pages/debug/search-graph.html への案内を表示する。遷移先は、
+      SEARCH_INDEX(src/search-data.js)のhiddenエントリ一つひとつに、
+      HINT_DATA(src/hint-data.js)側からそこへ向かうヒントの一覧を
+      付加して表示する開発者向けの可視化ページ。root→flavorの木構造
+      (buildDebugGraphTree、prereqが複数の場合は両方の親の下に重複表示)、
+      keywords、incoming hintsに加え、整合性チェック(ヒントが1件も無い
+      孤立ページ・prereqの参照切れの検出、findDebugGraphIssues)も表示する。
+      プレイヤー向けのARG体験には含めない(hidden: falseで「✦ 発見」
+      バッジ・「学院の秘密」カウントの対象外、CodexProgressへの読み書きも
+      無し。meta robots noindex,nofollow)。ロジックはsrc/logic.jsに実装し
+      テスト済み、src/debug-graph.js(ページ本体)・src/search.js
+      (検索結果カードの表示)には同じロジックを複製(file://対応、
+      既存のisDebugResetQuery等と同じ設計方針を踏襲)。実装直後の
+      ブラウザ動作確認(2件のPlaywright検証)で、(1) buildDebugGraphTreeが
+      3段以上のflavorチェーン(例: P53→P54→P55)で孫ノードにchildren
+      プロパティを付与し忘れておりTypeErrorで木が空表示になる不具合、
+      (2) 見出し・本文の文字色にvar(--ink)を誤用しておりサイト背景
+      (body背景も--ink)と同化して文字が見えなくなる不具合、の2件を発見・
+      修正。また実データでの再検証時、P91(glossary/nostion-memory.html、
+      意図的にSEARCH_INDEX未登録の特別ページ)をprereqとするエントリが
+      dangling-prereqとして誤検知される問題も見つかり、既知の例外として
+      除外する対応を追加した。
+
 ### 12. 全ページ演出・体験強化
 
 - [x] (M) トップページ: about-section・highlights-section・nav-cards-section・

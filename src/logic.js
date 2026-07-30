@@ -323,6 +323,17 @@ export function isDebugResetQuery(query) {
   return (query || '').trim() === DEBUG_RESET_QUERY;
 }
 
+// 開発用デバッグコマンド「!all」(2026-07-30 ユーザー提案、docs/ROADMAP.md
+// 「### 10」タスク)。!resetと同じく記号始まりの裏コマンドでSEARCH_INDEXには
+// 登録しないが、こちらは即座に動作するのではなく、通常の検索結果と同じ形の
+// 1件のカードとして pages/debug/search-graph.html(SEARCH_INDEX・HINT_DATAの
+// つながりを一覧できる開発者向けページ)への案内を表示する。
+export var DEBUG_ALL_QUERY = '!all';
+
+export function isDebugAllQuery(query) {
+  return (query || '').trim() === DEBUG_ALL_QUERY;
+}
+
 // P91(docs/ARG-DESIGN.md 4-3節)「本心の断片」の矛盾探しパズル対策
 // (2026-07-29 ユーザー指摘: 候補が3つしかなく、総当たりで解けてしまう)。
 // 候補を5つに増やしたことに加え、誤った候補を検索した際は通常の
@@ -421,4 +432,93 @@ export function shouldShowSearchProgress(foundCount, achieved) {
 
 export function formatDiscoveryProgressText(foundCount) {
   return '学院の秘密を' + foundCount + '件発見しました';
+}
+
+// pages/debug/search-graph.html用(2026-07-30、検索ページのデバッグコマンド
+// 「!all」の遷移先、docs/ROADMAP.md「### 10」タスク)。SEARCH_INDEXの
+// hiddenエントリ一つひとつに、HINT_DATA側からそこへ向かう
+// (entry.leadsTo === path)ヒントの一覧を付加したノード配列を作る。
+// 開発者がsearch-data.js/hint-data.jsの内容を目視で確認するための中間データ。
+export function buildDebugGraphNodes(searchIndex, hintData) {
+  var hidden = (searchIndex || []).filter(function (e) { return e.hidden; });
+  return hidden.map(function (entry) {
+    var incomingHints = (hintData || [])
+      .filter(function (h) { return h.leadsTo === entry.path; })
+      .map(function (h) {
+        return {
+          sources: Array.isArray(h.hintFor) ? h.hintFor : [h.hintFor],
+          hint: h.hint
+        };
+      });
+    return {
+      path: entry.path,
+      title: entry.title,
+      category: entry.category,
+      keywords: entry.keywords || [],
+      exactMatch: !!entry.exactMatch,
+      prereq: entry.prereq || [],
+      incomingHints: incomingHints
+    };
+  });
+}
+
+// buildDebugGraphNodesの結果を、prereqでつながるroot→flavorのツリーに組む。
+// prereqを持たないノードをrootとし、他ノードのprereqに自分のpathが含まれる
+// ノードをchildrenとして再帰的にぶら下げる。prereqが複数(網状構造、例: P13)の
+// 場合は両方の親の下に重複して現れる(どちらの経路でもたどり着けることを
+// そのまま示すため、あえて重複を解消しない)。
+export function buildDebugGraphTree(nodes) {
+  var list = nodes || [];
+  var withChildren = list.map(function (n) {
+    return {
+      path: n.path,
+      title: n.title,
+      category: n.category,
+      keywords: n.keywords,
+      exactMatch: n.exactMatch,
+      prereq: n.prereq,
+      incomingHints: n.incomingHints,
+      children: []
+    };
+  });
+  // childrenは(childrenプロパティを持たない生のlistではなく)withChildren自身から
+  // 探す。こうしないと孫以降のノードにchildrenが付与されず、再帰的な木構造を
+  // たどれない(2026-07-30 バグ修正: pages/debug/search-graph.htmlで3段以上の
+  // flavorチェーンを描画しようとした際にTypeErrorで空表示になっていた)。
+  withChildren.forEach(function (n) {
+    n.children = withChildren.filter(function (other) { return other.prereq.indexOf(n.path) !== -1; });
+  });
+  return withChildren.filter(function (n) { return n.prereq.length === 0; });
+}
+
+// 整合性チェック(2026-07-30、debug-graph.js用): (1) このページへ導くヒントが
+// HINT_DATAに1件も無い、(2) prereqが指すpathがSEARCH_INDEXに存在しない、
+// の2点を検出する。docs/ARG-DESIGN.mdとの整合性はtests/arg-design-consistency
+// .test.jsが別途保証しているが、そちらはMarkdown側の記述だけを見ており、
+// 実データ(search-data.js・hint-data.js)自体の整合性は見ていないため、
+// このデバッグページで補う。
+//
+// P91(src/search.jsのSELF_REFERENCE_ENTRY、glossary/nostion-memory.html)は
+// プレイヤー向けの通常検索対象外にするため意図的にSEARCH_INDEXへ登録して
+// いない特別ページ。これをprereqとするエントリ(P91→yorishiro-echo.html)は
+// 正当な参照であり、(2)のdangling-prereq検出における既知の例外として除外する
+// (2026-07-30、初回実装後にデバッグページ自体で誤検知を確認して追記)。
+var KNOWN_SPECIAL_PREREQ_PATHS = ['glossary/nostion-memory.html'];
+
+export function findDebugGraphIssues(nodes) {
+  var list = nodes || [];
+  var byPath = {};
+  list.forEach(function (n) { byPath[n.path] = true; });
+  var issues = [];
+  list.forEach(function (n) {
+    if (n.incomingHints.length === 0) {
+      issues.push({ path: n.path, title: n.title, type: 'no-hint' });
+    }
+    n.prereq.forEach(function (p) {
+      if (!byPath[p] && KNOWN_SPECIAL_PREREQ_PATHS.indexOf(p) === -1) {
+        issues.push({ path: n.path, title: n.title, type: 'dangling-prereq', detail: p });
+      }
+    });
+  });
+  return issues;
 }
