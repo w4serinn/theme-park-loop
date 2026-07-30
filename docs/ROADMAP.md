@@ -232,10 +232,7 @@ ARG(代替現実ゲーム)的な「発見の連鎖+謎解き+最終ゴール」�
       やり取り)形式も使ってよい。各ページの形式は`docs/ARG-DESIGN.md`4節の
       表「形式」列を参照(4-5節は個別列を持たないため既定は`証言`)。
 
-      対象(10件、上から順に進めるのが基本):
-      - [ ] glossary/champions-prizes.html(学院祭、優勝者に贈られるもの)
-      - [ ] glossary/memory-books.html(記憶を持つ本、答えたくない問い)
-      - [ ] glossary/time-path-interference.html(時間経路干渉、再現実験室の外側)
+      対象(7件、上から順に進めるのが基本):
       - [ ] glossary/eldcloth-fabric.html(魔法繊維「エルドクロス」、拡散を抑える生地)
       - [ ] glossary/garigne-unit.html(独自単位「ガリグネ」、誰が決めたのか)
       - [ ] glossary/summoning-theory.html(召喚術理論体系、40年の研究と幻の続巻)
