@@ -232,10 +232,7 @@ ARG(代替現実ゲーム)的な「発見の連鎖+謎解き+最終ゴール」�
       やり取り)形式も使ってよい。各ページの形式は`docs/ARG-DESIGN.md`4節の
       表「形式」列を参照(4-5節は個別列を持たないため既定は`証言`)。
 
-      対象(38件、上から順に進めるのが基本):
-      - [ ] glossary/merit-records.html(品評会と段位、記録に残るもの)
-      - [ ] glossary/second-headmaster.html(第2代学長フローラ・シルヴァーン、書簡と湿地)
-      - [ ] glossary/hidden-corners.html(学院のどこにでもある、人知れない一角)
+      対象(35件、上から順に進めるのが基本):
       - [ ] glossary/moon-grass.html(珍薬草「月草」、満月の夜だけの恵み)
       - [ ] glossary/scribe-lineage.html(七代続く写本師一族、その素顔)
       - [ ] glossary/aptitude-certificate.html(「魔法資質証明証」、提示を求められるとき)
