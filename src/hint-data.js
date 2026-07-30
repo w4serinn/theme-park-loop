@@ -225,6 +225,21 @@ window.HINT_DATA = [
     hint: '魔法武具展示室には、200年前に制定された法典の復刻版があるそうです。その商品説明をもう一度読んでみてください。'
   },
   {
+    hintFor: 'dining/index.html',
+    leadsTo: 'glossary/hidden-ingredients.html',
+    hint: '学食の定番丼には、微量の薬草が隠し味として使われているそうです。メニューの詳細をもう一度確かめてみてください。'
+  },
+  {
+    hintFor: 'dining/index.html',
+    leadsTo: 'glossary/hidden-ingredients.html',
+    hint: '授業前に人気のマフィンには、砕いたナッツが練り込まれているそうです。デザートメニューの説明をもう一度読んでみてください。'
+  },
+  {
+    hintFor: 'dining/alchemy-dining.html',
+    leadsTo: 'glossary/hidden-ingredients.html',
+    hint: '秘薬スタンドには、月草とある薬草をブレンドした温かい一服があるそうです。その説明をもう一度読んでみてください。'
+  },
+  {
     id: 'F1',
     requiresPage: 'glossary/apprentice-notes.html',
     hintFor: 'glossary/apprentice-notes.html',

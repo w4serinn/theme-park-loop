@@ -343,7 +343,7 @@ flavor/fragmentが組めない」と判断した場合、その接続を無理�
 | P53 | P54 → P55 | 実装済み(root=P53。`pages/glossary/campus-harvest.html`、2026-07-30実装。`dining/index.html`「学院農園」「薬草園」「鉄皮林檎」(錬金術研究棟の林檎園)の3項目から接続。`shop/groceries.html`の紹介文からも学院農園・薬草園に接続可能な網状構造。`docs/ARG-WORDBANK.md`「## 候補一覧」の未使用行をグルーピングして実装。「研究棟の林檎だけ甘い理由が不明」というフックを残し、P54へ) |
 | P56 | P57 → P58 | 実装済み(root=P56。`pages/glossary/four-elements-seal.html`、2026-07-30実装。`exploration/summoning-plaza.html`「四元素石」、`shop/summoning-circle.html`「大結界召喚陣」(広場の実演で実際に使用された陣の設計図ポスター)の2箇所から接続。`docs/ARG-WORDBANK.md`「## 候補一覧」の未使用行をグルーピングして実装。「陣と四元素石がどう連動していたか説明なし」というフックを残し、P57へ) |
 | P59 | P60 → P61 | 実装済み(root=P59。`pages/glossary/dueling-heritage.html`、2026-07-30実装。`exploration/dueling-ground.html`「演武場床『カルネ岩』」、`shop/dueling-shop.html`「決闘シグル」(季節ごとの缶バッジ)、`shop/dueling-gear.html`「学院魔法決闘規定法典」(200年前制定)の3箇所から接続。`docs/ARG-WORDBANK.md`「## 候補一覧」の未使用行をグルーピングして実装。「現在の決闘シグルの意匠と古語魔法文の関係が不明」というフックを残し、P60へ) |
-| P62 | P63 → P64 → P65 | 未着手 |
+| P62 | P63 → P64 → P65 | 実装済み(root=P62。`pages/glossary/hidden-ingredients.html`、2026-07-30実装。`dining/index.html`「学院定番 魔道師ハヤシ」(安息薬草)・「魔力チャージ マフィン」(魔力ナッツ)、`dining/alchemy-dining.html`「温薬草ポション『安息のいちばん』」(安息草)の2ページから接続。`docs/ARG-WORDBANK.md`「## 候補一覧」の未使用行(安息薬草/安息草・エルダーフラワー・魔力ナッツ)をグルーピングして実装。「魔力ナッツの収穫地が不明」というフックを残し、P63へ) |
 | P66 | P67 → P68 → P69 | 未着手 |
 | P70 | P71 → P72 → P73 → P74 | 未着手 |
 | P75 | P76 → P77 → P78 → P79 → P80 | 未着手 |

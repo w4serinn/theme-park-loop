@@ -96,5 +96,6 @@ window.SEARCH_INDEX = [
   { path: 'glossary/festival-undertold.html', title: '学院祭・行事、あまり語られない三つの裏側', category: '図鑑', hidden: true, keywords: ['秋祭り', '大点灯', '占術師'], exactMatch: true },
   { path: 'glossary/campus-harvest.html', title: '食材のふるさと、学院に三つ', category: '図鑑', hidden: true, keywords: ['学院農園', '薬草園', '鉄皮林檎'], exactMatch: true },
   { path: 'glossary/four-elements-seal.html', title: '大結界召喚陣、力を集める四つの石', category: '図鑑', hidden: true, keywords: ['四元素石', '大結界召喚陣'], exactMatch: true },
-  { path: 'glossary/dueling-heritage.html', title: '決闘演武場、力を支える三つのしるし', category: '図鑑', hidden: true, keywords: ['カルネ岩', '決闘シグル', '学院魔法決闘規定法典'], exactMatch: true }
+  { path: 'glossary/dueling-heritage.html', title: '決闘演武場、力を支える三つのしるし', category: '図鑑', hidden: true, keywords: ['カルネ岩', '決闘シグル', '学院魔法決闘規定法典'], exactMatch: true },
+  { path: 'glossary/hidden-ingredients.html', title: '隠し材料、三つの脇役', category: '図鑑', hidden: true, keywords: ['安息薬草', '安息草', 'エルダーフラワー', '魔力ナッツ'], exactMatch: true }
 ];

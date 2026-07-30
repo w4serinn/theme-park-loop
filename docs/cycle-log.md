@@ -1,5 +1,31 @@
 # サイクル履歴
 
+## 2026-07-30 12:20
+- ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
+- タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から
+  選定)。
+- 実装: P62(root、4-5節のroot→flavor3段枠)として
+  `pages/glossary/hidden-ingredients.html`を新設(3カード)。
+  `dining/index.html`「学院定番 魔道師ハヤシ」(安息薬草)・「魔力チャージ
+  マフィン」(魔力ナッツ)・エルダーフラワー(星詠みハーブティー/
+  エルダーフラワーソーダ)、`dining/alchemy-dining.html`「温薬草ポション
+  『安息のいちばん』」(安息草)をグルーピングし、主役メニューを陰で支える
+  隠し材料という切り口にした(P53「食材のふるさと」が産地視点だったのに
+  対し、こちらは個別メニューでの使われ方視点)。`src/search-data.js`・
+  `src/hint-data.js`(dining/index.htmlから2件、dining/alchemy-dining.html
+  から1件)・`docs/ARG-DESIGN.md` P62行・`docs/ARG-WORDBANK.md`該当箇所を
+  更新。
+- レビュー: OK(local-review、指摘1件対応 — `dining/alchemy-dining.html`
+  の店名を「蒸留工房喫茶室」と誤記していたため、正しい店名「秘薬スタンド」
+  に修正)
+- lint: ✓ / lint:css: ✓ / test: ✓(495件) / build: ✓
+- 次回予定: `docs/ARG-WORDBANK.md`の残り未使用行(魔導機械科・
+  独自単位「ガリグネ」・見習い案内人など)からのroot追加、または各実装済み
+  root(P44/P47/P49/P51/P53/P56/P59/P62)のflavor化。
+- blocked / partial: なし
+- asset-pending: なし(既存の`.archive-list`パターン流用のみ、新規ビジュアル
+  エリア無し)
+
 ## 2026-07-30 11:50
 - ブランチ: 引き続き`evolve/cycle-40`(未マージ)。
 - タスク選定: `### 13`root行の実装(`docs/ARG-WORDBANK.md`の未使用行から
