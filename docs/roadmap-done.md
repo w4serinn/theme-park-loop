@@ -1208,6 +1208,15 @@
 - 書き直し完了: glossary/perpetual-motion.html (2026-07-30)
 - 書き直し完了: glossary/starmap-fragments.html (2026-07-30)
 - 書き直し完了: glossary/dueling-champions.html (2026-07-30)
+- 書き直し完了: glossary/apprentice-notes.html (2026-07-30、道具棚裏の鉄扉カードの
+  語り手を匿名の調査者から手記本人の書き込みに統一。他2カードと符丁テーブルは
+  ギミック保持のため変更なし)
+- 書き直し完了: glossary/gear-cipher.html (2026-07-30、既に「修繕工房の職人の
+  言い伝え」という語り手・定型フックなしの構成だったため変更なし)
+- 書き直し完了: glossary/first-astronomer.html (2026-07-30、既にオーレン本人の
+  観測記録帳からの引用形式だったため変更なし)
+- 書き直し完了: glossary/final-entry.html (2026-07-30、既にオーレン本人の手記の
+  引用形式だったため変更なし)
 
 ### 14. 提携宿泊施設
 

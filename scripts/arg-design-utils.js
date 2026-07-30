@@ -130,14 +130,14 @@ export function extractFragmentDependencies(markdown) {
   for (const line of lines) {
     if (!isTableRow(line)) continue;
     const cells = splitCells(line);
-    if (cells.length < 5 || isSeparatorRow(cells) || isHeaderRow(cells)) continue;
+    if (cells.length < 6 || isSeparatorRow(cells) || isHeaderRow(cells)) continue;
 
     const rowId = cells[0].trim();
-    // 4-1〜4-4b: | ID | 種別 | たどり着き方 | 産出する断片 | 必要な断片 | status |
-    // 4-6:        | ID | 種別 | たどり着き方 | 必要な断片 | status |
-    const hasProducedColumn = cells.length >= 6;
-    const producedCell = hasProducedColumn ? cells[3] : "";
-    const requiredCell = hasProducedColumn ? cells[4] : cells[3];
+    // 4-1〜4-4b: | ID | 種別 | 形式 | たどり着き方 | 産出する断片 | 必要な断片 | status |
+    // 4-6:        | ID | 種別 | 形式 | たどり着き方 | 必要な断片 | status |
+    const hasProducedColumn = cells.length >= 7;
+    const producedCell = hasProducedColumn ? cells[4] : "";
+    const requiredCell = hasProducedColumn ? cells[5] : cells[4];
     const statusCell = cells[cells.length - 1];
 
     statusByRow.set(rowId, statusCell);
