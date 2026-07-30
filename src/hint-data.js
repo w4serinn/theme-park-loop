@@ -252,6 +252,12 @@ window.HINT_DATA = [
     hint: '陣と四元素石がどう連動していたかは設計図に書かれていないそうですが、広場の管理小屋には連動そのものを記録した帳面が残っているという話でした。'
   },
   {
+    requiresPage: 'glossary/resonance-adjustment-log.html',
+    hintFor: 'glossary/resonance-adjustment-log.html',
+    leadsTo: 'glossary/stone-inspection-report.html',
+    hint: '出力がずれる理由は記録の理由欄が空欄のままだそうですが、後年になって外部の鑑定士が石そのものを調べた記録が残っているという話でした。'
+  },
+  {
     hintFor: 'exploration/dueling-ground.html',
     leadsTo: 'glossary/dueling-heritage.html',
     hint: '演武場の床には、古代の術式石を敷き詰めた設備があるそうです。演武場設備の説明をもう一度確かめてみてください。'
