@@ -84,6 +84,18 @@ window.HINT_DATA = [
     hint: 'この門が建てられた経緯を記した記録が、学院事務局に残っているかもしれません。'
   },
   {
+    hintFor: 'access/lodging.html',
+    leadsTo: 'glossary/silver-clock-inn.html',
+    hint: '学院前旅籠「銀時計亭」には、創業当時から使われてきた宿帳が蔵に保管されているそうです。宿泊施設の詳しい紹介をもう一度確かめてみてください。'
+  },
+  {
+    id: 'F14',
+    requiresPage: 'glossary/silver-clock-inn.html',
+    hintFor: 'glossary/silver-clock-inn.html',
+    leadsTo: 'glossary/guestbook-first-page.html',
+    hint: '宿帳の最初の頁を、実際に見せてもらえることになったはずです。'
+  },
+  {
     hintFor: 'exploration/clock-tower.html',
     leadsTo: 'glossary/perpetual-motion.html',
     hint: '時計塔の中枢には、魔力の補給なしで動き続ける仕掛けがあるという話です。塔の主要機構についての記述を探してみてください。'

@@ -68,6 +68,8 @@ window.SEARCH_INDEX = [
   { path: 'glossary/old-west-gate.html', title: '旧正門、蔦に覆われた痕跡', category: '図鑑', hidden: true, keywords: ['旧正門'], exactMatch: true },
   { path: 'glossary/pillar-rubbing.html', title: '柱の刻印の写し、遺された一語', category: '図鑑', hidden: true, keywords: ['柱の刻印の写し'], prereq: ['glossary/old-west-gate.html'], exactMatch: true },
   { path: 'glossary/west-gate-construction-record.html', title: '旧正門建設記録、還らなかった一行', category: '図鑑', hidden: true, keywords: ['旧正門建設記録'], prereq: ['glossary/pillar-rubbing.html'], exactMatch: true },
+  { path: 'glossary/silver-clock-inn.html', title: '銀時計亭の宿帳、百二十年の記録', category: '図鑑', hidden: true, keywords: ['銀時計亭の宿帳'], exactMatch: true },
+  { path: 'glossary/guestbook-first-page.html', title: '宿帳の最初の頁、滲んだ一文字', category: '図鑑', hidden: true, keywords: ['宿帳の最初の頁'], prereq: ['glossary/silver-clock-inn.html'], exactMatch: true },
   { path: 'glossary/cornerstone-pattern.html', title: '礎石の紋様、正門に眠る図案', category: '図鑑', hidden: true, keywords: ['礎石の紋様'], exactMatch: true },
   { path: 'glossary/gate-pattern-match.html', title: '紋様の続き、記章と礎石が重なる時', category: '図鑑', hidden: true, keywords: ['紋様の続き'], prereq: ['glossary/cornerstone-pattern.html'], exactMatch: true },
   { path: 'glossary/perpetual-motion.html', title: '永久運動術式', category: '図鑑', hidden: true, keywords: ['フィンレー'] },
