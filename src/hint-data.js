@@ -493,4 +493,16 @@ window.HINT_DATA = [
     leadsTo: 'glossary/east-lot-history.html',
     hint: 'お車での来場案内には、正門前にある駐車場の名前が書かれていたはずです。もう一度確かめてみてください。'
   },
+  {
+    hintFor: 'index.html',
+    leadsTo: 'glossary/cornerstone-pattern.html',
+    hint: '学院の創立の由来には、正門脇に残るという石についての一文があったはずです。トップページの学院紹介文をもう一度読んでみてください。'
+  },
+  {
+    id: 'F7',
+    requiresPage: 'glossary/cornerstone-pattern.html',
+    hintFor: 'glossary/cornerstone-pattern.html',
+    leadsTo: 'glossary/gate-pattern-match.html',
+    hint: '案内係が気にしていた「刻印の証」の意匠と、この紋様。実際に重ねてみた人はまだいないようです。'
+  },
 ];

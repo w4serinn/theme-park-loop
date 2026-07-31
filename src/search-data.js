@@ -64,6 +64,8 @@ window.SEARCH_INDEX = [
   { path: 'glossary/glowing-bookmark.html', title: '光る栞、その正体', category: '図鑑', hidden: true, keywords: ['光る栞'], exactMatch: true },
   { path: 'glossary/seal-token.html', title: '刻印の証、正門案内係の記章', category: '図鑑', hidden: true, keywords: ['刻印の証'], exactMatch: true },
   { path: 'glossary/locked-locker.html', title: '開かずのロッカー、その中身', category: '図鑑', hidden: true, keywords: ['開かずのロッカー'], exactMatch: true },
+  { path: 'glossary/cornerstone-pattern.html', title: '礎石の紋様、正門に眠る図案', category: '図鑑', hidden: true, keywords: ['礎石の紋様'], exactMatch: true },
+  { path: 'glossary/gate-pattern-match.html', title: '紋様の続き、記章と礎石が重なる時', category: '図鑑', hidden: true, keywords: ['紋様の続き'], prereq: ['glossary/cornerstone-pattern.html'], exactMatch: true },
   { path: 'glossary/perpetual-motion.html', title: '永久運動術式', category: '図鑑', hidden: true, keywords: ['フィンレー'] },
   { path: 'glossary/starmap-fragments.html', title: '魔導88星座', category: '図鑑', hidden: true, keywords: ['星座紋解析台'] },
   { path: 'glossary/dueling-champions.html', title: '決闘王列伝', category: '図鑑', hidden: true, keywords: ['第三閃光戦'] },
