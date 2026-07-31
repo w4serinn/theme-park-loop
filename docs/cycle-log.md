@@ -1,5 +1,33 @@
 # サイクル履歴
 
+## 2026-07-31 20:48
+- ブランチ: 引き続き`evolve/cycle-41`(未マージ)。
+- タスク選定: 前サイクルの計画どおり、PGATE本実装の最終段階である
+  `src/search-data.js`への登録(発見経路の開放)に着手。
+- 実装: PGATE(`pages/glossary/gathering-gate.html`)をkeyword「欠片の環」
+  (グループBの謎解きで確定した、10断片の正式な呼び名)で`src/search-data.js`
+  に登録。prereqは10断片産出ページ(gear-cipher.html・original-insight.html・
+  night-response-record.html・glowing-bookmark.html・gate-pattern-match.html・
+  locked-locker.html・west-gate-construction-record.html・
+  silent-night-reading.html・yorishiro-echo.html・guestbook-first-page.html)
+  のいずれか1つのOR判定とした(既存のprereq方式と同じ仕組み。実際に扉が
+  開くかどうかの10/10判定はページ自身のJSが別途行う)。
+  local-review時に、「欠片の環」という語自体がgathering-gate.html内の
+  グループB選択肢としてしか登場しておらず、ページを見つける前にこの語を
+  知る手段が無い(発見経路として機能しない)ことに気づいた。既存の設計
+  ルール(本文にフックとなる具体的な語を埋め込む)に沿い、同じコミットで
+  `pages/glossary/west-gate-construction-record.html`(P94、10断片産出
+  ページの1つでもある)のノスティオンの独り言に「欠片の環」という語を
+  自然な形で追記し、閲覧すれば発見経路とprereqを同時に満たす設計にした。
+  docs/ARG-DESIGN.md「4-6. ゴール」のPGATE行・docs/ROADMAP.mdの該当注記も
+  完成状態に合わせて更新。
+- レビュー: OK、指摘1件対応(上記の発見不能な語だった問題。目視確認で
+  発見し、その場で修正)。
+- lint: ✓ / lint:css: ✓ / test: ✓(762件、変更無し) / build: ✓
+- 次回予定: PFINAL(入学案内ページ)の本実装に着手する。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-31 20:21
 - ブランチ: 引き続き`evolve/cycle-41`(未マージ)。
 - タスク選定: 前サイクルの計画どおり、PGATE本実装の段階2の残りである
