@@ -1,5 +1,38 @@
 # サイクル履歴
 
+## 2026-07-31 13:45
+- ブランチ: 引き続き`evolve/cycle-41`(未マージ)。
+- タスク選定: 前回サイクルの予告どおり、`docs/ARG-WORDBANK.md`「## 候補
+  一覧」が尽きているため既存rootの予約済みflavor枠を選定。P29〜P30
+  (P28のflavor)とP42〜P43(P41のflavor)、無関係な2チェーンをまとめて
+  実装(APIコスト低減目的、内容は無関係)。
+- 実装: P29→P30(`pages/glossary/marsh-keeper.html`→
+  `pages/glossary/marsh-journal.html`)は、P28(second-headmaster.html)の
+  「湿地区画の管理者が語られていない」というフックを継続。写本堂の店主が
+  学院事務局・錬金術研究棟へ問い合わせ、代々「葦刈り」を引き継ぐ者がいると
+  判明し、「湿地日誌」の最初の記述者が実名を残さず「この葦、ペンに向く」と
+  だけ書き残していたことを示し、P28のフローラ・シルヴァーンの謎と静かに
+  響き合わせて締めくくった。P42→P43
+  (`pages/glossary/aptitude-standard.html`→
+  `pages/glossary/reassessment-log.html`)は、P41(aptitude-certificate.html)
+  の「証明証の発行基準が説明されていない」というフックを継続。魔導具店の
+  店員が天文台に問い合わせ、星座紋解析台の判定が一定基準を超えると自動
+  発行される仕組みだと判明し、「再判定希望申請」の実際の記録から10回近く
+  申請を重ねた例が1件見つかったが、その後の結果は記録の欠落で不明のまま
+  締めくくった。両チェーンとも既存本文に検索可能な具体語を追記し(既存
+  keywordとの重複は回避)、search-data.js・hint-data.jsにエントリを追加。
+  docs/ARG-DESIGN.mdの4行、docs/ROADMAP.mdの予約済みflavor枠一覧を更新。
+- レビュー: OK(local-review観点で目視確認。P29・P30・P42・P43番号の
+  重複行なし、4つの検索キーワードがそれぞれ対応する既存ページの静的HTML内に
+  具体的な語句として存在すること、既存keywordとの重複が無いことをスクリプト
+  で確認済み)。
+- lint: ✓ / lint:css: ✓ / test: ✓(629件) / build: ✓
+- 次回予定: 残る予約済みflavor枠はP36〜P38(P35のflavor、3段チェーン
+  未着手)。それも尽きた場合は、断片F11・F12・F14(それぞれP94・P90・P96、
+  個別のギミック設計を要する)への着手を検討する。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-31 13:05
 - ブランチ: 引き続き`evolve/cycle-41`(未マージ)。
 - タスク選定: 前回サイクルの予告どおりP21→P22(F4)に着手。着手前に
