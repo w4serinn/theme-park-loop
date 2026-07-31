@@ -154,6 +154,18 @@ window.HINT_DATA = [
     hint: '写本堂の復刻ペンの商品説明には、ある歴代学長にまつわる由来が書かれていたはずです。その説明文をもう一度読んでみてください。'
   },
   {
+    requiresPage: 'glossary/second-headmaster.html',
+    hintFor: 'glossary/second-headmaster.html',
+    leadsTo: 'glossary/marsh-keeper.html',
+    hint: '湿地区画を誰が管理しているのか、公式には語られていないという話でした。店主自身がいつか調べてみようと考えていたはずです。'
+  },
+  {
+    requiresPage: 'glossary/marsh-keeper.html',
+    hintFor: 'glossary/marsh-keeper.html',
+    leadsTo: 'glossary/marsh-journal.html',
+    hint: '葦刈りの経緯を記した帳面があるらしい、という話を思い出してみてください。'
+  },
+  {
     hintFor: 'exploration/alchemy-tower.html',
     leadsTo: 'glossary/hidden-corners.html',
     hint: '錬金術研究棟の地下には、希少な触媒だけを保管する専用の倉庫があるそうです。研究棟の設備についての記述をもう一度確かめてみてください。'
@@ -484,6 +496,18 @@ window.HINT_DATA = [
     hintFor: 'shop/magical-tools.html',
     leadsTo: 'glossary/aptitude-certificate.html',
     hint: '魔導具店の購入注意には、強力な魔力石を買う際に必要な証明書についての一文があったはずです。もう一度読んでみてください。'
+  },
+  {
+    requiresPage: 'glossary/aptitude-certificate.html',
+    hintFor: 'glossary/aptitude-certificate.html',
+    leadsTo: 'glossary/aptitude-standard.html',
+    hint: '証明証そのものの発行基準を説明した資料は見当たらないという話でした。店員自身がいつか天文台に問い合わせてみようと考えていたはずです。'
+  },
+  {
+    requiresPage: 'glossary/aptitude-standard.html',
+    hintFor: 'glossary/aptitude-standard.html',
+    leadsTo: 'glossary/reassessment-log.html',
+    hint: '基準に届かなかった場合の手続きがあるという話でした。その手続きの実際の記録を確かめてみてはどうでしょう。'
   },
   {
     requiresPage: ['glossary/koku-trio.html', 'glossary/circle-ledgers.html'],
