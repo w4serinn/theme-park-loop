@@ -566,6 +566,12 @@ window.HINT_DATA = [
     hint: 'この記録帳全体が天文台の観測記録である以上、これらの数字も星に無関係ではないのかもしれません。'
   },
   {
+    requiresPage: 'glossary/final-entry.html',
+    hintFor: 'glossary/final-entry.html',
+    leadsTo: 'glossary/archive-cleanup-log.html',
+    hint: '天文台の書庫整理記録を確かめれば、遺品がなぜそこにあったのか手がかりが見つかるかもしれません。'
+  },
+  {
     id: 'F3',
     requiresPage: 'glossary/arnold-relics.html',
     hintFor: 'glossary/arnold-relics.html',
@@ -708,6 +714,12 @@ window.HINT_DATA = [
     hintFor: ['glossary/koku-trio.html', 'glossary/circle-ledgers.html'],
     leadsTo: 'glossary/circle-warden.html',
     hint: '「刻の輪」の補修記録にも、陣紋補修記録簿の解読作業にも、同じ役職の名前が挙がっていたはずです。もう一度どちらかの記述を確かめてみてください。'
+  },
+  {
+    requiresPage: 'glossary/koku-trio.html',
+    hintFor: 'glossary/koku-trio.html',
+    leadsTo: 'glossary/ledger-renewal-record.html',
+    hint: '修繕工房には、帳面が新調されるたびの記録を残す別の台帳があるそうです。確かめてみてはどうでしょう。'
   },
   {
     requiresPage: 'glossary/circle-warden.html',
