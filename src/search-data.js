@@ -161,5 +161,24 @@ window.SEARCH_INDEX = [
   { path: 'glossary/visitor-log-match.html', title: '来場者記帳簿、同じ癖の「る」', category: '図鑑', hidden: true, keywords: ['来場者記帳簿'], prereq: ['glossary/margin-note.html'], exactMatch: true },
   { path: 'glossary/nut-supply-record.html', title: '魔力ナッツ仕入れ記録、地図に無い仕入れ先', category: '図鑑', hidden: true, keywords: ['魔力ナッツ仕入れ記録'], prereq: ['glossary/hidden-ingredients.html'], exactMatch: true },
   { path: 'glossary/gatekeeper-memory.html', title: '正門案内係の記憶、深緑のマント', category: '図鑑', hidden: true, keywords: ['正門案内係の記憶'], prereq: ['glossary/nut-supply-record.html'], exactMatch: true },
-  { path: 'glossary/emblem-design.html', title: '徽章の意匠、心当たりのない紋様', category: '図鑑', hidden: true, keywords: ['徽章の意匠'], prereq: ['glossary/gatekeeper-memory.html'], exactMatch: true }
+  { path: 'glossary/emblem-design.html', title: '徽章の意匠、心当たりのない紋様', category: '図鑑', hidden: true, keywords: ['徽章の意匠'], prereq: ['glossary/gatekeeper-memory.html'], exactMatch: true },
+
+  // PGATE(旧正門、docs/ARG-DESIGN.md 4-6節参照)。「欠片の環」は10種の断片を
+  // まとめて呼ぶ正式な名(グループBの謎解きで確定した呼び名)であり、
+  // それを知っている=ある程度断片を集めた人だけがこの語で検索できる想定。
+  // prereqは10種の断片産出ページのいずれか1つ(OR判定、通常のprereqと同じ
+  // 仕組み)。扉が実際に開くかどうか(10/10揃っているか)はページ自身の
+  // JS([hasAllGateFragments])が別途判定する(src/gate.js参照)。
+  { path: 'glossary/gathering-gate.html', title: '旧正門、十の欠片を迎えて', category: '図鑑', hidden: true, keywords: ['欠片の環'], prereq: [
+    'glossary/gear-cipher.html',
+    'glossary/original-insight.html',
+    'glossary/night-response-record.html',
+    'glossary/glowing-bookmark.html',
+    'glossary/gate-pattern-match.html',
+    'glossary/locked-locker.html',
+    'glossary/west-gate-construction-record.html',
+    'glossary/silent-night-reading.html',
+    'glossary/yorishiro-echo.html',
+    'glossary/guestbook-first-page.html'
+  ], exactMatch: true }
 ];
