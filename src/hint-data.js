@@ -496,6 +496,12 @@ window.HINT_DATA = [
     hint: '天文台の学食には、溶ける速さで運勢を占うという不思議なソーダがあるそうです。その商品説明をもう一度読んでみてください。'
   },
   {
+    requiresPage: 'glossary/starfall-fortune.html',
+    hintFor: 'glossary/starfall-fortune.html',
+    leadsTo: 'glossary/fortune-comparison-log.html',
+    hint: '占いの結果と実際の観測記録を見比べた学生がいるという話があったはずです。'
+  },
+  {
     id: 'F1',
     requiresPage: 'glossary/apprentice-notes.html',
     hintFor: 'glossary/apprentice-notes.html',
@@ -665,14 +671,32 @@ window.HINT_DATA = [
     hint: 'トップページの学科紹介には、大時計塔の管理を一手に担うという学科があったはずです。もう一度確かめてみてください。'
   },
   {
+    requiresPage: 'glossary/machinery-department.html',
+    hintFor: 'glossary/machinery-department.html',
+    leadsTo: 'glossary/clock-tower-annual-check.html',
+    hint: '保全記録には、年に一度だけ記される特別な項目があるという話でした。'
+  },
+  {
     hintFor: 'tickets/index.html',
     leadsTo: 'glossary/apprentice-guides.html',
     hint: '団体様向けのご案内には、構内ガイドツアーを担う役職の名前があったはずです。入学願書のページをもう一度確かめてみてください。'
   },
   {
+    requiresPage: 'glossary/apprentice-guides.html',
+    hintFor: 'glossary/apprentice-guides.html',
+    leadsTo: 'glossary/certified-guide-registry.html',
+    hint: '正案内人に認定された記録を保管する帳面があるという話があったはずです。'
+  },
+  {
     hintFor: 'access/index.html',
     leadsTo: 'glossary/east-lot-history.html',
     hint: 'お車での来場案内には、正門前にある駐車場の名前が書かれていたはずです。もう一度確かめてみてください。'
+  },
+  {
+    requiresPage: 'glossary/east-lot-history.html',
+    hintFor: 'glossary/east-lot-history.html',
+    leadsTo: 'glossary/old-lot-map.html',
+    hint: '舗装以前の区割りを示す図面が、学院事務局に保管されているという話があったはずです。'
   },
   {
     hintFor: 'index.html',
