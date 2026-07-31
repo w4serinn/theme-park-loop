@@ -463,14 +463,32 @@ window.HINT_DATA = [
     hint: '制服・ローブ店の紹介文には、正式制服を仕立てる魔法繊維の名前が書かれていたはずです。店の紹介文をもう一度確かめてみてください。'
   },
   {
+    requiresPage: 'glossary/eldcloth-fabric.html',
+    hintFor: 'glossary/eldcloth-fabric.html',
+    leadsTo: 'glossary/eldcloth-weaver.html',
+    hint: 'この繊維がどこで織られているのか、商品説明には書かれていなかったはずです。店員はいつか織元を訪ねてみようと考えていました。'
+  },
+  {
     hintFor: 'shop/magical-tools.html',
     leadsTo: 'glossary/garigne-unit.html',
     hint: '魔導具・実験器具店の測定器には、学院独自の単位で数値を示すものがあるそうです。その商品説明をもう一度読んでみてください。'
   },
   {
+    requiresPage: 'glossary/garigne-unit.html',
+    hintFor: 'glossary/garigne-unit.html',
+    leadsTo: 'glossary/garigne-origin-record.html',
+    hint: '学院で定められた独自単位の制定経緯は、事務局が保管する記録にまとめられているという噂があったはずです。'
+  },
+  {
     hintFor: 'shop/books.html',
     leadsTo: 'glossary/summoning-theory.html',
     hint: '書籍・資料店には、召喚学科主任が40年をかけてまとめた大著があるそうです。その商品説明をもう一度読んでみてください。'
+  },
+  {
+    requiresPage: 'glossary/summoning-theory.html',
+    hintFor: 'glossary/summoning-theory.html',
+    leadsTo: 'glossary/summoning-dept-draft.html',
+    hint: '未刊の第4巻の草稿が、召喚学科のどこかに保管されているという噂があったはずです。'
   },
   {
     hintFor: 'dining/observatory-dining.html',
