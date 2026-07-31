@@ -336,6 +336,13 @@
   line-height: 1.6;
 }
 
+.event-secret-note {
+  font-size: 0.85rem;
+  color: var(--brass);
+  margin: 1rem 0 0;
+  font-style: italic;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .event-filter__btn.is-active,
   .event-card:not([hidden]),

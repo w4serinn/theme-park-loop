@@ -7,6 +7,7 @@ import {
   isDebugAllQuery, DEBUG_ALL_QUERY, buildDebugGraphNodes, buildDebugGraphTree, findDebugGraphIssues,
   isDebugUnlockQuery, DEBUG_UNLOCK_QUERY,
   TICKET_PRICES, calcTicketTotal, calcOptimalPrice, isSpecialTicketCombo, SPECIAL_TICKET_TOTAL, carouselNextIndex, carouselPrevIndex,
+  isSecretEventCombo, SECRET_EVENT_SEASON, SECRET_EVENT_AREA,
   filterSearchIndex, MIN_SEARCH_QUERY_LENGTH, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
   isSearchEntryUnlocked, isCodexSelfReferenceQuery,
   nthWeekdayOfMonth, lastWeekdayOfMonth, resolveEventDate, daysUntilNextEvent,
@@ -97,6 +98,23 @@ describe('isSpecialTicketCombo', () => {
     expect(isSpecialTicketCombo(1, 0, 0, 0)).toBe(false);
     expect(isSpecialTicketCombo(0, 0, 0, 0)).toBe(false);
     expect(isSpecialTicketCombo(SPECIAL_TICKET_TOTAL + 1, 0, 0, 0)).toBe(false);
+  });
+});
+
+describe('isSecretEventCombo', () => {
+  test('matches only winter × library', () => {
+    expect(isSecretEventCombo(SECRET_EVENT_SEASON, SECRET_EVENT_AREA)).toBe(true);
+    expect(isSecretEventCombo('winter', 'library')).toBe(true);
+  });
+
+  test('does not match other season/area combinations', () => {
+    expect(isSecretEventCombo('spring', 'library')).toBe(false);
+    expect(isSecretEventCombo('summer', 'library')).toBe(false);
+    expect(isSecretEventCombo('autumn', 'library')).toBe(false);
+    expect(isSecretEventCombo('winter', 'clock')).toBe(false);
+    expect(isSecretEventCombo('winter', 'all')).toBe(false);
+    expect(isSecretEventCombo('all', 'library')).toBe(false);
+    expect(isSecretEventCombo('all', 'all')).toBe(false);
   });
 });
 

@@ -52,6 +52,18 @@ export function isSpecialTicketCombo(adults, students, children, infants) {
   return (adults + students + children + infants) === SPECIAL_TICKET_TOTAL;
 }
 
+// P90(docs/ARG-DESIGN.md 4-3節、既存ギミック「学院祭・行事の季節×エリア
+// 絞り込み」)。冬(winter)×大図書館(library)の組み合わせは、公式行事の
+// 該当が1件も無い(大図書館で行われる行事は無い)。この特定の組み合わせを
+// 選んだ時だけ、通常の絞り込み結果に加えて特別な一文を表示する
+// (src/season-filter.jsの同名ロジックと同じ)。
+export var SECRET_EVENT_SEASON = 'winter';
+export var SECRET_EVENT_AREA = 'library';
+
+export function isSecretEventCombo(season, area) {
+  return season === SECRET_EVENT_SEASON && area === SECRET_EVENT_AREA;
+}
+
 // カルーセルの次/前インデックスを計算する(0始まり、範囲外は循環)
 export function carouselNextIndex(current, total) {
   if (total <= 0) { return 0; }

@@ -58,6 +58,12 @@ window.HINT_DATA = [
     hint: 'よくある質問のコインロッカーの項目に、少し気になる噂話が添えられていたはずです。もう一度開いて読んでみてください。'
   },
   {
+    id: 'F12',
+    hintFor: 'events/index.html',
+    leadsTo: 'glossary/silent-night-reading.html',
+    hint: '学院祭・行事の絞り込みで、冬と大図書館を組み合わせて選んでみると、何か起こるかもしれません。'
+  },
+  {
     hintFor: 'exploration/clock-tower.html',
     leadsTo: 'glossary/perpetual-motion.html',
     hint: '時計塔の中枢には、魔力の補給なしで動き続ける仕掛けがあるという話です。塔の主要機構についての記述を探してみてください。'
