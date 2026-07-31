@@ -493,6 +493,24 @@ window.HINT_DATA = [
     hint: '写本堂そのものの紹介文にも、代々続く一族についての記述があったはずです。もう一度読んでみてください。'
   },
   {
+    requiresPage: 'glossary/scribe-lineage.html',
+    hintFor: 'glossary/scribe-lineage.html',
+    leadsTo: 'glossary/scribe-registration.html',
+    hint: '初代の名は公式には記録されていないという話でした。大図書館の記録保管室になら、開業当時の届け出が残っているかもしれません。'
+  },
+  {
+    requiresPage: 'glossary/scribe-registration.html',
+    hintFor: 'glossary/scribe-registration.html',
+    leadsTo: 'glossary/scribe-succession.html',
+    hint: '初代と今の一族とで姓が違うなら、いつどう引き継がれたのか記した帳面が写本堂に伝わっているかもしれません。'
+  },
+  {
+    requiresPage: 'glossary/scribe-succession.html',
+    hintFor: 'glossary/scribe-succession.html',
+    leadsTo: 'glossary/scribe-sample-book.html',
+    hint: '「唯一無二の筆致」がどのようなものだったのか、写本堂に代々伝わる帳面を確かめれば分かるかもしれません。'
+  },
+  {
     hintFor: 'shop/magical-tools.html',
     leadsTo: 'glossary/aptitude-certificate.html',
     hint: '魔導具店の購入注意には、強力な魔力石を買う際に必要な証明書についての一文があったはずです。もう一度読んでみてください。'
