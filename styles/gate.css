@@ -152,6 +152,57 @@
   font-weight: 700;
 }
 
+.gate-choice__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.gate-choice__item {
+  border: 1px solid color-mix(in oklch, var(--brass) 25%, transparent);
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+}
+
+.gate-choice__label {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: color-mix(in oklch, var(--brass) 85%, transparent);
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.gate-choice__check {
+  border: 1px solid var(--brass);
+  border-radius: 4px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  background: transparent;
+  color: var(--brass);
+  cursor: pointer;
+}
+
+.gate-choice__check:hover {
+  background: color-mix(in oklch, var(--brass) 15%, transparent);
+}
+
+.gate-choice__result {
+  font-size: 0.85rem;
+  color: color-mix(in oklch, var(--brass) 70%, transparent);
+  margin: 0.6rem 0 0;
+  min-height: 1.2em;
+}
+
+.gate-choice__result--correct {
+  color: var(--ember);
+  font-weight: 700;
+}
+
 @media (width <= 600px) {
   .gate-hero {
     padding: 2rem 1rem 1.5rem;

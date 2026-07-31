@@ -1,8 +1,9 @@
 // PGATE(旧正門、docs/ARG-DESIGN.md 4-6節「PGATE設計メモ」参照)。
 // 10種の断片を集めたプレイヤーだけが、扉ページの謎解きに挑戦できる。
 // ここに書く判定ロジックは src/logic.js の同名関数(hasAllGateFragments・
-// countGateFragments・isGateCipherCorrect)と同じ内容の複製(file:// でも
-// 動くよう ES module import を使わない設計、他のDOMスクリプトと同じ方針)。
+// countGateFragments・isGateCipherCorrect・isGateGroupBCorrect)と同じ内容の
+// 複製(file:// でも動くよう ES module import を使わない設計、他のDOM
+// スクリプトと同じ方針)。
 (function () {
   var GATE_REQUIRED_FRAGMENTS = ['F1', 'F3', 'F4', 'F5', 'F7', 'F8', 'F11', 'F12', 'F13', 'F14'];
 
@@ -47,6 +48,34 @@
     });
   }
 
+  var GATE_GROUP_B_ANSWER = '欠片の環';
+
+  function isGateGroupBCorrect(choice) {
+    return choice === GATE_GROUP_B_ANSWER;
+  }
+
+  function setupGroupBCheck() {
+    var form = document.getElementById('gate-choice-b');
+    var button = document.getElementById('gate-choice-b-check');
+    var result = document.getElementById('gate-choice-b-result');
+    if (!form || !button || !result) { return; }
+    button.addEventListener('click', function () {
+      var checked = form.querySelector('input[name="gate-choice-b"]:checked');
+      if (!checked) {
+        result.textContent = 'まずは一つ、選んでみてほしい。';
+        result.classList.remove('gate-choice__result--correct');
+        return;
+      }
+      if (isGateGroupBCorrect(checked.value)) {
+        result.textContent = '……矛盾は無い。案内板の文字が、静かに浮かび上がった。';
+        result.classList.add('gate-choice__result--correct');
+      } else {
+        result.textContent = 'その名には、まだ小さな矛盾が残っているようだ。';
+        result.classList.remove('gate-choice__result--correct');
+      }
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     var progress = window.CodexProgress ? window.CodexProgress.load() : { fragments: [] };
     var ownedIds = progress.fragments.map(function (f) { return f.id; });
@@ -67,5 +96,6 @@
 
     setupCipherCheck('gate-cipher-finlay', 'gate-cipher-finlay-check', 'gate-cipher-finlay-result', 'finlay');
     setupCipherCheck('gate-cipher-eight', 'gate-cipher-eight-check', 'gate-cipher-eight-result', 'eightSymbol');
+    setupGroupBCheck();
   });
 }());

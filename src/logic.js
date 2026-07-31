@@ -588,3 +588,13 @@ export function isGateCipherCorrect(input, answerKey) {
   if (!expected) { return false; }
   return (input || '').trim().toUpperCase() === expected;
 }
+
+// PGATE グループB(4-6節「PGATE設計メモ」参照): F13(P91/yorishiro-echo.html)の
+// 「複数候補のうち矛盾の無いものを選ぶ」消去法を、新しい候補群で再利用する。
+// 候補・矛盾点はP91の使い回しではなく扉ページ専用に新規作成したもの
+// (docs/ARG-DESIGN.md 4-6節「グループB」参照)。
+export var GATE_GROUP_B_ANSWER = '欠片の環';
+
+export function isGateGroupBCorrect(choice) {
+  return choice === GATE_GROUP_B_ANSWER;
+}

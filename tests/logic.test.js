@@ -13,7 +13,7 @@ import {
   nthWeekdayOfMonth, lastWeekdayOfMonth, resolveEventDate, daysUntilNextEvent,
   countFoundSecrets, formatDiscoveryProgressText, shouldShowSearchProgress,
   GATE_REQUIRED_FRAGMENTS, hasAllGateFragments, countGateFragments,
-  isGateCipherCorrect
+  isGateCipherCorrect, GATE_GROUP_B_ANSWER, isGateGroupBCorrect
 } from '../src/logic.js';
 
 describe('TICKET_PRICES', () => {
@@ -1051,5 +1051,20 @@ describe('isGateCipherCorrect', () => {
     expect(isGateCipherCorrect('KAGI', 'eightSymbol')).toBe(false);
     expect(isGateCipherCorrect('KAGI', 'unknown')).toBe(false);
     expect(isGateCipherCorrect('', 'finlay')).toBe(false);
+  });
+});
+
+describe('isGateGroupBCorrect', () => {
+  test('matches only the designated answer', () => {
+    expect(isGateGroupBCorrect(GATE_GROUP_B_ANSWER)).toBe(true);
+    expect(isGateGroupBCorrect('欠片の環')).toBe(true);
+  });
+
+  test('rejects the other candidate choices', () => {
+    expect(isGateGroupBCorrect('還りの証')).toBe(false);
+    expect(isGateGroupBCorrect('十の灯')).toBe(false);
+    expect(isGateGroupBCorrect('忘れられた声')).toBe(false);
+    expect(isGateGroupBCorrect('鍵の代わり')).toBe(false);
+    expect(isGateGroupBCorrect('')).toBe(false);
   });
 });

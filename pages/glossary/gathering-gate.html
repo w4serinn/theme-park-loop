@@ -49,9 +49,46 @@
       </div>
     </article>
 
-    <article class="gate-group gate-group--pending" data-gate-group="b">
-      <h2 class="gate-group__title">還るべき名を選ぶ</h2>
-      <p class="gate-group__pending-note">この先はまだ準備中です。もう少しお待ちください。</p>
+    <article class="gate-group" data-gate-group="b">
+      <h2 class="gate-group__title">十の欠片、まとめて呼ぶなら</h2>
+      <p class="gate-group__lead">柱の下に、古い案内板が一枚。「集いし十の欠片を、何と呼ぶべきか」――五つの案が並び、それぞれに小さな注が添えられている。矛盾の無い一つを選んでほしい。</p>
+
+      <form class="gate-choice" id="gate-choice-b">
+        <ul class="gate-choice__list">
+          <li class="gate-choice__item">
+            <label class="gate-choice__label">
+              <input type="radio" name="gate-choice-b" value="還りの証" />
+              「還りの証」――だが、還ってきたのは欠片であって、人ではない。
+            </label>
+          </li>
+          <li class="gate-choice__item">
+            <label class="gate-choice__label">
+              <input type="radio" name="gate-choice-b" value="十の灯" />
+              「十の灯」――灯りと呼べる欠片は一つだけで、残る九つは灯りではない。
+            </label>
+          </li>
+          <li class="gate-choice__item">
+            <label class="gate-choice__label">
+              <input type="radio" name="gate-choice-b" value="忘れられた声" />
+              「忘れられた声」――声として残ったものは無く、大半は文字や図案として遺されている。
+            </label>
+          </li>
+          <li class="gate-choice__item">
+            <label class="gate-choice__label">
+              <input type="radio" name="gate-choice-b" value="鍵の代わり" />
+              「鍵の代わり」――鍵と呼べる欠片は十のうちの一つに過ぎず、全体をそう呼ぶのはその一つを軽んじることになる。
+            </label>
+          </li>
+          <li class="gate-choice__item">
+            <label class="gate-choice__label">
+              <input type="radio" name="gate-choice-b" value="欠片の環" />
+              「欠片の環」――十の異なる形が、ひとつながりの輪をなしている。
+            </label>
+          </li>
+        </ul>
+        <button class="gate-choice__check" type="button" id="gate-choice-b-check">決める</button>
+        <p class="gate-choice__result" id="gate-choice-b-result"></p>
+      </form>
     </article>
 
     <article class="gate-group gate-group--pending" data-gate-group="c">
