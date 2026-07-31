@@ -90,6 +90,7 @@ window.SEARCH_INDEX = [
   { path: 'glossary/plaza-registry-record.html', title: '陣座管理台帳、七番の登録', category: '図鑑', hidden: true, keywords: ['陣座管理台帳'], prereq: ['glossary/beyond-the-map.html'], exactMatch: true },
   { path: 'glossary/arnold-relics.html', title: 'アルノルド卿が遺したもの、三つの資料', category: '図鑑', hidden: true, keywords: ['双頭の鷲と魔法陣', '研究手稿', '創魔の書'] },
   { path: 'glossary/original-insight.html', title: '創意、という言葉', category: '図鑑', hidden: true, keywords: ['創意'], prereq: ['glossary/arnold-relics.html'], exactMatch: true },
+  { path: 'glossary/missing-chapters-note.html', title: '蔵書目録の走り書き、「六章、未収録」', category: '図鑑', hidden: true, keywords: ['残り六章'], prereq: ['glossary/arnold-relics.html'], exactMatch: true },
   { path: 'glossary/spirits-of-arnold.html', title: '精霊、それぞれの現れ方', category: '図鑑', hidden: true, keywords: ['異次元存在', '契約精霊シルフィ', '星界の精霊'] },
   { path: 'glossary/sylphe-dialogue-log.html', title: '対話記録帳、記された謎の記号', category: '図鑑', hidden: true, keywords: ['対話記録帳'], prereq: ['glossary/spirits-of-arnold.html'], exactMatch: true },
   { path: 'glossary/plaza-guest-registry.html', title: '広場設立時の来賓名簿、双頭の鷲の印', category: '図鑑', hidden: true, keywords: ['広場設立時の来賓名簿'], prereq: ['glossary/sylphe-dialogue-log.html'], exactMatch: true },

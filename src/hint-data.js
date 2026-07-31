@@ -573,6 +573,12 @@ window.HINT_DATA = [
     hint: '研究手稿の余白に残る記号は、司書が書き起こした対応表を使えば文字に置き換えられるはずです。並んだ記号を一つずつ読み替えてみてください。'
   },
   {
+    requiresPage: 'glossary/arnold-relics.html',
+    hintFor: 'glossary/arnold-relics.html',
+    leadsTo: 'glossary/missing-chapters-note.html',
+    hint: '「創魔の書」の残り六章について、大図書館の蔵書目録を確かめてみると、何か手がかりが見つかるかもしれません。'
+  },
+  {
     id: 'F13',
     requiresPage: 'glossary/nostion-memory.html',
     hintFor: 'glossary/nostion-memory.html',
