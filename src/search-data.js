@@ -84,6 +84,8 @@ window.SEARCH_INDEX = [
   { path: 'glossary/arnold-relics.html', title: 'アルノルド卿が遺したもの、三つの資料', category: '図鑑', hidden: true, keywords: ['双頭の鷲と魔法陣', '研究手稿', '創魔の書'] },
   { path: 'glossary/original-insight.html', title: '創意、という言葉', category: '図鑑', hidden: true, keywords: ['創意'], prereq: ['glossary/arnold-relics.html'], exactMatch: true },
   { path: 'glossary/spirits-of-arnold.html', title: '精霊、それぞれの現れ方', category: '図鑑', hidden: true, keywords: ['異次元存在', '契約精霊シルフィ', '星界の精霊'] },
+  { path: 'glossary/sylphe-dialogue-log.html', title: '対話記録帳、記された謎の記号', category: '図鑑', hidden: true, keywords: ['対話記録帳'], prereq: ['glossary/spirits-of-arnold.html'], exactMatch: true },
+  { path: 'glossary/plaza-guest-registry.html', title: '広場設立時の来賓名簿、双頭の鷲の印', category: '図鑑', hidden: true, keywords: ['広場設立時の来賓名簿'], prereq: ['glossary/sylphe-dialogue-log.html'], exactMatch: true },
   { path: 'glossary/circle-ledgers.html', title: '陣紋を刻み、守り継いだ記録簿', category: '図鑑', hidden: true, keywords: ['魔法陣刻印記録簿', '陣紋補修記録簿'], exactMatch: true },
   { path: 'glossary/style-origin-record.html', title: '陣形式創始録、「時の首席錬金術師」の署名', category: '図鑑', hidden: true, keywords: ['陣形式創始録'], prereq: ['glossary/circle-ledgers.html'], exactMatch: true },
   { path: 'glossary/merit-records.html', title: '品評会と段位、記録に残るもの', category: '図鑑', hidden: true, keywords: ['研究棟の記録簿', '考査記録室'], exactMatch: true },
@@ -130,5 +132,7 @@ window.SEARCH_INDEX = [
   { path: 'glossary/stone-inspection-report.html', title: '石材鑑定書、石は無実だったという結論', category: '図鑑', hidden: true, keywords: ['石材鑑定書'], prereq: ['glossary/resonance-adjustment-log.html'], exactMatch: true },
   { path: 'glossary/margin-note.html', title: '法典余白の書き込み、紋様の原型らしき一文', category: '図鑑', hidden: true, keywords: ['法典余白の書き込み'], prereq: ['glossary/dueling-heritage.html'], exactMatch: true },
   { path: 'glossary/visitor-log-match.html', title: '来場者記帳簿、同じ癖の「る」', category: '図鑑', hidden: true, keywords: ['来場者記帳簿'], prereq: ['glossary/margin-note.html'], exactMatch: true },
-  { path: 'glossary/nut-supply-record.html', title: '魔力ナッツ仕入れ記録、地図に無い仕入れ先', category: '図鑑', hidden: true, keywords: ['魔力ナッツ仕入れ記録'], prereq: ['glossary/hidden-ingredients.html'], exactMatch: true }
+  { path: 'glossary/nut-supply-record.html', title: '魔力ナッツ仕入れ記録、地図に無い仕入れ先', category: '図鑑', hidden: true, keywords: ['魔力ナッツ仕入れ記録'], prereq: ['glossary/hidden-ingredients.html'], exactMatch: true },
+  { path: 'glossary/gatekeeper-memory.html', title: '正門案内係の記憶、深緑のマント', category: '図鑑', hidden: true, keywords: ['正門案内係の記憶'], prereq: ['glossary/nut-supply-record.html'], exactMatch: true },
+  { path: 'glossary/emblem-design.html', title: '徽章の意匠、心当たりのない紋様', category: '図鑑', hidden: true, keywords: ['徽章の意匠'], prereq: ['glossary/gatekeeper-memory.html'], exactMatch: true }
 ];

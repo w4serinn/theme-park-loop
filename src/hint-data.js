@@ -123,6 +123,18 @@ window.HINT_DATA = [
     hint: '新月の夜だけ開かれる、ある観測会があったはずです。学院祭・行事の案内をもう一度確かめてみてください。'
   },
   {
+    requiresPage: 'glossary/spirits-of-arnold.html',
+    hintFor: 'glossary/spirits-of-arnold.html',
+    leadsTo: 'glossary/sylphe-dialogue-log.html',
+    hint: '担当学生は、シルフィの印象的な受け答えを別の帳面に書き留めているという話でした。その帳面を見せてもらってはどうでしょう。'
+  },
+  {
+    requiresPage: 'glossary/sylphe-dialogue-log.html',
+    hintFor: 'glossary/sylphe-dialogue-log.html',
+    leadsTo: 'glossary/plaza-guest-registry.html',
+    hint: '広場設立の式典に招かれた人々の記録が、広場管理事務所に残っているかもしれません。'
+  },
+  {
     hintFor: 'exploration/alchemy-tower.html',
     leadsTo: 'glossary/circle-ledgers.html',
     hint: '研究棟には、陣形式の移り変わりを歴代の錬金術師が書き継いできた記録簿があるそうです。研究棟の設備についての記述をもう一度確かめてみてください。'
@@ -340,6 +352,18 @@ window.HINT_DATA = [
     hintFor: 'glossary/hidden-ingredients.html',
     leadsTo: 'glossary/nut-supply-record.html',
     hint: '魔力ナッツの収穫地はメニューの説明に触れられていないそうですが、学食の仕入れ担当には仕入れ先を記録した帳面が残っているという話でした。'
+  },
+  {
+    requiresPage: 'glossary/nut-supply-record.html',
+    hintFor: 'glossary/nut-supply-record.html',
+    leadsTo: 'glossary/gatekeeper-memory.html',
+    hint: '納品は正門前で行われているという話でした。正門に毎日立つ案内係になら、何か覚えているかもしれません。'
+  },
+  {
+    requiresPage: 'glossary/gatekeeper-memory.html',
+    hintFor: 'glossary/gatekeeper-memory.html',
+    leadsTo: 'glossary/emblem-design.html',
+    hint: '案内係が今度こそ確かめてみると約束していたはずです。しばらくしてから、もう一度聞いてみてはどうでしょう。'
   },
   {
     hintFor: 'events/index.html',
