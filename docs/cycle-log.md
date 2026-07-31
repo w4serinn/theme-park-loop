@@ -1,5 +1,43 @@
 # サイクル履歴
 
+## 2026-07-31 18:00
+- ブランチ: 引き続き`evolve/cycle-41`(未マージ)。
+- タスク選定: 前回サイクルの予告どおり、残る予約済みflavor枠のうち
+  P103(P102のflavor)・P105(P104のflavor)・P107(P106のflavor)・
+  P109(P108のflavor)、無関係な4チェーンをまとめて実装(APIコスト
+  低減目的、内容は無関係)。この種の予約済み単発flavor枠を全て消化した。
+- 実装: P103(`pages/glossary/fortune-comparison-log.html`)は、P102
+  (starfall-fortune.html)に新規の「占い照合記録」を追記(「流星記録
+  石板」は既にP49のkeywordのため重複回避)。銀糖の溶ける速さと流星観測数
+  の相関傾向を発見しつつ確証は得られないまま締めくくった。P105
+  (`pages/glossary/clock-tower-annual-check.html`)は、P104
+  (machinery-department.html)に既に埋め込まれていた「大時計塔保全記録」
+  から、開校記念日前日の「主鐘、確認」という項目を発見。自動点検がある
+  のに学科長自ら塔に上る慣例だけを示し理由は明かさないまま締めくくった。
+  P107(`pages/glossary/certified-guide-registry.html`)は、P106
+  (apprentice-guides.html)に既に埋め込まれていた「正案内人認定簿」から、
+  創設以来一件の記載もない白紙の帳面だと判明。基準未整備か該当者不在か、
+  両方の可能性だけを示した。P109(`pages/glossary/old-lot-map.html`)は、
+  P108(east-lot-history.html)に既に埋め込まれていた「旧地割図」から、
+  飛行馬車溜まり時代の区割りを確認し、舗装時期は図面にも記載が無いままと
+  した。search-data.js・hint-data.jsにエントリを追加。docs/ARG-DESIGN.md
+  の該当4行を更新し、docs/ROADMAP.mdの予約済みflavor枠一覧を「全消化」
+  として整理、次の優先候補(残る断片F11・F12・F14の本実装、または
+  既存フレーバーの再棚卸し)を明記した。
+- レビュー: OK(local-review観点で目視確認。P103・P105・P107・P109番号の
+  重複行なし、4つの検索キーワードがそれぞれ対応する既存ページの静的HTML内に
+  具体的な語句として存在すること、keyword全136件の重複無しをスクリプトで
+  確認済み)。
+- lint: ✓ / lint:css: ✓ / test: ✓(712件) / build: ✓
+- 次回予定: 既存rootの予約済みflavor枠を全て消化したため、次は
+  (a) 残る断片F11・F12・F14(それぞれP94・P90・P96)のいずれかの本実装、
+  または (b) 既存の実装済みフレーバーページ群を棚卸しして新たな未解決
+  フックを見つけ次のroot flavorに仕立てる、のいずれかを検討する。(a)は
+  個別のギミック設計を要しサイズが大きくなりやすいため、着手前に規模を
+  見積もる。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-31 17:20
 - ブランチ: 引き続き`evolve/cycle-41`(未マージ)。
 - タスク選定: 前回サイクルの予告どおり、残る予約済みflavor枠のうち
