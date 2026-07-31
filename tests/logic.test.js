@@ -11,7 +11,9 @@ import {
   filterSearchIndex, MIN_SEARCH_QUERY_LENGTH, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
   isSearchEntryUnlocked, isCodexSelfReferenceQuery,
   nthWeekdayOfMonth, lastWeekdayOfMonth, resolveEventDate, daysUntilNextEvent,
-  countFoundSecrets, formatDiscoveryProgressText, shouldShowSearchProgress
+  countFoundSecrets, formatDiscoveryProgressText, shouldShowSearchProgress,
+  GATE_REQUIRED_FRAGMENTS, hasAllGateFragments, countGateFragments,
+  isGateCipherCorrect
 } from '../src/logic.js';
 
 describe('TICKET_PRICES', () => {
@@ -1009,5 +1011,45 @@ describe('buildFragmentDisplayList', () => {
 
   test('returns an empty array for no fragments', () => {
     expect(buildFragmentDisplayList([], names, hiddenEntries)).toEqual([]);
+  });
+});
+
+describe('hasAllGateFragments / countGateFragments', () => {
+  test('hasAllGateFragments is true only when all 10 required fragments are owned', () => {
+    expect(hasAllGateFragments(GATE_REQUIRED_FRAGMENTS)).toBe(true);
+    expect(hasAllGateFragments(GATE_REQUIRED_FRAGMENTS.slice(0, 9))).toBe(false);
+    expect(hasAllGateFragments([])).toBe(false);
+  });
+
+  test('hasAllGateFragments ignores non-required fragments (F2/F6/F9/F10 intermediates)', () => {
+    const owned = GATE_REQUIRED_FRAGMENTS.concat(['F2', 'F6', 'F9', 'F10']);
+    expect(hasAllGateFragments(owned)).toBe(true);
+  });
+
+  test('countGateFragments counts only required fragments actually owned', () => {
+    expect(countGateFragments([])).toBe(0);
+    expect(countGateFragments(['F1', 'F3'])).toBe(2);
+    expect(countGateFragments(['F1', 'F2', 'F6'])).toBe(1);
+    expect(countGateFragments(GATE_REQUIRED_FRAGMENTS)).toBe(10);
+  });
+});
+
+describe('isGateCipherCorrect', () => {
+  test('matches the Finlay cipher answer case-insensitively with surrounding whitespace', () => {
+    expect(isGateCipherCorrect('KAGI', 'finlay')).toBe(true);
+    expect(isGateCipherCorrect('kagi', 'finlay')).toBe(true);
+    expect(isGateCipherCorrect('  Kagi  ', 'finlay')).toBe(true);
+  });
+
+  test('matches the eight-symbol cipher answer', () => {
+    expect(isGateCipherCorrect('TOKI', 'eightSymbol')).toBe(true);
+    expect(isGateCipherCorrect('toki', 'eightSymbol')).toBe(true);
+  });
+
+  test('rejects wrong answers and unknown answer keys', () => {
+    expect(isGateCipherCorrect('TOKI', 'finlay')).toBe(false);
+    expect(isGateCipherCorrect('KAGI', 'eightSymbol')).toBe(false);
+    expect(isGateCipherCorrect('KAGI', 'unknown')).toBe(false);
+    expect(isGateCipherCorrect('', 'finlay')).toBe(false);
   });
 });

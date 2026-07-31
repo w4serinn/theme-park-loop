@@ -553,3 +553,38 @@ export function findDebugGraphIssues(nodes) {
   });
   return issues;
 }
+
+// PGATE(docs/ARG-DESIGN.md 4-6節)。10種の断片を集めて到達する扉ページの
+// 判定ロジック。断片そのものの所持は「単純な所持チェック」にしない方針の
+// とおり、この判定は「扉ページの謎解きに挑戦できる状態か」の入口チェックに
+// のみ使う(実際に扉を開ける・PFINALへ進めるかどうかは各グループの謎解き
+// [4-6節「PGATE設計メモ」参照]で別途判定する)。
+export var GATE_REQUIRED_FRAGMENTS = ['F1', 'F3', 'F4', 'F5', 'F7', 'F8', 'F11', 'F12', 'F13', 'F14'];
+
+export function hasAllGateFragments(fragmentIds) {
+  var owned = fragmentIds || [];
+  return GATE_REQUIRED_FRAGMENTS.every(function (id) {
+    return owned.indexOf(id) !== -1;
+  });
+}
+
+export function countGateFragments(fragmentIds) {
+  var owned = fragmentIds || [];
+  return GATE_REQUIRED_FRAGMENTS.filter(function (id) {
+    return owned.indexOf(id) !== -1;
+  }).length;
+}
+
+// PGATE グループA(4-6節「PGATE設計メモ」参照): F1のフィンレー式記譜法
+// (P2/P5)とF3の8記号対応表(P16/P17)を、扉ページで新しい単語の解読に
+// 再適用する。答えは大文字小文字を区別せず、前後の空白は無視する。
+export var GATE_CIPHER_ANSWERS = {
+  finlay: 'KAGI',
+  eightSymbol: 'TOKI'
+};
+
+export function isGateCipherCorrect(input, answerKey) {
+  var expected = GATE_CIPHER_ANSWERS[answerKey];
+  if (!expected) { return false; }
+  return (input || '').trim().toUpperCase() === expected;
+}

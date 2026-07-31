@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>旧正門、十の欠片を迎えて — 王立魔法学院アルノルド</title>
+  <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/base.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/gate.css" />
+</head>
+<body>
+<!-- HEADER -->
+<main>
+  <section class="gate-hero">
+    <p class="gate-hero__eyebrow">Field Notes</p>
+    <h1 class="gate-hero__title">旧正門、十の欠片を迎えて</h1>
+    <p class="gate-hero__desc">蔦に覆われていたはずの旧正門の柱が、いつからか淡く光っている。十の欠片が、還る場所を見つけたのかもしれない。</p>
+  </section>
+
+  <section class="gate-status" id="gate-status" aria-live="polite">
+    <p class="gate-status__text" id="gate-status-text"></p>
+  </section>
+
+  <section class="gate-puzzle" id="gate-puzzle" hidden>
+    <article class="gate-group" data-gate-group="a">
+      <h2 class="gate-group__title">柱に浮かぶ記号</h2>
+      <p class="gate-group__lead">柱の両側に、見覚えのある記号列が浮かんでいる。それぞれの断片を手にした時に学んだ変換規則を、もう一度当てはめてみてください。</p>
+
+      <div class="gate-cipher">
+        <p class="gate-cipher__label">左の柱(フィンレー式記譜法)</p>
+        <p class="gate-cipher__symbols">🜊 🜁 🜃 🜌</p>
+        <div class="gate-cipher__form">
+          <label class="gate-cipher__input-label" for="gate-cipher-finlay">読み解いた言葉</label>
+          <input class="gate-cipher__input" type="text" id="gate-cipher-finlay" autocomplete="off" />
+          <button class="gate-cipher__check" type="button" id="gate-cipher-finlay-check">確かめる</button>
+        </div>
+        <p class="gate-cipher__result" id="gate-cipher-finlay-result"></p>
+      </div>
+
+      <div class="gate-cipher">
+        <p class="gate-cipher__label">右の柱(研究手稿の8記号)</p>
+        <p class="gate-cipher__symbols">◇ ● ○ ■</p>
+        <div class="gate-cipher__form">
+          <label class="gate-cipher__input-label" for="gate-cipher-eight">読み解いた言葉</label>
+          <input class="gate-cipher__input" type="text" id="gate-cipher-eight" autocomplete="off" />
+          <button class="gate-cipher__check" type="button" id="gate-cipher-eight-check">確かめる</button>
+        </div>
+        <p class="gate-cipher__result" id="gate-cipher-eight-result"></p>
+      </div>
+    </article>
+
+    <article class="gate-group gate-group--pending" data-gate-group="b">
+      <h2 class="gate-group__title">還るべき名を選ぶ</h2>
+      <p class="gate-group__pending-note">この先はまだ準備中です。もう少しお待ちください。</p>
+    </article>
+
+    <article class="gate-group gate-group--pending" data-gate-group="c">
+      <h2 class="gate-group__title">重なり合う意匠</h2>
+      <p class="gate-group__pending-note">この先はまだ準備中です。もう少しお待ちください。</p>
+    </article>
+
+    <article class="gate-group gate-group--pending" data-gate-group="d">
+      <h2 class="gate-group__title">記憶の欠片、六つ</h2>
+      <p class="gate-group__pending-note">この先はまだ準備中です。もう少しお待ちください。</p>
+    </article>
+  </section>
+</main>
+<!-- FOOTER -->
+<script src="{{BASE}}src/codex-progress.js" defer></script>
+<script src="{{BASE}}src/gate.js" defer></script>
+</body>
+</html>
