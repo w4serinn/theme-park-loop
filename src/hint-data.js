@@ -428,6 +428,36 @@ window.HINT_DATA = [
     hint: '時計塔には、同じ部屋の中で時間の流れが異なる展示室があるそうです。設備の紹介をもう一度確かめてみてください。'
   },
   {
+    requiresPage: 'glossary/time-path-interference.html',
+    hintFor: 'glossary/time-path-interference.html',
+    leadsTo: 'glossary/boundary-survey.html',
+    hint: '技師たちは、いつか大規模術式の境界を実際に見て回ろうと話していたはずです。その記録を確かめてみてはどうでしょう。'
+  },
+  {
+    requiresPage: 'glossary/boundary-survey.html',
+    hintFor: 'glossary/boundary-survey.html',
+    leadsTo: 'glossary/ring-perimeter-log.html',
+    hint: '技師はまず「刻の輪」の外周から確かめると決めていたはずです。その結果をまとめた記録があるかもしれません。'
+  },
+  {
+    requiresPage: 'glossary/ring-perimeter-log.html',
+    hintFor: 'glossary/ring-perimeter-log.html',
+    leadsTo: 'glossary/observation-cycle-chart.html',
+    hint: '日によって誤差の強さが違うことに気づいた技師が、その周期をまとめようとしていたはずです。'
+  },
+  {
+    requiresPage: 'glossary/observation-cycle-chart.html',
+    hintFor: 'glossary/observation-cycle-chart.html',
+    leadsTo: 'glossary/chant-timing-notes.html',
+    hint: '誤差のピークが、冬至の夜のある行事と重なっていることに技師が気づいたはずです。'
+  },
+  {
+    requiresPage: 'glossary/chant-timing-notes.html',
+    hintFor: 'glossary/chant-timing-notes.html',
+    leadsTo: 'glossary/chant-interview-record.html',
+    hint: '技師は仮説を確かめるため、召喚術科の学生に直接話を聞きに行くつもりだったはずです。'
+  },
+  {
     hintFor: 'shop/uniforms.html',
     leadsTo: 'glossary/eldcloth-fabric.html',
     hint: '制服・ローブ店の紹介文には、正式制服を仕立てる魔法繊維の名前が書かれていたはずです。店の紹介文をもう一度確かめてみてください。'
