@@ -99,6 +99,12 @@ window.HINT_DATA = [
     hint: '学院への行き方の中に、王都中央のある場所を経由するものがあったはずです。トップページのアクセス案内をもう一度確かめてみてください。'
   },
   {
+    requiresPage: 'glossary/beyond-the-map.html',
+    hintFor: 'glossary/beyond-the-map.html',
+    leadsTo: 'glossary/plaza-registry-record.html',
+    hint: '広場の管理者に問い合わせれば、陣座の登録記録を見せてもらえるかもしれないという話でした。'
+  },
+  {
     hintFor: 'shop/souvenirs.html',
     leadsTo: 'glossary/arnold-relics.html',
     hint: 'アルノルド卿の紋章をかたどった品が、みやげ店にあったはずです。バッジ商品の説明をもう一度読んでみてください。'
@@ -165,6 +171,12 @@ window.HINT_DATA = [
     hintFor: 'exploration/dueling-ground.html',
     leadsTo: 'glossary/merit-records.html',
     hint: '決闘演武場には、段位認定の記録を保管する非公開の一室があるそうです。演武場の設備についての記述を、もう一度確かめてみてください。'
+  },
+  {
+    requiresPage: 'glossary/merit-records.html',
+    hintFor: 'glossary/merit-records.html',
+    leadsTo: 'glossary/instructor-lore.html',
+    hint: '非公開の理由について、指導教官が独自の言い伝えを知っているらしいという話でした。'
   },
   {
     hintFor: 'shop/library-shop.html',
