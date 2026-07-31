@@ -376,6 +376,24 @@ window.HINT_DATA = [
     hint: '錬金術品評会の副賞は、実用品ではない少し変わった記念品だそうです。行事の案内をもう一度確かめてみてください。'
   },
   {
+    requiresPage: 'glossary/champions-prizes.html',
+    hintFor: 'glossary/champions-prizes.html',
+    leadsTo: 'glossary/ring-ledger.html',
+    hint: '研究棟には、指輪そのものの授与記録を専用にまとめた帳面もあるという話でした。'
+  },
+  {
+    requiresPage: 'glossary/ring-ledger.html',
+    hintFor: 'glossary/ring-ledger.html',
+    leadsTo: 'glossary/amber-return-ledger.html',
+    hint: '台帳とは別に、指輪の管理そのものを担う帳面があるはずだという話でした。'
+  },
+  {
+    requiresPage: 'glossary/amber-return-ledger.html',
+    hintFor: 'glossary/amber-return-ledger.html',
+    leadsTo: 'glossary/alumni-whereabouts.html',
+    hint: 'その年度の受賞者が今どうしているのか、卒業後の記録を確かめれば何か分かるかもしれません。'
+  },
+  {
     hintFor: 'exploration/grand-library.html',
     leadsTo: 'glossary/memory-books.html',
     hint: '大図書館の蔵書には、問いかけに応じてページが開く特別な一群があるそうです。エリアについての説明をもう一度確かめてみてください。'
