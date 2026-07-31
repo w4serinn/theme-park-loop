@@ -433,6 +433,19 @@ window.HINT_DATA = [
     hint: '名を消すにも正式な手続きが要ったはずです。その決裁を記した帳面が、本部棟のどこかに保管されているのではないでしょうか。'
   },
   {
+    requiresPage: 'glossary/headmaster-decree.html',
+    hintFor: 'glossary/headmaster-decree.html',
+    leadsTo: 'glossary/night-sky-record.html',
+    hint: '決裁の日付、どこかで見た覚えはありませんか。天文台にも、その夜についての記録が残っているかもしれません。'
+  },
+  {
+    id: 'F4',
+    requiresPage: 'glossary/night-sky-record.html',
+    hintFor: 'glossary/night-sky-record.html',
+    leadsTo: 'glossary/night-response-record.html',
+    hint: '深夜に広場から使いが出たなら、広場側にもその夜の対応を記した帳面があるはずです。'
+  },
+  {
     hintFor: 'exploration/grand-library.html',
     leadsTo: 'glossary/hidden-corners.html',
     hint: '大図書館の中央ホール地下には、書架の自律配置を司る巨大な魔法陣があるそうです。エリアについての説明をもう一度確かめてみてください。'

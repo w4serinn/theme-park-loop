@@ -76,6 +76,8 @@ window.SEARCH_INDEX = [
   { path: 'glossary/shooting-star.html', title: '流れ星、という言葉', category: '図鑑', hidden: true, keywords: ['流れ星'], prereq: ['glossary/final-entry.html'], exactMatch: true },
   { path: 'glossary/erased-champion.html', title: '名を消された決闘王', category: '図鑑', hidden: true, keywords: ['静寂の一撃'], prereq: ['glossary/dueling-champions.html'] },
   { path: 'glossary/headmaster-decree.html', title: '学長決裁記録、理由欄だけが空白', category: '図鑑', hidden: true, keywords: ['学長決裁記録'], prereq: ['glossary/erased-champion.html'], exactMatch: true },
+  { path: 'glossary/night-sky-record.html', title: '天文台の夜間観測記録、決裁の夜に降っていたもの', category: '図鑑', hidden: true, keywords: ['天文台の夜間観測記録'], prereq: ['glossary/headmaster-decree.html'], exactMatch: true },
+  { path: 'glossary/night-response-record.html', title: '刻の輪 夜間対応記録、本人たっての願い', category: '図鑑', hidden: true, keywords: ['刻の輪 夜間対応記録'], prereq: ['glossary/night-sky-record.html'], exactMatch: true },
   { path: 'glossary/yorishiro-echo.html', title: 'よりしろ、という響き', category: '図鑑', hidden: true, keywords: ['よりしろ'], prereq: ['glossary/nostion-memory.html'], exactMatch: true },
   { path: 'glossary/koku-trio.html', title: '「刻」を名に持つ三つの装置', category: '図鑑', hidden: true, keywords: ['刻の輪', '刻の書', '刻の声'], exactMatch: true },
   { path: 'glossary/beyond-the-map.html', title: '北方雲海と転移広場、地図の余白について', category: '図鑑', hidden: true, keywords: ['北方雲海', '魔法陣転移広場'], exactMatch: true },
