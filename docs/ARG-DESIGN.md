@@ -257,7 +257,7 @@ flavor/fragmentが組めない」と判断した場合、その接続を無理�
 | P6 | flavor | 証言 | P3, P1(両ページの本文に「シベル・オーレン」という人物名を追記して接続) | — | — | 実装済み(`pages/glossary/first-astronomer.html`) |
 | P7 | fragment | 証言 | P6(`glossary/first-astronomer.html`の「観測記録帳」) | F2(星の断片、→P21で使用) | — | 実装済み(`pages/glossary/final-entry.html`)。頁に書き足された5つの座標「N-M」(N=P3「魔導88星座」の星座番号、M=その星座名[ひらがな部分]のM文字目)を、P3(`glossary/starmap-fragments.html`)の該当5座(第07/23/41/56/74番)と突き合わせて解読すると「な・が・れ・ぼ・し」になり、「流れ星」を検索して初めて到達する実装済み(`pages/glossary/shooting-star.html`)で獲得(2026-07-29 ユーザー指摘によりギミックを位置・配置方式[P6の頭文字抽出、答え「もどりば」]から全面的に作り直し。P6の「観測日誌、書き出しの癖」項目は不要になったため削除。exactMatch設定済み) |
 | P8 | flavor | 証言 | P4(`glossary/dueling-champions.html`の本文「静寂の一撃」) | — | — | 実装済み(`pages/glossary/erased-champion.html`)(2026-07-29 元のkeyword「さらに古い時代の決闘王」は文章そのものかつ「決闘王」がP4・P8のタイトルと重複し紛らわしいとのユーザー指摘を受け、P8本文に既出の一文「一撃で場を静める」に変更→さらに、この言い回し自体も文章(動詞を含む一節)であり同種の問題が残っているとのユーザー再指摘を受け、体言止めの技名「静寂の一撃」に変更。同日、検索語句を独り言から本文側[`.champion-note`]へ移設) |
-| P9 | flavor | 未定 | P8, P24 | — | — | 未着手 |
+| P9 | flavor | 証言 | P8(`glossary/erased-champion.html`「学長決裁記録」)、P24(未着手) | — | — | 実装済み(`pages/glossary/headmaster-decree.html`)。2026-07-31実装。P8本文に「学長決裁記録」という検索可能な具体語を手がかりとして追記し(P13→P14と同型の対応)、そのままP9のkeywordとして使用した。演武場の指導教官が記録保管室で実際にその帳面を閲覧し、決裁自体は実在すると確認しつつ、「理由欄だけが完全に空白」という新たな謎を重ねる形にした(P14→P15・P49→P50等の「深める」パターンを踏襲)。たどり着き方はP8・P24どちらからでも良いOR接続だが、P24は未着手のためP8経由のみ実装済み |
 
 ### 4-2. 通常ページ発の新規ルート群
 
@@ -300,7 +300,7 @@ flavor/fragmentが組めない」と判断した場合、その接続を無理�
 | P31 | root | 証言 | `index.html`「アルノルド卿とは」本文(創立当初の礎石に触れる一文、「礎石の紋様」という語句を追記) | — | — | 実装済み(`pages/glossary/cornerstone-pattern.html`)。2026-07-31実装。`index.html`の創立史パラグラフに「正門脇に今も残る礎石の紋様は、風化してなお薄く見て取れるという」という一文を追記し、それを検索して初めて到達する(暗号解読を伴わない単純な発見型。P1・P26・P46・P97と同型)。語り手はP27(seal-token.html)と同一の正門案内係で、「片側半分だけの紋様」という未解決の謎を残してP32へ接続する |
 | P32 | fragment | 証言 | P31(`glossary/cornerstone-pattern.html`) | F7(門の断片、→扉) | F6(P27産出、prereq経由で参照) | 実装済み(`pages/glossary/gate-pattern-match.html`)。2026-07-31実装。F6は単純な所持チェックにはせず、P27で獲得した「刻印の証」の記章という**物**そのものをP31の礎石紋様に重ね合わせるという行為を、同じ正門案内係の語りの中で再演する形にした(記号↔読みの対応表ではなく意匠の物理的な組み合わせを再利用するギミック、P26/P46と同型の単純発見型)。prereqは`glossary/cornerstone-pattern.html`(P31)訪問済みのみで、F6の所持自体をコードでチェックする仕組みは設けていない(PGATE方針section参照)。語り手はP27・P31と同一の正門案内係で一貫させた |
 | P33 | root | 証言 | `exploration/alchemy-tower.html`「魔法陣刻印記録簿」、`exploration/summoning-plaza.html`「陣紋補修記録簿」の2箇所から接続 | — | — | 実装済み(`pages/glossary/circle-ledgers.html`)。`docs/ARG-WORDBANK.md`グループB-1「陣紋の保守記録」(2026-07-29実装)。本文中の「初代の署名欄が判読不能」「石版帳にも判読しづらい項目が残る」等flavor化の余地があると判断し、予約済みのroot→flavor 1段枠であるP33〜P34へ最初から当てはめて実装(2026-07-29) |
-| P34 | flavor | 未定 | P33 | — | — | 未着手 |
+| P34 | flavor | 証言 | P33(`glossary/circle-ledgers.html`「陣形式創始録」) | — | — | 実装済み(`pages/glossary/style-origin-record.html`)。2026-07-31実装。P33本文に「陣形式創始録」という検索可能な具体語を手がかりとして追記し(P13→P14と同型の対応)、そのままP34のkeywordとして使用した。陣紋師となったP33の語り手(研究生)が資料室でその創始録を実際に確かめ、記録簿を書き始めた人物が当時の「首席錬金術師」だったと判明しつつも実名の記載はなく、「地位ある者ほど実名を名乗らない慣例があったのでは」という本人の推測だけを残して締めくくった(P14→P15・P9→(headmaster-decree.html)と同様の「深める」パターン) |
 | P35 | root | 証言 | `shop/index.html`「七代続く写本師一族の古書専門店」、`shop/library-shop.html`「七代続く写本師の一族が運営」の2箇所から接続 | — | — | 実装済み(`pages/glossary/scribe-lineage.html`)。`docs/ARG-WORDBANK.md`「未分類のまま残る候補」の「七代続く写本師一族」を実装(2026-07-30)。既存の実装済みページ(P16 `arnold-relics.html`の「創魔の書」複製、P28 `second-headmaster.html`の葦ペン復刻)がどちらも同じ写本師一族の仕事だったことに着目し、一族そのものに焦点を当てた4カード構成にした。本文中の「初代の名は公式に記録されていない」等flavor化の余地があると判断し、予約済みのroot→flavor 3段枠であるP35〜P38へ最初から当てはめて実装 |
 | P36 | flavor | 未定 | P35 | — | — | 未着手 |
 | P37 | flavor | 未定 | P36 | — | — | 未着手 |

@@ -133,6 +133,12 @@ window.HINT_DATA = [
     hint: '魔法陣召喚広場には、陣紋の補修履歴を記した石版帳もあるという話です。広場の設備についての記述を、もう一度確かめてみてください。'
   },
   {
+    requiresPage: 'glossary/circle-ledgers.html',
+    hintFor: 'glossary/circle-ledgers.html',
+    leadsTo: 'glossary/style-origin-record.html',
+    hint: '記録簿そのものの成り立ちを記した、別の資料があるという話を思い出してみてください。'
+  },
+  {
     hintFor: 'events/index.html',
     leadsTo: 'glossary/merit-records.html',
     hint: '錬金術品評会の豆知識には、受賞者の名が代々刻まれ続ける場所についての記述があったはずです。行事の案内をもう一度確かめてみてください。'
@@ -419,6 +425,12 @@ window.HINT_DATA = [
     hintFor: 'glossary/dueling-champions.html',
     leadsTo: 'glossary/erased-champion.html',
     hint: '公式に語られなかった決闘の記録にも、何か短い言葉が残されているかもしれません。'
+  },
+  {
+    requiresPage: 'glossary/erased-champion.html',
+    hintFor: 'glossary/erased-champion.html',
+    leadsTo: 'glossary/headmaster-decree.html',
+    hint: '名を消すにも正式な手続きが要ったはずです。その決裁を記した帳面が、本部棟のどこかに保管されているのではないでしょうか。'
   },
   {
     hintFor: 'exploration/grand-library.html',
