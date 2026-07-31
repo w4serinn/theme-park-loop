@@ -64,6 +64,26 @@ window.HINT_DATA = [
     hint: '学院祭・行事の絞り込みで、冬と大図書館を組み合わせて選んでみると、何か起こるかもしれません。'
   },
   {
+    id: 'F9',
+    hintFor: 'access/index.html',
+    leadsTo: 'glossary/old-west-gate.html',
+    hint: '学院西臨時駐車場の奥に、古い門柱の痕跡が残っているという噂があったはずです。お車での来訪案内をもう一度確かめてみてください。'
+  },
+  {
+    id: 'F10',
+    requiresPage: 'glossary/old-west-gate.html',
+    hintFor: 'glossary/old-west-gate.html',
+    leadsTo: 'glossary/pillar-rubbing.html',
+    hint: '柱の根元に残る刻印を、紙に写し取ったという話でした。'
+  },
+  {
+    id: 'F11',
+    requiresPage: 'glossary/pillar-rubbing.html',
+    hintFor: 'glossary/pillar-rubbing.html',
+    leadsTo: 'glossary/west-gate-construction-record.html',
+    hint: 'この門が建てられた経緯を記した記録が、学院事務局に残っているかもしれません。'
+  },
+  {
     hintFor: 'exploration/clock-tower.html',
     leadsTo: 'glossary/perpetual-motion.html',
     hint: '時計塔の中枢には、魔力の補給なしで動き続ける仕掛けがあるという話です。塔の主要機構についての記述を探してみてください。'
