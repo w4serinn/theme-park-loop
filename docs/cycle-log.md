@@ -1,5 +1,37 @@
 # サイクル履歴
 
+## 2026-07-31 20:21
+- ブランチ: 引き続き`evolve/cycle-41`(未マージ)。
+- タスク選定: 前サイクルの計画どおり、PGATE本実装の段階2の残りである
+  グループD(記憶の突き合わせ)のUI・判定ロジックを追加。
+- 実装: F4(封の断片)・F5(灯りの断片)・F8(鍵の断片)・F11(旧門の断片)・
+  F12(朗読の断片)・F14(宿帳の断片)の6件について、各断片の獲得エピソード
+  から再掲した短い言い回し(「本人たっての願いにより」等、docs/ARG-DESIGN.md
+  4-6節の表に確定済み)を、それぞれ`<select>`ドロップダウンで正しい断片名と
+  対応付けるUIを実装。src/logic.jsに`GATE_GROUP_D_ANSWERS`・
+  `isGateGroupDCorrect`を追加しテストを追加(全問正解時のみtrue、1件でも
+  誤り・未選択・未入力ならfalse)。src/gate.jsに同ロジックを複製し、6つの
+  selectの値をまとめて判定する`setupMatchCheck`を新設(既存の単一ラジオ
+  グループ用`setupChoiceCheck`では6項目マッチングに対応できないため)。
+  pages/glossary/gathering-gate.htmlのグループD枠を「準備中」から実際の
+  6行UIに置き換え。styles/gate.cssに`.gate-match__row`等を新規追加
+  (色は既存トークンのcolor-mixのみ使用、新色なし)。これで4グループ
+  (A/B/C/D)全てが出揃い、PGATE本体のUI・判定ロジック実装(段階2・3)が
+  完了。docs/ARG-DESIGN.md「PGATE本実装の進め方」の該当ステップを完了
+  マークに更新し、docs/ROADMAP.mdの該当注記も次の作業(search-data.js
+  登録→PFINAL実装)に向けて書き換えた。
+- レビュー: OK、指摘なし(local-review観点で目視確認。新規id
+  [gate-match-wish/book/locker/gate/reading/guestbook]が既存のグループA/B/C
+  のid群と衝突していないこと、色トークンが承認済みのもののみであることを
+  個別確認済み。ビジュアルエリア[画像・イラスト]の新規追加は無いため
+  ASSET_REQUESTS.mdへの追記は不要と判断)。
+- lint: ✓ / lint:css: ✓ / test: ✓(762件、logic.test.jsに新規3件追加) /
+  build: ✓
+- 次回予定: `src/search-data.js`にPGATEの発見キーワードを確定して登録し、
+  発見経路を開放する。その後PFINAL(入学案内ページ)の本実装に着手する。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-31 19:49
 - ブランチ: 引き続き`evolve/cycle-41`(未マージ)。
 - タスク選定: 前サイクルの計画どおり、PGATE本実装の段階2を継続し
