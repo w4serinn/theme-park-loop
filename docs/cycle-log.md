@@ -1,5 +1,42 @@
 # サイクル履歴
 
+## 2026-07-31 21:20
+- ブランチ: 引き続き`evolve/cycle-41`(未マージ)。
+- タスク選定: 前サイクルの計画どおり、ARGメインラインの最後の1ピースである
+  PFINAL(入学案内ページ)の本実装に着手。
+- 実装: PGATEの4グループ(A/B/C/D)全てに正解した状態を検出する
+  `isGateFullySolved`(src/logic.js、テスト追加)を新設。gate.jsの
+  setupCipherCheck・setupChoiceCheck・setupMatchCheckに正誤を通知する
+  onResultコールバックを追加し、各グループの正誤を`solved`オブジェクトに
+  蓄積、全問正解になった瞬間にgathering-gate.html内の新セクション
+  `#gate-final`(初期状態hidden)を表示してPFINALへの導線を見せる仕組みに
+  した(断片の所持と同じく、単純な状態フラグではなく実際に全問正解した
+  時のみ扉が開く設計)。PFINAL本体は`pages/glossary/headmasters-letter.html`
+  として新規実装: 学長イレーヌ・ヴァルクロスからの手紙という形式で、
+  旧正門の物語(P92〜P94)と十の欠片の獲得エピソード(歯車の符丁・研究
+  手稿の記号・開かずのロッカー・朗読会・宿帳・還らなかった一団)を振り
+  返りつつ、末尾で本当の入学案内(tickets/index.html)へ誘導する内容に
+  した。専用スタイルstyles/final.cssを新規追加(手紙らしいprose中心の
+  レイアウト、色は既存トークンのcolor-mixのみ)。gate-final出現時の演出は
+  単純なopacityフェードではなく、琥珀色の発光が緩やかに強弱する
+  box-shadowアニメーションにした(ROADMAP品質方針の「発光の強弱」に
+  沿う)。PFINALはsrc/search-data.jsに意図的に未登録(PGATEを解いた先
+  からの直接リンクのみで到達する終着点とする設計)。docs/ARG-DESIGN.md
+  「4-6. ゴール」のPFINAL行・docs/ROADMAP.mdの該当注記を完成状態に更新
+  (長期間かけて積み上がっていた同注記も、完成を機に簡潔な要約へ整理した)。
+- レビュー: OK、指摘1件対応(local-review観点で目視確認中に、正解後も
+  ボタンを押すたびに`scrollIntoView`が再実行され続けることに気づき、
+  `finalSection.hidden`が真の時[=初めて扉が開く瞬間]のみスクロールする
+  よう修正)。
+- lint: ✓ / lint:css: ✓ / test: ✓(768件、logic.test.jsに新規6件追加) /
+  build: ✓
+- 次回予定: 既存の実装済みフレーバーページ群を棚卸しして新たな未解決
+  フックを見つけ、次のroot flavorに仕立てる(ARGメインラインは完成した
+  ため、以降はフレーバー層の継続拡充フェーズに入る)。
+- blocked / partial: なし
+- asset-pending: なし(このサイクルはテキスト・CSSアニメーションのみで
+  新規ビジュアルエリアの追加は無し)
+
 ## 2026-07-31 20:48
 - ブランチ: 引き続き`evolve/cycle-41`(未マージ)。
 - タスク選定: 前サイクルの計画どおり、PGATE本実装の最終段階である
