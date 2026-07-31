@@ -14,7 +14,8 @@ import {
   countFoundSecrets, formatDiscoveryProgressText, shouldShowSearchProgress,
   GATE_REQUIRED_FRAGMENTS, hasAllGateFragments, countGateFragments,
   isGateCipherCorrect, GATE_GROUP_B_ANSWER, isGateGroupBCorrect,
-  GATE_GROUP_C_ANSWER, isGateGroupCCorrect
+  GATE_GROUP_C_ANSWER, isGateGroupCCorrect,
+  GATE_GROUP_D_ANSWERS, isGateGroupDCorrect
 } from '../src/logic.js';
 
 describe('TICKET_PRICES', () => {
@@ -1081,5 +1082,29 @@ describe('isGateGroupCCorrect', () => {
     expect(isGateGroupCCorrect('創意の断片と、灯りの断片')).toBe(false);
     expect(isGateGroupCCorrect('本心の断片と、開かずのロッカー')).toBe(false);
     expect(isGateGroupCCorrect('')).toBe(false);
+  });
+});
+
+describe('isGateGroupDCorrect', () => {
+  test('matches when every phrase is paired with its correct fragment', () => {
+    expect(isGateGroupDCorrect(GATE_GROUP_D_ANSWERS)).toBe(true);
+    expect(isGateGroupDCorrect({
+      wish: 'F4', book: 'F5', locker: 'F8', gate: 'F11', reading: 'F12', guestbook: 'F14'
+    })).toBe(true);
+  });
+
+  test('rejects when even one pairing is wrong', () => {
+    expect(isGateGroupDCorrect({
+      wish: 'F5', book: 'F4', locker: 'F8', gate: 'F11', reading: 'F12', guestbook: 'F14'
+    })).toBe(false);
+    expect(isGateGroupDCorrect({
+      wish: 'F4', book: 'F5', locker: 'F8', gate: 'F11', reading: 'F12', guestbook: 'F12'
+    })).toBe(false);
+  });
+
+  test('rejects incomplete or empty answers', () => {
+    expect(isGateGroupDCorrect({})).toBe(false);
+    expect(isGateGroupDCorrect({ wish: 'F4' })).toBe(false);
+    expect(isGateGroupDCorrect(null)).toBe(false);
   });
 });

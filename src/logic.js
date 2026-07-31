@@ -609,3 +609,23 @@ export var GATE_GROUP_C_ANSWER = '礎石の紋様と、刻印の証';
 export function isGateGroupCCorrect(choice) {
   return choice === GATE_GROUP_C_ANSWER;
 }
+
+// PGATE グループD(4-6節「PGATE設計メモ」参照): 記号↔読みの対応表を持たない
+// 6つの断片(F4・F5・F8・F11・F12・F14)を、獲得エピソードの言い回しを
+// 再掲して思い出させる「記憶の突き合わせ」型で再利用する。各キーは扉ページの
+// 選択肢と対応(4-6節「グループD 6件、扉ページで再掲する具体的な文言」参照)。
+export var GATE_GROUP_D_ANSWERS = {
+  wish: 'F4',       // 「本人たっての願いにより」(P22)
+  book: 'F5',        // 「十年、誰にも開かれなかった本」(P26)
+  locker: 'F8',       // 「開かずのロッカー」(P46)
+  gate: 'F11',        // 「一団、還らず。門を閉ざす」(P94)
+  reading: 'F12',      // 「内容について語り合うことは無い」(P90)
+  guestbook: 'F14'     // 「『ク』から始まる一文字」(P96)
+};
+
+export function isGateGroupDCorrect(answers) {
+  var given = answers || {};
+  return Object.keys(GATE_GROUP_D_ANSWERS).every(function (key) {
+    return given[key] === GATE_GROUP_D_ANSWERS[key];
+  });
+}

@@ -2,8 +2,8 @@
 // 10種の断片を集めたプレイヤーだけが、扉ページの謎解きに挑戦できる。
 // ここに書く判定ロジックは src/logic.js の同名関数(hasAllGateFragments・
 // countGateFragments・isGateCipherCorrect・isGateGroupBCorrect・
-// isGateGroupCCorrect)と同じ内容の複製(file:// でも動くよう ES module
-// import を使わない設計、他のDOMスクリプトと同じ方針)。
+// isGateGroupCCorrect・isGateGroupDCorrect)と同じ内容の複製(file:// でも
+// 動くよう ES module import を使わない設計、他のDOMスクリプトと同じ方針)。
 (function () {
   var GATE_REQUIRED_FRAGMENTS = ['F1', 'F3', 'F4', 'F5', 'F7', 'F8', 'F11', 'F12', 'F13', 'F14'];
 
@@ -60,6 +60,22 @@
     return choice === GATE_GROUP_C_ANSWER;
   }
 
+  var GATE_GROUP_D_ANSWERS = {
+    wish: 'F4',
+    book: 'F5',
+    locker: 'F8',
+    gate: 'F11',
+    reading: 'F12',
+    guestbook: 'F14'
+  };
+
+  function isGateGroupDCorrect(answers) {
+    var given = answers || {};
+    return Object.keys(GATE_GROUP_D_ANSWERS).every(function (key) {
+      return given[key] === GATE_GROUP_D_ANSWERS[key];
+    });
+  }
+
   function setupChoiceCheck(formId, buttonId, resultId, radioName, isCorrect, emptyMessage, correctMessage, wrongMessage) {
     var form = document.getElementById(formId);
     var button = document.getElementById(buttonId);
@@ -77,6 +93,35 @@
         result.classList.add('gate-choice__result--correct');
       } else {
         result.textContent = wrongMessage;
+        result.classList.remove('gate-choice__result--correct');
+      }
+    });
+  }
+
+  function setupMatchCheck(formId, buttonId, resultId, selectIds) {
+    var form = document.getElementById(formId);
+    var button = document.getElementById(buttonId);
+    var result = document.getElementById(resultId);
+    if (!form || !button || !result) { return; }
+    button.addEventListener('click', function () {
+      var given = {};
+      var hasEmpty = false;
+      Object.keys(selectIds).forEach(function (key) {
+        var select = document.getElementById(selectIds[key]);
+        var value = select ? select.value : '';
+        if (!value) { hasEmpty = true; }
+        given[key] = value;
+      });
+      if (hasEmpty) {
+        result.textContent = 'まだ選ばれていない言葉があるようだ。すべて選んでみてほしい。';
+        result.classList.remove('gate-choice__result--correct');
+        return;
+      }
+      if (isGateGroupDCorrect(given)) {
+        result.textContent = '……間違いない。すべての記憶が、正しい欠片と結びついた。';
+        result.classList.add('gate-choice__result--correct');
+      } else {
+        result.textContent = 'いくつか、記憶違いがあるようだ。もう一度確かめてみてほしい。';
         result.classList.remove('gate-choice__result--correct');
       }
     });
@@ -116,5 +161,13 @@
       '……そうだ、これだった。図案の輪郭が、はっきりと浮かび上がった。',
       '……いや、それは別の欠片の話だったはずだ。'
     );
+    setupMatchCheck('gate-match-d', 'gate-match-d-check', 'gate-match-d-result', {
+      wish: 'gate-match-wish',
+      book: 'gate-match-book',
+      locker: 'gate-match-locker',
+      gate: 'gate-match-gate',
+      reading: 'gate-match-reading',
+      guestbook: 'gate-match-guestbook'
+    });
   });
 }());
