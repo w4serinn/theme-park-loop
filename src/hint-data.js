@@ -399,6 +399,30 @@ window.HINT_DATA = [
     hint: '大図書館の蔵書には、問いかけに応じてページが開く特別な一群があるそうです。エリアについての説明をもう一度確かめてみてください。'
   },
   {
+    requiresPage: 'glossary/memory-books.html',
+    hintFor: 'glossary/memory-books.html',
+    leadsTo: 'glossary/book-of-refusal.html',
+    hint: '一冊だけ、一度も問いに答えたことがないという本があり、司書たちが特別な呼び方をしているという話でした。'
+  },
+  {
+    requiresPage: 'glossary/book-of-refusal.html',
+    hintFor: 'glossary/book-of-refusal.html',
+    leadsTo: 'glossary/earliest-catalog.html',
+    hint: '蔵書点検記録よりさらに古い時代の目録が、大図書館のどこかに残っているかもしれません。'
+  },
+  {
+    requiresPage: 'glossary/earliest-catalog.html',
+    hintFor: 'glossary/earliest-catalog.html',
+    leadsTo: 'glossary/flyleaf-inscription.html',
+    hint: '目録には「見返しに書き込みあり、要確認」と書かれていたはずです。実際に確かめた者がいなかったのなら、自分の目で確かめてみてはどうでしょう。'
+  },
+  {
+    requiresPage: 'glossary/flyleaf-inscription.html',
+    hintFor: 'glossary/flyleaf-inscription.html',
+    leadsTo: 'glossary/unopened-record.html',
+    hint: 'これまで誰かがこの本を実際に開いたことがあるのか、記録が残っていないか確かめてみてはどうでしょう。'
+  },
+  {
     hintFor: 'exploration/clock-tower.html',
     leadsTo: 'glossary/time-path-interference.html',
     hint: '時計塔には、同じ部屋の中で時間の流れが異なる展示室があるそうです。設備の紹介をもう一度確かめてみてください。'
