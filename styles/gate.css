@@ -231,6 +231,49 @@
   color: var(--brass);
 }
 
+.gate-final {
+  margin-top: 0.5rem;
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--ember);
+  border-radius: 8px;
+  text-align: center;
+  background: color-mix(in oklch, var(--ember) 8%, transparent);
+  animation: gate-final-glow 2.4s ease-in-out infinite;
+}
+
+@keyframes gate-final-glow {
+  0%, 100% {
+    box-shadow: 0 0 12px color-mix(in oklch, var(--ember) 35%, transparent);
+  }
+
+  50% {
+    box-shadow: 0 0 28px color-mix(in oklch, var(--ember) 60%, transparent);
+  }
+}
+
+.gate-final__text {
+  font-size: 0.95rem;
+  color: color-mix(in oklch, var(--ember) 90%, transparent);
+  line-height: 1.8;
+  margin: 0 0 1.25rem;
+}
+
+.gate-final__link {
+  display: inline-block;
+  border: 1px solid var(--ember);
+  border-radius: 4px;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ember);
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.gate-final__link:hover {
+  background: color-mix(in oklch, var(--ember) 15%, transparent);
+}
+
 @media (width <= 600px) {
   .gate-hero {
     padding: 2rem 1rem 1.5rem;

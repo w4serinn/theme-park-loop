@@ -15,7 +15,8 @@ import {
   GATE_REQUIRED_FRAGMENTS, hasAllGateFragments, countGateFragments,
   isGateCipherCorrect, GATE_GROUP_B_ANSWER, isGateGroupBCorrect,
   GATE_GROUP_C_ANSWER, isGateGroupCCorrect,
-  GATE_GROUP_D_ANSWERS, isGateGroupDCorrect
+  GATE_GROUP_D_ANSWERS, isGateGroupDCorrect,
+  GATE_SOLVE_KEYS, isGateFullySolved
 } from '../src/logic.js';
 
 describe('TICKET_PRICES', () => {
@@ -1106,5 +1107,32 @@ describe('isGateGroupDCorrect', () => {
     expect(isGateGroupDCorrect({})).toBe(false);
     expect(isGateGroupDCorrect({ wish: 'F4' })).toBe(false);
     expect(isGateGroupDCorrect(null)).toBe(false);
+  });
+});
+
+describe('isGateFullySolved', () => {
+  test('true only when all 5 sub-puzzles are solved', () => {
+    const allSolved = {};
+    GATE_SOLVE_KEYS.forEach((key) => { allSolved[key] = true; });
+    expect(isGateFullySolved(allSolved)).toBe(true);
+  });
+
+  test('false when even one sub-puzzle is missing or false', () => {
+    const allSolved = {};
+    GATE_SOLVE_KEYS.forEach((key) => { allSolved[key] = true; });
+    GATE_SOLVE_KEYS.forEach((missingKey) => {
+      const partial = Object.assign({}, allSolved);
+      partial[missingKey] = false;
+      expect(isGateFullySolved(partial)).toBe(false);
+
+      const missing = Object.assign({}, allSolved);
+      delete missing[missingKey];
+      expect(isGateFullySolved(missing)).toBe(false);
+    });
+  });
+
+  test('rejects empty or null input', () => {
+    expect(isGateFullySolved({})).toBe(false);
+    expect(isGateFullySolved(null)).toBe(false);
   });
 });

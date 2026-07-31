@@ -629,3 +629,15 @@ export function isGateGroupDCorrect(answers) {
     return given[key] === GATE_GROUP_D_ANSWERS[key];
   });
 }
+
+// PGATE 最終判定: グループA(記号2種)・B・C・Dの5問全てが正解した時だけ、
+// 扉が開きPFINALへの導線を見せる。solvedは各問の正誤を保持するオブジェクト
+// (キーが1つでも欠けている・falseの場合はfalse)。
+export var GATE_SOLVE_KEYS = ['finlay', 'eightSymbol', 'groupB', 'groupC', 'groupD'];
+
+export function isGateFullySolved(solved) {
+  var given = solved || {};
+  return GATE_SOLVE_KEYS.every(function (key) {
+    return given[key] === true;
+  });
+}

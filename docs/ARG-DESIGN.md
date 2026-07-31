@@ -377,7 +377,7 @@ root→flavorの掘り下げ)、既に個々のstatus説明が示す通り航海
 | ID | 種別 | 形式 | たどり着き方 | 必要な断片 | status |
 |---|---|---|---|---|---|
 | PGATE | gate(扉ページ) | 特殊(謎解きギミック中心、地の文なし) | F1・F3・F4・F5・F7・F8・F11・F12・F13・F14の10断片を集めて開く | F1,F3,F4,F5,F7,F8,F11,F12,F13,F14 | 実装済み(2026-07-31、`pages/glossary/gathering-gate.html`としてHTML骨格・4グループ全てを実装。P92〜P94[旧正門]の物語と接続し、蔦の門柱が十の欠片を迎えて光り始めるという演出にした。断片10/10所持チェック[`src/logic.js`の`hasAllGateFragments`/`countGateFragments`]で謎解きUIの表示可否を判定し、10/10未満の間は「集まった欠片はn/10」という状態表示のみを見せる。グループA[F1・F3の記号解読、`isGateCipherCorrect`]・グループB[選択消去ロジック、新規5択消去法。正解「欠片の環」、`isGateGroupBCorrect`]・グループC[物証・意匠の組み合わせ再掲、4択。正解「礎石の紋様と、刻印の証」、`isGateGroupCCorrect`]・グループD[記憶の突き合わせ、F4・F5・F8・F11・F12・F14の6件を`<select>`で断片名と対応付け、`isGateGroupDCorrect`]の全てを実装・テスト済み。**`src/search-data.js`にkeyword「欠片の環」で登録し発見経路を開放した(prereqは10断片産出ページのいずれか1つのOR判定)。**「欠片の環」という呼び名自体はグループBの謎解きで確定した用語だが、それを知らないプレイヤーのために`pages/glossary/west-gate-construction-record.html`(P94)のノスティオンの独り言に「散らばった『欠片の環』が集うのを待っているのかもしれません」という一文をフックとして追加し、本文から辿れるようにした(同ページは10断片産出ページの1つでもあるため、閲覧すればprereqも同時に満たす設計)) |
-| PFINAL | final(入学案内ページ) | 証言(校長本人の言葉) | PGATEを開いた先。校長からの言葉+本当の入学案内。既存の`tickets/index.html`(チケット案内)とは別ページ | — | 未着手 |
+| PFINAL | final(入学案内ページ) | 証言(学長本人の言葉) | PGATEを開いた先。学長からの言葉+本当の入学案内。既存の`tickets/index.html`(チケット案内)とは別ページ | — | 実装済み(2026-07-31、`pages/glossary/headmasters-letter.html`として実装。PGATEの4グループ(A/B/C/D)全てに正解すると`isGateFullySolved`が真になり、`gathering-gate.html`内の`#gate-final`セクションが現れてこのページへの導線を示す仕組み[断片の所持チェックと同じく単純な所持/正解チェックに頼らず、実際に全問正解した状態のみを`solved`オブジェクトで追跡]。内容は学長(イレーヌ・ヴァルクロス)からの手紙形式で、旧正門の物語と十の欠片の獲得エピソードを振り返りつつ、末尾で本当の入学案内(`tickets/index.html`)へ誘導する。`src/search-data.js`には意図的に登録していない(PGATEを解いた先からの直接リンクのみで到達する終着点とする設計)) |
 
 (ゴール2件だけ`PGATE`/`PFINAL`という別枠のIDにしている。フレーバーのP番号は
 上限を設けず今後も増えていく想定のため、末尾の数字をゴール専用に固定したくない

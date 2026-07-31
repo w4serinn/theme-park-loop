@@ -252,35 +252,17 @@ ARG(代替現実ゲーム)的な「発見の連鎖+謎解き+最終ゴール」�
          分かっていない」等、未解決のまま残してあるフックが複数あるはず
          なので、それを1つずつ掘り下げる(P81チェーンやP13の実装例を
          参照。個別の実装経緯は`docs/cycle-log.md`参照)。
-         **2026-07-31時点の断片産出状況**: PGATEに必要な10種
-         (F1・F3・F4・F5・F7・F8・F11・F12・F13・F14)が**全て産出済みと
-         なった**(P95→P96[`pages/glossary/silver-clock-inn.html`→
-         `pages/glossary/guestbook-first-page.html`]でF14「宿帳の断片」を
-         2026-07-31に実装。旅行手続き案内の宿泊施設セクションという、
-         これまで未使用だったroot候補[`access/lodging.html`「銀時計亭」]を
-         新規に採用した)。
-         **これにより、`docs/ARG-DESIGN.md`4節の断片産出ラインは完了した。
-         次の大きな節目はPGATE(扉ページ)・PFINAL(入学案内ページ)の本実装
-         である**(4-6節参照)。2026-07-31、PGATE本体
-         (`pages/glossary/gathering-gate.html`)を実装完了した。P92〜P94
-         [旧正門]の物語と接続し、蔦の門柱が十の欠片を迎えて光り始める
-         という演出。断片10/10所持チェック
-         ([`hasAllGateFragments`/`countGateFragments`]、テスト済み)で
-         謎解きUIの表示可否を判定し、グループA(記号解読、
-         `isGateCipherCorrect`)・グループB(選択消去ロジック、正解
-         「欠片の環」、`isGateGroupBCorrect`)・グループC(物証・意匠の
-         組み合わせ再掲、`isGateGroupCCorrect`)・グループD(記憶の
-         突き合わせ、`isGateGroupDCorrect`)の4グループ全てを実装・
-         テスト済み。**同日、`src/search-data.js`にkeyword「欠片の環」で
-         登録し発見経路を開放した**(prereqは10断片産出ページのいずれか1つの
-         OR判定)。「欠片の環」という語自体はグループBの謎解きで確定した
-         用語だが、それを知らないプレイヤーのために`west-gate-construction-
-         record.html`(P94)の本文にも同じ語をフックとして追加済み(4-6節
-         PGATE行に詳細)。**PGATEは完成。次に優先すべき作業はPFINAL
-         (入学案内ページ)の本実装。規模が大きいと感じた場合は、既存の
-         実装済みフレーバーページ群を棚卸しして新たな未解決フックを見つけ
-         次のroot flavorに仕立てる(このタスクの1・2・3を通常どおり優先
-         する)ことを継続してよい。**
+         **2026-07-31、ARGのメインライン(断片産出10種→PGATE→PFINAL)が
+         全て完成した**(詳細は`docs/ARG-DESIGN.md`4-6節「ゴール」の
+         PGATE/PFINAL行を参照。断片産出は`pages/glossary/gathering-gate.html`
+         [PGATE、4グループA/B/C/D全て実装]→`pages/glossary/
+         headmasters-letter.html`[PFINAL、学長イレーヌ・ヴァルクロスから
+         の手紙+`tickets/index.html`への導線]の順で完結)。
+         **次に優先すべき作業は、既存の実装済みフレーバーページ群を棚卸しして
+         新たな未解決フックを見つけ、次のroot flavorに仕立てること**
+         (このタスクの1・2・3を通常どおり優先する)。メインラインが完成した
+         今、`docs/ARG-DESIGN.md`4節のフレーバー層(上限なし、今後も増える
+         想定)を継続して拡充していく段階に入った。
 
       実装するたびに`docs/ARG-DESIGN.md`の該当行のstatusを更新し、使った
       候補は`docs/ARG-WORDBANK.md`「## 候補一覧」の表側も使用状況・使用先

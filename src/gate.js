@@ -2,8 +2,9 @@
 // 10種の断片を集めたプレイヤーだけが、扉ページの謎解きに挑戦できる。
 // ここに書く判定ロジックは src/logic.js の同名関数(hasAllGateFragments・
 // countGateFragments・isGateCipherCorrect・isGateGroupBCorrect・
-// isGateGroupCCorrect・isGateGroupDCorrect)と同じ内容の複製(file:// でも
-// 動くよう ES module import を使わない設計、他のDOMスクリプトと同じ方針)。
+// isGateGroupCCorrect・isGateGroupDCorrect・isGateFullySolved)と同じ内容の
+// 複製(file:// でも動くよう ES module import を使わない設計、他のDOMスクリプト
+// と同じ方針)。
 (function () {
   var GATE_REQUIRED_FRAGMENTS = ['F1', 'F3', 'F4', 'F5', 'F7', 'F8', 'F11', 'F12', 'F13', 'F14'];
 
@@ -30,22 +31,6 @@
     var expected = GATE_CIPHER_ANSWERS[answerKey];
     if (!expected) { return false; }
     return (input || '').trim().toUpperCase() === expected;
-  }
-
-  function setupCipherCheck(inputId, buttonId, resultId, answerKey) {
-    var input = document.getElementById(inputId);
-    var button = document.getElementById(buttonId);
-    var result = document.getElementById(resultId);
-    if (!input || !button || !result) { return; }
-    button.addEventListener('click', function () {
-      if (isGateCipherCorrect(input.value, answerKey)) {
-        result.textContent = '……読み解けた。柱の光が、少しだけ強くなった気がする。';
-        result.classList.add('gate-cipher__result--correct');
-      } else {
-        result.textContent = 'まだ何かが違うようだ。もう一度、対応表を確かめてみてほしい。';
-        result.classList.remove('gate-cipher__result--correct');
-      }
-    });
   }
 
   var GATE_GROUP_B_ANSWER = '欠片の環';
@@ -76,7 +61,34 @@
     });
   }
 
-  function setupChoiceCheck(formId, buttonId, resultId, radioName, isCorrect, emptyMessage, correctMessage, wrongMessage) {
+  var GATE_SOLVE_KEYS = ['finlay', 'eightSymbol', 'groupB', 'groupC', 'groupD'];
+
+  function isGateFullySolved(solved) {
+    var given = solved || {};
+    return GATE_SOLVE_KEYS.every(function (key) {
+      return given[key] === true;
+    });
+  }
+
+  function setupCipherCheck(inputId, buttonId, resultId, answerKey, onResult) {
+    var input = document.getElementById(inputId);
+    var button = document.getElementById(buttonId);
+    var result = document.getElementById(resultId);
+    if (!input || !button || !result) { return; }
+    button.addEventListener('click', function () {
+      var correct = isGateCipherCorrect(input.value, answerKey);
+      if (correct) {
+        result.textContent = '……読み解けた。柱の光が、少しだけ強くなった気がする。';
+        result.classList.add('gate-cipher__result--correct');
+      } else {
+        result.textContent = 'まだ何かが違うようだ。もう一度、対応表を確かめてみてほしい。';
+        result.classList.remove('gate-cipher__result--correct');
+      }
+      if (onResult) { onResult(correct); }
+    });
+  }
+
+  function setupChoiceCheck(formId, buttonId, resultId, radioName, isCorrect, emptyMessage, correctMessage, wrongMessage, onResult) {
     var form = document.getElementById(formId);
     var button = document.getElementById(buttonId);
     var result = document.getElementById(resultId);
@@ -88,17 +100,19 @@
         result.classList.remove('gate-choice__result--correct');
         return;
       }
-      if (isCorrect(checked.value)) {
+      var correct = isCorrect(checked.value);
+      if (correct) {
         result.textContent = correctMessage;
         result.classList.add('gate-choice__result--correct');
       } else {
         result.textContent = wrongMessage;
         result.classList.remove('gate-choice__result--correct');
       }
+      if (onResult) { onResult(correct); }
     });
   }
 
-  function setupMatchCheck(formId, buttonId, resultId, selectIds) {
+  function setupMatchCheck(formId, buttonId, resultId, selectIds, onResult) {
     var form = document.getElementById(formId);
     var button = document.getElementById(buttonId);
     var result = document.getElementById(resultId);
@@ -117,13 +131,15 @@
         result.classList.remove('gate-choice__result--correct');
         return;
       }
-      if (isGateGroupDCorrect(given)) {
+      var correct = isGateGroupDCorrect(given);
+      if (correct) {
         result.textContent = '……間違いない。すべての記憶が、正しい欠片と結びついた。';
         result.classList.add('gate-choice__result--correct');
       } else {
         result.textContent = 'いくつか、記憶違いがあるようだ。もう一度確かめてみてほしい。';
         result.classList.remove('gate-choice__result--correct');
       }
+      if (onResult) { onResult(correct); }
     });
   }
 
@@ -145,21 +161,36 @@
       }
     }
 
-    setupCipherCheck('gate-cipher-finlay', 'gate-cipher-finlay-check', 'gate-cipher-finlay-result', 'finlay');
-    setupCipherCheck('gate-cipher-eight', 'gate-cipher-eight-check', 'gate-cipher-eight-result', 'eightSymbol');
+    var solved = {};
+    var finalSection = document.getElementById('gate-final');
+
+    function markSolved(key) {
+      return function (correct) {
+        solved[key] = correct;
+        if (finalSection && finalSection.hidden && isGateFullySolved(solved)) {
+          finalSection.hidden = false;
+          finalSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      };
+    }
+
+    setupCipherCheck('gate-cipher-finlay', 'gate-cipher-finlay-check', 'gate-cipher-finlay-result', 'finlay', markSolved('finlay'));
+    setupCipherCheck('gate-cipher-eight', 'gate-cipher-eight-check', 'gate-cipher-eight-result', 'eightSymbol', markSolved('eightSymbol'));
     setupChoiceCheck(
       'gate-choice-b', 'gate-choice-b-check', 'gate-choice-b-result', 'gate-choice-b',
       isGateGroupBCorrect,
       'まずは一つ、選んでみてほしい。',
       '……矛盾は無い。案内板の文字が、静かに浮かび上がった。',
-      'その名には、まだ小さな矛盾が残っているようだ。'
+      'その名には、まだ小さな矛盾が残っているようだ。',
+      markSolved('groupB')
     );
     setupChoiceCheck(
       'gate-choice-c', 'gate-choice-c-check', 'gate-choice-c-result', 'gate-choice-c',
       isGateGroupCCorrect,
       'まずは一つ、選んでみてほしい。',
       '……そうだ、これだった。図案の輪郭が、はっきりと浮かび上がった。',
-      '……いや、それは別の欠片の話だったはずだ。'
+      '……いや、それは別の欠片の話だったはずだ。',
+      markSolved('groupC')
     );
     setupMatchCheck('gate-match-d', 'gate-match-d-check', 'gate-match-d-result', {
       wish: 'gate-match-wish',
@@ -168,6 +199,6 @@
       gate: 'gate-match-gate',
       reading: 'gate-match-reading',
       guestbook: 'gate-match-guestbook'
-    });
+    }, markSolved('groupD'));
   });
 }());

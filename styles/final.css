@@ -1,0 +1,102 @@
+/* PFINAL(学長からの手紙)固有スタイル。docs/ARG-DESIGN.md 4-6節参照 */
+
+.final-hero {
+  text-align: center;
+  padding: 3rem 1.5rem 2.5rem;
+  border-bottom: 1px solid var(--brass);
+}
+
+.final-hero__eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in oklch, var(--brass) 60%, transparent);
+  margin: 0 0 0.5rem;
+}
+
+.final-hero__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 0.75rem;
+}
+
+.final-hero__desc {
+  font-size: 1rem;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.final-letter {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+.final-letter__paragraph {
+  font-size: 0.95rem;
+  color: color-mix(in oklch, var(--brass) 88%, transparent);
+  line-height: 2;
+  margin: 0 0 1.4rem;
+}
+
+.final-letter__sign {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid color-mix(in oklch, var(--brass) 30%, transparent);
+  font-size: 0.9rem;
+  color: var(--brass);
+  line-height: 1.9;
+  text-align: right;
+}
+
+.final-cta {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3.5rem;
+  text-align: center;
+}
+
+.final-cta__lead {
+  font-size: 0.9rem;
+  color: color-mix(in oklch, var(--brass) 80%, transparent);
+  line-height: 1.8;
+  margin: 0 0 1.5rem;
+}
+
+.final-cta__button {
+  display: inline-block;
+  border: 1px solid var(--brass);
+  border-radius: 4px;
+  padding: 0.75rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--brass);
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.final-cta__button:hover {
+  background: color-mix(in oklch, var(--brass) 15%, transparent);
+}
+
+@media (width <= 600px) {
+  .final-hero {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .final-hero__title {
+    font-size: 1.6rem;
+  }
+
+  .final-letter {
+    padding: 2rem 1rem;
+  }
+
+  .final-letter__sign {
+    text-align: left;
+  }
+}
