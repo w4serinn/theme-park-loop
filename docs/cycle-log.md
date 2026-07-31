@@ -1,5 +1,40 @@
 # サイクル履歴
 
+## 2026-07-31 16:45
+- ブランチ: 引き続き`evolve/cycle-41`(未マージ)。
+- タスク選定: 前回サイクルの予告どおり、残る予約済みflavor枠のうち
+  P76〜P80(P75のflavor、5段チェーン)に着手。
+- 実装: P75(time-path-interference.html)の「学院内のどこで自然発生
+  しているか不明」というフックを5段で掘り下げ、既存のP51〜P52(大点灯・
+  占術師選定)チェーンと初めて接続する構成にした。P76
+  (`pages/glossary/boundary-survey.html`)で「境界踏査記録」から大規模
+  術式の境界候補(刻の輪外周・カルネ岩敷き)を洗い出し、刻の輪外周から
+  調査開始。P77(`pages/glossary/ring-perimeter-log.html`)で「刻の輪外周
+  観測記録」から実際に時間の遅れを検出し、日によって強さが違うと判明。
+  P78(`pages/glossary/observation-cycle-chart.html`)で「観測周期表」から
+  誤差が一年に一度・冬至の夜にピークを迎えると判明。P79
+  (`pages/glossary/chant-timing-notes.html`)で、誤差のピークが既存のP51で
+  確立済みの「大点灯」(開始時刻が前日まで確定しない行事)の時期と重なる
+  仮説を提示。P80(`pages/glossary/chant-interview-record.html`)で召喚術科
+  の学生に直接取材するも「代々の勘で決めている」という曖昧な回答のみで、
+  確証は得られないまま締めくくった(P14→P15型の「深める」パターン)。
+  各ページ本文に検索可能な具体語を追記し、既存keywordとの重複を回避
+  (P51の既存keyword「大点灯」自体は再利用せず、新規語句で接続)。
+  search-data.js・hint-data.jsにエントリを追加。docs/ARG-DESIGN.mdの
+  P75〜P80チェーン行、docs/ROADMAP.mdの予約済みflavor枠一覧を更新。
+- レビュー: OK(local-review観点で目視確認。P76〜P80は4-5節のチェーン行内に
+  のみ各1回だけ記載され重複行なし、5つの検索キーワードがそれぞれ対応する
+  既存ページの静的HTML内に具体的な語句として存在すること、keyword全129件の
+  重複無しをスクリプトで確認済み。P79で引用した「大点灯」の詳細[開式17:00・
+  召喚術科の一斉詠唱・開始時刻が前日まで確定しない]がP51[festival-undertold.html]
+  および`pages/events/index.html`の記述と矛盾しないことも確認済み)。
+- lint: ✓ / lint:css: ✓ / test: ✓(691件) / build: ✓
+- 次回予定: 残る予約済みflavor枠はP88(P87実装済み)・P100〜P109の空き枠等。
+  それも尽きた場合は、断片F11・F12・F14(それぞれP94・P90・P96、個別の
+  ギミック設計を要する)への着手を検討する。
+- blocked / partial: なし
+- asset-pending: なし
+
 ## 2026-07-31 16:05
 - ブランチ: 引き続き`evolve/cycle-41`(未マージ)。
 - タスク選定: 前回サイクルの予告どおり、残る予約済みflavor枠のうち
