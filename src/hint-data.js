@@ -52,6 +52,12 @@ window.HINT_DATA = [
     hint: '料金シミュレーターに、学院内の魔法時計と同じ人数を入力してみると、何か起こるかもしれません。'
   },
   {
+    id: 'F8',
+    hintFor: 'guide/index.html',
+    leadsTo: 'glossary/locked-locker.html',
+    hint: 'よくある質問のコインロッカーの項目に、少し気になる噂話が添えられていたはずです。もう一度開いて読んでみてください。'
+  },
+  {
     hintFor: 'exploration/clock-tower.html',
     leadsTo: 'glossary/perpetual-motion.html',
     hint: '時計塔の中枢には、魔力の補給なしで動き続ける仕掛けがあるという話です。塔の主要機構についての記述を探してみてください。'
