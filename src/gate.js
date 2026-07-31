@@ -1,9 +1,9 @@
 // PGATE(旧正門、docs/ARG-DESIGN.md 4-6節「PGATE設計メモ」参照)。
 // 10種の断片を集めたプレイヤーだけが、扉ページの謎解きに挑戦できる。
 // ここに書く判定ロジックは src/logic.js の同名関数(hasAllGateFragments・
-// countGateFragments・isGateCipherCorrect・isGateGroupBCorrect)と同じ内容の
-// 複製(file:// でも動くよう ES module import を使わない設計、他のDOM
-// スクリプトと同じ方針)。
+// countGateFragments・isGateCipherCorrect・isGateGroupBCorrect・
+// isGateGroupCCorrect)と同じ内容の複製(file:// でも動くよう ES module
+// import を使わない設計、他のDOMスクリプトと同じ方針)。
 (function () {
   var GATE_REQUIRED_FRAGMENTS = ['F1', 'F3', 'F4', 'F5', 'F7', 'F8', 'F11', 'F12', 'F13', 'F14'];
 
@@ -54,23 +54,29 @@
     return choice === GATE_GROUP_B_ANSWER;
   }
 
-  function setupGroupBCheck() {
-    var form = document.getElementById('gate-choice-b');
-    var button = document.getElementById('gate-choice-b-check');
-    var result = document.getElementById('gate-choice-b-result');
+  var GATE_GROUP_C_ANSWER = '礎石の紋様と、刻印の証';
+
+  function isGateGroupCCorrect(choice) {
+    return choice === GATE_GROUP_C_ANSWER;
+  }
+
+  function setupChoiceCheck(formId, buttonId, resultId, radioName, isCorrect, emptyMessage, correctMessage, wrongMessage) {
+    var form = document.getElementById(formId);
+    var button = document.getElementById(buttonId);
+    var result = document.getElementById(resultId);
     if (!form || !button || !result) { return; }
     button.addEventListener('click', function () {
-      var checked = form.querySelector('input[name="gate-choice-b"]:checked');
+      var checked = form.querySelector('input[name="' + radioName + '"]:checked');
       if (!checked) {
-        result.textContent = 'まずは一つ、選んでみてほしい。';
+        result.textContent = emptyMessage;
         result.classList.remove('gate-choice__result--correct');
         return;
       }
-      if (isGateGroupBCorrect(checked.value)) {
-        result.textContent = '……矛盾は無い。案内板の文字が、静かに浮かび上がった。';
+      if (isCorrect(checked.value)) {
+        result.textContent = correctMessage;
         result.classList.add('gate-choice__result--correct');
       } else {
-        result.textContent = 'その名には、まだ小さな矛盾が残っているようだ。';
+        result.textContent = wrongMessage;
         result.classList.remove('gate-choice__result--correct');
       }
     });
@@ -96,6 +102,19 @@
 
     setupCipherCheck('gate-cipher-finlay', 'gate-cipher-finlay-check', 'gate-cipher-finlay-result', 'finlay');
     setupCipherCheck('gate-cipher-eight', 'gate-cipher-eight-check', 'gate-cipher-eight-result', 'eightSymbol');
-    setupGroupBCheck();
+    setupChoiceCheck(
+      'gate-choice-b', 'gate-choice-b-check', 'gate-choice-b-result', 'gate-choice-b',
+      isGateGroupBCorrect,
+      'まずは一つ、選んでみてほしい。',
+      '……矛盾は無い。案内板の文字が、静かに浮かび上がった。',
+      'その名には、まだ小さな矛盾が残っているようだ。'
+    );
+    setupChoiceCheck(
+      'gate-choice-c', 'gate-choice-c-check', 'gate-choice-c-result', 'gate-choice-c',
+      isGateGroupCCorrect,
+      'まずは一つ、選んでみてほしい。',
+      '……そうだ、これだった。図案の輪郭が、はっきりと浮かび上がった。',
+      '……いや、それは別の欠片の話だったはずだ。'
+    );
   });
 }());

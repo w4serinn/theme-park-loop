@@ -13,7 +13,8 @@ import {
   nthWeekdayOfMonth, lastWeekdayOfMonth, resolveEventDate, daysUntilNextEvent,
   countFoundSecrets, formatDiscoveryProgressText, shouldShowSearchProgress,
   GATE_REQUIRED_FRAGMENTS, hasAllGateFragments, countGateFragments,
-  isGateCipherCorrect, GATE_GROUP_B_ANSWER, isGateGroupBCorrect
+  isGateCipherCorrect, GATE_GROUP_B_ANSWER, isGateGroupBCorrect,
+  GATE_GROUP_C_ANSWER, isGateGroupCCorrect
 } from '../src/logic.js';
 
 describe('TICKET_PRICES', () => {
@@ -1066,5 +1067,19 @@ describe('isGateGroupBCorrect', () => {
     expect(isGateGroupBCorrect('忘れられた声')).toBe(false);
     expect(isGateGroupBCorrect('鍵の代わり')).toBe(false);
     expect(isGateGroupBCorrect('')).toBe(false);
+  });
+});
+
+describe('isGateGroupCCorrect', () => {
+  test('matches only the P32 combination (礎石の紋様と、刻印の証)', () => {
+    expect(isGateGroupCCorrect(GATE_GROUP_C_ANSWER)).toBe(true);
+    expect(isGateGroupCCorrect('礎石の紋様と、刻印の証')).toBe(true);
+  });
+
+  test('rejects combinations mixed up with other fragments\' stories', () => {
+    expect(isGateGroupCCorrect('柱の刻印の写しと、宿帳の最初の頁')).toBe(false);
+    expect(isGateGroupCCorrect('創意の断片と、灯りの断片')).toBe(false);
+    expect(isGateGroupCCorrect('本心の断片と、開かずのロッカー')).toBe(false);
+    expect(isGateGroupCCorrect('')).toBe(false);
   });
 });

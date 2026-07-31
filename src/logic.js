@@ -598,3 +598,14 @@ export var GATE_GROUP_B_ANSWER = '欠片の環';
 export function isGateGroupBCorrect(choice) {
   return choice === GATE_GROUP_B_ANSWER;
 }
+
+// PGATE グループC(4-6節「PGATE設計メモ」参照): F7(P32/gate-pattern-match.html)で
+// 「刻印の証」の記章意匠と礎石の紋様を重ね合わせて完成させた図案を、扉ページで
+// 再掲する。ここでは実際の画像ではなく、「何と何を重ね合わせた図案だったか」を
+// 他の断片の物語と混同させた選択肢から選ばせる形で再利用する(P32のエピソードを
+// 正確に覚えているかどうかを問う、画像アセットを必要としない設計)。
+export var GATE_GROUP_C_ANSWER = '礎石の紋様と、刻印の証';
+
+export function isGateGroupCCorrect(choice) {
+  return choice === GATE_GROUP_C_ANSWER;
+}
