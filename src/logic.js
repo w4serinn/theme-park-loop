@@ -42,6 +42,16 @@ export function calcOptimalPrice(adults, students, children, infants) {
   return { total: regularTotal, familySets: 0, savings: 0 };
 }
 
+// P27(docs/ARG-DESIGN.md 4-3節、既存ギミック「料金シミュレーター」)。
+// 合計人数がちょうど137名(学院内137個の魔法時計[P12「刻の書」]と同じ数)の
+// ときだけ、通常の見積もり結果に加えて特別な一文を表示する
+// (src/ticket-sim.jsの同名ロジックと同じ)。
+export var SPECIAL_TICKET_TOTAL = 137;
+
+export function isSpecialTicketCombo(adults, students, children, infants) {
+  return (adults + students + children + infants) === SPECIAL_TICKET_TOTAL;
+}
+
 // カルーセルの次/前インデックスを計算する(0始まり、範囲外は循環)
 export function carouselNextIndex(current, total) {
   if (total <= 0) { return 0; }

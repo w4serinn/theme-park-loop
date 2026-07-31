@@ -46,6 +46,12 @@ window.HINT_DATA = [
     hint: '案内役の生き物たちに話しかけると、時々思いがけないことを教えてくれるそうです。学院案内のページで、それぞれのひとことを聞いてみてください。'
   },
   {
+    id: 'F6',
+    hintFor: 'tickets/index.html',
+    leadsTo: 'glossary/seal-token.html',
+    hint: '料金シミュレーターに、学院内の魔法時計と同じ人数を入力してみると、何か起こるかもしれません。'
+  },
+  {
     hintFor: 'exploration/clock-tower.html',
     leadsTo: 'glossary/perpetual-motion.html',
     hint: '時計塔の中枢には、魔力の補給なしで動き続ける仕掛けがあるという話です。塔の主要機構についての記述を探してみてください。'

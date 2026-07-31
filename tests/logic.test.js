@@ -6,7 +6,7 @@ import {
   isMoonGrassWrongCandidate,
   isDebugAllQuery, DEBUG_ALL_QUERY, buildDebugGraphNodes, buildDebugGraphTree, findDebugGraphIssues,
   isDebugUnlockQuery, DEBUG_UNLOCK_QUERY,
-  TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex,
+  TICKET_PRICES, calcTicketTotal, calcOptimalPrice, isSpecialTicketCombo, SPECIAL_TICKET_TOTAL, carouselNextIndex, carouselPrevIndex,
   filterSearchIndex, MIN_SEARCH_QUERY_LENGTH, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
   isSearchEntryUnlocked, isCodexSelfReferenceQuery,
   nthWeekdayOfMonth, lastWeekdayOfMonth, resolveEventDate, daysUntilNextEvent,
@@ -83,6 +83,20 @@ describe('calcOptimalPrice', () => {
   });
   test('throws on negative', () => {
     expect(() => calcOptimalPrice(-1, 0, 0, 0)).toThrow();
+  });
+});
+
+describe('isSpecialTicketCombo', () => {
+  test('matches when the total equals the special total', () => {
+    expect(isSpecialTicketCombo(SPECIAL_TICKET_TOTAL, 0, 0, 0)).toBe(true);
+    expect(isSpecialTicketCombo(99, 38, 0, 0)).toBe(true);
+    expect(isSpecialTicketCombo(50, 50, 37, 0)).toBe(true);
+  });
+
+  test('does not match other totals', () => {
+    expect(isSpecialTicketCombo(1, 0, 0, 0)).toBe(false);
+    expect(isSpecialTicketCombo(0, 0, 0, 0)).toBe(false);
+    expect(isSpecialTicketCombo(SPECIAL_TICKET_TOTAL + 1, 0, 0, 0)).toBe(false);
   });
 });
 

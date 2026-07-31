@@ -62,6 +62,7 @@ window.SEARCH_INDEX = [
   //   設定し、答えの一部を入力しただけで偶然当たってしまうのを防ぐ(docs/ARG-DESIGN.md 2-1節)。
   { path: 'glossary/mythical-creatures.html', title: '魔法生物図鑑', category: '図鑑', hidden: true, keywords: ['ホーホー', 'カチカチ', 'ルミナ'] },
   { path: 'glossary/glowing-bookmark.html', title: '光る栞、その正体', category: '図鑑', hidden: true, keywords: ['光る栞'], exactMatch: true },
+  { path: 'glossary/seal-token.html', title: '刻印の証、正門案内係の記章', category: '図鑑', hidden: true, keywords: ['刻印の証'], exactMatch: true },
   { path: 'glossary/perpetual-motion.html', title: '永久運動術式', category: '図鑑', hidden: true, keywords: ['フィンレー'] },
   { path: 'glossary/starmap-fragments.html', title: '魔導88星座', category: '図鑑', hidden: true, keywords: ['星座紋解析台'] },
   { path: 'glossary/dueling-champions.html', title: '決闘王列伝', category: '図鑑', hidden: true, keywords: ['第三閃光戦'] },
