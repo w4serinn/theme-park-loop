@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>旧正門、十の欠片を迎えて — 王立魔法学院アルノルド</title>
+  <link rel="stylesheet" href="{{BASE}}styles/tokens.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/base.css" />
+  <link rel="stylesheet" href="{{BASE}}styles/gate.css" />
+</head>
+<body>
+<!-- HEADER -->
+<main>
+  <section class="gate-hero">
+    <p class="gate-hero__eyebrow">Field Notes</p>
+    <h1 class="gate-hero__title">旧正門、十の欠片を迎えて</h1>
+    <p class="gate-hero__desc">蔦に覆われていたはずの旧正門の柱が、いつからか淡く光っている。十の欠片が、還る場所を見つけたのかもしれない。</p>
+  </section>
+
+  <section class="gate-status" id="gate-status" aria-live="polite">
+    <p class="gate-status__text" id="gate-status-text"></p>
+  </section>
+
+  <section class="gate-puzzle" id="gate-puzzle" hidden>
+    <article class="gate-group" data-gate-group="a">
+      <h2 class="gate-group__title">柱に浮かぶ記号</h2>
+      <p class="gate-group__lead">柱の両側に、見覚えのある記号列が浮かんでいる。それぞれの断片を手にした時に学んだ変換規則を、もう一度当てはめてみてください。</p>
+
+      <div class="gate-cipher">
+        <p class="gate-cipher__label">左の柱(フィンレー式記譜法)</p>
+        <p class="gate-cipher__symbols">🜊 🜁 🜃 🜌</p>
+        <div class="gate-cipher__form">
+          <label class="gate-cipher__input-label" for="gate-cipher-finlay">読み解いた言葉</label>
+          <input class="gate-cipher__input" type="text" id="gate-cipher-finlay" autocomplete="off" />
+          <button class="gate-cipher__check" type="button" id="gate-cipher-finlay-check">確かめる</button>
+        </div>
+        <p class="gate-cipher__result" id="gate-cipher-finlay-result"></p>
+      </div>
+
+      <div class="gate-cipher">
+        <p class="gate-cipher__label">右の柱(研究手稿の8記号)</p>
+        <p class="gate-cipher__symbols">◇ ● ○ ■</p>
+        <div class="gate-cipher__form">
+          <label class="gate-cipher__input-label" for="gate-cipher-eight">読み解いた言葉</label>
+          <input class="gate-cipher__input" type="text" id="gate-cipher-eight" autocomplete="off" />
+          <button class="gate-cipher__check" type="button" id="gate-cipher-eight-check">確かめる</button>
+        </div>
+        <p class="gate-cipher__result" id="gate-cipher-eight-result"></p>
+      </div>
+    </article>
+
+    <article class="gate-group" data-gate-group="b">
+      <h2 class="gate-group__title">十の欠片、まとめて呼ぶなら</h2>
+      <p class="gate-group__lead">柱の下に、古い案内板が一枚。「集いし十の欠片を、何と呼ぶべきか」――五つの案が並び、それぞれに小さな注が添えられている。矛盾の無い一つを選んでほしい。</p>
+
+      <form class="gate-choice" id="gate-choice-b">
+        <ul class="gate-choice__list">
+          <li class="gate-choice__item">
+            <label class="gate-choice__label">
+              <input type="radio" name="gate-choice-b" value="還りの証" />
+              「還りの証」――だが、還ってきたのは欠片であって、人ではない。
+            </label>
+          </li>
+          <li class="gate-choice__item">
+            <label class="gate-choice__label">
+              <input type="radio" name="gate-choice-b" value="十の灯" />
+              「十の灯」――灯りと呼べる欠片は一つだけで、残る九つは灯りではない。
+            </label>
+          </li>
+          <li class="gate-choice__item">
+            <label class="gate-choice__label">
+              <input type="radio" name="gate-choice-b" value="忘れられた声" />
+              「忘れられた声」――声として残ったものは無く、大半は文字や図案として遺されている。
+            </label>
+          </li>
+          <li class="gate-choice__item">
+            <label class="gate-choice__label">
+              <input type="radio" name="gate-choice-b" value="鍵の代わり" />
+              「鍵の代わり」――鍵と呼べる欠片は十のうちの一つに過ぎず、全体をそう呼ぶのはその一つを軽んじることになる。
+            </label>
+          </li>
+          <li class="gate-choice__item">
+            <label class="gate-choice__label">
+              <input type="radio" name="gate-choice-b" value="欠片の環" />
+              「欠片の環」――十の異なる形が、ひとつながりの輪をなしている。
+            </label>
+          </li>
+        </ul>
+        <button class="gate-choice__check" type="button" id="gate-choice-b-check">決める</button>
+        <p class="gate-choice__result" id="gate-choice-b-result"></p>
+      </form>
+    </article>
+
+    <article class="gate-group" data-gate-group="c">
+      <h2 class="gate-group__title">重なり合う意匠</h2>
+      <p class="gate-group__lead">扉の中央に、うっすらと図案が浮かんでいる――両開きの門を象った、あの意匠だ。これは、何と何を重ね合わせて完成した図案だっただろうか。</p>
+
+      <form class="gate-choice" id="gate-choice-c">
+        <ul class="gate-choice__list">
+          <li class="gate-choice__item">
+            <label class="gate-choice__label">
+              <input type="radio" name="gate-choice-c" value="礎石の紋様と、刻印の証" />
+              礎石の紋様と、刻印の証
+            </label>
+          </li>
+          <li class="gate-choice__item">
+            <label class="gate-choice__label">
+              <input type="radio" name="gate-choice-c" value="柱の刻印の写しと、宿帳の最初の頁" />
+              柱の刻印の写しと、宿帳の最初の頁
+            </label>
+          </li>
+          <li class="gate-choice__item">
+            <label class="gate-choice__label">
+              <input type="radio" name="gate-choice-c" value="創意の断片と、灯りの断片" />
+              創意の断片と、灯りの断片
+            </label>
+          </li>
+          <li class="gate-choice__item">
+            <label class="gate-choice__label">
+              <input type="radio" name="gate-choice-c" value="本心の断片と、開かずのロッカー" />
+              本心の断片と、開かずのロッカー
+            </label>
+          </li>
+        </ul>
+        <button class="gate-choice__check" type="button" id="gate-choice-c-check">決める</button>
+        <p class="gate-choice__result" id="gate-choice-c-result"></p>
+      </form>
+    </article>
+
+    <article class="gate-group" data-gate-group="d">
+      <h2 class="gate-group__title">記憶の欠片、六つ</h2>
+      <p class="gate-group__lead">柱のあちこちに、聞き覚えのある言葉が浮かんでいる。それぞれが、どの欠片を手にした時の言葉だったか、思い出してみてほしい。</p>
+
+      <form class="gate-match" id="gate-match-d">
+        <div class="gate-match__row">
+          <p class="gate-match__phrase">「本人たっての願いにより」</p>
+          <select class="gate-match__select" id="gate-match-wish" aria-label="「本人たっての願いにより」が、どの欠片の言葉だったか">
+            <option value="">選んでください</option>
+            <option value="F4">封の断片</option>
+            <option value="F5">灯りの断片</option>
+            <option value="F8">鍵の断片</option>
+            <option value="F11">旧門の断片</option>
+            <option value="F12">朗読の断片</option>
+            <option value="F14">宿帳の断片</option>
+          </select>
+        </div>
+
+        <div class="gate-match__row">
+          <p class="gate-match__phrase">「十年、誰にも開かれなかった本」</p>
+          <select class="gate-match__select" id="gate-match-book" aria-label="「十年、誰にも開かれなかった本」が、どの欠片の言葉だったか">
+            <option value="">選んでください</option>
+            <option value="F4">封の断片</option>
+            <option value="F5">灯りの断片</option>
+            <option value="F8">鍵の断片</option>
+            <option value="F11">旧門の断片</option>
+            <option value="F12">朗読の断片</option>
+            <option value="F14">宿帳の断片</option>
+          </select>
+        </div>
+
+        <div class="gate-match__row">
+          <p class="gate-match__phrase">「開かずのロッカー」</p>
+          <select class="gate-match__select" id="gate-match-locker" aria-label="「開かずのロッカー」が、どの欠片の言葉だったか">
+            <option value="">選んでください</option>
+            <option value="F4">封の断片</option>
+            <option value="F5">灯りの断片</option>
+            <option value="F8">鍵の断片</option>
+            <option value="F11">旧門の断片</option>
+            <option value="F12">朗読の断片</option>
+            <option value="F14">宿帳の断片</option>
+          </select>
+        </div>
+
+        <div class="gate-match__row">
+          <p class="gate-match__phrase">「一団、還らず。門を閉ざす」</p>
+          <select class="gate-match__select" id="gate-match-gate" aria-label="「一団、還らず。門を閉ざす」が、どの欠片の言葉だったか">
+            <option value="">選んでください</option>
+            <option value="F4">封の断片</option>
+            <option value="F5">灯りの断片</option>
+            <option value="F8">鍵の断片</option>
+            <option value="F11">旧門の断片</option>
+            <option value="F12">朗読の断片</option>
+            <option value="F14">宿帳の断片</option>
+          </select>
+        </div>
+
+        <div class="gate-match__row">
+          <p class="gate-match__phrase">「内容について語り合うことは無い」</p>
+          <select class="gate-match__select" id="gate-match-reading" aria-label="「内容について語り合うことは無い」が、どの欠片の言葉だったか">
+            <option value="">選んでください</option>
+            <option value="F4">封の断片</option>
+            <option value="F5">灯りの断片</option>
+            <option value="F8">鍵の断片</option>
+            <option value="F11">旧門の断片</option>
+            <option value="F12">朗読の断片</option>
+            <option value="F14">宿帳の断片</option>
+          </select>
+        </div>
+
+        <div class="gate-match__row">
+          <p class="gate-match__phrase">「『ク』から始まる一文字」</p>
+          <select class="gate-match__select" id="gate-match-guestbook" aria-label="「『ク』から始まる一文字」が、どの欠片の言葉だったか">
+            <option value="">選んでください</option>
+            <option value="F4">封の断片</option>
+            <option value="F5">灯りの断片</option>
+            <option value="F8">鍵の断片</option>
+            <option value="F11">旧門の断片</option>
+            <option value="F12">朗読の断片</option>
+            <option value="F14">宿帳の断片</option>
+          </select>
+        </div>
+
+        <button class="gate-choice__check" type="button" id="gate-match-d-check">確かめる</button>
+        <p class="gate-choice__result" id="gate-match-d-result"></p>
+      </form>
+    </article>
+  </section>
+
+  <section class="gate-final" id="gate-final" hidden>
+    <p class="gate-final__text">……蔦が音もなくほどけていく。四つの謎が、すべて噛み合った。<br />扉が、静かに開いた。</p>
+    <a class="gate-final__link" href="{{BASE}}glossary/headmasters-letter.html">扉の先へ進む</a>
+  </section>
+</main>
+<!-- FOOTER -->
+<script src="{{BASE}}src/codex-progress.js" defer></script>
+<script src="{{BASE}}src/gate.js" defer></script>
+</body>
+</html>

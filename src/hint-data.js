@@ -40,6 +40,62 @@ window.HINT_DATA = [
     hint: '学院を案内してくれる、生き物たちがいるという話を聞いたことがあります。学院案内のページをもう一度覗いてみてはどうでしょう。'
   },
   {
+    id: 'F5',
+    hintFor: 'guide/index.html',
+    leadsTo: 'glossary/glowing-bookmark.html',
+    hint: '案内役の生き物たちに話しかけると、時々思いがけないことを教えてくれるそうです。学院案内のページで、それぞれのひとことを聞いてみてください。'
+  },
+  {
+    id: 'F6',
+    hintFor: 'tickets/index.html',
+    leadsTo: 'glossary/seal-token.html',
+    hint: '料金シミュレーターに、学院内の魔法時計と同じ人数を入力してみると、何か起こるかもしれません。'
+  },
+  {
+    id: 'F8',
+    hintFor: 'guide/index.html',
+    leadsTo: 'glossary/locked-locker.html',
+    hint: 'よくある質問のコインロッカーの項目に、少し気になる噂話が添えられていたはずです。もう一度開いて読んでみてください。'
+  },
+  {
+    id: 'F12',
+    hintFor: 'events/index.html',
+    leadsTo: 'glossary/silent-night-reading.html',
+    hint: '学院祭・行事の絞り込みで、冬と大図書館を組み合わせて選んでみると、何か起こるかもしれません。'
+  },
+  {
+    id: 'F9',
+    hintFor: 'access/index.html',
+    leadsTo: 'glossary/old-west-gate.html',
+    hint: '学院西臨時駐車場の奥に、古い門柱の痕跡が残っているという噂があったはずです。お車での来訪案内をもう一度確かめてみてください。'
+  },
+  {
+    id: 'F10',
+    requiresPage: 'glossary/old-west-gate.html',
+    hintFor: 'glossary/old-west-gate.html',
+    leadsTo: 'glossary/pillar-rubbing.html',
+    hint: '柱の根元に残る刻印を、紙に写し取ったという話でした。'
+  },
+  {
+    id: 'F11',
+    requiresPage: 'glossary/pillar-rubbing.html',
+    hintFor: 'glossary/pillar-rubbing.html',
+    leadsTo: 'glossary/west-gate-construction-record.html',
+    hint: 'この門が建てられた経緯を記した記録が、学院事務局に残っているかもしれません。'
+  },
+  {
+    hintFor: 'access/lodging.html',
+    leadsTo: 'glossary/silver-clock-inn.html',
+    hint: '学院前旅籠「銀時計亭」には、創業当時から使われてきた宿帳が蔵に保管されているそうです。宿泊施設の詳しい紹介をもう一度確かめてみてください。'
+  },
+  {
+    id: 'F14',
+    requiresPage: 'glossary/silver-clock-inn.html',
+    hintFor: 'glossary/silver-clock-inn.html',
+    leadsTo: 'glossary/guestbook-first-page.html',
+    hint: '宿帳の最初の頁を、実際に見せてもらえることになったはずです。'
+  },
+  {
     hintFor: 'exploration/clock-tower.html',
     leadsTo: 'glossary/perpetual-motion.html',
     hint: '時計塔の中枢には、魔力の補給なしで動き続ける仕掛けがあるという話です。塔の主要機構についての記述を探してみてください。'
@@ -75,6 +131,12 @@ window.HINT_DATA = [
     hint: '学院への行き方の中に、王都中央のある場所を経由するものがあったはずです。トップページのアクセス案内をもう一度確かめてみてください。'
   },
   {
+    requiresPage: 'glossary/beyond-the-map.html',
+    hintFor: 'glossary/beyond-the-map.html',
+    leadsTo: 'glossary/plaza-registry-record.html',
+    hint: '広場の管理者に問い合わせれば、陣座の登録記録を見せてもらえるかもしれないという話でした。'
+  },
+  {
     hintFor: 'shop/souvenirs.html',
     leadsTo: 'glossary/arnold-relics.html',
     hint: 'アルノルド卿の紋章をかたどった品が、みやげ店にあったはずです。バッジ商品の説明をもう一度読んでみてください。'
@@ -105,6 +167,18 @@ window.HINT_DATA = [
     hint: '新月の夜だけ開かれる、ある観測会があったはずです。学院祭・行事の案内をもう一度確かめてみてください。'
   },
   {
+    requiresPage: 'glossary/spirits-of-arnold.html',
+    hintFor: 'glossary/spirits-of-arnold.html',
+    leadsTo: 'glossary/sylphe-dialogue-log.html',
+    hint: '担当学生は、シルフィの印象的な受け答えを別の帳面に書き留めているという話でした。その帳面を見せてもらってはどうでしょう。'
+  },
+  {
+    requiresPage: 'glossary/sylphe-dialogue-log.html',
+    hintFor: 'glossary/sylphe-dialogue-log.html',
+    leadsTo: 'glossary/plaza-guest-registry.html',
+    hint: '広場設立の式典に招かれた人々の記録が、広場管理事務所に残っているかもしれません。'
+  },
+  {
     hintFor: 'exploration/alchemy-tower.html',
     leadsTo: 'glossary/circle-ledgers.html',
     hint: '研究棟には、陣形式の移り変わりを歴代の錬金術師が書き継いできた記録簿があるそうです。研究棟の設備についての記述をもう一度確かめてみてください。'
@@ -113,6 +187,12 @@ window.HINT_DATA = [
     hintFor: 'exploration/summoning-plaza.html',
     leadsTo: 'glossary/circle-ledgers.html',
     hint: '魔法陣召喚広場には、陣紋の補修履歴を記した石版帳もあるという話です。広場の設備についての記述を、もう一度確かめてみてください。'
+  },
+  {
+    requiresPage: 'glossary/circle-ledgers.html',
+    hintFor: 'glossary/circle-ledgers.html',
+    leadsTo: 'glossary/style-origin-record.html',
+    hint: '記録簿そのものの成り立ちを記した、別の資料があるという話を思い出してみてください。'
   },
   {
     hintFor: 'events/index.html',
@@ -125,9 +205,27 @@ window.HINT_DATA = [
     hint: '決闘演武場には、段位認定の記録を保管する非公開の一室があるそうです。演武場の設備についての記述を、もう一度確かめてみてください。'
   },
   {
+    requiresPage: 'glossary/merit-records.html',
+    hintFor: 'glossary/merit-records.html',
+    leadsTo: 'glossary/instructor-lore.html',
+    hint: '非公開の理由について、指導教官が独自の言い伝えを知っているらしいという話でした。'
+  },
+  {
     hintFor: 'shop/library-shop.html',
     leadsTo: 'glossary/second-headmaster.html',
     hint: '写本堂の復刻ペンの商品説明には、ある歴代学長にまつわる由来が書かれていたはずです。その説明文をもう一度読んでみてください。'
+  },
+  {
+    requiresPage: 'glossary/second-headmaster.html',
+    hintFor: 'glossary/second-headmaster.html',
+    leadsTo: 'glossary/marsh-keeper.html',
+    hint: '湿地区画を誰が管理しているのか、公式には語られていないという話でした。店主自身がいつか調べてみようと考えていたはずです。'
+  },
+  {
+    requiresPage: 'glossary/marsh-keeper.html',
+    hintFor: 'glossary/marsh-keeper.html',
+    leadsTo: 'glossary/marsh-journal.html',
+    hint: '葦刈りの経緯を記した帳面があるらしい、という話を思い出してみてください。'
   },
   {
     hintFor: 'exploration/alchemy-tower.html',
@@ -246,6 +344,18 @@ window.HINT_DATA = [
     hint: '召喚素材専門店には、広場の実演で実際に使われた陣の設計図ポスターがあるそうです。その商品説明をもう一度読んでみてください。'
   },
   {
+    requiresPage: 'glossary/four-elements-seal.html',
+    hintFor: 'glossary/four-elements-seal.html',
+    leadsTo: 'glossary/resonance-adjustment-log.html',
+    hint: '陣と四元素石がどう連動していたかは設計図に書かれていないそうですが、広場の管理小屋には連動そのものを記録した帳面が残っているという話でした。'
+  },
+  {
+    requiresPage: 'glossary/resonance-adjustment-log.html',
+    hintFor: 'glossary/resonance-adjustment-log.html',
+    leadsTo: 'glossary/stone-inspection-report.html',
+    hint: '出力がずれる理由は記録の理由欄が空欄のままだそうですが、後年になって外部の鑑定士が石そのものを調べた記録が残っているという話でした。'
+  },
+  {
     hintFor: 'exploration/dueling-ground.html',
     leadsTo: 'glossary/dueling-heritage.html',
     hint: '演武場の床には、古代の術式石を敷き詰めた設備があるそうです。演武場設備の説明をもう一度確かめてみてください。'
@@ -259,6 +369,18 @@ window.HINT_DATA = [
     hintFor: 'shop/dueling-gear.html',
     leadsTo: 'glossary/dueling-heritage.html',
     hint: '魔法武具展示室には、200年前に制定された法典の復刻版があるそうです。その商品説明をもう一度読んでみてください。'
+  },
+  {
+    requiresPage: 'glossary/dueling-heritage.html',
+    hintFor: 'glossary/dueling-heritage.html',
+    leadsTo: 'glossary/margin-note.html',
+    hint: '決闘シグルの意匠と古語魔法文の関係は対訳にも解説にも触れられていないそうですが、法典の写しの一冊には後世の誰かが書き加えたという余白の書き込みが残っているという話でした。'
+  },
+  {
+    requiresPage: 'glossary/margin-note.html',
+    hintFor: 'glossary/margin-note.html',
+    leadsTo: 'glossary/visitor-log-match.html',
+    hint: '書き込みの主が誰かは筆跡照合でも特定できないそうですが、決闘演武場には来場者の名前を書き残す古い帳面が残っているという話でした。'
   },
   {
     hintFor: 'dining/index.html',
@@ -276,6 +398,24 @@ window.HINT_DATA = [
     hint: '秘薬スタンドには、月草とある薬草をブレンドした温かい一服があるそうです。その説明をもう一度読んでみてください。'
   },
   {
+    requiresPage: 'glossary/hidden-ingredients.html',
+    hintFor: 'glossary/hidden-ingredients.html',
+    leadsTo: 'glossary/nut-supply-record.html',
+    hint: '魔力ナッツの収穫地はメニューの説明に触れられていないそうですが、学食の仕入れ担当には仕入れ先を記録した帳面が残っているという話でした。'
+  },
+  {
+    requiresPage: 'glossary/nut-supply-record.html',
+    hintFor: 'glossary/nut-supply-record.html',
+    leadsTo: 'glossary/gatekeeper-memory.html',
+    hint: '納品は正門前で行われているという話でした。正門に毎日立つ案内係になら、何か覚えているかもしれません。'
+  },
+  {
+    requiresPage: 'glossary/gatekeeper-memory.html',
+    hintFor: 'glossary/gatekeeper-memory.html',
+    leadsTo: 'glossary/emblem-design.html',
+    hint: '案内係が今度こそ確かめてみると約束していたはずです。しばらくしてから、もう一度聞いてみてはどうでしょう。'
+  },
+  {
     hintFor: 'events/index.html',
     leadsTo: 'glossary/champions-prizes.html',
     hint: '飛行船競技大会の豆知識には、優勝チームに贈られる権利について書かれていたはずです。行事の案内をもう一度確かめてみてください。'
@@ -286,9 +426,51 @@ window.HINT_DATA = [
     hint: '錬金術品評会の副賞は、実用品ではない少し変わった記念品だそうです。行事の案内をもう一度確かめてみてください。'
   },
   {
+    requiresPage: 'glossary/champions-prizes.html',
+    hintFor: 'glossary/champions-prizes.html',
+    leadsTo: 'glossary/ring-ledger.html',
+    hint: '研究棟には、指輪そのものの授与記録を専用にまとめた帳面もあるという話でした。'
+  },
+  {
+    requiresPage: 'glossary/ring-ledger.html',
+    hintFor: 'glossary/ring-ledger.html',
+    leadsTo: 'glossary/amber-return-ledger.html',
+    hint: '台帳とは別に、指輪の管理そのものを担う帳面があるはずだという話でした。'
+  },
+  {
+    requiresPage: 'glossary/amber-return-ledger.html',
+    hintFor: 'glossary/amber-return-ledger.html',
+    leadsTo: 'glossary/alumni-whereabouts.html',
+    hint: 'その年度の受賞者が今どうしているのか、卒業後の記録を確かめれば何か分かるかもしれません。'
+  },
+  {
     hintFor: 'exploration/grand-library.html',
     leadsTo: 'glossary/memory-books.html',
     hint: '大図書館の蔵書には、問いかけに応じてページが開く特別な一群があるそうです。エリアについての説明をもう一度確かめてみてください。'
+  },
+  {
+    requiresPage: 'glossary/memory-books.html',
+    hintFor: 'glossary/memory-books.html',
+    leadsTo: 'glossary/book-of-refusal.html',
+    hint: '一冊だけ、一度も問いに答えたことがないという本があり、司書たちが特別な呼び方をしているという話でした。'
+  },
+  {
+    requiresPage: 'glossary/book-of-refusal.html',
+    hintFor: 'glossary/book-of-refusal.html',
+    leadsTo: 'glossary/earliest-catalog.html',
+    hint: '蔵書点検記録よりさらに古い時代の目録が、大図書館のどこかに残っているかもしれません。'
+  },
+  {
+    requiresPage: 'glossary/earliest-catalog.html',
+    hintFor: 'glossary/earliest-catalog.html',
+    leadsTo: 'glossary/flyleaf-inscription.html',
+    hint: '目録には「見返しに書き込みあり、要確認」と書かれていたはずです。実際に確かめた者がいなかったのなら、自分の目で確かめてみてはどうでしょう。'
+  },
+  {
+    requiresPage: 'glossary/flyleaf-inscription.html',
+    hintFor: 'glossary/flyleaf-inscription.html',
+    leadsTo: 'glossary/unopened-record.html',
+    hint: 'これまで誰かがこの本を実際に開いたことがあるのか、記録が残っていないか確かめてみてはどうでしょう。'
   },
   {
     hintFor: 'exploration/clock-tower.html',
@@ -296,9 +478,45 @@ window.HINT_DATA = [
     hint: '時計塔には、同じ部屋の中で時間の流れが異なる展示室があるそうです。設備の紹介をもう一度確かめてみてください。'
   },
   {
+    requiresPage: 'glossary/time-path-interference.html',
+    hintFor: 'glossary/time-path-interference.html',
+    leadsTo: 'glossary/boundary-survey.html',
+    hint: '技師たちは、いつか大規模術式の境界を実際に見て回ろうと話していたはずです。その記録を確かめてみてはどうでしょう。'
+  },
+  {
+    requiresPage: 'glossary/boundary-survey.html',
+    hintFor: 'glossary/boundary-survey.html',
+    leadsTo: 'glossary/ring-perimeter-log.html',
+    hint: '技師はまず「刻の輪」の外周から確かめると決めていたはずです。その結果をまとめた記録があるかもしれません。'
+  },
+  {
+    requiresPage: 'glossary/ring-perimeter-log.html',
+    hintFor: 'glossary/ring-perimeter-log.html',
+    leadsTo: 'glossary/observation-cycle-chart.html',
+    hint: '日によって誤差の強さが違うことに気づいた技師が、その周期をまとめようとしていたはずです。'
+  },
+  {
+    requiresPage: 'glossary/observation-cycle-chart.html',
+    hintFor: 'glossary/observation-cycle-chart.html',
+    leadsTo: 'glossary/chant-timing-notes.html',
+    hint: '誤差のピークが、冬至の夜のある行事と重なっていることに技師が気づいたはずです。'
+  },
+  {
+    requiresPage: 'glossary/chant-timing-notes.html',
+    hintFor: 'glossary/chant-timing-notes.html',
+    leadsTo: 'glossary/chant-interview-record.html',
+    hint: '技師は仮説を確かめるため、召喚術科の学生に直接話を聞きに行くつもりだったはずです。'
+  },
+  {
     hintFor: 'shop/uniforms.html',
     leadsTo: 'glossary/eldcloth-fabric.html',
     hint: '制服・ローブ店の紹介文には、正式制服を仕立てる魔法繊維の名前が書かれていたはずです。店の紹介文をもう一度確かめてみてください。'
+  },
+  {
+    requiresPage: 'glossary/eldcloth-fabric.html',
+    hintFor: 'glossary/eldcloth-fabric.html',
+    leadsTo: 'glossary/eldcloth-weaver.html',
+    hint: 'この繊維がどこで織られているのか、商品説明には書かれていなかったはずです。店員はいつか織元を訪ねてみようと考えていました。'
   },
   {
     hintFor: 'shop/magical-tools.html',
@@ -306,14 +524,32 @@ window.HINT_DATA = [
     hint: '魔導具・実験器具店の測定器には、学院独自の単位で数値を示すものがあるそうです。その商品説明をもう一度読んでみてください。'
   },
   {
+    requiresPage: 'glossary/garigne-unit.html',
+    hintFor: 'glossary/garigne-unit.html',
+    leadsTo: 'glossary/garigne-origin-record.html',
+    hint: '学院で定められた独自単位の制定経緯は、事務局が保管する記録にまとめられているという噂があったはずです。'
+  },
+  {
     hintFor: 'shop/books.html',
     leadsTo: 'glossary/summoning-theory.html',
     hint: '書籍・資料店には、召喚学科主任が40年をかけてまとめた大著があるそうです。その商品説明をもう一度読んでみてください。'
   },
   {
+    requiresPage: 'glossary/summoning-theory.html',
+    hintFor: 'glossary/summoning-theory.html',
+    leadsTo: 'glossary/summoning-dept-draft.html',
+    hint: '未刊の第4巻の草稿が、召喚学科のどこかに保管されているという噂があったはずです。'
+  },
+  {
     hintFor: 'dining/observatory-dining.html',
     leadsTo: 'glossary/starfall-fortune.html',
     hint: '天文台の学食には、溶ける速さで運勢を占うという不思議なソーダがあるそうです。その商品説明をもう一度読んでみてください。'
+  },
+  {
+    requiresPage: 'glossary/starfall-fortune.html',
+    hintFor: 'glossary/starfall-fortune.html',
+    leadsTo: 'glossary/fortune-comparison-log.html',
+    hint: '占いの結果と実際の観測記録を見比べた学生がいるという話があったはずです。'
   },
   {
     id: 'F1',
@@ -328,6 +564,25 @@ window.HINT_DATA = [
     hintFor: 'glossary/final-entry.html',
     leadsTo: 'glossary/shooting-star.html',
     hint: 'この記録帳全体が天文台の観測記録である以上、これらの数字も星に無関係ではないのかもしれません。'
+  },
+  {
+    requiresPage: 'glossary/final-entry.html',
+    hintFor: 'glossary/final-entry.html',
+    leadsTo: 'glossary/archive-cleanup-log.html',
+    hint: '天文台の書庫整理記録を確かめれば、遺品がなぜそこにあったのか手がかりが見つかるかもしれません。'
+  },
+  {
+    id: 'F3',
+    requiresPage: 'glossary/arnold-relics.html',
+    hintFor: 'glossary/arnold-relics.html',
+    leadsTo: 'glossary/original-insight.html',
+    hint: '研究手稿の余白に残る記号は、司書が書き起こした対応表を使えば文字に置き換えられるはずです。並んだ記号を一つずつ読み替えてみてください。'
+  },
+  {
+    requiresPage: 'glossary/arnold-relics.html',
+    hintFor: 'glossary/arnold-relics.html',
+    leadsTo: 'glossary/missing-chapters-note.html',
+    hint: '「創魔の書」の残り六章について、大図書館の蔵書目録を確かめてみると、何か手がかりが見つかるかもしれません。'
   },
   {
     id: 'F13',
@@ -366,6 +621,25 @@ window.HINT_DATA = [
     hint: '公式に語られなかった決闘の記録にも、何か短い言葉が残されているかもしれません。'
   },
   {
+    requiresPage: 'glossary/erased-champion.html',
+    hintFor: 'glossary/erased-champion.html',
+    leadsTo: 'glossary/headmaster-decree.html',
+    hint: '名を消すにも正式な手続きが要ったはずです。その決裁を記した帳面が、本部棟のどこかに保管されているのではないでしょうか。'
+  },
+  {
+    requiresPage: 'glossary/headmaster-decree.html',
+    hintFor: 'glossary/headmaster-decree.html',
+    leadsTo: 'glossary/night-sky-record.html',
+    hint: '決裁の日付、どこかで見た覚えはありませんか。天文台にも、その夜についての記録が残っているかもしれません。'
+  },
+  {
+    id: 'F4',
+    requiresPage: 'glossary/night-sky-record.html',
+    hintFor: 'glossary/night-sky-record.html',
+    leadsTo: 'glossary/night-response-record.html',
+    hint: '深夜に広場から使いが出たなら、広場側にもその夜の対応を記した帳面があるはずです。'
+  },
+  {
     hintFor: 'exploration/grand-library.html',
     leadsTo: 'glossary/hidden-corners.html',
     hint: '大図書館の中央ホール地下には、書架の自律配置を司る巨大な魔法陣があるそうです。エリアについての説明をもう一度確かめてみてください。'
@@ -401,15 +675,51 @@ window.HINT_DATA = [
     hint: '写本堂そのものの紹介文にも、代々続く一族についての記述があったはずです。もう一度読んでみてください。'
   },
   {
+    requiresPage: 'glossary/scribe-lineage.html',
+    hintFor: 'glossary/scribe-lineage.html',
+    leadsTo: 'glossary/scribe-registration.html',
+    hint: '初代の名は公式には記録されていないという話でした。大図書館の記録保管室になら、開業当時の届け出が残っているかもしれません。'
+  },
+  {
+    requiresPage: 'glossary/scribe-registration.html',
+    hintFor: 'glossary/scribe-registration.html',
+    leadsTo: 'glossary/scribe-succession.html',
+    hint: '初代と今の一族とで姓が違うなら、いつどう引き継がれたのか記した帳面が写本堂に伝わっているかもしれません。'
+  },
+  {
+    requiresPage: 'glossary/scribe-succession.html',
+    hintFor: 'glossary/scribe-succession.html',
+    leadsTo: 'glossary/scribe-sample-book.html',
+    hint: '「唯一無二の筆致」がどのようなものだったのか、写本堂に代々伝わる帳面を確かめれば分かるかもしれません。'
+  },
+  {
     hintFor: 'shop/magical-tools.html',
     leadsTo: 'glossary/aptitude-certificate.html',
     hint: '魔導具店の購入注意には、強力な魔力石を買う際に必要な証明書についての一文があったはずです。もう一度読んでみてください。'
+  },
+  {
+    requiresPage: 'glossary/aptitude-certificate.html',
+    hintFor: 'glossary/aptitude-certificate.html',
+    leadsTo: 'glossary/aptitude-standard.html',
+    hint: '証明証そのものの発行基準を説明した資料は見当たらないという話でした。店員自身がいつか天文台に問い合わせてみようと考えていたはずです。'
+  },
+  {
+    requiresPage: 'glossary/aptitude-standard.html',
+    hintFor: 'glossary/aptitude-standard.html',
+    leadsTo: 'glossary/reassessment-log.html',
+    hint: '基準に届かなかった場合の手続きがあるという話でした。その手続きの実際の記録を確かめてみてはどうでしょう。'
   },
   {
     requiresPage: ['glossary/koku-trio.html', 'glossary/circle-ledgers.html'],
     hintFor: ['glossary/koku-trio.html', 'glossary/circle-ledgers.html'],
     leadsTo: 'glossary/circle-warden.html',
     hint: '「刻の輪」の補修記録にも、陣紋補修記録簿の解読作業にも、同じ役職の名前が挙がっていたはずです。もう一度どちらかの記述を確かめてみてください。'
+  },
+  {
+    requiresPage: 'glossary/koku-trio.html',
+    hintFor: 'glossary/koku-trio.html',
+    leadsTo: 'glossary/ledger-renewal-record.html',
+    hint: '修繕工房には、帳面が新調されるたびの記録を残す別の台帳があるそうです。確かめてみてはどうでしょう。'
   },
   {
     requiresPage: 'glossary/circle-warden.html',
@@ -429,13 +739,43 @@ window.HINT_DATA = [
     hint: 'トップページの学科紹介には、大時計塔の管理を一手に担うという学科があったはずです。もう一度確かめてみてください。'
   },
   {
+    requiresPage: 'glossary/machinery-department.html',
+    hintFor: 'glossary/machinery-department.html',
+    leadsTo: 'glossary/clock-tower-annual-check.html',
+    hint: '保全記録には、年に一度だけ記される特別な項目があるという話でした。'
+  },
+  {
     hintFor: 'tickets/index.html',
     leadsTo: 'glossary/apprentice-guides.html',
     hint: '団体様向けのご案内には、構内ガイドツアーを担う役職の名前があったはずです。入学願書のページをもう一度確かめてみてください。'
   },
   {
+    requiresPage: 'glossary/apprentice-guides.html',
+    hintFor: 'glossary/apprentice-guides.html',
+    leadsTo: 'glossary/certified-guide-registry.html',
+    hint: '正案内人に認定された記録を保管する帳面があるという話があったはずです。'
+  },
+  {
     hintFor: 'access/index.html',
     leadsTo: 'glossary/east-lot-history.html',
     hint: 'お車での来場案内には、正門前にある駐車場の名前が書かれていたはずです。もう一度確かめてみてください。'
+  },
+  {
+    requiresPage: 'glossary/east-lot-history.html',
+    hintFor: 'glossary/east-lot-history.html',
+    leadsTo: 'glossary/old-lot-map.html',
+    hint: '舗装以前の区割りを示す図面が、学院事務局に保管されているという話があったはずです。'
+  },
+  {
+    hintFor: 'index.html',
+    leadsTo: 'glossary/cornerstone-pattern.html',
+    hint: '学院の創立の由来には、正門脇に残るという石についての一文があったはずです。トップページの学院紹介文をもう一度読んでみてください。'
+  },
+  {
+    id: 'F7',
+    requiresPage: 'glossary/cornerstone-pattern.html',
+    hintFor: 'glossary/cornerstone-pattern.html',
+    leadsTo: 'glossary/gate-pattern-match.html',
+    hint: '案内係が気にしていた「刻印の証」の意匠と、この紋様。実際に重ねてみた人はまだいないようです。'
   },
 ];

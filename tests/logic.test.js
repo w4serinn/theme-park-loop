@@ -5,11 +5,18 @@ import {
   isNostionMemoryWrongCandidate, NOSTION_MEMORY_PAGE_PATH, NOSTION_MEMORY_WRONG_CANDIDATES,
   isMoonGrassWrongCandidate,
   isDebugAllQuery, DEBUG_ALL_QUERY, buildDebugGraphNodes, buildDebugGraphTree, findDebugGraphIssues,
-  TICKET_PRICES, calcTicketTotal, calcOptimalPrice, carouselNextIndex, carouselPrevIndex,
+  isDebugUnlockQuery, DEBUG_UNLOCK_QUERY,
+  TICKET_PRICES, calcTicketTotal, calcOptimalPrice, isSpecialTicketCombo, SPECIAL_TICKET_TOTAL, carouselNextIndex, carouselPrevIndex,
+  isSecretEventCombo, SECRET_EVENT_SEASON, SECRET_EVENT_AREA,
   filterSearchIndex, MIN_SEARCH_QUERY_LENGTH, addSecretToProgress, addFragmentToProgress, markFragmentUsed,
   isSearchEntryUnlocked, isCodexSelfReferenceQuery,
   nthWeekdayOfMonth, lastWeekdayOfMonth, resolveEventDate, daysUntilNextEvent,
-  countFoundSecrets, formatDiscoveryProgressText, shouldShowSearchProgress
+  countFoundSecrets, formatDiscoveryProgressText, shouldShowSearchProgress,
+  GATE_REQUIRED_FRAGMENTS, hasAllGateFragments, countGateFragments,
+  isGateCipherCorrect, GATE_GROUP_B_ANSWER, isGateGroupBCorrect,
+  GATE_GROUP_C_ANSWER, isGateGroupCCorrect,
+  GATE_GROUP_D_ANSWERS, isGateGroupDCorrect,
+  GATE_SOLVE_KEYS, isGateFullySolved
 } from '../src/logic.js';
 
 describe('TICKET_PRICES', () => {
@@ -82,6 +89,37 @@ describe('calcOptimalPrice', () => {
   });
   test('throws on negative', () => {
     expect(() => calcOptimalPrice(-1, 0, 0, 0)).toThrow();
+  });
+});
+
+describe('isSpecialTicketCombo', () => {
+  test('matches when the total equals the special total', () => {
+    expect(isSpecialTicketCombo(SPECIAL_TICKET_TOTAL, 0, 0, 0)).toBe(true);
+    expect(isSpecialTicketCombo(99, 38, 0, 0)).toBe(true);
+    expect(isSpecialTicketCombo(50, 50, 37, 0)).toBe(true);
+  });
+
+  test('does not match other totals', () => {
+    expect(isSpecialTicketCombo(1, 0, 0, 0)).toBe(false);
+    expect(isSpecialTicketCombo(0, 0, 0, 0)).toBe(false);
+    expect(isSpecialTicketCombo(SPECIAL_TICKET_TOTAL + 1, 0, 0, 0)).toBe(false);
+  });
+});
+
+describe('isSecretEventCombo', () => {
+  test('matches only winter × library', () => {
+    expect(isSecretEventCombo(SECRET_EVENT_SEASON, SECRET_EVENT_AREA)).toBe(true);
+    expect(isSecretEventCombo('winter', 'library')).toBe(true);
+  });
+
+  test('does not match other season/area combinations', () => {
+    expect(isSecretEventCombo('spring', 'library')).toBe(false);
+    expect(isSecretEventCombo('summer', 'library')).toBe(false);
+    expect(isSecretEventCombo('autumn', 'library')).toBe(false);
+    expect(isSecretEventCombo('winter', 'clock')).toBe(false);
+    expect(isSecretEventCombo('winter', 'all')).toBe(false);
+    expect(isSecretEventCombo('all', 'library')).toBe(false);
+    expect(isSecretEventCombo('all', 'all')).toBe(false);
   });
 });
 
@@ -625,6 +663,34 @@ describe('isDebugAllQuery', () => {
   });
 });
 
+describe('isDebugUnlockQuery', () => {
+  test('matches the exact debug command', () => {
+    expect(isDebugUnlockQuery(DEBUG_UNLOCK_QUERY)).toBe(true);
+  });
+
+  test('trims surrounding whitespace', () => {
+    expect(isDebugUnlockQuery('  ' + DEBUG_UNLOCK_QUERY + '  ')).toBe(true);
+  });
+
+  test('does not match an ordinary search query', () => {
+    expect(isDebugUnlockQuery('錬金術')).toBe(false);
+  });
+
+  test('does not match a query that merely contains the command', () => {
+    expect(isDebugUnlockQuery(DEBUG_UNLOCK_QUERY + 'です')).toBe(false);
+  });
+
+  test('does not match empty input', () => {
+    expect(isDebugUnlockQuery('')).toBe(false);
+    expect(isDebugUnlockQuery(undefined)).toBe(false);
+  });
+
+  test('is distinct from the reset and all commands', () => {
+    expect(DEBUG_UNLOCK_QUERY).not.toBe(DEBUG_RESET_QUERY);
+    expect(DEBUG_UNLOCK_QUERY).not.toBe(DEBUG_ALL_QUERY);
+  });
+});
+
 describe('buildDebugGraphNodes', () => {
   const searchIndex = [
     { path: 'glossary/root.html', title: 'Root', category: '図鑑', hidden: true, keywords: ['ルート'], exactMatch: true },
@@ -948,5 +1014,125 @@ describe('buildFragmentDisplayList', () => {
 
   test('returns an empty array for no fragments', () => {
     expect(buildFragmentDisplayList([], names, hiddenEntries)).toEqual([]);
+  });
+});
+
+describe('hasAllGateFragments / countGateFragments', () => {
+  test('hasAllGateFragments is true only when all 10 required fragments are owned', () => {
+    expect(hasAllGateFragments(GATE_REQUIRED_FRAGMENTS)).toBe(true);
+    expect(hasAllGateFragments(GATE_REQUIRED_FRAGMENTS.slice(0, 9))).toBe(false);
+    expect(hasAllGateFragments([])).toBe(false);
+  });
+
+  test('hasAllGateFragments ignores non-required fragments (F2/F6/F9/F10 intermediates)', () => {
+    const owned = GATE_REQUIRED_FRAGMENTS.concat(['F2', 'F6', 'F9', 'F10']);
+    expect(hasAllGateFragments(owned)).toBe(true);
+  });
+
+  test('countGateFragments counts only required fragments actually owned', () => {
+    expect(countGateFragments([])).toBe(0);
+    expect(countGateFragments(['F1', 'F3'])).toBe(2);
+    expect(countGateFragments(['F1', 'F2', 'F6'])).toBe(1);
+    expect(countGateFragments(GATE_REQUIRED_FRAGMENTS)).toBe(10);
+  });
+});
+
+describe('isGateCipherCorrect', () => {
+  test('matches the Finlay cipher answer case-insensitively with surrounding whitespace', () => {
+    expect(isGateCipherCorrect('KAGI', 'finlay')).toBe(true);
+    expect(isGateCipherCorrect('kagi', 'finlay')).toBe(true);
+    expect(isGateCipherCorrect('  Kagi  ', 'finlay')).toBe(true);
+  });
+
+  test('matches the eight-symbol cipher answer', () => {
+    expect(isGateCipherCorrect('TOKI', 'eightSymbol')).toBe(true);
+    expect(isGateCipherCorrect('toki', 'eightSymbol')).toBe(true);
+  });
+
+  test('rejects wrong answers and unknown answer keys', () => {
+    expect(isGateCipherCorrect('TOKI', 'finlay')).toBe(false);
+    expect(isGateCipherCorrect('KAGI', 'eightSymbol')).toBe(false);
+    expect(isGateCipherCorrect('KAGI', 'unknown')).toBe(false);
+    expect(isGateCipherCorrect('', 'finlay')).toBe(false);
+  });
+});
+
+describe('isGateGroupBCorrect', () => {
+  test('matches only the designated answer', () => {
+    expect(isGateGroupBCorrect(GATE_GROUP_B_ANSWER)).toBe(true);
+    expect(isGateGroupBCorrect('欠片の環')).toBe(true);
+  });
+
+  test('rejects the other candidate choices', () => {
+    expect(isGateGroupBCorrect('還りの証')).toBe(false);
+    expect(isGateGroupBCorrect('十の灯')).toBe(false);
+    expect(isGateGroupBCorrect('忘れられた声')).toBe(false);
+    expect(isGateGroupBCorrect('鍵の代わり')).toBe(false);
+    expect(isGateGroupBCorrect('')).toBe(false);
+  });
+});
+
+describe('isGateGroupCCorrect', () => {
+  test('matches only the P32 combination (礎石の紋様と、刻印の証)', () => {
+    expect(isGateGroupCCorrect(GATE_GROUP_C_ANSWER)).toBe(true);
+    expect(isGateGroupCCorrect('礎石の紋様と、刻印の証')).toBe(true);
+  });
+
+  test('rejects combinations mixed up with other fragments\' stories', () => {
+    expect(isGateGroupCCorrect('柱の刻印の写しと、宿帳の最初の頁')).toBe(false);
+    expect(isGateGroupCCorrect('創意の断片と、灯りの断片')).toBe(false);
+    expect(isGateGroupCCorrect('本心の断片と、開かずのロッカー')).toBe(false);
+    expect(isGateGroupCCorrect('')).toBe(false);
+  });
+});
+
+describe('isGateGroupDCorrect', () => {
+  test('matches when every phrase is paired with its correct fragment', () => {
+    expect(isGateGroupDCorrect(GATE_GROUP_D_ANSWERS)).toBe(true);
+    expect(isGateGroupDCorrect({
+      wish: 'F4', book: 'F5', locker: 'F8', gate: 'F11', reading: 'F12', guestbook: 'F14'
+    })).toBe(true);
+  });
+
+  test('rejects when even one pairing is wrong', () => {
+    expect(isGateGroupDCorrect({
+      wish: 'F5', book: 'F4', locker: 'F8', gate: 'F11', reading: 'F12', guestbook: 'F14'
+    })).toBe(false);
+    expect(isGateGroupDCorrect({
+      wish: 'F4', book: 'F5', locker: 'F8', gate: 'F11', reading: 'F12', guestbook: 'F12'
+    })).toBe(false);
+  });
+
+  test('rejects incomplete or empty answers', () => {
+    expect(isGateGroupDCorrect({})).toBe(false);
+    expect(isGateGroupDCorrect({ wish: 'F4' })).toBe(false);
+    expect(isGateGroupDCorrect(null)).toBe(false);
+  });
+});
+
+describe('isGateFullySolved', () => {
+  test('true only when all 5 sub-puzzles are solved', () => {
+    const allSolved = {};
+    GATE_SOLVE_KEYS.forEach((key) => { allSolved[key] = true; });
+    expect(isGateFullySolved(allSolved)).toBe(true);
+  });
+
+  test('false when even one sub-puzzle is missing or false', () => {
+    const allSolved = {};
+    GATE_SOLVE_KEYS.forEach((key) => { allSolved[key] = true; });
+    GATE_SOLVE_KEYS.forEach((missingKey) => {
+      const partial = Object.assign({}, allSolved);
+      partial[missingKey] = false;
+      expect(isGateFullySolved(partial)).toBe(false);
+
+      const missing = Object.assign({}, allSolved);
+      delete missing[missingKey];
+      expect(isGateFullySolved(missing)).toBe(false);
+    });
+  });
+
+  test('rejects empty or null input', () => {
+    expect(isGateFullySolved({})).toBe(false);
+    expect(isGateFullySolved(null)).toBe(false);
   });
 });

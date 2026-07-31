@@ -20,6 +20,13 @@
 
   function getInt(id) { return Math.max(0, parseInt(document.getElementById(id).value, 10) || 0); }
 
+  // P27(docs/ARG-DESIGN.md 4-3節、src/logic.jsのisSpecialTicketComboと
+  // 同じロジック)。合計人数がちょうど137名(学院内137個の魔法時計と同じ数)の
+  // ときだけ、見積もり結果に特別な一文を添える。
+  var SPECIAL_TICKET_TOTAL = 137;
+
+  function isSpecialCombo(a, s, c, i) { return (a + s + c + i) === SPECIAL_TICKET_TOTAL; }
+
   var lastTotal = 0;
   var animFrame = null;
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -79,10 +86,16 @@
       familyNote = '<p class="sim-family-note">家族券' + opt.familySets + 'セット適用 →  ' + fmt(opt.savings) + ' お得！</p>';
     }
 
+    var easterNote = '';
+    if (isSpecialCombo(a, s, c, i)) {
+      easterNote = '<p class="sim-easter-note">ちょうど137名――学院内の魔法時計と同じ数です。正門案内係は、そんな時だけ「刻印の証」という小さな記章を渡すことがあるとか……。</p>';
+    }
+
     result.hidden = false;
     result.innerHTML =
       '<ul class="sim-breakdown">' + lines.map(function (l) { return '<li>' + l + '</li>'; }).join('') + '</ul>' +
       familyNote +
+      easterNote +
       '<p class="sim-total">合計 <strong id="sim-total-value"></strong></p>';
 
     var totalEl = document.getElementById('sim-total-value');

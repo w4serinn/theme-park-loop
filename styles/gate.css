@@ -1,0 +1,299 @@
+/* PGATE(旧正門)固有スタイル。docs/ARG-DESIGN.md 4-6節参照 */
+
+.gate-hero {
+  text-align: center;
+  padding: 3rem 1.5rem 2.5rem;
+  border-bottom: 1px solid var(--brass);
+}
+
+.gate-hero__eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in oklch, var(--brass) 60%, transparent);
+  margin: 0 0 0.5rem;
+}
+
+.gate-hero__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 0.75rem;
+}
+
+.gate-hero__desc {
+  font-size: 1rem;
+  color: color-mix(in oklch, var(--brass) 82%, transparent);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.gate-status {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 0;
+  text-align: center;
+}
+
+.gate-status__text {
+  font-size: 0.95rem;
+  color: var(--ember);
+  line-height: 1.7;
+}
+
+.gate-puzzle {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.gate-group {
+  border: 1px solid color-mix(in oklch, var(--brass) 35%, transparent);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.gate-group--pending {
+  opacity: 0.6;
+}
+
+.gate-group__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 0.5rem;
+}
+
+.gate-group__lead {
+  font-size: 0.9rem;
+  color: color-mix(in oklch, var(--brass) 85%, transparent);
+  line-height: 1.7;
+  margin: 0 0 1.25rem;
+}
+
+.gate-group__pending-note {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: color-mix(in oklch, var(--brass) 55%, transparent);
+  margin: 0;
+}
+
+.gate-cipher {
+  margin-top: 1.25rem;
+}
+
+.gate-cipher:first-of-type {
+  margin-top: 0;
+}
+
+.gate-cipher__label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--brass);
+  margin: 0 0 0.4rem;
+}
+
+.gate-cipher__symbols {
+  font-size: 1.5rem;
+  letter-spacing: 0.3em;
+  color: var(--ember);
+  margin: 0 0 0.75rem;
+}
+
+.gate-cipher__form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.gate-cipher__input-label {
+  font-size: 0.8rem;
+  color: color-mix(in oklch, var(--brass) 75%, transparent);
+}
+
+.gate-cipher__input {
+  border: 1px solid var(--brass);
+  border-radius: 4px;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.9rem;
+  background: color-mix(in oklch, var(--ink) 92%, var(--brass));
+  color: var(--brass);
+}
+
+.gate-cipher__check {
+  border: 1px solid var(--brass);
+  border-radius: 4px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  background: transparent;
+  color: var(--brass);
+  cursor: pointer;
+}
+
+.gate-cipher__check:hover {
+  background: color-mix(in oklch, var(--brass) 15%, transparent);
+}
+
+.gate-cipher__result {
+  font-size: 0.85rem;
+  color: color-mix(in oklch, var(--brass) 70%, transparent);
+  margin: 0.6rem 0 0;
+  min-height: 1.2em;
+}
+
+.gate-cipher__result--correct {
+  color: var(--ember);
+  font-weight: 700;
+}
+
+.gate-choice__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.gate-choice__item {
+  border: 1px solid color-mix(in oklch, var(--brass) 25%, transparent);
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+}
+
+.gate-choice__label {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: color-mix(in oklch, var(--brass) 85%, transparent);
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.gate-choice__check {
+  border: 1px solid var(--brass);
+  border-radius: 4px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  background: transparent;
+  color: var(--brass);
+  cursor: pointer;
+}
+
+.gate-choice__check:hover {
+  background: color-mix(in oklch, var(--brass) 15%, transparent);
+}
+
+.gate-choice__result {
+  font-size: 0.85rem;
+  color: color-mix(in oklch, var(--brass) 70%, transparent);
+  margin: 0.6rem 0 0;
+  min-height: 1.2em;
+}
+
+.gate-choice__result--correct {
+  color: var(--ember);
+  font-weight: 700;
+}
+
+.gate-match__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border: 1px solid color-mix(in oklch, var(--brass) 25%, transparent);
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.gate-match__phrase {
+  font-size: 0.85rem;
+  color: color-mix(in oklch, var(--brass) 85%, transparent);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.gate-match__select {
+  border: 1px solid var(--brass);
+  border-radius: 4px;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.85rem;
+  background: color-mix(in oklch, var(--ink) 92%, var(--brass));
+  color: var(--brass);
+}
+
+.gate-final {
+  margin-top: 0.5rem;
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--ember);
+  border-radius: 8px;
+  text-align: center;
+  background: color-mix(in oklch, var(--ember) 8%, transparent);
+  animation: gate-final-glow 2.4s ease-in-out infinite;
+}
+
+@keyframes gate-final-glow {
+  0%, 100% {
+    box-shadow: 0 0 12px color-mix(in oklch, var(--ember) 35%, transparent);
+  }
+
+  50% {
+    box-shadow: 0 0 28px color-mix(in oklch, var(--ember) 60%, transparent);
+  }
+}
+
+.gate-final__text {
+  font-size: 0.95rem;
+  color: color-mix(in oklch, var(--ember) 90%, transparent);
+  line-height: 1.8;
+  margin: 0 0 1.25rem;
+}
+
+.gate-final__link {
+  display: inline-block;
+  border: 1px solid var(--ember);
+  border-radius: 4px;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ember);
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.gate-final__link:hover {
+  background: color-mix(in oklch, var(--ember) 15%, transparent);
+}
+
+@media (width <= 600px) {
+  .gate-hero {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .gate-hero__title {
+    font-size: 1.6rem;
+  }
+
+  .gate-puzzle {
+    padding: 1rem 1rem 2rem;
+  }
+
+  .gate-cipher__form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .gate-match__row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

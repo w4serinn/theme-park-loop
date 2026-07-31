@@ -42,6 +42,28 @@ export function calcOptimalPrice(adults, students, children, infants) {
   return { total: regularTotal, familySets: 0, savings: 0 };
 }
 
+// P27(docs/ARG-DESIGN.md 4-3節、既存ギミック「料金シミュレーター」)。
+// 合計人数がちょうど137名(学院内137個の魔法時計[P12「刻の書」]と同じ数)の
+// ときだけ、通常の見積もり結果に加えて特別な一文を表示する
+// (src/ticket-sim.jsの同名ロジックと同じ)。
+export var SPECIAL_TICKET_TOTAL = 137;
+
+export function isSpecialTicketCombo(adults, students, children, infants) {
+  return (adults + students + children + infants) === SPECIAL_TICKET_TOTAL;
+}
+
+// P90(docs/ARG-DESIGN.md 4-3節、既存ギミック「学院祭・行事の季節×エリア
+// 絞り込み」)。冬(winter)×大図書館(library)の組み合わせは、公式行事の
+// 該当が1件も無い(大図書館で行われる行事は無い)。この特定の組み合わせを
+// 選んだ時だけ、通常の絞り込み結果に加えて特別な一文を表示する
+// (src/season-filter.jsの同名ロジックと同じ)。
+export var SECRET_EVENT_SEASON = 'winter';
+export var SECRET_EVENT_AREA = 'library';
+
+export function isSecretEventCombo(season, area) {
+  return season === SECRET_EVENT_SEASON && area === SECRET_EVENT_AREA;
+}
+
 // カルーセルの次/前インデックスを計算する(0始まり、範囲外は循環)
 export function carouselNextIndex(current, total) {
   if (total <= 0) { return 0; }
@@ -334,6 +356,15 @@ export function isDebugAllQuery(query) {
   return (query || '').trim() === DEBUG_ALL_QUERY;
 }
 
+// 開発用デバッグコマンド「!unlockall」。!resetの逆で、隠しページ・断片を
+// すべて発見済みにする(検証用に「学院の秘密」欄を一括で埋める)。!reset同様
+// 記号始まりの裏コマンドでSEARCH_INDEXには登録せず、即座に動作してリロードする。
+export var DEBUG_UNLOCK_QUERY = '!unlockall';
+
+export function isDebugUnlockQuery(query) {
+  return (query || '').trim() === DEBUG_UNLOCK_QUERY;
+}
+
 // P91(docs/ARG-DESIGN.md 4-3節)「本心の断片」の矛盾探しパズル対策
 // (2026-07-29 ユーザー指摘: 候補が3つしかなく、総当たりで解けてしまう)。
 // 候補を5つに増やしたことに加え、誤った候補を検索した際は通常の
@@ -521,4 +552,92 @@ export function findDebugGraphIssues(nodes) {
     });
   });
   return issues;
+}
+
+// PGATE(docs/ARG-DESIGN.md 4-6節)。10種の断片を集めて到達する扉ページの
+// 判定ロジック。断片そのものの所持は「単純な所持チェック」にしない方針の
+// とおり、この判定は「扉ページの謎解きに挑戦できる状態か」の入口チェックに
+// のみ使う(実際に扉を開ける・PFINALへ進めるかどうかは各グループの謎解き
+// [4-6節「PGATE設計メモ」参照]で別途判定する)。
+export var GATE_REQUIRED_FRAGMENTS = ['F1', 'F3', 'F4', 'F5', 'F7', 'F8', 'F11', 'F12', 'F13', 'F14'];
+
+export function hasAllGateFragments(fragmentIds) {
+  var owned = fragmentIds || [];
+  return GATE_REQUIRED_FRAGMENTS.every(function (id) {
+    return owned.indexOf(id) !== -1;
+  });
+}
+
+export function countGateFragments(fragmentIds) {
+  var owned = fragmentIds || [];
+  return GATE_REQUIRED_FRAGMENTS.filter(function (id) {
+    return owned.indexOf(id) !== -1;
+  }).length;
+}
+
+// PGATE グループA(4-6節「PGATE設計メモ」参照): F1のフィンレー式記譜法
+// (P2/P5)とF3の8記号対応表(P16/P17)を、扉ページで新しい単語の解読に
+// 再適用する。答えは大文字小文字を区別せず、前後の空白は無視する。
+export var GATE_CIPHER_ANSWERS = {
+  finlay: 'KAGI',
+  eightSymbol: 'TOKI'
+};
+
+export function isGateCipherCorrect(input, answerKey) {
+  var expected = GATE_CIPHER_ANSWERS[answerKey];
+  if (!expected) { return false; }
+  return (input || '').trim().toUpperCase() === expected;
+}
+
+// PGATE グループB(4-6節「PGATE設計メモ」参照): F13(P91/yorishiro-echo.html)の
+// 「複数候補のうち矛盾の無いものを選ぶ」消去法を、新しい候補群で再利用する。
+// 候補・矛盾点はP91の使い回しではなく扉ページ専用に新規作成したもの
+// (docs/ARG-DESIGN.md 4-6節「グループB」参照)。
+export var GATE_GROUP_B_ANSWER = '欠片の環';
+
+export function isGateGroupBCorrect(choice) {
+  return choice === GATE_GROUP_B_ANSWER;
+}
+
+// PGATE グループC(4-6節「PGATE設計メモ」参照): F7(P32/gate-pattern-match.html)で
+// 「刻印の証」の記章意匠と礎石の紋様を重ね合わせて完成させた図案を、扉ページで
+// 再掲する。ここでは実際の画像ではなく、「何と何を重ね合わせた図案だったか」を
+// 他の断片の物語と混同させた選択肢から選ばせる形で再利用する(P32のエピソードを
+// 正確に覚えているかどうかを問う、画像アセットを必要としない設計)。
+export var GATE_GROUP_C_ANSWER = '礎石の紋様と、刻印の証';
+
+export function isGateGroupCCorrect(choice) {
+  return choice === GATE_GROUP_C_ANSWER;
+}
+
+// PGATE グループD(4-6節「PGATE設計メモ」参照): 記号↔読みの対応表を持たない
+// 6つの断片(F4・F5・F8・F11・F12・F14)を、獲得エピソードの言い回しを
+// 再掲して思い出させる「記憶の突き合わせ」型で再利用する。各キーは扉ページの
+// 選択肢と対応(4-6節「グループD 6件、扉ページで再掲する具体的な文言」参照)。
+export var GATE_GROUP_D_ANSWERS = {
+  wish: 'F4',       // 「本人たっての願いにより」(P22)
+  book: 'F5',        // 「十年、誰にも開かれなかった本」(P26)
+  locker: 'F8',       // 「開かずのロッカー」(P46)
+  gate: 'F11',        // 「一団、還らず。門を閉ざす」(P94)
+  reading: 'F12',      // 「内容について語り合うことは無い」(P90)
+  guestbook: 'F14'     // 「『ク』から始まる一文字」(P96)
+};
+
+export function isGateGroupDCorrect(answers) {
+  var given = answers || {};
+  return Object.keys(GATE_GROUP_D_ANSWERS).every(function (key) {
+    return given[key] === GATE_GROUP_D_ANSWERS[key];
+  });
+}
+
+// PGATE 最終判定: グループA(記号2種)・B・C・Dの5問全てが正解した時だけ、
+// 扉が開きPFINALへの導線を見せる。solvedは各問の正誤を保持するオブジェクト
+// (キーが1つでも欠けている・falseの場合はfalse)。
+export var GATE_SOLVE_KEYS = ['finlay', 'eightSymbol', 'groupB', 'groupC', 'groupD'];
+
+export function isGateFullySolved(solved) {
+  var given = solved || {};
+  return GATE_SOLVE_KEYS.every(function (key) {
+    return given[key] === true;
+  });
 }
